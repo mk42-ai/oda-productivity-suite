@@ -146,6 +146,7 @@ app.post('/api/chat', async (req, res) => {
     // 4) STREAM from OnDemand — thinking tokens separated from answer tokens
     if (pluginLabels.length) send('plugin_status', { plugin: pluginLabels[0], message: `Working with ${pluginLabels.join(', ')}…` });
     let sawAnswer = false;
+    let partialText = '';   // accumulate so a mid-stream failure can persist what already streamed
     const fullAnswer = await streamQuery({
       odSessionId: conv.odSessionId,
       query: queryParts.join('\n\n'),
@@ -153,10 +154,14 @@ app.post('/api/chat', async (req, res) => {
       systemPrompt,
       onEvent: (type, payload) => {
         if (type === 'thinking') send('thinking', { delta: payload });
-        else if (type === 'answer') { sawAnswer = true; send('answer', { delta: payload }); }
+        else if (type === 'answer') { sawAnswer = true; partialText += payload; send('answer', { delta: payload }); }
         else if (type === 'status') send('status', { message: payload.statusMessage, statusType: payload.statusType });
         else if (type === 'metrics') send('metrics', payload);
       },
+    }).catch((e) => {
+      // carry whatever streamed before the failure into the error path below
+      e.partialAnswer = e.partialAnswer || partialText;
+      throw e;
     });
 
     // 5) Persist + finish
@@ -171,8 +176,37 @@ app.post('/api/chat', async (req, res) => {
 
     send('done', { messageId: asstMsg.id, fullAnswerPresent: Boolean(fullAnswer), sawAnswer });
   } catch (e) {
-    console.error('🔴 [chat] stream failed:', e.message);
-    send('error', { message: e.message || 'Stream failed' });
+    // STRUCTURED error frame — never a bare/ambiguous object. The frontend renders
+    // userMessage + errorCode; debugDetails only surfaces in ?debug=1 mode.
+    const errorCode = e.errorCode ||
+      (/terminated|socket|ECONNRESET|network|fetch failed/i.test(e.message || '') ? 'UPSTREAM_CONNECTION_TERMINATED'
+        : /timeout|timed out/i.test(e.message || '') ? 'UPSTREAM_TIMEOUT'
+        : /HTTP (\d+)/.test(e.message || '') ? `UPSTREAM_HTTP_${(e.message.match(/HTTP (\d+)/) || [])[1]}`
+        : 'STREAM_FAILED');
+    const userMessage =
+      errorCode === 'UPSTREAM_CONNECTION_TERMINATED' ? 'The model service closed the connection mid-response. Your partial output (if any) is preserved — Retry to continue.'
+      : errorCode === 'UPSTREAM_TIMEOUT' || errorCode === 'STREAM_STALLED' ? 'The model service took too long to respond. Retry — long prompts sometimes need a second attempt.'
+      : (typeof e.message === 'string' && e.message) ? e.message : 'The stream failed unexpectedly.';
+    console.error(`🔴 [chat] stream failed [${errorCode}]:`, e.message, e.stack ? `\n${String(e.stack).slice(0, 400)}` : '');
+
+    // PRESERVE partial streamed output in the conversation history (was lost before).
+    const partial = e.partialAnswer || '';
+    if (partial) {
+      store.addMessage(conv, {
+        role: 'assistant',
+        text: partial + `\n\n> ⚠ Incomplete — the stream failed here (${errorCode}).`,
+        routing: { feature: forcedFeature || conv.feature, mode: 'FAST', plugins: [], model: 'gpt-5.6-sol-medium', reason: 'partial (stream failed)' },
+      });
+      store.touch(conv, {});
+    }
+
+    send('error', {
+      userMessage,
+      errorCode,
+      message: userMessage,             // backwards-compatible string field
+      partialPreserved: Boolean(partial),
+      debugDetails: `${e.message || e} · endpoint=${ENDPOINT_ID}+${REASONING_EFFORT}`.slice(0, 600),
+    });
   } finally {
     clearInterval(hb);
     res.end();

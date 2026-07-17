@@ -3,8 +3,13 @@ import Sidebar from './components/Sidebar.jsx';
 import Composer from './components/Composer.jsx';
 import PreviewPane from './components/PreviewPane.jsx';
 import { AssistantMessage, UserMessage } from './components/Messages.jsx';
-import { jget, jpost, streamChat } from './api.js';
+import { jget, jpost, streamChat, normalizeError } from './api.js';
 import { dissect } from './markdown.jsx';
+
+// Debug mode: append ?debug=1 to the URL (or set localStorage.odaDebug='1').
+// In debug mode, error toasts show the errorCode + full debugDetails.
+const DEBUG = (typeof window !== 'undefined') &&
+  (new URLSearchParams(window.location.search).has('debug') || window.localStorage?.getItem('odaDebug') === '1');
 
 const CHIPS = [
   { label: 'Summarise this deck', feature: 'summary', text: 'Summarise the attached deck into a five-zone executive one-pager.' },
@@ -102,33 +107,60 @@ export default function App() {
       setMessages(m => m.map(x => x.id === liveMsgRef.current.id ? { ...liveMsgRef.current } : x));
     };
 
+    // one automatic reconnect for transient stream drops (safe: SSE is read-only
+    // client-side; the server continues the same conversation + partial text is kept)
+    let autoRetried = false;
+
+    const runStream = async () => streamChat({
+      conversationId: convId,
+      text,
+      fileId,
+      feature: extra.feature || pendingTool || undefined,
+      wizard: wizard.active ? { active: true, step: wizard.step } : undefined,
+      editTarget: extra.editTarget || undefined,
+      resumeFrom: liveMsgRef.current.text ? liveMsgRef.current.text.length : 0,
+    }, (type, evt) => {
+      if (type === 'routing') patchLive({ routing: evt });
+      else if (type === 'plugin_status') patchLive({ pluginStatus: typeof evt.message === 'string' ? evt.message : JSON.stringify(evt.message) });
+      else if (type === 'status') { if (!liveMsgRef.current.answerStarted) patchLive({ pluginStatus: typeof evt.message === 'string' ? evt.message : '' }); }
+      else if (type === 'thinking') patchLive(prev => ({ thinking: (prev.thinking || '') + evt.delta }));
+      else if (type === 'answer') patchLive(prev => ({ text: (prev.text || '') + evt.delta, answerStarted: true, pluginStatus: null }));
+      else if (type === 'error') throw normalizeError(evt, evt.errorCode || 'SERVER_ERROR'); // structured server frame
+    });
+
     try {
-      await streamChat({
-        conversationId: convId,
-        text,
-        fileId,
-        feature: extra.feature || pendingTool || undefined,
-        wizard: wizard.active ? { active: true, step: wizard.step } : undefined,
-        editTarget: extra.editTarget || undefined,
-      }, (type, evt) => {
-        if (type === 'routing') patchLive({ routing: evt });
-        else if (type === 'plugin_status') patchLive({ pluginStatus: `${evt.message}` });
-        else if (type === 'status') { if (!liveMsgRef.current.answerStarted) patchLive({ pluginStatus: evt.message }); }
-        else if (type === 'thinking') patchLive(prev => ({ thinking: (prev.thinking || '') + evt.delta }));
-        else if (type === 'answer') patchLive(prev => ({ text: (prev.text || '') + evt.delta, answerStarted: true, pluginStatus: null }));
-        else if (type === 'error') throw new Error(evt.message);
-      });
+      try {
+        await runStream();
+      } catch (first) {
+        const e1 = normalizeError(first);
+        // AUTOMATIC RECOVERY: one silent reconnect on transient transport drops,
+        // never on server-reported errors or aborts. Partial text is preserved.
+        if (!autoRetried && (e1.errorCode === 'STREAM_DROPPED' || e1.errorCode === 'NETWORK')) {
+          autoRetried = true;
+          patchLive({ pluginStatus: 'Connection dropped — reconnecting…' });
+          await new Promise(r2 => setTimeout(r2, 1200));
+          await runStream();
+        } else {
+          throw e1;
+        }
+      }
       patchLive({ live: false });
       // advance wizard on success
       if (wizard.active && wizard.step < 4) setWizard(w => ({ ...w, step: Math.min(w.step + 1, 4) }));
       draftRef.current = null;
       await refreshConvs();
-    } catch (e) {
-      // STEP 8: graceful error — keep the draft, offer retry
-      patchLive({ live: false, text: (liveMsgRef.current.text || '') + (liveMsgRef.current.text ? '\n\n' : '') + `> ⚠ The stream stopped: ${e.message}` });
+    } catch (raw) {
+      // STEP 8: graceful error — normalize into {userMessage, errorCode, debugDetails};
+      // NEVER render a raw object. Conversation history + partial streamed output are kept.
+      const e = normalizeError(raw);
+      const note = `> ⚠ The stream stopped (${e.errorCode}): ${e.userMessage}` +
+        (liveMsgRef.current.text ? '\n> Partial output above is preserved.' : '') +
+        (DEBUG ? `\n> debug: ${e.debugDetails}` : '');
+      patchLive({ live: false, text: (liveMsgRef.current.text || '') + (liveMsgRef.current.text ? '\n\n' : '') + note });
       const draft = draftRef.current;
       setToast({
-        message: /rate|429/i.test(e.message) ? 'Rate limited by the model service — your draft is preserved.' : `Something went wrong: ${e.message}`,
+        message: (/rate|429/i.test(e.userMessage) ? 'Rate limited by the model service — your draft is preserved. ' : '') +
+          `${e.userMessage} [${e.errorCode}]` + (DEBUG ? ` — ${e.debugDetails.slice(0, 300)}` : ''),
         retry: draft ? () => { setMessages(m => m.slice(0, -2)); send(draft.text, draft.fileId, draft.fileName, draft.extra); } : null,
       });
     } finally {
