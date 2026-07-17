@@ -5,3 +5,6 @@ node_modules/
 dist/
 uploads/
 *.log
+
+# runtime session snapshot — never commit
+app/server/data/state.json

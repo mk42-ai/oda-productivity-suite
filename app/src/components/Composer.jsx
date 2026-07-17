@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { uploadFile } from '../api.js';
+import Recorder from './Recorder.jsx';
+import ErrorBoundary from './ErrorBoundary.jsx';
 
 export default function Composer({ onSend, busy, onError, placeholder }) {
   const [text, setText] = useState('');
@@ -60,10 +62,16 @@ export default function Composer({ onSend, busy, onError, placeholder }) {
           disabled={busy}
         />
         <input ref={fileRef} type="file" hidden accept=".pptx,.docx,.pdf,.xlsx,.txt,.md,.csv" onChange={onFile} />
-        <button className="iconbtn" onClick={pickFile} disabled={busy || uploading} title="Attach pptx / docx / pdf / xlsx">
+        <button className="iconbtn" onClick={pickFile} disabled={busy || uploading} title="Attach pptx / docx / pdf / xlsx" aria-label="Attach a file">
           {uploading ? <span className="spinner" /> : '📎'}
         </button>
-        <button className="send" onClick={submit} disabled={busy || uploading || (!text.trim() && !attached)} title="Send">➤</button>
+        {/* STEP 4 — mic experience (boundary-wrapped; graceful when service unsubscribed) */}
+        <ErrorBoundary name="recorder">
+          <Recorder disabled={busy || uploading}
+            onTranscript={(txt) => { if (txt?.trim()) onSend(txt.trim(), null, null, {}); }}
+            onError={onError} />
+        </ErrorBoundary>
+        <button className="send" onClick={submit} disabled={busy || uploading || (!text.trim() && !attached)} title="Send" aria-label="Send message">➤</button>
       </div>
     </div>
   );

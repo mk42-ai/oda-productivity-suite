@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Markdown, dissect } from '../markdown.jsx';
+import SwirlStatus from './SwirlStatus.jsx';
+import ErrorBoundary from './ErrorBoundary.jsx';
+import AudioPlayer from './AudioPlayer.jsx';
+import { ToolActivityCard, TaskPhaseCard } from './ToolActivity.jsx';
 
 /* ---------- STEP 4: thinking accordion ---------- */
 export function ThinkingAccordion({ thinking, live, forceOpenWhileLive }) {
@@ -58,9 +62,19 @@ export function TraceCard({ routing, traceText }) {
   );
 }
 
-/* ---------- STEP 7: artifact card ---------- */
+/* ---------- STEP 7: artifact card (download gated on VALIDATED availability) ---------- */
 export function ArtifactCard({ artifact }) {
   const fmt = artifact.format?.toUpperCase() || artifact.name.split('.').pop().toUpperCase();
+  const href = `/api/export/${artifact.id}/download`;
+  // Download stays disabled until a HEAD check confirms the artifact actually exists.
+  const [avail, setAvail] = useState('checking'); // checking | ready | gone
+  useEffect(() => {
+    let alive = true;
+    fetch(href, { method: 'HEAD' })
+      .then(r => { if (alive) setAvail(r.ok ? 'ready' : 'gone'); })
+      .catch(() => { if (alive) setAvail('gone'); });
+    return () => { alive = false; };
+  }, [artifact.id]);
   return (
     <div className="artifact">
       <div className="artifact__icon">{fmt}</div>
@@ -73,10 +87,13 @@ export function ArtifactCard({ artifact }) {
         {artifact.gaps?.length > 0 && (
           <div className="artifact__gaps">⚠ Gaps (unverifiable): {artifact.gaps.slice(0, 2).join(' · ')}{artifact.gaps.length > 2 ? '…' : ''}</div>
         )}
+        {avail === 'gone' && <div className="artifact__gaps">This artifact expired (server restart) — regenerate it from the export bar.</div>}
       </div>
       <div className="artifact__btns">
-        <a className="primary" href={`/api/export/${artifact.id}/download`} download>Download</a>
-        <a href={`/api/export/${artifact.id}/download`} target="_blank" rel="noreferrer">Open preview</a>
+        {avail === 'ready'
+          ? <a className="primary" href={href} download>Download</a>
+          : <button className="primary" disabled aria-disabled="true">{avail === 'checking' ? 'Preparing…' : 'Expired'}</button>}
+        {avail === 'ready' && <a href={href} target="_blank" rel="noreferrer">Open preview</a>}
       </div>
     </div>
   );
@@ -94,13 +111,24 @@ export function PluginSkeleton({ label }) {
 }
 
 /* ---------- assistant message ---------- */
-export function AssistantMessage({ msg, live, onOption, onExport, exportBusy, artifacts }) {
+export function AssistantMessage({ msg, live, onOption, onExport, exportBusy, artifacts, debugMode }) {
   const { body, options, trace } = dissect(msg.text || '');
   const showExports = !live && (msg.text || '').length > 120;
+  const tools = msg.tools || [];
+  const tasks = Object.values(msg.tasks || {});
   return (
     <div className="msg-asst">
       <ThinkingAccordion thinking={msg.thinking} live={Boolean(live && !msg.answerStarted)} forceOpenWhileLive={true} />
-      {live && !msg.answerStarted && <PluginSkeleton label={msg.pluginStatus || 'Routing your request…'} />}
+      {/* STEP 1 — first-token swirl with bilingual terms + backend phase line */}
+      {live && !msg.answerStarted && <SwirlStatus phase={msg.phase || msg.pluginStatus} />}
+      {/* STEP 2 — tool activity cards (shimmer while running → compact card) */}
+      {tools.length > 0 && (
+        <div className="tools" aria-label="Tool activity">
+          {tools.map((a, i) => <ToolActivityCard key={`${a.tool}-${i}`} act={a} debugMode={debugMode} />)}
+        </div>
+      )}
+      {/* STEP 3 — artifact task phase cards (Queued→…→Complete) */}
+      {tasks.map(tk => <TaskPhaseCard key={tk.taskId} task={tk} debugMode={debugMode} />)}
       <Markdown text={body} />
       {live && <span className="cursor-blink" />}
       {!live && options.length > 0 && (
@@ -116,6 +144,12 @@ export function AssistantMessage({ msg, live, onOption, onExport, exportBusy, ar
             <button key={f} disabled={exportBusy} onClick={() => onExport?.(msg.id, f)}>{f.toUpperCase()}</button>
           ))}
         </div>
+      )}
+      {/* STEP 4 — inline TTS player (lazy; boundary-wrapped) */}
+      {!live && (msg.text || '').length > 60 && (
+        <ErrorBoundary name="audio player">
+          <AudioPlayer text={body} />
+        </ErrorBoundary>
       )}
       <TraceCard routing={msg.routing} traceText={trace} />
     </div>

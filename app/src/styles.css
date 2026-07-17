@@ -369,3 +369,137 @@ textarea, input { font-family: inherit; }
   .sidebar { position: absolute; z-index: 30; height: 100%; transform: translateX(-100%); transition: transform .2s; }
   .sidebar.open { transform: none; box-shadow: 0 0 30px rgba(29,37,44,.15); }
 }
+
+/* ============ PRODUCTION UPGRADE (2026-07-17) ============ */
+
+/* STEP 1 — swirling-light status (conic-gradient sweep, not a spinner) */
+.swirl { display: flex; align-items: center; gap: 12px; padding: 10px 4px; }
+.swirl__orb {
+  position: relative; width: 30px; height: 30px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #fff 0%, var(--bg-subtle, #f6f4ef) 70%);
+  box-shadow: inset 0 0 6px rgba(176,141,60,.18);
+  overflow: hidden; flex: none;
+}
+.swirl__sweep {
+  position: absolute; inset: -6px; border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    transparent 0deg, transparent 250deg,
+    rgba(176,141,60,.05) 285deg, rgba(176,141,60,.45) 330deg,
+    rgba(230,201,138,.9) 352deg, transparent 360deg);
+  animation: swirl-rotate 2.6s linear infinite;
+  filter: blur(.6px);
+}
+@keyframes swirl-rotate { to { transform: rotate(360deg); } }
+.swirl__labels { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.swirl__term { display: flex; align-items: baseline; gap: 8px; font-size: 13.5px; color: var(--ink, #1d252c); animation: swirl-fade .5s ease; }
+.swirl__term b { font-weight: 600; }
+.swirl__ar { font-family: 'Noto Naskh Arabic', serif; color: var(--gold, #b08d3c); font-size: 13px; }
+.swirl__phase { font-size: 11.5px; color: var(--ink-35, #9aa1a8); }
+@keyframes swirl-fade { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: none; } }
+
+/* STEP 2 — tool activity cards */
+.tools { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
+.tool {
+  position: relative; border: 1px solid var(--border, #e7e3da); border-radius: 10px;
+  padding: 8px 12px; background: #fff; overflow: hidden; font-size: 12.5px;
+}
+.tool.running { border-color: rgba(176,141,60,.35); }
+.tool.failed { border-color: rgba(176,60,60,.4); }
+.tool__shimmer {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(100deg, transparent 30%, rgba(176,141,60,.07) 50%, transparent 70%);
+  background-size: 220% 100%; animation: tool-shimmer 1.6s linear infinite;
+}
+@keyframes tool-shimmer { from { background-position: 200% 0; } to { background-position: -20% 0; } }
+.tool__row { display: flex; align-items: center; gap: 8px; }
+.tool__dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.tool__dot.running { background: var(--gold, #b08d3c); animation: pulse 1.2s ease infinite; }
+.tool__dot.done { background: #4d9e6a; }
+.tool__dot.failed { background: #c0564f; }
+@keyframes pulse { 50% { opacity: .35; } }
+.tool__name { font-weight: 600; color: var(--ink, #1d252c); }
+.tool__purpose { color: var(--ink-35, #9aa1a8); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tool__elapsed { font-variant-numeric: tabular-nums; color: var(--ink-35, #9aa1a8); }
+.tool__state { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+.tool__state.running { color: var(--gold, #b08d3c); }
+.tool__state.done { color: #4d9e6a; }
+.tool__state.failed { color: #c0564f; }
+.tool__summary { margin-top: 4px; color: var(--ink, #1d252c); opacity: .8; }
+.tool__debug { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+.tool__kv { background: var(--bg-subtle, #f6f4ef); border-radius: 6px; padding: 2px 7px; font-size: 11px; font-family: ui-monospace, monospace; color: var(--ink, #1d252c); word-break: break-all; }
+.tool__kv b { color: var(--gold, #b08d3c); margin-inline-end: 4px; font-weight: 600; }
+
+/* STEP 3 — artifact task phase cards */
+.taskcard { border: 1px solid var(--border, #e7e3da); border-radius: 10px; padding: 10px 12px; margin: 8px 0; background: #fff; }
+.taskcard.failed { border-color: rgba(176,60,60,.4); }
+.taskcard__head { display: flex; align-items: center; gap: 8px; font-size: 12.5px; }
+.taskcard__fmt { font-weight: 700; color: var(--gold, #b08d3c); letter-spacing: .03em; }
+.taskcard__tool { color: var(--ink-35, #9aa1a8); }
+.taskcard__phase { font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--gold, #b08d3c); }
+.taskcard__phase.failed { color: #c0564f; }
+.taskcard__phase.retry { color: #c78f2e; }
+.taskcard__bar { display: flex; gap: 4px; margin-top: 8px; }
+.taskcard__seg { flex: 1; height: 4px; border-radius: 2px; background: var(--bg-subtle, #f0ede6); transition: background .3s; }
+.taskcard__seg.on { background: var(--gold, #b08d3c); }
+.taskcard__seg.retry { background: #c78f2e; animation: pulse 1s ease infinite; }
+.taskcard__err { margin-top: 6px; font-size: 12px; color: #c0564f; }
+
+/* STEP 2 — Standard/Debug mode toggle */
+.modetoggle {
+  position: absolute; top: 10px; inset-inline-end: 14px; z-index: 20;
+  border: 1px solid var(--border, #e7e3da); background: #fff; border-radius: 999px;
+  font-size: 11.5px; padding: 4px 12px; color: var(--ink-35, #9aa1a8); cursor: pointer;
+}
+.modetoggle.on { color: var(--gold, #b08d3c); border-color: rgba(176,141,60,.5); background: #fdfaf3; }
+.modetoggle:focus-visible { outline: 2px solid var(--gold, #b08d3c); outline-offset: 2px; }
+
+/* STEP 4 — recorder */
+.rec { display: flex; align-items: center; gap: 6px; }
+.rec__mic {
+  border: none; background: transparent; cursor: pointer; font-size: 15px;
+  color: var(--ink-35, #9aa1a8); padding: 6px; border-radius: 8px; display: flex;
+}
+.rec__mic:hover { color: var(--gold, #b08d3c); background: var(--bg-subtle, #f6f4ef); }
+.rec__mic:focus-visible, .rec button:focus-visible { outline: 2px solid var(--gold, #b08d3c); outline-offset: 2px; }
+.rec__live { display: flex; align-items: center; gap: 6px; background: var(--bg-subtle, #f6f4ef); border-radius: 999px; padding: 3px 10px; }
+.rec__dot { width: 8px; height: 8px; border-radius: 50%; background: #c0564f; animation: pulse 1s ease infinite; }
+.rec__dot.paused { animation: none; opacity: .5; }
+.rec__wave { border-radius: 4px; }
+.rec__time { font-variant-numeric: tabular-nums; font-size: 12px; color: var(--ink, #1d252c); }
+.rec__live button { border: none; background: transparent; cursor: pointer; font-size: 13px; padding: 2px 4px; color: var(--ink, #1d252c); }
+.rec__stop { color: #4d9e6a !important; font-weight: 700; }
+.rec__busy { font-size: 12px; color: var(--gold, #b08d3c); }
+.rec__note { font-size: 11.5px; color: #c0564f; max-width: 260px; }
+.rec--edit { flex-direction: column; align-items: stretch; gap: 6px; background: var(--bg-subtle, #f6f4ef); border-radius: 12px; padding: 10px; }
+.rec__hint { font-size: 12px; color: var(--ink-35, #9aa1a8); }
+.rec__ta { border: 1px solid var(--border, #e7e3da); border-radius: 8px; padding: 8px; font: inherit; resize: vertical; }
+.rec__btns { display: flex; gap: 8px; }
+.rec__btns button { border: 1px solid var(--border, #e7e3da); background: #fff; border-radius: 8px; padding: 5px 14px; cursor: pointer; font-size: 12.5px; }
+.rec__send { background: var(--gold, #b08d3c) !important; color: #fff !important; border-color: var(--gold, #b08d3c) !important; }
+
+/* STEP 4 — TTS player */
+.tts { display: flex; align-items: center; gap: 7px; margin-top: 8px; padding: 6px 10px; border: 1px solid var(--border, #e7e3da); border-radius: 999px; background: #fff; max-width: 560px; flex-wrap: wrap; }
+.tts__btn { border: none; background: transparent; cursor: pointer; font-size: 13px; color: var(--ink, #1d252c); padding: 2px 4px; }
+.tts__btn:focus-visible, .tts__cta:focus-visible { outline: 2px solid var(--gold, #b08d3c); outline-offset: 2px; }
+.tts__seek { flex: 1; min-width: 90px; accent-color: var(--gold, #b08d3c); height: 3px; }
+.tts__time { font-size: 11.5px; font-variant-numeric: tabular-nums; color: var(--ink-35, #9aa1a8); }
+.tts__part { font-size: 11px; color: var(--ink-35, #9aa1a8); }
+.tts__speed, .tts__voice { border: 1px solid var(--border, #e7e3da); border-radius: 6px; font-size: 11.5px; padding: 2px 4px; background: #fff; color: var(--ink, #1d252c); }
+.tts__cta { border: 1px solid var(--border, #e7e3da); background: #fff; border-radius: 999px; font-size: 12px; padding: 4px 12px; cursor: pointer; color: var(--ink, #1d252c); margin-top: 8px; }
+.tts__cta:hover { border-color: var(--gold, #b08d3c); color: var(--gold, #b08d3c); }
+.tts__loading { font-size: 12px; color: var(--gold, #b08d3c); }
+.tts__note { font-size: 12px; color: var(--ink-35, #9aa1a8); }
+
+/* STEP 6 — error boundary panel */
+.boundary { border: 1px dashed rgba(176,60,60,.4); border-radius: 10px; padding: 14px; margin: 10px 0; background: #fdf7f6; }
+.boundary__title { font-weight: 600; color: #c0564f; font-size: 13px; }
+.boundary__msg { font-size: 12px; color: var(--ink, #1d252c); opacity: .75; margin: 4px 0 8px; }
+.boundary__reset { border: 1px solid rgba(176,60,60,.4); background: #fff; border-radius: 8px; padding: 4px 12px; cursor: pointer; font-size: 12px; }
+
+/* STEP 6 — accessibility & reduced motion */
+:focus-visible { outline-color: var(--gold, #b08d3c); }
+@media (prefers-reduced-motion: reduce) {
+  .swirl__sweep, .tool__shimmer, .rec__dot, .taskcard__seg.retry, .tool__dot.running { animation: none !important; }
+  .swirl__orb { box-shadow: inset 0 0 8px rgba(176,141,60,.35); }
+  * { scroll-behavior: auto !important; }
+}

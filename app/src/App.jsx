@@ -3,12 +3,14 @@ import Sidebar from './components/Sidebar.jsx';
 import Composer from './components/Composer.jsx';
 import PreviewPane from './components/PreviewPane.jsx';
 import { AssistantMessage, UserMessage } from './components/Messages.jsx';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 import { jget, jpost, streamChat, normalizeError } from './api.js';
 import { dissect } from './markdown.jsx';
+import { t, isRTL } from './i18n.js';
 
 // Debug mode: append ?debug=1 to the URL (or set localStorage.odaDebug='1').
 // In debug mode, error toasts show the errorCode + full debugDetails.
-const DEBUG = (typeof window !== 'undefined') &&
+const DEBUG_INITIAL = (typeof window !== 'undefined') &&
   (new URLSearchParams(window.location.search).has('debug') || window.localStorage?.getItem('odaDebug') === '1');
 
 const CHIPS = [
@@ -37,6 +39,15 @@ export default function App() {
   const [exportBusy, setExportBusy] = useState(false);
   const [atBottom, setAtBottom] = useState(true);
   const [sidebarOpen] = useState(false);
+  // STEP 2: Standard vs Debug display mode — toggleable in the UI, persisted.
+  const [DEBUG, setDebug] = useState(DEBUG_INITIAL);
+  const toggleDebug = () => {
+    setDebug(d => {
+      const next = !d;
+      try { window.localStorage.setItem('odaDebug', next ? '1' : '0'); } catch { /* private mode */ }
+      return next;
+    });
+  };
 
   const streamRef = useRef(null);
   const draftRef = useRef(null);   // keeps the in-flight user text so an error never loses it
@@ -96,6 +107,7 @@ export default function App() {
     const liveMsg = {
       id: `a-${Date.now()}`, role: 'assistant', text: '', thinking: '',
       routing: null, pluginStatus: null, answerStarted: false, artifactIds: [], live: true,
+      phase: null, tools: [], tasks: {},
     };
     liveMsgRef.current = liveMsg;
     setMessages(m => [...m, userMsg, liveMsg]);
@@ -121,10 +133,22 @@ export default function App() {
       resumeFrom: liveMsgRef.current.text ? liveMsgRef.current.text.length : 0,
     }, (type, evt) => {
       if (type === 'routing') patchLive({ routing: evt });
+      else if (type === 'phase') { if (!liveMsgRef.current.answerStarted) patchLive({ phase: evt.phase }); }
+      else if (type === 'tool_start') patchLive(prev => ({
+        tools: [...(prev.tools || []), { tool: evt.tool, purpose: evt.purpose, status: 'running', startedAt: evt.startedAt, debug: evt.debug }],
+      }));
+      else if (type === 'tool_end') patchLive(prev => ({
+        tools: (prev.tools || []).map(x => x.tool === evt.tool && x.status === 'running'
+          ? { ...x, status: evt.status === 'failed' ? 'failed' : 'done', summary: evt.summary, elapsedMs: evt.elapsedMs, debug: { ...x.debug, ...evt.debug } }
+          : x),
+      }));
+      else if (type === 'task') patchLive(prev => ({
+        tasks: { ...(prev.tasks || {}), [evt.taskId]: { ...(prev.tasks || {})[evt.taskId], ...evt } },
+      }));
       else if (type === 'plugin_status') patchLive({ pluginStatus: typeof evt.message === 'string' ? evt.message : JSON.stringify(evt.message) });
       else if (type === 'status') { if (!liveMsgRef.current.answerStarted) patchLive({ pluginStatus: typeof evt.message === 'string' ? evt.message : '' }); }
       else if (type === 'thinking') patchLive(prev => ({ thinking: (prev.thinking || '') + evt.delta }));
-      else if (type === 'answer') patchLive(prev => ({ text: (prev.text || '') + evt.delta, answerStarted: true, pluginStatus: null }));
+      else if (type === 'answer') patchLive(prev => ({ text: (prev.text || '') + evt.delta, answerStarted: true, pluginStatus: null, phase: null }));
       else if (type === 'error') throw normalizeError(evt, evt.errorCode || 'SERVER_ERROR'); // structured server frame
     });
 
@@ -217,7 +241,13 @@ export default function App() {
     <div className="app">
       <Sidebar conversations={convs} activeId={activeId} onSelect={loadConversation} onNew={() => newChat('chat')} onTool={startTool} open={sidebarOpen} />
       <div className="main">
-        {offline && <div className="banner">You appear to be offline — your draft is kept locally and nothing has been lost. Reconnect to continue.</div>}
+        {offline && <div className="banner">{t('offline')}</div>}
+        {/* STEP 2 — Standard/Debug display-mode toggle */}
+        <button className={`modetoggle${DEBUG ? ' on' : ''}`} onClick={toggleDebug}
+          title={DEBUG ? 'Debug mode: exact plugins, timings, ids' : 'Standard mode: clean progress'}
+          aria-pressed={DEBUG} aria-label="Toggle debug display mode">
+          {DEBUG ? `⌗ ${t('debugMode')}` : `◦ ${t('standardMode')}`}
+        </button>
         <div className="canvas-row">
           <div className="chatcol">
             {isEmpty ? (
@@ -240,9 +270,11 @@ export default function App() {
               <>
                 <div className="stream" ref={streamRef} onScroll={onScroll}>
                   <div className="stream__inner">
-                    {messages.map(m => m.role === 'user'
-                      ? <UserMessage key={m.id} msg={m} />
-                      : <AssistantMessage key={m.id} msg={m} live={m.live} onOption={onOption} onExport={doExport} exportBusy={exportBusy} artifacts={artifacts} />)}
+                    <ErrorBoundary name="message stream">
+                      {messages.map(m => m.role === 'user'
+                        ? <UserMessage key={m.id} msg={m} />
+                        : <AssistantMessage key={m.id} msg={m} live={m.live} onOption={onOption} onExport={doExport} exportBusy={exportBusy} artifacts={artifacts} debugMode={DEBUG} />)}
+                    </ErrorBoundary>
                   </div>
                 </div>
                 {!atBottom && (
@@ -258,9 +290,11 @@ export default function App() {
               </>
             )}
           </div>
-          {/* STEP 6 — wizard + live preview */}
-          <PreviewPane wizard={wizard} latestDraft={latestDraft} onEditRequest={onEditRequest}
-            onCloseWizard={() => setWizard({ active: false, step: 0 })} />
+          {/* STEP 6 — wizard + live preview (boundary-wrapped) */}
+          <ErrorBoundary name="wizard panel">
+            <PreviewPane wizard={wizard} latestDraft={latestDraft} onEditRequest={onEditRequest}
+              onCloseWizard={() => setWizard({ active: false, step: 0 })} />
+          </ErrorBoundary>
         </div>
       </div>
 

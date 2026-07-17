@@ -16,12 +16,19 @@ import { createOdSession, streamQuery, syncQuery } from './ondemand.js';
 import { fetchCountryPack, renderDataBlock, resolveCountry } from './countryData.js';
 import { buildExport } from './exports.js';
 import { extractText } from './extract.js';
+import * as log from './log.js';
+import { detectArtifactIntent, runArtifactTask, validateArtifactUrl } from './artifacts.js';
+import { registerSpeechRoutes } from './speech.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.use(express.json({ limit: '4mb' }));
+app.use(log.requestLogger);
 
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 25 * 1024 * 1024 } });
+
+// speech-to-text / text-to-speech routes (live-doc schemas; graceful when unsubscribed)
+registerSpeechRoutes(app, upload);
 
 // ---------- health ----------
 app.get('/api/health', (req, res) => res.json({
@@ -82,15 +89,46 @@ app.post('/api/chat', async (req, res) => {
   const send = (type, payload) => res.write(`data:${JSON.stringify({ type, ...payload })}\n\n`);
   const hb = setInterval(() => res.write(':hb\n\n'), 15000);
 
+  // FIRST-TOKEN EXPERIENCE: meaningful operational phases stream IMMEDIATELY on
+  // acceptance (safe status only — never chain-of-thought). The frontend swirl
+  // cycles these until real tokens arrive.
+  const PHASES = [
+    'Understanding the request', 'Planning the workflow', 'Searching trusted sources',
+    'Selecting tools', 'Preparing the document', 'Reviewing the output',
+    'Validating the result', 'Finalising the response',
+  ];
+  send('phase', { phase: PHASES[0], index: 0, total: PHASES.length });
+  let phaseIdx = 0;
+  let answerBegun = false;
+  const phaseTimer = setInterval(() => {
+    if (answerBegun || phaseIdx >= PHASES.length - 1) return;
+    phaseIdx += 1;
+    send('phase', { phase: PHASES[phaseIdx], index: phaseIdx, total: PHASES.length });
+  }, 2600);
+
+  // TOOL-ACTIVITY EVENTS: tool_start / tool_end frames drive the activity cards.
+  const toolTimers = new Map();
+  const toolStart = (tool, purpose, debug = {}) => {
+    toolTimers.set(tool, Date.now());
+    send('tool_start', { tool, purpose, startedAt: new Date().toISOString(), debug: { model: 'gpt-5.6-sol-medium', reqId: req.id, ...debug } });
+  };
+  const toolEnd = (tool, status, summary, debug = {}) => {
+    const ms = toolTimers.has(tool) ? Date.now() - toolTimers.get(tool) : null;
+    send('tool_end', { tool, status, summary, elapsedMs: ms, debug: { reqId: req.id, ...debug } });
+  };
+
   try {
     const file = fileId ? store.getFile(fileId) : null;
     store.addMessage(conv, { role: 'user', text, fileName: file?.name || null });
+    log.info('chat.accepted', { reqId: req.id, conversationId: conv.id, chars: text.length, feature: forcedFeature || conv.feature });
 
     // 1) ROUTE (oda:oda THINK step)
     send('status', { message: 'Routing your request…' });
+    toolStart('Router', 'Classify feature lane and FAST/FULL mode');
     const route = await classify(text, { hasFile: Boolean(file), forcedFeature: forcedFeature || (conv.feature !== 'chat' ? conv.feature : null) });
     let { feature, mode } = route;
     if (wizard?.active) mode = 'FULL'; // guided document creation is a FULL-mode flow
+    toolEnd('Router', 'completed', `${feature} · ${mode}`, { source: route.source, reason: route.reason });
 
     const pluginIds = pluginIdsFor(feature);
     const pluginLabels = pluginLabelsFor(feature);
@@ -103,7 +141,9 @@ app.post('/api/chat', async (req, res) => {
     // 2) Per-conversation OnDemand session (create once, reuse)
     if (!conv.odSessionId) {
       send('status', { message: 'Opening a verified session…' });
+      toolStart('Session', 'Open a verified OnDemand chat session');
       conv.odSessionId = await createOdSession(`oda-suite-${conv.id}`, []);
+      toolEnd('Session', 'completed', 'session ready', { sessionRef: 'per-conversation' });
     }
 
     // 3) Assemble the query with context blocks
@@ -145,6 +185,7 @@ app.post('/api/chat', async (req, res) => {
 
     // 4) STREAM from OnDemand — thinking tokens separated from answer tokens
     if (pluginLabels.length) send('plugin_status', { plugin: pluginLabels[0], message: `Working with ${pluginLabels.join(', ')}…` });
+    toolStart('Model stream', `Generate with ${pluginLabels.length ? pluginLabels.join(' + ') : 'LLM-direct'}`, { plugins: pluginIds, endpoint: `${ENDPOINT_ID}+${REASONING_EFFORT}` });
     let sawAnswer = false;
     let partialText = '';   // accumulate so a mid-stream failure can persist what already streamed
     const fullAnswer = await streamQuery({
@@ -154,15 +195,35 @@ app.post('/api/chat', async (req, res) => {
       systemPrompt,
       onEvent: (type, payload) => {
         if (type === 'thinking') send('thinking', { delta: payload });
-        else if (type === 'answer') { sawAnswer = true; partialText += payload; send('answer', { delta: payload }); }
+        else if (type === 'answer') {
+          if (!answerBegun) { answerBegun = true; clearInterval(phaseTimer); }
+          sawAnswer = true; partialText += payload; send('answer', { delta: payload });
+        }
         else if (type === 'status') send('status', { message: payload.statusMessage, statusType: payload.statusType });
         else if (type === 'metrics') send('metrics', payload);
       },
     }).catch((e) => {
       // carry whatever streamed before the failure into the error path below
       e.partialAnswer = e.partialAnswer || partialText;
+      toolEnd('Model stream', 'failed', e.message?.slice(0, 120) || 'stream failed', { errorCode: e.errorCode });
       throw e;
     });
+    toolEnd('Model stream', 'completed', `${fullAnswer.length.toLocaleString()} chars streamed`, { sawAnswer });
+
+    // ARTIFACT INTENT: if the request names a concrete output format, run the
+    // artifact pipeline with phase streaming (Queued→…→Complete) and a validated link.
+    const artifactFmt = detectArtifactIntent(text);
+    if (artifactFmt && fullAnswer && fullAnswer.length > 120 && !wizard?.active) {
+      try {
+        toolStart('Artifact pipeline', `Produce ${artifactFmt.toUpperCase()} deliverable`);
+        const task = await runArtifactTask({ conv, format: artifactFmt, sourceText: fullAnswer, emit: send, reqId: req.id });
+        toolEnd('Artifact pipeline', 'completed', `${artifactFmt.toUpperCase()} ready`, { taskId: task.id, url: task.url });
+      } catch (artErr) {
+        // artifact failure is non-fatal to the chat turn — the task frame already carries Failed
+        toolEnd('Artifact pipeline', 'failed', artErr.message?.slice(0, 120), { errorCode: artErr.errorCode });
+        log.warn('artifact.auto_failed', { reqId: req.id, error: artErr.message });
+      }
+    }
 
     // 5) Persist + finish
     const asstMsg = store.addMessage(conv, {
@@ -209,8 +270,27 @@ app.post('/api/chat', async (req, res) => {
     });
   } finally {
     clearInterval(hb);
+    clearInterval(phaseTimer);
     res.end();
   }
+});
+
+// ---------- artifact tasks: status + restore-on-return ----------
+// GET /api/tasks?conversationId= — persisted task list (phase, artifact link)
+app.get('/api/tasks', (req, res) => {
+  res.json({ tasks: store.listTasks(req.query.conversationId || null) });
+});
+app.get('/api/tasks/:id', (req, res) => {
+  const t = store.getTask(req.params.id);
+  if (!t) return res.status(404).json({ error: { userMessage: 'Task not found', errorCode: 'TASK_NOT_FOUND' } });
+  res.json({ task: t });
+});
+// GET /api/artifacts/validate?url= — HEAD-check a hosted artifact URL (download gating)
+app.get('/api/artifacts/validate', async (req, res) => {
+  const url = req.query.url;
+  if (!url || !/^https?:\/\//.test(url)) return res.status(400).json({ error: { userMessage: 'Bad url', errorCode: 'BAD_URL' } });
+  const v = await validateArtifactUrl(url);
+  res.json({ valid: v.ok, status: v.status, size: v.size || null, contentType: v.contentType || null });
 });
 
 function extractCountryGuess(text) {
@@ -254,10 +334,23 @@ app.post('/api/export', async (req, res) => {
 
 app.get('/api/export/:id/download', (req, res) => {
   const exp = store.getExport(req.params.id);
-  if (!exp) return res.status(404).json({ error: 'Artifact expired (in-memory store resets on restart)' });
+  if (!exp) return res.status(404).json({ error: { userMessage: 'Artifact not found', errorCode: 'ARTIFACT_NOT_FOUND' } });
+  if (!exp.buffer || exp.expired) {
+    // metadata survived a restart but the bytes did not — honest expired state
+    return res.status(410).json({ error: { userMessage: 'This artifact expired when the server restarted — regenerate it from the message export bar.', errorCode: 'ARTIFACT_EXPIRED' } });
+  }
   res.setHeader('Content-Type', exp.mime);
   res.setHeader('Content-Disposition', `attachment; filename="${exp.name}"`);
   res.send(exp.buffer);
+});
+// HEAD support so the frontend can gate Download buttons on real availability
+app.head('/api/export/:id/download', (req, res) => {
+  const exp = store.getExport(req.params.id);
+  if (!exp) return res.status(404).end();
+  if (!exp.buffer || exp.expired) return res.status(410).end();
+  res.setHeader('Content-Type', exp.mime);
+  res.setHeader('Content-Length', exp.buffer.length);
+  res.status(200).end();
 });
 
 // ---------- static frontend (built SPA) ----------
