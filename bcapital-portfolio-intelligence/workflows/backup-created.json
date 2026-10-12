@@ -1,0 +1,10 @@
+{
+  "id": "6accc6209a17f57debac86a2",
+  "name": "B Social Daily Durable Backup",
+  "schedule": "0 0 3 * * * (03:00 UTC daily)",
+  "webhook_target": "https://sb-15f58jwppcjq.vercel.run/persistence/backup/webhook",
+  "create_or_patch_status": 201,
+  "activate_status": 200,
+  "is_active": true,
+  "at": "2026-10-12T11:36:00.663Z"
+}

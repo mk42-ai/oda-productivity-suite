@@ -1,0 +1,47 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "app": {
+      "root": ".",
+      "framework": "hono",
+      "entrypoint": "src/app.ts",
+      "functions": {
+        "src/app.ts": {
+          "includeFiles": "{data/portfolio.sqlite,data/social-native.sqlite,data/social-receipt-public.pem,data/portfolio.json,data/people.json,data/social-feed.json,data/social/verified-posts.json,data/social/sources.json,data/social/legacy-reddit-recovered.json,node_modules/sql.js/dist/sql-wasm.wasm}"
+        }
+      }
+    },
+    "web": {
+      "root": "web",
+      "framework": "nextjs",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "app",
+          "format": "url",
+          "env": "PORTFOLIO_API_URL"
+        }
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/backend/(.*)",
+      "destination": {
+        "service": "app"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "web"
+      }
+    }
+  ],
+  "crons": [
+    {
+      "path": "/backend/cron/refresh",
+      "schedule": "0 7 * * *"
+    }
+  ]
+}
