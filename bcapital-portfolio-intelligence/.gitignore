@@ -1,9 +1,29 @@
+# dependencies / build outputs
 node_modules/
 dist/
+web/.next/
+web/out/
+web/tsconfig.tsbuildinfo
+.vercel/
+.turbo/
+# secrets — only *.example files are tracked
 .env
 .env.*
 !.env.example
+!.env.test.example
+# runtime SQLite / libSQL data files and sandbox caches
+data/b-social.db
+data/b-social.db-*
+data/*.db
+data/*.db-*
+data/qa-empty.db
+data/refresh-runs/
+# test / proof output
+web/test-results/
+web/playwright-report/
+web/artifacts/
+web/.lighthouse/
 *.log
 .DS_Store
-.vercel
-.env*
+__pycache__/
+*.pyc
