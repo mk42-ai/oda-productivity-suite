@@ -1,6 +1,8 @@
 # ODA Productivity Suite
 
 
+
+
 AI productivity product for the **UAE Office of Development Affairs (ODA), Abu Dhabi** — powered entirely by **OnDemand APIs** on `predefined-gpt-5.6-sol` with `reasoningEffort: medium` (the "gpt-5.6-sol-medium" policy — every model call, no fallbacks).
 
 **Features (8):** Deck builder · One-pager summary · Problem Solve (7-step MBB flow) · Benchmark · Translate (EN → Emirati Arabic) · Media/WAM comms · Action Titles · Country Data (World Bank/WHO/UN SDG with citations).
