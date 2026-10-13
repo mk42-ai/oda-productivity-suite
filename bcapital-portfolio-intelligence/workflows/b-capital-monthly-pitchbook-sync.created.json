@@ -1,0 +1,111 @@
+{
+  "id": "6acda4fa9a17f57debac8ad5",
+  "name": "B Capital Monthly PitchBook Sync",
+  "schedule": {
+    "cron_6field": "0 0 6 1 * *",
+    "cron_5field": "0 6 1 * *",
+    "human": "1st of each month at 06:00 UTC"
+  },
+  "create_or_patch_status": 201,
+  "created_at_utc": "2026-10-13T03:26:51Z",
+  "activate_status": 200,
+  "activated_at_utc": "2026-10-13T03:26:55Z",
+  "is_active": true,
+  "api_cron": "0 0 6 1 * *",
+  "api_last_modified_utc": "2026-10-13T03:26:50Z",
+  "next_run_utc": "2026-11-01T06:00:00Z",
+  "next_run_source": "computed from the cron (the GET /workflow/{id} response has no next-run field)",
+  "webhook_target": "https://sb-36scqmx8687m.vercel.run/pitchbook/batch/webhook",
+  "email": "mk@airev.ae",
+  "plugin_id": "plugin-1777018662",
+  "model": "predefined-deepseek-flash",
+  "validation_execution": {
+    "execution_id": "6acda5079a17f57debac8ad9",
+    "execute_http": 200,
+    "triggered_at_utc": "2026-10-13T03:27:04Z",
+    "status": "success",
+    "started_at_utc": "2026-10-13T03:27:03Z",
+    "ended_at_utc": "2026-10-13T03:27:12Z",
+    "time_taken_ms": 8546,
+    "log_count": 6,
+    "log_lines": [
+      "2026-10-13T03:27:03.927Z [] starting workflow execution",
+      "2026-10-13T03:27:04.381Z [kickoff] all dependencies satisfied, proceeding to task execution",
+      "2026-10-13T03:27:11.782Z [kickoff] triggering next task execution",
+      "2026-10-13T03:27:11.790Z [kickoff] node task executed successfully in 7417 milliseconds",
+      "2026-10-13T03:27:12.060Z [] workflow execution outputs retrieved",
+      "2026-10-13T03:27:12.452Z [] output delivery completed successfully"
+    ]
+  },
+  "server_side_run": {
+    "trigger": "flow-builder-webhook (validation execution 6acda5079a17f57debac8ad9 \u2192 POST /pitchbook/batch/webhook)",
+    "batch_id": "pbb-20261013T032712-bec465",
+    "started_at_utc": "2026-10-13T03:27:12Z",
+    "batch_completed_at_utc": "2026-10-13T03:55:12Z",
+    "finished_at_utc": "2026-10-13T03:57:32Z",
+    "duration_ms": 1820041,
+    "step_a": {
+      "unique_companies": 136,
+      "with_stored_pb_id": 109,
+      "name_domain_lookup": 27
+    },
+    "step_b": {
+      "chat_batches_probe": "POST /chat/v1/batches \u2192 HTTP 405 method_not_allowed (fallback: documented single sync queries)",
+      "companies_queried": 136,
+      "succeeded": 134,
+      "failed": 1,
+      "unmatched": 1,
+      "retried": 2,
+      "notes": [
+        "goodfire: HTTP 524 on attempt 1 \u2192 completed on attempt 2",
+        "percent: HTTP 520 on attempt 1 \u2192 completed on attempt 2",
+        "evidation-health: 'fetch failed' on attempt 1 (non-retryable class) \u2192 previous populated profile kept by the latest-first rule",
+        "turno: no match (Unmatched in PitchBook)"
+      ]
+    },
+    "step_c": {
+      "latest_first_upsert": true,
+      "companies_keeping_earlier_values": 35,
+      "store_after": {
+        "populated_companies": 135,
+        "unmatched_companies": 1,
+        "fields_populated": 3017,
+        "fields_not_available": 1168,
+        "profiles_from_this_batch": 128,
+        "profiles_kept_from_pbb-20261013T020532-3a5c45": 7
+      }
+    },
+    "step_d": {
+      "in_sandbox_attempt": "media upload HTTP 524 at 03:57:32Z (Cloudflare origin timeout on the 60 MB sqlite upload from the sandbox)",
+      "retry": {
+        "snapshot_ts": "20261013T040637Z",
+        "reason": "monthly-pitchbook-sync-retry",
+        "sqlite": {
+          "media_id": "6acdae53cf3ee6ce347396d3",
+          "sha256": "d2574768d1d2e01b5791e58b512eaaeec970bacfd426c0e9dd63c80c568502b0",
+          "bytes": 60624896
+        },
+        "ndjson": {
+          "media_id": "6acdae57cf3ee6ce347396d4",
+          "sha256": "12dae7a49b27dfb39ccff483f6dd7c099d8238f41789cb6065827b4d9d5021c7"
+        },
+        "csv": {
+          "media_id": "6acdae59cf3ee6ce347396d5",
+          "sha256": "299eea31d84770ca673f4fdb76ffb70c028644086a49b488bd34352e0828660f"
+        },
+        "manifest": {
+          "media_id": "6acdae5bcf3ee6ce347396d8",
+          "sha256": "23d601a8b2dcb78171e475d17043da08a735fced9aedd987bb977729c27f194f"
+        },
+        "all_verified": true,
+        "source": "the sandbox store exported via GET /persistence/export?format=sqlite, imported into the workspace store (importSnapshotFile), then runBackup()"
+      }
+    },
+    "step_e_log_line": "{\"batch_id\":\"pbb-20261013T032712-bec465\",\"trigger\":\"flow-builder-webhook\",\"started_at\":\"2026-10-13T03:27:12Z\",\"finished_at\":\"2026-10-13T03:57:32Z\",\"duration_ms\":1820041,\"companies_queried\":136,\"succeeded\":134,\"failed\":1,\"unmatched\":1,\"retried\":2,\"store\":{\"populated_companies\":135,\"unmatched_companies\":1,\"fields_populated\":3017,\"fields_not_available\":1168},\"snapshot\":null,\"provider\":\"local-libsql\"}"
+  },
+  "baseline_snapshot": {
+    "snapshot_ts": "20261013T024931Z",
+    "sqlite_media_id": "6acd9c415d7b1c473483fb41",
+    "note": "snapshot the API restores from at boot; sha256 recorded in its manifest media 6acd9c485d7b1c473483fb48"
+  }
+}
