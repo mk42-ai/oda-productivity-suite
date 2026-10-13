@@ -1,3 +1,12 @@
+## 2026-10-13 — Turn 10: palette, typography, mini chat on the main proxy, PitchBook store + monthly sync
+
+- **Palette**: single emerald accent `#1a9c6b` (ink `#15785a`, soft `#e8f6f0`) in `web/src/styles/tokens.css`; source chips neutral; sector pills restored to pastel outlines per sector (`web/src/styles/chips.css`, keyed by `data-sector`).
+- **Ask B Social** now posts to the MAIN chat proxy `POST /api/chat` (OnDemand `/chat/v1/sessions/{id}/query` through `lib/ondemand/chat-bridge` — same plugins, same AG-UI streaming); Enter or the green send button sends; red `role=alert` error bubble with Retry on HTTP/RUN_ERROR; sources from `ondemand.sources`. The main chat implementation is untouched.
+- **PitchBook store (libSQL)**: migration `drizzle-persist/0001_pitchbook_profiles.sql` adds `pitchbook_profiles` (company_id PK, profile_json, availability_json, source_url, fetched_at, updated_at) and `pitchbook_sync_runs`; both are in `PERSIST_TABLES` so the OnDemand Media snapshot/restore carries them. Seeded once from `data/pitchbook/profiles.json`; `GET /pitchbook/profiles`, `GET /pitchbook/profile/:slug` read the store first (`store: "libsql"`).
+- **Sync endpoints**: `POST /pitchbook/sync/webhook` (X-Ingest-Secret; the monthly workflow's delivery target) upserts records, recomputes per-field availability, appends a run (`GET /pitchbook/sync/runs`) and schedules a Media snapshot; `POST /pitchbook/sync/backup` / `GET /pitchbook/sync/backups` for the JSON store backup (`src/persist/pitchbook-backup.ts`).
+- **Company section**: 12 server-rendered rows — Description, Year Founded, Status, HQ/Contact, Employees, Investments count, Financing history, Valuation, Investors, Latest deal, Website, PitchBook profile URL — each `Not available in PitchBook` when missing (never blank, never inferred); draggable / "Ask in chat" appends to the existing composer; no Run button.
+- **Workflow**: `workflows/monthly-pitchbook-sync.json` — "B Capital — Monthly PitchBook Portfolio Sync", cron `0 0 6 1 * *` (1st of month 06:00 UTC), supersedes the weekly `6aca3d3faeef8927baa25a05`.
+
 # Changelog
 
 ## 2026-10-11 — brand icon set wired (`9f786f6` → `31a9ada`…)

@@ -1213,6 +1213,64 @@
         }
       }
     },
+    "/pitchbook/profiles": {
+      "get": {
+        "operationId": "listPitchbookProfiles",
+        "tags": [
+          "pitchbook"
+        ],
+        "summary": "Weekly-synced PitchBook company profiles for every portfolio company; each field is {value, provenance} or null (Not available in PitchBook) with per-field coverage",
+        "responses": {
+          "200": {
+            "description": "Profiles + coverage"
+          },
+          "503": {
+            "description": "Profile store missing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pitchbook/profile/{slug}": {
+      "get": {
+        "operationId": "getPitchbookProfile",
+        "tags": [
+          "pitchbook"
+        ],
+        "summary": "PitchBook profile for one company (overview, HQ, founded, status, employees, financing, valuation, investors, deal history, executives, board, competitors, similar companies, research documents)",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile"
+          },
+          "404": {
+            "description": "Unknown company or no profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/pitchbook/{slug}": {
       "get": {
         "operationId": "getPitchbook",

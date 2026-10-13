@@ -1,7 +1,7 @@
 import type { Company } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { Handshake, Landmark, Rocket, CircleDollarSign } from "lucide-react";
-import { sectorFill, type LastDeal } from "@/components/company/detail-header";
+import type { LastDeal } from "@/components/company/detail-header";
 export type Round = { round: string; date: string; amount: string; post: string; lead: string; bcap: "lead" | "co-lead" | "participant" | null; source?: string };
 /** PitchBook-style timeline. Rounds for focus companies come from the intelligence JSON; for everyone else the single known B Capital event (if any) is shown and the rest is marked pending (PitchBook plugin deferred). */
 const ROUNDS: Record<string, Round[]> = {
@@ -31,12 +31,12 @@ function roundIcon(r: Round) {
 export function FundingTimeline({ company }: { company: Company }) {
   const rounds = ROUNDS[company.slug] ?? [];
   return (
-    <div style={{ ["--dh-sector" as string]: sectorFill(company.sector) }}>
+    <div>
       {rounds.length ? (
         <ol className="ft-list" role="list" data-testid="funding-timeline">
           {rounds.map((r, i) => (
             <li key={i} className="ft-item" role="listitem">
-              <span className={`ft-dot${r.bcap ? "" : " is-passive"}`} aria-hidden data-hue-audit-ignore="sector-tint">{roundIcon(r)}</span>
+              <span className={`ft-dot${r.bcap ? "" : " is-passive"}`} aria-hidden>{roundIcon(r)}</span>
               <p className="flex flex-wrap items-center gap-2 text-sm font-semibold">{r.round}<time className="font-normal text-muted" dateTime={r.date}>{r.date}</time>{r.bcap && <Badge tone="primary">B Capital participated · {r.bcap}</Badge>}</p>
               <p className="text-sm text-muted">Amount {r.amount} · Post-money {r.post} · Lead {r.lead}</p>
             </li>

@@ -10,6 +10,9 @@ import { labelFor, clampScore, normaliseEvidence, rollup } from "./sentiment.js"
 import { scorePortfolio, type CompanyInput, type SignalScore } from "./scoring.js";
 import { enrichShard, getProfile, profileCoverage, enrichCompany, ENRICH_PLUGINS } from "./enrich.js";
 import { refreshCompanies, lastRefreshRun, getRefreshState } from "./refresh.js";
+import { readProfileStoreLive, getProfileLive, coverageOf } from "./pitchbook-profile.js";
+import { applySync, listRuns as listPbSyncRuns, readAllProfiles as readAllPbProfiles, type IncomingRecord } from "./persist/pitchbook-store.js";
+import { backupPitchbookStore, listPitchbookBackups } from "./persist/pitchbook-backup.js";
 import { fetchPitchbook, pitchbookShard, getPitchbookRecord, listPitchbookRecords, writePitchbookRecord, normaliseIncomingRecord, salvageRecords, applyEnrichment, nextMondayUtc, PITCHBOOK_PLUGIN_ID, PITCHBOOK_SOURCE } from "./pitchbook.js";
 import { ONDEMAND_USER_AGENT } from "./config.js";
 import { readDataset, readSocialFeed, queryFeed, DATASETS, type DatasetName } from "./social-data.js";
@@ -480,6 +483,41 @@ inner.get("/pitchbook", async (c) => {
   const data = await listPitchbookRecords();
   return c.json({ data, count: data.length, next_run_utc: nextMondayUtc(), workflow_id: process.env.PITCHBOOK_WORKFLOW_ID ?? null, ...PITCHBOOK_META, timestamp: nowIso() });
 });
+/** Weekly-synced PitchBook company profiles (data/pitchbook/profiles.json): every field is {value, provenance} or null = "Not available in PitchBook". */
+/** Weekly/monthly-synced PitchBook company profiles. libSQL store first (tables pitchbook_profiles / pitchbook_sync_runs), file fallback. Every field is {value, provenance} or null = "Not available in PitchBook". */
+inner.get("/pitchbook/profiles", async (c) => {
+  const store = await readProfileStoreLive(); if (!store) return err(c, 503, "profiles_unavailable", "PitchBook profile store is empty — run scripts/pitchbook/build-profiles.py or the monthly sync");
+  return c.json({ synced_at: store.synced_at, store: store.store, count: Object.keys(store.companies).length, companies: store.companies, coverage: store.coverage, research_documents: store.research_documents, timestamp: nowIso() });
+});
+inner.get("/pitchbook/profile/:slug", async (c) => {
+  const row = await findCompany(c.req.param("slug"));
+  if (!row) return err(c, 404, "not_found", `No company with slug '${c.req.param("slug")}'`);
+  const hit = await getProfileLive(row.slug); const store = await readProfileStoreLive();
+  if (!hit || !store) return err(c, 404, "profile_not_found", `No PitchBook profile for '${row.slug}'`);
+  return c.json({ company: row.slug, name: row.name, profile: hit.profile, store: hit.store, coverage: store.coverage, synced_at: hit.profile.synced_at ?? store.synced_at, next_sync_utc: "1st of each month 06:00 UTC", timestamp: nowIso() });
+});
+/** Monthly workflow target (X-Ingest-Secret / basic auth / ?secret=). Body: {records:[{slug, fields, source_url, fetched_at, availability}]} or {action:"resync-from-store"}. Upserts, recomputes availability, logs the run, schedules a Media snapshot. */
+inner.post("/pitchbook/sync/webhook", async (c) => {
+  const denied = requireIngestSecret(c); if (denied) return denied;
+  const raw = await c.req.text(); let body: any = extractJson(raw);
+  if (body && typeof body === "object") { for (const k of ["payload", "data", "result", "output", "body", "answer"]) if (body[k] && !body.records && !body.action) { body = typeof body[k] === "string" ? extractJson(body[k]) : body[k]; } }
+  const { db } = await getDb(); const rows = db.select({ slug: schema.companies.slug, name: schema.companies.name }).from(schema.companies).all() as { slug: string; name: string }[]; const names: Record<string, string> = Object.fromEntries(rows.map((r) => [r.slug, r.name]));
+  let salvaged: { complete_json: boolean; truncated: number } | null = null;
+  // Flow Builder webhook delivery posts the LLM answer verbatim (possibly prose-wrapped or truncated by the output budget): salvage record by record.
+  if ((!body || typeof body !== "object" || !Array.isArray(body.records)) && /"slug"\s*:/.test(raw)) { const s = salvageRecords(raw); if (s.records.length) { body = { ...(body && typeof body === "object" ? body : {}), records: s.records, workflow_name: body?.workflow_name ?? s.workflow_name ?? "B Capital — Monthly PitchBook Portfolio Sync" }; salvaged = { complete_json: s.complete_json, truncated: s.truncated }; } }
+  const records: IncomingRecord[] = Array.isArray(body?.records) ? body.records : [];
+  if (!records.length && body?.action !== "resync-from-store") return err(c, 400, "bad_request", "expected {records:[…]} or {action:'resync-from-store'}");
+  const extra: Record<string, unknown> = {}; for (const k of ["workflow_id", "execution_id", "workflow_name"]) if (body?.[k]) extra[k] = String(body[k]).slice(0, 120); if (body?.run?.started_at) extra.workflow_started_at = String(body.run.started_at).slice(0, 40); if (salvaged) extra.salvaged = salvaged;
+  const run = await applySync(records, body?.action === "resync-from-store" ? "resync" : (String(body?.workflow_name ?? "").includes("Monthly") ? "monthly-workflow" : "webhook"), names, extra);
+  return c.json({ status: "accepted", run_id: run.run_id, companies_refreshed: run.companies_refreshed, fields_populated: run.fields_populated, empty_state_count: run.empty_state_count, errors: run.errors, salvaged, timestamp: nowIso() }, 202);
+});
+inner.get("/pitchbook/sync/runs", async (c) => c.json({ data: await listPbSyncRuns(20), next_sync_utc: "1st of each month 06:00 UTC", timestamp: nowIso() }));
+inner.post("/pitchbook/sync/backup", async (c) => {
+  const denied = requireIngestSecret(c); if (denied) return denied;
+  try { const r = await backupPitchbookStore(await readAllPbProfiles(), String(c.req.query("reason") ?? "manual")); return c.json({ ...r, timestamp: nowIso() }, 201); }
+  catch (e) { return err(c, 502, "backup_failed", (e as Error).message.slice(0, 200)); }
+});
+inner.get("/pitchbook/sync/backups", async (c) => { try { return c.json({ data: await listPitchbookBackups(), timestamp: nowIso() }); } catch (e) { return err(c, 502, "media_unavailable", (e as Error).message.slice(0, 200)); } });
 inner.get("/pitchbook/jobs/:id", async (c) => {
   const job = pitchbookJobs.get(c.req.param("id")); if (!job) return err(c, 404, "not_found", "unknown job");
   const progress: { slug: string; enriched: boolean; investors: number | null }[] = [];

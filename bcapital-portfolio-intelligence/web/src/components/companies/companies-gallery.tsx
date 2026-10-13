@@ -52,14 +52,155 @@ function Sparkline({ c }: { c: GalleryCompany }) {
   );
 }
 
+/** Pure DOM bounding-box self-check helper exported for QA */
+export function timelineLabelsOverlap(root: HTMLElement): number {
+  if (!root || typeof root.querySelectorAll !== "function") return 0;
+  const timelines = root.matches?.(".cg-timeline")
+    ? [root]
+    : Array.from(root.querySelectorAll<HTMLElement>(".cg-timeline"));
+
+  const targets = timelines.length > 0 ? timelines : [root];
+  let overlaps = 0;
+
+  for (const tl of targets) {
+    const labels = Array.from(tl.querySelectorAll<HTMLElement>(".cg-timeline__lbl"))
+      .filter((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      });
+
+    for (let i = 0; i < labels.length; i++) {
+      const a = labels[i].getBoundingClientRect();
+      for (let j = i + 1; j < labels.length; j++) {
+        const b = labels[j].getBoundingClientRect();
+        const hasOverlap = !(
+          a.right <= b.left + 0.5 ||
+          a.left >= b.right - 0.5 ||
+          a.bottom <= b.top + 0.5 ||
+          a.top >= b.bottom - 0.5
+        );
+        if (hasOverlap) {
+          overlaps++;
+        }
+      }
+    }
+  }
+
+  return overlaps;
+}
+
+type TimelineRoundItem = { round: string | null; amount_usd: number | null; date: string | null };
+
 function Timeline({ c }: { c: GalleryCompany }) {
-  const t = sectorTheme(c.sector); const rs = c.rounds.filter((r) => r.date).slice(0, 6).reverse();
-  if (!rs.length) return <p className="cg-timeline__none" data-testid="funding-timeline" data-rounds={0}>No dated rounds found yet</p>;
-  const d0 = Date.parse(rs[0].date!), d1 = Date.parse(rs[rs.length - 1].date!);
+  const rs = c.rounds
+    .filter((r) => r.date)
+    .slice(0, 6)
+    .sort((a, b) => (Date.parse(a.date!) || 0) - (Date.parse(b.date!) || 0));
+
+  if (!rs.length) {
+    return (
+      <p className="cg-timeline__none" data-testid="funding-timeline" data-rounds={0}>
+        No dated rounds found yet
+      </p>
+    );
+  }
+
+  const d0 = Date.parse(rs[0].date!);
+  const d1 = Date.parse(rs[rs.length - 1].date!);
+  const span = Math.max(1, d1 - d0);
+
+  type Cluster = {
+    rounds: TimelineRoundItem[];
+    pct: number;
+  };
+
+  let clusters: Cluster[] = rs.map((r) => ({
+    rounds: [r],
+    pct: rs.length === 1 || span === 1 ? 50 : ((Date.parse(r.date!) - d0) / span) * 100,
+  }));
+
+  // Merge nodes that fall within 9% of each other on the axis
+  let changed = true;
+  while (changed && clusters.length > 1) {
+    changed = false;
+    const next: Cluster[] = [];
+    for (let i = 0; i < clusters.length; i++) {
+      if (i < clusters.length - 1 && Math.abs(clusters[i + 1].pct - clusters[i].pct) <= 9) {
+        const mergedRounds = [...clusters[i].rounds, ...clusters[i + 1].rounds];
+        const avgPct =
+          (clusters[i].pct * clusters[i].rounds.length +
+            clusters[i + 1].pct * clusters[i + 1].rounds.length) /
+          mergedRounds.length;
+        next.push({ rounds: mergedRounds, pct: avgPct });
+        i++;
+        changed = true;
+      } else {
+        next.push(clusters[i]);
+      }
+    }
+    clusters = next;
+  }
+
   return (
-    <ol className="cg-timeline" data-testid="funding-timeline" data-rounds={rs.length} style={{ "--cg-from": t.from, "--cg-to": t.to } as CSSProperties}>
-      {rs.map((r, i) => { const left = rs.length === 1 ? 50 : ((Date.parse(r.date!) - d0) / Math.max(1, d1 - d0)) * 100; return (
-        <li key={i} style={{ left: `${left}%` }} title={`${r.round ?? "Round"} · ${fmtUsd(r.amount_usd) ?? "undisclosed"} · ${r.date}`}><span className="cg-timeline__dot" /><span className="cg-timeline__lbl">{(r.round ?? "").replace(/Series /i, "")}<br />{r.date!.slice(0, 4)}</span></li>); })}
+    <ol
+      className="cg-timeline"
+      data-testid="funding-timeline"
+      data-rounds={rs.length}
+      aria-label={`Funding timeline, ${rs.length} rounds`}
+    >
+      {clusters.map((cluster, i) => {
+        const isAbove = i % 2 === 0;
+        const left = clusters.length === 1 ? 50 : Math.max(8, Math.min(92, cluster.pct));
+        const isMerged = cluster.rounds.length > 1;
+        const isBcap = cluster.rounds.some(
+          (r) => /b capital/i.test(r.round ?? "") || (r as any).bcap === "lead"
+        );
+
+        let desktopLabel: string;
+        let mobileLabel: string;
+        let fullLabel: string;
+
+        if (isMerged) {
+          desktopLabel = `${cluster.rounds.length} rounds`;
+          mobileLabel = `${cluster.rounds.length} rounds: ${cluster.rounds
+            .map((r) => [r.round ?? "Round", r.date ? r.date.slice(0, 4) : "", fmtUsd(r.amount_usd) ?? "undisclosed"].filter(Boolean).join(" · "))
+            .join("; ")}`;
+          fullLabel = `${cluster.rounds.length} rounds: ${cluster.rounds
+            .map((r) => `${r.round ?? "Round"} · ${fmtUsd(r.amount_usd) ?? "undisclosed"} · ${r.date}`)
+            .join("; ")}`;
+        } else {
+          const r = cluster.rounds[0];
+          const roundName = (r.round ?? "Round").replace(/Series /i, "");
+          const yr = r.date ? r.date.slice(0, 4) : "";
+          const amt = fmtUsd(r.amount_usd) ?? "undisclosed";
+          desktopLabel = yr ? `${roundName} ${yr}` : roundName;
+          mobileLabel = [r.round ?? "Round", yr, amt].filter(Boolean).join(" · ");
+          fullLabel = `${r.round ?? "Round"} · ${amt} · ${r.date}`;
+        }
+
+        return (
+          <li
+            key={i}
+            className={`cg-timeline__item ${isAbove ? "cg-timeline__item--above" : "cg-timeline__item--below"}`}
+            style={{ left: `${left}%` }}
+            tabIndex={0}
+            aria-label={fullLabel}
+            title={fullLabel}
+          >
+            <span
+              className={`cg-timeline__dot${isBcap ? " cg-timeline__dot--bcap" : ""}`}
+              aria-hidden="true"
+            />
+            <span className="cg-timeline__lbl" title={fullLabel}>
+              <span className="cg-timeline__lbl-desktop">{desktopLabel}</span>
+              <span className="cg-timeline__lbl-mobile">{mobileLabel}</span>
+            </span>
+            <span role="tooltip" className="cg-timeline__tooltip">
+              {fullLabel}
+            </span>
+          </li>
+        );
+      })}
     </ol>
   );
 }
@@ -84,7 +225,7 @@ export function CompanyGalleryCard({ c }: { c: GalleryCompany }) {
         <dl className="cg-facts">
           <div><dt>Last round</dt><dd data-testid="company-card-deal">{c.last_round ? [c.last_round.round, fmtUsd(c.last_round.amount_usd), c.last_round.date].filter(Boolean).join(" · ") : "—"}</dd></div>
           <div><dt>Total raised</dt><dd>{fmtUsd(c.total_raised_usd) ?? "—"}</dd></div>
-          <div data-testid="pitchbook-fields"><dt><Landmark className="inline size-3" aria-hidden /> PitchBook</dt><dd>{c.pitchbook ? `invested ${c.pitchbook.investment_date} · since ${c.pitchbook.investor_since}` : "not in the 50 listed rows"}</dd></div>
+          <div data-testid="pitchbook-fields"><dt><Landmark className="inline size-3" aria-hidden /> PitchBook</dt><dd>{c.pitchbook ? `invested ${c.pitchbook.investment_date} · since ${c.pitchbook.investor_since}` : "Not in PitchBook investor rows"}</dd></div>
           <div><dt><TrendingUp className="inline size-3" aria-hidden /> Sentiment</dt><dd><Sparkline c={c} /></dd></div>
         </dl>
         <Timeline c={c} />
@@ -128,9 +269,9 @@ export function CompaniesGallery({ rows }: { rows: GalleryCompany[] }) {
         <p className="ml-auto text-sm text-muted tabular-nums" role="status" data-testid="companies-count">Showing {visible.length} of {rows.length}</p>
       </div>
       <div className="cg-chips" role="group" aria-label="Filter by sector" data-testid="companies-sector-chips">
-        <button type="button" className="cg-chip" aria-pressed={!sector} onClick={() => setParam("sector", "")} style={{ "--cg-from": "#16181b", "--cg-to": "#4b4f55" } as CSSProperties}>All <span>{rows.length}</span></button>
+        <button type="button" className="cg-chip chip" data-sector="all" aria-pressed={!sector} onClick={() => setParam("sector", "")}>All <span>{rows.length}</span></button>
         {SECTOR_KEYS.filter((k) => counts.get(k)).map((k: SectorKey) => { const t = SECTOR_THEMES[k]; return (
-          <button key={k} type="button" className="cg-chip" data-testid="companies-sector-chip" data-sector={k} aria-pressed={sector === k} onClick={() => setParam("sector", sector === k ? "" : k)} style={{ "--cg-from": t.from, "--cg-to": t.to } as CSSProperties}>{t.label} <span>{counts.get(k)}</span></button>); })}
+          <button key={k} type="button" className="cg-chip chip" data-testid="companies-sector-chip" data-sector={k} aria-pressed={sector === k} onClick={() => setParam("sector", sector === k ? "" : k)}>{t.label} <span>{counts.get(k)}</span></button>); })}
       </div>
       <div className="cg-grid" data-testid="companies-list" data-visible={visible.length}>
         {visible.map((c) => <CompanyGalleryCard key={c.slug} c={c} />)}

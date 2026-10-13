@@ -11,7 +11,7 @@ import { dayKey, fmtDelta, fmtScore } from "@/lib/format";
 type Item = NewsItem & { company_slug: string; company_name: string; company_logo?: string | null; sector: string; sentiment_score: number | null; sentiment_delta: number | null };
 type Co = { slug: string; name: string; sector: string; score: number; delta: number | null };
 /** Source buckets: live refresh writes Perplexity only (2026-10-10); "legacy" groups rows ingested by the earlier multi-plugin workflows so history stays filterable. */
-const SOURCE_PLUGINS = [["all", "All sources"], ["perplexity", "Perplexity"], ["legacy", "Legacy workflow sources"], ["status", "Status changes"], ["seed", "Seed / intelligence JSON"]] as const;
+const SOURCE_PLUGINS = [["all", "All sources"], ["perplexity", "Perplexity"], ["legacy", "Earlier workflow sources"], ["status", "Status changes"], ["seed", "Seed / intelligence JSON"]] as const;
 function sourcePlugin(n: Item): string {
   const s = `${n.source ?? ""} ${n.url ?? ""}`.toLowerCase();
   if (n.kind === "status_change") return "status";
@@ -46,8 +46,16 @@ export function NewsFeed({ items, companies }: { items: Item[]; companies: Co[] 
           <section key={day} aria-labelledby={`day-${day}`} className="mb-6">
             <h2 id={`day-${day}`} className="sticky top-14 z-10 mb-3 flex items-center gap-2 bg-background/95 py-1 font-display text-lg font-semibold backdrop-blur lg:top-0"><time dateTime={day !== "Undated" ? day : undefined}>{day}</time><Badge tone="muted">{list.length}</Badge></h2>
             <div className="grid min-w-0 gap-3 md:grid-cols-2">{list.map((n) => (
-              <div key={n.id} className="relative min-w-0"><NewsCard n={n} eager={eagerIds.has(n.id)} />
-                <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted"><Link href={`/company/${n.company_slug}`} className="underline-offset-2 hover:underline">{n.company_name}</Link><span>sentiment {fmtScore(n.sentiment_score)}</span><Badge tone={(n.sentiment_delta ?? 0) > 0 ? "primary" : (n.sentiment_delta ?? 0) < 0 ? "danger" : "muted"}>Δ {fmtDelta(n.sentiment_delta)}</Badge><Badge tone="info">{sourcePlugin(n)}</Badge></p>
+              <div key={n.id} className="relative min-w-0">
+                <NewsCard
+                  n={n}
+                  companyName={n.company_name}
+                  companySlug={n.company_slug}
+                  sentimentScore={n.sentiment_score}
+                  sentimentDelta={n.sentiment_delta}
+                  sourceBucket={sourcePlugin(n)}
+                  eager={eagerIds.has(n.id)}
+                />
               </div>))}</div>
           </section>
         ))}

@@ -35,7 +35,7 @@
 .mp-video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%; border: 3px solid #0AC985; background: #111827cc; color: #FFFFFF; cursor: pointer; transition: transform 160ms ease, background 160ms ease; }
 .mp-video:hover .mp-video-play, .mp-video-play:hover { background: #0AC985; color: #111827; transform: translate(-50%, -50%) scale(1.06); }
 .mp-video-play svg { margin-left: 4px; }
-.mp-video-title { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: linear-gradient(to top, #111827e6, #11182700); font-size: 13px; font-weight: 600; color: #FFFFFF; }
+.mp-video-title { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(17, 24, 39, 0.85); font-size: 13px; font-weight: 600; color: #FFFFFF; }
 .mp-video-title span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ---- Side pane (desktop: right column; <1024px: full-screen sheet) ---- */

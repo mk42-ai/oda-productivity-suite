@@ -1,7 +1,7 @@
 /* Single light theme. Hue-neutral charcoals + the B Capital green. Brand rule: no computed colour may carry a blue hue
    (HSL hue 190–260 with saturation > 0.15) — so the Tailwind/slate greys are replaced by desaturated charcoals of the same lightness.
    Every text pairing below is WCAG 2.2 AA:
-   #16181b on #FFFFFF 17.8:1 · #5c6168 on #FFFFFF 6.2:1 (5.6:1 on #f1f2f4) · #3b3f45 on #f7f8f9 10:1 · brand ink #047857 on #FFFFFF 5.5:1 (text) ·
+   #16181b on #FFFFFF 17.8:1 · #5c6168 on #FFFFFF 6.2:1 (5.6:1 on #f1f2f4) · #3b3f45 on #f7f8f9 10:1 · brand ink #15785a on #FFFFFF 4.8:1 (text) ·
    #e4e6e9 borders ≥3:1 non-text against #16181b content; borders themselves are decorative 1px lines. */
 :root {
   color-scheme: light;
@@ -14,9 +14,9 @@
   --border-strong: #c9ccd1;
   --muted: #5c6168;
   --muted-2: #4b4f55;
-  --primary: #047857;          /* single accent = B Capital brand green ink (links, active nav, primary button); 5.5:1 on white */
+  --primary: #15785a;          /* single accent = B Capital brand green ink (links, active nav, primary button); 4.8:1 on white */
   --primary-foreground: #ffffff;
-  --primary-soft: #065f46;     /* accent as text on white/tints, 7.7:1 */
+  --primary-soft: #15785a;     /* accent as text on white/tints */
   --accent: #3b3f45;           /* secondary emphasis — neutral charcoal, never a glow, never blue */
   --accent-foreground: #ffffff;
   --accent-soft: #3b3f45;
@@ -26,28 +26,28 @@
   --danger: #b91c1c;           /* 6.5:1 on white; used sparingly for negative deltas/errors */
   --danger-foreground: #ffffff;
   --danger-soft: #991b1b;
-  --ring: #0AC985;
-  /* B Capital brand green — brand_tokens.primary of the B Capital row in the brand matrix / compendium (#0AC985, evidence tier Verified).
-     --brand-green-ink is the AA-safe text variant on white (4.6:1); --brand-green-soft is the 10% tint for hover washes. */
-  --brand-green: #0AC985;
-  --brand-green-ink: #047857;
-  --brand-green-soft: #E6FAF3;
-  --brand-green-strong: #089A66;
+  --ring: #1a9c6b;
+  /* B Capital brand green — #1a9c6b.
+     --brand-green-ink is the AA-safe text variant on white (#15785a); --brand-green-soft is the pale tint (#e8f6f0). */
+  --brand-green: #1a9c6b;
+  --brand-green-ink: #15785a;
+  --brand-green-soft: #e8f6f0;
+  --brand-green-strong: #15785a;
   --radius: 0.5rem;
-  --chart-1: #202327; --chart-2: #6e7277; --chart-3: #9ea2a8; --chart-4: #0AC985; --chart-5: #b91c1c; --chart-6: #c9ccd1;
+  --chart-1: #202327; --chart-2: #6e7277; --chart-3: #9ea2a8; --chart-4: #1a9c6b; --chart-5: #b91c1c; --chart-6: #c9ccd1;
   --sentiment-neg: #b91c1c; --sentiment-neu: #6e7277; --sentiment-pos: #202327;
 }
 
 /* a18 sector tokens */
 /* Sector colour tokens — mirrored by web/src/lib/sector-color.ts (SECTOR_PALETTE / sectorColor()). Hue-audited: no hue in 190–260°.
    Each triple = fill · ink (text on white ≥4.5:1) · soft (tint; ink on soft ≥4.5:1):
-   emerald #0AC985 · #047857 (5.5:1) · #E6FAF3 (5.1:1)   plum  #A21CAF · #701A75 (10.0:1) · #FAE8FF (8.6:1)
+   emerald #1a9c6b · #15785a (4.8:1) · #e8f6f0 (4.5:1)   plum  #A21CAF · #701A75 (10.0:1) · #FAE8FF (8.6:1)
    amber   #F59E0B · #92400E (7.1:1) · #FEF3C7 (6.4:1)   coral #F97316 · #9A3412 (7.3:1)  · #FFEDD5 (6.4:1)
    teal    #0D9488 · #115E59 (7.6:1) · #CCFBF1 (6.7:1)   olive #65A30D · #3F6212 (7.1:1)  · #ECFCCB (6.5:1)
    rose    #E11D48 · #9F1239 (8.0:1) · #FFE4E6 (6.7:1)   slate #78716C · #44403C (10.3:1) · #F5F5F4 (9.4:1) */
 :root {
   /* swatches (also the fallback pool for unknown sectors) */
-  --sector-emerald: #0AC985; --sector-emerald-ink: #047857; --sector-emerald-soft: #E6FAF3;
+  --sector-emerald: #1a9c6b; --sector-emerald-ink: #15785a; --sector-emerald-soft: #e8f6f0;
   --sector-plum:    #A21CAF; --sector-plum-ink:    #701A75; --sector-plum-soft:    #FAE8FF;
   --sector-amber:   #F59E0B; --sector-amber-ink:   #92400E; --sector-amber-soft:   #FEF3C7;
   --sector-coral:   #F97316; --sector-coral-ink:   #9A3412; --sector-coral-soft:   #FFEDD5;
@@ -93,14 +93,49 @@
 .chip-sector[data-sector-slug="rose"]    { --_fill: var(--sector-rose);    --_ink: var(--sector-rose-ink);    --_soft: var(--sector-rose-soft); }
 .chip-sector[data-sector-slug="slate"], .chip-sector[data-sector-slug="other"] { --_fill: var(--sector-slate); --_ink: var(--sector-slate-ink); --_soft: var(--sector-slate-soft); }
 /* end a18 */
-/* a21 spacing scale */
+/* Documented Design Tokens Scale (A7) */
 :root {
-  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
-  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Radii scale */
+  --radius-sm: 6px;
+  --radius-md: 10px;
   --radius-card: 12px;
-  --shadow-card: 0 1px 2px #1F29370d;
-  --shadow-card-hover: 0 8px 24px -12px #1F293733;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  /* Shadows scale */
+  --shadow-1: 0 1px 2px rgba(22, 24, 27, 0.06);
+  --shadow-2: 0 4px 12px -6px rgba(22, 24, 27, 0.18);
+  --shadow-card: var(--shadow-1);
+  --shadow-card-hover: var(--shadow-2);
+
+  /* Typography scale (font-size and line-height pairs as separate vars) */
+  --text-xs: 12px;
+  --text-xs-lh: 16px;
+  --text-sm: 14px;
+  --text-sm-lh: 20px;
+  --text-base: 15px;
+  --text-base-lh: 22px;
+  --text-lg: 18px;
+  --text-lg-lh: 26px;
+  --text-xl: 22px;
+  --text-xl-lh: 28px;
+  --text-2xl: 28px;
+  --text-2xl-lh: 34px;
+
+  /* Monospace font size */
+  --font-mono-size: 12.5px;
+
+  /* Motion */
   --motion-fast: 150ms;
-  --motion-ease: cubic-bezier(.2,.8,.2,1);
+  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-/* end a21 */

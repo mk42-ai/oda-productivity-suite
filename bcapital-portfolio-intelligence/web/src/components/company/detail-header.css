@@ -27,8 +27,8 @@
   .dh-source { margin-left: 0; width: 100%; }
 }
 
-/* Funding timeline — sector-tinted dots and rail (a30) */
-.ft-list { position: relative; margin-left: 0.75rem; border-left: 2px solid color-mix(in srgb, var(--dh-sector, #78716c) 35%, var(--border)); }
+/* Funding timeline — neutral dots and rail */
+.ft-list { position: relative; margin-left: 0.75rem; border-left: 2px solid var(--border-strong, #c9ccd1); }
 .ft-item { position: relative; margin-bottom: 1.25rem; margin-left: 1.25rem; }
-.ft-dot { position: absolute; left: calc(-1.25rem - 11px); top: 2px; display: grid; width: 20px; height: 20px; place-items: center; border-radius: 9999px; border: 2px solid #fff; background: var(--dh-sector, #78716c); color: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--dh-sector, #78716c) 50%, transparent); }
-.ft-dot.is-passive { background: #fff; color: var(--muted-2); border-color: color-mix(in srgb, var(--dh-sector, #78716c) 60%, var(--border)); box-shadow: none; }
+.ft-dot { position: absolute; left: calc(-1.25rem - 11px); top: 2px; display: grid; width: 20px; height: 20px; place-items: center; border-radius: 9999px; border: 2px solid #fff; background: #34383d; color: #fff; box-shadow: 0 0 0 1px var(--border-strong, #c9ccd1); }
+.ft-dot.is-passive { background: #fff; color: var(--muted-2); border-color: var(--border-strong, #c9ccd1); box-shadow: none; }

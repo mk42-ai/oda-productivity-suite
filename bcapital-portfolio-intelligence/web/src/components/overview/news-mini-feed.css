@@ -19,7 +19,7 @@
 .nmf-chip--fallback { color: var(--muted, #5c6168); border: 1px solid var(--border, #e4e6e9); }
 .nmf-row__pub { grid-area: pub; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted-2, #4b4f55); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .nmf-row__title { grid-area: title; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.nmf-row__link { color: #1f2937; font-weight: 500; text-decoration: none; }
+.nmf-row__link { color: #1f2937; font-weight: 500; text-decoration: none; display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 a.nmf-row__link:hover, a.nmf-row__link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 .nmf-row__co { grid-area: co; font-size: 0.75rem; color: var(--muted, #5c6168); white-space: nowrap; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--border-strong, #c9ccd1); }
 .nmf-row__co:hover, .nmf-row__co:focus-visible { color: #1f2937; text-decoration-color: currentColor; }

@@ -158,10 +158,10 @@
 .art-pdf-caption { font-size: 11px; color: #6B7280; font-variant-numeric: tabular-nums; }
 .art-pdf-more { margin: 0; text-align: center; padding: 4px 0 8px; }
 .art-pdf-skeleton { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px 0; }
-.art-pdf-skeleton-page { width: 100%; max-width: 420px; aspect-ratio: 1 / 1.294; border-radius: 4px; background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%); background-size: 200% 100%; animation: art-shimmer 1.2s linear infinite; border: 1px solid #E5E7EB; }
+.art-pdf-skeleton-page { width: 100%; max-width: 420px; aspect-ratio: 1 / 1.294; border-radius: 4px; background: var(--surface-2, #F3F4F6); border: 1px solid #E5E7EB; }
 .art-pdf-skeleton-page.is-short { aspect-ratio: 1 / .4; }
 @keyframes art-shimmer { to { background-position: -200% 0; } }
-@media (prefers-reduced-motion: reduce) { .art-pdf-skeleton-page { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .art-pdf-skeleton-page { width: 100%; max-width: 420px; aspect-ratio: 1 / 1.294; border-radius: 4px; background: var(--surface-2, #F3F4F6); border: 1px solid #E5E7EB; } }
 .art-pdf-fallback { background: #FFFFFF; margin: 8px; }
 .art-pdf-fallback-title { font-size: 14px; color: #1F2937; word-break: break-word; max-width: 100%; }
 .art-pdf-fallback-actions { justify-content: center; margin: 0; }

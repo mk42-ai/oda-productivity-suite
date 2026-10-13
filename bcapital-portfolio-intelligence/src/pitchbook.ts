@@ -277,7 +277,7 @@ export function salvageRecords(text: string): { records: any[]; complete_json: b
     let depth = 0, inStr = false, esc = false, end = -1;
     for (let c = 0; c < seg.length; c++) { const ch = seg[c]; if (inStr) { if (esc) esc = false; else if (ch === "\\") esc = true; else if (ch === '"') inStr = false; continue; } if (ch === '"') inStr = true; else if (ch === "{") depth++; else if (ch === "}") { depth--; if (depth === 0) { end = c; break; } } }
     if (end < 0) { truncated++; continue; }
-    try { const r = JSON.parse(seg.slice(0, end + 1)); if (r && r.slug && r.investors) records.push(r); else truncated++; } catch { truncated++; }
+    try { const r = JSON.parse(seg.slice(0, end + 1)); if (r && r.slug && (r.investors || r.fields)) records.push(r); else truncated++; } catch { truncated++; }
   }
   return { records, complete_json: false, truncated, workflow_name: wn ? wn[1] : null };
 }

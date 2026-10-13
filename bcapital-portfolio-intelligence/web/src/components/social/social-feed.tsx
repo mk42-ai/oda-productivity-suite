@@ -105,7 +105,8 @@ type AskSource = { title: string; url: string; domain: string };
 /** Renders model text with safe outbound anchors: markdown [label](url), bare URLs, and numbered [n] markers mapped to the exact
  * Perplexity plugin_sources[n-1] URL. Anything that fails safeExternalUrl (perplexity.ai, search engines, redirect wrappers,
  * internal routes) is rendered as plain text — never substituted with another link. */
-export function LinkedText({ text, sources = [] }: { text: string; sources?: AskSource[] }) {
+export function LinkedText({ text, sources = [] }: { text: string | null | undefined; sources?: AskSource[] }) {
+  if (!text) return null;
   const out: React.ReactNode[] = []; const re = /\[([^\]\n]{1,200})\]\((https?:\/\/[^\s)]+)\)|\[(\d{1,2})\]|(https?:\/\/[^\s<>()\]]+[^\s<>()\].,;:!?'"])/g;
   let last = 0; let m: RegExpExecArray | null; let k = 0;
   while ((m = re.exec(text))) {
@@ -121,39 +122,232 @@ export function LinkedText({ text, sources = [] }: { text: string; sources?: Ask
 }
 
 function AskBSocial({ sector }: { sector: string }) {
-  const [q, setQ] = useState(""); const [busy, setBusy] = useState(false); const [msgs, setMsgs] = useState<{ role: "user" | "bot"; text: string; ms?: number; err?: boolean; sources?: AskSource[] }[]>([]); const [web, setWeb] = useState(false);
-  const sid = useRef<string | null>(null); const box = useRef<HTMLDivElement>(null);
+  const [q, setQ] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [msgs, setMsgs] = useState<{ role: "user" | "bot"; text: string; ms?: number; err?: boolean; sources?: AskSource[]; query?: string }[]>([]);
+  const [web, setWeb] = useState(false);
+  const sid = useRef<string | null>(null);
+  const threadRef = useRef<string>(`bsocial-${Math.random().toString(36).slice(2, 10)}`);
+  const box = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
+
   useEffect(() => { box.current?.scrollTo({ top: box.current.scrollHeight }); }, [msgs]);
-  const ask = useCallback(async (question: string, webOverride?: boolean) => { const useWeb = webOverride ?? web;
-    if (!question.trim() || busy) return; setBusy(true); setQ(""); setMsgs((m) => [...m, { role: "user", text: question }, { role: "bot", text: "" }]);
+
+  const syncHeight = useCallback(() => {
+    const el = textareaRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    const maxH = 6 * 24; // 1 to 6 rows max
+    el.style.height = `${Math.min(el.scrollHeight, maxH)}px`;
+  }, []);
+
+  useEffect(() => {
+    syncHeight();
+  }, [q, syncHeight]);
+
+  const stop = useCallback(() => {
+    if (abortRef.current) {
+      abortRef.current.abort();
+      abortRef.current = null;
+    }
+    setBusy(false);
+  }, []);
+
+  /** Sends through the MAIN chat proxy (POST /api/chat → OnDemand /chat/v1/sessions/{id}/query) with the same bridge, plugins and
+   *  AG-UI streaming the main chat uses. The feed context is passed as systemContext; the session id is kept across turns. */
+  const ask = useCallback(async (question: string, webOverride?: boolean) => {
+    const useWeb = webOverride ?? web;
+    const trimmed = question.trim();
+    if (!trimmed || busy) return;
+    setBusy(true);
+    setQ("");
+    if (textareaRef.current) textareaRef.current.style.height = "auto";
+    setMsgs((m) => [...m, { role: "user", text: trimmed }, { role: "bot", text: "", query: trimmed }]);
+    if (abortRef.current) abortRef.current.abort();
+    const ac = new AbortController();
+    abortRef.current = ac;
+    const t0 = Date.now();
+    const setLast = (patch: Partial<{ text: string; ms: number; err: boolean; sources: AskSource[] }>, append?: string) =>
+      setMsgs((m) => { const n = [...m]; const last = n[n.length - 1]; n[n.length - 1] = { ...last, ...patch, text: append !== undefined ? last.text + append : (patch.text ?? last.text) }; return n; });
+    const fail = (message: string) => setLast({ text: message, err: true });
     try {
-      const r = await fetch("/api/social/ask", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ question, sessionId: useWeb ? null : sid.current, sector: sector || undefined, web: useWeb || undefined }) });
-      if (!r.ok || !r.body) { const j = await r.json().catch(() => ({})) as { message?: string }; setMsgs((m) => { const n = [...m]; n[n.length - 1] = { role: "bot", text: j.message ?? `HTTP ${r.status}`, err: true }; return n; }); return; }
-      const reader = r.body.getReader(); const dec = new TextDecoder(); let buf = "";
-      for (;;) { const { value, done } = await reader.read(); if (done) break; buf += dec.decode(value, { stream: true }); let i: number;
-        while ((i = buf.indexOf("\n\n")) >= 0) { const line = buf.slice(0, i).replace(/^data:\s*/, ""); buf = buf.slice(i + 2);
-          try { const f = JSON.parse(line) as { type: string; text?: string; sessionId?: string; ms?: number; message?: string; items?: AskSource[] };
-            if (f.type === "session" && f.sessionId && !useWeb) sid.current = f.sessionId;
-            if (f.type === "sources" && Array.isArray(f.items)) { const items = f.items; setMsgs((m) => { const n = [...m]; n[n.length - 1] = { ...n[n.length - 1], sources: [...(n[n.length - 1].sources ?? []), ...items] }; return n; }); }
-            if (f.type === "delta" && f.text) setMsgs((m) => { const n = [...m]; const last = n[n.length - 1]; n[n.length - 1] = { ...last, text: last.text + f.text }; return n; });
-            if (f.type === "done") setMsgs((m) => { const n = [...m]; n[n.length - 1] = { ...n[n.length - 1], ms: f.ms }; return n; });
-            if (f.type === "error") setMsgs((m) => { const n = [...m]; n[n.length - 1] = { role: "bot", text: f.message ?? "error", err: true }; return n; });
-          } catch { /* partial */ } } }
-    } finally { setBusy(false); }
+      // Feed context: the latest 25 verified posts for the active sector (native links only), built at ask time.
+      let systemContext = "";
+      try {
+        const fr = await fetch(`/api/social/social-feed?limit=25${sector ? `&sector=${encodeURIComponent(sector)}` : ""}`, { cache: "no-store", signal: ac.signal });
+        const fj = (await fr.json()) as { data?: FeedPost[] };
+        const lines = (fj.data ?? []).map((p) => { const u = canonicalOriginalUrl(p); return `- [${p.posted_at ?? "undated"} · ${p.platform} · ${p.company ?? "portfolio"}] ${p.text.slice(0, 220)}${u ? ` (${u})` : ""}`; });
+        systemContext = `You are "Ask B Social", the assistant inside B Capital's founder network. Answer concisely (≤ 120 words) using the feed context first; say plainly when the context does not cover it. Cite post URLs inline when you use them.\n\nFEED CONTEXT (latest ${lines.length} verified posts${sector ? `, sector ${sector}` : ""}):\n${lines.join("\n")}`;
+      } catch { /* context is best-effort */ }
+      const r = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ threadId: threadRef.current, messages: [{ role: "user", content: trimmed }], context: { sessionId: sid.current ?? undefined, externalUserId: "b-social", systemContext, pluginIds: useWeb ? ["plugin-1722260873"] : [] } }),
+        signal: ac.signal,
+      });
+      const headerSid = r.headers.get("x-ondemand-session"); if (headerSid) sid.current = headerSid;
+      if (!r.ok || !r.body) {
+        const text = await r.text().catch(() => "");
+        let msg = `HTTP ${r.status}`;
+        try { const j = JSON.parse(text); msg = `HTTP ${r.status}: ${j?.error?.message || j?.message || "request failed"}`; } catch { if (text) msg = `HTTP ${r.status}: ${text.slice(0, 160)}`; }
+        fail(msg); return;
+      }
+      const reader = r.body.getReader(); const dec = new TextDecoder(); let buf = ""; let finished = false; let gotText = false;
+      const handle = (line: string) => {
+        const payload = line.replace(/^data:\s*/, "").trim(); if (!payload) return;
+        if (payload === "[DONE]") { finished = true; return; }
+        let f: any; try { f = JSON.parse(payload); } catch { return; }
+        switch (f.type) {
+          case "CUSTOM": {
+            if (f.name === "ondemand.session" && f.value?.sessionId) sid.current = String(f.value.sessionId);
+            if (f.name === "ondemand.sources" && Array.isArray(f.value?.sources)) {
+              const items: AskSource[] = f.value.sources.filter((x: any) => typeof x?.url === "string").map((x: any) => ({ title: String(x.title ?? ""), url: String(x.url), domain: String(x.sourceName ?? x.domain ?? (() => { try { return new URL(x.url).hostname; } catch { return ""; } })()) }));
+              if (items.length) setLast({ sources: items });
+            }
+            if (f.name === "ondemand.error" && f.value?.message && !gotText) fail(String(f.value.message));
+            break;
+          }
+          case "TEXT_MESSAGE_CONTENT": if (typeof f.delta === "string" && f.delta) { gotText = true; setLast({}, f.delta); } break;
+          case "RUN_ERROR": fail(String(f.message ?? "The assistant could not answer.")); finished = true; break;
+          case "RUN_FINISHED": finished = true; break;
+          default: break;
+        }
+      };
+      for (;;) {
+        const { value, done } = await reader.read();
+        if (done) { buf += dec.decode(); if (buf.trim()) handle(buf); break; }
+        buf += dec.decode(value, { stream: true });
+        let nl: number;
+        while ((nl = buf.indexOf("\n")) >= 0) { handle(buf.slice(0, nl).replace(/\r$/, "")); buf = buf.slice(nl + 1); }
+        if (finished) break;
+      }
+      setMsgs((m) => { const n = [...m]; const last = n[n.length - 1]; if (!last.err && !last.text) n[n.length - 1] = { ...last, text: "The assistant returned no answer for this question.", err: true }; else if (!last.err) n[n.length - 1] = { ...last, ms: Date.now() - t0 }; return n; });
+    } catch (err: any) {
+      if (err?.name === "AbortError") return;
+      fail(String(err?.message ?? err));
+    } finally {
+      setBusy(false);
+      abortRef.current = null;
+    }
   }, [busy, sector, web]);
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (!busy && q.trim()) {
+        void ask(q);
+      }
+    }
+  };
+
   // Deep link: /social?ask=<question> asks once on load (same pattern as /chat?q=) — also how a headless browser exercises the Qwen stream.
   const asked = useRef(false);
-  useEffect(() => { if (asked.current) return; const qs = new URLSearchParams(window.location.search); const v = qs.get("ask")?.trim(); if (!v) return; asked.current = true; const w = qs.get("web") === "1"; if (w) setWeb(true); void ask(v.slice(0, 500), w); }, [ask]);
+  useEffect(() => {
+    if (asked.current) return;
+    const qs = new URLSearchParams(window.location.search);
+    const v = qs.get("ask")?.trim();
+    if (!v) return;
+    asked.current = true;
+    const w = qs.get("web") === "1";
+    if (w) setWeb(true);
+    void ask(v.slice(0, 500), w);
+  }, [ask]);
+
+  const panelState = busy
+    ? "streaming"
+    : msgs.length === 0
+    ? "idle"
+    : msgs[msgs.length - 1]?.err
+    ? "error"
+    : "done";
+
   return (
-    <section className="bs-card bs-ask" data-testid="ask-b-social" aria-label="Ask B Social">
-      <h2 className="bs-card__title"><Sparkles className="size-4" aria-hidden /> Ask B Social <span className="bs-ask__model">Cerebras Qwen 3.8</span></h2>
+    <section className="bs-card bs-ask" data-testid="ask-b-social" aria-label="Ask B Social" data-state={panelState}>
+      <h2 className="bs-card__title"><Sparkles className="size-4" aria-hidden /> Ask B Social <span className="bs-ask__model">B Capital agent</span></h2>
       <div className="bs-ask__log" ref={box} data-testid="ask-log" aria-live="polite">
         {msgs.length === 0 && <p className="bs-ask__hint">Ask about anything in the feed — e.g. “Which fintech companies raised this year?”</p>}
-        {msgs.map((m, i) => <p key={i} className={`bs-ask__msg bs-ask__msg--${m.role}${m.err ? " bs-ask__msg--err" : ""}`} data-testid={m.role === "bot" ? "ask-reply" : "ask-question"}>{m.text ? (m.role === "bot" && !m.err ? <LinkedText text={m.text} sources={m.sources} /> : m.text) : (busy && i === msgs.length - 1 ? <Loader2 className="size-4 oiu-spin" aria-label="streaming" /> : "")}{m.ms ? <span className="bs-ask__ms"> · {(m.ms / 1000).toFixed(1)} s</span> : null}{m.role === "bot" && m.sources && m.sources.length > 0 && <span className="bs-ask__sources" data-testid="ask-sources">{m.sources.map((src, j) => { const u = safeExternalUrl(src.url); return u ? <a key={j} href={u} target="_blank" rel="noopener noreferrer" onClick={stopOutbound} data-testid="ask-source-link" data-n={j + 1}>[{j + 1}] {src.domain || new URL(u).hostname}</a> : <span key={j} data-testid="ask-source-unavailable">[{j + 1}] Original source unavailable</span>; })}</span>}</p>)}
+        {msgs.map((m, i) => (
+          <div key={i} className={`bs-ask__msg bs-ask__msg--${m.role}${m.err ? " bs-ask__msg--err" : ""}`} role={m.err ? "alert" : undefined} data-testid={m.role === "bot" ? "ask-reply" : "ask-question"}>
+            {m.role === "bot" ? (
+              m.err ? (
+                <div>
+                  <span>{m.text}</span>
+                  <div>
+                    <button
+                      type="button"
+                      className="bs-ask__retry"
+                      data-testid="ask-retry"
+                      onClick={() => void ask(m.query || "")}
+                    >
+                      Retry
+                    </button>
+                  </div>
+                </div>
+              ) : m.text ? (
+                <LinkedText text={m.text} sources={m.sources} />
+              ) : busy && i === msgs.length - 1 ? (
+                <span className="bs-ask__thinking" data-testid="ask-thinking">
+                  <Loader2 className="size-4 oiu-spin" aria-label="streaming" /> Thinking…
+                </span>
+              ) : null
+            ) : (
+              m.text
+            )}
+            {m.ms ? <span className="bs-ask__ms"> · {(m.ms / 1000).toFixed(1)} s</span> : null}
+            {m.role === "bot" && m.sources && m.sources.length > 0 && (
+              <ol className="bs-ask__sources" data-testid="ask-sources">
+                {m.sources.map((src, j) => {
+                  const u = safeExternalUrl(src.url);
+                  const domain = src.domain || (u ? new URL(u).hostname : "");
+                  const label = src.title || domain || (u ? `Source ${j + 1}` : "Source");
+                  return (
+                    <li key={j} value={j + 1}>
+                      {u ? (
+                        <a
+                          href={u}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={stopOutbound}
+                          data-testid="ask-source-link"
+                          data-n={j + 1}
+                        >
+                          [{j + 1}] {label}
+                        </a>
+                      ) : (
+                        <span data-testid="ask-source-unavailable">[{j + 1}] Original source unavailable</span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
+          </div>
+        ))}
       </div>
       <label className="bs-ask__web"><input type="checkbox" checked={web} onChange={(e) => setWeb(e.target.checked)} data-testid="ask-web-toggle" /> Include web sources (Perplexity, cited)</label>
-      <form className="bs-ask__form" onSubmit={(e) => { e.preventDefault(); void ask(q); }}>
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask B Social…" aria-label="Ask B Social" data-testid="ask-input" disabled={busy} />
+      <form className="bs-ask__form" onSubmit={(e) => { e.preventDefault(); if (!busy && q.trim()) void ask(q); }}>
+        <textarea
+          ref={textareaRef}
+          value={q}
+          rows={1}
+          onChange={(e) => setQ(e.target.value)}
+          onKeyDown={onKeyDown}
+          placeholder="Ask B Social…"
+          aria-label="Ask B Social"
+          data-testid="ask-input"
+        />
+        {busy && (
+          <button
+            type="button"
+            className="bs-ask__stop"
+            onClick={stop}
+            aria-label="Stop"
+            data-testid="ask-stop"
+          >
+            Stop
+          </button>
+        )}
         <button type="submit" disabled={busy || !q.trim()} aria-label="Send" data-testid="ask-send"><Send className="size-4" aria-hidden /></button>
       </form>
     </section>
@@ -209,13 +403,13 @@ export function SocialFeed({ initial, total, counts, suggestions, stories, unava
         <p className="bs-source-note">{total ? "Every post links to its original native post. Verified posts come first; restored posts without a provider receipt carry an “Unverified source” badge." : "No social posts are available."} {excluded > 0 && `${excluded.toLocaleString()} legacy web, news, company or profile records stay excluded, not deleted.`} {dataState === "unavailable" && "The live feed is unavailable; no unverified fallback is displayed."}</p>
         <ul>{providers.map((provider) => <li key={provider.platform} data-provider={provider.platform} data-status={provider.status} data-count={byPlatform[provider.platform] ?? 0} data-verified={split[provider.platform]?.verified ?? 0} data-unverified={split[provider.platform]?.unverified ?? 0}><strong>{provider.label}</strong><span>{provider.status.replace(/_/g, " ")} · {(split[provider.platform]?.verified ?? 0).toLocaleString()} verified · {(split[provider.platform]?.unverified ?? 0).toLocaleString()} unverified</span><p>{provider.reason}</p></li>)}</ul>
       </section>
-      <nav className="bs-tabs" aria-label="Social providers" data-testid="bs-provider-tabs"><button type="button" aria-pressed={!platform} onClick={() => { setPlatform(""); void load(sector, 0, ""); }}>All sources</button>{[...Object.entries(SOCIAL_PROVIDERS).map(([k, v]) => [k, v.label] as const), ["linkedin", "LinkedIn"] as const, ["tiktok", "TikTok"] as const].filter(([key]) => (byPlatform[key] ?? 0) > 0).map(([key, label]) => <button key={key} type="button" data-provider={key} data-testid="bs-provider-tab" aria-pressed={platform === key} onClick={() => { setPlatform(key); void load(sector, 0, key); }}>{label}{split[key] && !split[key].verified ? " (unverified)" : ""} <span>{(byPlatform[key] ?? 0).toLocaleString()}</span></button>)}</nav>
+      <nav className="bs-tabs" aria-label="Social providers" data-testid="bs-provider-tabs"><button type="button" aria-pressed={!platform} onClick={() => { setPlatform(""); void load(sector, 0, ""); }}>All sources</button>{[...Object.entries(SOCIAL_PROVIDERS).map(([k, v]) => [k, v.label] as const), ["linkedin", "LinkedIn"] as const].filter(([key]) => key !== "tiktok" && (byPlatform[key] ?? 0) > 0).map(([key, label]) => <button key={key} type="button" data-provider={key} data-testid="bs-provider-tab" aria-pressed={platform === key} onClick={() => { setPlatform(key); void load(sector, 0, key); }}>{label}{split[key] && !split[key].verified ? " (unverified)" : ""} <span>{(byPlatform[key] ?? 0).toLocaleString()}</span></button>)}</nav>
       <section className="bs-stories" aria-label="Founders" data-testid="bs-stories">
         {stories.map((s) => <Link key={s.id} href={`/social/people/${encodeURIComponent(s.id)}`} className="bs-story" title={`${s.name} · ${s.company}`}><Avatar name={s.name} sector={s.sector} size={58} /><span>{s.name.split(" ")[0]}</span><small>{s.company}</small></Link>)}
       </section>
       <nav className="bs-tabs" aria-label="Sectors" data-testid="bs-sector-tabs">
-        <button type="button" aria-pressed={!sector} onClick={() => pickSector("")} style={{ "--bs-from": "#16181b", "--bs-to": "#4b4f55" } as CSSProperties}>All <span>{total}</span></button>
-        {SECTOR_KEYS.map((k) => { const t = SECTOR_THEMES[k]; return <button key={k} type="button" aria-pressed={sector === k} data-sector={k} data-testid="bs-sector-tab" onClick={() => pickSector(k)} style={{ "--bs-from": t.from, "--bs-to": t.to } as CSSProperties}>{t.label} <span>{counts[k] ?? 0}</span></button>; })}
+        <button type="button" aria-pressed={!sector} onClick={() => pickSector("")}>All <span>{total}</span></button>
+        {SECTOR_KEYS.map((k) => { const t = SECTOR_THEMES[k]; return <button key={k} type="button" aria-pressed={sector === k} data-sector={k} data-testid="bs-sector-tab" onClick={() => pickSector(k)}>{t.label} <span>{counts[k] ?? 0}</span></button>; })}
       </nav>
       <div className="bs-cols">
         <div className="bs-feed" data-testid="social-feed" data-total={tot}>

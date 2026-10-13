@@ -20,11 +20,14 @@
     gap: 12px;
     align-items: center;
   }
-  [data-accent-source] > header > div > div:first-child {
+  /* Logo tile only (the previous `> div > div:first-child` selector also matched .dh-top and squeezed the whole header to 56px). */
+  [data-accent-source] > header .dh-logo {
     width: 56px;
     height: 56px;
     padding: 6px;
   }
+  [data-accent-source] > header .dh-top { width: 100%; min-width: 0; }
+  [data-accent-source] > header .dh-title { min-width: 0; flex: 1 1 12rem; }
   [data-accent-source] > header h1 {
     font-size: 24px;
     line-height: 1.15;
