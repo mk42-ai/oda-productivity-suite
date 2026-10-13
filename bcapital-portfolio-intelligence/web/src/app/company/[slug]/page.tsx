@@ -12,6 +12,7 @@ import { SignalPanel } from "@/components/company/signal-panel";
 import { PitchbookPanel } from "@/components/company/pitchbook-panel";
 import { PitchbookProfile } from "@/components/company/pitchbook-profile";
 import { getPitchbookProfile } from "@/lib/pitchbook-profile";
+import { getPitchbookStoreProfile } from "@/lib/pitchbook-store";
 import { EstimateBadge } from "@/components/overview/estimate-badge";
 import { StatusChips } from "@/components/overview/status-chips";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -34,7 +35,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const c = await getCompany(slug); if (!c.data) notFound();
   const company = c.data;
-  const [news, sent, sig, pbProfile] = await Promise.all([getNews(company.slug), getSentiment(company.slug), getSignal(company.slug), getPitchbookProfile(company.slug, company.name)]);
+  const [news, sent, sig, pbProfile, pbStore] = await Promise.all([getNews(company.slug), getSentiment(company.slug), getSignal(company.slug), getPitchbookProfile(company.slug, company.name), getPitchbookStoreProfile(company.slug)]);
   const wf = workflows.workflows.find((w) => w.id === sent.data?.history?.find((h) => h.workflow_id)?.workflow_id) ?? (company.is_focus ? workflows.workflows[0] : null);
   const lastScored = sent.data?.history?.find((h) => h.model && h.model !== "seed");
   return (
@@ -64,7 +65,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
 
       <div className="mt-5 grid gap-5 lg:grid-cols-2">
         <Card><CardHeader><CardTitle>Signal Score &amp; sentiment timeline</CardTitle><CardDescription>Evidence-weighted Signal Score (0–100, z within portfolio + sector) above the daily {workflows.model} sentiment from LinkedIn, Reddit, X and news evidence</CardDescription></CardHeader><CardContent className="space-y-5">{sig.data ? <SignalPanel s={sig.data.data} bands={sig.data.bands} name={company.name} /> : <p className="text-sm text-muted">Signal Score unavailable (backend offline — no snapshot yet).</p>}{sent.data ? <div className="border-t border-border pt-4"><SentimentPanel s={sent.data} /></div> : <p className="text-sm text-muted">No sentiment yet.</p>}</CardContent></Card>
-        <Card data-testid="pitchbook-card"><CardHeader><CardTitle>PitchBook</CardTitle><CardDescription>Synced from the PitchBook store · monthly sync (1st of each month, 06:00 UTC) · missing values read “Not available in PitchBook”</CardDescription></CardHeader><CardContent className="space-y-4"><PitchbookPanel company={company} /><PitchbookProfile profile={pbProfile} slug={company.slug} name={company.name} /></CardContent></Card>
+        <Card data-testid="pitchbook-card"><CardHeader><CardTitle>PitchBook</CardTitle><CardDescription>Synced from the PitchBook store · monthly sync (1st of each month, 06:00 UTC) · missing values read “Not available in PitchBook”</CardDescription></CardHeader><CardContent className="space-y-4"><PitchbookPanel company={company} /><PitchbookProfile profile={pbProfile} slug={company.slug} name={company.name} store={pbStore} /></CardContent></Card>
         <Card><CardHeader><CardTitle>Funding timeline</CardTitle><CardDescription>PitchBook-style: round · date · amount · post-money · lead · B Capital participation</CardDescription></CardHeader><CardContent><FundingTimeline company={company} /></CardContent></Card>
       </div>
 

@@ -12,6 +12,8 @@ import { enrichShard, getProfile, profileCoverage, enrichCompany, ENRICH_PLUGINS
 import { refreshCompanies, lastRefreshRun, getRefreshState } from "./refresh.js";
 import { readProfileStoreLive, getProfileLive, coverageOf } from "./pitchbook-profile.js";
 import { applySync, listRuns as listPbSyncRuns, readAllProfiles as readAllPbProfiles, type IncomingRecord } from "./persist/pitchbook-store.js";
+import { storeIndex as pbStoreIndex, storeDetail as pbStoreDetail, storeQueries as pbStoreQueries, latestBatch as pbLatestBatch } from "./pitchbook-store-api.js";
+import { startMonthlySync, monthlySync, buildTargets as pbBuildTargets } from "./pitchbook-batch.js";
 import { backupPitchbookStore, listPitchbookBackups } from "./persist/pitchbook-backup.js";
 import { fetchPitchbook, pitchbookShard, getPitchbookRecord, listPitchbookRecords, writePitchbookRecord, normaliseIncomingRecord, salvageRecords, applyEnrichment, nextMondayUtc, PITCHBOOK_PLUGIN_ID, PITCHBOOK_SOURCE } from "./pitchbook.js";
 import { ONDEMAND_USER_AGENT } from "./config.js";
@@ -497,6 +499,23 @@ inner.get("/pitchbook/profile/:slug", async (c) => {
   return c.json({ company: row.slug, name: row.name, profile: hit.profile, store: hit.store, coverage: store.coverage, synced_at: hit.profile.synced_at ?? store.synced_at, next_sync_utc: "1st of each month 06:00 UTC", timestamp: nowIso() });
 });
 /** Monthly workflow target (X-Ingest-Secret / basic auth / ?secret=). Body: {records:[{slug, fields, source_url, fetched_at, availability}]} or {action:"resync-from-store"}. Upserts, recomputes availability, logs the run, schedules a Media snapshot. */
+/** PitchBook batch store (2026-10-13): one documented OnDemand single query per company against plugin-1777018662 getCompanyProfile,
+ *  persisted with batch/query ids and per-field provenance. Read-only; the pull runs server-side (scripts/pitchbook/run-batch.ts). */
+inner.get("/pitchbook/store", async (c) => c.json({ ...(await pbStoreIndex()), timestamp: nowIso() }));
+inner.get("/pitchbook/store/batch", async (c) => { const b = await pbLatestBatch(); return b ? c.json({ ...b, timestamp: nowIso() }) : err(c, 404, "not_found", "no PitchBook batch run recorded"); });
+inner.get("/pitchbook/store/queries", async (c) => c.json({ ...(await pbStoreQueries(c.req.query("batch_id") || undefined)), timestamp: nowIso() }));
+inner.get("/pitchbook/store/:slug", async (c) => { const d = await pbStoreDetail(c.req.param("slug")); return d ? c.json({ ...d, timestamp: nowIso() }) : err(c, 404, "not_found", `No company with slug '${c.req.param("slug")}'`); });
+/** Monthly sync entry point for the Flow Builder workflow "B Capital Monthly PitchBook Sync" (webhook delivery → here; Basic auth password = INGEST_SECRET).
+ *  Runs steps a–e server-side (dedupe → documented single-query batch pull → latest-first upsert → verified Media snapshot → counts log) and answers 202 at once. */
+inner.post("/pitchbook/batch/webhook", async (c) => {
+  const denied = requireIngestSecret(c); if (denied) return denied;
+  let body: any = {}; try { body = await c.req.json(); } catch { /* Flow Builder posts the node output; optional */ }
+  const opts = { slugs: Array.isArray(body?.slugs) ? body.slugs.map(String) : undefined, limit: Number(body?.limit) || undefined };
+  const r = startMonthlySync(String(body?.trigger ?? "flow-builder-webhook"), opts);
+  return c.json({ status: r.accepted ? "accepted" : r.reason, started_at: r.started_at, batch_id: monthlySync.batch_id, portfolio_targets: pbBuildTargets().length, timestamp: nowIso() }, r.accepted ? 202 : 409);
+});
+/** Public, non-secret status + log of the last monthly sync run in this process. */
+inner.get("/pitchbook/batch/status", async (c) => c.json({ ...monthlySync, portfolio_targets: pbBuildTargets().length, latest_batch: await pbLatestBatch(), timestamp: nowIso() }));
 inner.post("/pitchbook/sync/webhook", async (c) => {
   const denied = requireIngestSecret(c); if (denied) return denied;
   const raw = await c.req.text(); let body: any = extractJson(raw);

@@ -6,6 +6,7 @@ import { PageFrame } from "./page-frame";
 import { CommandK } from "./command-k";
 import { ArtifactsPanel } from "@/components/artifacts/artifacts-panel";
 import { SidePaneOutsideChat } from "@/components/media/side-pane-outside-chat";
+import { PitchbookDock } from "@/components/pitchbook/pitchbook-dock";
 
 /**
  * App frame: ONE primary rail (NavRail, ≤224 px, collapses to icons) + the main column. The window stays the scroll container for
@@ -22,6 +23,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <OnboardingGate />
       <ArtifactsPanel />
       <SidePaneOutsideChat />
+      <PitchbookDock />
       <CommandK />
     </div>
   );

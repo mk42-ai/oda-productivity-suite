@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, type KeyboardEvent } from "react";
+import { useCallback, useEffect, useState, type KeyboardEvent } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { MessageSquarePlus } from "lucide-react";
 import { fmtUsd } from "@/lib/format";
@@ -24,12 +25,50 @@ import {
   type ContextChip,
 } from "@/components/chat/open-intelligent-ui/context-chips";
 import "./pitchbook-profile.css";
+import type { PbStoreCompanyDetail } from "@/lib/pitchbook-store-types";
+import { PbStoreSections } from "@/components/pitchbook/pitchbook-sidebar";
+import { usePbAskInChat } from "@/components/pitchbook/field-rows";
 
 export type PitchbookProfileProps = {
   profile: PbProfile | null;
   slug: string;
   name: string;
+  /** Batch-store detail from getPitchbookStoreProfile(slug); when absent the card fetches it client-side and falls through when empty. */
+  store?: PbStoreCompanyDetail | null;
 };
+
+/** "PitchBook (batch pull)" block — renders Summary / Deals / Investors (first 8 rows) from the batch store when present. */
+function PitchbookStoreBlock({ slug, name, store }: { slug: string; name: string; store?: PbStoreCompanyDetail | null }) {
+  const ask = usePbAskInChat();
+  const [detail, setDetail] = useState<PbStoreCompanyDetail | null | undefined>(store);
+  useEffect(() => {
+    if (store !== undefined) { setDetail(store); return; }
+    let alive = true;
+    fetch(`/pitchbook/store/${encodeURIComponent(slug)}`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null)
+      .then((d: PbStoreCompanyDetail | null) => { if (alive) setDetail(d && d.slug ? d : null); });
+    return () => { alive = false; };
+  }, [slug, store]);
+  if (!detail || detail.state === "pending") return null;
+  const unmatched = detail.state === "Unmatched in PitchBook" || !detail.profile;
+  return (
+    <section className="pb-profile-container pbs-company-store" data-testid="pb-store-section" data-slug={slug} data-state={unmatched ? "Unmatched in PitchBook" : "populated"}>
+      <header className="pb-profile-header">
+        <span className="font-semibold text-foreground">PitchBook (batch pull)</span>
+        <span className="pbs-muted" style={{ marginLeft: 8 }} data-testid="pb-store-provenance">pitchbook · batch {detail.batch_id ?? "—"} · fetched {detail.fetched_at ?? "—"}</span>
+        <Link href={`/pitchbook?slug=${encodeURIComponent(slug)}`} className="underline" style={{ marginLeft: 8, fontSize: 12 }} data-testid="pb-store-link">Open full profile →</Link>
+      </header>
+      {unmatched ? (
+        <div className="pbs-unmatched" data-testid="pb-unmatched">
+          <strong>Unmatched in PitchBook</strong>
+          <span className="pbs-muted">The batch query for {detail.name || name} returned no PitchBook company record (lookup by {detail.pb_id ? `PitchBook ID ${detail.pb_id}` : "name + website domain"}; retries exhausted). Nothing is inferred.</span>
+        </div>
+      ) : (
+        <PbStoreSections company={detail.name || name} profile={detail.profile!} ask={ask} only={["summary", "deals", "investors"]} limit={8} />
+      )}
+    </section>
+  );
+}
 
 export const ymd = (iso: string | null | undefined): string | null => {
   if (!iso) return null;
@@ -386,13 +425,15 @@ function FieldRow({
   );
 }
 
-export function PitchbookProfile({ profile, slug, name }: PitchbookProfileProps) {
+export function PitchbookProfile({ profile, slug, name, store }: PitchbookProfileProps) {
   const ask = useAskInChat();
   const companyName = profile?.name || name;
   const syncedDate = profile?.synced_at ? (ymd(profile.synced_at) ?? profile.synced_at) : "—";
   const nextSync = "1st of each month 06:00 UTC";
 
   return (
+    <>
+    <PitchbookStoreBlock slug={slug} name={name} store={store} />
     <section className="pb-profile-container" data-testid="pb-profile-section" data-slug={slug}>
       <header className="pb-profile-header" data-testid="pb-profile-header">
         <span className="font-semibold text-foreground">
@@ -438,5 +479,6 @@ export function PitchbookProfile({ profile, slug, name }: PitchbookProfileProps)
         </div>
       )}
     </section>
+    </>
   );
 }

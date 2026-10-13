@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Archive, Building2, Command, LayoutDashboard, MessageSquare, Newspaper, Search } from "lucide-react";
+import { Archive, Building2, Command, LayoutDashboard, MessageSquare, Newspaper, Search, Landmark } from "lucide-react";
 import { resolveLogo } from "@/lib/local-logos";
 import "./command-k.css";
 
@@ -16,6 +16,7 @@ const QUICK: QuickRoute[] = [
   { href: "/companies", label: "Companies", icon: Building2 },
   { href: "/news", label: "News Pulse", icon: Newspaper },
   { href: "/chat", label: "Chat", icon: MessageSquare },
+  { href: "/pitchbook", label: "PitchBook", icon: Landmark },
   { href: "/artifacts", label: "Artifacts", icon: Archive },
 ];
 

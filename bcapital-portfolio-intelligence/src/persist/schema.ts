@@ -40,7 +40,20 @@ export const pitchbookSyncRuns = sqliteTable("pitchbook_sync_runs", {
 });
 
 /** Copy order for snapshot import/export (also the per-table row-count report). */
-export const PERSIST_TABLES = ["posts", "takeaways", "companies", "people", "sectors", "sources", "worker_runs", "ingestion_receipts", "backups", "meta", "pitchbook_profiles", "pitchbook_sync_runs"] as const;
+export const pitchbookBatchRuns = sqliteTable("pitchbook_batch_runs", {
+  batch_id: text("batch_id").primaryKey(), status: text("status").notNull(), method: text("method").notNull(), endpoint_id: text("endpoint_id"), plugin_id: text("plugin_id"),
+  submitted_at: text("submitted_at").notNull(), completed_at: text("completed_at"), total: integer("total"), succeeded: integer("succeeded"), failed: integer("failed"), retried: integer("retried"), unmatched: integer("unmatched"), notes_json: text("notes_json"),
+});
+export const pitchbookBatchQueries = sqliteTable("pitchbook_batch_queries", {
+  query_id: text("query_id").primaryKey(), batch_id: text("batch_id").notNull(), slug: text("slug").notNull(), pb_id: text("pb_id"), lookup: text("lookup"), session_id: text("session_id"), message_id: text("message_id"),
+  status: text("status").notNull(), attempt: integer("attempt").notNull(), submitted_at: text("submitted_at").notNull(), completed_at: text("completed_at"), http_status: integer("http_status"), error: text("error"), answer_chars: integer("answer_chars"),
+}, (t) => [index("pbq_batch").on(t.batch_id), index("pbq_slug").on(t.slug)]);
+export const pitchbookCompanyProfiles = sqliteTable("pitchbook_company_profiles", {
+  slug: text("slug").primaryKey(), pb_id: text("pb_id"), state: text("state").notNull(), batch_id: text("batch_id"), query_id: text("query_id"), fetched_at: text("fetched_at").notNull(),
+  profile_json: text("profile_json").notNull(), raw_json: text("raw_json"), fields_populated: integer("fields_populated"), fields_unavailable: integer("fields_unavailable"),
+});
+
+export const PERSIST_TABLES = ["posts", "takeaways", "companies", "people", "sectors", "sources", "worker_runs", "ingestion_receipts", "backups", "meta", "pitchbook_profiles", "pitchbook_sync_runs", "pitchbook_batch_runs", "pitchbook_batch_queries", "pitchbook_company_profiles"] as const;
 export const PRIMARY_KEYS: Record<(typeof PERSIST_TABLES)[number], string[]> = {
-  posts: ["native_id", "platform"], takeaways: ["native_id", "platform"], companies: ["slug"], people: ["id"], sectors: ["key"], sources: ["slug"], worker_runs: ["job_id"], ingestion_receipts: ["receipt_id"], backups: ["media_id"], meta: ["k"], pitchbook_profiles: ["company_id"], pitchbook_sync_runs: ["run_id"],
+  posts: ["native_id", "platform"], takeaways: ["native_id", "platform"], companies: ["slug"], people: ["id"], sectors: ["key"], sources: ["slug"], worker_runs: ["job_id"], ingestion_receipts: ["receipt_id"], backups: ["media_id"], meta: ["k"], pitchbook_profiles: ["company_id"], pitchbook_sync_runs: ["run_id"], pitchbook_batch_runs: ["batch_id"], pitchbook_batch_queries: ["query_id"], pitchbook_company_profiles: ["slug"],
 };

@@ -1,0 +1,40 @@
+{
+  "id": "6acda4fa9a17f57debac8ad5",
+  "name": "B Capital Monthly PitchBook Sync",
+  "schedule": {
+    "cron_6field": "0 0 6 1 * *",
+    "cron_5field": "0 6 1 * *",
+    "human": "1st of each month at 06:00 UTC"
+  },
+  "create_or_patch_status": 201,
+  "created_at_utc": "2026-10-13T03:26:51Z",
+  "activate_status": 200,
+  "activated_at_utc": "2026-10-13T03:26:55Z",
+  "is_active": true,
+  "api_cron": "0 0 6 1 * *",
+  "api_last_modified_utc": "2026-10-13T03:26:50Z",
+  "next_run_utc": "2026-11-01T06:00:00Z",
+  "next_run_source": "computed from the cron (the GET /workflow/{id} response has no next-run field)",
+  "webhook_target": "https://sb-36scqmx8687m.vercel.run/pitchbook/batch/webhook",
+  "email": "mk@airev.ae",
+  "plugin_id": "plugin-1777018662",
+  "model": "predefined-deepseek-flash",
+  "validation_execution": {
+    "execution_id": "6acda5079a17f57debac8ad9",
+    "execute_http": 200,
+    "triggered_at_utc": "2026-10-13T03:27:04Z",
+    "status": "success",
+    "started_at_utc": "2026-10-13T03:27:03Z",
+    "ended_at_utc": "2026-10-13T03:27:12Z",
+    "time_taken_ms": 8546,
+    "log_count": 6,
+    "log_lines": [
+      "2026-10-13T03:27:03.927Z [] starting workflow execution",
+      "2026-10-13T03:27:04.381Z [kickoff] all dependencies satisfied, proceeding to task execution",
+      "2026-10-13T03:27:11.782Z [kickoff] triggering next task execution",
+      "2026-10-13T03:27:11.790Z [kickoff] node task executed successfully in 7417 milliseconds",
+      "2026-10-13T03:27:12.060Z [] workflow execution outputs retrieved",
+      "2026-10-13T03:27:12.452Z [] output delivery completed successfully"
+    ]
+  }
+}
