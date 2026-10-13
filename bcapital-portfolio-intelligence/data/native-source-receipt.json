@@ -1,0 +1,2041 @@
+{
+  "name": "FetchTweetDetails",
+  "pluginId": "plugin-1716326559",
+  "statusCode": 200,
+  "parameters": {
+    "language": "en",
+    "limit": 20,
+    "min_likes": 0,
+    "min_retweets": 0,
+    "query": "\"B Capital\"",
+    "section": "latest"
+  },
+  "response": {
+    "results": [
+      {
+        "binding_values": null,
+        "bookmark_count": 4,
+        "community_note": null,
+        "conversation_id": "2109312008361480673",
+        "creation_date": "Sun Oct 11 15:55:46 +0000 2026",
+        "expanded_url": "https://x.com/FinMinIndia/status/2109312008361480673/photo/1",
+        "expanded_urls": [],
+        "extended_entities": {
+          "media": [
+            {
+              "display_url": "pic.x.com/jCzOModkEa",
+              "expanded_url": "https://x.com/FinMinIndia/status/2109312008361480673/photo/1",
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "features": {
+                "all": {
+                  "tags": [
+                    {
+                      "name": "Nirmala Sitharaman Office",
+                      "screen_name": "nsitharamanoffc",
+                      "type": "user",
+                      "user_id": "912211757363367936"
+                    },
+                    {
+                      "name": "Randhir Jaiswal",
+                      "screen_name": "MEAIndia",
+                      "type": "user",
+                      "user_id": "441636351"
+                    },
+                    {
+                      "name": "India in Singapore",
+                      "screen_name": "HCI_Singapore",
+                      "type": "user",
+                      "user_id": "877337100"
+                    },
+                    {
+                      "name": "Singapore in India",
+                      "screen_name": "SGinIndia",
+                      "type": "user",
+                      "user_id": "1237709641095602177"
+                    },
+                    {
+                      "name": "DD News",
+                      "screen_name": "DDNewslive",
+                      "type": "user",
+                      "user_id": "1100927498"
+                    },
+                    {
+                      "name": "All India Radio News",
+                      "screen_name": "airnewsalerts",
+                      "type": "user",
+                      "user_id": "1056850669"
+                    },
+                    {
+                      "name": "PIB India",
+                      "screen_name": "PIB_India",
+                      "type": "user",
+                      "user_id": "231033118"
+                    },
+                    {
+                      "name": "Ministry of Information and Broadcasting",
+                      "screen_name": "MIB_India",
+                      "type": "user",
+                      "user_id": "920488039"
+                    },
+                    {
+                      "name": "Central Bureau of Communication (CBC)",
+                      "screen_name": "CBC_MIB",
+                      "type": "user",
+                      "user_id": "2586283550"
+                    }
+                  ]
+                },
+                "large": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                }
+              },
+              "id_str": "2109311625631293440",
+              "indices": [
+                284,
+                307
+              ],
+              "media_key": "3_2109311625631293440",
+              "media_url_https": "https://pbs.twimg.com/media/HUXHv3Za4AAE4cl.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 2294,
+                    "w": 4096,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 2839,
+                    "w": 2839,
+                    "x": 1257,
+                    "y": 0
+                  },
+                  {
+                    "h": 2839,
+                    "w": 2490,
+                    "x": 1606,
+                    "y": 0
+                  },
+                  {
+                    "h": 2839,
+                    "w": 1420,
+                    "x": 2666,
+                    "y": 0
+                  },
+                  {
+                    "h": 2839,
+                    "w": 4096,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 2839,
+                "width": 4096
+              },
+              "sizes": {
+                "large": {
+                  "h": 1420,
+                  "resize": "fit",
+                  "w": 2048
+                },
+                "medium": {
+                  "h": 832,
+                  "resize": "fit",
+                  "w": 1200
+                },
+                "small": {
+                  "h": 471,
+                  "resize": "fit",
+                  "w": 680
+                },
+                "thumb": {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/jCzOModkEa"
+            },
+            {
+              "display_url": "pic.x.com/jCzOModkEa",
+              "expanded_url": "https://x.com/FinMinIndia/status/2109312008361480673/photo/1",
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "features": {
+                "all": {
+                  "tags": [
+                    {
+                      "name": "Nirmala Sitharaman Office",
+                      "screen_name": "nsitharamanoffc",
+                      "type": "user",
+                      "user_id": "912211757363367936"
+                    },
+                    {
+                      "name": "Randhir Jaiswal",
+                      "screen_name": "MEAIndia",
+                      "type": "user",
+                      "user_id": "441636351"
+                    },
+                    {
+                      "name": "India in Singapore",
+                      "screen_name": "HCI_Singapore",
+                      "type": "user",
+                      "user_id": "877337100"
+                    },
+                    {
+                      "name": "Singapore in India",
+                      "screen_name": "SGinIndia",
+                      "type": "user",
+                      "user_id": "1237709641095602177"
+                    },
+                    {
+                      "name": "DD News",
+                      "screen_name": "DDNewslive",
+                      "type": "user",
+                      "user_id": "1100927498"
+                    },
+                    {
+                      "name": "All India Radio News",
+                      "screen_name": "airnewsalerts",
+                      "type": "user",
+                      "user_id": "1056850669"
+                    },
+                    {
+                      "name": "PIB India",
+                      "screen_name": "PIB_India",
+                      "type": "user",
+                      "user_id": "231033118"
+                    },
+                    {
+                      "name": "Ministry of Information and Broadcasting",
+                      "screen_name": "MIB_India",
+                      "type": "user",
+                      "user_id": "920488039"
+                    },
+                    {
+                      "name": "Central Bureau of Communication (CBC)",
+                      "screen_name": "CBC_MIB",
+                      "type": "user",
+                      "user_id": "2586283550"
+                    }
+                  ]
+                },
+                "large": {
+                  "faces": [
+                    {
+                      "h": 72,
+                      "w": 72,
+                      "x": 1006,
+                      "y": 566
+                    },
+                    {
+                      "h": 74,
+                      "w": 74,
+                      "x": 1212,
+                      "y": 568
+                    },
+                    {
+                      "h": 80,
+                      "w": 80,
+                      "x": 1544,
+                      "y": 568
+                    },
+                    {
+                      "h": 90,
+                      "w": 90,
+                      "x": 682,
+                      "y": 600
+                    },
+                    {
+                      "h": 84,
+                      "w": 84,
+                      "x": 1372,
+                      "y": 666
+                    },
+                    {
+                      "h": 104,
+                      "w": 104,
+                      "x": 774,
+                      "y": 762
+                    },
+                    {
+                      "h": 156,
+                      "w": 156,
+                      "x": 428,
+                      "y": 656
+                    }
+                  ]
+                },
+                "medium": {
+                  "faces": [
+                    {
+                      "h": 42,
+                      "w": 42,
+                      "x": 589,
+                      "y": 331
+                    },
+                    {
+                      "h": 43,
+                      "w": 43,
+                      "x": 710,
+                      "y": 332
+                    },
+                    {
+                      "h": 46,
+                      "w": 46,
+                      "x": 904,
+                      "y": 332
+                    },
+                    {
+                      "h": 52,
+                      "w": 52,
+                      "x": 399,
+                      "y": 351
+                    },
+                    {
+                      "h": 49,
+                      "w": 49,
+                      "x": 803,
+                      "y": 390
+                    },
+                    {
+                      "h": 60,
+                      "w": 60,
+                      "x": 453,
+                      "y": 446
+                    },
+                    {
+                      "h": 91,
+                      "w": 91,
+                      "x": 250,
+                      "y": 384
+                    }
+                  ]
+                },
+                "orig": {
+                  "faces": [
+                    {
+                      "h": 144,
+                      "w": 144,
+                      "x": 2012,
+                      "y": 1132
+                    },
+                    {
+                      "h": 148,
+                      "w": 148,
+                      "x": 2424,
+                      "y": 1136
+                    },
+                    {
+                      "h": 160,
+                      "w": 160,
+                      "x": 3088,
+                      "y": 1136
+                    },
+                    {
+                      "h": 180,
+                      "w": 180,
+                      "x": 1364,
+                      "y": 1200
+                    },
+                    {
+                      "h": 168,
+                      "w": 168,
+                      "x": 2744,
+                      "y": 1332
+                    },
+                    {
+                      "h": 208,
+                      "w": 208,
+                      "x": 1548,
+                      "y": 1524
+                    },
+                    {
+                      "h": 312,
+                      "w": 312,
+                      "x": 856,
+                      "y": 1312
+                    }
+                  ]
+                },
+                "small": {
+                  "faces": [
+                    {
+                      "h": 23,
+                      "w": 23,
+                      "x": 334,
+                      "y": 187
+                    },
+                    {
+                      "h": 24,
+                      "w": 24,
+                      "x": 402,
+                      "y": 188
+                    },
+                    {
+                      "h": 26,
+                      "w": 26,
+                      "x": 512,
+                      "y": 188
+                    },
+                    {
+                      "h": 29,
+                      "w": 29,
+                      "x": 226,
+                      "y": 199
+                    },
+                    {
+                      "h": 27,
+                      "w": 27,
+                      "x": 455,
+                      "y": 221
+                    },
+                    {
+                      "h": 34,
+                      "w": 34,
+                      "x": 256,
+                      "y": 253
+                    },
+                    {
+                      "h": 51,
+                      "w": 51,
+                      "x": 142,
+                      "y": 217
+                    }
+                  ]
+                }
+              },
+              "id_str": "2109311661006016512",
+              "indices": [
+                284,
+                307
+              ],
+              "media_key": "3_2109311661006016512",
+              "media_url_https": "https://pbs.twimg.com/media/HUXHx7LaUAAD4IT.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 2294,
+                    "w": 4096,
+                    "x": 0,
+                    "y": 78
+                  },
+                  {
+                    "h": 2372,
+                    "w": 2372,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 2372,
+                    "w": 2081,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 2372,
+                    "w": 1186,
+                    "x": 123,
+                    "y": 0
+                  },
+                  {
+                    "h": 2372,
+                    "w": 4096,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 2372,
+                "width": 4096
+              },
+              "sizes": {
+                "large": {
+                  "h": 1186,
+                  "resize": "fit",
+                  "w": 2048
+                },
+                "medium": {
+                  "h": 695,
+                  "resize": "fit",
+                  "w": 1200
+                },
+                "small": {
+                  "h": 394,
+                  "resize": "fit",
+                  "w": 680
+                },
+                "thumb": {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/jCzOModkEa"
+            },
+            {
+              "display_url": "pic.x.com/jCzOModkEa",
+              "expanded_url": "https://x.com/FinMinIndia/status/2109312008361480673/photo/1",
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "features": {
+                "all": {
+                  "tags": [
+                    {
+                      "name": "Nirmala Sitharaman Office",
+                      "screen_name": "nsitharamanoffc",
+                      "type": "user",
+                      "user_id": "912211757363367936"
+                    },
+                    {
+                      "name": "Randhir Jaiswal",
+                      "screen_name": "MEAIndia",
+                      "type": "user",
+                      "user_id": "441636351"
+                    },
+                    {
+                      "name": "India in Singapore",
+                      "screen_name": "HCI_Singapore",
+                      "type": "user",
+                      "user_id": "877337100"
+                    },
+                    {
+                      "name": "Singapore in India",
+                      "screen_name": "SGinIndia",
+                      "type": "user",
+                      "user_id": "1237709641095602177"
+                    },
+                    {
+                      "name": "DD News",
+                      "screen_name": "DDNewslive",
+                      "type": "user",
+                      "user_id": "1100927498"
+                    },
+                    {
+                      "name": "All India Radio News",
+                      "screen_name": "airnewsalerts",
+                      "type": "user",
+                      "user_id": "1056850669"
+                    },
+                    {
+                      "name": "PIB India",
+                      "screen_name": "PIB_India",
+                      "type": "user",
+                      "user_id": "231033118"
+                    },
+                    {
+                      "name": "Ministry of Information and Broadcasting",
+                      "screen_name": "MIB_India",
+                      "type": "user",
+                      "user_id": "920488039"
+                    },
+                    {
+                      "name": "Central Bureau of Communication (CBC)",
+                      "screen_name": "CBC_MIB",
+                      "type": "user",
+                      "user_id": "2586283550"
+                    }
+                  ]
+                },
+                "large": {
+                  "faces": [
+                    {
+                      "h": 134,
+                      "w": 134,
+                      "x": 702,
+                      "y": 480
+                    },
+                    {
+                      "h": 128,
+                      "w": 128,
+                      "x": 1264,
+                      "y": 486
+                    }
+                  ]
+                },
+                "medium": {
+                  "faces": [
+                    {
+                      "h": 78,
+                      "w": 78,
+                      "x": 411,
+                      "y": 281
+                    },
+                    {
+                      "h": 75,
+                      "w": 75,
+                      "x": 740,
+                      "y": 284
+                    }
+                  ]
+                },
+                "orig": {
+                  "faces": [
+                    {
+                      "h": 268,
+                      "w": 268,
+                      "x": 1404,
+                      "y": 960
+                    },
+                    {
+                      "h": 256,
+                      "w": 256,
+                      "x": 2528,
+                      "y": 972
+                    }
+                  ]
+                },
+                "small": {
+                  "faces": [
+                    {
+                      "h": 44,
+                      "w": 44,
+                      "x": 233,
+                      "y": 159
+                    },
+                    {
+                      "h": 42,
+                      "w": 42,
+                      "x": 419,
+                      "y": 161
+                    }
+                  ]
+                }
+              },
+              "id_str": "2109311706862338050",
+              "indices": [
+                284,
+                307
+              ],
+              "media_key": "3_2109311706862338050",
+              "media_url_https": "https://pbs.twimg.com/media/HUXH0mAaQAIRfD1.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 2294,
+                    "w": 4096,
+                    "x": 0,
+                    "y": 437
+                  },
+                  {
+                    "h": 2731,
+                    "w": 2731,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 2731,
+                    "w": 2396,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 2731,
+                    "w": 1366,
+                    "x": 238,
+                    "y": 0
+                  },
+                  {
+                    "h": 2731,
+                    "w": 4096,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 2731,
+                "width": 4096
+              },
+              "sizes": {
+                "large": {
+                  "h": 1366,
+                  "resize": "fit",
+                  "w": 2048
+                },
+                "medium": {
+                  "h": 800,
+                  "resize": "fit",
+                  "w": 1200
+                },
+                "small": {
+                  "h": 453,
+                  "resize": "fit",
+                  "w": 680
+                },
+                "thumb": {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/jCzOModkEa"
+            }
+          ]
+        },
+        "favorite_count": 111,
+        "in_reply_to_status_id": null,
+        "language": "en",
+        "media_url": [
+          "https://pbs.twimg.com/media/HUXHv3Za4AAE4cl.jpg",
+          "https://pbs.twimg.com/media/HUXHx7LaUAAD4IT.jpg",
+          "https://pbs.twimg.com/media/HUXH0mAaQAIRfD1.jpg"
+        ],
+        "quote_count": 4,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 4,
+        "retweet": false,
+        "retweet_count": 20,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "Union Minister for Finance & Corporate Affairs Smt. @nsitharaman met Mr. Raj Ganguly, Co-founder and CEO of @BCapitalGroup, in Singapore today.\n\nDiscussions covered opportunities in Sovereign AI and the broader AI ecosystem. FM highlighted India’s potential to emerge as a leader in AI services and encouraged B Capital to explore the application of AI in banking and financial services in India. The B Capital team emphasised the importance of a stable currency and predictable, transparent tax policies for investors.\n\nFM Smt. @nsitharaman also encouraged B Capital to explore investment opportunities through the National Investment and Infrastructure Fund (@NIIFIndia) and GIFT IFSC, particularly those relating to pension funds.\nThe meeting was also attended by Mr. Karan Mohla, General Partner, B Capital.",
+        "timestamp": 1791734146,
+        "tweet_id": "2109312008361480673",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Jul 09 17:30:14 +0000 2014",
+          "default_profile": false,
+          "default_profile_image": false,
+          "description": "Official Account of the Ministry of Finance, Government of India.",
+          "external_url": "http://www.finmin.nic.in/",
+          "favourites_count": 231,
+          "follower_count": 4260169,
+          "following_count": 191,
+          "has_nft_avatar": false,
+          "is_blue_verified": true,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 4224,
+          "location": "New Delhi",
+          "name": "Ministry of Finance",
+          "number_of_tweets": 73322,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/2613904818/1701416145",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2101689164072927232/e65QzWGv_normal.jpg",
+          "timestamp": 1404927014,
+          "user_id": "2613904818",
+          "username": "FinMinIndia",
+          "verified_type": "Government"
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 17676
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108707263691231283",
+        "creation_date": "Sun Oct 11 08:34:02 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2109083287041827054",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@kiriminaworld Yayyy daily krmn approved 💗💗💗",
+        "timestamp": 1791707642,
+        "tweet_id": "2109200840267604238",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 10
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2109143068402241570",
+        "creation_date": "Sun Oct 11 04:44:29 +0000 2026",
+        "expanded_url": "https://x.com/tbuzzdaily/status/2109143074450382912/photo/1",
+        "expanded_urls": null,
+        "extended_entities": {
+          "media": [
+            {
+              "display_url": "pic.x.com/vBVVmGiBUV",
+              "expanded_url": "https://x.com/tbuzzdaily/status/2109143074450382912/photo/1",
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                }
+              },
+              "id_str": "2109142980074283008",
+              "indices": [
+                280,
+                303
+              ],
+              "media_key": "3_2109142980074283008",
+              "media_url_https": "https://pbs.twimg.com/media/HUUuXZvWIAAAFxP.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 605,
+                    "w": 1080,
+                    "x": 0,
+                    "y": 609
+                  },
+                  {
+                    "h": 1080,
+                    "w": 1080,
+                    "x": 0,
+                    "y": 270
+                  },
+                  {
+                    "h": 1231,
+                    "w": 1080,
+                    "x": 0,
+                    "y": 119
+                  },
+                  {
+                    "h": 1350,
+                    "w": 675,
+                    "x": 101,
+                    "y": 0
+                  },
+                  {
+                    "h": 1350,
+                    "w": 1080,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 1350,
+                "width": 1080
+              },
+              "sizes": {
+                "large": {
+                  "h": 1350,
+                  "resize": "fit",
+                  "w": 1080
+                },
+                "medium": {
+                  "h": 1200,
+                  "resize": "fit",
+                  "w": 960
+                },
+                "small": {
+                  "h": 680,
+                  "resize": "fit",
+                  "w": 544
+                },
+                "thumb": {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/vBVVmGiBUV"
+            }
+          ]
+        },
+        "favorite_count": 0,
+        "in_reply_to_status_id": "2109143071417844150",
+        "language": "en",
+        "media_url": [
+          "https://pbs.twimg.com/media/HUUuXZvWIAAAFxP.jpg"
+        ],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 1,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "Most AI video tools make the picture. (@Sonilo_music) Sonilo raised an $11M round led by B Capital to make matching music and sound. Frame by frame sound is the right idea, and the Shutterstock deal tackles licensing risk. The threat is video tools bundling audio for free. (2/3) https://t.co/vBVVmGiBUV",
+        "timestamp": 1791693869,
+        "tweet_id": "2109143074450382912",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Thu Nov 30 22:16:22 +0000 2023",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "Big moves, bold ideas, and game-changing tech. We're tracking the next big thing in tech so you don’t have to.\n\nGot a story? https://t.co/fKxMltRYHo",
+          "external_url": "https://muckrack.com/thetechbuzz",
+          "favourites_count": 5735,
+          "follower_count": 1094,
+          "following_count": 127,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 8,
+          "location": "Wyoming",
+          "name": "The Tech Buzz",
+          "number_of_tweets": 6089,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1730350030274592768/1701464875",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/1730695241215492096/MFcORe-2_normal.jpg",
+          "timestamp": 1701382582,
+          "user_id": "1730350030274592768",
+          "username": "tbuzzdaily",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 14
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2109120034953961508",
+        "creation_date": "Sun Oct 11 03:12:56 +0000 2026",
+        "expanded_url": "https://x.com/i/article/2109119788064636928",
+        "expanded_urls": [
+          {
+            "display_url": "x.com/i/article/2109…",
+            "expanded_url": "https://x.com/i/article/2109119788064636928",
+            "indices": [
+              210,
+              233
+            ],
+            "url": "https://t.co/QhEGLmejwq"
+          }
+        ],
+        "extended_entities": null,
+        "favorite_count": 0,
+        "in_reply_to_status_id": null,
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "Seven bills before opening day. Two get deducted, one waits for capital allowances, four never count. One company, every door: s39, P.U.(A) 361/2008, P.U.(A) 160/1996, Sch 3 para 55, PR 2/2011. Not tax advice. https://t.co/QhEGLmejwq",
+        "timestamp": 1791688376,
+        "tweet_id": "2109120034953961508",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Tue Sep 17 10:02:19 +0000 2013",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "Audit, Tax and Assurance",
+          "external_url": null,
+          "favourites_count": 21,
+          "follower_count": 21,
+          "following_count": 134,
+          "has_nft_avatar": false,
+          "is_blue_verified": true,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 0,
+          "location": "Johor Bahru, Johor",
+          "name": "Felix Sean Chan",
+          "number_of_tweets": 434,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1874928464/1789646730",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2100541632538132481/wtYicpEZ_normal.jpg",
+          "timestamp": 1379412139,
+          "user_id": "1874928464",
+          "username": "0felixchan",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 80
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 1,
+        "community_note": null,
+        "conversation_id": "2108983473880887770",
+        "creation_date": "Sat Oct 10 18:49:22 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": [],
+        "extended_entities": null,
+        "favorite_count": 3,
+        "in_reply_to_status_id": "2108987287241646116",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 1,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "For capital markets models that are dependent upon share issuance ex: $MSTR | $ASST and all Digital Credit instruments, buybacks signal weakness to the market, not strength. \n\nLet's think it through: in the case of $STRC, the preferred exists to be issued above $100.01 so the proceeds can buy $BTC. If the company has to intervene in that market, they are essentially running the model in reverse. This isn't a judgment about the quality of $STRC as an instrument, but a statement about the buyback as a corporate action in this context. \n\nNow, I have been clear that there is a capital structure benefit to retiring shares, shrinking dividend obligations, etc. But that isn't \"profit\" or earnings that the company captures, nor are they a price lever. Furthermore, I think the market is treating the inorganic bid as support to sell into. \n\nNone of these factors signal strength; strength for these $BTC meta-derivative equities is signaled via (a) share issuance (b) capital markets access and (c) consistent dividend payments. Right now, [2] out of the [3] signals are showing stress, so the market is testing both the resolve of the issuer and organic demand.",
+        "timestamp": 1791658162,
+        "tweet_id": "2108993306398961960",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Fri Dec 25 17:39:22 +0000 2009",
+          "default_profile": false,
+          "default_profile_image": false,
+          "description": "Nerd/Techie Fighting A.I & $BTC FUD | $BTC ≠ Crypto | A.I. Super-User | Member: @TNorth | Contributor: @Roxom // @BitcoinForCorps | Data-Driven Analysis",
+          "external_url": "https://tnorth.com/research/",
+          "favourites_count": 42155,
+          "follower_count": 31539,
+          "following_count": 500,
+          "has_nft_avatar": false,
+          "is_blue_verified": true,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 318,
+          "location": "",
+          "name": "Adrian Morris",
+          "number_of_tweets": 30147,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/99328846/1744816308",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2103641468770430976/Q0hY09fq_normal.jpg",
+          "timestamp": 1261762762,
+          "user_id": "99328846",
+          "username": "_Adrian",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 261
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108839053994963299",
+        "creation_date": "Sat Oct 10 18:38:05 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108990382730269017",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@crnbie And then i go to the artist's page and go through their entire discography and add more",
+        "timestamp": 1791657485,
+        "tweet_id": "2108990467358797842",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 28
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108967068699689006",
+        "creation_date": "Sat Oct 10 18:31:13 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108967068699689006",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 1,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@kuromiikillz Yes you are",
+        "timestamp": 1791657073,
+        "tweet_id": "2108988742405116140",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 31
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108984431541121459",
+        "creation_date": "Sat Oct 10 18:30:18 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108984431541121459",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@c4tsys23 Jaetu sounds so cute",
+        "timestamp": 1791657018,
+        "tweet_id": "2108988509717753882",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 170
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108916165783277656",
+        "creation_date": "Sat Oct 10 18:26:08 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 0,
+        "in_reply_to_status_id": "2108916165783277656",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@mavmalt He's so handsome omg",
+        "timestamp": 1791656768,
+        "tweet_id": "2108987460307112219",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 148
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108976561152295197",
+        "creation_date": "Sat Oct 10 18:16:58 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 7,
+        "in_reply_to_status_id": "2108976561152295197",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@nobaratdbk Omg shoto's a menace",
+        "timestamp": 1791656218,
+        "tweet_id": "2108985153280426351",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 443
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108941288557142433",
+        "creation_date": "Sat Oct 10 18:15:29 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108941288557142433",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@DaRealTBossK Anon let it go bruh",
+        "timestamp": 1791656129,
+        "tweet_id": "2108984781677777121",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 39
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108683562526585004",
+        "creation_date": "Sat Oct 10 16:49:28 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108683562526585004",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@IAmIshtiaqAli @ICT_Police Ji @IamHaiderSN  sb ....please once again need a praising tweet in favour of Naqvi sb..\nAik city just aik city.  Aur waha ye sb ho rha.  Wo b capital ..\nJab k Maryam ne pooray Punjab mei aisay logon ka Jeena azab kr diya .95 percent culprits handled .others left th country.",
+        "timestamp": 1791650968,
+        "tweet_id": "2108963132181786958",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Sat Apr 22 10:47:31 +0000 2017",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "Tourist love adventure . By Profession Banker . deep interest in poetry . novels . politics . music . travel",
+          "external_url": null,
+          "favourites_count": 68,
+          "follower_count": 9,
+          "following_count": 45,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 0,
+          "location": "Islamabad, Pakistan",
+          "name": "Atif Awan",
+          "number_of_tweets": 101,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/855734806310682624/1492859649",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/855741514626064385/jU098hoH_normal.jpg",
+          "timestamp": 1492858051,
+          "user_id": "855734806310682624",
+          "username": "AtifAwan28",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 21
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108896077009297540",
+        "creation_date": "Sat Oct 10 12:23:00 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 3,
+        "in_reply_to_status_id": null,
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "Whatwhatwhatwhat!!!!!",
+        "timestamp": 1791634980,
+        "tweet_id": "2108896077009297540",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 215
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108620547785720292",
+        "creation_date": "Sat Oct 10 10:04:48 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108837692729688425",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@Lunaspidrr Aw mannn you got me",
+        "timestamp": 1791626688,
+        "tweet_id": "2108861296053764550",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 23
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108762285208428683",
+        "creation_date": "Sat Oct 10 06:25:54 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 0,
+        "in_reply_to_status_id": "2108762285208428683",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@yyoarashii Heyheyheyhey",
+        "timestamp": 1791613554,
+        "tweet_id": "2108806207515644361",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 32
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108766888025272322",
+        "creation_date": "Sat Oct 10 04:58:21 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108784056108282198",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@asuka_fujin05 He really is",
+        "timestamp": 1791608301,
+        "tweet_id": "2108784174991880454",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 37
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108773534462046634",
+        "creation_date": "Sat Oct 10 04:56:10 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108777705923907925",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "@LordDyl2004 gets behind",
+        "timestamp": 1791608170,
+        "tweet_id": "2108783625932275722",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 29
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108773534462046634",
+        "creation_date": "Sat Oct 10 04:17:38 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 1,
+        "in_reply_to_status_id": "2108773534462046634",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 1,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "I blame @fretamine for this",
+        "timestamp": 1791605858,
+        "tweet_id": "2108773928701497602",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 91
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 0,
+        "community_note": null,
+        "conversation_id": "2108768651348492649",
+        "creation_date": "Sat Oct 10 03:56:41 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": null,
+        "favorite_count": 2,
+        "in_reply_to_status_id": "2108768651348492649",
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": null,
+        "quoted_status_id": null,
+        "reply_count": 0,
+        "retweet": false,
+        "retweet_count": 0,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "\"had sex without consent\" no shit goofy that's called rape just fucking say it???",
+        "timestamp": 1791604601,
+        "tweet_id": "2108768657547702772",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 77
+      },
+      {
+        "binding_values": null,
+        "bookmark_count": 1,
+        "community_note": null,
+        "conversation_id": "2108768651348492649",
+        "creation_date": "Sat Oct 10 03:56:40 +0000 2026",
+        "expanded_url": null,
+        "expanded_urls": null,
+        "extended_entities": {
+          "media": [
+            {
+              "display_url": "pic.x.com/pEfqDuAVYD",
+              "expanded_url": "https://x.com/TMZ/status/2108674882170916948/photo/1",
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                }
+              },
+              "id_str": "2108674880279322624",
+              "indices": [
+                113,
+                136
+              ],
+              "media_key": "3_2108674880279322624",
+              "media_url_https": "https://pbs.twimg.com/media/HUOEoaHWoAAFIu5.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 408,
+                    "w": 728,
+                    "x": 0,
+                    "y": 138
+                  },
+                  {
+                    "h": 546,
+                    "w": 546,
+                    "x": 182,
+                    "y": 0
+                  },
+                  {
+                    "h": 546,
+                    "w": 479,
+                    "x": 249,
+                    "y": 0
+                  },
+                  {
+                    "h": 546,
+                    "w": 273,
+                    "x": 355,
+                    "y": 0
+                  },
+                  {
+                    "h": 546,
+                    "w": 728,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 546,
+                "width": 728
+              },
+              "sizes": {
+                "large": {
+                  "h": 546,
+                  "resize": "fit",
+                  "w": 728
+                },
+                "medium": {
+                  "h": 546,
+                  "resize": "fit",
+                  "w": 728
+                },
+                "small": {
+                  "h": 510,
+                  "resize": "fit",
+                  "w": 680
+                },
+                "thumb": {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/pEfqDuAVYD"
+            }
+          ]
+        },
+        "favorite_count": 7,
+        "in_reply_to_status_id": null,
+        "language": "en",
+        "media_url": [],
+        "quote_count": 0,
+        "quoted_status": {
+          "binding_values": null,
+          "bookmark_count": 2424,
+          "community_note": null,
+          "conversation_id": "2108674882170916948",
+          "creation_date": "Fri Oct 09 21:44:03 +0000 2026",
+          "expanded_url": null,
+          "expanded_urls": null,
+          "extended_entities": null,
+          "favorite_count": 11928,
+          "in_reply_to_status_id": null,
+          "language": "en",
+          "media_url": null,
+          "quote_count": 964,
+          "quoted_status": null,
+          "quoted_status_id": null,
+          "reply_count": 1276,
+          "retweet": false,
+          "retweet_count": 823,
+          "retweet_status": null,
+          "retweet_tweet_id": null,
+          "source": null,
+          "text": "Cornell concluded defendant Newell had sex with Jane Doe without consent.\n\nFull details: https://t.co/D03PNNL4uZ https://t.co/pEfqDuAVYD",
+          "timestamp": 1791582243,
+          "tweet_id": "2108674882170916948",
+          "user": {
+            "bot": false,
+            "category": null,
+            "creation_date": "Wed Sep 17 15:50:22 +0000 2008",
+            "default_profile": false,
+            "default_profile_image": false,
+            "description": "Breaking entertainment news as it happens ⚡️",
+            "external_url": "http://www.TMZ.com",
+            "favourites_count": 1566,
+            "follower_count": 8955328,
+            "following_count": 939,
+            "has_nft_avatar": false,
+            "is_blue_verified": true,
+            "is_private": false,
+            "is_verified": false,
+            "listed_count": 19874,
+            "location": "Los Angeles, CA",
+            "name": "TMZ",
+            "number_of_tweets": 514314,
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/16331010/1763756000",
+            "profile_pic_url": "https://pbs.twimg.com/profile_images/1984736147386613766/ZhO2bCxn_normal.jpg",
+            "timestamp": 1221666622,
+            "user_id": "16331010",
+            "username": "TMZ",
+            "verified_type": null
+          },
+          "video_url": null,
+          "video_view_count": null,
+          "views": null
+        },
+        "quoted_status_id": "2108674882170916948",
+        "reply_count": 1,
+        "retweet": false,
+        "retweet_count": 1,
+        "retweet_status": null,
+        "retweet_tweet_id": null,
+        "source": null,
+        "text": "These headlines are pissing me the fuck off",
+        "timestamp": 1791604600,
+        "tweet_id": "2108768651348492649",
+        "user": {
+          "bot": false,
+          "category": null,
+          "creation_date": "Wed Nov 23 19:30:43 +0000 2022",
+          "default_profile": true,
+          "default_profile_image": false,
+          "description": "keno 🇵🇭 | mha | multiship | multifandom \nthoughts first, art second",
+          "external_url": "https://katsukeno.straw.page",
+          "favourites_count": 55311,
+          "follower_count": 1516,
+          "following_count": 1024,
+          "has_nft_avatar": false,
+          "is_blue_verified": false,
+          "is_private": false,
+          "is_verified": false,
+          "listed_count": 23,
+          "location": "anything bakugo 🍰💥",
+          "name": "CAPITAL B CAPITAL K💥",
+          "number_of_tweets": 28578,
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1595500059294109698/1790912082",
+          "profile_pic_url": "https://pbs.twimg.com/profile_images/2094673121286684672/SVFY3BRc_normal.jpg",
+          "timestamp": 1669231843,
+          "user_id": "1595500059294109698",
+          "username": "katsukeno",
+          "verified_type": null
+        },
+        "video_url": null,
+        "video_view_count": null,
+        "views": 360
+      }
+    ]
+  },
+  "source": {
+    "container_sha256": "571b8ae0f6a2957a62091eac2c9d565b5abce4933d58edf5f8643c8d2aad341a",
+    "received_at": "2026-10-12T05:54:53.269878Z",
+    "source_ref": "user-supplied input JSON / pluginsResponse / FetchTweetDetails",
+    "continuation_present": true,
+    "continuation_sha256": "5dd3b934ad776994e806a810771784c9825be917386cbe7d3a8c26efd117b0af"
+  }
+}

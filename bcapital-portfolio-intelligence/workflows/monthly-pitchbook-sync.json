@@ -1,0 +1,174 @@
+{
+ "name": "B Capital — Monthly PitchBook Portfolio Sync",
+ "x-cadence": {
+  "human": "1st of every month at 06:00 UTC",
+  "cron_5field": "0 6 1 * *",
+  "cron_automation_api": "0 0 6 1 * *"
+ },
+ "x-supersedes": {
+  "workflow_id": "6aca3d3faeef8927baa25a05",
+  "name": "B Capital — PitchBook weekly enrichment",
+  "action": "deactivate"
+ },
+ "x-steps": [
+  "1. Load the 136-company portfolio list (slugs/names embedded from data/portfolio.json).",
+  "2. For each company re-pull the PitchBook profile: Investor Finder plugin-1777018662 (investors) + the public PitchBook company profile page (pitchbook.com/profiles/company/…) when retrievable; any field not retrieved is marked not_available — never fabricated.",
+  "3. Deliver the JSON payload to POST <API_BASE>/pitchbook/sync/webhook (X-Ingest-Secret / basic auth) which upserts libSQL pitchbook_profiles keyed by company_id with fetched_at UTC, source_url and the per-field availability map.",
+  "4. The backend schedules a Media snapshot backup (JSON) of the full durable store after every sync (scheduleBackup) — SHA-256 verified on fetch-back.",
+  "5. Per-field availability is recomputed on upsert so missing fields keep the explicit 'Not available in PitchBook' empty state in the UI.",
+  "6. Company sections stay server-rendered from the store with no Run button; the workflow only writes the store.",
+  "7. The backend appends a pitchbook_sync_runs row (run_id, started_at, finished_at UTC, companies_refreshed, fields_populated, empty_state_count, errors); GET /pitchbook/sync/runs lists them."
+ ],
+ "trigger": {
+  "type": "cron",
+  "cron": {
+   "expression": "0 0 6 1 * *",
+   "type": "advanced"
+  },
+  "nextNodeKeys": [
+   "load-portfolio"
+  ],
+  "position": {
+   "x": 0,
+   "y": 0
+  },
+  "measured": {
+   "width": 300,
+   "height": 500
+  }
+ },
+ "nodes": [
+  {
+   "key": "load-portfolio",
+   "kind": "source",
+   "type": "llm",
+   "dependencies": [],
+   "nextNodeKeys": [
+    "pitchbook-pull"
+   ],
+   "position": {
+    "x": 100,
+    "y": 200
+   },
+   "measured": {
+    "width": 300,
+    "height": 500
+   },
+   "llm": {
+    "model": "predefined-deepseek-flash",
+    "plugins": [],
+    "prompt": "You are step 1 of the B Capital monthly PitchBook sync. Output STRICT JSON only: {\"portfolio\":[{\"slug\":\"…\",\"name\":\"…\",\"sector\":\"…\",\"website\":\"…\"}]} containing EXACTLY the 136 B Capital portfolio companies below, unchanged, in this order. Do not add, drop, rename or annotate any company.\n\nPORTFOLIO: [{\"slug\": \"lambda\", \"name\": \"Lambda\", \"sector\": \"AI Infrastructure\", \"website\": \"https://lambda.ai\"}, {\"slug\": \"palebluedot\", \"name\": \"PaleBlueDot\", \"sector\": \"AI Infrastructure\", \"website\": \"https://www.palebluedot.ai\"}, {\"slug\": \"havocai\", \"name\": \"HavocAI\", \"sector\": \"Robotics & Space\", \"website\": \"https://www.havocai.com\"}, {\"slug\": \"trm-labs\", \"name\": \"TRM Labs\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://www.trmlabs.com\"}, {\"slug\": \"dream-labs\", \"name\": \"Dream Labs\", \"sector\": \"AI & Enterprise\", \"website\": \"https://dreamlabs.ai\"}, {\"slug\": \"flourish-health\", \"name\": \"Flourish Health\", \"sector\": \"Healthtech\", \"website\": \"https://flourish.health\"}, {\"slug\": \"1au\", \"name\": \"1AU\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.1autechnologies.com\"}, {\"slug\": \"grace-investment-machine\", \"name\": \"Grace Investment Machine\", \"sector\": \"Edtech\", \"website\": \"https://graceim.ai\"}, {\"slug\": \"seltz\", \"name\": \"Seltz\", \"sector\": \"Logistics\", \"website\": \"https://www.seltz.ai\"}, {\"slug\": \"cadence\", \"name\": \"Cadence\", \"sector\": \"Healthtech\", \"website\": \"https://cadence.care\"}, {\"slug\": \"solar-square\", \"name\": \"Solar Square\", \"sector\": \"Climate & Mobility\", \"website\": \"https://www.solarsquare.in\"}, {\"slug\": \"eeroq\", \"name\": \"EeroQ\", \"sector\": \"AI Infrastructure\", \"website\": \"https://eeroq.com\"}, {\"slug\": \"fervo-energy\", \"name\": \"Fervo Energy\", \"sector\": \"Climate & Mobility\", \"website\": \"https://fervoenergy.com\"}, {\"slug\": \"star-catcher\", \"name\": \"Star Catcher\", \"sector\": \"Robotics & Space\", \"website\": \"https://www.star-catcher.com\"}, {\"slug\": \"sonilo\", \"name\": \"Sonilo\", \"sector\": \"AI & Enterprise\", \"website\": \"https://sonilo.com\"}, {\"slug\": \"reflection\", \"name\": \"Reflection\", \"sector\": \"AI & Enterprise\", \"website\": \"https://reflection.ai\"}, {\"slug\": \"knox\", \"name\": \"Knox\", \"sector\": \"AI Infrastructure\", \"website\": \"https://www.knoxsystems.com\"}, {\"slug\": \"axiom\", \"name\": \"Axiom\", \"sector\": \"AI Infrastructure\", \"website\": \"https://axiommath.ai\"}, {\"slug\": \"oro-labs\", \"name\": \"Oro Labs\", \"sector\": \"Logistics\", \"website\": \"http://orolabs.ai\"}, {\"slug\": \"numerion-labs\", \"name\": \"Numerion Labs\", \"sector\": \"Biotech\", \"website\": \"https://www.atomwise.com\"}, {\"slug\": \"gushwork\", \"name\": \"Gushwork\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.gushwork.ai\"}, {\"slug\": \"code-metal\", \"name\": \"Code Metal\", \"sector\": \"Robotics & Space\", \"website\": \"https://www.codemetal.ai\"}, {\"slug\": \"chipagents\", \"name\": \"ChipAgents\", \"sector\": \"AI Infrastructure\", \"website\": \"https://chipagents.ai\"}, {\"slug\": \"archimetis\", \"name\": \"Archimetis\", \"sector\": \"Climate & Mobility\", \"website\": \"https://www.archimetis.ai\"}, {\"slug\": \"evommune\", \"name\": \"Evommune\", \"sector\": \"Biotech\", \"website\": \"https://evommune.com\"}, {\"slug\": \"lunar-energy\", \"name\": \"Lunar Energy\", \"sector\": \"Climate & Mobility\", \"website\": \"https://www.lunarenergy.com\"}, {\"slug\": \"karman-industries\", \"name\": \"Karman Industries\", \"sector\": \"Climate & Mobility\", \"website\": \"https://www.karmanindustries.com\"}, {\"slug\": \"jetzero\", \"name\": \"JetZero\", \"sector\": \"Robotics & Space\", \"website\": \"https://www.jetzero.aero\"}, {\"slug\": \"positive-development\", \"name\": \"Positive Development\", \"sector\": \"Healthtech\", \"website\": \"http://positivedevelopment.com\"}, {\"slug\": \"lumara-health\", \"name\": \"Lumara Health\", \"sector\": \"Healthtech\", \"website\": \"https://www.lumara.health\"}, {\"slug\": \"insilico-medicine\", \"name\": \"Insilico Medicine\", \"sector\": \"Biotech\", \"website\": \"http://insilico.com\"}, {\"slug\": \"turno\", \"name\": \"Turno\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://www.turno.club\"}, {\"slug\": \"goodfire\", \"name\": \"Goodfire\", \"sector\": \"Edtech\", \"website\": \"https://www.goodfire.ai\"}, {\"slug\": \"when\", \"name\": \"When\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.cobraselect.com\"}, {\"slug\": \"overstory\", \"name\": \"Overstory\", \"sector\": \"Robotics & Space\", \"website\": \"https://www.overstory.com\"}, {\"slug\": \"solve-therapeutics\", \"name\": \"Solve Therapeutics\", \"sector\": \"Biotech\", \"website\": \"https://solvetx.com\"}, {\"slug\": \"carro\", \"name\": \"Carro\", \"sector\": \"Consumer & Marketplaces\", \"website\": \"http://carro.sg\"}, {\"slug\": \"poolside\", \"name\": \"Poolside\", \"sector\": \"Edtech\", \"website\": \"https://www.poolside.ai\"}, {\"slug\": \"curbwaste\", \"name\": \"Curbwaste\", \"sector\": \"Climate & Mobility\", \"website\": \"https://curbwaste.com\"}, {\"slug\": \"coindcx\", \"name\": \"CoinDCX\", \"sector\": \"Fintech & Crypto\", \"website\": \"http://coindcx.com\"}, {\"slug\": \"vivacta\", \"name\": \"Vivacta\", \"sector\": \"Biotech\", \"website\": \"http://vivacta-bio.com\"}, {\"slug\": \"evenup\", \"name\": \"EvenUp\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.evenuplaw.com\"}, {\"slug\": \"judi-rx\", \"name\": \"Judi Rx\", \"sector\": \"Biotech\", \"website\": \"https://www.judi.health\"}, {\"slug\": \"volastra\", \"name\": \"Volastra\", \"sector\": \"Biotech\", \"website\": \"https://www.volastratx.com\"}, {\"slug\": \"perplexity-ai\", \"name\": \"Perplexity AI\", \"sector\": \"AI & Enterprise\", \"website\": \"http://www.perplexity.ai\"}, {\"slug\": \"isaac-health\", \"name\": \"Isaac Health\", \"sector\": \"Biotech\", \"website\": \"https://www.myisaachealth.com\"}, {\"slug\": \"ninja-van\", \"name\": \"Ninja Van\", \"sector\": \"Robotics & Space\", \"website\": \"http://ninjavan.co\"}, {\"slug\": \"companycam\", \"name\": \"CompanyCam\", \"sector\": \"AI & Enterprise\", \"website\": \"https://companycam.com\"}, {\"slug\": \"brik\", \"name\": \"Brik\", \"sector\": \"AI & Enterprise\", \"website\": \"https://brik.id\"}, {\"slug\": \"neushen-therapeutics\", \"name\": \"Neushen Therapeutics\", \"sector\": \"Biotech\", \"website\": \"https://www.neushen.com\"}, {\"slug\": \"starburst-data\", \"name\": \"Starburst Data\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.starburst.io\"}, {\"slug\": \"turbine\", \"name\": \"Turbine\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://www.turbine.co\"}, {\"slug\": \"heylibby\", \"name\": \"HeyLibby\", \"sector\": \"Healthtech\", \"website\": \"https://www.heylibby.ai\"}, {\"slug\": \"gable\", \"name\": \"Gable\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.gable.ai\"}, {\"slug\": \"buildops\", \"name\": \"BuildOps\", \"sector\": \"AI & Enterprise\", \"website\": \"https://buildops.com\"}, {\"slug\": \"odeko\", \"name\": \"Odeko\", \"sector\": \"Logistics\", \"website\": \"https://www.odeko.com\"}, {\"slug\": \"goose\", \"name\": \"Goose\", \"sector\": \"AI & Enterprise\", \"website\": \"http://www.goose.pet\"}, {\"slug\": \"certn\", \"name\": \"Certn\", \"sector\": \"AI & Enterprise\", \"website\": \"http://certn.co\"}, {\"slug\": \"apptronik\", \"name\": \"Apptronik\", \"sector\": \"Healthtech\", \"website\": \"https://apptronik.com\"}, {\"slug\": \"omnidian\", \"name\": \"Omnidian\", \"sector\": \"Climate & Mobility\", \"website\": \"https://www.omnidian.com\"}, {\"slug\": \"meesho\", \"name\": \"Meesho\", \"sector\": \"Consumer & Marketplaces\", \"website\": \"https://www.meesho.com\"}, {\"slug\": \"macrolux\", \"name\": \"MacroLux\", \"sector\": \"Healthtech\", \"website\": \"https://www.microlite.cn\"}, {\"slug\": \"innovaccer\", \"name\": \"Innovaccer\", \"sector\": \"Biotech\", \"website\": \"https://innovaccer.com\"}, {\"slug\": \"nuvig\", \"name\": \"Nuvig\", \"sector\": \"Biotech\", \"website\": \"https://www.nuvig.com\"}, {\"slug\": \"eureka-robotics\", \"name\": \"Eureka Robotics\", \"sector\": \"Robotics & Space\", \"website\": \"https://eurekarobotics.com\"}, {\"slug\": \"wildfire\", \"name\": \"Wildfire\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://www.wildfire-corp.com\"}, {\"slug\": \"baichuan\", \"name\": \"Baichuan\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.baichuan-ai.com\"}, {\"slug\": \"rona-therapeutics\", \"name\": \"Rona Therapeutics\", \"sector\": \"Biotech\", \"website\": \"https://www.ronatherapeutics.com\"}, {\"slug\": \"levelten\", \"name\": \"LevelTen\", \"sector\": \"Climate & Mobility\", \"website\": \"https://www.leveltenenergy.com\"}, {\"slug\": \"graymatter-robotics\", \"name\": \"GrayMatter Robotics\", \"sector\": \"Robotics & Space\", \"website\": \"http://graymatter-robotics.com\"}, {\"slug\": \"accacia\", \"name\": \"Accacia\", \"sector\": \"Climate & Mobility\", \"website\": \"https://accacia.ai\"}, {\"slug\": \"sugarfit\", \"name\": \"Sugarfit\", \"sector\": \"Healthtech\", \"website\": \"https://www.sugarfit.com\"}, {\"slug\": \"flowgpt\", \"name\": \"FlowGPT\", \"sector\": \"Robotics & Space\", \"website\": \"https://flowgpt.com\"}, {\"slug\": \"miotech\", \"name\": \"Miotech\", \"sector\": \"Climate & Mobility\", \"website\": \"https://www.miotech.com\"}, {\"slug\": \"nalu\", \"name\": \"Nalu\", \"sector\": \"Healthtech\", \"website\": \"https://nalumed.com\"}, {\"slug\": \"yalo\", \"name\": \"Yalo\", \"sector\": \"Consumer & Marketplaces\", \"website\": \"https://www.yalochat.com\"}, {\"slug\": \"aimotive\", \"name\": \"AIMotive\", \"sector\": \"AI Infrastructure\", \"website\": \"http://aimotive.com\"}, {\"slug\": \"grit\", \"name\": \"Grit\", \"sector\": \"Biotech\", \"website\": \"https://www.grit-bio.com\"}, {\"slug\": \"inspace\", \"name\": \"Inspace\", \"sector\": \"Robotics & Space\", \"website\": \"http://inspacestack.com\"}, {\"slug\": \"percent\", \"name\": \"Percent\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://percent.com\"}, {\"slug\": \"meditrust\", \"name\": \"MediTrust\", \"sector\": \"Biotech\", \"website\": \"https://www.meditrusthealth.com\"}, {\"slug\": \"nest-genomics\", \"name\": \"Nest Genomics\", \"sector\": \"Biotech\", \"website\": \"https://www.nestgenomics.com\"}, {\"slug\": \"shipday\", \"name\": \"Shipday\", \"sector\": \"Logistics\", \"website\": \"http://www.shipday.com\"}, {\"slug\": \"payfazz\", \"name\": \"PAYFAZZ\", \"sector\": \"Fintech & Crypto\", \"website\": \"http://payfazz.com\"}, {\"slug\": \"fountain\", \"name\": \"Fountain\", \"sector\": \"Logistics\", \"website\": \"https://get.fountain.com\"}, {\"slug\": \"floor-nfts\", \"name\": \"Floor NFTs\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://www.floornfts.io\"}, {\"slug\": \"perimeter-81\", \"name\": \"Perimeter 81\", \"sector\": \"AI Infrastructure\", \"website\": \"https://perimeter81.com\"}, {\"slug\": \"dailyhunt\", \"name\": \"DailyHunt\", \"sector\": \"Logistics\", \"website\": \"http://dailyhunt.in\"}, {\"slug\": \"flutterwave\", \"name\": \"Flutterwave\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://flutterwave.com\"}, {\"slug\": \"6sense\", \"name\": \"6sense\", \"sector\": \"AI & Enterprise\", \"website\": \"https://6sense.com\"}, {\"slug\": \"labelbox\", \"name\": \"Labelbox\", \"sector\": \"Edtech\", \"website\": \"https://labelbox.com\"}, {\"slug\": \"icertis\", \"name\": \"Icertis\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.icertis.com\"}, {\"slug\": \"zaihui\", \"name\": \"Zaihui\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://www.kezaihui.com\"}, {\"slug\": \"kopi-kenangan\", \"name\": \"Kopi Kenangan\", \"sector\": \"Consumer & Marketplaces\", \"website\": \"http://kopikenangan.com\"}, {\"slug\": \"figment\", \"name\": \"Figment\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://figment.io\"}, {\"slug\": \"pendo\", \"name\": \"Pendo\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.pendo.io\"}, {\"slug\": \"khatabook\", \"name\": \"Khatabook\", \"sector\": \"Fintech & Crypto\", \"website\": \"http://khatabook.com\"}, {\"slug\": \"nektar-ai\", \"name\": \"Nektar.AI\", \"sector\": \"Logistics\", \"website\": \"http://nektar.ai\"}, {\"slug\": \"hypersonix\", \"name\": \"Hypersonix\", \"sector\": \"Consumer & Marketplaces\", \"website\": \"https://hypersonix.ai\"}, {\"slug\": \"hifibio\", \"name\": \"HifiBio\", \"sector\": \"Biotech\", \"website\": \"http://hifibio.com\"}, {\"slug\": \"phenom-people\", \"name\": \"Phenom People\", \"sector\": \"Consumer & Marketplaces\", \"website\": \"https://www.phenom.com\"}, {\"slug\": \"xingyun\", \"name\": \"Xingyun\", \"sector\": \"Logistics\", \"website\": \"http://xingyungroup.com\"}, {\"slug\": \"extend\", \"name\": \"Extend\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://paywithextend.com\"}, {\"slug\": \"picnichealth\", \"name\": \"PicnicHealth\", \"sector\": \"Biotech\", \"website\": \"https://picnichealth.com\"}, {\"slug\": \"evidation-health\", \"name\": \"Evidation Health\", \"sector\": \"Healthtech\", \"website\": \"http://evidation.com\"}, {\"slug\": \"remote\", \"name\": \"Remote\", \"sector\": \"AI & Enterprise\", \"website\": \"https://remote.com\"}, {\"slug\": \"silvercloud-health\", \"name\": \"SilverCloud Health\", \"sector\": \"Healthtech\", \"website\": \"http://silvercloudhealth.com\"}, {\"slug\": \"lively\", \"name\": \"Lively\", \"sector\": \"Healthtech\", \"website\": \"https://livelyme.com\"}, {\"slug\": \"rapyd\", \"name\": \"Rapyd\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://www.rapyd.net\"}, {\"slug\": \"branch-international\", \"name\": \"Branch International\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://branch.co\"}, {\"slug\": \"mswipe\", \"name\": \"Mswipe\", \"sector\": \"Fintech & Crypto\", \"website\": \"http://mswipe.com\"}, {\"slug\": \"centivo\", \"name\": \"Centivo\", \"sector\": \"Healthtech\", \"website\": \"https://centivo.com\"}, {\"slug\": \"cloudwise\", \"name\": \"Cloudwise\", \"sector\": \"AI & Enterprise\", \"website\": \"http://cloudwise.com\"}, {\"slug\": \"artbio\", \"name\": \"ARTBIO\", \"sector\": \"Biotech\", \"website\": \"https://artbio.com\"}, {\"slug\": \"aurora-yaocheng\", \"name\": \"Aurora YaoCheng\", \"sector\": \"Healthtech\", \"website\": \"http://yaocheng.cn\"}, {\"slug\": \"bhanzu\", \"name\": \"Bhanzu\", \"sector\": \"Edtech\", \"website\": \"https://bhanzu.com\"}, {\"slug\": \"carrick\", \"name\": \"Carrick\", \"sector\": \"Biotech\", \"website\": \"https://www.carricktherapeutics.com\"}, {\"slug\": \"collinear-ai\", \"name\": \"Collinear AI\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.collinear.ai\"}, {\"slug\": \"deferred\", \"name\": \"Deferred\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.deferred.com\"}, {\"slug\": \"falconx\", \"name\": \"FalconX\", \"sector\": \"Fintech & Crypto\", \"website\": \"https://falconx.io\"}, {\"slug\": \"forest\", \"name\": \"Forest\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.forest-pkg.com\"}, {\"slug\": \"hotspot-therapeutics\", \"name\": \"HotSpot Therapeutics\", \"sector\": \"Biotech\", \"website\": \"https://www.hotspotthera.com\"}, {\"slug\": \"infrahub\", \"name\": \"InfraHub\", \"sector\": \"Logistics\", \"website\": \"https://www.infrahub.ai\"}, {\"slug\": \"iru\", \"name\": \"Iru\", \"sector\": \"AI & Enterprise\", \"website\": \"https://www.iru.com\"}, {\"slug\": \"labviva\", \"name\": \"Labviva\", \"sector\": \"Biotech\", \"website\": \"http://labviva.com\"}, {\"slug\": \"linkmore\", \"name\": \"LinKMORE\", \"sector\": \"AI & Enterprise\", \"website\": \"http://cnunify.com\"}, {\"slug\": \"precision-neuro\", \"name\": \"Precision Neuro\", \"sector\": \"AI Infrastructure\", \"website\": \"http://precisionneuro.io\"}, {\"slug\": \"profoundbio\", \"name\": \"ProfoundBio\", \"sector\": \"Biotech\", \"website\": \"http://www.profoundbio.com\"}, {\"slug\": \"sharpa\", \"name\": \"Sharpa\", \"sector\": \"Robotics & Space\", \"website\": \"https://www.sharpa.com\"}, {\"slug\": \"sift-healthcare\", \"name\": \"Sift Healthcare\", \"sector\": \"Biotech\", \"website\": \"https://www.sifthealthcare.com\"}, {\"slug\": \"spectrumedics\", \"name\": \"Spectrumedics\", \"sector\": \"Healthtech\", \"website\": \"https://spectrumedics.com\"}, {\"slug\": \"synapticure\", \"name\": \"Synapticure\", \"sector\": \"Healthtech\", \"website\": \"https://www.synapticure.com\"}, {\"slug\": \"tacta\", \"name\": \"Tacta\", \"sector\": \"Robotics & Space\", \"website\": \"http://www.tactasystems.com\"}, {\"slug\": \"tinyhealth\", \"name\": \"TinyHealth\", \"sector\": \"Biotech\", \"website\": \"https://www.tinyhealth.com\"}, {\"slug\": \"unblocked-brands\", \"name\": \"Unblocked Brands\", \"sector\": \"Consumer & Marketplaces\", \"website\": \"https://unblockedbrands.com\"}, {\"slug\": \"writer\", \"name\": \"WRITER\", \"sector\": \"AI & Enterprise\", \"website\": \"http://www.writer.com\"}]",
+    "fulfillmentPrompt": "Return the portfolio JSON verbatim — strict JSON, no prose, no markdown fences."
+   }
+  },
+  {
+   "key": "pitchbook-pull",
+   "kind": "source",
+   "type": "llm",
+   "dependencies": [
+    {
+     "nodeKey": "load-portfolio"
+    }
+   ],
+   "nextNodeKeys": [
+    "analyzer-0"
+   ],
+   "position": {
+    "x": 500,
+    "y": 200
+   },
+   "measured": {
+    "width": 300,
+    "height": 500
+   },
+   "llm": {
+    "model": "predefined-deepseek-flash",
+    "plugins": [
+     {
+      "id": "plugin-1777018662"
+     },
+     {
+      "id": "plugin-1722260873"
+     }
+    ],
+    "prompt": "You are step 2 of the B Capital monthly PitchBook sync. Input: the portfolio JSON from the previous step (136 companies: Lambda [lambda]; PaleBlueDot [palebluedot]; HavocAI [havocai]; TRM Labs [trm-labs]; Dream Labs [dream-labs]; Flourish Health [flourish-health]; 1AU [1au]; Grace Investment Machine [grace-investment-machine]; Seltz [seltz]; Cadence [cadence]; Solar Square [solar-square]; EeroQ [eeroq]; Fervo Energy [fervo-energy]; Star Catcher [star-catcher]; Sonilo [sonilo]; Reflection [reflection]; Knox [knox]; Axiom [axiom]; Oro Labs [oro-labs]; Numerion Labs [numerion-labs]; Gushwork [gushwork]; Code Metal [code-metal]; ChipAgents [chipagents]; Archimetis [archimetis]; Evommune [evommune]; Lunar Energy [lunar-energy]; Karman Industries [karman-industries]; JetZero [jetzero]; Positive Development [positive-development]; Lumara Health [lumara-health]; Insilico Medicine [insilico-medicine]; Turno [turno]; Goodfire [goodfire]; When [when]; Overstory [overstory]; Solve Therapeutics [solve-therapeutics]; Carro [carro]; Poolside [poolside]; Curbwaste [curbwaste]; CoinDCX [coindcx]; Vivacta [vivacta]; EvenUp [evenup]; Judi Rx [judi-rx]; Volastra [volastra]; Perplexity AI [perplexity-ai]; Isaac Health [isaac-health]; Ninja Van [ninja-van]; CompanyCam [companycam]; Brik [brik]; Neushen Therapeutics [neushen-therapeutics]; Starburst Data [starburst-data]; Turbine [turbine]; HeyLibby [heylibby]; Gable [gable]; BuildOps [buildops]; Odeko [odeko]; Goose [goose]; Certn [certn]; Apptronik [apptronik]; Omnidian [omnidian]; Meesho [meesho]; MacroLux [macrolux]; Innovaccer [innovaccer]; Nuvig [nuvig]; Eureka Robotics [eureka-robotics]; Wildfire [wildfire]; Baichuan [baichuan]; Rona Therapeutics [rona-therapeutics]; LevelTen [levelten]; GrayMatter Robotics [graymatter-robotics]; Accacia [accacia]; Sugarfit [sugarfit]; FlowGPT [flowgpt]; Miotech [miotech]; Nalu [nalu]; Yalo [yalo]; AIMotive [aimotive]; Grit [grit]; Inspace [inspace]; Percent [percent]; MediTrust [meditrust]; Nest Genomics [nest-genomics]; Shipday [shipday]; PAYFAZZ [payfazz]; Fountain [fountain]; Floor NFTs [floor-nfts]; Perimeter 81 [perimeter-81]; DailyHunt [dailyhunt]; Flutterwave [flutterwave]; 6sense [6sense]; Labelbox [labelbox]; Icertis [icertis]; Zaihui [zaihui]; Kopi Kenangan [kopi-kenangan]; Figment [figment]; Pendo [pendo]; Khatabook [khatabook]; Nektar.AI [nektar-ai]; Hypersonix [hypersonix]; HifiBio [hifibio]; Phenom People [phenom-people]; Xingyun [xingyun]; Extend [extend]; PicnicHealth [picnichealth]; Evidation Health [evidation-health]; Remote [remote]; SilverCloud Health [silvercloud-health]; Lively [lively]; Rapyd [rapyd]; Branch International [branch-international]; Mswipe [mswipe]; Centivo [centivo]; Cloudwise [cloudwise]; ARTBIO [artbio]; Aurora YaoCheng [aurora-yaocheng]; Bhanzu [bhanzu]; Carrick [carrick]; Collinear AI [collinear-ai]; Deferred [deferred]; FalconX [falconx]; Forest [forest]; HotSpot Therapeutics [hotspot-therapeutics]; InfraHub [infrahub]; Iru [iru]; Labviva [labviva]; LinKMORE [linkmore]; Precision Neuro [precision-neuro]; ProfoundBio [profoundbio]; Sharpa [sharpa]; Sift Healthcare [sift-healthcare]; Spectrumedics [spectrumedics]; Synapticure [synapticure]; Tacta [tacta]; TinyHealth [tinyhealth]; Unblocked Brands [unblocked-brands]; WRITER [writer]). For EACH company: (a) call the PitchBook Investor Finder plugin (searchInvestors) with a one-paragraph fundraising brief built from the company name, sector and website and record up to 5 matched investors {name, website, location, type, aum_musd}; (b) use the web plugin to look up the public PitchBook company profile page https://pitchbook.com/profiles/company/<slug-as-listed-on-pitchbook> and, ONLY when the page is retrievable and states it explicitly, record overview, founded (year), status, hq, contact, employees, investments_count, deal_history [{date,type,size_usd,post_money_usd,lead_investors[]}], post_money_valuation_usd, last_financing_date, last_financing_type, last_financing_size_usd, website, pitchbook_profile_url (the page URL). Every recorded field MUST carry {\"value\":…,\"source\":\"PitchBook Investor Finder (plugin-1777018662)\"|\"PitchBook public profile\",\"url\":\"<page url>\"}. NEVER fabricate, estimate or infer a value: if a field cannot be retrieved set it to null and mark availability \"not_available\". Output STRICT JSON only, compact (no whitespace), exactly: {\"workflow_name\":\"B Capital — Monthly PitchBook Portfolio Sync\",\"run\":{\"started_at\":\"<ISO-8601 UTC>\"},\"records\":[{\"slug\":\"<slug exactly as listed>\",\"fields\":{\"overview\":…,\"founded\":…,\"status\":…,\"hq\":…,\"contact\":…,\"employees\":…,\"investments_count\":…,\"deal_history\":…,\"post_money_valuation_usd\":…,\"investors\":…,\"last_financing_date\":…,\"last_financing_type\":…,\"last_financing_size_usd\":…,\"website\":…,\"pitchbook_profile_url\":…},\"source_url\":\"<pitchbook profile url or null>\",\"fetched_at\":\"<ISO-8601 UTC>\",\"availability\":{\"<field>\":\"available\"|\"not_available\"}}]}. Include ALL 136 slugs even when every field is null.",
+    "fulfillmentPrompt": "Return ONLY the strict JSON payload described in the prompt (records for all 136 companies, null + not_available for anything not retrieved). No prose, no markdown fences."
+   }
+  },
+  {
+   "key": "analyzer-0",
+   "kind": "sink",
+   "type": "o_analyzer",
+   "dependencies": [
+    {
+     "nodeKey": "pitchbook-pull"
+    }
+   ],
+   "nextNodeKeys": [
+    "add-delivery"
+   ],
+   "position": {
+    "x": 900,
+    "y": 200
+   },
+   "measured": {
+    "width": 300,
+    "height": 500
+   }
+  }
+ ],
+ "delivery": [
+  {
+   "position": {
+    "x": 1300,
+    "y": 200
+   },
+   "measured": {
+    "width": 300,
+    "height": 500
+   },
+   "channel": "webhook",
+   "config": {
+    "slack": null,
+    "webhook": {
+     "url": "${API_BASE}/pitchbook/sync/webhook?secret=${INGEST_SECRET}",
+     "method": "POST",
+     "basicAuth": {
+      "username": "ingest",
+      "password": "${INGEST_SECRET}"
+     }
+    },
+    "email": null,
+    "phone": null
+   }
+  },
+  {
+   "position": {
+    "x": 1300,
+    "y": 800
+   },
+   "measured": {
+    "width": 300,
+    "height": 500
+   },
+   "channel": "email",
+   "config": {
+    "slack": null,
+    "webhook": null,
+    "email": {
+     "addresses": [
+      "mk@airev.ae"
+     ],
+     "file": {
+      "id": ""
+     },
+     "replyToEmail": "",
+     "replyToName": "",
+     "emailSubject": "B Capital — Monthly PitchBook Portfolio Sync"
+    },
+    "phone": null
+   }
+  }
+ ],
+ "enableMemory": false
+}

@@ -1,0 +1,89 @@
+{
+ "generated_at": "2026-10-13T00:16:27Z",
+ "documents": [
+  {
+   "document": "B_Capital_Research_Leadership_Brief_v1.docx",
+   "url": "https://airevprod.blob.core.windows.net/on-demand-agent/agent-outputs/6692b763e851d28a036ab30e/6a3e6ddbc7150ad48800e784/6a3e6ee2423751f5706a1c5e/generated/B_Capital_Research_Leadership_Brief_v1.docx",
+   "matches": {
+    "ninja-van": [
+     "Ninja Van | Logistics | Singapore"
+    ],
+    "meesho": [
+     "Meesho | E-commerce | India"
+    ],
+    "icertis": [
+     "March 2024 \u2014 Closed Opportunities Fund II at $750M; first investment via secondary in Icertis.",
+     "Icertis | Contract intelligence | US"
+    ],
+    "kopi-kenangan": [
+     "Kopi Kenangan | Consumer | Indonesia"
+    ],
+    "khatabook": [
+     "Khatabook | SaaS | Bangalore"
+    ],
+    "mswipe": [
+     "Mswipe | Fintech | Mumbai"
+    ]
+   }
+  },
+  {
+   "document": "B_Capital_Research_Report_v1.docx",
+   "url": "https://airevprod.blob.core.windows.net/on-demand-agent/agent-outputs/6692b763e851d28a036ab30e/6a3a5f82d452c967922ae12f/6a3a5f925e5e6970ca97eefb/generated/B_Capital_Research_Report_v1.docx",
+   "matches": {
+    "carro": [
+     "Carro: Southeast Asia's largest automotive marketplace, leveraging advanced AI pricing and inspection engines."
+    ],
+    "ninja-van": [
+     "Ninja Van: One of Southeast Asia's fastest-growing tech-enabled express logistics companies."
+    ],
+    "icertis": [
+     "Icertis: A global leader in enterprise contract intelligence and cloud-based contract lifecycle management (CLM)."
+    ],
+    "falconx": [
+     "FalconX: A digital asset brokerage and cryptocurrency platform providing institutional-grade liquidity and execution."
+    ]
+   }
+  },
+  {
+   "document": "B_Capital_Strategic_Research_Brief_v1.pdf",
+   "url": "https://airevprod.blob.core.windows.net/on-demand-agent/agent-outputs/6692b763e851d28a036ab30e/6a3a4e877136611a33778b6a/6a3a50f57136611a33778b77/generated/B_Capital_Strategic_Research_Brief_v1.pdf",
+   "matches": {
+    "khatabook": [
+     "Khatabook Bangalore, India Digitizing local micro, small, and medium businesses through bookkeeping and online payment integrations."
+    ]
+   }
+  },
+  {
+   "document": "b-capital-investment-research-brief_v1.pdf",
+   "url": "https://airevprod.blob.core.windows.net/on-demand-agent/agent-outputs/6692b763e851d28a036ab30e/6a37e45cd452c967922ad63f/6a37e4697136611a3377806b/generated/b-capital-investment-research-brief_v1.pdf",
+   "matches": {
+    "khatabook": [
+     "as Khatabook, Alerzo, or Synack) can leverage OnDemand's pre-built agents to automate customer"
+    ]
+   }
+  },
+  {
+   "document": "b_capital_group_research_report_v1.pdf",
+   "url": "https://airevprod.blob.core.windows.net/on-demand-agent/agent-outputs/6692b763e851d28a036ab30e/6a3e6d9d00bad1c8a0d31bcd/6a3e6db528fc7316f0865fad/generated/b_capital_group_research_report_v1.pdf",
+   "matches": {
+    "coindcx": [
+     "CoinDCX Fintech Web3 / Crypto Leading cryptocurrency exchange and digital asset gateway."
+    ],
+    "ninja-van": [
+     "Ninja Van Logistics Tech Supply Chain Tech-driven regional express logistics provider in Southeast Asia."
+    ],
+    "meesho": [
+     "Meesho E-Commerce Digital Commerce Social commerce and digital marketplace leader in India."
+    ],
+    "icertis": [
+     "Icertis Enterprise SaaS Contract Intelligence Global pioneer in AI- powered contract lifecycle management (CLM).",
+     "automated workflow engine to key B Capital SaaS portfolio firms (e.g., Icertis, Khatabook) to"
+    ],
+    "khatabook": [
+     "Khatabook Fintech / SaaS Merchant Tech SaaS bookkeeping and payment ledger engine digitizing local merchants in India.",
+     "automated workflow engine to key B Capital SaaS portfolio firms (e.g., Icertis, Khatabook) to"
+    ]
+   }
+  }
+ ]
+}

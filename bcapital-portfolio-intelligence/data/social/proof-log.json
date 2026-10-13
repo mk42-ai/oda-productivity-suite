@@ -1,0 +1,1484 @@
+{
+ "built_at": "2026-10-12T09:48:22Z",
+ "total_unique_verified_posts": 10444,
+ "per_source": {
+  "x": 7425,
+  "reddit": 2994,
+  "instagram": 25
+ },
+ "per_sector": {
+  "ai-enterprise": 2064,
+  "fintech": 1416,
+  "consumer": 769,
+  "robotics": 1000,
+  "climate": 1064,
+  "biotech": 1472,
+  "logistics": 373,
+  "edtech": 479,
+  "ai-infra": 704,
+  "healthtech": 1103
+ },
+ "duplicates_removed": 489,
+ "scored_posts": 6828,
+ "workers": {
+  "total": 50,
+  "ok": 37,
+  "partial": 13,
+  "error": 0
+ },
+ "jobs": [
+  {
+   "job_id": "J01",
+   "sector": "ai-enterprise",
+   "source": "x",
+   "companies": [
+    "perplexity-ai",
+    "pendo",
+    "gable",
+    "deferred",
+    "1au"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:00Z",
+   "finished_at": "2026-10-12T09:15:53Z",
+   "posts_fetched": 625,
+   "posts_admitted": 372,
+   "posts_rejected": 253,
+   "rejections": {
+    "not_relevant": 183,
+    "x_oembed_author_mismatch": 3,
+    "duplicate_in_job": 67
+   },
+   "errors": [],
+   "sessions": 35,
+   "first_session_id": "6acca0a021ae4e9e6997dd0a",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/ai-enterprise-x-J01.json"
+  },
+  {
+   "job_id": "J02",
+   "sector": "ai-enterprise",
+   "source": "x",
+   "companies": [
+    "6sense",
+    "remote",
+    "buildops",
+    "iru",
+    "when"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:00Z",
+   "finished_at": "2026-10-12T09:13:08Z",
+   "posts_fetched": 560,
+   "posts_admitted": 300,
+   "posts_rejected": 260,
+   "rejections": {
+    "not_relevant": 195,
+    "duplicate_in_job": 65
+   },
+   "errors": [],
+   "sessions": 27,
+   "first_session_id": "6acca0a020a8b245e6aad5c5",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/ai-enterprise-x-J02.json"
+  },
+  {
+   "job_id": "J03",
+   "sector": "ai-enterprise",
+   "source": "x",
+   "companies": [
+    "writer",
+    "sonilo",
+    "goose",
+    "companycam",
+    "linkmore"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:00Z",
+   "finished_at": "2026-10-12T09:14:43Z",
+   "posts_fetched": 420,
+   "posts_admitted": 269,
+   "posts_rejected": 151,
+   "rejections": {
+    "not_relevant": 101,
+    "duplicate_in_job": 50
+   },
+   "errors": [],
+   "sessions": 26,
+   "first_session_id": "6acca0a093f7b118ad02a457",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/ai-enterprise-x-J03.json"
+  },
+  {
+   "job_id": "J04",
+   "sector": "ai-enterprise",
+   "source": "x",
+   "companies": [
+    "reflection",
+    "gushwork",
+    "icertis",
+    "certn"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:00Z",
+   "finished_at": "2026-10-12T09:12:21Z",
+   "posts_fetched": 400,
+   "posts_admitted": 228,
+   "posts_rejected": 172,
+   "rejections": {
+    "not_relevant": 100,
+    "duplicate_in_job": 72
+   },
+   "errors": [],
+   "sessions": 22,
+   "first_session_id": "6acca0a120a8b245e6aad5c8",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/ai-enterprise-x-J04.json"
+  },
+  {
+   "job_id": "J05",
+   "sector": "ai-enterprise",
+   "source": "x",
+   "companies": [
+    "starburst-data",
+    "evenup",
+    "cloudwise",
+    "forest"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:01Z",
+   "finished_at": "2026-10-12T09:07:16Z",
+   "posts_fetched": 353,
+   "posts_admitted": 180,
+   "posts_rejected": 173,
+   "rejections": {
+    "not_relevant": 132,
+    "duplicate_in_job": 41
+   },
+   "errors": [],
+   "sessions": 21,
+   "first_session_id": "6acca0a120a8b245e6aad5cb",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/ai-enterprise-x-J05.json"
+  },
+  {
+   "job_id": "J06",
+   "sector": "ai-enterprise",
+   "source": "x",
+   "companies": [
+    "baichuan",
+    "brik",
+    "collinear-ai",
+    "dream-labs"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:01Z",
+   "finished_at": "2026-10-12T09:09:41Z",
+   "posts_fetched": 288,
+   "posts_admitted": 187,
+   "posts_rejected": 101,
+   "rejections": {
+    "not_relevant": 36,
+    "x_oembed_author_mismatch": 1,
+    "duplicate_in_job": 63
+   },
+   "errors": [],
+   "sessions": 21,
+   "first_session_id": "6acca0a193f7b118ad02a459",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/ai-enterprise-x-J06.json"
+  },
+  {
+   "job_id": "J07",
+   "sector": "ai-enterprise",
+   "source": "reddit",
+   "companies": [
+    "perplexity-ai",
+    "starburst-data",
+    "sonilo",
+    "gable",
+    "cloudwise",
+    "companycam",
+    "1au"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:01Z",
+   "finished_at": "2026-10-12T09:30:58Z",
+   "posts_fetched": 611,
+   "posts_admitted": 215,
+   "posts_rejected": 396,
+   "rejections": {
+    "not_relevant": 390,
+    "not_native_permalink": 3,
+    "duplicate_in_job": 3
+   },
+   "errors": [
+    "\"Perplexity AI\": HTTP [200, 429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 100,
+   "checkpoint": "data/social/verified/ai-enterprise-reddit-J07.json"
+  },
+  {
+   "job_id": "J08",
+   "sector": "ai-enterprise",
+   "source": "reddit",
+   "companies": [
+    "6sense",
+    "baichuan",
+    "gushwork",
+    "buildops",
+    "collinear-ai",
+    "certn",
+    "when"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:02Z",
+   "finished_at": "2026-10-12T09:29:50Z",
+   "posts_fetched": 965,
+   "posts_admitted": 194,
+   "posts_rejected": 771,
+   "rejections": {
+    "not_relevant": 751,
+    "not_native_permalink": 3,
+    "duplicate_in_job": 17
+   },
+   "errors": [
+    "Baichuan AI: HTTP [200, 429]",
+    "\"Gushwork\": HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 105,
+   "checkpoint": "data/social/verified/ai-enterprise-reddit-J08.json"
+  },
+  {
+   "job_id": "J09",
+   "sector": "ai-enterprise",
+   "source": "reddit",
+   "companies": [
+    "writer",
+    "pendo",
+    "evenup",
+    "goose",
+    "deferred",
+    "forest",
+    "linkmore"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:02Z",
+   "finished_at": "2026-10-12T09:30:38Z",
+   "posts_fetched": 1157,
+   "posts_admitted": 63,
+   "posts_rejected": 1094,
+   "rejections": {
+    "not_relevant": 1088,
+    "not_native_permalink": 6
+   },
+   "errors": [
+    "Pendo product analytics: HTTP [429]",
+    "EvenUp AI legal: HTTP [429]",
+    "Deferred 1031 exchange: HTTP [200, 429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 104,
+   "checkpoint": "data/social/verified/ai-enterprise-reddit-J09.json"
+  },
+  {
+   "job_id": "J10",
+   "sector": "ai-enterprise",
+   "source": "reddit",
+   "companies": [
+    "reflection",
+    "remote",
+    "brik",
+    "icertis",
+    "iru",
+    "dream-labs"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:02Z",
+   "finished_at": "2026-10-12T09:34:22Z",
+   "posts_fetched": 693,
+   "posts_admitted": 109,
+   "posts_rejected": 584,
+   "rejections": {
+    "not_relevant": 576,
+    "not_native_permalink": 6,
+    "duplicate_in_job": 2
+   },
+   "errors": [
+    "Remote.com: HTTP [429]",
+    "Job van der Voort Remote: HTTP [429]",
+    "\"Icertis\": HTTP [200, 429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 99,
+   "checkpoint": "data/social/verified/ai-enterprise-reddit-J10.json"
+  },
+  {
+   "job_id": "J11",
+   "sector": "ai-infra",
+   "source": "x",
+   "companies": [
+    "lambda",
+    "axiom",
+    "eeroq",
+    "perimeter-81",
+    "aimotive"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:03Z",
+   "finished_at": "2026-10-12T09:14:34Z",
+   "posts_fetched": 583,
+   "posts_admitted": 368,
+   "posts_rejected": 215,
+   "rejections": {
+    "not_relevant": 139,
+    "duplicate_in_job": 76
+   },
+   "errors": [],
+   "sessions": 29,
+   "first_session_id": "6acca0a320a8b245e6aad5cc",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/ai-infra-x-J11.json"
+  },
+  {
+   "job_id": "J12",
+   "sector": "ai-infra",
+   "source": "x",
+   "companies": [
+    "knox",
+    "palebluedot",
+    "chipagents",
+    "precision-neuro"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:03Z",
+   "finished_at": "2026-10-12T09:08:44Z",
+   "posts_fetched": 390,
+   "posts_admitted": 219,
+   "posts_rejected": 171,
+   "rejections": {
+    "not_relevant": 96,
+    "duplicate_in_job": 75
+   },
+   "errors": [],
+   "sessions": 23,
+   "first_session_id": "6acca0a320a8b245e6aad5cd",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/ai-infra-x-J12.json"
+  },
+  {
+   "job_id": "J13",
+   "sector": "ai-infra",
+   "source": "reddit",
+   "companies": [
+    "lambda",
+    "knox",
+    "axiom",
+    "palebluedot",
+    "eeroq",
+    "chipagents",
+    "perimeter-81",
+    "precision-neuro",
+    "aimotive"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:03Z",
+   "finished_at": "2026-10-12T09:38:34Z",
+   "posts_fetched": 1181,
+   "posts_admitted": 129,
+   "posts_rejected": 1052,
+   "rejections": {
+    "not_relevant": 1042,
+    "not_native_permalink": 8,
+    "duplicate_in_job": 2
+   },
+   "errors": [
+    "\"Precision Neuroscience\": HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 120,
+   "checkpoint": "data/social/verified/ai-infra-reddit-J13.json"
+  },
+  {
+   "job_id": "J14",
+   "sector": "biotech",
+   "source": "x",
+   "companies": [
+    "insilico-medicine",
+    "isaac-health",
+    "picnichealth",
+    "grit",
+    "hotspot-therapeutics"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:04Z",
+   "finished_at": "2026-10-12T09:12:02Z",
+   "posts_fetched": 452,
+   "posts_admitted": 254,
+   "posts_rejected": 198,
+   "rejections": {
+    "not_relevant": 134,
+    "duplicate_in_job": 64
+   },
+   "errors": [],
+   "sessions": 27,
+   "first_session_id": "6acca0a493f7b118ad02a461",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/biotech-x-J14.json"
+  },
+  {
+   "job_id": "J15",
+   "sector": "biotech",
+   "source": "x",
+   "companies": [
+    "judi-rx",
+    "neushen-therapeutics",
+    "labviva",
+    "meditrust",
+    "sift-healthcare"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:04Z",
+   "finished_at": "2026-10-12T09:08:20Z",
+   "posts_fetched": 402,
+   "posts_admitted": 260,
+   "posts_rejected": 142,
+   "rejections": {
+    "not_relevant": 57,
+    "duplicate_in_job": 85
+   },
+   "errors": [],
+   "sessions": 25,
+   "first_session_id": "6acca0a420a8b245e6aad5d6",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/biotech-x-J15.json"
+  },
+  {
+   "job_id": "J16",
+   "sector": "biotech",
+   "source": "x",
+   "companies": [
+    "evommune",
+    "innovaccer",
+    "numerion-labs",
+    "nest-genomics",
+    "tinyhealth"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:04Z",
+   "finished_at": "2026-10-12T09:08:35Z",
+   "posts_fetched": 344,
+   "posts_admitted": 228,
+   "posts_rejected": 116,
+   "rejections": {
+    "not_relevant": 35,
+    "x_oembed_unresolved": 1,
+    "x_oembed_author_mismatch": 1,
+    "duplicate_in_job": 78
+   },
+   "errors": [],
+   "sessions": 24,
+   "first_session_id": "6acca0a493f7b118ad02a465",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/biotech-x-J16.json"
+  },
+  {
+   "job_id": "J17",
+   "sector": "biotech",
+   "source": "x",
+   "companies": [
+    "vivacta",
+    "nuvig",
+    "solve-therapeutics",
+    "artbio",
+    "profoundbio"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:04Z",
+   "finished_at": "2026-10-12T09:07:45Z",
+   "posts_fetched": 254,
+   "posts_admitted": 179,
+   "posts_rejected": 75,
+   "rejections": {
+    "not_relevant": 26,
+    "duplicate_in_job": 49
+   },
+   "errors": [],
+   "sessions": 22,
+   "first_session_id": "6acca0a520a8b245e6aad5d9",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/biotech-x-J17.json"
+  },
+  {
+   "job_id": "J18",
+   "sector": "biotech",
+   "source": "x",
+   "companies": [
+    "volastra",
+    "hifibio",
+    "rona-therapeutics",
+    "carrick"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:05Z",
+   "finished_at": "2026-10-12T09:06:08Z",
+   "posts_fetched": 333,
+   "posts_admitted": 104,
+   "posts_rejected": 229,
+   "rejections": {
+    "not_relevant": 185,
+    "x_oembed_author_mismatch": 2,
+    "duplicate_in_job": 40
+   },
+   "errors": [],
+   "sessions": 20,
+   "first_session_id": "6acca0a520a8b245e6aad5dd",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/biotech-x-J18.json"
+  },
+  {
+   "job_id": "J19",
+   "sector": "biotech",
+   "source": "reddit",
+   "companies": [
+    "insilico-medicine",
+    "vivacta",
+    "neushen-therapeutics",
+    "hifibio",
+    "numerion-labs",
+    "grit",
+    "artbio",
+    "sift-healthcare"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:05Z",
+   "finished_at": "2026-10-12T09:26:54Z",
+   "posts_fetched": 376,
+   "posts_admitted": 172,
+   "posts_rejected": 204,
+   "rejections": {
+    "not_relevant": 195,
+    "not_native_permalink": 6,
+    "duplicate_in_job": 3
+   },
+   "errors": [],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 100,
+   "checkpoint": "data/social/verified/biotech-reddit-J19.json"
+  },
+  {
+   "job_id": "J20",
+   "sector": "biotech",
+   "source": "reddit",
+   "companies": [
+    "judi-rx",
+    "volastra",
+    "innovaccer",
+    "picnichealth",
+    "solve-therapeutics",
+    "meditrust",
+    "carrick",
+    "tinyhealth"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:05Z",
+   "finished_at": "2026-10-12T09:24:19Z",
+   "posts_fetched": 1099,
+   "posts_admitted": 388,
+   "posts_rejected": 711,
+   "rejections": {
+    "not_relevant": 709,
+    "not_native_permalink": 1,
+    "duplicate_in_job": 1
+   },
+   "errors": [],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 98,
+   "checkpoint": "data/social/verified/biotech-reddit-J20.json"
+  },
+  {
+   "job_id": "J21",
+   "sector": "biotech",
+   "source": "reddit",
+   "companies": [
+    "evommune",
+    "isaac-health",
+    "nuvig",
+    "labviva",
+    "rona-therapeutics",
+    "nest-genomics",
+    "hotspot-therapeutics",
+    "profoundbio"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:06Z",
+   "finished_at": "2026-10-12T09:35:13Z",
+   "posts_fetched": 186,
+   "posts_admitted": 69,
+   "posts_rejected": 117,
+   "rejections": {
+    "not_relevant": 117
+   },
+   "errors": [
+    "\"Evommune\": HTTP [200, 429]",
+    "\"Nest Genomics\": HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 107,
+   "checkpoint": "data/social/verified/biotech-reddit-J21.json"
+  },
+  {
+   "job_id": "J22",
+   "sector": "climate",
+   "source": "x",
+   "companies": [
+    "solar-square",
+    "archimetis",
+    "omnidian",
+    "miotech",
+    "curbwaste"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:06Z",
+   "finished_at": "2026-10-12T09:08:58Z",
+   "posts_fetched": 410,
+   "posts_admitted": 295,
+   "posts_rejected": 115,
+   "rejections": {
+    "not_relevant": 55,
+    "duplicate_in_job": 60
+   },
+   "errors": [],
+   "sessions": 27,
+   "first_session_id": "6acca0a621ae4e9e6997dd22",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/climate-x-J22.json"
+  },
+  {
+   "job_id": "J23",
+   "sector": "climate",
+   "source": "x",
+   "companies": [
+    "fervo-energy",
+    "karman-industries",
+    "accacia",
+    "lunar-energy",
+    "levelten"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:06Z",
+   "finished_at": "2026-10-12T09:13:46Z",
+   "posts_fetched": 471,
+   "posts_admitted": 321,
+   "posts_rejected": 150,
+   "rejections": {
+    "not_relevant": 79,
+    "x_oembed_author_mismatch": 1,
+    "duplicate_in_job": 69
+   },
+   "errors": [],
+   "sessions": 26,
+   "first_session_id": "6acca0a793f7b118ad02a46e",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/climate-x-J23.json"
+  },
+  {
+   "job_id": "J24",
+   "sector": "climate",
+   "source": "reddit",
+   "companies": [
+    "solar-square",
+    "fervo-energy",
+    "archimetis",
+    "karman-industries",
+    "omnidian",
+    "accacia",
+    "miotech",
+    "lunar-energy",
+    "curbwaste",
+    "levelten"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:07Z",
+   "finished_at": "2026-10-12T09:35:08Z",
+   "posts_fetched": 907,
+   "posts_admitted": 476,
+   "posts_rejected": 431,
+   "rejections": {
+    "not_relevant": 428,
+    "not_native_permalink": 3
+   },
+   "errors": [
+    "SolarSquare: HTTP [200, 429]",
+    "\"Solar Square\" rooftop: HTTP [200, 429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 121,
+   "checkpoint": "data/social/verified/climate-reddit-J24.json"
+  },
+  {
+   "job_id": "J25",
+   "sector": "consumer",
+   "source": "x",
+   "companies": [
+    "meesho",
+    "kopi-kenangan",
+    "carro",
+    "unblocked-brands"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:07Z",
+   "finished_at": "2026-10-12T09:08:59Z",
+   "posts_fetched": 441,
+   "posts_admitted": 345,
+   "posts_rejected": 96,
+   "rejections": {
+    "not_relevant": 31,
+    "duplicate_in_job": 65
+   },
+   "errors": [],
+   "sessions": 24,
+   "first_session_id": "6acca0a720a8b245e6aad5e8",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/consumer-x-J25.json"
+  },
+  {
+   "job_id": "J26",
+   "sector": "consumer",
+   "source": "x",
+   "companies": [
+    "phenom-people",
+    "hypersonix",
+    "yalo"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:07Z",
+   "finished_at": "2026-10-12T09:04:06Z",
+   "posts_fetched": 281,
+   "posts_admitted": 106,
+   "posts_rejected": 175,
+   "rejections": {
+    "not_relevant": 161,
+    "duplicate_in_job": 14
+   },
+   "errors": [],
+   "sessions": 16,
+   "first_session_id": "6acca0a720a8b245e6aad5f1",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/consumer-x-J26.json"
+  },
+  {
+   "job_id": "J27",
+   "sector": "consumer",
+   "source": "reddit",
+   "companies": [
+    "meesho",
+    "phenom-people",
+    "kopi-kenangan",
+    "hypersonix",
+    "carro",
+    "yalo",
+    "unblocked-brands"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:07Z",
+   "finished_at": "2026-10-12T09:33:07Z",
+   "posts_fetched": 1327,
+   "posts_admitted": 347,
+   "posts_rejected": 980,
+   "rejections": {
+    "not_relevant": 972,
+    "not_native_permalink": 7,
+    "duplicate_in_job": 1
+   },
+   "errors": [
+    "\"Unblocked Brands\": HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 109,
+   "checkpoint": "data/social/verified/consumer-reddit-J27.json"
+  },
+  {
+   "job_id": "J28",
+   "sector": "edtech",
+   "source": "x",
+   "companies": [
+    "goodfire",
+    "poolside",
+    "labelbox",
+    "grace-investment-machine",
+    "bhanzu"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:08Z",
+   "finished_at": "2026-10-12T09:17:16Z",
+   "posts_fetched": 468,
+   "posts_admitted": 319,
+   "posts_rejected": 149,
+   "rejections": {
+    "not_relevant": 95,
+    "x_oembed_author_mismatch": 2,
+    "duplicate_in_job": 52
+   },
+   "errors": [],
+   "sessions": 24,
+   "first_session_id": "6acca0a893f7b118ad02a472",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/edtech-x-J28.json"
+  },
+  {
+   "job_id": "J29",
+   "sector": "edtech",
+   "source": "reddit",
+   "companies": [
+    "goodfire",
+    "poolside",
+    "labelbox",
+    "grace-investment-machine",
+    "bhanzu"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:08Z",
+   "finished_at": "2026-10-12T09:28:54Z",
+   "posts_fetched": 448,
+   "posts_admitted": 168,
+   "posts_rejected": 280,
+   "rejections": {
+    "not_relevant": 269,
+    "not_native_permalink": 10,
+    "duplicate_in_job": 1
+   },
+   "errors": [
+    "\"Poolside AI\": HTTP [429]",
+    "\"Grace Investment Machine\": HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 87,
+   "checkpoint": "data/social/verified/edtech-reddit-J29.json"
+  },
+  {
+   "job_id": "J30",
+   "sector": "fintech",
+   "source": "x",
+   "companies": [
+    "branch-international",
+    "turbine",
+    "figment",
+    "falconx",
+    "extend"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:08Z",
+   "finished_at": "2026-10-12T09:14:26Z",
+   "posts_fetched": 539,
+   "posts_admitted": 289,
+   "posts_rejected": 250,
+   "rejections": {
+    "not_relevant": 171,
+    "x_oembed_author_mismatch": 3,
+    "duplicate_in_job": 75
+   },
+   "errors": [],
+   "sessions": 32,
+   "first_session_id": "6acca0a920a8b245e6aad5f5",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/fintech-x-J30.json"
+  },
+  {
+   "job_id": "J31",
+   "sector": "fintech",
+   "source": "x",
+   "companies": [
+    "trm-labs",
+    "payfazz",
+    "khatabook",
+    "wildfire"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:09Z",
+   "finished_at": "2026-10-12T09:10:15Z",
+   "posts_fetched": 476,
+   "posts_admitted": 306,
+   "posts_rejected": 170,
+   "rejections": {
+    "not_relevant": 66,
+    "x_oembed_unresolved": 1,
+    "duplicate_in_job": 103
+   },
+   "errors": [],
+   "sessions": 24,
+   "first_session_id": "6acca0a921ae4e9e6997dd33",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/fintech-x-J31.json"
+  },
+  {
+   "job_id": "J32",
+   "sector": "fintech",
+   "source": "x",
+   "companies": [
+    "turno",
+    "floor-nfts",
+    "rapyd",
+    "percent"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:09Z",
+   "finished_at": "2026-10-12T09:09:50Z",
+   "posts_fetched": 364,
+   "posts_admitted": 170,
+   "posts_rejected": 194,
+   "rejections": {
+    "not_relevant": 167,
+    "duplicate_in_job": 27
+   },
+   "errors": [],
+   "sessions": 22,
+   "first_session_id": "6acca0a920a8b245e6aad5fb",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/fintech-x-J32.json"
+  },
+  {
+   "job_id": "J33",
+   "sector": "fintech",
+   "source": "x",
+   "companies": [
+    "coindcx",
+    "flutterwave",
+    "mswipe",
+    "zaihui"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:09Z",
+   "finished_at": "2026-10-12T09:11:03Z",
+   "posts_fetched": 431,
+   "posts_admitted": 343,
+   "posts_rejected": 88,
+   "rejections": {
+    "not_relevant": 58,
+    "x_oembed_author_mismatch": 1,
+    "duplicate_in_job": 29
+   },
+   "errors": [],
+   "sessions": 22,
+   "first_session_id": "6acca0a921ae4e9e6997dd34",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/fintech-x-J33.json"
+  },
+  {
+   "job_id": "J34",
+   "sector": "fintech",
+   "source": "reddit",
+   "companies": [
+    "branch-international",
+    "coindcx",
+    "floor-nfts",
+    "khatabook",
+    "falconx",
+    "zaihui"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:10Z",
+   "finished_at": "2026-10-12T09:31:05Z",
+   "posts_fetched": 973,
+   "posts_admitted": 114,
+   "posts_rejected": 859,
+   "rejections": {
+    "not_relevant": 852,
+    "not_native_permalink": 7
+   },
+   "errors": [
+    "\"CoinDCX\": HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 94,
+   "checkpoint": "data/social/verified/fintech-reddit-J34.json"
+  },
+  {
+   "job_id": "J35",
+   "sector": "fintech",
+   "source": "reddit",
+   "companies": [
+    "trm-labs",
+    "turbine",
+    "flutterwave",
+    "rapyd",
+    "wildfire",
+    "extend"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:10Z",
+   "finished_at": "2026-10-12T09:30:12Z",
+   "posts_fetched": 757,
+   "posts_admitted": 137,
+   "posts_rejected": 620,
+   "rejections": {
+    "not_relevant": 619,
+    "not_native_permalink": 1
+   },
+   "errors": [
+    "\"Turbine Finance\": HTTP [429]",
+    "\"Flutterwave\": HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 88,
+   "checkpoint": "data/social/verified/fintech-reddit-J35.json"
+  },
+  {
+   "job_id": "J36",
+   "sector": "fintech",
+   "source": "reddit",
+   "companies": [
+    "turno",
+    "payfazz",
+    "figment",
+    "mswipe",
+    "percent"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:10Z",
+   "finished_at": "2026-10-12T09:24:18Z",
+   "posts_fetched": 655,
+   "posts_admitted": 90,
+   "posts_rejected": 565,
+   "rejections": {
+    "not_native_permalink": 6,
+    "not_relevant": 559
+   },
+   "errors": [],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 74,
+   "checkpoint": "data/social/verified/fintech-reddit-J36.json"
+  },
+  {
+   "job_id": "J37",
+   "sector": "healthtech",
+   "source": "x",
+   "companies": [
+    "apptronik",
+    "cadence",
+    "nalu",
+    "spectrumedics",
+    "macrolux",
+    "aurora-yaocheng"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:10Z",
+   "finished_at": "2026-10-12T09:16:43Z",
+   "posts_fetched": 593,
+   "posts_admitted": 290,
+   "posts_rejected": 303,
+   "rejections": {
+    "not_relevant": 206,
+    "x_oembed_author_mismatch": 1,
+    "x_oembed_unresolved": 3,
+    "duplicate_in_job": 93
+   },
+   "errors": [],
+   "sessions": 36,
+   "first_session_id": "6acca0ab93f7b118ad02a477",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/healthtech-x-J37.json"
+  },
+  {
+   "job_id": "J38",
+   "sector": "healthtech",
+   "source": "x",
+   "companies": [
+    "evidation-health",
+    "heylibby",
+    "silvercloud-health",
+    "synapticure",
+    "centivo"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:11Z",
+   "finished_at": "2026-10-12T09:12:17Z",
+   "posts_fetched": 572,
+   "posts_admitted": 447,
+   "posts_rejected": 125,
+   "rejections": {
+    "not_relevant": 78,
+    "duplicate_in_job": 47
+   },
+   "errors": [],
+   "sessions": 29,
+   "first_session_id": "6acca0ab20a8b245e6aad602",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/healthtech-x-J38.json"
+  },
+  {
+   "job_id": "J39",
+   "sector": "healthtech",
+   "source": "x",
+   "companies": [
+    "flourish-health",
+    "sugarfit",
+    "lively",
+    "positive-development",
+    "lumara-health"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:11Z",
+   "finished_at": "2026-10-12T09:10:49Z",
+   "posts_fetched": 390,
+   "posts_admitted": 82,
+   "posts_rejected": 308,
+   "rejections": {
+    "not_relevant": 262,
+    "duplicate_in_job": 46
+   },
+   "errors": [],
+   "sessions": 24,
+   "first_session_id": "6acca0ab20a8b245e6aad608",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/healthtech-x-J39.json"
+  },
+  {
+   "job_id": "J40",
+   "sector": "healthtech",
+   "source": "reddit",
+   "companies": [
+    "apptronik",
+    "flourish-health",
+    "heylibby",
+    "nalu",
+    "lively",
+    "synapticure",
+    "macrolux",
+    "lumara-health"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:11Z",
+   "finished_at": "2026-10-12T09:34:13Z",
+   "posts_fetched": 965,
+   "posts_admitted": 162,
+   "posts_rejected": 803,
+   "rejections": {
+    "not_relevant": 760,
+    "not_native_permalink": 2,
+    "duplicate_in_job": 41
+   },
+   "errors": [],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 116,
+   "checkpoint": "data/social/verified/healthtech-reddit-J40.json"
+  },
+  {
+   "job_id": "J41",
+   "sector": "healthtech",
+   "source": "reddit",
+   "companies": [
+    "evidation-health",
+    "cadence",
+    "sugarfit",
+    "silvercloud-health",
+    "spectrumedics",
+    "positive-development",
+    "centivo",
+    "aurora-yaocheng"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:12Z",
+   "finished_at": "2026-10-12T09:30:09Z",
+   "posts_fetched": 577,
+   "posts_admitted": 201,
+   "posts_rejected": 376,
+   "rejections": {
+    "not_relevant": 373,
+    "not_native_permalink": 3
+   },
+   "errors": [],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 98,
+   "checkpoint": "data/social/verified/healthtech-reddit-J41.json"
+  },
+  {
+   "job_id": "J42",
+   "sector": "logistics",
+   "source": "x",
+   "companies": [
+    "oro-labs",
+    "shipday",
+    "dailyhunt",
+    "seltz",
+    "infrahub"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:12Z",
+   "finished_at": "2026-10-12T09:09:32Z",
+   "posts_fetched": 412,
+   "posts_admitted": 235,
+   "posts_rejected": 177,
+   "rejections": {
+    "not_relevant": 132,
+    "duplicate_in_job": 45
+   },
+   "errors": [],
+   "sessions": 24,
+   "first_session_id": "6acca0ac20a8b245e6aad60f",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/logistics-x-J42.json"
+  },
+  {
+   "job_id": "J43",
+   "sector": "logistics",
+   "source": "x",
+   "companies": [
+    "odeko",
+    "fountain",
+    "nektar-ai",
+    "xingyun"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:12Z",
+   "finished_at": "2026-10-12T09:10:17Z",
+   "posts_fetched": 391,
+   "posts_admitted": 134,
+   "posts_rejected": 257,
+   "rejections": {
+    "not_relevant": 214,
+    "duplicate_in_job": 43
+   },
+   "errors": [],
+   "sessions": 22,
+   "first_session_id": "6acca0ac93f7b118ad02a47e",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/logistics-x-J43.json"
+  },
+  {
+   "job_id": "J44",
+   "sector": "logistics",
+   "source": "reddit",
+   "companies": [
+    "oro-labs",
+    "odeko",
+    "shipday",
+    "fountain",
+    "dailyhunt",
+    "nektar-ai",
+    "seltz",
+    "xingyun",
+    "infrahub"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:13Z",
+   "finished_at": "2026-10-12T09:36:20Z",
+   "posts_fetched": 772,
+   "posts_admitted": 4,
+   "posts_rejected": 768,
+   "rejections": {
+    "not_relevant": 764,
+    "not_native_permalink": 4
+   },
+   "errors": [
+    "\"ORO Labs\" procurement: HTTP [429]",
+    "\"Shipday\": HTTP [429]",
+    "\"Nektar.AI\": HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 113,
+   "checkpoint": "data/social/verified/logistics-reddit-J44.json"
+  },
+  {
+   "job_id": "J45",
+   "sector": "robotics",
+   "source": "x",
+   "companies": [
+    "ninja-van",
+    "star-catcher",
+    "jetzero",
+    "eureka-robotics",
+    "flowgpt",
+    "sharpa"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:13Z",
+   "finished_at": "2026-10-12T09:18:59Z",
+   "posts_fetched": 680,
+   "posts_admitted": 386,
+   "posts_rejected": 294,
+   "rejections": {
+    "not_relevant": 256,
+    "x_oembed_author_mismatch": 1,
+    "duplicate_in_job": 37
+   },
+   "errors": [],
+   "sessions": 35,
+   "first_session_id": "6acca0ad20a8b245e6aad617",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/robotics-x-J45.json"
+  },
+  {
+   "job_id": "J46",
+   "sector": "robotics",
+   "source": "x",
+   "companies": [
+    "havocai",
+    "code-metal",
+    "overstory",
+    "graymatter-robotics",
+    "inspace",
+    "tacta"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:13Z",
+   "finished_at": "2026-10-12T09:15:45Z",
+   "posts_fetched": 558,
+   "posts_admitted": 260,
+   "posts_rejected": 298,
+   "rejections": {
+    "not_relevant": 189,
+    "duplicate_in_job": 109
+   },
+   "errors": [],
+   "sessions": 34,
+   "first_session_id": "6acca0ad93f7b118ad02a483",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/robotics-x-J46.json"
+  },
+  {
+   "job_id": "J47",
+   "sector": "robotics",
+   "source": "reddit",
+   "companies": [
+    "ninja-van",
+    "havocai",
+    "star-catcher",
+    "code-metal",
+    "jetzero",
+    "overstory",
+    "eureka-robotics",
+    "graymatter-robotics",
+    "flowgpt",
+    "inspace",
+    "sharpa",
+    "tacta"
+   ],
+   "status": "partial",
+   "started_at": "2026-10-12T08:56:13Z",
+   "finished_at": "2026-10-12T09:37:16Z",
+   "posts_fetched": 1350,
+   "posts_admitted": 394,
+   "posts_rejected": 956,
+   "rejections": {
+    "not_relevant": 940,
+    "not_native_permalink": 5,
+    "duplicate_in_job": 11
+   },
+   "errors": [
+    "Overstory vegetation utilities: HTTP [429]"
+   ],
+   "sessions": 0,
+   "first_session_id": null,
+   "http_calls": 147,
+   "checkpoint": "data/social/verified/robotics-reddit-J47.json"
+  },
+  {
+   "job_id": "J48",
+   "sector": "multi",
+   "source": "instagram",
+   "companies": [
+    "trm-labs",
+    "jetzero",
+    "coindcx",
+    "certn",
+    "innovaccer",
+    "dailyhunt",
+    "labelbox",
+    "pendo",
+    "remote",
+    "branch-international",
+    "writer"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:14Z",
+   "finished_at": "2026-10-12T09:00:34Z",
+   "posts_fetched": 13,
+   "posts_admitted": 13,
+   "posts_rejected": 0,
+   "rejections": {},
+   "errors": [],
+   "sessions": 11,
+   "first_session_id": "6acca0ae20a8b245e6aad61d",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/multi-instagram-J48.json"
+  },
+  {
+   "job_id": "J49",
+   "sector": "multi",
+   "source": "instagram",
+   "companies": [
+    "solar-square",
+    "carro",
+    "perplexity-ai",
+    "apptronik",
+    "sugarfit",
+    "flutterwave",
+    "kopi-kenangan",
+    "khatabook",
+    "lively",
+    "mswipe"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:14Z",
+   "finished_at": "2026-10-12T09:00:27Z",
+   "posts_fetched": 0,
+   "posts_admitted": 0,
+   "posts_rejected": 0,
+   "rejections": {},
+   "errors": [],
+   "sessions": 11,
+   "first_session_id": "6acca0ae20a8b245e6aad621",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/multi-instagram-J49.json"
+  },
+  {
+   "job_id": "J50",
+   "sector": "multi",
+   "source": "instagram",
+   "companies": [
+    "fervo-energy",
+    "curbwaste",
+    "ninja-van",
+    "meesho",
+    "perimeter-81",
+    "6sense",
+    "figment",
+    "phenom-people",
+    "rapyd",
+    "bhanzu"
+   ],
+   "status": "ok",
+   "started_at": "2026-10-12T08:56:14Z",
+   "finished_at": "2026-10-12T09:00:24Z",
+   "posts_fetched": 12,
+   "posts_admitted": 12,
+   "posts_rejected": 0,
+   "rejections": {},
+   "errors": [],
+   "sessions": 10,
+   "first_session_id": "6acca0af20a8b245e6aad622",
+   "http_calls": 0,
+   "checkpoint": "data/social/verified/multi-instagram-J50.json"
+  }
+ ]
+}
