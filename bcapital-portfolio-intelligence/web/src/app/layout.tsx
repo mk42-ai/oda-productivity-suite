@@ -6,7 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 /* Brand typefaces: Reckless Neue (display) + Yellix (body) are licensed fonts not bundled here; the licensed fallbacks
    Fraunces (display) and Inter (body) are self-hosted, subset to Latin, preloaded, font-display: swap. */
-const display = localFont({ src: "../fonts/fraunces-latin.woff2", variable: "--font-display", display: "swap", preload: true, weight: "400 700", fallback: ["Reckless Neue", "Georgia", "serif"], adjustFontFallback: "Times New Roman" });
+// Turn 10: one Inter-style sans family everywhere — the display slot is served by the same Inter face (semibold headings), no serif display face.
+const display = localFont({ src: "../fonts/inter-latin.woff2", variable: "--font-display", display: "swap", preload: true, weight: "400 700", fallback: ["Inter", "system-ui", "sans-serif"], adjustFontFallback: "Arial" });
 const body = localFont({ src: "../fonts/inter-latin.woff2", variable: "--font-body", display: "swap", preload: true, weight: "400 700", fallback: ["Yellix", "system-ui", "sans-serif"], adjustFontFallback: "Arial" });
 
 export const metadata: Metadata = {
