@@ -31,8 +31,12 @@ Batch `pbb-20261013T020532-3a5c45`, 2026-10-13T02:05:32Z → 02:49:17Z: 158 quer
 ## Validation execution
 
 `POST /workflow/6acda4fa9a17f57debac8ad5/execute` → execution `6acda5079a17f57debac8ad9` (triggered 2026-10-13T03:27:04Z, Flow Builder status `success`,
-8.5 s: kickoff node + "output delivery completed successfully"). The webhook delivery started the server-side sync at 03:27:12Z
-(`pbb-20261013T032712-bec465`); its result is appended to `b-capital-monthly-pitchbook-sync.created.json` under `server_side_run`.
+8.5 s: kickoff node + "output delivery completed successfully"). The webhook delivery started the server-side sync at 03:27:12Z — batch `pbb-20261013T032712-bec465`,
+136 queried / 134 succeeded / 1 failed (evidation-health, `fetch failed`, earlier profile kept) / 1 unmatched (Turno) / 2 retried (524, 520), batch done 03:55:12Z;
+latest-first upsert kept earlier values on 35 companies; store after: **135 populated / 1 unmatched, 3,017 populated fields, 1,168 explicit "Not available in PitchBook"**.
+Step d inside the sandbox hit `media upload HTTP 524` on the 60 MB sqlite part; the retry from the workspace produced snapshot
+**`20261013T040637Z`** (sqlite media `6acdae53cf3ee6ce347396d3`, sha256 `d2574768d1d2e01b5791e58b512eaaeec970bacfd426c0e9dd63c80c568502b0`, all 4 files verified).
+Full record: `b-capital-monthly-pitchbook-sync.created.json` → `server_side_run`.
 
 ## Re-pointing
 
