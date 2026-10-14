@@ -998,11 +998,16 @@ export async function runChatBridge(
               if (u.ok)
                 toolDone(pid, "ok", { message: u.message || undefined });
               else {
-                typedError(
-                  "execution_failed",
-                  `${pluginName(pid)}: ${u.message || "execution failed"}`,
-                  raw,
-                );
+                // Only the pinned plugin (Perplexity) is critical: its failure fails the run. A failed OPTIONAL
+                // agent/plugin step (e.g. a stale generated tool) is recorded on its tool row only — surfacing it as a
+                // run-level typedError made every successful answer end in "Response failed / Agents execution failed".
+                if (pid === PLUGIN_ID) {
+                  typedError(
+                    "execution_failed",
+                    `${pluginName(pid)}: ${u.message || "execution failed"}`,
+                    raw,
+                  );
+                }
                 toolDone(pid, "error", {
                   message: u.message || "execution failed",
                   raw: raw.slice(0, 1200),
