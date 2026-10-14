@@ -48,11 +48,16 @@ export const getPeople = () => live<People>("people", peopleSnap as unknown as P
 let feedMemo: { at: number; value: Feed } | null = null;
 export const getFeed = async (): Promise<Feed> => {
   if (feedMemo && Date.now() - feedMemo.at < 60_000) return feedMemo.value;
-  const v = await loadFeed(); if (v.data_state === "live-api") feedMemo = { at: Date.now(), value: v }; return v;
+  // Cache any usable feed (live or verified snapshot), not only live-api: re-fetching
+  // the snapshot path on every navigation made /social serially slow to revisit.
+  const v = await loadFeed(); if (v.data_state !== "unavailable") feedMemo = { at: Date.now(), value: v }; return v;
 };
 const loadFeed = async (): Promise<Feed> => {
   try {
-    const r = await fetch(`${backendBaseUrl}/data/social-feed`, { cache: "no-store", signal: AbortSignal.timeout(25000) });
+    // 8s (was 25s): /social is force-dynamic, so a hung backend fetch used to leave the
+    // previous page on screen for up to 25s during client navigation. Fall back to the
+    // bundled verified snapshot quickly instead.
+    const r = await fetch(`${backendBaseUrl}/data/social-feed`, { cache: "no-store", signal: AbortSignal.timeout(8000) });
     if (!r.ok) throw new Error(`Feed HTTP ${r.status}`);
     const data = await r.json();
     // A filtered current-policy server view carries public receipts, not raw credentials/payloads.

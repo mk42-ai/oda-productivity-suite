@@ -33,7 +33,11 @@ const ITEMS = [
   { href: "/artifacts", label: "Artifacts", icon: Archive },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
-/** Primary nav items. `collapsed` (desktop) shows icons only with a title tooltip; labels stay in the accessibility tree. */
+/**
+ * Primary nav items. `collapsed` (desktop) shows icons only with a title tooltip; labels stay in the accessibility tree.
+ * Prefetch is disabled for /social (force-dynamic, never cacheable — prefetching it on every page fired a full server
+ * render that was then cancelled on navigation, flooding the console with net::ERR_ABORTED) and /chat (large client bundle).
+ */
 export function Nav({ collapsed = false }: { collapsed?: boolean }) {
   const path = usePathname();
   const { items: artifacts } = useArtifacts();
@@ -43,7 +47,7 @@ export function Nav({ collapsed = false }: { collapsed?: boolean }) {
       {ITEMS.map(({ href, label, icon: Icon, match }) => {
         const active = path === href || path.startsWith(match ?? href);
         return (
-          <Link key={href} href={href} aria-current={active ? "page" : undefined} title={collapsed ? label : undefined} data-testid={`nav-${href.slice(1)}`}
+          <Link key={href} href={href} prefetch={href === "/social" || href === "/chat" ? false : undefined} aria-current={active ? "page" : undefined} title={collapsed ? label : undefined} data-testid={`nav-${href.slice(1)}`}
             className={cn("relative flex min-h-10 items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors", active ? "bg-surface-3 text-foreground" : "text-muted hover:bg-surface-2 hover:text-foreground", collapsed && "lg:size-10 lg:justify-center lg:px-0")}>
             <Icon className="size-4 shrink-0" aria-hidden /><span className={cn("hidden sm:inline", collapsed && "lg:sr-only")}>{label}</span><span className="sr-only sm:hidden">{label}</span>
             {href === "/artifacts" && artifactCount > 0 && <ArtifactsCount count={artifactCount} collapsed={collapsed} />}

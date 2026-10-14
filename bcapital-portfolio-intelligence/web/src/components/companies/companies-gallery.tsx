@@ -6,7 +6,7 @@
  * investment date). Filter/sort state lives in the URL (?sector=&region=&sort=&q=). Cards use content-visibility so 136 cards stay cheap.
  */
 import Link from "next/link";
-import { useMemo, useState, useEffect, type CSSProperties } from "react";
+import { useMemo, useRef, useState, useEffect, type CSSProperties } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Search, Newspaper, Landmark, Users, TrendingUp, Linkedin } from "lucide-react";
 import { SECTOR_THEMES, SECTOR_KEYS, sectorTheme, sectorGradient, faviconUrl, type SectorKey } from "@/lib/social-sectors";
@@ -241,10 +241,26 @@ export function CompanyGalleryCard({ c }: { c: GalleryCompany }) {
 
 export function CompaniesGallery({ rows }: { rows: GalleryCompany[] }) {
   const sp = useSearchParams(); const router = useRouter(); const path = usePathname();
-  const [q, setQ] = useState(sp.get("q") ?? ""); const sector = sp.get("sector") ?? ""; const region = sp.get("region") ?? "";
+  const [q, setQState] = useState(sp.get("q") ?? ""); const sector = sp.get("sector") ?? ""; const region = sp.get("region") ?? "";
   const sort = (["latest", "news", "sentiment", "name"].includes(sp.get("sort") ?? "") ? sp.get("sort") : "latest") as Sort;
   const setParam = (k: string, v: string) => { const n = new URLSearchParams(sp.toString()); if (v) n.set(k, v); else n.delete(k); const s = n.toString(); router.replace(s ? `${path}?${s}` : path, { scroll: false }); };
-  useEffect(() => { const t = setTimeout(() => { if ((sp.get("q") ?? "") !== q) setParam("q", q); }, 200); return () => clearTimeout(t); }); // eslint-disable-line react-hooks/exhaustive-deps
+  const debounceRef = useRef<number | undefined>(undefined);
+  // Search input is local for responsiveness; the URL is written debounced, and
+  // external URL changes (browser back/forward, deep link) sync back into the
+  // input. Previously the write-back effect ran on every render and re-pushed
+  // the stale query after Back, trapping the user on the filtered view.
+  const setQ = (v: string) => {
+    setQState(v);
+    if (debounceRef.current) window.clearTimeout(debounceRef.current);
+    debounceRef.current = window.setTimeout(() => { debounceRef.current = undefined; setParam("q", v); }, 200);
+  };
+  const spQ = sp.get("q") ?? "";
+  useEffect(() => {
+    // External param change wins over any pending debounced write-back.
+    if (debounceRef.current) { window.clearTimeout(debounceRef.current); debounceRef.current = undefined; }
+    setQState((prev) => (prev === spQ ? prev : spQ));
+  }, [spQ]);
+  useEffect(() => () => { if (debounceRef.current) window.clearTimeout(debounceRef.current); }, []);
   const regions = useMemo(() => [...new Set(rows.map((r) => r.region).filter(Boolean) as string[])].sort(), [rows]);
   const counts = useMemo(() => { const m = new Map<string, number>(); rows.forEach((r) => m.set(r.sector, (m.get(r.sector) ?? 0) + 1)); return m; }, [rows]);
   const visible = useMemo(() => {

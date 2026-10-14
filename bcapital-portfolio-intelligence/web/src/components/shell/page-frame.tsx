@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
  */
 export function PageFrame({ children }: { children: React.ReactNode }) {
   const path = usePathname();
-  if (path?.startsWith("/chat")) return <main id="main" tabIndex={-1} className="chat-main flex min-h-0 flex-1 flex-col" data-testid="chat-main">{children}</main>;
+  if (path === "/chat" || path?.startsWith("/chat/")) return <main id="main" tabIndex={-1} className="chat-main flex min-h-0 flex-1 flex-col" data-testid="chat-main">{children}</main>;
   return (
     <>
       <main id="main" tabIndex={-1} className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-6 sm:px-6 lg:px-8" style={{ minHeight: "calc(100dvh - 120px)" }}>{children}</main>
