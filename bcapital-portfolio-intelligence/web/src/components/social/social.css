@@ -160,3 +160,4 @@
 .bs-tip { position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%) translateY(2px); z-index: 30; width: max-content; max-width: 240px; padding: 7px 9px; border-radius: 8px; background: #1F2937; color: #fff; font-size: 11.5px; line-height: 1.35; font-weight: 500; white-space: normal; opacity: 0; pointer-events: none; transition: opacity 120ms ease, transform 120ms ease; box-shadow: none; }
 .bs-sector-tip-anchor:hover .bs-tip, .bs-sector-tip-anchor:focus-within .bs-tip { opacity: 1; transform: translateX(-50%) translateY(0); }
 @media (max-width: 600px) { .bs-sector-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; } .bs-sector-tabs button { flex: none; } .bs-tip { max-width: 180px; } .bs-header { border-left-width: 4px; } }
+.bs-shell .bs-header { border-left: 4px solid #0AC985 !important; }
