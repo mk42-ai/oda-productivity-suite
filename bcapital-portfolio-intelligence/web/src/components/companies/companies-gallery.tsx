@@ -17,7 +17,7 @@ export type GalleryCompany = {
   slug: string; name: string; domain: string | null; logo_url: string | null; sector: string; sector_label: string; region: string | null; hq: string | null; stage: string | null;
   description: string | null; employees: number | null; founded: number | null; total_raised_usd: number | null; valuation_usd: number | null; linkedin: string | null;
   last_round: { round: string | null; amount_usd: number | null; date: string | null } | null; rounds: { round: string | null; amount_usd: number | null; date: string | null }[];
-  pitchbook: { investment_date: string; investor_since: string } | null; news_count: number;
+  pitchbook: { investment_date: string; investor_since: string } | null; news_count: number; social_count: number;
   sentiment: { score: number | null; label: string; history: { t: string; score: number }[]; history_state: "placeholder" | "scored"; step2_seed: boolean };
   founders: GalleryFounder[];
 };
@@ -213,6 +213,7 @@ export function CompanyGalleryCard({ c }: { c: GalleryCompany }) {
         <div className="cg-card__meta">
           <span className="cg-sector" data-testid="company-card-sector">{t.label}</span>
           <span className="cg-news" data-testid="news-badge" data-count={c.news_count}><Newspaper className="size-3" aria-hidden /> {c.news_count}</span>
+          <span className="cg-news" data-testid="social-badge" data-count={c.social_count} title="B Social posts for this company">Social {c.social_count}</span>
         </div>
         <div className="cg-card__head">
           <Logo c={c} />
