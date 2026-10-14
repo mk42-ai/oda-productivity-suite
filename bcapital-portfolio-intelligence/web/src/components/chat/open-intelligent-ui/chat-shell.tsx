@@ -661,7 +661,7 @@ function WorkingRow({ t, live, chip }: { t: ToolRow; live: boolean; chip?: boole
   const state = t.status === "failed" ? "failed" : t.status === "running" && live ? "running" : "done";
   const elapsed = useElapsed(state === "running", t.startedAt);
   const timing = state === "running" ? (elapsed != null ? `+${(elapsed / 1000).toFixed(1)} s` : "") : state === "failed" ? "failed" : LABEL.done(t.sources, t.durationMs);
-  const second = state === "failed" && t.message ? t.message : t.query;
+  const second = t.query;
   // Inside a plan step: OnDemand plugin chip [logo · name · timing · status dot]; same test hooks as the standalone row.
   if (chip) return (
     <li className={`od-chip od-call od-call--${state}`} data-testid="working-row" data-state={state} data-plugin={t.pluginId} title={second ? `${name} — ${second}` : name}>
@@ -677,7 +677,7 @@ function WorkingRow({ t, live, chip }: { t: ToolRow; live: boolean; chip?: boole
       <span className="oiu-work__chips" data-testid="working-chips" title={t.pluginId} data-plugin-id={t.pluginId}><PluginFavicon id={t.pluginId} size={20} /></span>
       <span className="oiu-work__text">
         <span className="oiu-work__label" title={name}>{state === "failed" ? LABEL.failed(name) : LABEL.action(name)}<span className="oiu-work__via" title={t.pluginId} data-plugin-id={t.pluginId}> · {name}</span></span>
-        {second ? <span className={state === "failed" && t.message ? "oiu-work__query oiu-work__err" : "oiu-work__query"} title={second}>{second}</span> : null}
+        {second ? <span className="oiu-work__query" title={second}>{second}</span> : null}
       </span>
       <span className="oiu-work__timing" data-testid="working-timing">{timing}</span>
     </li>
@@ -773,7 +773,7 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
   const failedTools = r.tools.filter((t) => t.status === "failed");
   // A failed plugin call gets no special message (the step chip already carries its red dot); only non-plugin errors and failed saves do.
   // No special message for failed calls (plugin or upstream) — the step chip shows the red dot; errors that stop the run use the error banner.
-  const gap = r.artifacts.find((a) => a.phase === "failed") ? `A file could not be saved: ${r.artifacts.find((a) => a.phase === "failed")!.message ?? "storage error"}` : "";
+  const gap = r.artifacts.some((a) => a.phase === "failed") ? "A file could not be saved. Please try again." : "";
   // a1 — status state machine: thinking (no tool yet) → working (a tool is running / tools done but answer not started) → done | failed.
   const runningTool = r.live ? r.tools.find((t) => t.status === "running") : undefined;
   const runningStep = r.plan?.steps.find((st) => st.state === "running");
@@ -987,11 +987,6 @@ const PluginTimeline: ToolCallTimelineComponent = ({ steps, isLast }) => {
     </div>
   );
 };
-function RawFrame({ raw }: { raw: string }) {
-  const [open, setOpen] = useState(false);
-  return <span className="oiu-raw"><button type="button" className="oiu-error__raw-toggle" aria-expanded={open} onClick={() => setOpen((v) => !v)}>{open ? "hide raw frame" : "show raw frame"}</button>{open && <pre className="oiu-error__raw" data-testid="raw-frame">{raw}</pre>}</span>;
-}
-
 /** Scroll anchoring: follow the stream only while the user is at the bottom; otherwise show a "jump to latest" pill. */
 function ScrollAnchor() {
   const isRunning = useThread((s) => s.isRunning); const st = useStreamState();
@@ -1056,16 +1051,49 @@ function PendingRow() {
     </div>, host);
 }
 
-/** Discreet, retryable failed state. The underlying thread/error store and diagnostics are unchanged. */
+/**
+ * Discreet, retryable failed state.
+ *
+ * The OpenUI library renders its own error box (.openui-agent-thread-error, a danger Callout titled
+ * "Something went wrong" whose description is threadError.message) whenever the headless store sets
+ * threadError — e.g. a RUN_ERROR frame's raw message or a thrown fetch error. That box showed raw
+ * strings ("The answer could not be completed", upstream exception text) to end users.
+ *
+ * Fix (rendered-DOM, not just CSS): this component is mounted for the whole chat session and
+ *  1. hides the library box via CSS (shell.css: .openui-agent-thread-error { display:none }) so its
+ *     raw text never paints, and
+ *  2. independently OBSERVES that box with a MutationObserver — the library element existing in the
+ *     DOM is the failure signal, so the notice fires even when the library box is display:none, and
+ *  3. portals ONLY the discreet notice below ("Something interrupted that answer." + Retry) into the
+ *     message list. No raw error string, code, or exception text is ever rendered here; diagnostics
+ *     stay in the Inspector / Developer details log.
+ *
+ * THREAD-CLEAR: processMessage is the library's own resubmit path (same call the composer and the
+ * starter prompts use). Issuing it resets threadError/isRunning in the headless store, so on Retry
+ * the library box unmounts and this notice disappears; a successful answer then renders normally.
+ * There is intentionally no local-thread mutation hack — the real POST /api/chat from the llm fetch
+ * wrapper is what clears the error state.
+ */
 function RunFailureNotice() {
   const threadError = useThread((s) => s.threadError); const isRunning = useThread((s) => s.isRunning);
   const messages = useThread((s) => s.messages); const processMessage = useThread((s) => s.processMessage);
   const st = useStreamState();
+  // The library's raw error box is a DOM-level failure signal independent of our stream store:
+  // tracked by MutationObserver so suppression of its paint never suppresses detection.
+  const [libErrorSeen, setLibErrorSeen] = useState(false);
+  useEffect(() => {
+    const findLib = () => document.querySelector(".chat-shell .openui-agent-thread-error");
+    const sync = () => setLibErrorSeen((prev) => { const next = !!findLib(); return prev === next ? prev : next; });
+    sync();
+    const mo = new MutationObserver(sync);
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => mo.disconnect();
+  }, []);
   // Rendered INSIDE the thread list (portal) as the last message row: as a direct child of OpenUI's flex container it became a full-height
   // sibling panel that covered the composer after a failed run and intercepted the next click (found by the step-5 recorder).
   const [host, setHost] = useState<HTMLElement | null>(null);
   // A failed plugin call is not surfaced as a banner (no special message) — only thread/transport and non-plugin upstream errors are.
-  const show = !isRunning && !!(threadError || (st.error && st.error.code !== "plugin_error"));
+  const show = !isRunning && !!(libErrorSeen || threadError || (st.error && st.error.code !== "plugin_error"));
   useEffect(() => {
     if (!show) { setHost(null); return; }
     const find = () => document.querySelector<HTMLElement>(".chat-shell .openui-agent-thread-messages");
@@ -1078,16 +1106,11 @@ function RunFailureNotice() {
   const lastUser = [...messages].reverse().find((m) => m.role === "user") as UserMessage | undefined;
   const retry = () => { if (lastUser) void processMessage({ role: "user", content: lastUser.content }); };
   const code = st.error?.code ?? "run_error";
-  const message = st.error?.message ?? threadError?.message ?? "The run failed";
   return createPortal(
-    <div className="oiu-error" role="status" aria-live="polite" aria-atomic="true" data-testid="chat-error" data-error-code={code} data-state="failed">
-      <span className="oiu-error__summary"><AlertTriangle className="size-3.5 shrink-0" aria-hidden /> Response failed</span>
+    <div className="oiu-error" role="alert" aria-live="polite" data-testid="chat-error" data-error-code={code} data-state="failed">
+      <span className="oiu-error__summary">Something interrupted that answer.</span>
       {lastUser && <button type="button" className="oiu-error__retry" data-testid="chat-error-retry" onClick={retry}><RotateCcw className="size-3.5" aria-hidden /> Retry</button>}
-      <details className="oiu-error__details">
-        <summary>Details</summary>
-        <p className="oiu-error__message">{message}</p>
-      </details>
-      {/* Full upstream diagnostics remain in the existing Inspector / Developer details log. */}
+      {/* Raw upstream diagnostics are deliberately NOT rendered here — they remain in the Inspector / Developer details log only. */}
     </div>, host);
 }
 
