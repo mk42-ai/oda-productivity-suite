@@ -1,8 +1,21 @@
 """Mass pull via OnDemand Chat API (documented: POST /chat/v1/sessions -> POST /chat/v1/sessions/{id}/query, apikey header).
 Chat Batch endpoint POST /chat/v1/batches returns 405 method_not_allowed (verified 2026-10-14), so batches = parallel Chat API jobs.
-TikTok plugin-1716372717 is quota-blocked; TikTok/Reddit items are sourced via Internet plugin-1713924030 (web search) and
-Perplexity plugin-1722260873, extracting ONLY canonical URLs present in answers (no invented URLs). Missing fields = null.
-Output: /tmp/masspull/items.jsonl + stats.json. Key read from web/.env.local, never printed."""
+TikTok plugin-1716372717 is quota-blocked; TikTok/Reddit items are sourced via Internet plugin-1713924030 (web search), extracting ONLY canonical URLs present in answers (no invented URLs).
+
+INGESTION PROMPT CONTRACT (per item, reviewed 2026-10-14):
+ Gather ONLY if verified from sources: source/platform, canonical source URL, portfolio-company match
+ (company slug + product/founder match evidence), author/handle, timestamp (ISO or null - never guessed),
+ engagement (numbers or null), text/caption, sentiment/signal factors (evidence quotes per factor, not a
+ bare average), and provenance PER FIELD (which source/session produced each field).
+ Conflicting sources are surfaced side-by-side in `conflicts` - NEVER averaged into one score/claim.
+ RELEVANCE FILTER (fail-closed, prior criteria): item must (a) unambiguously mention/match a portfolio
+ company, its product, or a named founder; (b) be a real social post (TikTok video / Reddit post permalink),
+ NOT news/blog/search-result snippet/profile/search page; (c) carry a verifiable canonical URL.
+ Reject: homonyms/ambiguous names, generic industry chatter with no company match, spam/promo,
+ unrelated posts. Missing fields = null. No invented URLs, authors, dates, or engagement.
+ Verify TikTok items afterwards via TikTok oEmbed (title/author must match the URL); Reddit oEmbed/JSON
+ is 403 from this container, so unverifiable Reddit fields stay null and items are marked unverified.
+"""
 import pathlib, requests, concurrent.futures, re, json, hashlib, time, sys
 BASE="https://api.on-demand.io"; ROOT=pathlib.Path(__file__).resolve().parent.parent
 key=None
@@ -47,12 +60,12 @@ def work(job):
     kind,topic=job; items=[]; sid=None; status="ok"
     try:
         if kind=="tiktok":
-            sid,ans=ask("plugin-1713924030",f"Find TikTok videos about {topic}. List up to 10 videos. For each give: title/caption, creator handle, direct TikTok URL (tiktok.com/@user/video/<id>), and date if known. Only list videos with a real direct TikTok URL from your sources.")
+            sid,ans=ask("plugin-1713924030",f"Find TikTok videos about {topic} that mention a named company/product/founder. List up to 10. Per item give ONLY source-verified fields: title/caption, creator handle, direct TikTok URL (tiktok.com/@user/video/<id>), date if in source else omit, engagement if in source else omit. Note any conflicting claims between sources separately - do not average them. Only real video permalinks from your sources; no news/blog/profile/search pages, no homonyms, no generic industry posts.")
             for m in TK.finditer(ans):
                 u=f"https://www.tiktok.com/@{m.group(1)}/video/{m.group(2)}"
                 items.append({"source":"TikTok","title":title_near(ans,u),"text":title_near(ans,u),"author":f"@{m.group(1)}","handle":f"@{m.group(1)}","subreddit":None,"url":u,"timestamp":None,"company_tags":[],"topic_tags":[topic],"sentiment":None,"engagement":None,"session_id":sid,"plugin_id":"plugin-1713924030"})
         else:
-            sid,ans=ask("plugin-1713924030",f"List Reddit posts about {topic}. For each give: title, subreddit, author if known, and direct reddit.com/r/<subreddit>/comments/<id> URL. Only URLs from your sources.")
+            sid,ans=ask("plugin-1713924030",f"List Reddit posts about {topic} that mention a named company/product/founder. Per item give ONLY source-verified fields: title, subreddit, author if in source else omit, timestamp if in source else omit, engagement if in source else omit, direct reddit.com/r/<subreddit>/comments/<id> URL. Note conflicting claims separately - do not average. Only real post permalinks; no news/blog/search pages, no homonyms, no generic industry posts.")
             for m in RD.finditer(ans):
                 u=f"https://www.reddit.com/r/{m.group(1)}/comments/{m.group(2)}"
                 items.append({"source":"Reddit","title":title_near(ans,u),"text":title_near(ans,u),"author":None,"handle":None,"subreddit":f"r/{m.group(1)}","url":u,"timestamp":None,"company_tags":[],"topic_tags":[topic],"sentiment":None,"engagement":None,"session_id":sid,"plugin_id":"plugin-1713924030"})

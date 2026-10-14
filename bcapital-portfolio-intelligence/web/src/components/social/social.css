@@ -10,7 +10,7 @@
 .bs-story small { font-size: 10px; color: #5c6168; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .bs-avatar { position: relative; display: inline-grid; place-items: center; flex-shrink: 0; }
 .bs-avatar__core { display: grid; place-items: center; width: 100%; height: 100%; border: 1px solid #d9dde2; border-radius: 999px; background: #f1f2f4; color: #34383d; font-weight: 700; }
-.bs-tabs { display: flex; gap: 6px; flex-wrap: wrap; position: sticky; top: 0; z-index: 10; padding: 8px 0; background: color-mix(in srgb, var(--background, #fff) 92%, transparent); backdrop-filter: blur(6px); }
+.bs-tabs { display: flex; gap: 6px; flex-wrap: wrap; position: sticky; top: 0; z-index: 10; padding: 8px 0; background: #ffffff; }
 .bs-tabs button { display: inline-flex; align-items: center; gap: 6px; height: var(--chip-height, 30px); padding: 0 12px; border-radius: var(--chip-radius, 999px); border: 1px solid var(--chip-border, #c9ccd1); background: var(--chip-bg, #ffffff); color: var(--chip-ink, #16181b); font-size: 12.5px; font-weight: 600; cursor: pointer; box-shadow: none; }
 .bs-tabs button:hover { background: var(--chip-hover-bg, #f8f9fa); }
 .bs-tabs button:focus-visible { outline: 2px solid var(--ring, #1a9c6b); outline-offset: 1px; }
@@ -130,3 +130,7 @@
 .bs-post__bar { flex-wrap: wrap; }
 .bs-post__media, .bs-post__media img, .bs-post__media video { max-width: 100%; }
 @media (max-width: 1100px) { .bs-cols { grid-template-columns: minmax(0, 1fr); } }
+
+/* 2026-10-14 header hygiene: flat, no gradient/highlight/filter on B Social headers, tabs, titles, stories */
+.bs-header, .bs-header h1, .bs-header p, .bs-tabs, .bs-card__title, .bs-story, .bs-story span, .bs-story small { background-image: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; -webkit-text-fill-color: currentColor; text-shadow: none !important; filter: none !important; }
+.bs-header h1 { color: #16181b; } .bs-tabs { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }

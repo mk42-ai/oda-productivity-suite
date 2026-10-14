@@ -39,7 +39,7 @@
   body { @apply bg-background text-foreground font-sans antialiased; }
   h1, h2, h3, .font-display { font-family: var(--font-body), Inter, system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; }
   :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 4px; }
-  ::selection { background: #c7f5e4; color: #16181b; }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   }
@@ -138,3 +138,8 @@ details > summary:focus-visible, button[aria-expanded]:focus-visible, [role="but
 /* Composer textareas: the row/container already draws the green focus border — drop the global focus outline (no double border). */
 .oiu-composer__input:focus-visible, .od-chat textarea:focus-visible { outline: none !important; }
 /* ---- end od-chat ---- */
+
+/* B Social: clean flat headers - no highlight/gradient bleed in header/tab text */
+.bs-shell ::selection { background: transparent; color: inherit; }
+.bs-header, .bs-header h1, .bs-header p, .bs-tabs, .bs-tabs button, .bs-card__title { background-image: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; text-shadow: none !important; filter: none !important; }
+.bs-tabs { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: #ffffff; }
