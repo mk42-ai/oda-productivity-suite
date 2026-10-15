@@ -136,6 +136,12 @@ export const CLIENT_EVENT = {
   stepOutput: "ondemand.step_output",   // Outputs rail: {stepId, title, plugins[{pluginId,name,params}], raw}
   raw: "ondemand.raw", // raw OnDemand frame {event, data} — feeds the /chat-od-style status view (components/od-chat/raw-reducer.ts)
   plannerPayload: "ondemand.planner_payload", // unit1: planner/tool-definition JSON text split OUT of ondemand.thinking: {phase: planning|step, stepId, delta}
+  // chat-ui parity pass 1 (2026-10-15) — payloads typed in lib/chat-ui/types.ts
+  deliverables: "ondemand.deliverables", // Verified Deliverables shelf: DeliverablesShelfData {items[], durationMs, finalDownloadUrl?}
+  skill: "ondemand.skill",               // Run rail "Active skill": {label: string | null}
+  stage: "ondemand.stage",               // Run rail 5-stage pipeline: {id: PipelineStageId, phase: "start"|"done"|"failed"}
+  assumptions: "ondemand.assumptions",   // Run rail Assumptions list: {items: string[]}
+  iui: "ondemand.iui",                   // Intelligent UI root-first statement stream: {statements: IuiStatement[]} (or {statement})
 } as const satisfies Record<string, `ondemand.${string}`>;
 /** Compile-time uniqueness guard: `_DuplicateClientEvent` is `never` while every CLIENT_EVENT value is distinct; a duplicate makes the line below fail tsc. */
 type _CE = typeof CLIENT_EVENT;

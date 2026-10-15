@@ -56,6 +56,10 @@ import { ImageGrid } from "@/components/media/image-grid";
 import { VideoPlayer } from "@/components/media/video-player";
 import { artifactsStore } from "@/lib/artifacts/store";
 import type { Artifact } from "@/lib/artifacts/types";
+import { IDLE_RAIL, type DeliverablesShelfData, type RailState, type IuiStatement, type PipelineStageId } from "@/lib/chat-ui/types";
+import { DeliverablesShelf } from "@/components/chat/deliverables-shelf";
+import { IntelligentUiRenderer } from "@/components/chat/intelligent-ui/renderer";
+import { OndemandSettingsDrawer, OndemandSettingsToggle } from "@/components/chat/ondemand-settings-drawer";
 import { safeExternalUrl, stopOutbound } from "@/lib/outbound";
 import {
   ChatCompanyProvenanceDeck,
@@ -105,12 +109,14 @@ type StreamState = {
   artifacts: LiveArtifact[]; outputs: StepOutput[]; tools: ToolRow[]; plannerPayload: PlannerPayload;
   /** /chat-od-style bot message built from the raw OnDemand frames (ondemand.raw) — drives the status view in RunView. */
   od: BotMessageType | null;
+  /** chat-ui parity pass 1: Verified Deliverables shelf · run-rail skill/pipeline/assumptions · Intelligent UI statements (all ride the same rAF commit). */
+  deliverables: DeliverablesShelfData | null; rail: RailState; iui: IuiStatement[];
 };
 /** One Working row = one plugin/agent action (TOOL_CALL_START/ARGS/RESULT from the bridge). */
 export type ToolRow = { id: string; name: string; pluginId: string; query: string; stepId: string; status: "running" | "done" | "failed"; sources?: number; durationMs?: number; message?: string; raw?: string; startedAt?: number; finishedAt?: number };
 export type LiveArtifact = { key: string; name: string; phase: "creating" | "ready" | "failed"; artifact?: Artifact; message?: string; media?: { status?: string; id?: string | null; message?: string | null } };
 export type StepOutput = { stepId: string; title: string; plugins: { pluginId: string; name: string; operationId?: string | null; params: Record<string, unknown> | null }[]; at: number };
-const IDLE: StreamState = { phase: "idle", detail: "", startedAt: 0, finishedAt: null, sessionId: null, version: 0, firstStatusMs: null, firstTokenMs: null, firstCitationMs: null, chunks: 0, thinking: "", thinkingKinds: [], error: null, sources: [], metrics: null, lastThreadId: null, pluginIds: [PLUGIN_ID], suggested: [], plan: null, summaries: [], prompt: null, filler: false, fillerTick: 0, text: "", answerDone: false, integrity: null, request: null, agentLog: [], stepRaw: {}, attachments: null, voice: null, artifacts: [], outputs: [], tools: [], plannerPayload: EMPTY_PAYLOAD, od: null };
+const IDLE: StreamState = { phase: "idle", detail: "", startedAt: 0, finishedAt: null, sessionId: null, version: 0, firstStatusMs: null, firstTokenMs: null, firstCitationMs: null, chunks: 0, thinking: "", thinkingKinds: [], error: null, sources: [], metrics: null, lastThreadId: null, pluginIds: [PLUGIN_ID], suggested: [], plan: null, summaries: [], prompt: null, filler: false, fillerTick: 0, text: "", answerDone: false, integrity: null, request: null, agentLog: [], stepRaw: {}, attachments: null, voice: null, artifacts: [], outputs: [], tools: [], plannerPayload: EMPTY_PAYLOAD, od: null, deliverables: null, rail: IDLE_RAIL, iui: [] };
 let streamState: StreamState = IDLE;
 let pending: Partial<StreamState> | null = null; let rafId = 0;
 const liveSources = new Map<string, Source[]>();
@@ -175,7 +181,7 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
     // unit2 — split the run time: toolsMs = first TOOL_CALL_START → last TOOL_CALL_RESULT (fallback: first status → first token when tools exist); answerMs = first token → answer done.
     const { toolsMs, answerMs } = splitRunTimings(st, t0, Date.now());
     // The live DOM never truncates the reasoning; ONLY the persisted (localStorage) copy is capped at 200,000 chars to stay inside the quota.
-    const meta: StoredMeta & { thinkingKinds?: string[]; plannerPayload?: PlannerPayload; od?: BotMessageType | null; prompt?: Prompt | null; sessionId?: string | null } = { model: MODEL_LABEL, modelId: MODEL_ID, reasoningMode: REASONING_MODE, pluginId: PLUGIN_ID, pluginIds: st.pluginIds, firstTokenMs: st.firstTokenMs, firstStatusMs: st.firstStatusMs, firstCitationMs: st.firstCitationMs, toolsMs, answerMs, totalMs: Date.now() - t0, chunks: st.chunks, metrics: st.metrics, thinking: st.thinking.slice(0, 200_000), thinkingKinds: st.thinkingKinds, error: st.error ? { code: st.error.code, message: st.error.message } : null, at: new Date().toISOString(), summaries: st.summaries.map((s) => ({ index: s.index, text: s.text, doneAt: s.doneAt ?? null })), plan: st.plan, artifacts: st.artifacts.filter((a) => a.phase === "ready" && a.artifact).map((a) => a.artifact!), tools: st.tools, artifactFailures: st.artifacts.filter((a) => a.phase === "failed").map((a) => ({ name: a.name, message: a.message ?? "" })), outputs: st.outputs, od: compactOdMessage(odRun.get()), plannerPayload: hasPayload(st.plannerPayload) ? { planning: st.plannerPayload.planning.slice(0, 60_000), steps: Object.fromEntries(Object.entries(st.plannerPayload.steps).map(([k, v]) => [k, v.slice(0, 60_000)])) } : undefined, prompt: st.prompt, sessionId: st.sessionId };
+    const meta: StoredMeta & { thinkingKinds?: string[]; plannerPayload?: PlannerPayload; od?: BotMessageType | null; prompt?: Prompt | null; sessionId?: string | null; deliverables?: DeliverablesShelfData | null; rail?: RailState; iui?: IuiStatement[] } = { deliverables: st.deliverables, rail: st.rail, iui: st.iui, model: MODEL_LABEL, modelId: MODEL_ID, reasoningMode: REASONING_MODE, pluginId: PLUGIN_ID, pluginIds: st.pluginIds, firstTokenMs: st.firstTokenMs, firstStatusMs: st.firstStatusMs, firstCitationMs: st.firstCitationMs, toolsMs, answerMs, totalMs: Date.now() - t0, chunks: st.chunks, metrics: st.metrics, thinking: st.thinking.slice(0, 200_000), thinkingKinds: st.thinkingKinds, error: st.error ? { code: st.error.code, message: st.error.message } : null, at: new Date().toISOString(), summaries: st.summaries.map((s) => ({ index: s.index, text: s.text, doneAt: s.doneAt ?? null })), plan: st.plan, artifacts: st.artifacts.filter((a) => a.phase === "ready" && a.artifact).map((a) => a.artifact!), tools: st.tools, artifactFailures: st.artifacts.filter((a) => a.phase === "failed").map((a) => ({ name: a.name, message: a.message ?? "" })), outputs: st.outputs, od: compactOdMessage(odRun.get()), plannerPayload: hasPayload(st.plannerPayload) ? { planning: st.plannerPayload.planning.slice(0, 60_000), steps: Object.fromEntries(Object.entries(st.plannerPayload.steps).map(([k, v]) => [k, v.slice(0, 60_000)])) } : undefined, prompt: st.prompt, sessionId: st.sessionId };
     liveMeta.set(key, meta); rememberMeta(key, meta);
     if (st.finishedAt == null) setStream({ finishedAt: Date.now(), toolsMs, answerMs }, true); else setStream({ toolsMs, answerMs }, true); // freezes the run-header timer at totalMs
     if (st.sources.length) { liveSources.set(key, st.sources); rememberSources(key, st.sources); }
@@ -247,6 +253,15 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
           }
           case CE.stepOutput: setStream({ outputs: [...st.outputs.filter((o) => o.stepId !== String(v.stepId)), { stepId: String(v.stepId ?? ""), title: String(v.title ?? ""), plugins: Array.isArray(v.plugins) ? (v.plugins as StepOutput["plugins"]) : [], at: now - t0 }] }); break;
           case CE.plannerPayload: if (typeof v.delta === "string") { const phase = v.phase === "planning" ? "planning" : "step"; const sid = String(v.stepId ?? "") || "0"; const cur = st.plannerPayload; const pk = typeof v.kind === "string" ? v.kind : phase === "planning" ? "plan" : "step_output"; setStream({ thinkingKinds: st.thinkingKinds.includes(pk) ? st.thinkingKinds : [...st.thinkingKinds, pk], /* phase chips unchanged: payload kinds still count */ plannerPayload: phase === "planning" ? { ...cur, planning: cur.planning + v.delta } : { ...cur, steps: { ...cur.steps, [sid]: (cur.steps[sid] ?? "") + v.delta } }, ...(st.phase === "connecting" ? { phase: "planning", detail: PHASE_LABEL.planning } : {}) }); } break;
+          case CE.deliverables: if (Array.isArray(v.items)) setStream({ deliverables: { items: v.items as DeliverablesShelfData["items"], durationMs: typeof v.durationMs === "number" ? v.durationMs : null, finalDownloadUrl: typeof v.finalDownloadUrl === "string" ? v.finalDownloadUrl : null, finalDownloadName: typeof v.finalDownloadName === "string" ? v.finalDownloadName : null } }); break;
+          case CE.skill: setStream({ rail: { ...st.rail, activeSkill: typeof v.label === "string" && v.label.trim() ? v.label.trim() : null } }); break;
+          case CE.stage: {
+            const id = String(v.id ?? "") as PipelineStageId; const ph = String(v.phase ?? "start"); const pl = st.rail.pipeline;
+            const pipeline = ph === "start" ? { current: id, done: pl.done.filter((d) => d !== id), failed: null } : ph === "failed" ? { current: null, done: pl.done, failed: id } : { current: pl.current === id ? null : pl.current, done: pl.done.includes(id) ? pl.done : [...pl.done, id], failed: pl.failed === id ? null : pl.failed };
+            setStream({ rail: { ...st.rail, pipeline } }); break;
+          }
+          case CE.assumptions: if (Array.isArray(v.items)) setStream({ rail: { ...st.rail, assumptions: (v.items as unknown[]).map(String).filter(Boolean) } }); break;
+          case CE.iui: { const add = Array.isArray(v.statements) ? (v.statements as IuiStatement[]) : v.statement ? [v.statement as IuiStatement] : []; if (add.length) setStream({ iui: [...st.iui, ...add] }); break; }
           case CE.voice: if (typeof v.phase === "string") setStream({ voice: { phase: v.phase, ...(typeof v.text === "string" ? { text: v.text } : {}) } }); break;
         }
         break;
@@ -268,7 +283,7 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
         break;
       case "TEXT_MESSAGE_END": finalize(); break;
       case "RUN_ERROR": setStream({ error: st.error ?? { code: f.code ?? "run_error", message: f.message ?? "The run failed" } }, true); finalize(); setStream({ phase: "idle", detail: "" }, true); break;
-      case "RUN_FINISHED": finalize(); setStream({ phase: "idle", detail: "", answerDone: true }, true); break;
+      case "RUN_FINISHED": finalize(); setStream({ phase: "idle", detail: "", answerDone: true, rail: { ...peek().rail, activeSkill: null } }, true); break;
     }
   };
   try {
@@ -638,6 +653,7 @@ type RunData = {
   error: { code: string; message: string; raw?: string } | null; meta: Partial<StoredMeta> | null; filler: boolean; fillerTick: number; elapsedMs: number;
   startedAt: number; totalMs: number | null;
   od?: BotMessageType | null;
+  deliverables?: DeliverablesShelfData | null; rail?: RailState; iui?: IuiStatement[];
 };
 const IMG_URL_RE = /!\[([^\]]*)\]\((https?:\/\/[^\s)]+|\/api\/artifacts\/[^\s)]+)\)/g;
 const VIDEO_URL_RE = /(https?:\/\/[^\s)"']+\.(?:mp4|webm|mov)(?:\?[^\s)"']*)?)/gi;
@@ -864,6 +880,8 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
           <CitedMarkdown text={r.text} known={r.error?.code === "plugin_error" ? [] : r.known} streaming={r.live} onCites={setCites} />
         </div>
       )}
+      {/* 7a — Intelligent UI (root-first statement stream; skeleton mounts on the first rAF commit, before any data statement) */}
+      {(r.iui?.length ?? 0) > 0 && <IntelligentUiRenderer statements={r.iui!} live={r.live} />}
       {/* 7b — inline media referenced by the answer (images / video) */}
       {media.images.length > 0 && <div className="oiu-media" data-testid="inline-images"><ImageGrid images={media.images} /></div>}
       {media.videos.map((v) => <div key={v.src} className="oiu-media" data-testid="inline-video"><VideoPlayer src={v.src} title={v.title} poster={v.poster} /></div>)}
@@ -881,6 +899,8 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
       {(!r.live || r.answerDone) && <CollapsedSources sources={railSources} live={r.live} />}
       {/* 9 — Artifacts card (only when the turn produced at least one artifact — never an empty box) */}
       {r.artifacts.length > 0 && <div className="oiu-artifacts" data-testid="inline-artifacts">{r.artifacts.map((a) => <ArtifactRow key={a.key} a={a} />)}</div>}
+      {/* 9a — Verified Deliverables shelf (only when the run published deliverables — never an empty shelf) */}
+      {r.deliverables && r.deliverables.items.length > 0 && <DeliverablesShelf data={r.deliverables} />}
       {/* 9b — one Data gap sentence on failure */}
       {/* shown live too — the moment a tool fails or an error frame arrives, never a green check on a failed call */}
       {gap && <p className="oiu-gap" role="alert" data-testid="data-gap"><AlertTriangle className="size-3.5" aria-hidden /> <strong>Data gap:</strong> {gap}</p>}
@@ -966,6 +986,7 @@ const AssistantMessage: AssistantMessageComponent = memo(function AssistantMessa
     artifacts: [...(meta?.artifacts ?? []).map((a) => ({ key: a.id, name: a.name, phase: "ready" as const, artifact: a })), ...(meta?.artifactFailures ?? []).map((f, i) => ({ key: `f${i}`, name: f.name, phase: "failed" as const, message: f.message }))],
     error: meta?.error ?? null, meta, filler: false, fillerTick: 0, elapsedMs: meta?.totalMs ?? 0, startedAt: 0, totalMs: meta?.totalMs ?? null,
     od: (meta as { od?: BotMessageType | null } | null)?.od ?? null,
+    deliverables: (meta as { deliverables?: DeliverablesShelfData | null } | null)?.deliverables ?? null, rail: (meta as { rail?: RailState } | null)?.rail ?? IDLE_RAIL, iui: (meta as { iui?: IuiStatement[] } | null)?.iui ?? [],
   };
   return (
     <div className="oiu-assistant" data-testid="assistant-message">
@@ -1003,6 +1024,7 @@ const PluginTimeline: ToolCallTimelineComponent = ({ steps, isLast }) => {
     text: liveText || st.text, known: st.error?.code === "plugin_error" ? [] : st.sources, sources: st.sources, artifacts: st.artifacts,
     error: st.error, meta: { pluginIds: st.pluginIds, firstTokenMs: st.firstTokenMs, firstStatusMs: st.firstStatusMs, toolsMs: st.toolsMs ?? null, answerMs: st.answerMs ?? null, metrics: st.metrics }, filler: st.filler, fillerTick: st.fillerTick, elapsedMs: st.startedAt ? Date.now() - st.startedAt : 0,
     startedAt: st.startedAt, totalMs: st.finishedAt != null && st.startedAt ? st.finishedAt - st.startedAt : null, od: st.od,
+    deliverables: st.deliverables, rail: st.rail, iui: st.iui,
   };
   return (
     <div className="oiu-assistant oiu-assistant--streaming" aria-live="polite" aria-busy="true" data-testid="assistant-streaming">
@@ -1326,6 +1348,7 @@ ${txt}`; }
         <ContextChipsBar />
         <Suspense fallback={null}><AutoAsk /><ThreadDeepLink /></Suspense>
       </AgentInterface>
+      <OndemandSettingsDrawer />
       {/* a49: explainer sentence removed (duplicated the composer hint); keep the testids/data attributes for the plugin label. */}
       <p className="oiu-footer" data-testid="chat-footer" data-model-id={MODEL_ID} data-reasoning={REASONING_MODE}><ShieldCheck className="size-3.5" aria-hidden /> {MODEL_LABEL} · <span data-testid="footer-plugins">{pluginLabel}</span></p>
     </div>
@@ -1354,6 +1377,7 @@ function ChatTopBar({ topBarRight }: { topBarRight?: ReactNode }) {
             {recent.map((t) => <li key={t.id}><button type="button" className={`oiu-threads__item${t.id === selectedId ? " oiu-threads__item--active" : ""}`} data-testid="threads-menu-item" data-thread-id={t.id} title={t.title || "Untitled thread"} aria-label={t.title || "Untitled thread"} onClick={(e) => { selectThread(t.id); (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open"); }}><span className="oiu-thread-title" data-testid="thread-title" title={t.title || "Untitled thread"}>{t.title || "Untitled thread"}</span></button></li>)}
           </ul>
         </details>
+        <OndemandSettingsToggle className="oiu-topbar__btn" />
         <ArtifactsToggle className="oiu-topbar__btn" showLabel />
         <span className="oiu-topbar__slot" data-testid="topbar-right">{topBarRight}</span>
       </div>

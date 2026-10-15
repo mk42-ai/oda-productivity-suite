@@ -4,6 +4,78 @@ import { useStreamState, hasPayload, PlannerPayloadDetails } from "@/components/
 import { MODEL_ID, MODEL_LABEL, REASONING_MODE } from "@/lib/plugins";
 import { PluginChip } from "@/components/ui/plugin-favicon";
 import { pluginName } from "@/lib/plugin-catalogue";
+import { useMemo, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { PIPELINE_STAGES, type PipelineStageId } from "@/lib/chat-ui/types";
+import { publisherOf, hostOf } from "@/components/chat/open-intelligent-ui/citations";
+import { faviconFor } from "@/components/chat/open-intelligent-ui/chat-shell";
+import { safeExternalUrl } from "@/lib/outbound";
+import "./run-rail.css";
+
+const MAX_CHIPS = 4;
+/** Active skill · 5-stage pipeline · publisher-first citation chips (+N → focuses the Verified sources panel) · favicon/title source cards with
+ *  prev/next · Assumptions. All values come from the SAME rAF-coalesced stream store (useStreamState) — no extra setState per SSE frame. */
+export function RunPipelineRail() {
+  const st = useStreamState();
+  const live = st.phase !== "idle";
+  const rail = st.rail;
+  const sources = useMemo(() => st.sources.filter((s) => !!safeExternalUrl(s.url)), [st.sources]);
+  const [idx, setIdx] = useState(0);
+  const cur = sources[Math.min(idx, Math.max(0, sources.length - 1))];
+  const overflow = Math.max(0, sources.length - MAX_CHIPS);
+  const focusSources = () => { const el = document.getElementById("rail-verified-sources"); el?.focus(); el?.scrollIntoView({ block: "nearest", behavior: "smooth" }); };
+  const activeLabel = rail.activeSkill ?? (live && st.tools.some((t) => t.status === "running") ? pluginName(st.tools.find((t) => t.status === "running")!.pluginId) : null);
+  const stageState = (id: PipelineStageId): "done" | "running" | "failed" | "pending" => rail.pipeline.failed === id ? "failed" : rail.pipeline.done.includes(id) ? "done" : rail.pipeline.current === id ? "running" : "pending";
+  return (
+    <Card className="p-3 rr" data-testid="run-pipeline-rail">
+      <h2 className="mb-2 text-sm font-semibold">Run</h2>
+      <p className="rr__row" data-testid="rail-active-skill" data-active={activeLabel ? "true" : "false"}>
+        <span className="rr__k">Active skill</span>
+        <span className={`rr__v${activeLabel ? " rr__v--on" : ""}`}>{activeLabel ? <><i className="rr__pulse" aria-hidden />{activeLabel}</> : "No active skill"}</span>
+      </p>
+      <ol className="rr__pipe" data-testid="rail-pipeline" aria-label="Pipeline">
+        {PIPELINE_STAGES.map((s, i) => { const state = stageState(s.id); return (
+          <li key={s.id} className={`rr__stage rr__stage--${state}`} data-testid="rail-stage" data-stage={s.id} data-state={state} aria-current={state === "running" ? "step" : undefined}>
+            <span className="rr__stage-n" aria-hidden>{i + 1}</span><span className="rr__stage-l">{s.label}</span>
+          </li>
+        ); })}
+      </ol>
+      <div className="rr__block">
+        <p className="rr__k">Citations</p>
+        {sources.length === 0 ? <p className="rr__empty" data-testid="rail-citations-empty">{live ? "Collecting sources…" : "No citations yet"}</p> : (
+          <ul className="rr__chips" data-testid="rail-citation-chips" aria-label="Citations by publisher">
+            {sources.slice(0, MAX_CHIPS).map((s, i) => (
+              <li key={s.url}><button type="button" className={`rr__chip${i === idx ? " rr__chip--on" : ""}`} data-testid="rail-citation-chip" title={s.title} onClick={() => { setIdx(i); focusSources(); }}>
+                <img src={faviconFor(s.url)} alt="" width={12} height={12} loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} />{publisherOf(s.url)}
+              </button></li>
+            ))}
+            {overflow > 0 && <li><button type="button" className="rr__chip rr__chip--more" data-testid="rail-citation-overflow" aria-label={`${overflow} more sources — open Verified sources`} onClick={() => { setIdx(MAX_CHIPS); focusSources(); }}>+{overflow}</button></li>}
+          </ul>
+        )}
+      </div>
+      <section id="rail-verified-sources" tabIndex={-1} className="rr__block rr__srcs" data-testid="rail-verified-sources" aria-label="Verified sources" data-count={sources.length}>
+        <div className="rr__srcs-head"><p className="rr__k">Verified sources{sources.length ? ` · ${Math.min(idx, sources.length - 1) + 1} / ${sources.length}` : ""}</p>
+          {sources.length > 1 && <span className="rr__nav">
+            <button type="button" aria-label="Previous source" data-testid="rail-source-prev" onClick={() => setIdx((i) => (i - 1 + sources.length) % sources.length)}><ChevronLeft className="size-3.5" aria-hidden /></button>
+            <button type="button" aria-label="Next source" data-testid="rail-source-next" onClick={() => setIdx((i) => (i + 1) % sources.length)}><ChevronRight className="size-3.5" aria-hidden /></button>
+          </span>}
+        </div>
+        {cur ? (
+          <a className="rr__card" href={safeExternalUrl(cur.url) ?? "#"} target="_blank" rel="noopener noreferrer" data-testid="rail-source-card" data-host={hostOf(cur.url)}>
+            <img className="rr__card-ico" src={faviconFor(cur.url)} alt="" width={16} height={16} loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} />
+            <span className="rr__card-body"><span className="rr__card-title">{cur.title || hostOf(cur.url)}</span><span className="rr__card-host">{hostOf(cur.url)}</span></span>
+          </a>
+        ) : <p className="rr__empty" data-testid="rail-sources-empty">No verified sources yet</p>}
+      </section>
+      <div className="rr__block">
+        <p className="rr__k">Assumptions</p>
+        {rail.assumptions.length === 0 ? <p className="rr__empty" data-testid="rail-assumptions-empty">No assumptions recorded</p> : (
+          <ul className="rr__asm" data-testid="rail-assumptions">{rail.assumptions.map((a, i) => <li key={i}>{a}</li>)}</ul>
+        )}
+      </div>
+    </Card>
+  );
+}
 
 /**
  * "This run" card inside the inspector drawer (model row, plugin chips, agent events). Telemetry and the raw SSE request frame
