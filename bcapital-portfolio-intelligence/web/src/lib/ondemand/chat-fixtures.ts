@@ -60,6 +60,10 @@ export function buildFixtureStream(fixtureName: string): Response | null {
         delta: JSON.stringify({ plugin: "Perplexity", pluginId: "plugin-1722260873", query: "Lambda AI infrastructure funding and sentiment" }),
       }),
       frame({
+        type: "TOOL_CALL_END",
+        toolCallId: "tc-1",
+      }),
+      frame({
         type: "CUSTOM",
         name: "ondemand.sources",
         value: {
@@ -130,7 +134,7 @@ export function buildFixtureStream(fixtureName: string): Response | null {
         type: "TEXT_MESSAGE_CONTENT",
         messageId: "m-multi",
         delta:
-          "Comparing **Lambda**, **HavocAI**, and **TRM Labs** across funding momentum and multi-source sentiment [1] [2] [3] [4] [5]:\n\n- **Lambda** (AI Infrastructure): $2.4B raised, sentiment **+0.80**.\n- **HavocAI** (Robotics & Space): $100M raised ($85M Venture round), sentiment **+0.80**.\n- **TRM Labs** (Fintech & Crypto): $136M raised (Series C+), sentiment **+0.32** with cross-channel divergence between press and Reddit threads.",
+          "Comparing **Lambda**, **HavocAI**, and **TRM Labs** across funding momentum and multi-source sentiment [1](https://www.reuters.com/technology/lambda-ai-cloud-2026/) [2](https://techcrunch.com/2026/09/30/havocai-autonomous-maritime-85m/) [3](https://www.bloomberg.com/news/articles/2026-09-09/trm-labs-crypto-compliance/) [4](https://x.com/TRMLabs/status/1889012345678901234) [5](https://www.reddit.com/r/venturecapital/comments/1m2def9/ai_defense_and_crypto_compliance_2026/):\n\n- **Lambda** (AI Infrastructure): $2.4B raised, sentiment **+0.80**.\n- **HavocAI** (Robotics & Space): $100M raised ($85M Venture round), sentiment **+0.80**.\n- **TRM Labs** (Fintech & Crypto): $136M raised (Series C+), sentiment **+0.32** with cross-channel divergence between press and Reddit threads.",
       }),
       frame({ type: "TEXT_MESSAGE_END", messageId: "m-multi" }),
       frame({
@@ -238,6 +242,12 @@ export function buildFixtureStream(fixtureName: string): Response | null {
           at: "2026-10-15T03:00:00Z",
         },
       }),
+      frame({ type: "TEXT_MESSAGE_START", messageId: "m-creds" }),
+      frame({
+        type: "TEXT_MESSAGE_CONTENT",
+        messageId: "m-creds",
+        delta: "Step 1 completed for **PaleBlueDot**. Supplying or cancelling the credential prompt above uses the server-side `/api/chat/creds` relay.",
+      }),
       frame({
         type: "CUSTOM",
         name: "ondemand.require_creds",
@@ -247,6 +257,8 @@ export function buildFixtureStream(fixtureName: string): Response | null {
           fields: [{ key: "api_token", label: "PitchBook Partner Token", type: "password" }],
         },
       }),
+      frame({ type: "TEXT_MESSAGE_END", messageId: "m-creds" }),
+      frame({ type: "RUN_FINISHED", threadId: "t-creds", runId: "r-creds" }),
     ]);
   }
 

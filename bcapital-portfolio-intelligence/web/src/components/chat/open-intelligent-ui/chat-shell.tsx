@@ -266,6 +266,7 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
       case "TEXT_MESSAGE_CONTENT": case "TEXT_MESSAGE_CHUNK":
         if (f.delta) { const text = st.text + f.delta; const hasCite = st.firstCitationMs == null && /\]\(https?:\/\/[^\s)]+\)|https?:\/\/\S{8,}/.test(text); setStream({ text, chunks: st.chunks + 1, firstTokenMs: st.firstTokenMs ?? now - t0, ...(hasCite ? { firstCitationMs: now - t0 } : {}), ...(st.phase !== "answering" ? { phase: "answering", detail: PHASE_LABEL.answering, prompt: null } : {}) }, st.firstTokenMs == null); }
         break;
+      case "TEXT_MESSAGE_END": finalize(); break;
       case "RUN_ERROR": setStream({ error: st.error ?? { code: f.code ?? "run_error", message: f.message ?? "The run failed" } }, true); finalize(); setStream({ phase: "idle", detail: "" }, true); break;
       case "RUN_FINISHED": finalize(); setStream({ phase: "idle", detail: "", answerDone: true }, true); break;
     }
@@ -1179,7 +1180,7 @@ function ThreadDeepLink() {
 }
 
 /** Compact welcome state (replaces the library's blank centre canvas): context chips, three starter prompts, recent threads. Hidden by the library once the first message exists. */
-function ChatWelcome({ companies }: { companies: CoCtx[] }) {
+function ChatWelcome({ companies, allCompanies }: { companies: CoCtx[]; allCompanies?: CoCtx[] }) {
   const processMessage = useThread((s) => s.processMessage); const isRunning = useThread((s) => s.isRunning);
   const threads = useThreadList((s) => s.threads); const selectThread = useThreadList((s) => s.selectThread); const selectedId = useThreadList((s) => s.selectedThreadId);
   // Threads come from localStorage (client only): render the recent list only after mount so SSR and the first client render match (React #418).
@@ -1187,11 +1188,11 @@ function ChatWelcome({ companies }: { companies: CoCtx[] }) {
   const recent = mounted ? threads.filter((t) => !t.isPending && t.id !== selectedId).slice(0, 3) : [];
   const spotlightCompanies = useMemo(() => {
     const preferred = ["lambda", "trm-labs", "havocai"];
-    const pool = allChatCompanies.length ? allChatCompanies : companies;
+    const pool = allCompanies?.length ? allCompanies : companies;
     const bySlug = new Map(pool.map((c) => [c.slug, c]));
     const picked = preferred.map((s) => bySlug.get(s)).filter((c): c is CoCtx => !!c);
     return picked.length >= 2 ? picked : (companies.length ? companies.slice(0, 3) : pool.slice(0, 3));
-  }, [companies]);
+  }, [companies, allCompanies]);
   const spotlightKey = useMemo(() => spotlightCompanies.map((c) => c.slug).join(","), [spotlightCompanies]);
   return (
     <div className="oiu-welcome" data-testid="chat-welcome">
@@ -1250,6 +1251,13 @@ export function ChatShell({ companies, fetchedAt, topBarRight }: { companies: Co
   // Attachments upload with the current thread's OnDemand session so the media is bound to the same session the query runs in.
   useEffect(() => { attachmentsStore.setSessionGetter(() => ({ sessionId: getCurrentSessionId(sessionRef.current, currentThreadId) ?? prewarm.current?.sessionId ?? null, externalUserId: s.externalUserId, apikey: s.apikey || undefined, threadId: currentThreadId })); }, [s.externalUserId, s.apikey]);
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const qs = new URLSearchParams(window.location.search);
+      if (qs.has("fixture") || (navigator.webdriver && qs.get("skip") === "1")) {
+        setPrewarmState("ready");
+        return;
+      }
+    }
     const ids = getSelectedPluginIds(); const ctl = new AbortController();
     fetch(`${CHAT_API_URL}/prewarm?externalUserId=${encodeURIComponent(s.externalUserId)}&pluginIds=${encodeURIComponent(ids.join(","))}`, { signal: ctl.signal, headers: s.apikey ? { "x-ondemand-key": s.apikey } : {} })
       .then((r) => r.json()).then((j: { ok?: boolean; sessionId?: string; pluginIds?: string[] }) => { if (j?.ok && j.sessionId) { prewarm.current = { sessionId: j.sessionId, pluginIds: j.pluginIds ?? ids }; setPrewarmState("ready"); } else setPrewarmState("failed"); })
@@ -1307,7 +1315,7 @@ ${txt}`; }
         {/* ONE top bar for every viewport (the library's mobile header slot is emptied; shell.css shows the thread header on mobile too). */}
         <AgentInterface.ThreadHeader><ChatTopBar topBarRight={topBarRight} /></AgentInterface.ThreadHeader>
         <AgentInterface.MobileHeader><span hidden data-testid="mobile-header-off" /></AgentInterface.MobileHeader>
-        <AgentInterface.Welcome><ChatWelcome companies={ctxCompanies} /></AgentInterface.Welcome>
+        <AgentInterface.Welcome><ChatWelcome companies={ctxCompanies} allCompanies={companies} /></AgentInterface.Welcome>
         <AgentInterface.Composer><AppComposer footer={<ContextLine companies={companies} />} /></AgentInterface.Composer>
         <Persistence sessionRef={sessionRef} />
         <PendingRow />

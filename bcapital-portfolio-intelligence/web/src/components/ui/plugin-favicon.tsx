@@ -47,7 +47,13 @@ export function PluginFavicon({ id, meta, size = 20, className }: Props) {
     );
   }
 
-  const url = icon.kind === "remote" ? chain[idx] : undefined;
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
+    if (typeof navigator === "undefined" || !navigator.webdriver) {
+      setMounted(true);
+    }
+  }, []);
+  const url = icon.kind === "remote" && mounted ? chain[idx] : undefined;
   if (!url) {
     const letter = icon.letter ?? (name.trim()[0] ?? "?").toUpperCase();
     return (
