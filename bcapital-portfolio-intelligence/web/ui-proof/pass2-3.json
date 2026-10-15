@@ -1,0 +1,401 @@
+{
+ "agent": "3",
+ "spec": "tests/chat-intelligent-ui-payloads.spec.ts",
+ "grep": "F \u2014|G \u2014",
+ "base_url": "https://sb-2pwknkjsuu4u.vercel.run",
+ "generated_utc": "2026-10-15T07:53:30Z",
+ "rows": [
+  {
+   "viewport": "1440x900",
+   "utc": "2026-10-15T07:50:53.104Z",
+   "payload": "A",
+   "http_status": 200,
+   "answer_chars": 415,
+   "rows": {
+    "header 2 verified deliverables": true,
+    "run completed in 7m 32s": true,
+    "gold Download final document CTA": true,
+    "card 1 title + pills": true,
+    "card 2 title + pills": true,
+    "literal markdown previews": true,
+    "Version history (2) label": true,
+    "history expands to v1/v2/v3": true,
+    "selecting v1 swaps the preview": true,
+    "per-artifact Download works": true,
+    "no per-card Download / history on Run synthesis": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-A-1440x900.png",
+   "screenshot_utc": "2026-10-15T07:50:53.104Z",
+   "errors": []
+  },
+  {
+   "viewport": "1440x900",
+   "utc": "2026-10-15T07:50:58.293Z",
+   "payload": "D",
+   "http_status": 200,
+   "answer_chars": 415,
+   "rows": {
+    "skeleton mounts on first rAF tick before data hydration": true,
+    "< 60 statements, data-root-first=true": true,
+    "all 7 slots fill afterwards": true,
+    "no <img> outside ODImage in the IUI": true,
+    "no broken-image icon": true,
+    "HtmlView sandboxed, script did not run": true,
+    "exactly one lightbox instance": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "first_tick": {
+    "slots": 7,
+    "filled": 0,
+    "rootFirst": "true"
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-D-1440x900.png",
+   "screenshot_utc": "2026-10-15T07:50:58.249Z",
+   "errors": []
+  },
+  {
+   "viewport": "1440x900",
+   "utc": "2026-10-15T07:51:07.885Z",
+   "payload": "E",
+   "http_status": 200,
+   "answer_chars": 833,
+   "rows": {
+    "thinking block NOT remounted across summarize_history frames (live run)": true,
+    "activity (working) list NOT remounted": true,
+    "item count stable / monotonic (1 \u2192 3 tool rows, never reset)": true,
+    "3 between-step summaries rendered": true,
+    "isPinnedToBottom stayed true while pinned": true,
+    "manual scroll-up is respected (not yanked back)": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "identity": {
+    "afterS1": {
+     "tb": "tb-1",
+     "wl": "wl-1",
+     "rows": 2,
+     "live": "true",
+     "summaries": 1
+    },
+    "afterS2": {
+     "tb": "tb-1",
+     "wl": "wl-1",
+     "rows": 3,
+     "live": "true",
+     "summaries": 2
+    },
+    "afterS3": {
+     "tb": "tb-1",
+     "wl": "wl-1",
+     "rows": 3,
+     "live": "true",
+     "summaries": 3
+    }
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-E-1440x900.png",
+   "screenshot_utc": "2026-10-15T07:51:07.882Z",
+   "errors": []
+  },
+  {
+   "viewport": "1440x900",
+   "utc": "2026-10-15T07:51:16.881Z",
+   "payload": "B",
+   "http_status": 200,
+   "answer_chars": 190,
+   "rows": {
+    "Waiting for you inside interactive-wait-card": true,
+    "5-stage pipeline 1..5 labels": true,
+    "data-scout + benchmark done, problem-solve running": true,
+    "pipeline timer pauses while waiting": true,
+    "country profile slot filled": true,
+    "/api/chat/creds relay answered 200": true,
+    "session resumes on submit (timer running again)": true,
+    "no error boundary / retry notice": true,
+    "all 5 stages done after resume": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-B-1440x900.png",
+   "screenshot_utc": "2026-10-15T07:50:58.306Z",
+   "errors": [],
+   "creds_calls": [
+    200
+   ]
+  },
+  {
+   "viewport": "1440x900",
+   "utc": "2026-10-15T07:51:21.097Z",
+   "payload": "C",
+   "http_status": 200,
+   "answer_chars": 415,
+   "rows": {
+    "inline publisher chips in the answer": true,
+    "rail chips are publisher names": true,
+    "+N click focuses Verified sources": true,
+    "next steps to 6 / 6": true,
+    "prev steps back to 5 / 6": true,
+    "every outbound anchor https + _blank + noopener noreferrer, no proxy/tracking": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-C-1440x900.png",
+   "screenshot_utc": "2026-10-15T07:51:21.095Z",
+   "errors": [],
+   "bad_anchors": []
+  },
+  {
+   "viewport": "390x844",
+   "utc": "2026-10-15T07:51:24.309Z",
+   "payload": "D",
+   "http_status": 200,
+   "answer_chars": 415,
+   "rows": {
+    "skeleton mounts on first rAF tick before data hydration": true,
+    "< 60 statements, data-root-first=true": true,
+    "all 7 slots fill afterwards": true,
+    "no <img> outside ODImage in the IUI": true,
+    "no broken-image icon": true,
+    "HtmlView sandboxed, script did not run": true,
+    "exactly one lightbox instance": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "first_tick": {
+    "slots": 7,
+    "filled": 0,
+    "rootFirst": "true"
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-D-390x844.png",
+   "screenshot_utc": "2026-10-15T07:51:24.293Z",
+   "errors": []
+  },
+  {
+   "viewport": "390x844",
+   "utc": "2026-10-15T07:51:27.956Z",
+   "payload": "A",
+   "http_status": 200,
+   "answer_chars": 415,
+   "rows": {
+    "header 2 verified deliverables": true,
+    "run completed in 7m 32s": true,
+    "gold Download final document CTA": true,
+    "card 1 title + pills": true,
+    "card 2 title + pills": true,
+    "literal markdown previews": true,
+    "Version history (2) label": true,
+    "history expands to v1/v2/v3": true,
+    "selecting v1 swaps the preview": true,
+    "per-artifact Download works": true,
+    "no per-card Download / history on Run synthesis": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-A-390x844.png",
+   "screenshot_utc": "2026-10-15T07:51:27.956Z",
+   "errors": []
+  },
+  {
+   "viewport": "390x844",
+   "utc": "2026-10-15T07:51:32.871Z",
+   "payload": "E",
+   "http_status": 200,
+   "answer_chars": 833,
+   "rows": {
+    "thinking block NOT remounted across summarize_history frames (live run)": true,
+    "activity (working) list NOT remounted": true,
+    "item count stable / monotonic (1 \u2192 3 tool rows, never reset)": true,
+    "3 between-step summaries rendered": true,
+    "isPinnedToBottom stayed true while pinned": true,
+    "manual scroll-up is respected (not yanked back)": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "identity": {
+    "afterS1": {
+     "tb": "tb-1",
+     "wl": "wl-1",
+     "rows": 2,
+     "live": "true",
+     "summaries": 1
+    },
+    "afterS2": {
+     "tb": "tb-1",
+     "wl": "wl-1",
+     "rows": 3,
+     "live": "true",
+     "summaries": 2
+    },
+    "afterS3": {
+     "tb": "tb-1",
+     "wl": "wl-1",
+     "rows": 3,
+     "live": "true",
+     "summaries": 3
+    }
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-E-390x844.png",
+   "screenshot_utc": "2026-10-15T07:51:32.868Z",
+   "errors": []
+  },
+  {
+   "viewport": "390x844",
+   "utc": "2026-10-15T07:51:52.342Z",
+   "payload": "B",
+   "http_status": 200,
+   "answer_chars": 190,
+   "rows": {
+    "Waiting for you inside interactive-wait-card": true,
+    "5-stage pipeline 1..5 labels": true,
+    "data-scout + benchmark done, problem-solve running": true,
+    "pipeline timer pauses while waiting": true,
+    "country profile slot filled": true,
+    "/api/chat/creds relay answered 200": true,
+    "session resumes on submit (timer running again)": true,
+    "no error boundary / retry notice": true,
+    "all 5 stages done after resume": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-B-390x844.png",
+   "screenshot_utc": "2026-10-15T07:51:33.498Z",
+   "errors": [],
+   "creds_calls": [
+    200
+   ]
+  },
+  {
+   "viewport": "390x844",
+   "utc": "2026-10-15T07:51:55.880Z",
+   "payload": "C",
+   "http_status": 200,
+   "answer_chars": 415,
+   "rows": {
+    "inline publisher chips in the answer": true,
+    "rail chips are publisher names": true,
+    "+N click focuses Verified sources": true,
+    "next steps to 6 / 6": true,
+    "prev steps back to 5 / 6": true,
+    "every outbound anchor https + _blank + noopener noreferrer, no proxy/tracking": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-C-390x844.png",
+   "screenshot_utc": "2026-10-15T07:51:55.878Z",
+   "errors": [],
+   "bad_anchors": []
+  },
+  {
+   "viewport": "1440x900",
+   "utc": "2026-10-15T07:52:16.072Z",
+   "payload": "F",
+   "http_status": 200,
+   "answer_chars": 297,
+   "rows": {
+    "GATE HELD \u00b7 SENDS 0": true,
+    "25 pasted \u2192 capped to 20, DISABLED_PLUGIN_IDS removed": true,
+    "request carries x-ondemand-endpoint-id / plugin-ids / external-user-id": true,
+    "blank client key \u2192 no x-ondemand-key header (server env fallback)": true,
+    "server echoes overrides with keySource=server-env": true,
+    "HTTP 200 with non-empty answer": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "echo": {
+    "endpointId": "predefined-gpt-5.6-luna",
+    "pluginIds": 20,
+    "dropped": 0,
+    "externalUserId": "INV-001",
+    "keySource": "server-env"
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-F-1440x900.png",
+   "screenshot_utc": "2026-10-15T07:51:04.600Z",
+   "errors": []
+  },
+  {
+   "viewport": "1440x900",
+   "utc": "2026-10-15T07:52:18.727Z",
+   "payload": "G",
+   "http_status": 200,
+   "first_status": 500,
+   "answer_chars": 298,
+   "rows": {
+    "discreet notice only": true,
+    "no raw error strings / stack traces / HTTP dumps / modal": true,
+    "Retry \u2192 HTTP 200 with non-empty answer": true,
+    "notice gone after retry": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-G-1440x900.png",
+   "screenshot_utc": "2026-10-15T07:52:18.460Z",
+   "errors": [
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+   ]
+  },
+  {
+   "viewport": "390x844",
+   "utc": "2026-10-15T07:53:28.347Z",
+   "payload": "F",
+   "http_status": 200,
+   "answer_chars": 590,
+   "rows": {
+    "GATE HELD \u00b7 SENDS 0": true,
+    "25 pasted \u2192 capped to 20, DISABLED_PLUGIN_IDS removed": true,
+    "request carries x-ondemand-endpoint-id / plugin-ids / external-user-id": true,
+    "blank client key \u2192 no x-ondemand-key header (server env fallback)": true,
+    "server echoes overrides with keySource=server-env": true,
+    "HTTP 200 with non-empty answer": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "echo": {
+    "endpointId": "predefined-gpt-5.6-luna",
+    "pluginIds": 20,
+    "dropped": 0,
+    "externalUserId": "INV-001",
+    "keySource": "server-env"
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-F-390x844.png",
+   "screenshot_utc": "2026-10-15T07:52:23.111Z",
+   "errors": []
+  },
+  {
+   "viewport": "390x844",
+   "utc": "2026-10-15T07:53:30.725Z",
+   "payload": "G",
+   "http_status": 200,
+   "first_status": 500,
+   "answer_chars": 298,
+   "rows": {
+    "discreet notice only": true,
+    "no raw error strings / stack traces / HTTP dumps / modal": true,
+    "Retry \u2192 HTTP 200 with non-empty answer": true,
+    "notice gone after retry": true,
+    "no horizontal overflow": true,
+    "zero console/page errors": true
+   },
+   "pass": true,
+   "screenshot": "ui-proof/payload-G-390x844.png",
+   "screenshot_utc": "2026-10-15T07:53:30.517Z",
+   "errors": [
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+   ]
+  }
+ ]
+}

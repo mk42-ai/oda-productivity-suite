@@ -123,10 +123,13 @@ let pending: Partial<StreamState> | null = null; let rafId = 0;
 const liveSources = new Map<string, Source[]>();
 const liveMeta = new Map<string, StoredMeta>();
 const listeners = new Set<() => void>();
-const flush = () => { rafId = 0; if (!pending) return; const p = pending; pending = null; streamState = { ...streamState, ...p, version: streamState.version + 1 }; listeners.forEach((l) => l()); };
+/** Perf counters (read-only, for the performance badge / metrics spec): one increment per store commit, one per setStream() call. */
+export const streamPerf = { commits: 0, patches: 0 };
+const flush = () => { rafId = 0; if (!pending) return; const p = pending; pending = null; streamState = { ...streamState, ...p, version: streamState.version + 1 }; streamPerf.commits++; if (typeof window !== "undefined") (window as unknown as { __oiuPerf?: typeof streamPerf }).__oiuPerf = streamPerf; listeners.forEach((l) => l()); };
 const FLUSH_MS = () => (typeof matchMedia !== "undefined" && matchMedia("(max-width: 640px)").matches ? 140 : 80);
 let flushTimer: ReturnType<typeof setTimeout> | 0 = 0;
 const setStream = (patch: Partial<StreamState>, immediate = false) => {
+  streamPerf.patches++;
   pending = { ...(pending ?? {}), ...patch };
   if (immediate || typeof requestAnimationFrame === "undefined") { if (rafId && typeof cancelAnimationFrame !== "undefined") cancelAnimationFrame(rafId); if (flushTimer) { clearTimeout(flushTimer); flushTimer = 0; } rafId = 0; flush(); return; }
   // Time-boxed coalescing: a burst of deltas costs ONE commit per 80 ms (140 ms on narrow viewports) instead of one per animation frame.
@@ -1036,7 +1039,7 @@ const PluginTimeline: ToolCallTimelineComponent = ({ steps, isLast }) => {
     deliverables: st.deliverables, rail: st.rail, iui: st.iui,
   };
   return (
-    <div className="oiu-assistant oiu-assistant--streaming" aria-live="polite" aria-busy="true" data-testid="assistant-streaming">
+    <div className="oiu-assistant oiu-assistant--streaming" aria-live="polite" aria-busy="true" data-testid="assistant-streaming" data-commit={st.version} data-frames={st.integrity?.frames ?? undefined}>
       <LiveRunMarker />
       <div className="oiu-assistant__avatar" aria-hidden><StatusSpinner /></div>
       <div className="oiu-assistant__body"><RunView r={r} onAnswer={(text) => { setStream({ prompt: null }, true); void processMessage({ role: "user", content: text }); }} /></div>

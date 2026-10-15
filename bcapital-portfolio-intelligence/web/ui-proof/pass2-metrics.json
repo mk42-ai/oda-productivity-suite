@@ -1,0 +1,16 @@
+{
+ "base_url": "https://sb-2pwknkjsuu4u.vercel.run",
+ "fixture": "highfreq",
+ "pace_ms": 40,
+ "sse_frames_expected": 16,
+ "commits": 12,
+ "longFrames": 4,
+ "frames": 16,
+ "maxGap": 433.4,
+ "rafTicks": 198,
+ "patches": 20,
+ "raf_batch_ratio": 1.67,
+ "ttft_ui_ms": 101,
+ "wall_ms": 4859,
+ "utc": "2026-10-15T08:19:26.422Z"
+}

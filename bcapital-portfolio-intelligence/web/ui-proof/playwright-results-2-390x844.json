@@ -1,0 +1,227 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/node_modules/.bin/playwright",
+      "test",
+      "tests/chat-intelligent-ui-payloads.spec.ts",
+      "--config",
+      "tests/payloads.config.ts",
+      "-g",
+      "D —|E —"
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/payloads.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/chat-intelligent-ui-payloads\\.spec\\.ts|regression-sweep\\.spec\\.ts|_dbg\\.spec\\.ts/"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 240000,
+        "use": {
+          "baseURL": "https://sb-2pwknkjsuu4u.vercel.run",
+          "trace": "off",
+          "screenshot": "off",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage"
+            ]
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../ui-proof/playwright-results-2-390x844.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "chat-intelligent-ui-payloads.spec.ts",
+      "file": "chat-intelligent-ui-payloads.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "D — root-first Intelligent UI: skeleton on first rAF tick, slots fill, ODImage only, one lightbox",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/chat-intelligent-ui-payloads.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12931,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T07:51:10.138Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/chat-intelligent-ui-payloads.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1156c488b0a9b76f6777-f2862db28c54558497c3",
+          "file": "chat-intelligent-ui-payloads.spec.ts",
+          "line": 145,
+          "column": 5
+        },
+        {
+          "title": "E — between-step summarisation keeps the thinking/activity list mounted; scroll anchoring intact",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [
+                {
+                  "type": "serial",
+                  "location": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/chat-intelligent-ui-payloads.spec.ts",
+                    "line": 0,
+                    "column": 0
+                  }
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8511,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T07:51:24.347Z",
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/chat-intelligent-ui-payloads.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1156c488b0a9b76f6777-93f654e1d90f46d7e931",
+          "file": "chat-intelligent-ui-payloads.spec.ts",
+          "line": 181,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T07:51:09.436Z",
+    "duration": 23601.255,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

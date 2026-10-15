@@ -3,13 +3,13 @@ import { defineConfig } from "@playwright/test";
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:5173";
 export default defineConfig({
   testDir: ".",
-  testMatch: /chat-intelligent-ui-payloads\.spec\.ts|regression-sweep\.spec\.ts|_dbg\.spec\.ts/,
+  testMatch: /chat-intelligent-ui-payloads\.spec\.ts|regression-sweep\.spec\.ts|metrics\.spec\.ts/,
   timeout: 240_000,
   expect: { timeout: 20_000 },
   retries: 0,
   workers: 1,
   fullyParallel: false,
-  reporter: [["list"], ["json", { outputFile: "../ui-proof/playwright-results.json" }]],
+  reporter: [["list"], ["json", { outputFile: `../ui-proof/playwright-results-${process.env.PW_RUN ?? "run"}.json` }]],
   use: {
     baseURL: BASE_URL,
     trace: "off",
