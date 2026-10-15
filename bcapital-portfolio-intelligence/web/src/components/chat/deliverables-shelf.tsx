@@ -70,7 +70,7 @@ function DeliverableCard({ d }: { d: Deliverable }) {
           {dl && <a className="dlv-btn" href={cur?.contentUrl && sameOrigin(cur.contentUrl) ? cur.contentUrl : dl} download={dlName} data-testid="deliverable-download"><Download className="size-3.5" aria-hidden strokeWidth={2.2} /> Download</a>}
           {versions.length > 0 && (
             <button type="button" className="dlv-vh" aria-expanded={open} aria-controls={listId} data-testid="deliverable-history-toggle" onClick={() => setOpen((o) => !o)}>
-              <ChevronRight className={`size-3.5 dlv-vh__chev${open ? " dlv-vh__chev--open" : ""}`} aria-hidden /> Version history ({versions.length})
+              <ChevronRight className={`size-3.5 dlv-vh__chev${open ? " dlv-vh__chev--open" : ""}`} aria-hidden /> Version history ({Math.max(0, versions.filter((v) => v.version !== d.version).length)})
             </button>
           )}
         </div>

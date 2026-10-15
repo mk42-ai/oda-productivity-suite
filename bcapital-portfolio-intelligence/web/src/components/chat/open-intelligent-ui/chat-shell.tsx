@@ -59,7 +59,8 @@ import type { Artifact } from "@/lib/artifacts/types";
 import { IDLE_RAIL, type DeliverablesShelfData, type RailState, type IuiStatement, type PipelineStageId } from "@/lib/chat-ui/types";
 import { DeliverablesShelf } from "@/components/chat/deliverables-shelf";
 import { IntelligentUiRenderer } from "@/components/chat/intelligent-ui/renderer";
-import { OndemandSettingsDrawer, OndemandSettingsToggle } from "@/components/chat/ondemand-settings-drawer";
+import { OndemandSettingsDrawer, OndemandSettingsToggle, getOndemandSettings } from "@/components/chat/ondemand-settings-drawer";
+import { applyAdditiveRunFrames, ADDITIVE_FRAME_NAMES } from "@/lib/chat-ui/additive-frames";
 import { safeExternalUrl, stopOutbound } from "@/lib/outbound";
 import {
   ChatCompanyProvenanceDeck,
@@ -253,15 +254,13 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
           }
           case CE.stepOutput: setStream({ outputs: [...st.outputs.filter((o) => o.stepId !== String(v.stepId)), { stepId: String(v.stepId ?? ""), title: String(v.title ?? ""), plugins: Array.isArray(v.plugins) ? (v.plugins as StepOutput["plugins"]) : [], at: now - t0 }] }); break;
           case CE.plannerPayload: if (typeof v.delta === "string") { const phase = v.phase === "planning" ? "planning" : "step"; const sid = String(v.stepId ?? "") || "0"; const cur = st.plannerPayload; const pk = typeof v.kind === "string" ? v.kind : phase === "planning" ? "plan" : "step_output"; setStream({ thinkingKinds: st.thinkingKinds.includes(pk) ? st.thinkingKinds : [...st.thinkingKinds, pk], /* phase chips unchanged: payload kinds still count */ plannerPayload: phase === "planning" ? { ...cur, planning: cur.planning + v.delta } : { ...cur, steps: { ...cur.steps, [sid]: (cur.steps[sid] ?? "") + v.delta } }, ...(st.phase === "connecting" ? { phase: "planning", detail: PHASE_LABEL.planning } : {}) }); } break;
-          case CE.deliverables: if (Array.isArray(v.items)) setStream({ deliverables: { items: v.items as DeliverablesShelfData["items"], durationMs: typeof v.durationMs === "number" ? v.durationMs : null, finalDownloadUrl: typeof v.finalDownloadUrl === "string" ? v.finalDownloadUrl : null, finalDownloadName: typeof v.finalDownloadName === "string" ? v.finalDownloadName : null } }); break;
-          case CE.skill: setStream({ rail: { ...st.rail, activeSkill: typeof v.label === "string" && v.label.trim() ? v.label.trim() : null } }); break;
-          case CE.stage: {
-            const id = String(v.id ?? "") as PipelineStageId; const ph = String(v.phase ?? "start"); const pl = st.rail.pipeline;
-            const pipeline = ph === "start" ? { current: id, done: pl.done.filter((d) => d !== id), failed: null } : ph === "failed" ? { current: null, done: pl.done, failed: id } : { current: pl.current === id ? null : pl.current, done: pl.done.includes(id) ? pl.done : [...pl.done, id], failed: pl.failed === id ? null : pl.failed };
-            setStream({ rail: { ...st.rail, pipeline } }); break;
+          // pass-2: additive frames (deliverables / skill / stage / assumptions / iui) go through ONE pure, try/catch-isolated reducer. A parser
+          // failure returns the base slice unchanged, so a bad payload can never break the run; the result rides the same rAF commit boundary.
+          case CE.deliverables: case CE.skill: case CE.stage: case CE.assumptions: case CE.iui: {
+            const next = applyAdditiveRunFrames({ deliverables: st.deliverables, rail: st.rail, iui: st.iui }, { name: f.name, value: v });
+            if (next.deliverables !== st.deliverables || next.rail !== st.rail || next.iui !== st.iui) setStream(next);
+            break;
           }
-          case CE.assumptions: if (Array.isArray(v.items)) setStream({ rail: { ...st.rail, assumptions: (v.items as unknown[]).map(String).filter(Boolean) } }); break;
-          case CE.iui: { const add = Array.isArray(v.statements) ? (v.statements as IuiStatement[]) : v.statement ? [v.statement as IuiStatement] : []; if (add.length) setStream({ iui: [...st.iui, ...add] }); break; }
           case CE.voice: if (typeof v.phase === "string") setStream({ voice: { phase: v.phase, ...(typeof v.text === "string" ? { text: v.text } : {}) } }); break;
         }
         break;
@@ -430,18 +429,23 @@ type RunHeaderProps = {
   live: boolean; startedAt: number; totalMs: number | null; tokens?: number | null;
   logsOpen?: boolean; onToggleLogs?: () => void;
   outputs?: { label: string; open: boolean; onToggle: () => void } | null;
+  /** true while the run waits for the user (creds / clarification): the task timer pauses. */
+  paused?: boolean;
 };
 /** Agent name shown on every assistant turn (brand, not the model). */
 const AGENT_NAME = "B Capital";
-function RunHeader({ live, startedAt, totalMs, tokens, logsOpen, onToggleLogs, outputs }: RunHeaderProps) {
+function RunHeader({ live, startedAt, totalMs, tokens, logsOpen, onToggleLogs, outputs, paused }: RunHeaderProps) {
   const [now, setNow] = useState(() => Date.now());
-  // Interval-driven (not frame-driven): the timer keeps ticking on heartbeat-only stretches until [DONE]/RUN_FINISHED.
-  useEffect(() => { if (!live || totalMs != null) return; const id = setInterval(() => setNow(Date.now()), 250); return () => clearInterval(id); }, [live, totalMs]);
-  const ms = totalMs != null ? totalMs : live && startedAt ? Math.max(0, now - startedAt) : 0;
+  // Interval-driven (not frame-driven): the timer keeps ticking on heartbeat-only stretches until [DONE]/RUN_FINISHED —
+  // and PAUSES while the run is waiting for the user (creds / clarification): the waiting time is not the run's time.
+  const pausedAt = useRef<number | null>(null); const pausedTotal = useRef(0);
+  useEffect(() => { if (paused) { if (pausedAt.current == null) pausedAt.current = Date.now(); } else if (pausedAt.current != null) { pausedTotal.current += Date.now() - pausedAt.current; pausedAt.current = null; } }, [paused]);
+  useEffect(() => { if (!live || totalMs != null || paused) return; const id = setInterval(() => setNow(Date.now()), 250); return () => clearInterval(id); }, [live, totalMs, paused]);
+  const ms = totalMs != null ? totalMs : live && startedAt ? Math.max(0, (pausedAt.current ?? now) - startedAt - pausedTotal.current) : 0;
   return (
     <div className="oiu-run__header" data-testid="run-header" data-live={live ? "true" : "false"} aria-label="Run">
       <span className="oiu-run__model">{AGENT_NAME}</span>
-      {(live || totalMs != null) && <span className="oiu-run__timer" data-testid="run-timer" data-state={live && totalMs == null ? "running" : "frozen"} data-ms={Math.round(ms)} title="Task time">{fmtElapsed(ms)}</span>}
+      {(live || totalMs != null) && <span className="oiu-run__timer" data-testid="run-timer" data-state={live && totalMs == null ? (paused ? "paused" : "running") : "frozen"} data-ms={Math.round(ms)} title="Task time">{fmtElapsed(ms)}</span>}
       {tokens != null && <span className="oiu-run__tokens">{tokens.toLocaleString()} tokens</span>}
       {onToggleLogs && <button type="button" className="oiu-run__btn" data-testid="run-logs-toggle" aria-expanded={!!logsOpen} aria-label={logsOpen ? "Hide status logs" : "Show status logs"} onClick={onToggleLogs}><ChevronDown className={`size-4 oiu-run__logs-chev${logsOpen ? " oiu-run__logs-chev--open" : ""}`} aria-hidden /></button>}
       {outputs && <button type="button" className="oiu-run__btn" data-testid="run-status-outputs" aria-expanded={outputs.open} aria-label={`Outputs · ${outputs.label}`} title={`Outputs · ${outputs.label}`} onClick={outputs.onToggle}><FileTerminal className="size-4" aria-hidden /></button>}
@@ -591,20 +595,25 @@ function PromptCard({ prompt, sessionId, onAnswer }: { prompt: Prompt; sessionId
   const [vals, setVals] = useState<Record<string, string>>({}); const [busy, setBusy] = useState(false); const [done, setDone] = useState<string | null>(null);
   if (done) return <div className="oiu-prompt oiu-prompt--done" data-testid="prompt-done"><Check className="size-4" aria-hidden /> {done}</div>;
   if (prompt.kind === "require_creds") {
+    // the whole credentials interaction lives inside ONE wait card (data-testid=interactive-wait-card) so the run view never re-mounts around it
     const submit = async (cancelled: boolean) => {
       setBusy(true);
       try {
         const r = await fetch("/api/chat/creds", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ sessionId, pluginId: prompt.pluginId, cancelled, fields: cancelled ? [] : prompt.fields.map((f) => ({ key: f.key, value: vals[f.key] ?? "" })) }) });
         setDone(r.ok ? (cancelled ? "Credential request cancelled." : "Credentials sent to the agent (never stored in the browser).") : `Could not send credentials (HTTP ${r.status}).`);
+        if (r.ok) setStream({ prompt: null, ...(getStreamPhase() === "awaiting-input" ? { phase: "researching", detail: "Resuming the run…" } : {}) }, true); // resume: the pipeline timer un-pauses
       } catch (e) { setDone(`Could not send credentials: ${(e as Error).message}`); } finally { setBusy(false); setVals({}); }
     };
     return (
+      <div className="oiu-wait-card" data-testid="interactive-wait-card" data-kind="require_creds" data-busy={busy ? "true" : "false"}>
       <form className="oiu-prompt oiu-prompt--creds" data-testid="creds-form" onSubmit={(e) => { e.preventDefault(); void submit(false); }}>
+        <p className="oiu-prompt__wait" data-testid="interactive-wait-state">Waiting for you</p>
         <p className="oiu-prompt__title"><KeyRound className="size-4" aria-hidden /> {prompt.service || catalogueName(prompt.pluginId ?? "")} needs a credential to continue</p>
         {prompt.fields.map((f) => <label key={f.key} className="oiu-prompt__field"><span>{f.label ?? f.key}</span><input type={f.type === "password" || /secret|token|key|password/i.test(f.key) ? "password" : "text"} autoComplete="off" value={vals[f.key] ?? ""} onChange={(e) => setVals((v) => ({ ...v, [f.key]: e.target.value }))} required /></label>)}
         <div className="oiu-prompt__actions"><button type="submit" className="oiu-prompt__btn oiu-prompt__btn--primary" disabled={busy}>Send securely</button><button type="button" className="oiu-prompt__btn" disabled={busy} onClick={() => void submit(true)}>Cancel</button></div>
         <p className="oiu-prompt__hint">Posted server-side to OnDemand's tool-credentials route; the value is never logged or persisted here.</p>
       </form>
+      </div>
     );
   }
   if (prompt.kind === "awaiting_browser_action") {
@@ -843,7 +852,7 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
   return (
     <div className="oiu-run" data-testid="run-view" data-live={r.live ? "true" : "false"}>
       {/* 0 — Run header (OD header row): model · reasoning · task time · tokens · logs chevron · outputs */}
-      <RunHeader live={r.live} startedAt={r.startedAt} totalMs={r.totalMs} tokens={tokens}
+      <RunHeader live={r.live} startedAt={r.startedAt} totalMs={r.totalMs} tokens={tokens} paused={r.live && r.phase === "awaiting-input"}
         logsOpen={logsOpen} onToggleLogs={hasLogs ? () => setLogsOpen((o) => !o) : undefined}
         outputs={oStats.has ? { label: outputsLabel, open: outputsOpen, onToggle: () => setOutputsOpen((o) => !o) } : null} />
       {/* 0b — a1 status state machine, kept as a screen-reader live region (OD has no visible status band; the step rows show progress) */}
@@ -1042,7 +1051,8 @@ function ScrollAnchor() {
     const find = () => document.querySelector<HTMLElement>(".chat-shell .openui-agent-thread-scroll-area");
     el.current = find(); if (!el.current) return;
     const node = el.current;
-    const onScroll = () => { const gap = node.scrollHeight - node.scrollTop - node.clientHeight; atBottom.current = gap < 120; setAway((a) => (a !== !atBottom.current ? !atBottom.current : a)); };
+    // isPinnedToBottom (= atBottom.current) is mirrored on the scroll container as data-pinned-to-bottom so tests / devtools can read it.
+    const onScroll = () => { const gap = node.scrollHeight - node.scrollTop - node.clientHeight; atBottom.current = gap < 120; node.dataset.pinnedToBottom = atBottom.current ? "true" : "false"; setAway((a) => (a !== !atBottom.current ? !atBottom.current : a)); };
     node.addEventListener("scroll", onScroll, { passive: true }); onScroll();
     return () => node.removeEventListener("scroll", onScroll);
   }, [isRunning]);
@@ -1053,6 +1063,7 @@ function ScrollAnchor() {
     const gap = node.scrollHeight - node.scrollTop - node.clientHeight;
     if (atBottom.current && gap > 2) node.scrollTop = node.scrollHeight;
     else atBottom.current = gap < 120;
+    node.dataset.pinnedToBottom = atBottom.current ? "true" : "false";
   }, [st.version, isRunning]);
   // The "Jump to latest" pill is PORTALLED into the scroll container (absolute, out of flow). Rendering it as a sibling of the thread made
   // OpenUI's flex row shrink the whole thread by 128 px on every toggle — the single biggest layout shift in the recordings (CLS 0.23–0.81).
@@ -1314,12 +1325,18 @@ ${txt}`; }
       if (!sid && prewarm.current && prewarm.current.pluginIds.join(",") === pluginIds.join(",")) { sid = prewarm.current.sessionId; prewarm.current = null; if (tid) { sessionRef.current[tid] = sid; rememberSession(tid, sid); } }
       const ctxPayload = buildContextPayload(companiesRef.current, getSettings().companies, { fetchedAt: fetchedAtRef.current }); // live chip state, read now
       const fixtureParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("fixture")?.trim() || undefined : undefined;
-      body.context = { ...(body.context ?? {}), sessionId: sid ?? undefined, externalUserId: s.externalUserId, pluginIds, systemContext: ctxPayload.systemContext, contextSlugs: ctxPayload.companies.map((c) => c.slug), ...(attachments.length ? { attachments } : {}), ...(fixtureParam ? { fixture: fixtureParam } : {}), sessionContext: ctxPayload.sessionContext };
+      const fixtureDelayMs = typeof window !== "undefined" ? Number(new URLSearchParams(window.location.search).get("fxdelay") ?? 0) || 0 : 0;
+      body.context = { ...(body.context ?? {}), sessionId: sid ?? undefined, externalUserId: s.externalUserId, pluginIds, systemContext: ctxPayload.systemContext, contextSlugs: ctxPayload.companies.map((c) => c.slug), ...(attachments.length ? { attachments } : {}), ...(fixtureParam ? { fixture: fixtureParam, ...(fixtureDelayMs ? { fixtureDelayMs } : {}) } : {}), sessionContext: ctxPayload.sessionContext };
       setStream({ ...IDLE, phase: "connecting", detail: PHASE_LABEL.connecting, startedAt: Date.now(), sessionId: sid ?? null, lastThreadId: tid, pluginIds, version: streamState.version }, true);
       let res: Response;
       const directKey = directChatKey(s.apikey);
       const direct = !fixtureParam && !!directKey && (await browserCanReachOnDemand());
-      try { res = direct ? await browserChat(body, directKey, init?.signal) : await fetch(input, { ...init, body: JSON.stringify(body) }); if (chips.length) clearContextChips(); } catch (e) { setStream({ phase: "idle", detail: "", error: { code: "fetch_failed", message: (e as Error).message } }, true); throw e; }
+      // ONDEMAND SETTINGS override round-trip: the staged overrides travel as request headers (the route keeps its fixed-model contract and only
+      // echoes/validates them); a blank apiKey header is never sent so the server-side ONDEMAND_API_KEY fallback applies.
+      const od = getOndemandSettings();
+      const overrideHeaders: Record<string, string> = { ...(od.endpointId ? { "x-ondemand-endpoint-id": od.endpointId } : {}), ...(od.pluginIds.length ? { "x-ondemand-plugin-ids": od.pluginIds.join(",") } : {}), ...(s.externalUserId ? { "x-ondemand-external-user-id": s.externalUserId } : {}), ...(s.apikey ? { "x-ondemand-key": s.apikey } : {}) };
+      const initH = { ...init, headers: { ...(init?.headers as Record<string, string> | undefined ?? {}), ...overrideHeaders } };
+      try { res = direct ? await browserChat(body, directKey, init?.signal) : await fetch(input, { ...initH, body: JSON.stringify(body) }); if (chips.length) clearContextChips(); } catch (e) { setStream({ phase: "idle", detail: "", error: { code: "fetch_failed", message: (e as Error).message } }, true); throw e; }
       const remember = (got: string) => { if (tid) { sessionRef.current[tid] = got; rememberSession(tid, got); } };
       const got = res.headers.get("x-ondemand-session"); if (got) remember(got);
       if (!res.ok || !res.body) { setStream({ phase: "idle", detail: "", error: { code: `http_${res.status}`, message: `Chat endpoint answered HTTP ${res.status}` } }, true); return res; }

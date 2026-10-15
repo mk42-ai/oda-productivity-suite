@@ -5,20 +5,24 @@ import { SSE_HEADERS } from "./chat-bridge";
  * Activated ONLY when an explicit `x-chat-fixture` request header or `body.context.fixture` is passed.
  * Default live traffic (`runChatBridge`) is 100% untouched.
  */
-export function buildFixtureStream(fixtureName: string): Response | null {
+export function buildFixtureStream(fixtureName: string, delayMs = 0): Response | null {
   const mode = fixtureName.trim().toLowerCase();
   if (!mode) return null;
+  const pace = Math.max(0, Math.min(2000, Number(delayMs) || 0)); // per-frame pacing (ms) — `fxdelay` query param / x-chat-fixture-delay header
 
   const enc = new TextEncoder();
   let seq = 0;
   const frame = (obj: Record<string, unknown>) =>
     `data: ${JSON.stringify({ seq: ++seq, ...obj })}\n\n`;
 
-  const makeResponse = (frames: string[]) => {
+  // A number inside the frame list is a pause in ms (pass-2 fixtures use it to hold the stream open while the UI waits for the user).
+  const makeResponse = (frames: (string | number)[]) => {
     const stream = new ReadableStream<Uint8Array>({
       async start(controller) {
         for (const f of frames) {
+          if (typeof f === "number") { await new Promise((r) => setTimeout(r, f)); continue; }
           controller.enqueue(enc.encode(f));
+          if (pace) await new Promise((r) => setTimeout(r, pace));
         }
         controller.enqueue(enc.encode("data: [DONE]\n\n"));
         controller.close();
@@ -420,6 +424,114 @@ export function buildFixtureStream(fixtureName: string): Response | null {
       skill(null),
       frame({ type: "CUSTOM", name: "ondemand.metrics", value: { publicMetrics: { inputTokens: 2210, outputTokens: 640, totalTokens: 2850, totalTimeSec: 452 } } }),
       frame({ type: "RUN_FINISHED", threadId: "t-ws", runId: "r-ws" }),
+    ]);
+  }
+
+  // Scenario 9 (pass 2 — payload B): country profile + 5-stage pipeline + a `Waiting for you` credentials prompt relayed through /api/chat/creds.
+  // The stream HOLDS OPEN for ~8 s after the require_creds frame so the paused task timer is observable; submitting the form resumes the run.
+  if (mode === "creds-pipeline" || mode === "country-creds") {
+    const stage = (id: string, phase: "start" | "done") => frame({ type: "CUSTOM", name: "ondemand.stage", value: { id, phase } });
+    const iui = (statements: unknown[]) => frame({ type: "CUSTOM", name: "ondemand.iui", value: { statements } });
+    return makeResponse([
+      frame({ type: "RUN_STARTED", threadId: "t-cp", runId: "r-cp" }),
+      frame({ type: "CUSTOM", name: "ondemand.session", value: { sessionId: "sesscreds20261015", endpointId: "predefined-deepseek-flash", reasoningMode: "medium", pluginIds: ["plugin-1722260873", "plugin-1777018662"] } }),
+      frame({ type: "CUSTOM", name: "ondemand.status", value: { phase: "planning", statusMessage: "Planning the country profile…" } }),
+      frame({ type: "CUSTOM", name: "ondemand.plan", value: { objective: "Profile Oman as an aid-staging country and verify the PitchBook investor record", steps: [
+        { id: "1", title: "Scout country data", plugins: ["plugin-1722260873"] }, { id: "2", title: "Benchmark neighbouring hubs", plugins: ["plugin-1722260873"] },
+        { id: "3", title: "Verify investor records (PitchBook)", plugins: ["plugin-1777018662"] }, { id: "4", title: "Write the storyline", plugins: [] }, { id: "5", title: "Design the profile card", plugins: [] } ] } }),
+      iui([{ op: "root", id: "root", title: "Oman — aid-staging country profile", children: ["country", "kpis"] }]),
+      frame({ type: "CUSTOM", name: "ondemand.skill", value: { label: "Perplexity · web research" } }),
+      stage("data-scout", "start"),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "start", stepId: "1", index: 1, label: "Scout country data" } }),
+      frame({ type: "TOOL_CALL_START", toolCallId: "tc-cp-1", toolCallName: "Perplexity" }),
+      frame({ type: "TOOL_CALL_ARGS", toolCallId: "tc-cp-1", delta: JSON.stringify({ plugin: "Perplexity", pluginId: "plugin-1722260873", query: "Oman ports Duqm Salalah aid staging capacity 2026", stepId: "1" }) }),
+      frame({ type: "TOOL_CALL_END", toolCallId: "tc-cp-1" }),
+      frame({ type: "CUSTOM", name: "ondemand.sources", value: { pluginId: "plugin-1722260873", pluginName: "Perplexity", sources: [
+        { url: "https://www.reuters.com/world/middle-east/oman-duqm-aid-hub-2026-10-09/", title: "Oman's Duqm emerges as the Gulf's aid hub", sourceName: "reuters.com" },
+        { url: "https://www.ft.com/content/oman-logistics-2026", title: "Oman bets on logistics as Hormuz stays shut", sourceName: "ft.com" } ] } }),
+      frame({ type: "TOOL_CALL_RESULT", toolCallId: "tc-cp-1", content: JSON.stringify({ status: "ok", sources: 2, durationMs: 980 }) }),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "done", stepId: "1", index: 1 } }),
+      stage("data-scout", "done"),
+      iui([{ op: "data", id: "country", payload: { type: "country-profile", country: "Oman", flagUrl: "/brand/b-capital-mark.png", facts: [{ label: "Ports in play", value: "Duqm · Salalah · Sohar" }, { label: "Road distance Duqm → Salalah", value: "560 km" }, { label: "Aid staging capacity", value: "2,100 TEU / week" }, { label: "Customs regime", value: "Free-zone, 24 h clearance" }] } }]),
+      stage("benchmark", "start"),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "start", stepId: "2", index: 2, label: "Benchmark neighbouring hubs" } }),
+      iui([{ op: "data", id: "kpis", payload: { type: "kpi-cards", items: [{ label: "Duqm spare capacity", value: "2,100 TEU/wk", delta: "+35%", tone: "up" }, { label: "Salalah dwell time", value: "1.8 days", delta: "−0.4 d", tone: "up" }, { label: "Jebel Ali (closed)", value: "0", delta: "Hormuz", tone: "down" }] } }]),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "done", stepId: "2", index: 2 } }),
+      stage("benchmark", "done"),
+      frame({ type: "CUSTOM", name: "ondemand.skill", value: { label: "PitchBook Investor Finder" } }),
+      stage("problem-solve", "start"),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "start", stepId: "3", index: 3, label: "Verify investor records (PitchBook)" } }),
+      frame({ type: "CUSTOM", name: "ondemand.require_creds", value: { pluginId: "plugin-1777018662", service: "PitchBook Investor Finder", fields: [{ key: "api_token", label: "PitchBook Partner Token", type: "password" }] } }),
+      20000, // hold the stream open (20 s): the UI shows `Waiting for you`, the task timer pauses, /api/chat/creds resumes it
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "done", stepId: "3", index: 3 } }),
+      stage("problem-solve", "done"),
+      frame({ type: "CUSTOM", name: "ondemand.skill", value: { label: "storyline · synthesis" } }),
+      stage("storyline", "start"),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "start", stepId: "4", index: 4, label: "Write the storyline" } }),
+      frame({ type: "TEXT_MESSAGE_START", messageId: "m-cp" }),
+      frame({ type: "TEXT_MESSAGE_CONTENT", messageId: "m-cp", delta: "**Oman** is the only Gulf state with two deep-water ports outside the Strait of Hormuz [1] [2]. Duqm can absorb the Somalia and Yemen aid pipeline at 2,100 TEU a week with a 4–6 day penalty." }),
+      frame({ type: "TEXT_MESSAGE_END", messageId: "m-cp" }),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "done", stepId: "4", index: 4 } }),
+      stage("storyline", "done"),
+      stage("design", "start"),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "start", stepId: "5", index: 5, label: "Design the profile card" } }),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "done", stepId: "5", index: 5 } }),
+      stage("design", "done"),
+      frame({ type: "CUSTOM", name: "ondemand.skill", value: { label: null } }),
+      frame({ type: "CUSTOM", name: "ondemand.metrics", value: { publicMetrics: { inputTokens: 1210, outputTokens: 180, totalTokens: 1390, totalTimeSec: 14 } } }),
+      frame({ type: "RUN_FINISHED", threadId: "t-cp", runId: "r-cp" }),
+    ]);
+  }
+
+  // Scenario 10 (pass 2 — payload E): between-step summarisation. summarize_history.initialized / .completed map (eventMap.ts) to
+  // CE.summary {phase:"start"} / {phase:"done"}; the thinking block and the Working list must stay MOUNTED across them (same DOM nodes).
+  if (mode === "summarize" || mode === "summarize-history") {
+    const think = (kind: string, delta: string) => frame({ type: "CUSTOM", name: "ondemand.thinking", value: { kind, delta } });
+    const summary = (index: number, phase: "start" | "done", text?: string) => frame({ type: "CUSTOM", name: "ondemand.summary", value: { phase, index, stepId: String(index), ...(text ? { text, at: new Date().toISOString() } : {}) } });
+    const tool = (n: number, q: string) => [
+      frame({ type: "TOOL_CALL_START", toolCallId: `tc-sm-${n}`, toolCallName: "Perplexity" }),
+      frame({ type: "TOOL_CALL_ARGS", toolCallId: `tc-sm-${n}`, delta: JSON.stringify({ plugin: "Perplexity", pluginId: "plugin-1722260873", query: q, stepId: String(n) }) }),
+      frame({ type: "TOOL_CALL_END", toolCallId: `tc-sm-${n}` }),
+      frame({ type: "TOOL_CALL_RESULT", toolCallId: `tc-sm-${n}`, content: JSON.stringify({ status: "ok", sources: 2, durationMs: 400 + n * 50 }) }),
+    ];
+    const lines = Array.from({ length: 24 }, (_, i) => `Reasoning line ${i + 1}: weighing corridor ${["Duqm", "Salalah", "Berbera", "Djibouti"][i % 4]} on cost, dwell time and insurance.\n`);
+    return makeResponse([
+      frame({ type: "RUN_STARTED", threadId: "t-sm", runId: "r-sm" }),
+      frame({ type: "CUSTOM", name: "ondemand.session", value: { sessionId: "sesssummarize20261015", endpointId: "predefined-deepseek-flash", reasoningMode: "medium", pluginIds: ["plugin-1722260873"] } }),
+      frame({ type: "CUSTOM", name: "ondemand.status", value: { phase: "planning", statusMessage: "Planning a three-step corridor review…" } }),
+      frame({ type: "CUSTOM", name: "ondemand.plan", value: { objective: "Review three aid corridors and summarise between steps", steps: [
+        { id: "1", title: "Corridor cost scan", plugins: ["plugin-1722260873"] }, { id: "2", title: "Dwell-time benchmark", plugins: ["plugin-1722260873"] }, { id: "3", title: "Insurance surcharge check", plugins: ["plugin-1722260873"] } ] } }),
+      ...lines.slice(0, 8).map((l) => think("planning_thinking", l)),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "start", stepId: "1", index: 1, label: "Corridor cost scan" } }),
+      ...tool(1, "aid corridor cost per tonne Duqm Salalah 2026"),
+      ...lines.slice(8, 14).map((l) => think("step_thinking", l)),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "done", stepId: "1", index: 1 } }),
+      300,
+      summary(1, "start"),                                   // summarize_history.initialized
+      300,
+      summary(1, "done", "Step 1 — Duqm is the cheapest open corridor at $171/t; Salalah $188/t."),  // summarize_history.completed
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "start", stepId: "2", index: 2, label: "Dwell-time benchmark" } }),
+      ...tool(2, "port dwell time Duqm Salalah Berbera 2026"),
+      ...lines.slice(14, 20).map((l) => think("step_thinking", l)),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "done", stepId: "2", index: 2 } }),
+      300,
+      summary(2, "start"),
+      300,
+      summary(2, "done", "Step 2 — Salalah dwell 1.8 days beats Duqm 2.6 days; Berbera 4.1 days."),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "start", stepId: "3", index: 3, label: "Insurance surcharge check" } }),
+      ...tool(3, "Red Sea war-risk insurance surcharge October 2026"),
+      ...lines.slice(20).map((l) => think("step_thinking", l)),
+      frame({ type: "CUSTOM", name: "ondemand.step", value: { phase: "done", stepId: "3", index: 3 } }),
+      300,
+      summary(3, "start"),
+      300,
+      summary(3, "done", "Step 3 — war-risk surcharge 1.4% of hull value, below the 2% threshold."),
+      frame({ type: "TEXT_MESSAGE_START", messageId: "m-sm" }),
+      frame({ type: "TEXT_MESSAGE_CONTENT", messageId: "m-sm", delta: "**Recommendation:** stage through **Duqm** (cheapest), overflow via **Salalah** (fastest dwell); Red Sea surcharges stay under the 2% ceiling, so the corridor remains viable.\n\n" }),
+      ...Array.from({ length: 12 }, (_, i) => frame({ type: "TEXT_MESSAGE_CONTENT", messageId: "m-sm", delta: `- Detail ${i + 1}: ${["cost", "dwell", "insurance", "capacity"][i % 4]} evidence summarised between steps.\n` })),
+      frame({ type: "TEXT_MESSAGE_END", messageId: "m-sm" }),
+      frame({ type: "CUSTOM", name: "ondemand.metrics", value: { publicMetrics: { inputTokens: 1800, outputTokens: 320, totalTokens: 2120, totalTimeSec: 6 } } }),
+      frame({ type: "RUN_FINISHED", threadId: "t-sm", runId: "r-sm" }),
     ]);
   }
 

@@ -12,6 +12,7 @@ import { useEffect, useId, useState, useSyncExternalStore } from "react";
 import { Lock, Settings2, X } from "lucide-react";
 import { useSettings } from "@/lib/settings";
 import { DEFAULT_EXTERNAL_USER_ID } from "@/lib/plugins";
+import { DISABLED_PLUGIN_IDS } from "@/lib/ondemand/config-public";
 import "./ondemand-settings-drawer.css";
 
 export const OD_SETTINGS_KEY = "bcap.ondemand-settings.v1";
@@ -31,9 +32,13 @@ export function parsePluginIds(raw: string): string[] {
   return out;
 }
 /** `<= 20` guard: returns the capped list + a validation message when the paste exceeded the cap. */
-export function guardPluginIds(ids: string[]): { ids: string[]; error: string } {
-  if (ids.length <= OD_MAX_PLUGIN_IDS) return { ids, error: "" };
-  return { ids: ids.slice(0, OD_MAX_PLUGIN_IDS), error: `At most ${OD_MAX_PLUGIN_IDS} plugin ids are allowed — ${ids.length} entered; the list was capped to the first ${OD_MAX_PLUGIN_IDS}.` };
+export function guardPluginIds(ids: string[]): { ids: string[]; error: string; removed: string[] } {
+  // Sanitizer (mirrors resolvePluginIds in lib/ondemand/config-public.ts): drop the DISABLED_PLUGIN_IDS, de-duplicate, then cap at 20.
+  const removed = ids.filter((id) => DISABLED_PLUGIN_IDS.has(id));
+  const live = ids.filter((id) => !DISABLED_PLUGIN_IDS.has(id));
+  const note = removed.length ? ` Removed ${removed.length} disabled plugin id${removed.length === 1 ? "" : "s"} (${removed.join(", ")}).` : "";
+  if (live.length <= OD_MAX_PLUGIN_IDS) return { ids: live, error: note.trim(), removed };
+  return { ids: live.slice(0, OD_MAX_PLUGIN_IDS), removed, error: `At most ${OD_MAX_PLUGIN_IDS} plugin ids are allowed — ${ids.length} entered; the list was capped to the first ${OD_MAX_PLUGIN_IDS}.${note}` };
 }
 
 let odCache: OndemandSettings | null = null; const odListeners = new Set<() => void>();

@@ -100,7 +100,7 @@ export function SentimentProvenanceView({
     },
     {
       key: "volume",
-      label: "Volume (15%)",
+      label: "Log Volume (15%)",
       hint: `log1p(${totalCount} items)`,
       val: provenance.factors.volume,
       pct: Math.round(provenance.factors.volume * 100),
@@ -108,7 +108,7 @@ export function SentimentProvenanceView({
     },
     {
       key: "confidence",
-      label: "Confidence (15%)",
+      label: "Wilson Confidence (15%)",
       hint: "Wilson lower bound (z=1.96)",
       val: provenance.factors.confidence,
       pct: Math.round(provenance.factors.confidence * 100),
