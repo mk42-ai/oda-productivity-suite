@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Landmark, TrendingUp, ExternalLink, Info, Calendar, DollarSign } from "lucide-react";
+import { Landmark, TrendingUp, ExternalLink, Info, Calendar, DollarSign, AlertTriangle } from "lucide-react";
 import { sectorTheme } from "@/lib/social-sectors";
+import { stopOutbound, safeExternalUrl } from "@/lib/outbound";
+import { SentimentProvenanceView } from "./sentiment-provenance-view";
 import type { GalleryCompany } from "./companies-gallery";
+import type { QuickViewTab } from "./company-quick-view-drawer";
 
 export const fmtUsd = (n: number | null | undefined): string | null =>
   n == null
@@ -61,11 +64,18 @@ export function formatShortDate(iso: string | null | undefined): string | null {
   return `${mo} ${m[1]}`;
 }
 
-function InteractiveSparkline({ company }: { company: GalleryCompany }) {
+function InteractiveSparkline({
+  company,
+  onQuickView,
+}: {
+  company: GalleryCompany;
+  onQuickView?: (company: GalleryCompany, tab?: QuickViewTab) => void;
+}) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const t = sectorTheme(company.sector);
   const pts = company.sentiment.history;
+  const hasConflict = Boolean(company.provenance?.conflict?.hasConflict);
 
   useEffect(() => {
     if (!open) return;
@@ -74,93 +84,93 @@ function InteractiveSparkline({ company }: { company: GalleryCompany }) {
         setOpen(false);
       }
     };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
     document.addEventListener("mousedown", onDocClick);
-    return () => document.removeEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
   }, [open]);
 
-  if (company.sentiment.history_state === "placeholder" || pts.length < 2) {
-    return (
-      <div
-        className="cg-spark cg-spark--empty"
-        data-testid="sentiment-sparkline"
-        data-state="placeholder"
-        title="Seed-only history — not yet scored"
-      >
-        <svg viewBox="0 0 88 22" aria-hidden="true">
-          <path d="M2 11 H86" strokeDasharray="3 3" />
-        </svg>
-        <span>Unscored</span>
-      </div>
-    );
+  const isPlaceholder = company.sentiment.history_state === "placeholder" || pts.length < 2;
+  let d = "M2 11 H86";
+  if (!isPlaceholder) {
+    const xs = pts.map((p) => Date.parse(p.t));
+    const x0 = Math.min(...xs);
+    const x1 = Math.max(...xs) || x0 + 1;
+    d = pts
+      .map(
+        (p, i) =>
+          `${i ? "L" : "M"}${(2 + ((xs[i] - x0) / Math.max(1, x1 - x0)) * 84).toFixed(1)} ${(
+            20 -
+            ((p.score + 1) / 2) * 18
+          ).toFixed(1)}`
+      )
+      .join(" ");
   }
 
-  const xs = pts.map((p) => Date.parse(p.t));
-  const x0 = Math.min(...xs);
-  const x1 = Math.max(...xs) || x0 + 1;
-  const d = pts
-    .map(
-      (p, i) =>
-        `${i ? "L" : "M"}${(2 + ((xs[i] - x0) / Math.max(1, x1 - x0)) * 84).toFixed(1)} ${(
-          20 -
-          ((p.score + 1) / 2) * 18
-        ).toFixed(1)}`
-    )
-    .join(" ");
-
-  const scores = pts.map((p) => p.score);
-  const minScore = Math.min(...scores);
-  const maxScore = Math.max(...scores);
   const latestScore = company.sentiment.score != null ? company.sentiment.score.toFixed(2) : "—";
 
   return (
     <div className="cg-metric-pop-wrap" ref={wrapRef}>
       <button
         type="button"
-        className="cg-spark cg-spark--btn"
+        className={`cg-spark cg-spark--btn ${isPlaceholder ? "cg-spark--empty" : ""}`}
         data-testid="sentiment-sparkline"
-        data-state="scored"
+        data-state={isPlaceholder ? "placeholder" : "scored"}
         data-points={pts.length}
+        data-conflict={hasConflict ? "true" : "false"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        title={`${pts.length} scored runs · latest ${latestScore} (${company.sentiment.label}) — click for breakdown`}
+        title={`${pts.length} scored runs · latest ${latestScore} (${company.sentiment.label}) — click for provenance & citations`}
       >
         <svg viewBox="0 0 88 22" aria-hidden="true">
           <path d="M2 11 H86" className="cg-spark__zero" />
-          <path d={d} style={{ stroke: "#047857" }} />
+          <path
+            d={d}
+            strokeDasharray={isPlaceholder ? "3 3" : undefined}
+            style={{ stroke: isPlaceholder ? "#9ca3af" : "#047857" }}
+          />
         </svg>
         <span className="cg-spark__val" style={{ color: t.ink }}>
           <strong>{latestScore}</strong>
           <small>{company.sentiment.label}</small>
         </span>
+        {hasConflict && (
+          <span
+            className="cg-conflict-badge"
+            title={company.provenance?.conflict.summary}
+            data-testid="sentiment-conflict-dot"
+          >
+            <AlertTriangle className="size-3 text-amber-600" aria-hidden="true" />
+          </span>
+        )}
       </button>
 
-      {open && (
+      {open && company.provenance && (
         <div
           className="cg-popover cg-popover--sentiment"
           data-testid="sentiment-popover"
           role="dialog"
-          aria-label={`${company.name} sentiment details`}
+          aria-label={`${company.name} sentiment provenance breakdown`}
         >
-          <div className="cg-popover__head">
-            <strong>Sentiment Signal</strong>
-            <span className="cg-popover__pill">{company.sentiment.label}</span>
-          </div>
-          <div className="cg-popover__rows">
-            <div>
-              <span>Current score</span>
-              <strong>{latestScore}</strong>
-            </div>
-            <div>
-              <span>Scored runs</span>
-              <strong>{pts.length} runs</strong>
-            </div>
-            <div>
-              <span>Score range</span>
-              <strong>
-                {minScore.toFixed(2)} to {maxScore.toFixed(2)}
-              </strong>
-            </div>
-          </div>
+          <SentimentProvenanceView
+            companyName={company.name}
+            companySlug={company.slug}
+            provenance={company.provenance}
+            compact
+            onOpenFullDrawer={
+              onQuickView
+                ? () => {
+                    setOpen(false);
+                    onQuickView(company, "provenance");
+                  }
+                : undefined
+            }
+          />
         </div>
       )}
     </div>
@@ -170,9 +180,14 @@ function InteractiveSparkline({ company }: { company: GalleryCompany }) {
 export type CardMetricsPanelProps = {
   company: GalleryCompany;
   onOpenPitchbook: (slug: string) => void;
+  onQuickView?: (company: GalleryCompany, tab?: QuickViewTab) => void;
 };
 
-export function CardMetricsPanel({ company, onOpenPitchbook }: CardMetricsPanelProps) {
+export function CardMetricsPanel({
+  company,
+  onOpenPitchbook,
+  onQuickView,
+}: CardMetricsPanelProps) {
   const [pbOpen, setPbOpen] = useState(false);
   const pbRef = useRef<HTMLDivElement>(null);
 
@@ -191,6 +206,7 @@ export function CardMetricsPanel({ company, onOpenPitchbook }: CardMetricsPanelP
   const conciseRound = lr ? formatConciseRound(lr.round) : null;
   const roundAmt = lr ? fmtUsd(lr.amount_usd) : null;
   const roundDateShort = lr ? formatShortDate(lr.date) : null;
+  const roundSourceUrl = safeExternalUrl(lr?.source_url);
   const fullDealTitle = lr
     ? [lr.round, roundAmt, lr.date].filter(Boolean).join(" · ")
     : "No last round recorded";
@@ -211,7 +227,21 @@ export function CardMetricsPanel({ company, onOpenPitchbook }: CardMetricsPanelP
         <dd data-testid="company-card-deal" title={fullDealTitle}>
           {lr ? (
             <span className="cg-deal-summary">
-              <strong className="cg-deal-round">{conciseRound}</strong>
+              {roundSourceUrl ? (
+                <a
+                  href={roundSourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={stopOutbound}
+                  className="cg-deal-round cg-deal-round--link"
+                  data-testid="last-round-source-link"
+                  title={`Open original round source: ${roundSourceUrl}`}
+                >
+                  {conciseRound}
+                </a>
+              ) : (
+                <strong className="cg-deal-round">{conciseRound}</strong>
+              )}
               {roundAmt && <span className="cg-deal-amt">{roundAmt}</span>}
               {roundDateShort && <span className="cg-deal-date">{roundDateShort}</span>}
             </span>
@@ -312,14 +342,14 @@ export function CardMetricsPanel({ company, onOpenPitchbook }: CardMetricsPanelP
         </dd>
       </div>
 
-      {/* 4. SENTIMENT */}
+      {/* 4. SENTIMENT (Interactive Provenance Breakdown Popover) */}
       <div className="cg-facts__cell">
         <dt>
           <TrendingUp className="size-3 shrink-0" aria-hidden="true" />
           <span>Sentiment</span>
         </dt>
         <dd>
-          <InteractiveSparkline company={company} />
+          <InteractiveSparkline company={company} onQuickView={onQuickView} />
         </dd>
       </div>
     </dl>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { Newspaper, MessageSquare, Users, Linkedin, Globe, ArrowUpRight, UserCheck } from "lucide-react";
 import { sectorTheme } from "@/lib/social-sectors";
+import { safeExternalUrl, stopOutbound } from "@/lib/outbound";
 import type { GalleryCompany, GalleryFounder } from "./companies-gallery";
 
 const initials = (n: string) =>
@@ -18,7 +19,7 @@ export type CardTopBadgesProps = {
   company: GalleryCompany;
   activeSector?: string;
   onSelectSector: (sectorKey: string) => void;
-  onQuickView: (company: GalleryCompany, tab?: "overview" | "rounds" | "people") => void;
+  onQuickView: (company: GalleryCompany, tab?: "overview" | "provenance" | "rounds" | "people") => void;
 };
 
 export function CardTopBadges({
@@ -106,11 +107,13 @@ export function CardFoundersStrip({ company, onQuickViewPeople }: CardFoundersSt
 
   const visibleFounders = company.founders.slice(0, 3);
   const extraCount = Math.max(0, company.founders.length - visibleFounders.length);
-  const cleanDomainUrl = company.domain
+  const rawDomainUrl = company.domain
     ? /^https?:\/\//i.test(company.domain)
       ? company.domain
       : `https://${company.domain.replace(/^\/+/, "")}`
     : null;
+  const cleanDomainUrl = safeExternalUrl(rawDomainUrl);
+  const cleanLinkedinUrl = safeExternalUrl(company.linkedin);
 
   return (
     <div
@@ -166,6 +169,7 @@ export function CardFoundersStrip({ company, onQuickViewPeople }: CardFoundersSt
             href={cleanDomainUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={stopOutbound}
             className="cg-ext-link"
             aria-label={`${company.name} website`}
             title={`Visit ${company.domain}`}
@@ -174,11 +178,12 @@ export function CardFoundersStrip({ company, onQuickViewPeople }: CardFoundersSt
             <Globe className="size-3.5" aria-hidden="true" />
           </a>
         )}
-        {company.linkedin && (
+        {cleanLinkedinUrl && (
           <a
-            href={company.linkedin}
+            href={cleanLinkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={stopOutbound}
             className="cg-li cg-ext-link"
             aria-label={`${company.name} on LinkedIn`}
             title={`${company.name} on LinkedIn`}

@@ -8,7 +8,6 @@ import {
   ExternalLink,
   MapPin,
   Calendar,
-  Users,
   DollarSign,
   TrendingUp,
   Newspaper,
@@ -18,10 +17,12 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { sectorTheme, faviconUrl } from "@/lib/social-sectors";
+import { safeExternalUrl, stopOutbound } from "@/lib/outbound";
 import { fmtUsd, formatConciseRound } from "./card-metrics-panel";
+import { SentimentProvenanceView } from "./sentiment-provenance-view";
 import type { GalleryCompany } from "./companies-gallery";
 
-export type QuickViewTab = "overview" | "rounds" | "people";
+export type QuickViewTab = "overview" | "provenance" | "rounds" | "people";
 
 export type CompanyQuickViewDrawerProps = {
   company: GalleryCompany | null;
@@ -57,7 +58,6 @@ export function CompanyQuickViewDrawer({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
-    // Close quick-view automatically if PitchBook dock opens from the right edge tab
     const onPbOpen = () => onClose();
     document.addEventListener("keydown", onKey);
     window.addEventListener("bcap:pitchbook-dock", onPbOpen);
@@ -74,11 +74,13 @@ export function CompanyQuickViewDrawer({
   const sortedRounds = [...company.rounds].sort(
     (a, b) => (Date.parse(b.date ?? "") || 0) - (Date.parse(a.date ?? "") || 0)
   );
-  const cleanDomainUrl = company.domain
+  const rawDomainUrl = company.domain
     ? /^https?:\/\//i.test(company.domain)
       ? company.domain
       : `https://${company.domain.replace(/^\/+/, "")}`
     : null;
+  const cleanDomainUrl = safeExternalUrl(rawDomainUrl);
+  const cleanLinkedinUrl = safeExternalUrl(company.linkedin);
 
   return (
     <div className="cqv-root" data-testid="company-quick-view-root">
@@ -158,6 +160,16 @@ export function CompanyQuickViewDrawer({
           <button
             type="button"
             role="tab"
+            aria-selected={tab === "provenance"}
+            className="cqv-tab"
+            data-testid="quick-view-tab-provenance"
+            onClick={() => setTab("provenance")}
+          >
+            Sentiment Provenance
+          </button>
+          <button
+            type="button"
+            role="tab"
             aria-selected={tab === "rounds"}
             className="cqv-tab"
             data-testid="quick-view-tab-rounds"
@@ -189,7 +201,7 @@ export function CompanyQuickViewDrawer({
               )}
 
               <section className="cqv-panel">
-                <h3 className="cqv-panel__title">Key Financial & Signal Metrics</h3>
+                <h3 className="cqv-panel__title">Key Financial &amp; Signal Metrics</h3>
                 <div className="cqv-kpi-grid">
                   <div className="cqv-kpi">
                     <span>
@@ -236,8 +248,33 @@ export function CompanyQuickViewDrawer({
                 </div>
               </section>
 
+              {company.provenance && (
+                <section className="cqv-panel">
+                  <div className="spv-head-row">
+                    <h3 className="cqv-panel__title" style={{ margin: 0 }}>
+                      Sentiment Provenance &amp; Native Citations
+                    </h3>
+                    <button
+                      type="button"
+                      className="cg-desc-toggle"
+                      onClick={() => setTab("provenance")}
+                      data-testid="quick-view-open-provenance-tab"
+                    >
+                      <span>Full breakdown →</span>
+                    </button>
+                  </div>
+                  <SentimentProvenanceView
+                    companyName={company.name}
+                    companySlug={company.slug}
+                    provenance={company.provenance}
+                    compact
+                    onOpenFullDrawer={() => setTab("provenance")}
+                  />
+                </section>
+              )}
+
               <section className="cqv-panel">
-                <h3 className="cqv-panel__title">Coverage & External Channels</h3>
+                <h3 className="cqv-panel__title">Coverage &amp; External Channels</h3>
                 <div className="cqv-links-row">
                   <Link
                     href={`/company/${company.slug}#news`}
@@ -263,6 +300,7 @@ export function CompanyQuickViewDrawer({
                       href={cleanDomainUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={stopOutbound}
                       className="cqv-channel-chip"
                     >
                       <Globe className="size-3.5" aria-hidden="true" />
@@ -270,11 +308,12 @@ export function CompanyQuickViewDrawer({
                       <ExternalLink className="size-3" aria-hidden="true" />
                     </a>
                   )}
-                  {company.linkedin && (
+                  {cleanLinkedinUrl && (
                     <a
-                      href={company.linkedin}
+                      href={cleanLinkedinUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={stopOutbound}
                       className="cqv-channel-chip"
                     >
                       <Linkedin className="size-3.5" aria-hidden="true" />
@@ -287,6 +326,16 @@ export function CompanyQuickViewDrawer({
             </div>
           )}
 
+          {tab === "provenance" && company.provenance && (
+            <div className="cqv-section-stack" data-testid="quick-view-panel-provenance">
+              <SentimentProvenanceView
+                companyName={company.name}
+                companySlug={company.slug}
+                provenance={company.provenance}
+              />
+            </div>
+          )}
+
           {tab === "rounds" && (
             <div className="cqv-section-stack" data-testid="quick-view-panel-rounds">
               <section className="cqv-panel">
@@ -295,22 +344,38 @@ export function CompanyQuickViewDrawer({
                 </h3>
                 {sortedRounds.length > 0 ? (
                   <ul className="cqv-rounds-list">
-                    {sortedRounds.map((r, i) => (
-                      <li key={i} className="cqv-round-row">
-                        <div className="cqv-round-main">
-                          <strong>{formatConciseRound(r.round)}</strong>
-                          {r.round && r.round !== formatConciseRound(r.round) && (
-                            <span className="cqv-round-raw">{r.round}</span>
-                          )}
-                        </div>
-                        <div className="cqv-round-meta">
-                          <span className="cqv-round-amt">
-                            {fmtUsd(r.amount_usd) ?? "Undisclosed"}
-                          </span>
-                          <span className="cqv-round-date">{r.date ?? "Undated"}</span>
-                        </div>
-                      </li>
-                    ))}
+                    {sortedRounds.map((r, i) => {
+                      const roundUrl = safeExternalUrl(r.source_url);
+                      return (
+                        <li key={i} className="cqv-round-row">
+                          <div className="cqv-round-main">
+                            <strong>{formatConciseRound(r.round)}</strong>
+                            {r.round && r.round !== formatConciseRound(r.round) && (
+                              <span className="cqv-round-raw">{r.round}</span>
+                            )}
+                            {roundUrl && (
+                              <a
+                                href={roundUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={stopOutbound}
+                                className="spv-cite-link"
+                                data-testid="round-source-link"
+                              >
+                                <span>Original filing / press source</span>
+                                <ExternalLink className="size-3" aria-hidden="true" />
+                              </a>
+                            )}
+                          </div>
+                          <div className="cqv-round-meta">
+                            <span className="cqv-round-amt">
+                              {fmtUsd(r.amount_usd) ?? "Undisclosed"}
+                            </span>
+                            <span className="cqv-round-date">{r.date ?? "Undated"}</span>
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
                 ) : (
                   <p className="cqv-empty">No dated funding rounds recorded yet.</p>
@@ -323,7 +388,7 @@ export function CompanyQuickViewDrawer({
             <div className="cqv-section-stack" data-testid="quick-view-panel-people">
               <section className="cqv-panel">
                 <h3 className="cqv-panel__title">
-                  Founders & Key People ({company.founders.length})
+                  Founders &amp; Key People ({company.founders.length})
                 </h3>
                 {company.founders.length > 0 ? (
                   <ul className="cqv-people-list">

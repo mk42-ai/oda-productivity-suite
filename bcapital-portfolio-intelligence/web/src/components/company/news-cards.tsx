@@ -5,6 +5,7 @@ import type { NewsItem } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { fmtDate, fmtDelta, fmtScore } from "@/lib/format";
 import { sanitiseTitle, sanitiseSummary } from "@/lib/text-sanitise";
+import { safeExternalUrl } from "@/lib/outbound";
 
 const host = (u: string | null) => {
   try {
@@ -77,6 +78,7 @@ export function NewsCard({
 
   const cleanTitle = sanitiseTitle(n.title);
   const cleanSummary = sanitiseSummary(n.summary);
+  const safeUrl = safeExternalUrl(n.url);
 
   return (
     <article className="card flex min-w-0 gap-3 p-3">
@@ -85,7 +87,7 @@ export function NewsCard({
         companyLogo={companyLogo ?? n.company_logo ?? null}
         companyName={cName}
         companySlug={cSlug}
-        host={host(n.url) ?? (n.source && /\./.test(n.source) ? n.source : null)}
+        host={host(safeUrl ?? n.url) ?? (n.source && /\./.test(n.source) ? n.source : null)}
         eager={eager}
       />
       <div className="min-w-0 flex-1">
@@ -95,9 +97,9 @@ export function NewsCard({
           <time dateTime={n.published_at ?? undefined}>{fmtDate(n.published_at)}</time>
         </p>
         <p className="mt-1 break-words text-sm font-semibold leading-[1.35] [overflow-wrap:anywhere]">
-          {n.url ? (
+          {safeUrl ? (
             <a
-              href={n.url}
+              href={safeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="break-words underline-offset-2 hover:underline"

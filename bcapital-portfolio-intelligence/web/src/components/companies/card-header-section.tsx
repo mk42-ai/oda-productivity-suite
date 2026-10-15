@@ -172,7 +172,7 @@ function CompanyLogoTile({ company }: { company: GalleryCompany }) {
 
 export type CardHeaderSectionProps = {
   company: GalleryCompany;
-  onQuickView: (company: GalleryCompany, tab?: "overview" | "rounds" | "people") => void;
+  onQuickView: (company: GalleryCompany, tab?: "overview" | "provenance" | "rounds" | "people") => void;
 };
 
 export function CardHeaderSection({ company, onQuickView }: CardHeaderSectionProps) {

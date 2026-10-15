@@ -16,6 +16,7 @@ import { CardMetricsPanel } from "./card-metrics-panel";
 import { CardFundingTimeline, timelineLabelsOverlap } from "./card-funding-timeline";
 import { CardTopBadges, CardFoundersStrip } from "./card-badges-and-people";
 import { CompanyQuickViewDrawer, type QuickViewTab } from "./company-quick-view-drawer";
+import type { CompanySentimentProvenance } from "@/lib/sentiment-provenance";
 import "./companies-gallery.css";
 import "./companies-redesign.css";
 
@@ -38,8 +39,8 @@ export type GalleryCompany = {
   total_raised_usd: number | null;
   valuation_usd: number | null;
   linkedin: string | null;
-  last_round: { round: string | null; amount_usd: number | null; date: string | null } | null;
-  rounds: { round: string | null; amount_usd: number | null; date: string | null }[];
+  last_round: { round: string | null; amount_usd: number | null; date: string | null; source_url?: string | null } | null;
+  rounds: { round: string | null; amount_usd: number | null; date: string | null; source_url?: string | null }[];
   pitchbook: { investment_date: string; investor_since: string } | null;
   news_count: number;
   social_count: number;
@@ -50,6 +51,7 @@ export type GalleryCompany = {
     history_state: "placeholder" | "scored";
     step2_seed: boolean;
   };
+  provenance?: CompanySentimentProvenance;
   founders: GalleryFounder[];
 };
 
@@ -117,7 +119,11 @@ export function CompanyGalleryCard({
 
         <CardHeaderSection company={c} onQuickView={handleQuickView} />
 
-        <CardMetricsPanel company={c} onOpenPitchbook={handleOpenPitchbook} />
+        <CardMetricsPanel
+          company={c}
+          onOpenPitchbook={handleOpenPitchbook}
+          onQuickView={handleQuickView}
+        />
 
         <CardFundingTimeline company={c} />
 
