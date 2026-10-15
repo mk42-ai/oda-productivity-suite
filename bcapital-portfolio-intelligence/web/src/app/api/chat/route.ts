@@ -2,8 +2,6 @@ import { NextRequest } from "next/server";
 import { getText as attachmentText } from "@/lib/media/store";
 import { ONDEMAND_BASE_URL, serverApiKey, UPSTREAM_USER_AGENT, CHAT_SESSION_HEADER_WAIT_MS, PAYLOAD_AUDIT } from "@/lib/ondemand/config";
 import { runChatBridge, SSE_HEADERS, type AttachmentText, type BridgeBody } from "@/lib/ondemand/chat-bridge";
-import { buildFixtureStream } from "@/lib/ondemand/chat-fixtures";
-import { DISABLED_PLUGIN_IDS } from "@/lib/ondemand/config-public";
 import { persistChatArtifact } from "@/lib/artifacts/chat";
 import { originFrom } from "@/lib/artifacts/media";
 export const runtime = "nodejs";
@@ -36,30 +34,10 @@ async function appendAudit(entry: Record<string, unknown>) {
   } catch { /* audit only */ }
 }
 
-/** pass-2 — ONDEMAND SETTINGS overrides arrive as request headers. They are validated + echoed back (x-ondemand-overrides) and the
- *  external user id is applied to the session; endpointId / pluginIds stay staged (the bridge keeps its fixed-model + pinned-plugin
- *  contract — see resolvePluginIds). The plugin list is sanitised the same way the drawer does it: DISABLED_PLUGIN_IDS removed, max 20. */
-function readOverrides(req: NextRequest) {
-  const endpointId = (req.headers.get("x-ondemand-endpoint-id") ?? "").trim().slice(0, 80) || null;
-  const rawIds = (req.headers.get("x-ondemand-plugin-ids") ?? "").split(",").map((x) => x.trim()).filter(Boolean);
-  const pluginIds = [...new Set(rawIds.filter((id) => !DISABLED_PLUGIN_IDS.has(id)))].slice(0, 20);
-  const externalUserId = (req.headers.get("x-ondemand-external-user-id") ?? "").trim().slice(0, 64) || null;
-  return { endpointId, pluginIds, droppedPluginIds: rawIds.length - pluginIds.length, externalUserId, clientKey: !!req.headers.get("x-ondemand-key")?.trim() };
-}
-
 export async function POST(req: NextRequest) {
   const key = req.headers.get("x-ondemand-key")?.trim() || serverApiKey();
-  const ov = readOverrides(req);
   let body: BridgeBody = {};
   try { body = await req.json(); } catch { return Response.json({ error: { message: "expected JSON body" } }, { status: 400 }); }
-  if (ov.externalUserId && body.context && typeof body.context === "object" && !body.context.externalUserId) body.context.externalUserId = ov.externalUserId;
-  const echo = { "x-ondemand-overrides": JSON.stringify({ endpointId: ov.endpointId, pluginIds: ov.pluginIds.length, dropped: ov.droppedPluginIds, externalUserId: ov.externalUserId, keySource: ov.clientKey ? "client" : "server-env" }) };
-  const fixtureMode = req.headers.get("x-chat-fixture")?.trim() || (typeof body.context?.fixture === "string" ? body.context.fixture.trim() : "");
-  if (fixtureMode) {
-    const fxDelay = Number(req.headers.get("x-chat-fixture-delay") ?? (body.context as { fixtureDelayMs?: unknown } | undefined)?.fixtureDelayMs ?? 0);
-    const fx = buildFixtureStream(fixtureMode, Number.isFinite(fxDelay) ? fxDelay : 0);
-    if (fx) { for (const [k, v] of Object.entries(echo)) fx.headers.set(k, v); return fx; }
-  }
   const origin = originFrom(req);
   const r = await runChatBridge(body, {
     baseUrl: ONDEMAND_BASE_URL, key, headers: { "user-agent": UPSTREAM_USER_AGENT }, transport: "/api/chat", signal: req.signal,
@@ -69,5 +47,5 @@ export async function POST(req: NextRequest) {
     audit: (entry) => { void appendAudit(entry); },
   });
   if (!r.ok) return Response.json({ error: { message: r.message } }, { status: r.status });
-  return new Response(r.stream, { status: 200, headers: { ...SSE_HEADERS(r.sessionId), ...echo } });
+  return new Response(r.stream, { status: 200, headers: SSE_HEADERS(r.sessionId) });
 }

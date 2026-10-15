@@ -338,7 +338,12 @@
 .oiu-error__summary { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
 .oiu-error__retry { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 3px 9px; border: 1px solid #d4d7db; border-radius: 6px; background: #fff; color: #34383d; font-size: 12px; font-weight: 600; cursor: pointer; }
 .oiu-error__retry:hover { background: #f3f4f6; }
-.oiu-error__retry:focus-visible { outline: 2px solid #047857; outline-offset: 2px; }
+.oiu-error__retry:focus-visible, .oiu-error__details summary:focus-visible { outline: 2px solid #047857; outline-offset: 2px; }
+.oiu-error__details { min-width: 0; max-width: min(480px, 100%); }
+.oiu-error__details summary { cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.oiu-error__message { margin: 6px 0 0; max-height: 160px; overflow: auto; overflow-wrap: anywhere; white-space: pre-wrap; line-height: 1.5; }
+.oiu-error:has(.oiu-error__details[open]) { width: min(480px, 100%); }
+.oiu-error__details[open] { flex-basis: 100%; }
 /* Hide OpenUI's own tool-call card/timeline chrome in case it is rendered next to ours */
 .chat-shell .openui-tool-call-timeline:empty { display: none; }
 
@@ -952,29 +957,9 @@ button.od-acc__head { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) { .chat-shell .od-acc__chev, .chat-shell .oiu-run__logs-chev { transition: none; } }
 /* end od2 */
 
-/* Chat error suppression — the OpenUI library renders .openui-agent-thread-error with the raw threadError.message
-   ("The answer could not be completed" / upstream exception text). Never paint it; RunFailureNotice portals the
-   discreet replacement ("Something interrupted that answer." + Retry) into the message list instead. The element
-   stays in the DOM (display:none) so RunFailureNotice's MutationObserver still sees the failure signal. */
+/* Additive fix (2026-10-15, on top of the b33be278 chat UI): the OpenUI library paints its own error box (.openui-agent-thread-error, a danger
+   callout whose description is the raw threadError.message, e.g. "The answer could not be completed"). Never paint it — RunFailureNotice below
+   already portals the discreet "Response failed · Retry" notice into the thread, and its Retry calls the existing processMessage resubmit. */
 .chat-shell .openui-agent-thread-error { display: none !important; }
-html, body { overflow-x: clip; }
-/* Discreet retry notice: small, subtle, inline — no alarm surface, no raw diagnostics. */
-.oiu-error { margin: 6px 0 10px; color: #6b7280; }
-.oiu-error__summary { font-size: 12.5px; font-weight: 500; letter-spacing: -0.01em; }
-.oiu-error__retry { min-height: 32px; padding: 4px 12px; border-radius: 999px; }
-
-/* 2026-10-14 touch-ups: mobile tap targets + no horizontal scroll + tighter chat header */
-@media (max-width: 640px) {
-  .oiu-topbar__btn { min-height: 36px; }
-  .oiu-welcome__chips { flex-wrap: wrap; }
-  .chat-shell .openui-agent-thread-header { padding: 6px 10px; }
-}
-@media (max-width: 1024px) { .chat-main { min-height: 0; } }
-
-/* pass-2: interactive wait card (creds / clarification) — one stable wrapper so the run view never re-mounts around the prompt */
-.oiu-wait-card { border: 1px solid #f1d9a6; background: #fffaf0; border-radius: 10px; padding: 8px; min-width: 0; }
-.oiu-wait-card[data-busy="true"] { opacity: .85; }
-.oiu-prompt__wait { margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8a5a00; display: inline-flex; align-items: center; gap: 6px; }
-.oiu-prompt__wait::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #b8862b; animation: rr-pulse 1.4s ease-out infinite; box-shadow: 0 0 0 0 rgba(184,134,43,.45); }
-@keyframes rr-pulse { to { box-shadow: 0 0 0 6px rgba(184,134,43,0); } }
-@media (prefers-reduced-motion: reduce) { .oiu-prompt__wait::before { animation: none; } }
+/* The notice's collapsed "Details" disclosure would re-expose that same raw message — keep the notice to "Response failed · Retry". */
+.chat-shell .oiu-error .oiu-error__details { display: none !important; }

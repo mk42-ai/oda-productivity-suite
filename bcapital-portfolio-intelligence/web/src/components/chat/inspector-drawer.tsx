@@ -12,7 +12,7 @@ import { MODEL_LABEL, REASONING_MODE } from "@/lib/plugins";
 import { cn } from "@/lib/utils";
 import { CompanyPicker, ContextCounter } from "./company-picker";
 import { PluginPanel } from "./plugin-panel";
-import { RunRail, RunPipelineRail } from "./run-rail";
+import { RunRail } from "./run-rail";
 import { PitchbookDrawerSection } from "./pitchbook-rail";
 import { SignalMini } from "@/components/charts/signal-bullet";
 import { CompanyLogo } from "@/components/ui/company-logo";
@@ -68,7 +68,6 @@ export function InspectorDrawer({ companies }: { companies: InspectorCompany[] }
           <button type="button" onClick={() => inspectorStore.set(false)} data-testid="inspector-close" aria-label="Close inspector" className="inline-flex size-8 items-center justify-center rounded-md text-muted hover:bg-surface-2 hover:text-foreground"><X className="size-4" aria-hidden /></button>
         </header>
         <div className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3" data-testid="inspector-body">
-          <RunPipelineRail />
           <RunRail />
           <Section icon={Landmark} title="PitchBook" testId="inspector-pitchbook"><PitchbookDrawerSection companies={companies} entries={PB_ENTRIES} /></Section>
           <Section icon={Building2} title={<span className="flex flex-1 items-baseline justify-between gap-2">Company context <ContextCounter count={s.companies.length} max={5} /></span>} testId="inspector-context">
