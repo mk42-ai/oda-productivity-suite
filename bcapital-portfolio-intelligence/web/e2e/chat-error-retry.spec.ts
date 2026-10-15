@@ -5,7 +5,7 @@ import { test, expect, type Page } from "@playwright/test";
  *  - forced /api/chat failure must NEVER paint raw error text ("The answer could not be completed",
  *    "Something went wrong", upstream exception prose) nor the library's own error box
  *    (.openui-agent-thread-error stays suppressed). ONLY the discreet notice
- *    "Something interrupted that answer." + Retry ([data-testid=chat-error]) may appear.
+ *    "Response failed" + Retry ([data-testid=chat-error]) may appear.
  *  - clicking Retry genuinely resubmits: a NEW POST /api/chat is issued and, once the failure route
  *    is removed, a non-empty answer renders and the notice disappears.
  */
@@ -54,11 +54,13 @@ test.describe("chat error retry notice", () => {
 
     const notice = page.getByTestId("chat-error");
     await expect(notice).toBeVisible({ timeout: 30_000 });
-    await expect(notice).toContainText("Something interrupted that answer.");
+    await expect(notice).toContainText("Response failed");
     await expect(page.getByTestId("chat-error-retry")).toBeVisible();
 
     // No raw error text anywhere user-visible, and the library box never paints.
     const bodyText = (await page.locator("body").innerText()).toLowerCase();
+    // Raw text may exist inside the library's hidden error node (display:none per discreet-retry CSS);
+    // the user-visible contract is innerText + the lib-box visibility check below.
     expect(bodyText).not.toContain("the answer could not be completed");
     expect(bodyText).not.toContain("an unexpected error occurred");
     const libBox = await page.locator(".openui-agent-thread-error").evaluateAll(

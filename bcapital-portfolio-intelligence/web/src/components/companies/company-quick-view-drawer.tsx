@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   X,
   Landmark,
@@ -47,6 +47,15 @@ export function CompanyQuickViewDrawer({
 }: CompanyQuickViewDrawerProps) {
   const [tab, setTab] = useState<QuickViewTab>(initialTab);
   const [logoFail, setLogoFail] = useState(false);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!company) return;
+    openerRef.current = (document.activeElement as HTMLElement | null) ?? null;
+    closeRef.current?.focus();
+    return () => { const o = openerRef.current; openerRef.current = null; if (o && o.isConnected) o.focus?.(); };
+  }, [company?.slug]);
 
   useEffect(() => {
     setTab(initialTab);
@@ -137,6 +146,7 @@ export function CompanyQuickViewDrawer({
           <button
             type="button"
             className="cqv-close"
+            ref={closeRef}
             onClick={onClose}
             aria-label="Close quick preview"
             data-testid="company-quick-view-close"

@@ -69,7 +69,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
         <Card><CardHeader><CardTitle>Funding timeline</CardTitle><CardDescription>PitchBook-style: round · date · amount · post-money · lead · B Capital participation</CardDescription></CardHeader><CardContent><FundingTimeline company={company} /></CardContent></Card>
       </div>
 
-      <Card className="mt-5"><CardHeader><CardTitle>News ({(company.news_count ?? news.data.length).toLocaleString("en-US")})</CardTitle><CardDescription>Perplexity results written back by the workflow, newest first, with source citations</CardDescription></CardHeader>
+      <Card className="mt-5 scroll-mt-24" id="news"><CardHeader><CardTitle>News ({(company.news_count ?? news.data.length).toLocaleString("en-US")})</CardTitle><CardDescription>Perplexity results written back by the workflow, newest first, with source citations</CardDescription></CardHeader>
         <CardContent>{news.data.length ? <div className="grid min-w-0 gap-3 md:grid-cols-2">{news.data.map((n, i) => <NewsCard key={n.id} n={n} companyName={company.name} companySlug={company.slug} companyLogo={company.logo_url} eager={i < 6} />)}</div> : <EmptyState kind="news" title="No news yet for this company" body="The daily workflow (06:00 UTC) adds Perplexity news with sources and images as it finds them." action={<Button asChild variant="outline"><Link href="/news">Open News Pulse</Link></Button>} />}</CardContent></Card>
 
       {company.sources?.length > 0 && <details className="mt-5 text-xs text-muted"><summary className="cursor-pointer">Brand-matrix sources ({company.sources.length})</summary><ul className="mt-2 space-y-1">{company.sources.map((s, i) => <li key={i} className="break-all">{s}</li>)}</ul></details>}

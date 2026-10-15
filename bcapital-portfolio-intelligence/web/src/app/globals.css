@@ -143,3 +143,7 @@ details > summary:focus-visible, button[aria-expanded]:focus-visible, [role="but
 .bs-shell ::selection { background: transparent; color: inherit; }
 .bs-header, .bs-header h1, .bs-header p, .bs-tabs, .bs-tabs button, .bs-card__title { background-image: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; text-shadow: none !important; filter: none !important; }
 .bs-tabs { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: #ffffff; }
+
+/* Navigation polish: smooth scroll for anchor targets (scroll-behavior gated by reduced-motion policy above) */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

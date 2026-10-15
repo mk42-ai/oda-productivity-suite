@@ -1078,16 +1078,12 @@ function RunFailureNotice() {
   const lastUser = [...messages].reverse().find((m) => m.role === "user") as UserMessage | undefined;
   const retry = () => { if (lastUser) void processMessage({ role: "user", content: lastUser.content }); };
   const code = st.error?.code ?? "run_error";
-  const message = st.error?.message ?? threadError?.message ?? "The run failed";
   return createPortal(
     <div className="oiu-error" role="status" aria-live="polite" aria-atomic="true" data-testid="chat-error" data-error-code={code} data-state="failed">
       <span className="oiu-error__summary"><AlertTriangle className="size-3.5 shrink-0" aria-hidden /> Response failed</span>
       {lastUser && <button type="button" className="oiu-error__retry" data-testid="chat-error-retry" onClick={retry}><RotateCcw className="size-3.5" aria-hidden /> Retry</button>}
-      <details className="oiu-error__details">
-        <summary>Details</summary>
-        <p className="oiu-error__message">{message}</p>
-      </details>
-      {/* Full upstream diagnostics remain in the existing Inspector / Developer details log. */}
+      {/* Raw upstream message is intentionally NOT rendered (not even in a hidden Details fold):
+          the discreet notice is exactly "Response failed · Retry". Diagnostics stay server-side. */}
     </div>, host);
 }
 
