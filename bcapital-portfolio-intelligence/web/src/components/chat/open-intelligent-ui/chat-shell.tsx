@@ -24,6 +24,24 @@ import { friendlyStepTitle, sanitizeObjective } from "@/lib/ondemand/plan";
 import { browserCanReachOnDemand, browserChat } from "@/lib/ondemand/browser-chat";
 import { CHAT_TRANSPORT, PUBLIC_ONDEMAND_API_KEY } from "@/lib/ondemand/config-public";
 /** unit1: friendly plugin label (falls back to the catalogue name, then the raw id). */
+/**
+ * Discreet-error adapter: the library renders its own hidden `.openui-agent-thread-error`
+ * callout from `threadError.message`. Sanitise RUN_ERROR at the adapter boundary so the raw
+ * upstream message (e.g. "The answer could not be completed") never reaches the thread store
+ * or the DOM — not even in a display:none node. The code is preserved; the message is not.
+ */
+const discreetErrorAdapter = () => {
+  const inner = agUIAdapter();
+  return {
+    parse: async function* (response: Response) {
+      for await (const event of inner.parse(response) as AsyncIterable<{ type?: string; message?: unknown; code?: unknown }>) {
+        if (event?.type === "RUN_ERROR") yield { ...event, message: "Response failed", code: typeof event.code === "string" ? event.code : "run_error" };
+        else yield event;
+      }
+    },
+  };
+};
+
 const friendlyPlugin = (idOrName: string | null | undefined) => rawPluginLabel(idOrName, catalogueName);
 export type PlannerPayload = { planning: string; steps: Record<string, string> };
 const EMPTY_PAYLOAD: PlannerPayload = { planning: "", steps: {} };
@@ -202,7 +220,7 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
           case CE.thinking: if (typeof v.delta === "string") { const kind = String(v.kind ?? "thinking"); setStream({ thinking: st.thinking + v.delta, thinkingKinds: st.thinkingKinds.includes(kind) ? st.thinkingKinds : [...st.thinkingKinds, kind], ...(st.phase === "connecting" ? { phase: "planning", detail: PHASE_LABEL.planning } : {}) }); } break;
           case CE.sources: if (Array.isArray(v.sources)) { const items = (v.sources as Partial<Source>[]).filter((x): x is Source => typeof x.url === "string" && !!x.url).map((x) => ({ url: x.url, title: x.title || x.sourceName || x.url, sourceName: x.sourceName || x.title || x.url, ...(typeof x.imageUrl === "string" && /^https?:\/\//.test(x.imageUrl) ? { imageUrl: x.imageUrl } : {}) })); setStream({ sources: items, firstCitationMs: st.firstCitationMs ?? (items.length ? now - t0 : null) }); } break;
           case CE.metrics: if (v.publicMetrics && typeof v.publicMetrics === "object") setStream({ metrics: v.publicMetrics as Record<string, number> }); break;
-          case CE.error: setStream({ error: { code: String(v.code ?? "error"), message: String(v.message ?? "Upstream error"), raw: typeof v.raw === "string" ? v.raw : undefined } }, true); break;
+          case CE.error: setStream({ error: { code: String(v.code ?? "error"), message: "Response failed" } }, true); break; // raw upstream message intentionally not stored/rendered
           case CE.plugins: if (Array.isArray(v.plugins) && v.plugins.length) setStream({ suggested: (v.plugins as { id: string; name: string; logoUrl?: string }[]) }); break;
           case CE.plan: { const steps = Array.isArray(v.steps) ? (v.steps as Omit<PlanStep, "state">[]).map((s, i) => ({ ...s, id: String(s.id ?? i + 1), state: "pending" as const })) : []; if (v.provisional && st.plan && !st.plan.provisional) break; setStream({ plan: { objective: typeof v.objective === "string" ? v.objective : null, steps, provisional: !!v.provisional }, ...(typeof v.objective === "string" && v.objective ? { detail: v.objective } : {}) }); break; }
           case CE.step: {
@@ -260,7 +278,7 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
       case "TEXT_MESSAGE_CONTENT": case "TEXT_MESSAGE_CHUNK":
         if (f.delta) { const text = st.text + f.delta; const hasCite = st.firstCitationMs == null && /\]\(https?:\/\/[^\s)]+\)|https?:\/\/\S{8,}/.test(text); setStream({ text, chunks: st.chunks + 1, firstTokenMs: st.firstTokenMs ?? now - t0, ...(hasCite ? { firstCitationMs: now - t0 } : {}), ...(st.phase !== "answering" ? { phase: "answering", detail: PHASE_LABEL.answering, prompt: null } : {}) }, st.firstTokenMs == null); }
         break;
-      case "RUN_ERROR": setStream({ error: st.error ?? { code: f.code ?? "run_error", message: f.message ?? "The run failed" } }, true); finalize(); setStream({ phase: "idle", detail: "" }, true); break;
+      case "RUN_ERROR": setStream({ error: st.error ?? { code: f.code ?? "run_error", message: "Response failed" } }, true); finalize(); setStream({ phase: "idle", detail: "" }, true); break;
       case "RUN_FINISHED": finalize(); setStream({ phase: "idle", detail: "", answerDone: true }, true); break;
     }
   };
@@ -1193,7 +1211,7 @@ export function ChatShell({ companies, fetchedAt, topBarRight }: { companies: Co
   const companiesRef = useRef(companies); companiesRef.current = companies;
   const fetchedAtRef = useRef(fetchedAt); fetchedAtRef.current = fetchedAt;
   const llm = useMemo(() => fetchLLM({
-    url: CHAT_API_URL, streamAdapter: agUIAdapter(),
+    url: CHAT_API_URL, streamAdapter: discreetErrorAdapter() as unknown as ReturnType<typeof agUIAdapter>,
     headers: s.apikey ? { "x-ondemand-key": s.apikey } : {},
     fetch: async (input, init) => {
       // inject the per-thread OnDemand session, the EXPLICIT plugin selection and the portfolio context; capture the session id from the response
@@ -1219,7 +1237,7 @@ ${txt}`; }
       let res: Response;
       const directKey = directChatKey(s.apikey);
       const direct = !!directKey && (await browserCanReachOnDemand());
-      try { res = direct ? await browserChat(body, directKey, init?.signal) : await fetch(input, { ...init, body: JSON.stringify(body) }); if (chips.length) clearContextChips(); } catch (e) { setStream({ phase: "idle", detail: "", error: { code: "fetch_failed", message: (e as Error).message } }, true); throw e; }
+      try { res = direct ? await browserChat(body, directKey, init?.signal) : await fetch(input, { ...init, body: JSON.stringify(body) }); if (chips.length) clearContextChips(); } catch (e) { setStream({ phase: "idle", detail: "", error: { code: "fetch_failed", message: "Response failed" } }, true); throw e; }
       const remember = (got: string) => { if (tid) { sessionRef.current[tid] = got; rememberSession(tid, got); } };
       const got = res.headers.get("x-ondemand-session"); if (got) remember(got);
       if (!res.ok || !res.body) { setStream({ phase: "idle", detail: "", error: { code: `http_${res.status}`, message: `Chat endpoint answered HTTP ${res.status}` } }, true); return res; }

@@ -109,3 +109,46 @@ Screenshot proof (`.ui-proof/`): `nav-root/overview/companies/social/signals/doc
 - `/chat-od`, `/compare`, `/news`, `/pitchbook`, `/artifacts`, `/settings`,
   `/onboarding` routes exist and build; the requested matrix above covers the routes
   named in the task plus their navigation paths.
+
+## Live smoke re-verification — 2026-10-15 (deployed URL only)
+
+Deployed URL: https://sb-5hfud9w5lt6s.vercel.run (sandbox `sbx_lIX5wQab0CjAkqNd6esCqKLlBaZ0`, Next 5173 + Hono 4000)
+Spec: `web/e2e/live-smoke.spec.ts` (Playwright/Chromium, fresh browser per test, `primeSettings`)
+
+First pass: 18/20 — the discreet-retry test failed the strict DOM check:
+`DOM_PROBE {"htmlHasRaw":true,"lib":[{"display":"none","visible":false,"text":"Something went wrongThe answer could not be completed"}]}`.
+The library's own hidden `.openui-agent-thread-error` node still carried the raw upstream
+message in the DOM (invisible, `display:none`, but present in `innerHTML`).
+
+Minimal fix (only file changed): `web/src/components/chat/open-intelligent-ui/chat-shell.tsx`
+- Added `discreetErrorAdapter()` wrapping `agUIAdapter()`: `RUN_ERROR` events are re-emitted
+  with `message: "Response failed"` (code preserved) so the raw message never reaches the
+  thread store or DOM.
+- `CE.error` and `teeStream` RUN_ERROR / fetch-failure paths now store the generic
+  `"Response failed"` instead of the upstream message.
+- No change to virtualized thinking/activity, rAF-coalesced state, scroll anchoring,
+  performance metrics, GROWTH tile, `/docs/interactive-ui`, or the recorder.
+Rebuilt (`tsc --noEmit` 0, `next build` 0), copied that one file into the running sandbox,
+restarted Next, and re-ran the full live matrix.
+
+Final result: **20/20 PASS** at both viewports. Post-fix probe:
+`DOM_PROBE {"htmlHasRaw":false,"lib":[{"display":"none","visible":false,"text":"Something went wrongResponse failed"}]}`.
+
+| Check | 1440x900 | 390x844 |
+|---|---|---|
+| `/` (307 → `/overview`, final 200) | PASS | PASS |
+| `/overview` 200, no errors, no h-overflow | PASS | PASS |
+| `/companies` 200, no errors, no h-overflow | PASS | PASS |
+| `/social` 200, no errors, no h-overflow | PASS | PASS |
+| `/docs/interactive-ui` 200 (Synergy matrix) | PASS | PASS |
+| `/this-route-does-not-exist-smoke` → real 404 | PASS | PASS |
+| Nav links + browser back/forward | PASS | PASS |
+| Preserved surfaces: docs + interactive GROWTH tile | PASS | PASS |
+| Chat: actual `POST /api/chat` 200 + non-empty answer | PASS | PASS |
+| Discreet retry: forced failure, no raw in DOM, Retry recovers | PASS | PASS |
+
+Screenshot proof (`.ui-proof/`, attached to the turn):
+`live-root/overview/companies/social/docs-interactive-ui-{1440x900,390x844}.png`,
+`live-notfound-{1440x900,390x844}.png`, `live-backforward-{1440x900,390x844}.png`,
+`live-growth-{1440x900,390x844}.png`, `live-chat-{1440x900,390x844}.png`,
+`live-retry-error-{1440x900,390x844}.png`, `live-retry-recovered-{1440x900,390x844}.png`.
