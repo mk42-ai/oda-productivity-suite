@@ -4,9 +4,9 @@
   "private": true,
   "description": "B Capital Portfolio Intelligence — Next.js 15 frontend over the portfolio backend and the OnDemand Chat & Agent Tools API (server-side proxy).",
   "scripts": {
-    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "dev": "next dev -H 0.0.0.0 -p ${PORT:-5173}",
     "build": "next build",
-    "start": "next start -H 0.0.0.0 -p 3000",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-5173}",
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
     "test:eventmap": "node ../node_modules/tsx/dist/cli.mjs tests/unit/eventmap.test.ts",
