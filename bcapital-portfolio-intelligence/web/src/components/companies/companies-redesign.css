@@ -4,6 +4,11 @@
    WCAG 2.2 AA contrast & focus rings, zero truncation/overlap, equal-height grid.
    ========================================================================== */
 
+[data-testid="companies-gallery"] {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 /* --- 1. Directory Filter Bar & Neutral Sector Controls --- */
 .dfb-shell {
   display: flex;
@@ -11,6 +16,7 @@
   gap: 10px;
   margin-bottom: 18px;
   max-width: 100%;
+  overflow-x: clip;
 }
 
 .dfb-toolbar {
@@ -252,10 +258,11 @@
 }
 
 .dfb-tip {
+  display: none;
   position: absolute;
   left: 50%;
   bottom: calc(100% + 8px);
-  transform: translateX(-50%) translateY(2px);
+  transform: translateX(-50%);
   z-index: 45;
   width: max-content;
   max-width: 240px;
@@ -267,15 +274,12 @@
   line-height: 1.35;
   font-weight: 500;
   white-space: normal;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 120ms ease, transform 120ms ease;
 }
 
 .dfb-tip-anchor:hover .dfb-tip,
 .dfb-tip-anchor:focus-within .dfb-tip {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  display: block;
 }
 
 /* Active filter feedback strip */
@@ -339,8 +343,8 @@
 }
 
 .cg-card {
-  content-visibility: visible;
-  contain-intrinsic-size: none;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 380px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -350,6 +354,16 @@
   border: 1px solid #e2e5e9;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.cg-timeline__tooltip {
+  display: none !important;
+}
+
+.cg-timeline li:hover .cg-timeline__tooltip,
+.cg-timeline li:focus .cg-timeline__tooltip,
+.cg-timeline li:focus-visible .cg-timeline__tooltip {
+  display: block !important;
 }
 
 .cg-card:hover,

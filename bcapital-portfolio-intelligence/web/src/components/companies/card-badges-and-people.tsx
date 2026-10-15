@@ -61,6 +61,7 @@ export function CardTopBadges({
 
         <Link
           href={`/social?sector=${encodeURIComponent(company.sector)}`}
+          prefetch={false}
           className="cg-news cg-news--btn cg-social-chip"
           data-testid="social-badge"
           data-count={company.social_count}

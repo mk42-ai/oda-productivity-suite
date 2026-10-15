@@ -197,6 +197,7 @@ export function CardHeaderSection({ company, onQuickView }: CardHeaderSectionPro
           <div className="cg-title-row">
             <Link
               href={`/company/${company.slug}`}
+              prefetch={false}
               className="cg-name"
               data-testid="company-row-name"
               title={company.name}
