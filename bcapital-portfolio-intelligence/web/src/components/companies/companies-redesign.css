@@ -1982,7 +1982,333 @@
 @media (max-width: 640px) {
   .cg-popover--sentiment {
     left: auto;
-    right: 0;
+    right: auto;
     width: min(320px, calc(100vw - 36px));
+  }
+}
+
+/* --- 11. Inline Chat Company & Sentiment Provenance Deck (`.ccpd-*`) --- */
+.ccpd-deck {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.ccpd-deck__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ccpd-deck__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1F2937;
+}
+
+.ccpd-deck__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #1F2937;
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.ccpd-deck__hint {
+  font-size: 11px;
+  color: #4b5563;
+}
+
+.ccpd-deck__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.ccpd-card {
+  border-radius: 11px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 12px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.ccpd-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.ccpd-logo {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.ccpd-logo__mono {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: #1F2937;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ccpd-title-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.ccpd-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+}
+
+.ccpd-name:hover {
+  color: #047857;
+  text-decoration: underline;
+}
+
+.ccpd-sector-badge {
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ccpd-sub {
+  margin: 2px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #4b5563;
+}
+
+.ccpd-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.ccpd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  padding: 0 9px;
+  border-radius: 7px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #1F2937;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ccpd-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.ccpd-btn--ask {
+  background: #1F2937;
+  color: #ffffff;
+  border-color: #1F2937;
+}
+
+.ccpd-btn--ask:hover {
+  background: #111827;
+}
+
+.ccpd-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 9px;
+  background: #f8fafc;
+  border: 1px solid #edf0f3;
+}
+
+.ccpd-metric {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ccpd-metric dt {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+}
+
+.ccpd-metric dd {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #111827;
+  font-variant-numeric: tabular-nums;
+  min-width: 0;
+}
+
+.ccpd-round-link {
+  color: #111827;
+  text-decoration: underline;
+  text-decoration-color: #9ca3af;
+}
+
+.ccpd-ev-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ccpd-ev-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #374151;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ccpd-sent-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ccpd-sent--pos {
+  color: #047857;
+}
+
+.ccpd-sent--neg {
+  color: #b91c1c;
+}
+
+.ccpd-sent-score small {
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 10.5px;
+}
+
+.ccpd-prov-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ccpd-prov-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #1F2937;
+  font-size: 11.5px;
+  cursor: pointer;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.ccpd-prov-toggle:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.ccpd-prov-toggle__left {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.ccpd-prov-summary {
+  color: #4b5563;
+  font-size: 11px;
+}
+
+.ccpd-prov-toggle__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #047857;
+}
+
+.ccpd-prov-body {
+  padding: 10px 11px;
+  border-radius: 9px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .ccpd-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ccpd-actions {
+    width: 100%;
+    margin-left: 0;
   }
 }

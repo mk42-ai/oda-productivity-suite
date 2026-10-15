@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import { getText as attachmentText } from "@/lib/media/store";
 import { ONDEMAND_BASE_URL, serverApiKey, UPSTREAM_USER_AGENT, CHAT_SESSION_HEADER_WAIT_MS, PAYLOAD_AUDIT } from "@/lib/ondemand/config";
 import { runChatBridge, SSE_HEADERS, type AttachmentText, type BridgeBody } from "@/lib/ondemand/chat-bridge";
+import { buildFixtureStream } from "@/lib/ondemand/chat-fixtures";
 import { persistChatArtifact } from "@/lib/artifacts/chat";
 import { originFrom } from "@/lib/artifacts/media";
 export const runtime = "nodejs";
@@ -38,6 +39,11 @@ export async function POST(req: NextRequest) {
   const key = req.headers.get("x-ondemand-key")?.trim() || serverApiKey();
   let body: BridgeBody = {};
   try { body = await req.json(); } catch { return Response.json({ error: { message: "expected JSON body" } }, { status: 400 }); }
+  const fixtureMode = req.headers.get("x-chat-fixture")?.trim() || (typeof body.context?.fixture === "string" ? body.context.fixture.trim() : "");
+  if (fixtureMode) {
+    const fx = buildFixtureStream(fixtureMode);
+    if (fx) return fx;
+  }
   const origin = originFrom(req);
   const r = await runChatBridge(body, {
     baseUrl: ONDEMAND_BASE_URL, key, headers: { "user-agent": UPSTREAM_USER_AGENT }, transport: "/api/chat", signal: req.signal,

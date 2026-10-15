@@ -57,8 +57,14 @@ import { VideoPlayer } from "@/components/media/video-player";
 import { artifactsStore } from "@/lib/artifacts/store";
 import type { Artifact } from "@/lib/artifacts/types";
 import { safeExternalUrl, stopOutbound } from "@/lib/outbound";
+import {
+  ChatCompanyProvenanceDeck,
+  detectMentionedCompanies,
+  type ChatCompanyItem,
+} from "./chat-company-provenance-deck";
 
-export type CoCtx = { slug: string; name: string; sector: string; status: string; stage: string | null; sentiment: { score: number; label: string; delta?: number | null; updated_at?: string | null; basis?: string | null }; prior_run_at?: string | null; news_count?: number; latest_news: { title: string; url: string | null; published_at: string | null; source?: string | null }[]; estimated_ticket_size_usd: number | null; estimated_ownership_pct: number | null; b_capital_role: string };
+export type CoCtx = ChatCompanyItem;
+let allChatCompanies: ChatCompanyItem[] = [];
 type Source = StoredSource;
 const starters = [
   { displayText: "Latest Fervo news", prompt: "What is the latest news about Fervo Energy? Cite sources.", icon: null },
@@ -169,7 +175,7 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
     // unit2 — split the run time: toolsMs = first TOOL_CALL_START → last TOOL_CALL_RESULT (fallback: first status → first token when tools exist); answerMs = first token → answer done.
     const { toolsMs, answerMs } = splitRunTimings(st, t0, Date.now());
     // The live DOM never truncates the reasoning; ONLY the persisted (localStorage) copy is capped at 200,000 chars to stay inside the quota.
-    const meta: StoredMeta & { thinkingKinds?: string[]; plannerPayload?: PlannerPayload; od?: BotMessageType | null } = { model: MODEL_LABEL, modelId: MODEL_ID, reasoningMode: REASONING_MODE, pluginId: PLUGIN_ID, pluginIds: st.pluginIds, firstTokenMs: st.firstTokenMs, firstStatusMs: st.firstStatusMs, firstCitationMs: st.firstCitationMs, toolsMs, answerMs, totalMs: Date.now() - t0, chunks: st.chunks, metrics: st.metrics, thinking: st.thinking.slice(0, 200_000), thinkingKinds: st.thinkingKinds, error: st.error ? { code: st.error.code, message: st.error.message } : null, at: new Date().toISOString(), summaries: st.summaries.map((s) => ({ index: s.index, text: s.text, doneAt: s.doneAt ?? null })), plan: st.plan, artifacts: st.artifacts.filter((a) => a.phase === "ready" && a.artifact).map((a) => a.artifact!), tools: st.tools, artifactFailures: st.artifacts.filter((a) => a.phase === "failed").map((a) => ({ name: a.name, message: a.message ?? "" })), outputs: st.outputs, od: compactOdMessage(odRun.get()), plannerPayload: hasPayload(st.plannerPayload) ? { planning: st.plannerPayload.planning.slice(0, 60_000), steps: Object.fromEntries(Object.entries(st.plannerPayload.steps).map(([k, v]) => [k, v.slice(0, 60_000)])) } : undefined };
+    const meta: StoredMeta & { thinkingKinds?: string[]; plannerPayload?: PlannerPayload; od?: BotMessageType | null; prompt?: Prompt | null; sessionId?: string | null } = { model: MODEL_LABEL, modelId: MODEL_ID, reasoningMode: REASONING_MODE, pluginId: PLUGIN_ID, pluginIds: st.pluginIds, firstTokenMs: st.firstTokenMs, firstStatusMs: st.firstStatusMs, firstCitationMs: st.firstCitationMs, toolsMs, answerMs, totalMs: Date.now() - t0, chunks: st.chunks, metrics: st.metrics, thinking: st.thinking.slice(0, 200_000), thinkingKinds: st.thinkingKinds, error: st.error ? { code: st.error.code, message: st.error.message } : null, at: new Date().toISOString(), summaries: st.summaries.map((s) => ({ index: s.index, text: s.text, doneAt: s.doneAt ?? null })), plan: st.plan, artifacts: st.artifacts.filter((a) => a.phase === "ready" && a.artifact).map((a) => a.artifact!), tools: st.tools, artifactFailures: st.artifacts.filter((a) => a.phase === "failed").map((a) => ({ name: a.name, message: a.message ?? "" })), outputs: st.outputs, od: compactOdMessage(odRun.get()), plannerPayload: hasPayload(st.plannerPayload) ? { planning: st.plannerPayload.planning.slice(0, 60_000), steps: Object.fromEntries(Object.entries(st.plannerPayload.steps).map(([k, v]) => [k, v.slice(0, 60_000)])) } : undefined, prompt: st.prompt, sessionId: st.sessionId };
     liveMeta.set(key, meta); rememberMeta(key, meta);
     if (st.finishedAt == null) setStream({ finishedAt: Date.now(), toolsMs, answerMs }, true); else setStream({ toolsMs, answerMs }, true); // freezes the run-header timer at totalMs
     if (st.sources.length) { liveSources.set(key, st.sources); rememberSources(key, st.sources); }
@@ -767,6 +773,15 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
   const [cites, setCites] = useState<Cite[]>([]);
   const [outputsOpen, setOutputsOpen] = useState(false); // a1: Outputs body closed by default — summary chip sits in RunStatusHeader
   const thinkingShown = useThrottled(r.thinking, 250); // full body — no character cap (throttled re-render only)
+  const detectText = useThrottled(`${r.plan?.objective ?? ""}\n${r.text}`, r.live ? 400 : 0);
+  const matchedCompanies = useMemo(
+    () => detectMentionedCompanies(detectText, allChatCompanies, [], 3),
+    [detectText]
+  );
+  const matchedSlugsKey = useMemo(
+    () => matchedCompanies.map((c) => c.slug).join(","),
+    [matchedCompanies]
+  );
   const readyArts = r.artifacts.filter((a) => a.phase === "ready" && a.artifact).map((a) => a.artifact!);
   const media = useMemo(() => mediaFrom(r.text, readyArts), [r.text, readyArts.length]); // eslint-disable-line react-hooks/exhaustive-deps
   const railSources = r.error?.code === "plugin_error" ? [] : cites.length ? cites : r.sources;
@@ -838,7 +853,7 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
       {/* 5 — outputs body, only when the header button is open (default closed → no interleaved row) */}
       {outputsOpen && <OutputsCard outputs={r.outputs} plannerPayload={r.plannerPayload} />}
       {/* 6 — interactive controls */}
-      {r.live && r.prompt && <PromptCard prompt={r.prompt} sessionId={r.sessionId} onAnswer={onAnswer} />}
+      {r.prompt && <PromptCard prompt={r.prompt} sessionId={r.sessionId} onAnswer={onAnswer} />}
       {/* 6b — OD "Writing the answer" (legacy runs without the raw-frame status view) */}
       {!odView && writing && <div data-testid="writing-answer"><OdAccordion status="loading" title="Writing the answer" collapsible={false} open /></div>}
       {odView && <OdFulfilment od={odView} live={r.live} />}
@@ -851,6 +866,15 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
       {/* 7b — inline media referenced by the answer (images / video) */}
       {media.images.length > 0 && <div className="oiu-media" data-testid="inline-images"><ImageGrid images={media.images} /></div>}
       {media.videos.map((v) => <div key={v.src} className="oiu-media" data-testid="inline-video"><VideoPlayer src={v.src} title={v.title} poster={v.poster} /></div>)}
+      {/* 7c — memoized inline Company & Sentiment Provenance Deck (keyed by slugsKey so rAF token flushes never re-mount cards) */}
+      {matchedCompanies.length > 0 && (
+        <ChatCompanyProvenanceDeck
+          slugsKey={matchedSlugsKey}
+          companies={matchedCompanies}
+          defaultExpanded={true}
+          onAskCompany={onAnswer}
+        />
+      )}
       {/* 8 — collapsed Sources strip directly under the answer (contract order: sources → Artifacts → footer) */}
       {/* Sources mount once the answer has finished streaming (live text growth would otherwise push this row on every token → CLS). */}
       {(!r.live || r.answerDone) && <CollapsedSources sources={railSources} live={r.live} />}
@@ -937,7 +961,7 @@ const AssistantMessage: AssistantMessageComponent = memo(function AssistantMessa
     plan: meta?.plan ? { objective: meta.plan.objective, steps: meta.plan.steps.map((s) => ({ ...s, state: s.state === "running" ? "done" : s.state })) } : null,
     tools: (meta?.tools ?? []).map((t) => ({ ...t, status: t.status === "running" ? "done" : t.status })),
     summaries: (meta?.summaries ?? []).map((s) => ({ index: s.index, stepId: "", state: "done" as const, text: s.text, optimistic: false, startedAt: 0, doneAt: s.doneAt ?? undefined })),
-    outputs: meta?.outputs ?? [], plannerPayload: (meta as { plannerPayload?: PlannerPayload } | null)?.plannerPayload ?? null, prompt: null, sessionId: null, text: content, known: meta?.error ? [] : known, sources: meta?.error ? [] : known,
+    outputs: meta?.outputs ?? [], plannerPayload: (meta as { plannerPayload?: PlannerPayload } | null)?.plannerPayload ?? null, prompt: (meta as { prompt?: Prompt | null } | null)?.prompt ?? null, sessionId: (meta as { sessionId?: string | null } | null)?.sessionId ?? null, text: content, known: meta?.error ? [] : known, sources: meta?.error ? [] : known,
     artifacts: [...(meta?.artifacts ?? []).map((a) => ({ key: a.id, name: a.name, phase: "ready" as const, artifact: a })), ...(meta?.artifactFailures ?? []).map((f, i) => ({ key: `f${i}`, name: f.name, phase: "failed" as const, message: f.message }))],
     error: meta?.error ?? null, meta, filler: false, fillerTick: 0, elapsedMs: meta?.totalMs ?? 0, startedAt: 0, totalMs: meta?.totalMs ?? null,
     od: (meta as { od?: BotMessageType | null } | null)?.od ?? null,
@@ -1161,6 +1185,14 @@ function ChatWelcome({ companies }: { companies: CoCtx[] }) {
   // Threads come from localStorage (client only): render the recent list only after mount so SSR and the first client render match (React #418).
   const [mounted, setMounted] = useState(false); useEffect(() => { setMounted(true); }, []);
   const recent = mounted ? threads.filter((t) => !t.isPending && t.id !== selectedId).slice(0, 3) : [];
+  const spotlightCompanies = useMemo(() => {
+    const preferred = ["lambda", "trm-labs", "havocai"];
+    const pool = allChatCompanies.length ? allChatCompanies : companies;
+    const bySlug = new Map(pool.map((c) => [c.slug, c]));
+    const picked = preferred.map((s) => bySlug.get(s)).filter((c): c is CoCtx => !!c);
+    return picked.length >= 2 ? picked : (companies.length ? companies.slice(0, 3) : pool.slice(0, 3));
+  }, [companies]);
+  const spotlightKey = useMemo(() => spotlightCompanies.map((c) => c.slug).join(","), [spotlightCompanies]);
   return (
     <div className="oiu-welcome" data-testid="chat-welcome">
       <h2 className="oiu-welcome__title">Ask the portfolio</h2>
@@ -1176,6 +1208,15 @@ function ChatWelcome({ companies }: { companies: CoCtx[] }) {
           </button>
         ))}
       </div>
+      {spotlightCompanies.length > 0 && (
+        <ChatCompanyProvenanceDeck
+          slugsKey={spotlightKey}
+          companies={spotlightCompanies}
+          title="Portfolio Spotlight · Interactive Company & Sentiment Provenance"
+          defaultExpanded={false}
+          onAskCompany={(prompt) => { if (!isRunning) void processMessage({ role: "user", content: prompt }); }}
+        />
+      )}
       {recent.length > 0 && (
         <section className="oiu-welcome__recent" aria-label="Recent threads" data-testid="welcome-recent">
           <p className="oiu-welcome__label"><MessageSquareMore className="size-3.5" aria-hidden /> Recent threads</p>
@@ -1195,6 +1236,7 @@ function ContextLine({ companies }: { companies: CoCtx[] }) {
 }
 
 export function ChatShell({ companies, fetchedAt, topBarRight }: { companies: CoCtx[]; fetchedAt?: string; topBarRight?: ReactNode }) {
+  allChatCompanies = companies;
   const [s] = useSettings();
   const [selectedPlugins] = usePluginSelection();
   const sessionRef = useRef<Record<string, string>>({});
@@ -1241,11 +1283,12 @@ ${txt}`; }
       // First turn of a new thread: consume the pre-warmed session when its plugin set matches the explicit selection (same ids, same order).
       if (!sid && prewarm.current && prewarm.current.pluginIds.join(",") === pluginIds.join(",")) { sid = prewarm.current.sessionId; prewarm.current = null; if (tid) { sessionRef.current[tid] = sid; rememberSession(tid, sid); } }
       const ctxPayload = buildContextPayload(companiesRef.current, getSettings().companies, { fetchedAt: fetchedAtRef.current }); // live chip state, read now
-      body.context = { ...(body.context ?? {}), sessionId: sid ?? undefined, externalUserId: s.externalUserId, pluginIds, systemContext: ctxPayload.systemContext, contextSlugs: ctxPayload.companies.map((c) => c.slug), ...(attachments.length ? { attachments } : {}), sessionContext: ctxPayload.sessionContext };
+      const fixtureParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("fixture")?.trim() || undefined : undefined;
+      body.context = { ...(body.context ?? {}), sessionId: sid ?? undefined, externalUserId: s.externalUserId, pluginIds, systemContext: ctxPayload.systemContext, contextSlugs: ctxPayload.companies.map((c) => c.slug), ...(attachments.length ? { attachments } : {}), ...(fixtureParam ? { fixture: fixtureParam } : {}), sessionContext: ctxPayload.sessionContext };
       setStream({ ...IDLE, phase: "connecting", detail: PHASE_LABEL.connecting, startedAt: Date.now(), sessionId: sid ?? null, lastThreadId: tid, pluginIds, version: streamState.version }, true);
       let res: Response;
       const directKey = directChatKey(s.apikey);
-      const direct = !!directKey && (await browserCanReachOnDemand());
+      const direct = !fixtureParam && !!directKey && (await browserCanReachOnDemand());
       try { res = direct ? await browserChat(body, directKey, init?.signal) : await fetch(input, { ...init, body: JSON.stringify(body) }); if (chips.length) clearContextChips(); } catch (e) { setStream({ phase: "idle", detail: "", error: { code: "fetch_failed", message: (e as Error).message } }, true); throw e; }
       const remember = (got: string) => { if (tid) { sessionRef.current[tid] = got; rememberSession(tid, got); } };
       const got = res.headers.get("x-ondemand-session"); if (got) remember(got);

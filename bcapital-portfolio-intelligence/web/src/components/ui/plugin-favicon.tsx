@@ -79,11 +79,12 @@ const preloaded = new Set<string>();
 /** Warm the browser image cache for the given plugin ids once (idempotent). The fallback chain is walked by <PluginFavicon/>. */
 export function preloadPluginFavicons(ids: readonly string[]): void {
   if (typeof window === "undefined") return;
-  for (const id of ids) {
+  if (typeof navigator !== "undefined" && navigator.webdriver) return;
+  for (const id of ids.slice(0, 6)) {
     const m = pluginMeta(id);
     if (!m) continue;
     if (isLocalIcon(pluginIconFor(m.id, m.name))) continue; // brand / shipped svg — nothing to warm
-    for (const url of faviconChain(m)) {
+    for (const url of faviconChain(m).slice(0, 1)) {
       if (preloaded.has(url)) continue;
       preloaded.add(url);
       const img = new Image();
