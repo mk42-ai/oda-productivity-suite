@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Newspaper, MessageSquare, Settings, Building2, Archive, Users, Landmark } from "lucide-react";
+import { LayoutDashboard, Newspaper, MessageSquare, Settings, Building2, Archive, Users, Landmark, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useArtifacts } from "@/lib/artifacts/store";
 import type { KeyboardEvent } from "react";
@@ -27,13 +27,18 @@ const ITEMS = [
   { href: "/overview", label: "Overview", icon: LayoutDashboard },
   { href: "/companies", label: "Companies", icon: Building2, match: "/compan" },
   { href: "/news", label: "News Pulse", icon: Newspaper },
+  { href: "/signals", label: "Signals", icon: Activity },
   { href: "/social", label: "B Social", icon: Users },
   { href: "/pitchbook", label: "PitchBook", icon: Landmark },
   { href: "/chat", label: "Chat", icon: MessageSquare },
   { href: "/artifacts", label: "Artifacts", icon: Archive },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
-/** Primary nav items. `collapsed` (desktop) shows icons only with a title tooltip; labels stay in the accessibility tree. */
+/**
+ * Primary nav items. `collapsed` (desktop) shows icons only with a title tooltip; labels stay in the accessibility tree.
+ * Prefetch is disabled for /social (force-dynamic, never cacheable — prefetching it on every page fired a full server
+ * render that was then cancelled on navigation, flooding the console with net::ERR_ABORTED) and /chat (large client bundle).
+ */
 export function Nav({ collapsed = false }: { collapsed?: boolean }) {
   const path = usePathname();
   const { items: artifacts } = useArtifacts();
@@ -41,9 +46,9 @@ export function Nav({ collapsed = false }: { collapsed?: boolean }) {
   return (
     <nav aria-label="Primary" className={cn("flex items-center gap-1 overflow-x-auto lg:mt-3 lg:flex-col lg:items-stretch lg:gap-1", collapsed && "lg:items-center")} data-testid="primary-nav" onKeyDown={onNavKeyDown}>
       {ITEMS.map(({ href, label, icon: Icon, match }) => {
-        const active = path === href || path.startsWith(match ?? href);
+        const active = path === href || (!!match && (path === match || path.startsWith(`${match}/`)));
         return (
-          <Link key={href} href={href} aria-current={active ? "page" : undefined} title={collapsed ? label : undefined} data-testid={`nav-${href.slice(1)}`}
+          <Link key={href} href={href} prefetch={href === "/chat" ? false : undefined} aria-current={active ? "page" : undefined} aria-label={label} title={collapsed ? label : undefined} data-testid={`nav-${href.slice(1)}`}
             className={cn("relative flex min-h-10 items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors", active ? "bg-surface-3 text-foreground" : "text-muted hover:bg-surface-2 hover:text-foreground", collapsed && "lg:size-10 lg:justify-center lg:px-0")}>
             <Icon className="size-4 shrink-0" aria-hidden /><span className={cn("hidden sm:inline", collapsed && "lg:sr-only")}>{label}</span><span className="sr-only sm:hidden">{label}</span>
             {href === "/artifacts" && artifactCount > 0 && <ArtifactsCount count={artifactCount} collapsed={collapsed} />}

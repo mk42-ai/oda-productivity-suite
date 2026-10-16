@@ -97,8 +97,21 @@ export function rawFactors(c: CompanyInput, prior: number, now = new Date()): Ra
   const posShare = nS ? posN / nS : 0.5;
   const wl = nS ? wilsonLower(posN, nS) : 0;
   const confidence = clip((0.6 * (nS ? wl / Math.max(posShare, 1e-6) : 0) + 0.4) * Math.min(1, mass / VOLUME_SATURATION), 0, 1);
-  const top = scored.filter((x) => x.it.url).sort((a, b) => b.w * (1 + Math.abs(b.s ?? 0)) - a.w * (1 + Math.abs(a.s ?? 0))).slice(0, 3)
-    .map((x) => ({ title: String(x.it.title ?? x.it.url), url: String(x.it.url), source: String(x.it.source ?? ""), published_at: x.it.published_at ?? null, weight: r3(x.w), sentiment: x.s, tier: x.cred.tier }));
+  const top = scored
+    .filter((x) => x.it.url && !/proxyerror\.html|action=lostpassword|vz_url=/i.test(String(x.it.url)))
+    .sort((a, b) => b.w * (1 + Math.abs(b.s ?? 0)) - a.w * (1 + Math.abs(a.s ?? 0)))
+    .slice(0, 3)
+    .map((x) => {
+      let cleanUrl = String(x.it.url);
+      try {
+        const u = new URL(cleanUrl);
+        for (const k of [...u.searchParams.keys()]) {
+          if (/^utm_|^(fbclid|gclid|mc_cid|mc_eid)$/i.test(k)) u.searchParams.delete(k);
+        }
+        cleanUrl = u.href;
+      } catch { /* keep */ }
+      return { title: String(x.it.title ?? cleanUrl), url: cleanUrl, source: String(x.it.source ?? ""), published_at: x.it.published_at ?? null, weight: r3(x.w), sentiment: x.s, tier: x.cred.tier };
+    });
   const spark = c.history.slice(0, 30).map((h) => ({ date: h.recorded_at.slice(0, 10), score: r3(h.score) })).reverse();
   return { slug: c.slug, sector: c.sector, level, momentum, volume, confidence, details: { evidence: { items: c.items.length, decayed_mass: r3(mass), dated_items: dated.filter((d) => d.age !== null).length, window_days: windowDays, positive_share: r3(posShare), wilson_lower: r3(wl) }, momentum: { d7: d7 === null ? null : r3(d7), d30: d30 === null ? null : r3(d30), delta: r3(momentum) }, top_sources: top, sparkline: spark } };
 }

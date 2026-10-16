@@ -39,9 +39,10 @@ export function Avatar({ name, sector, size = 44 }: { name: string; sector: stri
 
 function SourceBadge({ p }: { p: FeedPost }) {
   const domain = p.source_domain ?? PLATFORM_DOMAIN[p.platform] ?? null; const [fail, setFail] = useState(false); const src = faviconUrl(domain);
+  const brand = BRAND_SLUGS[p.platform];
   return (
-    <span className="bs-source" data-testid="post-source-badge" data-platform={p.platform} data-domain={domain ?? ""} title={domain ?? p.platform}>
-      {src && !fail ? <img src={src} alt="" width={14} height={14} onError={() => setFail(true)} data-testid="post-favicon" /> : <span className="bs-source__dot" />}
+    <span className="bs-source" data-testid="post-source-badge" data-platform={p.platform} data-domain={domain ?? ""} title={domain ?? p.platform} aria-label={`Source: ${PLATFORM_LABEL[p.platform] ?? p.platform}`}>
+      {brand ? <BrandIcon platform={p.platform} size={14} /> : src && !fail ? <img src={src} alt="" width={14} height={14} onError={() => setFail(true)} data-testid="post-favicon" /> : <span className="bs-source__dot" />}
       {PLATFORM_LABEL[p.platform] ?? p.platform}{domain && p.platform === "news" ? ` · ${domain}` : ""}
     </span>
   );
@@ -50,6 +51,31 @@ function SourceBadge({ p }: { p: FeedPost }) {
 function CompanyLogoMini({ p }: { p: FeedPost }) {
   const [fail, setFail] = useState(false); const src = p.author_avatar || faviconUrl(p.company_domain);
   return src && !fail ? <img className="bs-colo" src={src} alt="" width={20} height={20} onError={() => setFail(true)} data-testid="post-company-logo" /> : <span className="bs-colo bs-colo--mono" style={{ background: "var(--brand-green-soft)", color: "var(--brand-green-ink)" }}>{initials(p.company ?? "B")}</span>;
+}
+
+
+// Brand source logos (Simple Icons monochrome, /brand/icons/<slug>.svg, served from public/) + neutral sector icons.
+const BRAND_SLUGS: Record<string, string> = { x: "x", reddit: "reddit", instagram: "instagram", linkedin: "linkedin", tiktok: "tiktok" };
+function BrandIcon({ platform, size = 18 }: { platform: string; size?: number }) {
+  const slug = BRAND_SLUGS[platform]; if (!slug) return null;
+  return <span className="bs-brand-well" aria-hidden="true"><img src={`/brand/icons/${slug}.svg`} alt="" width={size} height={size} loading="lazy" /></span>;
+}
+const SECTOR_ICON: Record<string, string> = { biotech: "sector-biotech", healthtech: "sector-healthtech", fintech: "sector-fintech", "ai-enterprise": "sector-ai-enterprise", robotics: "sector-robotics", climate: "sector-climate", "ai-infra": "sector-ai-infra", edtech: "sector-edtech", consumer: "sector-consumer", logistics: "sector-logistics" };
+const SECTOR_BLURB: Record<string, string> = {
+  biotech: "Biotech companies working on biology-driven medicines, platforms and therapies.",
+  healthtech: "Healthtech companies improving care delivery, diagnostics and patient health.",
+  fintech: "Fintech companies building payments, banking, crypto and financial infrastructure.",
+  "ai-enterprise": "AI and enterprise software companies selling intelligence into business workflows.",
+  robotics: "Robotics and space companies building autonomous machines and orbital systems.",
+  climate: "Climate and mobility companies cutting emissions across energy and transport.",
+  "ai-infra": "AI infrastructure companies providing compute, models and data foundations.",
+  edtech: "Edtech companies helping people learn, train and upskill.",
+  consumer: "Consumer and marketplace companies connecting buyers, sellers and audiences.",
+  logistics: "Logistics companies moving goods through supply chains and delivery networks.",
+};
+function SectorIcon({ sectorKey, size = 19 }: { sectorKey: string; size?: number }) {
+  const file = sectorKey ? SECTOR_ICON[sectorKey] : "sector-all"; if (!file) return null;
+  return <img className="bs-sector-icon" src={`/brand/icons/${file}.svg`} alt="" width={size} height={size} loading="lazy" aria-hidden="true" />;
 }
 
 const REACTIONS = [{ k: "like", icon: Heart, label: "Like" }, { k: "celebrate", icon: PartyPopper, label: "Celebrate" }, { k: "insight", icon: Lightbulb, label: "Insightful" }] as const;
@@ -401,15 +427,15 @@ export function SocialFeed({ initial, total, counts, suggestions, stories, unava
       <section className="bs-card bs-provider-status" data-testid="social-provider-status" aria-label="Social provider status">
         <h2 className="bs-card__title">Source availability</h2>
         <p className="bs-source-note">{total ? "Every post links to its original native post. Verified posts come first; restored posts without a provider receipt carry an “Unverified source” badge." : "No social posts are available."} {excluded > 0 && `${excluded.toLocaleString()} legacy web, news, company or profile records stay excluded, not deleted.`} {dataState === "unavailable" && "The live feed is unavailable; no unverified fallback is displayed."}</p>
-        <ul>{providers.map((provider) => <li key={provider.platform} data-provider={provider.platform} data-status={provider.status} data-count={byPlatform[provider.platform] ?? 0} data-verified={split[provider.platform]?.verified ?? 0} data-unverified={split[provider.platform]?.unverified ?? 0}><strong>{provider.label}</strong><span>{provider.status.replace(/_/g, " ")} · {(split[provider.platform]?.verified ?? 0).toLocaleString()} verified · {(split[provider.platform]?.unverified ?? 0).toLocaleString()} unverified</span><p>{provider.reason}</p></li>)}</ul>
+        <ul>{providers.map((provider) => <li key={provider.platform} data-provider={provider.platform} data-status={provider.status} data-count={byPlatform[provider.platform] ?? 0} data-verified={split[provider.platform]?.verified ?? 0} data-unverified={split[provider.platform]?.unverified ?? 0}><strong className="bs-provider-name"><BrandIcon platform={provider.platform} size={18} /><span>{provider.label}</span></strong><span>{provider.status.replace(/_/g, " ")} · {(split[provider.platform]?.verified ?? 0).toLocaleString()} verified · {(split[provider.platform]?.unverified ?? 0).toLocaleString()} unverified</span><p>{provider.reason}</p></li>)}{["linkedin","tiktok"].filter((k) => (byPlatform[k] ?? 0) > 0 && !providers.some((pr) => pr.platform === k)).map((k) => <li key={k} data-provider={k} data-status="unverified only" data-count={byPlatform[k] ?? 0} data-verified={0} data-unverified={byPlatform[k] ?? 0}><strong className="bs-provider-name"><BrandIcon platform={k} size={18} /><span>{k === "tiktok" ? "TikTok" : "LinkedIn"}</span></strong><span>unverified only · 0 verified · {(byPlatform[k] ?? 0).toLocaleString()} unverified</span><p>Native {k === "tiktok" ? "TikTok" : "LinkedIn"} post permalinks restored without a provider receipt.</p></li>)}</ul>
       </section>
-      <nav className="bs-tabs" aria-label="Social providers" data-testid="bs-provider-tabs"><button type="button" aria-pressed={!platform} onClick={() => { setPlatform(""); void load(sector, 0, ""); }}>All sources</button>{[...Object.entries(SOCIAL_PROVIDERS).map(([k, v]) => [k, v.label] as const), ["linkedin", "LinkedIn"] as const].filter(([key]) => key !== "tiktok" && (byPlatform[key] ?? 0) > 0).map(([key, label]) => <button key={key} type="button" data-provider={key} data-testid="bs-provider-tab" aria-pressed={platform === key} onClick={() => { setPlatform(key); void load(sector, 0, key); }}>{label}{split[key] && !split[key].verified ? " (unverified)" : ""} <span>{(byPlatform[key] ?? 0).toLocaleString()}</span></button>)}</nav>
+      <nav className="bs-tabs" aria-label="Social providers" data-testid="bs-provider-tabs"><button type="button" aria-pressed={!platform} onClick={() => { setPlatform(""); void load(sector, 0, ""); }}>All sources</button>{[...Object.entries(SOCIAL_PROVIDERS).map(([k, v]) => [k, v.label] as const), ["linkedin", "LinkedIn"] as const, ["tiktok", "TikTok"] as const].filter(([key]) => (byPlatform[key] ?? 0) > 0).map(([key, label]) => <button key={key} type="button" data-provider={key} data-testid="bs-provider-tab" aria-pressed={platform === key} onClick={() => { setPlatform(key); void load(sector, 0, key); }}><BrandIcon platform={key} size={16} /><span className="bs-tab-label">{label}{split[key] && !split[key].verified ? " (unverified)" : ""}</span> <span>{(byPlatform[key] ?? 0).toLocaleString()}</span></button>)}</nav>
       <section className="bs-stories" aria-label="Founders" data-testid="bs-stories">
         {stories.map((s) => <Link key={s.id} href={`/social/people/${encodeURIComponent(s.id)}`} className="bs-story" title={`${s.name} · ${s.company}`}><Avatar name={s.name} sector={s.sector} size={58} /><span>{s.name.split(" ")[0]}</span><small>{s.company}</small></Link>)}
       </section>
-      <nav className="bs-tabs" aria-label="Sectors" data-testid="bs-sector-tabs">
-        <button type="button" aria-pressed={!sector} onClick={() => pickSector("")}>All <span>{total}</span></button>
-        {SECTOR_KEYS.map((k) => { const t = SECTOR_THEMES[k]; return <button key={k} type="button" aria-pressed={sector === k} data-sector={k} data-testid="bs-sector-tab" onClick={() => pickSector(k)}>{t.label} <span>{counts[k] ?? 0}</span></button>; })}
+      <nav className="bs-tabs bs-sector-tabs" aria-label="Sectors" data-testid="bs-sector-tabs">
+        <span className="bs-sector-tip-anchor"><button type="button" aria-pressed={!sector} data-sector="" data-testid="bs-sector-tab" onClick={() => pickSector("")} title="All sectors — posts from every portfolio sector." aria-describedby="bs-sector-tip-all"><SectorIcon sectorKey="" /><span className="bs-tab-label">All</span> <span>{total}</span></button><span className="bs-tip" role="tooltip" id="bs-sector-tip-all">All sectors — posts from every portfolio sector.</span></span>
+        {SECTOR_KEYS.map((k) => { const th = SECTOR_THEMES[k]; const tipId = `bs-sector-tip-${k}`; return <span className="bs-sector-tip-anchor" key={k}><button type="button" aria-pressed={sector === k} data-sector={k} data-testid="bs-sector-tab" onClick={() => pickSector(k)} title={`${th.label} — ${SECTOR_BLURB[k]}`} aria-describedby={tipId}><SectorIcon sectorKey={k} /><span className="bs-tab-label">{th.label}</span> <span>{counts[k] ?? 0}</span></button><span className="bs-tip" role="tooltip" id={tipId}>{th.label} — {SECTOR_BLURB[k]}</span></span>; })}
       </nav>
       <div className="bs-cols">
         <div className="bs-feed" data-testid="social-feed" data-total={tot}>

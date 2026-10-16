@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Newspaper } from "lucide-react";
+import { safeExternalUrl } from "@/lib/outbound";
 import "./news-mini-feed.css";
 
 /* a20 — Overview "News Pulse" mini-feed: 8 newest items with a 16px publisher favicon chip (same-origin /api/favicon proxy). */
@@ -56,12 +57,12 @@ export function NewsMiniFeed({ items, total }: { items: NewsMiniItem[]; total: n
       </header>
       {items.length ? (
         <ol className="nmf__list">
-          {items.map((n, i) => { const host = hostOf(n.url); const pub = publisherOf(n.url, n.source); return (
+          {items.map((n, i) => { const safe = safeExternalUrl(n.url); const host = hostOf(safe ?? n.url); const pub = publisherOf(safe ?? n.url, n.source); return (
             <li key={`${n.company_slug}|${n.url ?? n.title}|${i}`} className="nmf-row" data-testid="news-mini-row">
               <FaviconChip host={host} />
               <span className="nmf-row__pub" title={host || undefined}>{pub}</span>
               <span className="nmf-row__title">
-                {n.url ? <a href={n.url} target="_blank" rel="noopener noreferrer" className="nmf-row__link">{n.title}</a> : <span className="nmf-row__link">{n.title}</span>}
+                {safe ? <a href={safe} target="_blank" rel="noopener noreferrer" className="nmf-row__link">{n.title}</a> : <span className="nmf-row__link">{n.title}</span>}
               </span>
               <Link href={`/company/${n.company_slug}`} className="nmf-row__co">{n.company_name}</Link>
               <time className="nmf-row__time tabular-nums" dateTime={n.published_at ?? undefined} title={n.published_at ?? undefined} suppressHydrationWarning>{relTime(n.published_at, now)}</time>

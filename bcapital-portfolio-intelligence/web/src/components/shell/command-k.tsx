@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Archive, Building2, Command, LayoutDashboard, MessageSquare, Newspaper, Search, Landmark } from "lucide-react";
+import { Archive, Building2, Command, LayoutDashboard, MessageSquare, Newspaper, Search, Landmark, Users, Settings } from "lucide-react";
 import { resolveLogo } from "@/lib/local-logos";
 import "./command-k.css";
 
@@ -17,7 +17,9 @@ const QUICK: QuickRoute[] = [
   { href: "/news", label: "News Pulse", icon: Newspaper },
   { href: "/chat", label: "Chat", icon: MessageSquare },
   { href: "/pitchbook", label: "PitchBook", icon: Landmark },
+  { href: "/social", label: "B Social", icon: Users },
   { href: "/artifacts", label: "Artifacts", icon: Archive },
+  { href: "/settings", label: "Settings", icon: Settings },
 ];
 
 /* ---- sector colour: the shared hue-audited tokens (a18) — ink colour for monograms/pills. ---- */

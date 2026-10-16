@@ -1,5 +1,6 @@
 import type { SignalBands, SignalScore, SignalFactorKey } from "@/lib/types";
 import { SignalBullet, PercentileBadge } from "@/components/charts/signal-bullet";
+import { safeExternalUrl } from "@/lib/outbound";
 /** Company-page Signal Score panel: lg bullet + percentile pill, <details> factor breakdown (keyboard accessible, no popover lib),
  *  'Why this score' top-3 sources and a one-line evidence summary. Server component. */
 const FACTORS: { key: SignalFactorKey; label: string; hint: string }[] = [
@@ -42,11 +43,11 @@ export function SignalPanel({ s, bands, name }: { s: SignalScore; bands: SignalB
         <h4 className="mb-1 text-sm font-semibold">Why this score</h4>
         {top.length ? (
           <ol className="space-y-1.5 text-sm">
-            {top.map((t, i) => (
+            {top.map((t, i) => { const safe = safeExternalUrl(t.url); return (
               <li key={`${t.url ?? t.title}-${i}`} className="rounded-lg border border-border bg-surface p-2">
-                {t.url ? <a href={t.url} target="_blank" rel="noopener noreferrer" className="font-medium text-primary-soft underline-offset-2 hover:underline">{t.title}</a> : <span className="font-medium">{t.title}</span>}
-                <p className="mt-0.5 flex flex-wrap gap-x-2 text-xs text-muted tabular-nums"><span>{domain(t.url, t.source)}</span>{t.published_at && <span>· <time dateTime={t.published_at}>{t.published_at}</time></span>}<span>· {t.tier}</span><span>· weight {f2(t.weight)}</span><span style={{ color: t.sentiment < 0 ? NEG : "var(--brand-green-ink)" }}>· sentiment {signed(t.sentiment)}</span></p>
-              </li>))}
+                {safe ? <a href={safe} target="_blank" rel="noopener noreferrer" className="font-medium text-primary-soft underline-offset-2 hover:underline">{t.title}</a> : <span className="font-medium">{t.title}</span>}
+                <p className="mt-0.5 flex flex-wrap gap-x-2 text-xs text-muted tabular-nums"><span>{domain(safe ?? t.url, t.source)}</span>{t.published_at && <span>· <time dateTime={t.published_at}>{t.published_at}</time></span>}<span>· {t.tier}</span><span>· weight {f2(t.weight)}</span><span style={{ color: t.sentiment < 0 ? NEG : "var(--brand-green-ink)" }}>· sentiment {signed(t.sentiment)}</span></p>
+              </li>); })}
           </ol>
         ) : <p className="text-sm text-muted">No weighted sources yet — contributions appear once dated evidence lands.</p>}
       </div>

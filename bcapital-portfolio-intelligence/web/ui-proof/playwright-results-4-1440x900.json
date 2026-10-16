@@ -1,0 +1,477 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/node_modules/.bin/playwright",
+      "test",
+      "tests/regression-sweep.spec.ts",
+      "--config",
+      "tests/payloads.config.ts",
+      "-g",
+      "."
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/payloads.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/chat-intelligent-ui-payloads\\.spec\\.ts|regression-sweep\\.spec\\.ts|_dbg\\.spec\\.ts/"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 240000,
+        "use": {
+          "baseURL": "https://sb-2pwknkjsuu4u.vercel.run",
+          "trace": "off",
+          "screenshot": "off",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage"
+            ]
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../ui-proof/playwright-results-4-1440x900.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "regression-sweep.spec.ts",
+      "file": "regression-sweep.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "/overview — interactive GROWTH tile + Signal Score bullets",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 62940,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('hero-stats')\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('hero-stats') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('hero-stats')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('hero-stats')\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('hero-stats') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('hero-stats')\u001b[22m\n\n    at extra (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:37:47)\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:25:9)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:36:3",
+                    "location": {
+                      "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                      "column": 47,
+                      "line": 37
+                    },
+                    "snippet": "  35 | test(\"/overview — interactive GROWTH tile + Signal Score bullets\", async ({ page }) => {\n  36 |   await sweep(page, \"/overview\", \"overview\", async (p, rows) => {\n> 37 |     await expect(p.getByTestId(\"hero-stats\")).toBeVisible({ timeout: 60_000 });\n     |                                               ^\n  38 |     rows[\"Signal Score by sector renders\"] = (await p.locator('[data-bento=sector-signal]').count()) === 1;\n  39 |     // GROWTH tile (interactive values grid lives on /onboarding — the overview links to it); assert the hero stat tiles respond to hover/focus.\n  40 |     const tile = p.locator('[data-testid=hero-stats] [data-testid], [data-testid=hero-stats] a, [data-testid=hero-stats] button').first();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                        "column": 47,
+                        "line": 37
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('hero-stats')\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('hero-stats') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('hero-stats')\u001b[22m\n\n\n  35 | test(\"/overview — interactive GROWTH tile + Signal Score bullets\", async ({ page }) => {\n  36 |   await sweep(page, \"/overview\", \"overview\", async (p, rows) => {\n> 37 |     await expect(p.getByTestId(\"hero-stats\")).toBeVisible({ timeout: 60_000 });\n     |                                               ^\n  38 |     rows[\"Signal Score by sector renders\"] = (await p.locator('[data-bento=sector-signal]').count()) === 1;\n  39 |     // GROWTH tile (interactive values grid lives on /onboarding — the overview links to it); assert the hero stat tiles respond to hover/focus.\n  40 |     const tile = p.locator('[data-testid=hero-stats] [data-testid], [data-testid=hero-stats] a, [data-testid=hero-stats] button').first();\n    at extra (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:37:47)\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:25:9)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:36:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T07:51:13.539Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results/regression-sweep--overview-af56c-H-tile-Signal-Score-bullets/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                    "column": 47,
+                    "line": 37
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-1075543a338e3001736e",
+          "file": "regression-sweep.spec.ts",
+          "line": 35,
+          "column": 5
+        },
+        {
+          "title": "/onboarding — interactive GROWTH tile click/hover",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1573,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T07:52:18.069Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-896747b891eeb242ffb1",
+          "file": "regression-sweep.spec.ts",
+          "line": 44,
+          "column": 5
+        },
+        {
+          "title": "/companies — provenance popover, funding timeline, Quick Preview drawer",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 62559,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('company-card-sentiment').first()\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('company-card-sentiment').first() with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('company-card-sentiment').first()\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('company-card-sentiment').first()\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('company-card-sentiment').first() with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('company-card-sentiment').first()\u001b[22m\n\n    at extra (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:53:67)\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:25:9)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:52:3",
+                    "location": {
+                      "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                      "column": 67,
+                      "line": 53
+                    },
+                    "snippet": "  51 | test(\"/companies — provenance popover, funding timeline, Quick Preview drawer\", async ({ page }) => {\n  52 |   await sweep(page, \"/companies\", \"companies\", async (p, rows) => {\n> 53 |     await expect(p.getByTestId(\"company-card-sentiment\").first()).toBeVisible({ timeout: 60_000 });\n     |                                                                   ^\n  54 |     rows[\"funding timeline renders\"] = (await p.locator('[data-testid=funding-timeline], [data-testid=funding-timeline-interactive]').count()) >= 1;\n  55 |     await p.getByTestId(\"company-card-sentiment\").first().click();\n  56 |     const view = p.getByTestId(\"sentiment-provenance-view\").first(); await expect(view).toBeVisible({ timeout: 20_000 });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                        "column": 67,
+                        "line": 53
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('company-card-sentiment').first()\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('company-card-sentiment').first() with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('company-card-sentiment').first()\u001b[22m\n\n\n  51 | test(\"/companies — provenance popover, funding timeline, Quick Preview drawer\", async ({ page }) => {\n  52 |   await sweep(page, \"/companies\", \"companies\", async (p, rows) => {\n> 53 |     await expect(p.getByTestId(\"company-card-sentiment\").first()).toBeVisible({ timeout: 60_000 });\n     |                                                                   ^\n  54 |     rows[\"funding timeline renders\"] = (await p.locator('[data-testid=funding-timeline], [data-testid=funding-timeline-interactive]').count()) >= 1;\n  55 |     await p.getByTestId(\"company-card-sentiment\").first().click();\n  56 |     const view = p.getByTestId(\"sentiment-provenance-view\").first(); await expect(view).toBeVisible({ timeout: 20_000 });\n    at extra (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:53:67)\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:25:9)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:52:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T07:52:20.184Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results/regression-sweep--companie-3c3cd-meline-Quick-Preview-drawer/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                    "column": 67,
+                    "line": 53
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-a2b67e7f94e57a46aa4e",
+          "file": "regression-sweep.spec.ts",
+          "line": 51,
+          "column": 5
+        },
+        {
+          "title": "/social — native permalinks + snapshot count",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 91763,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('social-feed')\nExpected: visible\nTimeout: 90000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('social-feed') with timeout 90000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('social-feed')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('social-feed')\nExpected: visible\nTimeout: 90000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('social-feed') with timeout 90000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('social-feed')\u001b[22m\n\n    at extra (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:74:48)\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:25:9)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:73:3",
+                    "location": {
+                      "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                      "column": 48,
+                      "line": 74
+                    },
+                    "snippet": "  72 | test(\"/social — native permalinks + snapshot count\", async ({ page }) => {\n  73 |   await sweep(page, \"/social\", \"social\", async (p, rows) => {\n> 74 |     await expect(p.getByTestId(\"social-feed\")).toBeVisible({ timeout: 90_000 });\n     |                                                ^\n  75 |     const total = (await p.getByTestId(\"bs-total\").textContent()) ?? \"\";\n  76 |     rows[\"10,937-post snapshot count visible\"] = /10[,.]?937/.test(total.replace(/\\s/g, \"\"));\n  77 |     const bad = await p.locator(\"[data-testid=social-post] a[href^=http]\").evaluateAll((as) => as.filter((a) => { const h = (a as HTMLAnchorElement).href; return /perplexity\\.ai|google\\.com\\/url|utm_|\\/r\\/go|redirect/i.test(h) || (a as HTMLAnchorElement).target !== \"_blank\" || !/noopener/.test((a as HTMLAnchorElement).rel); }).length);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                        "column": 48,
+                        "line": 74
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('social-feed')\nExpected: visible\nTimeout: 90000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('social-feed') with timeout 90000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('social-feed')\u001b[22m\n\n\n  72 | test(\"/social — native permalinks + snapshot count\", async ({ page }) => {\n  73 |   await sweep(page, \"/social\", \"social\", async (p, rows) => {\n> 74 |     await expect(p.getByTestId(\"social-feed\")).toBeVisible({ timeout: 90_000 });\n     |                                                ^\n  75 |     const total = (await p.getByTestId(\"bs-total\").textContent()) ?? \"\";\n  76 |     rows[\"10,937-post snapshot count visible\"] = /10[,.]?937/.test(total.replace(/\\s/g, \"\"));\n  77 |     const bad = await p.locator(\"[data-testid=social-post] a[href^=http]\").evaluateAll((as) => as.filter((a) => { const h = (a as HTMLAnchorElement).href; return /perplexity\\.ai|google\\.com\\/url|utm_|\\/r\\/go|redirect/i.test(h) || (a as HTMLAnchorElement).target !== \"_blank\" || !/noopener/.test((a as HTMLAnchorElement).rel); }).length);\n    at extra (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:74:48)\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:25:9)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:73:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T07:53:23.292Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results/regression-sweep--social-—-native-permalinks-snapshot-count/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                    "column": 48,
+                    "line": 74
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-960ebfaa04eb4e7c0a0a",
+          "file": "regression-sweep.spec.ts",
+          "line": 72,
+          "column": 5
+        },
+        {
+          "title": "/docs/interactive-ui — synergy matrix",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 62200,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('synergy-table')\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('synergy-table') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('synergy-table')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('synergy-table')\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('synergy-table') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('synergy-table')\u001b[22m\n\n    at extra (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:83:50)\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:25:9)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:82:3",
+                    "location": {
+                      "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                      "column": 50,
+                      "line": 83
+                    },
+                    "snippet": "  81 | test(\"/docs/interactive-ui — synergy matrix\", async ({ page }) => {\n  82 |   await sweep(page, \"/docs/interactive-ui\", \"docs\", async (p, rows) => {\n> 83 |     await expect(p.getByTestId(\"synergy-table\")).toBeVisible({ timeout: 60_000 });\n     |                                                  ^\n  84 |     rows[\"synergy rows > 10\"] = (await p.getByTestId(\"synergy-row\").count()) > 10;\n  85 |   });\n  86 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                        "column": 50,
+                        "line": 83
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('synergy-table')\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('synergy-table') with timeout 60000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('synergy-table')\u001b[22m\n\n\n  81 | test(\"/docs/interactive-ui — synergy matrix\", async ({ page }) => {\n  82 |   await sweep(page, \"/docs/interactive-ui\", \"docs\", async (p, rows) => {\n> 83 |     await expect(p.getByTestId(\"synergy-table\")).toBeVisible({ timeout: 60_000 });\n     |                                                  ^\n  84 |     rows[\"synergy rows > 10\"] = (await p.getByTestId(\"synergy-row\").count()) > 10;\n  85 |   });\n  86 | });\n    at extra (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:83:50)\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:25:9)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:82:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T07:54:56.287Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results/regression-sweep--docs-interactive-ui-—-synergy-matrix/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                    "column": 50,
+                    "line": 83
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-75d3da90b5d099406857",
+          "file": "regression-sweep.spec.ts",
+          "line": 81,
+          "column": 5
+        },
+        {
+          "title": "non-existent route → real HTTP 404",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1983,
+                  "error": {
+                    "message": "Error: /this-route-does-not-exist zero console errors\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: /this-route-does-not-exist zero console errors\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:32:73)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:88:3",
+                    "location": {
+                      "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                      "column": 73,
+                      "line": 32
+                    },
+                    "snippet": "  30 |   const utc = new Date().toISOString();\n  31 |   fs.appendFileSync(OUT, JSON.stringify({ route, label, viewport: VP, http_status: res?.status() ?? null, ...geo, console_errors: errs.length, page_errors: perr.length, console_error_samples: errs.slice(0, 3), rows, pass: Object.values(rows).every(Boolean), screenshot: path.relative(path.resolve(__dirname, \"..\"), file), utc }) + \"\\n\");\n> 32 |   for (const [k, v] of Object.entries(rows)) expect(v, `${route} ${k}`).toBe(true);\n     |                                                                         ^\n  33 | }\n  34 |\n  35 | test(\"/overview — interactive GROWTH tile + Signal Score bullets\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                        "column": 73,
+                        "line": 32
+                      },
+                      "message": "Error: /this-route-does-not-exist zero console errors\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  30 |   const utc = new Date().toISOString();\n  31 |   fs.appendFileSync(OUT, JSON.stringify({ route, label, viewport: VP, http_status: res?.status() ?? null, ...geo, console_errors: errs.length, page_errors: perr.length, console_error_samples: errs.slice(0, 3), rows, pass: Object.values(rows).every(Boolean), screenshot: path.relative(path.resolve(__dirname, \"..\"), file), utc }) + \"\\n\");\n> 32 |   for (const [k, v] of Object.entries(rows)) expect(v, `${route} ${k}`).toBe(true);\n     |                                                                         ^\n  33 | }\n  34 |\n  35 | test(\"/overview — interactive GROWTH tile + Signal Score bullets\", async ({ page }) => {\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:32:73)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:88:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T07:55:59.853Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results/regression-sweep-non-existent-route-→-real-HTTP-404/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                    "column": 73,
+                    "line": 32
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-9ee5d8318f3295611159",
+          "file": "regression-sweep.spec.ts",
+          "line": 87,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T07:51:11.958Z",
+    "duration": 290717.475,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

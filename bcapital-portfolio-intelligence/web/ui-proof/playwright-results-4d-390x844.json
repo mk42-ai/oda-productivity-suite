@@ -1,0 +1,355 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/node_modules/.bin/playwright",
+      "test",
+      "tests/regression-sweep.spec.ts",
+      "--config",
+      "tests/payloads.config.ts"
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/payloads.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/chat-intelligent-ui-payloads\\.spec\\.ts|regression-sweep\\.spec\\.ts|_metrics\\.spec\\.ts|_dbg\\.spec\\.ts/"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 240000,
+        "use": {
+          "baseURL": "https://sb-2pwknkjsuu4u.vercel.run",
+          "trace": "off",
+          "screenshot": "off",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage"
+            ]
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../ui-proof/playwright-results-4d-390x844.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "regression-sweep.spec.ts",
+      "file": "regression-sweep.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "/overview — interactive GROWTH tile + Signal Score bullets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1571,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T08:04:48.384Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-1075543a338e3001736e",
+          "file": "regression-sweep.spec.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "/onboarding — interactive GROWTH tile click/hover",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1380,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T08:04:50.436Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-896747b891eeb242ffb1",
+          "file": "regression-sweep.spec.ts",
+          "line": 47,
+          "column": 5
+        },
+        {
+          "title": "/companies — provenance popover, funding timeline, Quick Preview drawer",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4550,
+                  "error": {
+                    "message": "Error: /companies channels_shown\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31m\"all,funding,x,news,reddit,tiktok\"\u001b[39m",
+                    "stack": "Error: /companies channels_shown\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31m\"all,funding,x,news,reddit,tiktok\"\u001b[39m\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:35:73)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:55:3",
+                    "location": {
+                      "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                      "column": 73,
+                      "line": 35
+                    },
+                    "snippet": "  33 |   const utc = new Date().toISOString();\n  34 |   fs.appendFileSync(OUT, JSON.stringify({ route, label, viewport: VP, http_status: res?.status() ?? null, ...geo, console_errors: errs.length, page_errors: perr.length, console_error_samples: errs.slice(0, 3), rows, pass: Object.values(rows).every(Boolean), screenshot: path.relative(path.resolve(__dirname, \"..\"), file), utc }) + \"\\n\");\n> 35 |   for (const [k, v] of Object.entries(rows)) expect(v, `${route} ${k}`).toBe(true);\n     |                                                                         ^\n  36 | }\n  37 |\n  38 | test(\"/overview — interactive GROWTH tile + Signal Score bullets\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                        "column": 73,
+                        "line": 35
+                      },
+                      "message": "Error: /companies channels_shown\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31m\"all,funding,x,news,reddit,tiktok\"\u001b[39m\n\n  33 |   const utc = new Date().toISOString();\n  34 |   fs.appendFileSync(OUT, JSON.stringify({ route, label, viewport: VP, http_status: res?.status() ?? null, ...geo, console_errors: errs.length, page_errors: perr.length, console_error_samples: errs.slice(0, 3), rows, pass: Object.values(rows).every(Boolean), screenshot: path.relative(path.resolve(__dirname, \"..\"), file), utc }) + \"\\n\");\n> 35 |   for (const [k, v] of Object.entries(rows)) expect(v, `${route} ${k}`).toBe(true);\n     |                                                                         ^\n  36 | }\n  37 |\n  38 | test(\"/overview — interactive GROWTH tile + Signal Score bullets\", async ({ page }) => {\n    at sweep (/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:35:73)\n    at /home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts:55:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T08:04:51.835Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/test-results/regression-sweep--companie-3c3cd-meline-Quick-Preview-drawer/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6acfa786ba16cf7858deb3be/oda-productivity-suite/bcapital-portfolio-intelligence/web/tests/regression-sweep.spec.ts",
+                    "column": 73,
+                    "line": 35
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-a2b67e7f94e57a46aa4e",
+          "file": "regression-sweep.spec.ts",
+          "line": 54,
+          "column": 5
+        },
+        {
+          "title": "/social — native permalinks + snapshot count",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1409,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T08:04:56.981Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-960ebfaa04eb4e7c0a0a",
+          "file": "regression-sweep.spec.ts",
+          "line": 82,
+          "column": 5
+        },
+        {
+          "title": "/docs/interactive-ui — synergy matrix",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1487,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T08:04:58.875Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-75d3da90b5d099406857",
+          "file": "regression-sweep.spec.ts",
+          "line": 93,
+          "column": 5
+        },
+        {
+          "title": "non-existent route → real HTTP 404",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1053,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T08:05:00.388Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3ceffc415fa86521c0b8-9ee5d8318f3295611159",
+          "file": "regression-sweep.spec.ts",
+          "line": 99,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T08:04:47.881Z",
+    "duration": 13726.939,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

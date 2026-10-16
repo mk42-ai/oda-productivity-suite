@@ -50,11 +50,15 @@ PLUGIN_NAMES[PITCHBOOK_PLUGIN_ID] ??= PITCHBOOK_PLUGIN_NAME;
 /** Portfolio Plugin — registered 2026-10-11T10:13:56Z via the AI tool generator (plugin-1791713636 / agent-1791713636, REST tool over this
  *  product's own backend; see proof/data-lane/plugin-registration-2026-10-11b.log.txt). Allow-listed so `resolvePluginIds` keeps it, and ordered
  *  FIRST for portfolio-internal questions so sentiment/news asks route to the portfolio feed rather than to Perplexity. */
-export const PORTFOLIO_PLUGIN_ID: string | null = process.env.NEXT_PUBLIC_PORTFOLIO_PLUGIN_ID || "plugin-1791713636";
+// plugin-1791713636 (agent-1791713636) is DISABLED: its generated schema pins servers[0] to a dead sandbox
+// (sb-23wo7xiys7fz.vercel.run), so every execution fails upstream with "Agents execution failed" even though the
+// answer itself succeeds. Portfolio data is already injected via systemContext (buildContextPayload), so no data is lost.
+// Re-enable only by re-registering the plugin against a live backend and setting NEXT_PUBLIC_PORTFOLIO_PLUGIN_ID.
+export const PORTFOLIO_PLUGIN_ID: string | null = process.env.NEXT_PUBLIC_PORTFOLIO_PLUGIN_ID?.trim() || null;
 export const PORTFOLIO_QUESTION_RE = /\b(sentiment|portfolio|deltas?|movers?|news count|how many (news|companies)|focus compan|negative|positive|roll-?ups?)\b/i;
 if (PORTFOLIO_PLUGIN_ID) { PLUGIN_CATALOGUE_IDS.add(PORTFOLIO_PLUGIN_ID); PLUGIN_NAMES[PORTFOLIO_PLUGIN_ID] ??= "Portfolio Plugin"; }
 /** Plugins switched off for now: never sent on a session create or a query, even when a stored toggle or a caller still asks for them. */
-export const DISABLED_PLUGIN_IDS: ReadonlySet<string> = new Set(["plugin-1785777296"]); // X search
+export const DISABLED_PLUGIN_IDS: ReadonlySet<string> = new Set(["plugin-1785777296", "plugin-1791713636"]); // X search; broken Portfolio Plugin (dead server URL in its schema)
 /** Resolve the plugin list for one request: pinned Perplexity first, then every requested id that exists in the catalogue, in request order. */
 export const resolvePluginIds = (requested: unknown, query?: string): { pluginIds: string[]; dropped: string[] } => {
   const req = Array.isArray(requested) ? requested.map(String) : [];
