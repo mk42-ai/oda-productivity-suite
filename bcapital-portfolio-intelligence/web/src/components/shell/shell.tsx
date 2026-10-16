@@ -4,6 +4,7 @@ import { OnboardingGate } from "./onboarding-gate";
 import { BackendStatus } from "./backend-status";
 import { PageFrame } from "./page-frame";
 import { CommandK } from "./command-k";
+import { RouteEffects } from "./route-effects";
 import { ArtifactsPanel } from "@/components/artifacts/artifacts-panel";
 import { SidePaneOutsideChat } from "@/components/media/side-pane-outside-chat";
 import { PitchbookDock } from "@/components/pitchbook/pitchbook-dock";
@@ -25,6 +26,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <SidePaneOutsideChat />
       <PitchbookDock />
       <CommandK />
+      <RouteEffects />
     </div>
   );
 }

@@ -39,7 +39,7 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
       )}
       aria-label="Primary navigation">
       <div className={cn("flex items-center", collapsed ? "lg:justify-center" : "lg:justify-between lg:px-1")}>
-        <Link href="/overview" prefetch={false} className={cn("flex items-center gap-2 rounded-lg px-1 py-1", collapsed && "lg:hidden")} data-testid="brand-home">
+        <Link href="/overview" className={cn("flex items-center gap-2 rounded-lg px-1 py-1", collapsed && "lg:hidden")} data-testid="brand-home">
           <BrandLogo height={24} /><span className="sr-only">Home</span>
         </Link>
         {/* `nav-toggle` (legacy testid, kept) wraps the actual button `rail-toggle`; both resolve to the same click target. */}

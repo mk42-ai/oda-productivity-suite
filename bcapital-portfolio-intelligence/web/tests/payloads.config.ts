@@ -1,9 +1,9 @@
 import { defineConfig } from "@playwright/test";
-/** Pass-2 payload harness + regression sweep config: one worker, serial, BASE_URL = live preview, PW_VIEWPORT selects the viewport. */
+/** Regression sweep config (Intelligent-UI payload harness removed 2026-10-16): one worker, serial, BASE_URL = live preview, PW_VIEWPORT selects the viewport. */
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:5173";
 export default defineConfig({
   testDir: ".",
-  testMatch: /chat-intelligent-ui-payloads\.spec\.ts|regression-sweep\.spec\.ts|metrics\.spec\.ts/,
+  testMatch: /regression-sweep\.spec\.ts/,
   timeout: 240_000,
   expect: { timeout: 20_000 },
   retries: 0,

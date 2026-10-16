@@ -35,7 +35,9 @@ export const backendBaseUrl = BASE;
 /** `news_total` is the backend's single news count (same definition as /news/summary); null when served from the snapshot. */
 export async function listCompanies(): Promise<Sourced<Company[]> & { news_total: number | null }> {
   const r = await get<{ data: Company[]; news_total?: number }>("/companies?limit=200", () => ({ data: snap.companies }));
-  return { ...r, data: r.data.data, news_total: r.source === "live" ? r.data.news_total ?? null : null };
+  // Partial/malformed 200 bodies (e.g. `{}` from a cold backend) must not crash `.map` downstream → fall back to the snapshot list.
+  const list = Array.isArray(r.data?.data) ? r.data.data : snap.companies;
+  return { ...r, data: list, news_total: r.source === "live" && Array.isArray(r.data?.data) ? r.data.news_total ?? null : null };
 }
 export async function getCompany(slug: string): Promise<Sourced<Company | null>> {
   const r = await get<{ data: Company } | null>(`/companies/${encodeURIComponent(slug)}`, () => { const c = snap.companies.find((x) => x.slug === slug || x.name.toLowerCase() === slug.toLowerCase()); return c ? { data: c } : null; });
@@ -43,7 +45,7 @@ export async function getCompany(slug: string): Promise<Sourced<Company | null>>
 }
 export async function getNews(slug: string): Promise<Sourced<NewsItem[]>> {
   const r = await get<{ data: NewsItem[] }>(`/companies/${encodeURIComponent(slug)}/news?limit=50`, () => ({ data: snap.news[slug] ?? [] }));
-  return { ...r, data: r.data.data };
+  return { ...r, data: Array.isArray(r.data?.data) ? r.data.data : (snap.news[slug] ?? []) };
 }
 export async function getSentiment(slug: string): Promise<Sourced<CompanySentiment | null>> {
   return get<CompanySentiment | null>(`/companies/${encodeURIComponent(slug)}/sentiment?limit=60`, () => snap.sentiment[slug] ?? null);
@@ -60,8 +62,12 @@ export async function getSentimentRuns(): Promise<Sourced<{ data: SentimentRun[]
 }
 /** Evidence-weighted Signal Scores for the whole portfolio. No snapshot exists yet, so the offline fallback is an empty shape
  *  (source 'snapshot') and the UI renders its "history builds daily" / em-dash states instead of simulated numbers. */
+const EMPTY_SIGNALS = (): SignalsResponse => ({ data: [], portfolio: { n: 0, mean: 0, p25: 0, p75: 0, computed_at: null, method: "" }, sectors: {} });
 export async function getSignals(): Promise<Sourced<SignalsResponse>> {
-  return get<SignalsResponse>("/signals", () => ({ data: [], portfolio: { n: 0, mean: 0, p25: 0, p75: 0, computed_at: null, method: "" }, sectors: {} }));
+  const r = await get<SignalsResponse>("/signals", EMPTY_SIGNALS);
+  // Normalise partial bodies: `data` always an array, `portfolio`/`sectors` always objects (the /signals page maps + reads .mean).
+  const e = EMPTY_SIGNALS(); const d = (r.data ?? {}) as Partial<SignalsResponse>;
+  return { ...r, data: { ...e, ...d, data: Array.isArray(d.data) ? d.data : [], portfolio: { ...e.portfolio, ...(d.portfolio ?? {}) }, sectors: d.sectors ?? {} } };
 }
 export async function getSignal(slug: string): Promise<Sourced<{ data: SignalScore; bands: SignalBands } | null>> {
   const r = await get<{ data: SignalScore; bands: SignalBands } | null>(`/companies/${encodeURIComponent(slug)}/signal`, () => null);

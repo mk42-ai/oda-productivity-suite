@@ -1210,6 +1210,10 @@ export function ChatShell({ companies, fetchedAt, topBarRight }: { companies: Co
   // companies sent always equal the chips shown in the inspector. `companiesRef` keeps the latest server list without widening the memo deps.
   const companiesRef = useRef(companies); companiesRef.current = companies;
   const fetchedAtRef = useRef(fetchedAt); fetchedAtRef.current = fetchedAt;
+  // Route change / unmount aborts the in-flight /api/chat SSE (and its tee) so a stream never keeps writing after the user left /chat.
+  // The library's own init.signal (Stop button) is combined with this one; the tee's reader then rejects and its catch/finally settles to idle.
+  const unmountCtl = useRef<AbortController | null>(null);
+  useEffect(() => { const ctl = new AbortController(); unmountCtl.current = ctl; return () => { ctl.abort(); if (unmountCtl.current === ctl) unmountCtl.current = null; }; }, []);
   const llm = useMemo(() => fetchLLM({
     url: CHAT_API_URL, streamAdapter: discreetErrorAdapter() as unknown as ReturnType<typeof agUIAdapter>,
     headers: s.apikey ? { "x-ondemand-key": s.apikey } : {},
@@ -1237,7 +1241,9 @@ ${txt}`; }
       let res: Response;
       const directKey = directChatKey(s.apikey);
       const direct = !!directKey && (await browserCanReachOnDemand());
-      try { res = direct ? await browserChat(body, directKey, init?.signal) : await fetch(input, { ...init, body: JSON.stringify(body) }); if (chips.length) clearContextChips(); } catch (e) { setStream({ phase: "idle", detail: "", error: { code: "fetch_failed", message: "Response failed" } }, true); throw e; }
+      const signals = [init?.signal, unmountCtl.current?.signal].filter((x): x is AbortSignal => !!x);
+      const signal = signals.length > 1 && typeof AbortSignal.any === "function" ? AbortSignal.any(signals) : signals[0];
+      try { res = direct ? await browserChat(body, directKey, signal ?? undefined) : await fetch(input, { ...init, signal, body: JSON.stringify(body) }); if (chips.length) clearContextChips(); } catch (e) { const left = signal?.aborted && !init?.signal?.aborted; setStream({ phase: "idle", detail: "", ...(left ? {} : { error: { code: "fetch_failed", message: "Response failed" } }) }, true); throw e; }
       const remember = (got: string) => { if (tid) { sessionRef.current[tid] = got; rememberSession(tid, got); } };
       const got = res.headers.get("x-ondemand-session"); if (got) remember(got);
       if (!res.ok || !res.body) { setStream({ phase: "idle", detail: "", error: { code: `http_${res.status}`, message: `Chat endpoint answered HTTP ${res.status}` } }, true); return res; }

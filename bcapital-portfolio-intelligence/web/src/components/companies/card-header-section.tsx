@@ -181,7 +181,7 @@ export function CardHeaderSection({ company, onQuickView }: CardHeaderSectionPro
   const fullLocationTitle = [
     company.hq ?? company.region,
     company.founded ? `Founded ${company.founded}` : null,
-    company.employees ? `${company.employees.toLocaleString()} employees` : null,
+    company.employees ? `${company.employees.toLocaleString("en-US")} employees` : null,
   ]
     .filter(Boolean)
     .join(" · ");
@@ -234,7 +234,7 @@ export function CardHeaderSection({ company, onQuickView }: CardHeaderSectionPro
             {company.employees && (
               <>
                 <span className="cg-sub__sep" aria-hidden="true">·</span>
-                <span className="cg-sub__token">{company.employees.toLocaleString()} ppl</span>
+                <span className="cg-sub__token">{company.employees.toLocaleString("en-US")} ppl</span>
               </>
             )}
           </p>

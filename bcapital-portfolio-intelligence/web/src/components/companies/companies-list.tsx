@@ -97,7 +97,9 @@ export function CompaniesList({ rows, total, initialState }: { rows: CompanyList
     if (restored.current === filterKey) return;
     restored.current = filterKey;
     const y = readStore()[filterKey];
-    if (typeof y === "number" && y > 0) requestAnimationFrame(() => window.scrollTo({ top: y, behavior: "auto" }));
+    if (!(typeof y === "number" && y > 0)) return;
+    const raf = requestAnimationFrame(() => window.scrollTo({ top: y, behavior: "auto" }));
+    return () => cancelAnimationFrame(raf); // unmounted (route change) before the frame → no stray scroll on the next page
   }, [filterKey]);
   useEffect(() => {
     let t: number | undefined;

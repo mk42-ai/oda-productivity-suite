@@ -92,9 +92,11 @@ export function CommandK() {
       if ((e.metaKey || e.ctrlKey) && !e.altKey && (e.key === "k" || e.key === "K")) { e.preventDefault(); setOpen((o) => { if (o) { hide(); return false; } show(); return true; }); }
     };
     const onEvt = () => show();
+    const onRoute = () => setOpen(false); // a client navigation closes the palette (and its effect cleanup releases the scroll lock)
     window.addEventListener("keydown", onKey);
     window.addEventListener(CMDK_OPEN_EVENT, onEvt);
-    return () => { window.removeEventListener("keydown", onKey); window.removeEventListener(CMDK_OPEN_EVENT, onEvt); };
+    window.addEventListener("bcap:route-change", onRoute);
+    return () => { window.removeEventListener("keydown", onKey); window.removeEventListener(CMDK_OPEN_EVENT, onEvt); window.removeEventListener("bcap:route-change", onRoute); };
   }, [show, hide]);
 
   // Autofocus + body scroll lock while open.

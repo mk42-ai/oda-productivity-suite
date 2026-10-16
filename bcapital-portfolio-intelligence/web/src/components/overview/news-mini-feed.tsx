@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Newspaper } from "lucide-react";
 import { safeExternalUrl } from "@/lib/outbound";
@@ -45,7 +45,10 @@ function EmptyGlyph() {
 
 export function NewsMiniFeed({ items, total }: { items: NewsMiniItem[]; total: number }) {
   const companies = new Set(items.map((i) => i.company_slug)).size;
-  const now = Date.now();
+  // Hydration-safe clock: relative times render
+  // with suppressHydrationWarning and refresh right after mount (+ every minute) — same pattern as HeroStats.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => { setNow(Date.now()); const id = setInterval(() => setNow(Date.now()), 60_000); return () => clearInterval(id); }, []);
   return (
     <section className="card nmf" data-testid="news-mini-feed" aria-labelledby="nmf-title">
       <header className="nmf__head">

@@ -70,9 +70,12 @@ export function CompanyQuickViewDrawer({
     const onPbOpen = () => onClose();
     document.addEventListener("keydown", onKey);
     window.addEventListener("bcap:pitchbook-dock", onPbOpen);
+    // Close on client navigation (RouteEffects broadcasts it) so a drawer never survives into the next page.
+    window.addEventListener("bcap:route-change", onPbOpen);
     return () => {
       document.removeEventListener("keydown", onKey);
       window.removeEventListener("bcap:pitchbook-dock", onPbOpen);
+      window.removeEventListener("bcap:route-change", onPbOpen);
     };
   }, [company, onClose]);
 
@@ -138,7 +141,7 @@ export function CompanyQuickViewDrawer({
                 <span>{company.hq ?? company.region ?? "Global"}</span>
                 {company.founded ? <span>· est. {company.founded}</span> : null}
                 {company.employees ? (
-                  <span>· {company.employees.toLocaleString()} employees</span>
+                  <span>· {company.employees.toLocaleString("en-US")} employees</span>
                 ) : null}
               </p>
             </div>
