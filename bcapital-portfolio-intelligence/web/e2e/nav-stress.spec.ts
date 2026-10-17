@@ -20,7 +20,7 @@ type Ev = { viewport: string; test: string; route: string; kind: string; message
 const NOISE = [/favicon/i, /net::ERR_ABORTED/i, /ERR_BLOCKED_BY_ORB/i, /Failed to load resource.*(404|net::)/i, /status of 404/i, /\[route-error\]|\[global-error\]/];
 const HYDRATION = /hydrat|did not match|Minified React error|#418|#423|#425/i;
 const BOUNDARY = /Application error: a client-side exception|This section hit a problem|Something went wrong/i;
-const ROUTES = ["/", "/overview", "/companies", "/social", "/signals", "/docs/interactive-ui", "/news", "/chat?skip=1", "/company/fervo-energy", "/company/fervo-energy#news"];
+const ROUTES = ["/", "/overview", "/companies", "/social", "/signals", "/reputation", "/docs/interactive-ui", "/news", "/chat?skip=1", "/company/fervo-energy", "/company/fervo-energy#news"];
 const BADS = ["/no-such-page-xyz", "/companies/nope/definitely-bad", "/company/does-not-exist-zz"];
 const SSE = ["RUN_STARTED", "TEXT_MESSAGE_START", "TEXT_MESSAGE_CONTENT", "TEXT_MESSAGE_END", "RUN_FINISHED"].map((type) =>
   `data: ${JSON.stringify(type === "TEXT_MESSAGE_CONTENT" ? { type, messageId: "m", delta: "Stress answer: Fervo Energy is a geothermal developer." } : type.startsWith("RUN") ? { type, threadId: "t", runId: "r" } : { type, messageId: "m" })}\n\n`).join("") + "data: [DONE]\n\n";

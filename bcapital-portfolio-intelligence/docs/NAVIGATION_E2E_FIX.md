@@ -218,3 +218,107 @@ Repro command: `BASE_URL=<url> web/scripts/run-nav-regression.sh` (never runs `n
 Screenshot proof (`.ui-proof/`): `stress-<scenario>-{1440x900,390x844}.png` (18), `live-*-{1440x900,390x844}.png` incl.
 `live-playground-no-snapshots-*`, `live-chat-no-snapshots-*`, `live-news-anchor-*`, `live-signals-*`, `live-chat-*`, `live-retry-error/recovered-*`,
 `nav-*` (navigation-e2e/retry-proof), `after-playground-no-snapshots-*`, `after-signals-*` (ui-validator).
+
+---
+
+## Reputation & Prestige + Cleanup 2026-10-17
+
+Checkpoint tag `pre-reputation-cleanup-20261017` = `b9dc032e9470290695353baec465ed344643d948` (pushed 2026-10-17T09:45:04Z; `tsc --noEmit` 0, `next build` 0 before any change).
+
+### Where the "Rillion" correlation engine actually lives
+`mk42-ai/rilian-airev-ondemand-deck` (main @ `049cd227`, 2 commits, Vite + Three.js deck) contains **no** correlation / scoring engine — 0 hits for
+`correlation`, `correlate`, `reputation`, `prestige`, `score`, `quickChat` on every branch and commit; it only has a sync OnDemand "Ask about the
+partnership" drawer. The engine is the **Correlation Engine of `mk42-ai/gulf-io-light-workbench`** (the Rilian Gulf-IO Workbench, master @
+`38effe89c7af7e48a3e4dc6ad825fe3f4e2f1932`, v5.1.0 — present on all 9 branches): `src/engine/coordination/*` + `src/views/correlation/*` +
+the "ASK · OnDemand" quick-query dock (`src/views/chat/OndemandAskPanel.tsx`, `src/lib/ondemand/*`, proxy `server/ondemand.ts`).
+
+### Ported files → Rilian origin (verbatim unless noted)
+| Ported file (this repo, `web/…`) | Rilian origin (`gulf-io-light-workbench/…`) | Change |
+|---|---|---|
+| `src/lib/reputation/engine/engine.ts` | `src/engine/coordination/engine.ts` | import path only (`../../types` → `./rilian-types`) |
+| `src/lib/reputation/engine/objects.ts` | `src/engine/coordination/objects.ts` | none |
+| `src/lib/reputation/engine/temporal.ts` | `src/engine/coordination/temporal.ts` | none |
+| `src/lib/reputation/engine/types.ts` | `src/engine/coordination/types.ts` | import path only |
+| `src/lib/reputation/engine/rilian-types.ts` | `src/types.ts` (Platform, PLATFORMS, BadgePattern, Post) | extracted declarations, verbatim |
+| `src/lib/reputation/ondemand/sse.ts` | `src/lib/ondemand/sse.ts` | none |
+| `src/lib/reputation/ondemand/prompts.ts` | `src/lib/ondemand/prompts.ts` | none |
+| `src/lib/reputation/ondemand/context.ts` | `src/lib/ondemand/context.ts` | DEF-027 whole-dataset section (BM25 retrieval over the Rilian corpus) not ported; subject builders verbatim |
+| `src/lib/reputation/ondemand/chatModels.ts` | `src/lib/ondemand/chatModels.ts` | snapshot import path only |
+| `src/lib/reputation/data/endpoints.snapshot.json` | `src/data/ondemand/endpoints.snapshot.json` | none |
+| `src/lib/reputation/ondemand/analystPlugins.ts` | `src/lib/ondemand/analystPlugins.ts` | `WITHHELD_PLUGIN_IDS` = X `plugin-1785777296` (HTTP 400 "agents are inactive" on this account, verified live) |
+| `src/lib/reputation/ondemand/askDock.ts` | `src/lib/ondemand/askDock.ts` | dataset-scope helper stubbed (no retrieval corpus); subject path verbatim |
+| `src/lib/reputation/ondemand/client.ts` | `src/lib/ondemand/client.ts` | `PROXY_URL` → `/api/reputation/ondemand`; Settings-drawer browser-key opt-in not ported |
+| `src/lib/reputation/ondemand/proxy-core.ts` | `server/ondemand.ts` (lines 34–333: denylist, validateBody, sanitisers, upstream bodies, createSession, noKeyBody, healthBody) | Node `req/res` transport removed |
+| `src/app/api/reputation/ondemand/route.ts` | `server/ondemand.ts` `handleOndemand` (query + SSE passthrough) | re-expressed as a Next.js Route Handler (`runtime nodejs`, `maxDuration 300`); same frames, same audit line, key server-side only |
+| `src/components/reputation/MatrixHeatmap.tsx` | `src/views/correlation/MatrixHeatmap.tsx` | import paths only |
+| `src/components/reputation/Communities.tsx` | `src/views/correlation/Communities.tsx` | import paths only |
+| `src/components/reputation/Centrality.tsx` | `src/views/correlation/Centrality.tsx` | import paths only |
+| `src/components/reputation/model.ts` | `src/views/correlation/model.ts` (edgeLookup, shortText, fmtDelta, UNPROVEN_BANNER, nodeLabel, MODE_PATTERN) | extracted, verbatim |
+| `src/components/reputation/rilian-ui.tsx` | `src/ui/index.tsx` (cx, Badge, Bar, EmptyState, IdChip) + `src/ui/BrandIcon.tsx` (`web` branch) | IdChip click → host callback instead of the workbench inspector |
+| `src/components/reputation/reputation.css` | `src/styles/tokens.css` (`.badge*`, `.chip`, `.card`, `.table-th/td`, `.bar-*`, tokens) | scoped under `.reputation-engine`; indigo accent → B Capital green |
+| `src/components/reputation/ReputationAskPanel.tsx` | `src/views/chat/OndemandAskPanel.tsx` | re-mounted for the four subjects (same ask() path, presets, prompt preview, transcript meta, verbatim HTTP error body) |
+| `src/components/reputation/ReputationView.tsx` | `src/views/correlation/index.tsx` + `WhyConnected.tsx` + `Inspector.tsx` (subject publishing) | host view over the ported panels; entity cards new |
+| `src/lib/reputation/adapter.ts`, `data/types.ts`, `data/entities.ts`, `assets.ts` | — | NEW: factor → Post mapping (sharedObject→co-share, sourceUrl→co-link, tags→co-hashtag, relatedEntity→co-reply, text→co-text), 4 entities / 59 sourced factors |
+| `src/app/reputation/{page,loading,error}.tsx`, `[entity]/{page,not-found}.tsx`, `src/middleware.ts` (matcher) | — | NEW route `/reputation` ("Reputation & Prestige", nav item), real HTTP 404 for unknown ids |
+
+Scoring math unchanged: `edgeWeight = min(1, log2(1+pairs)/log2(9) × clamp(mean idf / idfMax, 0.5, 1) × precision ÷ (1 + syndicationShare))`,
+IDF generic cut-off 0.2, precision factors 1/0.8/0.4/0.1 (same-day cap 0.1), Louvain + Brandes betweenness. Run `REP-001`: 59 posts, 4 nodes,
+6 edges (every pair), weights 0.047–0.055, 12–15 evidence refs per edge.
+
+### Entities, photos, prompts
+| Entity | Photo file | Source URL (HTTP 200, 1080×1350 JPEG, downscaled 400×500, never altered) |
+|---|---|---|
+| B Capital | `public/assets/reputation/b-capital-logo.png` | `web/public/brand/b-capital-mark.png` (repo brand mark); OnDemand logo copied from `web/public/plugins/ondemand.svg` |
+| Eduardo Saverin | `public/assets/reputation/eduardo-saverin.jpg` | https://b.capital/wp-content/uploads/team_member/eduardo_saverin.jpg |
+| Raj Ganguly | `public/assets/reputation/raj-ganguly.jpg` | https://b.capital/wp-content/uploads/team_member/raj_ganguly.jpg |
+| Karan Mohla | `public/assets/reputation/karan-mohla.jpg` | https://b.capital/wp-content/uploads/team_member/karan_mohla.jpg |
+Ambient accents (green-on-white, no text, 12 % opacity) `ambient-{hero,firm-network,leader-backdrop,matrix-texture}.jpg` — sources in
+`public/assets/reputation/SOURCES.json`. Factor counts: B Capital 21 · Saverin 14 · Ganguly 13 · Mohla 11 (3 × "Forbes Midas List — not verified").
+Starter prompts per card route through `POST /api/reputation/ondemand` (DeepSeek V4.1 default, one Fable 5.1 fallback, 45 s per attempt, pluginIds
+Perplexity / Deep Translation / File Retrieval / OnDemand Agent).
+
+### Removal manifest (zero references verified by `grep -rn` over `web/src`, `web/e2e`, `web/tests`, `web/scripts`, `next.config.ts`, `package.json`)
+| Path | Action | Reason / evidence |
+|---|---|---|
+| `web/src/components/chat/countdown.tsx` | deleted | `Countdown` imported nowhere (0 refs) |
+| `web/src/components/company/pitchbook-view.tsx` | deleted | `PitchbookView` imported nowhere (0 refs) |
+| `web/src/components/charts/gauge.tsx` | deleted | `charts/gauge` imported nowhere (0 refs; the lucide `Gauge` icon is unrelated) |
+| `web/public/fallbacks/{orb-idle,orb-active,ledger-empty}.webp` | deleted | 0 refs (`img-proxy.ts` only uses news-tile / logo-tile; dropzone kept) |
+| `web/public/icons/glyph-qa.json` | deleted | QA output of `scripts/icon-qa.py`, not read at runtime |
+| `web/.env.test.example` | deleted | stale env example (referenced only in a 2026-10-11 reconciliation note) |
+| `web/ui-proof/*` (22 files) | deleted | committed QA by-products (pass2 json/jsonl/png); specs write to `PROOF_DIR`, never read these |
+| `web/package.json` `@radix-ui/react-dialog` | removed | depcheck: unused (0 imports); lockfile updated |
+| `web/package.json` `test:e2e:live` | fixed | pinned a dead sandbox URL; now uses `BASE_URL` |
+| `web/src/components/reputation/components.ts` | not kept | ported then dropped (connected-components summary not rendered here) |
+| `web/public/assets/bundle/` (22 MB), `assets/misc/` (8.6 MB), six glyph PNGs (3.6 MB), `assets/artifacts-ui/{artifact-document,artifact-image,artifact-video,upload-attach,upload-failed-retry}*` (2.5 MB), `assets/manifest.json` | **archived** → `archive/web-public-assets/` | 0 runtime refs; PNG masters / renders kept out of the served bundle (`archive/README.md`). No `web/public/assets/film` existed on this branch. |
+Kept (verified still referenced): `@tailwindcss/postcss` + `tailwindcss` (postcss.config.mjs), `src/types/css.d.ts` (TS2882 guard), all Intelligent-UI chat shell files (the chat UI), credits fixture, `/docs/interactive-ui`, Playwright perf recorder.
+`web/public`: 93 MB → 44 MB. Lambda-snapshot / Intelligent-UI payload demo markers: 0 in `src` (only the negative assertions in `live-smoke.spec.ts`).
+
+### Fixes found by the suites
+- `browser-chat.ts`: the CORS pre-probe now checks OnDemand's documented origin allow-list first — on `*.vercel.run` / `127.0.0.1` the OPTIONS
+  preflight could only fail and Chromium logged it as a console error (failed `navigation-e2e › chat non-empty 200` and 4 `nav-stress` scenarios);
+  behaviour unchanged (those origins already fell back to `POST /api/chat`).
+- Mobile `/reputation`: Centrality table scrolls inside its card (`min-w-0` + `overflow-x-auto`), chips wrap — scrollWidth 430 → ≤ 391 px.
+
+### Results (2026-10-17)
+| Suite | Local `next start` (localhost:5173) | Live sandbox `https://sb-1hzinfehg7fe.vercel.run` |
+|---|---|---|
+| `reputation-e2e.spec.ts` (NEW: 4 cards + real photos naturalWidth>0, 59 factor rows / ≥50 source links, matrix + centrality + communities + WHY CONNECTED, real quick-chat POST → 200 + non-empty answer, real 404) × 2 viewports | **6/6** | **6/6** |
+| `navigation-e2e.spec.ts` | 11/12 → 12/12 after the CORS-probe fix | **12/12** |
+| `chat-error-retry.spec.ts` | 1/1 | **1/1** |
+| `navigation-retry-proof.spec.ts` (1440x900 + 390x844) | 2/2 | **2/2** |
+| `live-smoke.spec.ts` (14 checks × 2 viewports, `/reputation` added) | — | **28/28** |
+| `nav-stress.spec.ts` | 17/18 | 16/18 → 17/18 / 18/18 on re-run: `back-forward-spam` is **flaky** (React #418 on `/news` during 10× back/forward spam on the live proxy; pre-existing `revalidate=120` page, not touched this pass — see open items) |
+| `tsc --noEmit` | exit 0 | exit 0 (sandbox) |
+| `next build` | exit 0 | exit 0 (sandbox, `.next/BUILD_ID` present) |
+| `ONDEMAND_API_KEY` value under `.next/static` (`scripts/check-key-leak.mjs`) | 0 / 1759 files | 0 / 1759 files |
+| ui-validator (headless Chromium): `/reputation` 4 photos loaded, matrix canvas, ask panel, nav `aria-current`, no h-overflow; quick-chat subject loaded after card click — 1440x900 + 390x844 | — | **2/2 runs pass** |
+
+Quick-chat live proof: `POST /api/reputation/ondemand` (`responseMode: stream`) → HTTP 200 `text/event-stream`, 23–89 `fulfillment` frames,
+answers 80–310 chars, audit lines `[ondemand-audit] {… "status":200 … "apikey":"<masked>"}`.
+
+Open item: `nav-stress › back-forward-spam` reproduces React #418 on `/news` only under 10× history spam against the live sandbox (1 of 3 runs clean);
+`/news` content was not changed in this pass.
+
+Screenshots (`.ui-proof/`): `reputation-page-{1440x900,390x844}.png`, `reputation-card-{b-capital,eduardo-saverin,raj-ganguly,karan-mohla}-{1440x900,390x844}.png`,
+`reputation-quickchat-{1440x900,390x844}.png` (Playwright, live), `after-reputation-*`, `after-reputation-quickchat-*` (ui-validator, live), `live-reputation-*` (live-smoke).

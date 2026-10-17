@@ -1,0 +1,89 @@
+/* Reputation & Prestige — the Rilian correlation-engine design tokens, scoped to `.reputation-engine` so the host app's
+ * --primary / .card / .chip stay untouched. Values copied from gulf-io-light-workbench/src/styles/tokens.css (v5 palette) with the
+ * brand accent mapped to the host's B Capital green (#047857) for the indigo roles. Class names (.badge, .chip, .bar-track,
+ * .bar-fill, .card, .table-th, .table-td) and the Tailwind-style utilities the ported panels use are reproduced here 1:1. */
+.reputation-engine {
+  --page: #faf9f5;
+  --surface: #ffffff;
+  --surface-2: #f6f5f1;
+  --fill: #efeee9;
+  --fill-2: #e6e4da;
+  --ink: #141413;
+  --secondary: #5e5d59;
+  --tertiary: #8e8c85;
+  --hairline: #e8e6dc;
+  --hairline-2: #d9d7ce;
+  --primary: #047857;
+  --on-primary: #ffffff;
+  --accent: #047857;
+  --accent-tint: #e6faf3;
+  --focus-ring: #0ac985;
+  --warning: #f2994a;
+  --warning-tint: #fff7e6;
+  --warning-text: #b45309;
+  --radius-card: 12px;
+  --shadow-card: 0 1px 2px rgba(20, 20, 19, 0.06), 0 4px 12px rgba(20, 20, 19, 0.06);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.45;
+  font-feature-settings: 'cv11', 'ss01', 'tnum';
+}
+.reputation-engine .badge { display: inline-flex; align-items: center; gap: 4px; height: 20px; padding: 0 6px; border-radius: 3px; border: 1px solid var(--hairline-2); background: transparent; color: var(--ink); font-size: 11px; font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; line-height: 1; }
+.reputation-engine .badge-solid { border-style: solid; border-color: var(--ink); }
+.reputation-engine .badge-dashed { border-style: dashed; border-color: var(--ink); }
+.reputation-engine .badge-dotted { border-style: dotted; border-color: var(--ink); }
+.reputation-engine .badge-double { border-style: double; border-width: 3px; border-color: var(--ink); padding: 0 5px; }
+.reputation-engine .badge-hatched { border-style: solid; border-color: var(--ink); background-image: repeating-linear-gradient(135deg, transparent 0 3px, var(--hairline) 3px 4px); }
+.reputation-engine .badge-muted { border-color: var(--hairline); color: var(--secondary); }
+.reputation-engine span.badge.badge-unproven { border-style: dashed; border-color: var(--warning); background: var(--warning-tint); color: var(--warning-text); }
+.reputation-engine .chip { display: inline-flex; align-items: center; gap: 4px; height: 20px; min-height: 20px; padding: 0 6px; border-radius: 3px; border: 1px solid var(--hairline); background: var(--surface); color: var(--ink); font-family: var(--font-mono); font-size: 11px; font-weight: 400; cursor: pointer; white-space: nowrap; }
+.reputation-engine .chip:hover { border-color: var(--primary); }
+.reputation-engine .chip:disabled { cursor: default; }
+.reputation-engine .chip[aria-pressed='true'], .reputation-engine .chip[data-active='true'], .reputation-engine .chip.is-active { background: var(--accent-tint); border-color: var(--primary); color: var(--primary); }
+.reputation-engine .card { background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.reputation-engine .table-th { position: sticky; top: 0; z-index: 1; background: var(--surface-2); border-bottom: 1px solid var(--hairline); font-size: 11px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--secondary); text-align: left; padding: 0 10px; height: 32px; white-space: nowrap; }
+.reputation-engine .table-td { border-bottom: 1px solid var(--hairline); padding: 0 10px; height: 32px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reputation-engine .row-hover:hover { background: var(--fill); }
+.reputation-engine .bar-track { height: 6px; background: var(--fill-2); border-radius: 2px; overflow: hidden; }
+.reputation-engine .bar-fill { height: 100%; background: var(--ink); }
+.reputation-engine .banner-outline { border: 1px solid var(--ink); border-radius: 3px; padding: 6px 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); background: var(--surface); }
+.reputation-engine .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.reputation-engine .label-xs { font-size: 11px; line-height: 16px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--secondary); font-weight: 500; }
+/* Tailwind-style utilities referenced by the ported Rilian panels (the host theme does not define these colour names). */
+.reputation-engine .text-ink { color: var(--ink); }
+.reputation-engine .text-secondary { color: var(--secondary); }
+.reputation-engine .text-tertiary { color: var(--tertiary); }
+.reputation-engine .text-primary { color: var(--primary); }
+.reputation-engine .bg-surface { background: var(--surface); }
+.reputation-engine .bg-surface-2 { background: var(--surface-2); }
+.reputation-engine .bg-fill { background: var(--fill); }
+.reputation-engine .bg-fill-2 { background: var(--fill-2); }
+.reputation-engine .hover\:bg-fill:hover { background: var(--fill); }
+.reputation-engine .hover\:text-ink:hover { color: var(--ink); }
+.reputation-engine .border-ink { border-color: var(--ink); }
+.reputation-engine .border-hairline { border-color: var(--hairline); }
+.reputation-engine .border-hairline-2 { border-color: var(--hairline-2); }
+.reputation-engine .divide-hairline > * + * { border-top: 1px solid var(--hairline); }
+.reputation-engine .btn { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border-radius: 6px; border: 1px solid var(--hairline-2); background: var(--surface); color: var(--ink); font-size: 12px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.reputation-engine .btn:hover { background: var(--fill); }
+.reputation-engine .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.reputation-engine .btn-primary { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.reputation-engine .btn-primary:hover { filter: brightness(0.95); background: var(--primary); }
+.reputation-engine .input { min-height: 28px; padding: 4px 8px; border: 1px solid var(--hairline-2); border-radius: 4px; background: var(--surface); color: var(--ink); font-size: 12px; width: 100%; }
+.reputation-engine .input::placeholder { color: var(--tertiary); }
+.reputation-engine .input:focus { outline: 2px solid var(--focus-ring); outline-offset: -1px; }
+/* Entity cards */
+.reputation-engine .rep-entity-photo { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; border: 1px solid var(--hairline-2); background: var(--surface-2); flex-shrink: 0; }
+.reputation-engine .rep-entity-photo--firm { object-fit: contain; padding: 8px; background: var(--surface); }
+.reputation-engine .rep-ambient { position: absolute; inset: 0; pointer-events: none; opacity: 0.12; background-size: cover; background-position: right center; background-repeat: no-repeat; }
+.reputation-engine .rep-factor-row:nth-child(even) { background: var(--surface-2); }
+.reputation-engine .rep-risk { color: var(--warning-text); }
+.reputation-engine .rep-matrix-wrap { overflow: auto; border: 1px solid var(--hairline); border-radius: 8px; background: var(--surface); }
+.reputation-engine .rep-matrix-wrap canvas { display: block; max-width: 100%; }
+/* Mobile: the ported tables scroll inside their card instead of widening the page; long chips/urls wrap. */
+.reputation-engine .card { min-width: 0; }
+.reputation-engine .rep-matrix-wrap, .reputation-engine [data-testid='centrality-scroll'] { max-width: 100%; }
+.reputation-engine [data-testid='edge-chip'], .reputation-engine [data-testid='ask-preset'] { height: auto; min-height: 20px; white-space: normal; text-align: left; }
+.reputation-engine pre { max-width: 100%; overflow-x: auto; }
+.reputation-engine [data-testid='why-connected-trail'] li span.text-ink { overflow-wrap: anywhere; }

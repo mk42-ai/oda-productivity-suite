@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Newspaper, MessageSquare, Settings, Building2, Archive, Users, Landmark, Activity } from "lucide-react";
+import { LayoutDashboard, Newspaper, MessageSquare, Settings, Building2, Archive, Users, Landmark, Activity, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useArtifacts } from "@/lib/artifacts/store";
 import { useEffect, useRef, type KeyboardEvent } from "react";
@@ -28,6 +28,7 @@ const ITEMS = [
   { href: "/companies", label: "Companies", icon: Building2, match: "/compan" },
   { href: "/news", label: "News Pulse", icon: Newspaper },
   { href: "/signals", label: "Signals", icon: Activity },
+  { href: "/reputation", label: "Reputation & Prestige", icon: Award, match: "/reputation" },
   { href: "/social", label: "B Social", icon: Users, match: "/social" },
   { href: "/pitchbook", label: "PitchBook", icon: Landmark },
   { href: "/chat", label: "Chat", icon: MessageSquare },

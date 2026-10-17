@@ -15,6 +15,7 @@ const ROUTES = [
   { p: "/companies", name: "companies" },
   { p: "/social", name: "social" },
   { p: "/signals", name: "signals" },
+  { p: "/reputation", name: "reputation" },
   { p: "/docs/interactive-ui", name: "docs-interactive-ui" },
 ] as const;
 /** Snapshot-demo markers that must never surface again (the removed Lambda snapshot / Intelligent-UI payload demos). */
