@@ -6,7 +6,10 @@ import path from "node:path";
 // Build stamp: computed once at config load and inlined into the bundle, so SSR and hydration render identical text.
 const APP_VERSION = (() => { try { return String(JSON.parse(readFileSync(path.join(__dirname, "package.json"), "utf8")).version ?? "0.0.0"); } catch { return "0.0.0"; } })();
 const BUILD_COMMIT = process.env.BUILD_COMMIT ?? (() => { try { return execSync("git rev-parse --short HEAD", { stdio: ["ignore", "pipe", "ignore"] }).toString().trim() || "local"; } catch { return "local"; } })();
-const BUILD_TIME = new Date().toISOString();
+// next build evaluates this config in more than one process (server + client compilations). Computing new Date() in each one let the
+// server and client bundles inline different minutes on a slow machine → React #418 on the footer. The first evaluation stores the value
+// in process.env, which every worker spawned afterwards inherits, so all bundles share one timestamp (BUILD_TIME can also be set by CI).
+const BUILD_TIME = (process.env.BUILD_TIME ||= new Date().toISOString().replace(/\.\d{3}Z$/, "Z"));
 const BUILD_TIME_LABEL = `${BUILD_TIME.slice(0, 10)} ${BUILD_TIME.slice(11, 16)} UTC`;
 
 const nextConfig: NextConfig = {

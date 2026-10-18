@@ -5,7 +5,7 @@
   "description": "B Capital Portfolio Intelligence — Next.js 15 frontend over the portfolio backend and the OnDemand Chat & Agent Tools API (server-side proxy).",
   "scripts": {
     "dev": "next dev -H 0.0.0.0 -p ${PORT:-5173}",
-    "build": "next build",
+    "build": "BUILD_TIME=${BUILD_TIME:-$(date -u +%Y-%m-%dT%H:%M:%SZ)} next build",
     "start": "next start -H 0.0.0.0 -p ${PORT:-5173}",
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
