@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowDownRight, Minus } from "lucide-react";
 import { imageSrc } from "@/lib/img-proxy";
+import { useNow } from "@/lib/use-now";
 import "./top-movers.css";
 
 export type TopMover = { slug: string; name: string; sector: string; score: number; delta: number | null; prior_run_at?: string | null; logo_url?: string | null };
@@ -22,7 +23,7 @@ export function sectorTint(sector: string | null | undefined): { bg: string; ink
   return { bg, ink };
 }
 
-export function relativeTime(iso: string | null | undefined, now: number = Date.now()): string {
+export function relativeTime(iso: string | null | undefined, now: number): string {
   if (!iso) return "—";
   const t = Date.parse(iso);
   if (Number.isNaN(t)) return "—";
@@ -46,11 +47,14 @@ function LogoChip({ src, name }: { src: string | null | undefined; name: string 
 
 export function TopMovers({ movers, lastRunAt }: { movers: TopMover[]; lastRunAt: string | null | undefined }) {
   const moved = movers.filter((m) => m.delta != null && m.delta !== 0);
+  // Hydration-safe relative time (React #418 caught by nav-stress deep-link-reload on /overview): server and browser render at different
+  // instants, so "N min ago" can land in different buckets. The clock lives in state (refreshed after mount and every minute).
+  const now = useNow();
   return (
     <section className="card tm-card" data-testid="top-movers" aria-labelledby="top-movers-title">
       <header className="tm-head">
         <h2 id="top-movers-title" className="tm-title">Top movers since last run</h2>
-        <p className="tm-sub text-muted">{lastRunAt ? <>scored <time dateTime={lastRunAt}>{relativeTime(lastRunAt)}</time> · {absUtc(lastRunAt)}</> : "no runs yet"}</p>
+        <p className="tm-sub text-muted">{lastRunAt ? <>scored <time dateTime={lastRunAt}>{now == null ? lastRunAt.slice(0, 10) : relativeTime(lastRunAt, now)}</time> · {absUtc(lastRunAt)}</> : "no runs yet"}</p>
       </header>
       {moved.length === 0 ? (
         <p className="tm-empty text-muted">No movement since the last run</p>

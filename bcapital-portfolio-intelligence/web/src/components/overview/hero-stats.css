@@ -1,12 +1,15 @@
 /* a17 — Overview hero verdict strip. White card, charcoal ink, brand-green ink for "up"; no blue. */
 .hero-stats {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f3fcf8 0%, #ffffff 70%);
+  border: 1px solid #e3efe9;
   border-radius: 12px;
   padding: 20px 24px;
   margin-bottom: 24px;
   color: #1f2937;
 }
+.hero-stats::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: #0AC985; }
 .hero-stats-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
@@ -19,7 +22,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding-left: 24px;
-  border-left: 1px solid #e5e7eb;
+  border-left: 1px solid #e6f2ec;
 }
 .hero-stat:first-child { padding-left: 0; border-left: 0; }
 .hero-stat-label {
@@ -39,7 +42,7 @@
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
-  color: #1f2937;
+  color: var(--brand-green-ink, #067a52);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -63,8 +66,8 @@
 /* state-only colour: sign of the delta */
 .hero-stat-delta { color: #6b7280; }
 .hero-stat-delta-num { font-weight: 600; }
-.hero-stat-delta[data-trend="up"] .hero-stat-delta-num { color: #047857; }
-.hero-stat-delta[data-trend="down"] .hero-stat-delta-num { color: #ef4444; }
+.hero-stat-delta[data-trend="up"] .hero-stat-delta-num { color: #067a52; }
+.hero-stat-delta[data-trend="down"] .hero-stat-delta-num { color: #b42318; }
 .hero-stat-delta[data-trend="flat"] .hero-stat-delta-num { color: #6b7280; }
 
 @media (max-width: 1024px) {
@@ -75,8 +78,9 @@
   .hero-stats { padding: 16px 20px; }
   .hero-stats-grid { grid-template-columns: 1fr 1fr; gap: 16px 20px; }
   .hero-stat { padding-left: 0; border-left: 0; }
-  .hero-stat:nth-child(even) { padding-left: 20px; border-left: 1px solid #e5e7eb; }
-  .hero-stat:nth-child(n + 3) { padding-top: 16px; border-top: 1px solid #e5e7eb; }
+  .hero-stat:nth-child(even) { padding-left: 20px; border-left: 1px solid #e6f2ec; }
+  .hero-stat:nth-child(n + 3) { padding-top: 16px; border-top: 1px solid #e6f2ec; }
   .hero-stat--primary .hero-stat-value { font-size: 36px; line-height: 40px; min-height: 40px; }
 }
+.hero-stat-spark { margin: 6px 0 0; line-height: 0; }
 /* end a17 */

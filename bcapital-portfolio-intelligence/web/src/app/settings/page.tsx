@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/shell/page-header";
 import { SettingsForm } from "@/components/shell/settings-form";
 import { listCompanies } from "@/lib/api";
-export const metadata: Metadata = { title: "Settings" };
+export const metadata: Metadata = { title: "Settings", description: "Configure your OnDemand credentials, followed companies and display preferences. Credentials stay in this browser.", openGraph: { title: "Settings", description: "Configure your OnDemand credentials, followed companies and display preferences. Credentials stay in this browser." }, twitter: { title: "Settings", description: "Configure your OnDemand credentials, followed companies and display preferences. Credentials stay in this browser." } };
 export default async function SettingsPage() {
   const cs = await listCompanies();
   const options = cs.data.filter((c) => c.b_capital_role !== "firm").map((c) => ({ slug: c.slug, name: c.name, sector: c.sector, logo_url: c.logo_url })).sort((a, b) => a.name.localeCompare(b.name));

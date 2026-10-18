@@ -6,7 +6,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { CompareStrip, type CompareRow } from "@/components/companies/compare-strip";
 import { fmtUsd } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Compare", description: "Side-by-side comparison of 2–5 B Capital portfolio companies: sentiment, news, stage, region, last deal and Signal Score." };
+export const metadata: Metadata = { title: "Compare companies", description: "Side-by-side comparison of 2–5 B Capital portfolio companies: sentiment, news, stage, region, last deal and Signal Score.", openGraph: { title: "Compare companies", description: "Side-by-side comparison of 2–5 B Capital portfolio companies: sentiment, news, stage, region, last deal and Signal Score." }, twitter: { title: "Compare companies", description: "Side-by-side comparison of 2–5 B Capital portfolio companies: sentiment, news, stage, region, last deal and Signal Score." } };
 export const revalidate = 120;
 
 const MAX = 5;

@@ -956,3 +956,10 @@ button.od-acc__head { cursor: pointer; }
 .chat-shell .oiu-work--skeleton .oiu-work__chips > :not(:first-child) { display: none; } /* one logo per 22px chip, never a stacked pile */
 @media (prefers-reduced-motion: reduce) { .chat-shell .od-acc__chev, .chat-shell .oiu-run__logs-chev { transition: none; } }
 /* end od2 */
+
+/* Additive fix (2026-10-15, on top of the b33be278 chat UI): the OpenUI library paints its own error box (.openui-agent-thread-error, a danger
+   callout whose description is the raw threadError.message, e.g. "The answer could not be completed"). Never paint it — RunFailureNotice below
+   already portals the discreet "Response failed · Retry" notice into the thread, and its Retry calls the existing processMessage resubmit. */
+.chat-shell .openui-agent-thread-error { display: none !important; }
+/* The notice's collapsed "Details" disclosure would re-expose that same raw message — keep the notice to "Response failed · Retry". */
+.chat-shell .oiu-error .oiu-error__details { display: none !important; }

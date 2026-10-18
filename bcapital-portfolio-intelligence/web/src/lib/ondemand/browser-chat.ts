@@ -17,8 +17,16 @@ let reachable: Promise<boolean> | null = null;
 /** OnDemand's CORS is an ORIGIN ALLOW-LIST, not `*` (probed 2026-10-12): any *.vercel.app, localhost:3000, localhost:5173 and app.on-demand.io pass;
  *  the *.vercel.run sandboxes, other localhost ports, 127.0.0.1 and custom domains are refused. Probe once per page (the OPTIONS request needs the
  *  same preflight as the real calls) so a refused origin falls back to POST /api/chat instead of failing the turn. */
+/** The documented allow-list, applied BEFORE the probe (2026-10-17): on a refused origin (*.vercel.run sandboxes, 127.0.0.1, custom hosts) the
+ *  OPTIONS preflight can only fail, and Chromium logs that failure as a console error the nav/e2e suites treat as a defect. Skipping the probe
+ *  there changes nothing functionally — those origins already fell back to POST /api/chat — it just stops the guaranteed-to-fail request. */
+const ORIGIN_ALLOWED = (): boolean => {
+  if (typeof location === "undefined") return false;
+  const h = location.host;
+  return /\.vercel\.app$/.test(h) || h === "localhost:3000" || h === "localhost:5173" || h === "app.on-demand.io";
+};
 export const browserCanReachOnDemand = (): Promise<boolean> =>
-  (reachable ??= fetch(`${PUBLIC_ONDEMAND_BASE_URL}/chat/v1/sessions`, { method: "OPTIONS", headers: { apikey: "probe", "content-type": "application/json" }, cache: "no-store", signal: AbortSignal.timeout(5000) }).then(() => true, () => false));
+  (reachable ??= !ORIGIN_ALLOWED() ? Promise.resolve(false) : fetch(`${PUBLIC_ONDEMAND_BASE_URL}/chat/v1/sessions`, { method: "OPTIONS", headers: { apikey: "probe", "content-type": "application/json" }, cache: "no-store", signal: AbortSignal.timeout(5000) }).then(() => true, () => false));
 
 export async function browserChat(
   body: BridgeBody,

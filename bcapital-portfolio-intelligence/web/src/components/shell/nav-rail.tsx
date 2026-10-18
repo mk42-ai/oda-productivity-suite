@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Command, PanelLeftClose, PanelLeftOpen } from "lucide-react";
@@ -57,7 +57,10 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
         <Command className="size-4 shrink-0" aria-hidden /><span className={cn(collapsed && "lg:sr-only")}>Switch company <kbd className="ml-1 rounded border border-border-strong bg-surface-2 px-1 font-mono text-[10px]">⌘K</kbd></span>
       </button>
       {/* The artifact count lives INSIDE the Artifacts nav item (nav.tsx → nav-artifacts-count); no floating toggle in the rail. */}
-      <div className={cn("flex items-center lg:mt-auto lg:block", collapsed ? "lg:hidden" : "lg:px-2")}>{status}</div>
+      {/* `status` is an async SERVER component (BackendStatus pings /health on every request) whose RSC row can stream in after the shell
+          starts hydrating. Without its own boundary the rail's post-mount state update (setMounted/setCollapsed) reached that still-dehydrated
+          slot and React threw #418 (component stack div > aside > NavRail) under reload / back-forward spam. */}
+      <div className={cn("flex items-center lg:mt-auto lg:block", collapsed ? "lg:hidden" : "lg:px-2")}><Suspense fallback={null}>{status}</Suspense></div>
     </aside>
   );
 }

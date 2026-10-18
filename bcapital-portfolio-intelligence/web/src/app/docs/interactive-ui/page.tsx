@@ -6,10 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { SYNERGY_MATRIX, type SynergyRow } from "@/lib/synergy-matrix";
 
-export const metadata: Metadata = {
-  title: "Why the chat is interactive",
-  description: "How OnDemand submit-query v1 SSE frames map to interactive UI elements in the analyst chat: the full event → interactivity synergy matrix.",
-};
+export const metadata: Metadata = { title: "Why the chat is interactive", description: "How OnDemand submit-query v1 SSE frames map to interactive UI elements in the analyst chat: the full event → interactivity synergy matrix.", openGraph: { title: "Why the chat is interactive", description: "How OnDemand submit-query v1 SSE frames map to interactive UI elements in the analyst chat: the full event → interactivity synergy matrix." }, twitter: { title: "Why the chat is interactive", description: "How OnDemand submit-query v1 SSE frames map to interactive UI elements in the analyst chat: the full event → interactivity synergy matrix." } };
 
 const CHANNEL_TONE: Record<SynergyRow["channel"], React.ComponentProps<typeof Badge>["tone"]> = {
   message: "default",

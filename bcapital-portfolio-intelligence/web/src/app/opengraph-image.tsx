@@ -1,20 +1,25 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 export const runtime = "nodejs"; // Vercel services with bindings only run Node functions (no Edge)
 export const alt = "B Capital Portfolio Intelligence";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-/** Plain white OG card: the Lucide `hexagon` glyph (monochrome, open source, ISC) + the product name. No photography, no AI imagery. */
-export default function OpenGraphImage() {
+/** OG card: self-hosted text-free backdrop + live charcoal text, green "B" monogram and a thin green bottom bar. */
+export default async function OpenGraphImage() {
+  const bg = await readFile(path.join(process.cwd(), "public/og/og-backdrop.jpg"));
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "#ffffff", color: "#16181b", fontFamily: "Inter, Arial, sans-serif" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 36 }}>
-          <svg width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#16181b" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /></svg>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 64, fontWeight: 600, letterSpacing: -1 }}>B Capital Portfolio Intelligence</div>
-            <div style={{ fontSize: 28, color: "#5c6168", marginTop: 12 }}>Catalysts. Questioners. Visionaries.</div>
-          </div>
+      <div style={{ width: "100%", height: "100%", display: "flex", position: "relative", background: "#ffffff", color: "#1F2328", fontFamily: "sans-serif" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
+        <img src={`data:image/jpeg;base64,${bg.toString("base64")}`} width={1200} height={630} style={{ position: "absolute", inset: 0 }} />
+        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", paddingLeft: 80, paddingRight: 80 }}>
+          <div style={{ width: 72, height: 72, borderRadius: 16, background: "#0AC985", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 50, fontWeight: 800 }}>B</div>
+          <div style={{ display: "flex", fontSize: 84, fontWeight: 700, marginTop: 28, lineHeight: 1.05, letterSpacing: -1 }}>B Capital</div>
+          <div style={{ display: "flex", fontSize: 56, fontWeight: 600, marginTop: 6, lineHeight: 1.1 }}>Portfolio Intelligence</div>
+          <div style={{ display: "flex", fontSize: 26, color: "#3b3f45", marginTop: 24 }}>Portfolio · Signals · News · Reputation</div>
         </div>
+        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 6, background: "#0AC985", display: "flex" }} />
       </div>
     ),
     { ...size },

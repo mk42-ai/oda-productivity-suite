@@ -1,4 +1,5 @@
 import { DataSourceBadge } from "@/components/shell/data-source-badge";
+import { CopyLinkButton } from "@/components/shell/copy-link-button";
 import type { FetchSource, NamedSource } from "@/lib/data-source";
 /** `sources` = the real per-fetch sources of EVERY dataset the page rendered (resolved by lib/data-source.ts → live | partial | snapshot).
  *  `source` (single) is kept for callers with one dataset. */
@@ -11,7 +12,7 @@ export function PageHeader({ title, lede, source, sources, fetchedAt, actions }:
         {lede && <p className="mt-2 text-sm text-muted sm:text-base">{lede}</p>}
         {all.length > 0 && <DataSourceBadge sources={all} fetchedAt={fetchedAt} />}
       </div>
-      {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
+      <div className="flex flex-wrap items-center gap-2">{actions}<CopyLinkButton /></div>
     </header>
   );
 }

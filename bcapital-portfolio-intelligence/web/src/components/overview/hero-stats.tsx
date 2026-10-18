@@ -1,6 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import "./hero-stats.css";
+import { useNow } from "@/lib/use-now";
+import { Sparkline } from "@/components/charts/sparkline";
+import { sentimentColor } from "@/lib/sentiment-tone";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 /** a17 — Overview verdict row. The largest number answers "am I okay?" first; the rest is context. */
 export type HeroStatsProps = {
@@ -13,6 +17,10 @@ export type HeroStatsProps = {
   newsTotal: number;
   /** ISO timestamp of the last scoring run, or null */
   lastRunAt: string | null;
+  /** portfolio mean sentiment per scoring run, oldest → newest (backend /sentiment/runs) */
+  sentimentSeries?: number[];
+  /** news items per day, oldest → newest (last 14 days of the feed) */
+  newsSeries?: number[];
 };
 
 const DURATION_MS = 600;
@@ -56,36 +64,43 @@ function relTime(iso: string, nowMs: number): string {
 }
 const fmtUtc = (iso: string) => { const d = new Date(iso); return Number.isNaN(d.getTime()) ? iso : d.toISOString().slice(0, 16).replace("T", " ") + " UTC"; };
 
-function Tile({ k, label, children, sub, title, primary }: { k: string; label: string; children: React.ReactNode; sub?: React.ReactNode; title?: string; primary?: boolean }) {
+function Tile({ k, label, hint, children, sub, title, primary, color, spark, sparkLabel }: { k: string; label: string; hint?: string; children: React.ReactNode; sub?: React.ReactNode; title?: string; primary?: boolean; color?: string; spark?: number[]; sparkLabel?: string }) {
   return (
     <div className={`hero-stat${primary ? " hero-stat--primary" : ""}`} data-key={k} role="group" aria-label={label}>
-      <dt className="hero-stat-label">{label}</dt>
-      <dd className="hero-stat-value" title={title}>{children}</dd>
+      <dt className="hero-stat-label">
+        {hint ? (
+          <Tooltip>
+            <TooltipTrigger asChild><span tabIndex={0} className="cursor-help underline decoration-dotted underline-offset-4">{label}</span></TooltipTrigger>
+            <TooltipContent>{hint}</TooltipContent>
+          </Tooltip>
+        ) : label}
+      </dt>
+      <dd className="hero-stat-value" title={title} style={color ? { color } : undefined}>{children}</dd>
+      {spark && spark.length > 1 && <dd className="hero-stat-spark" data-testid="hero-stat-spark"><Sparkline values={spark} width={120} height={22} stroke="#0AC985" accent="#067a52" fill ariaLabel={sparkLabel} /></dd>}
       {sub != null && <dd className="hero-stat-sub">{sub}</dd>}
     </div>
   );
 }
 
-export function HeroStats({ sentimentMean, sentimentDeltaMean, companies, newsTotal, lastRunAt }: HeroStatsProps) {
+export function HeroStats({ sentimentMean, sentimentDeltaMean, companies, newsTotal, lastRunAt, sentimentSeries, newsSeries }: HeroStatsProps) {
   const sent = useCountUp(sentimentMean ?? 0);
   const comp = useCountUp(companies);
   const news = useCountUp(newsTotal);
-  // relative time: SSR uses render-time clock; client refreshes after mount (suppressHydrationWarning covers the drift).
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => { setNow(Date.now()); const id = setInterval(() => setNow(Date.now()), 60_000); return () => clearInterval(id); }, []);
+  // Relative time only after mount: SSR and the first client render show the same absolute date, so markup always matches.
+  const now = useNow();
   const delta = sentimentDeltaMean;
   const trend = delta == null || Math.abs(delta) < 0.005 ? "flat" : delta > 0 ? "up" : "down";
   return (
     <section className="hero-stats" data-testid="hero-stats" aria-label="Portfolio verdict">
       <dl className="hero-stats-grid">
-        <Tile k="sentiment" label="Portfolio sentiment" primary title={sentimentMean == null ? undefined : `Mean sentiment score across ${companies} companies (−1 to +1)`}
+        <Tile k="sentiment" hint="Mean sentiment across the portfolio, −1 to +1, scored daily 06:00 UTC" label="Portfolio sentiment" primary color={sentimentMean == null ? undefined : sentimentColor(sentimentMean)} spark={sentimentSeries} sparkLabel="Portfolio mean sentiment per scoring run" title={sentimentMean == null ? undefined : `Mean sentiment score across ${companies} companies (−1 to +1)`}
           sub={<span className="hero-stat-delta" data-trend={trend}>{"Δ vs last run "}<span className="hero-stat-delta-num">{delta == null ? "—" : fmtSigned(delta)}</span></span>}>
           {sentimentMean == null ? "—" : fmtSigned(sent)}
         </Tile>
-        <Tile k="companies" label="Companies tracked" sub="portfolio records, firm excluded">{fmtInt(comp)}</Tile>
-        <Tile k="news" label="News items" sub="across the portfolio">{fmtInt(news)}</Tile>
-        <Tile k="last-run" label="Last scoring run" title={lastRunAt ? fmtUtc(lastRunAt) : undefined} sub={lastRunAt ? <time dateTime={lastRunAt}>{fmtUtc(lastRunAt)}</time> : "no runs yet"}>
-          <span suppressHydrationWarning>{lastRunAt ? relTime(lastRunAt, now) : "—"}</span>
+        <Tile k="companies" hint="Portfolio records tracked, excluding the B Capital firm record" label="Companies tracked" sub="portfolio records, firm excluded">{fmtInt(comp)}</Tile>
+        <Tile k="news" hint="Total news items stored by the backend across all companies" label="News items" sub="across the portfolio" spark={newsSeries} sparkLabel="News items per day, last 14 days">{fmtInt(news)}</Tile>
+        <Tile k="last-run" hint="When the sentiment workflow last wrote scores back" label="Last scoring run" title={lastRunAt ? fmtUtc(lastRunAt) : undefined} sub={lastRunAt ? <time dateTime={lastRunAt}>{fmtUtc(lastRunAt)}</time> : "no runs yet"}>
+          <span>{lastRunAt ? (now == null ? lastRunAt.slice(0, 10) : relTime(lastRunAt, now)) : "—"}</span>
         </Tile>
       </dl>
     </section>

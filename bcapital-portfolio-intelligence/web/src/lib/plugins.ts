@@ -7,7 +7,9 @@ export type PluginDef = { id: string | null; name: string; purpose: string; stat
 export const EARLIEST_TEST_UTC = process.env.NEXT_PUBLIC_EARLIEST_TEST_UTC || runMeta.earliest_test_utc || "2026-10-09T12:30:00Z";
 /** OnDemand id of the registered "Portfolio Plugin" (REST tool over this dashboard's backend). null until registration succeeds —
  *  2026-10-11: POST /plugin/v1 still rejects every schema encoding (proof/data-lane/plugin-registration-2026-10-11.log). */
-export const PORTFOLIO_PLUGIN_ID: string | null = process.env.NEXT_PUBLIC_PORTFOLIO_PLUGIN_ID || runMeta.portfolio_plugin_id || null;
+// Disabled by default: plugin-1791713636's schema points at a dead sandbox, causing "Agents execution failed" on every chat run.
+// Only an explicit non-empty NEXT_PUBLIC_PORTFOLIO_PLUGIN_ID (after re-registering against a live backend) re-enables it.
+export const PORTFOLIO_PLUGIN_ID: string | null = process.env.NEXT_PUBLIC_PORTFOLIO_PLUGIN_ID?.trim() || null;
 /** Perplexity — the only OnDemand plugin this product sends (plus the Portfolio plugin once PORTFOLIO_PLUGIN_ID is set). */
 export const PLUGIN_ID = "plugin-1722260873";
 export const PLUGIN_NAME = "Perplexity";
