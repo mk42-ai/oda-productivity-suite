@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/shell/page-header";
 import { NewsFeed } from "@/components/news/news-feed";
 import { Skeleton } from "@/components/ui/skeleton";
 import { NEWS_FIRST_PAGE, slimNewsItem } from "@/lib/news-feed";
-export const metadata: Metadata = { title: "News Pulse", description: "Live news across every B Capital portfolio company — filter by company, sector and sentiment, with original source links.", openGraph: { title: "News Pulse", description: "Live news across every B Capital portfolio company — filter by company, sector and sentiment, with original source links." }, twitter: { title: "News Pulse", description: "Live news across every B Capital portfolio company — filter by company, sector and sentiment, with original source links." } };
+export const metadata: Metadata = { title: "News Pulse", description: "Live news across every B Capital portfolio company — filter by company, sector and sentiment, with original source links.", openGraph: { title: "News Pulse", description: "Live news across every B Capital portfolio company — filter by company, sector and sentiment, with original source links." }, twitter: { title: "News Pulse", description: "Live news across every B Capital portfolio company — filter by company, sector and sentiment, with original source links." }, alternates: { canonical: "/news" } };
 export const revalidate = 120;
 export default async function NewsPage() {
   const [news, cs] = await Promise.all([getAllNews(), listCompanies()]);

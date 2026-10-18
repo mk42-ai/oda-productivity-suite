@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 /** True while a modal/drawer is genuinely open (Radix dialogs, our quick-view drawer, any aria-modal surface). */
 function modalOpen() {
@@ -56,6 +56,14 @@ export function RouteEffects() {
   // Hydration finished (this is a root-level client effect): release the back/forward guard (components/shell/popstate-guard.tsx) so the
   // App Router's client-side popstate restore takes over again.
   useEffect(() => { (window as Window & { __bcapMarkHydrated?: () => void }).__bcapMarkHydrated?.(); }, []);
+  // bfcache: a fully hydrated page restored from the back/forward cache (pageshow persisted=true) can hold server data that is hours old;
+  // refresh the RSC payload in place (no full reload). Half-streamed restores are handled earlier by the inline popstate guard.
+  const router = useRouter();
+  useEffect(() => {
+    const onShow = (e: PageTransitionEvent) => { if (e.persisted) router.refresh(); };
+    window.addEventListener("pageshow", onShow);
+    return () => window.removeEventListener("pageshow", onShow);
+  }, [router]);
   // Hash targets: first load + every path change + in-page hashchange.
   useEffect(() => {
     let cancel = scrollToHash();

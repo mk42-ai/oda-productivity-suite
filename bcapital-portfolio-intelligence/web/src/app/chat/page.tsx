@@ -3,7 +3,7 @@ import { listCompanies, getSignals } from "@/lib/api";
 import { ChatShell } from "@/components/chat/open-intelligent-ui/chat-shell";
 import { InspectorDrawer, InspectorToggle } from "@/components/chat/inspector-drawer";
 import { SidePane } from "@/components/media/side-pane";
-export const metadata: Metadata = { title: "Chat", description: "Analyst chat over the B Capital portfolio — ask about any portfolio company; answers stream with sources.", openGraph: { title: "Chat", description: "Analyst chat over the B Capital portfolio — ask about any portfolio company; answers stream with sources." }, twitter: { title: "Chat", description: "Analyst chat over the B Capital portfolio — ask about any portfolio company; answers stream with sources." } };
+export const metadata: Metadata = { title: "Chat", description: "Analyst chat over the B Capital portfolio — ask about any portfolio company; answers stream with sources.", openGraph: { title: "Chat", description: "Analyst chat over the B Capital portfolio — ask about any portfolio company; answers stream with sources." }, twitter: { title: "Chat", description: "Analyst chat over the B Capital portfolio — ask about any portfolio company; answers stream with sources." }, alternates: { canonical: "/chat" } };
 export const revalidate = 120;
 /**
  * /chat — ONE full-width thread canvas (ChatGPT/Claude layout): no page header, no second thread column, no right rail. The composer is

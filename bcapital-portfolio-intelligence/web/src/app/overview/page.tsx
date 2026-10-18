@@ -24,7 +24,7 @@ import { statusChips, PORTFOLIO_EVENTS } from "@/lib/status";
 import { fmtUsd, fmtPct, fmtScore, fmtDelta, SECTORS } from "@/lib/format";
 import workflows from "@/data/workflows.json";
 
-export const metadata: Metadata = { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates.", openGraph: { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." }, twitter: { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." } };
+export const metadata: Metadata = { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates.", openGraph: { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." }, twitter: { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." }, alternates: { canonical: "/overview" } };
 export const revalidate = 120;
 const SECTOR_ICON = { Technology: Cpu, Healthcare: HeartPulse, "Energy & Resilience": Zap } as const;
 

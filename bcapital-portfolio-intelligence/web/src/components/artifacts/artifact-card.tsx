@@ -6,6 +6,7 @@ import { artifactsPanel, artifactsStore, type ArtifactProbe } from "@/lib/artifa
 import { artifactStatus, formatBytes, relativeTime, type Artifact, type ArtifactStatus, type ArtifactVersions } from "@/lib/artifacts/types";
 import { ArtifactIcon, iconFor, kindBadge } from "./artifact-icon";
 import { openArtifactInPane } from "@/components/media/side-pane-store";
+import { toast } from "sonner";
 import "./artifacts.css";
 
 /** Same-origin fallback href (inline previews and the no-JS path keep using it). */
@@ -159,7 +160,7 @@ export function ArtifactCard({ artifact: a, compact = false, selected = false, s
   const badge = kindBadge(a.kind, a.mime, a.name);
   const metaBits = [a.sizeBytes ? formatBytes(a.sizeBytes) : null, now ? relativeTime(a.createdAt, now) : null].filter(Boolean) as string[];
   const showThumb = a.kind === "image" && a.thumbnailUrl && !thumbErr && !a.pending && !compact;
-  const act = async (mode: "open" | "download") => { if (busy) return; setBusy(mode); try { await openArtifact(a, mode); } finally { setBusy(null); } };
+  const act = async (mode: "open" | "download") => { if (busy) return; setBusy(mode); try { await openArtifact(a, mode); if (mode === "download") toast.success("Download started", { description: a.name }); } catch { if (mode === "download") toast.error("Couldn't start the download"); } finally { setBusy(null); } };
   const canOpen = !!a.contentUrl && !a.pending;
   const contentOk = probe === undefined ? null : probe.ok;
   const status = artifactStatus(a, contentOk);

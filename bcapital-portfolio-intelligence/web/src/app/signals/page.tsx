@@ -5,7 +5,7 @@ import { getSignals, listCompanies } from "@/lib/api";
 import { PageHeader } from "@/components/shell/page-header";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
-export const metadata: Metadata = { title: "Signals", description: "Evidence-weighted Portfolio Signal Scores for every B Capital portfolio company: score, percentile, sector and confidence, backed by the live /signals feed.", openGraph: { title: "Signals", description: "Evidence-weighted Portfolio Signal Scores for every B Capital portfolio company: score, percentile, sector and confidence, backed by the live /signals feed." }, twitter: { title: "Signals", description: "Evidence-weighted Portfolio Signal Scores for every B Capital portfolio company: score, percentile, sector and confidence, backed by the live /signals feed." } };
+export const metadata: Metadata = { title: "Signals", description: "Evidence-weighted Portfolio Signal Scores for every B Capital portfolio company: score, percentile, sector and confidence, backed by the live /signals feed.", openGraph: { title: "Signals", description: "Evidence-weighted Portfolio Signal Scores for every B Capital portfolio company: score, percentile, sector and confidence, backed by the live /signals feed." }, twitter: { title: "Signals", description: "Evidence-weighted Portfolio Signal Scores for every B Capital portfolio company: score, percentile, sector and confidence, backed by the live /signals feed." }, alternates: { canonical: "/signals" } };
 export const revalidate = 120;
 
 export default async function SignalsPage() {

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: { title: "B Capital Portfolio Intelligence", description: "Catalysts. Questioners. Visionaries.", type: "website" },
   twitter: { card: "summary_large_image" },
 };
-export const viewport: Viewport = { themeColor: "#ffffff", colorScheme: "light", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#0AC985", colorScheme: "light", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -3,7 +3,7 @@ import { getFeed, getPeople, getPortfolioData } from "@/lib/social";
 import { SocialFeed, type Suggestion, type Story } from "@/components/social/social-feed";
 import { SECTOR_KEYS } from "@/lib/social-sectors";
 
-export const metadata: Metadata = { title: "B Social", description: "The B Capital founder network — social-media posts with original source links and pinned B Capital Agent takeaways.", openGraph: { title: "B Social", description: "The B Capital founder network — social-media posts with original source links and pinned B Capital Agent takeaways." }, twitter: { title: "B Social", description: "The B Capital founder network — social-media posts with original source links and pinned B Capital Agent takeaways." } };
+export const metadata: Metadata = { title: "B Social", description: "The B Capital founder network — social-media posts with original source links and pinned B Capital Agent takeaways.", openGraph: { title: "B Social", description: "The B Capital founder network — social-media posts with original source links and pinned B Capital Agent takeaways." }, twitter: { title: "B Social", description: "The B Capital founder network — social-media posts with original source links and pinned B Capital Agent takeaways." }, alternates: { canonical: "/social" } };
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 

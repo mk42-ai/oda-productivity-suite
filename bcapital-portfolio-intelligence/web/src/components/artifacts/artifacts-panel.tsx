@@ -8,6 +8,8 @@ import { useArtifacts, useArtifactsPanel } from "@/lib/artifacts/store";
 import type { Artifact, ArtifactDateFilter, ArtifactFilter } from "@/lib/artifacts/types";
 import { ArtifactCard } from "./artifact-card";
 import { ArtifactPreview } from "./artifact-preview";
+import { EmptyState } from "@/components/ui/empty-state";
+import { toast } from "sonner";
 import "./artifacts.css";
 
 export const FILTERS: { id: ArtifactFilter; label: string }[] = [
@@ -91,7 +93,7 @@ export function ArtifactsList({ items, filters, onFilters, selectedId, onPreview
         </div>
       </div>
       {error && items.length > 0 && <p className="art-error" role="status">Could not refresh ({error}); showing the last saved list.</p>}
-      {shown.length === 0 ? (loading && items.length === 0 ? <p className="art-note" role="status">Loading artifacts…</p> : items.length === 0 ? <ArtifactsEmpty /> : <p className="art-note" data-testid="artifacts-no-match">No {FILTERS.find((f) => f.id === filters.type)?.label.toLowerCase()} match these filters.</p>)
+      {shown.length === 0 ? (loading && items.length === 0 ? <p className="art-note" role="status">Loading artifacts…</p> : items.length === 0 ? <ArtifactsEmpty /> : <div data-testid="artifacts-no-match"><EmptyState illustration compact title="No artifacts match these filters" body="Try another type or date range." action={<button type="button" className="art-btn" data-testid="artifacts-reset-filters" onClick={() => { onFilters({ ...filters, type: "all", date: "all", thread: "all" }); toast.success("Filters reset"); }}>Reset filters</button>} /></div>)
         : <>{group("Today", today)}{group("Earlier", earlier)}</>}
     </div>
   );

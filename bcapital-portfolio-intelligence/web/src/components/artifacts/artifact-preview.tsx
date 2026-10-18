@@ -7,6 +7,7 @@ import { ArtifactIcon } from "./artifact-icon";
 import { openArtifact } from "./artifact-card";
 import { PdfPages, PreviewUnavailable } from "./pdf-pages";
 import { openArtifactInPane } from "@/components/media/side-pane-store";
+import { toast } from "sonner";
 import "./artifacts.css";
 
 const isText = (m: string, n: string) => m.startsWith("text/plain") || m.includes("markdown") || m.includes("json") || m.includes("csv") || /\.(md|txt|csv|json|log)$/i.test(n);
@@ -27,7 +28,7 @@ function TextBody({ url }: { url: string }) {
 /** Inline preview by type: image → img, video → VideoPlayer, pdf → pdf.js pages, text/markdown → pre, html → sandboxed iframe, else icon + download. */
 export function ArtifactPreview({ artifact: a, headerActions }: { artifact: Artifact; headerActions?: React.ReactNode }) {
   const m = a.mime.toLowerCase();
-  const fallbackActions = { onOpenPane: () => openArtifactInPane({ id: a.id, name: a.name, kind: a.kind, mime: a.mime, contentUrl: a.contentUrl, size: a.sizeBytes }), onTab: () => void openArtifact(a, "open"), onDownload: () => void openArtifact(a, "download") };
+  const fallbackActions = { onOpenPane: () => openArtifactInPane({ id: a.id, name: a.name, kind: a.kind, mime: a.mime, contentUrl: a.contentUrl, size: a.sizeBytes }), onTab: () => void openArtifact(a, "open"), onDownload: () => { void openArtifact(a, "download").then(() => toast.success("Download started", { description: a.name }), () => toast.error("Couldn't start the download")); } };
   let body: React.ReactNode;
   if (!a.contentUrl || a.pending) body = <div className="art-preview-fallback"><ArtifactIcon kind={a.kind} mime={a.mime} fileName={a.name} state={a.failed ? "failed" : "uploading"} size={64} /><p>{a.failed ? "This artifact could not be saved." : "Still saving — the preview appears once storage confirms."}</p></div>;
   else if (a.kind === "image" || m.startsWith("image/")) body = <img className="art-preview-img" src={a.contentUrl} alt={a.name} />;

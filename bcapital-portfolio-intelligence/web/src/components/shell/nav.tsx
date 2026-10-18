@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, Newspaper, MessageSquare, Settings, Building2, Archive, Users, Landmark, Activity, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { useArtifacts } from "@/lib/artifacts/store";
 import { useEffect, useRef, type KeyboardEvent } from "react";
 
@@ -64,11 +65,16 @@ export function Nav({ collapsed = false }: { collapsed?: boolean }) {
       {ITEMS.map(({ href, label, icon: Icon, match }) => {
         const active = isActive(path, href, match);
         return (
-          <Link key={href} href={href} aria-current={active ? "page" : undefined} aria-label={label} title={collapsed ? label : undefined} data-testid={`nav-${href.slice(1)}`}
+          <Tooltip key={href}>
+          <TooltipTrigger asChild>
+          <Link href={href} aria-current={active ? "page" : undefined} aria-label={label} data-testid={`nav-${href.slice(1)}`}
             className={cn("relative flex min-h-10 shrink-0 items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring", active ? "bg-surface-3 text-foreground" : "text-muted hover:bg-surface-2 hover:text-foreground", collapsed && "lg:size-10 lg:justify-center lg:px-0")}>
             <Icon className="size-4 shrink-0" aria-hidden /><span className={cn("hidden sm:inline", collapsed && "lg:sr-only")}>{label}</span><span className="sr-only sm:hidden">{label}</span>
             {href === "/artifacts" && artifactCount > 0 && <ArtifactsCount count={artifactCount} collapsed={collapsed} />}
           </Link>
+          </TooltipTrigger>
+          <TooltipContent side="right">{label}</TooltipContent>
+          </Tooltip>
         );
       })}
     </nav>
