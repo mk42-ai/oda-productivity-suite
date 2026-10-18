@@ -15,25 +15,34 @@ function modalOpen() {
  *  3. moves focus to <main id="main"> (tabIndex -1, preventScroll) so keyboard / screen-reader users start at the new content;
  *  4. honours a #hash target — on the FIRST load too (deep link /company/x#news), on client navigation and on `hashchange`.
  *     The target section is server-streamed behind a loading.tsx boundary, so the browser's native anchor jump fires before
- *     it exists and the page stayed at the top (stress-harness finding 2026-10-16). We poll per animation frame (≤ 3 s) until
+ *     it exists and the page stayed at the top (stress-harness finding 2026-10-16). We poll per animation frame (≤ 20 s — a cold server streams the section after its backend fetches) until
  *     the element exists and the layout has settled, then scrollIntoView once; user scroll/keys cancel the wait.
  * Scroll-to-top on push and scroll restoration on back/forward are left to the App Router — nothing here touches window scroll
  * unless a hash is present.
  */
-/** Scroll to the current #hash target once it exists (rAF polling, ≤ 3 s, cancelled by user input). Returns a canceller. */
+/** Scroll to the current #hash target once it exists (rAF polling, ≤ 20 s, cancelled by user input). Returns a canceller. */
 function scrollToHash(): () => void {
   const hash = decodeURIComponent(window.location.hash.slice(1));
   if (!hash) return () => {};
-  let raf = 0; let lastTop = NaN; let stable = 0; const t0 = performance.now();
+  let raf = 0; let lastTop = NaN; let stable = 0; const t0 = performance.now(); let landedAt = 0;
   const stop = () => { cancelAnimationFrame(raf); window.removeEventListener("wheel", stop); window.removeEventListener("touchmove", stop); window.removeEventListener("keydown", stop); };
+  // Phase 1: wait until the target exists and its document offset is stable for 3 frames, then scroll to it.
+  // Phase 2 (guard, 4 s): hydration / the router's own scroll handling can reset window scroll to 0 AFTER our jump (seen live on
+  // /company/<slug>#news: ~1 in 3 cold loads ended at scrollY 0). Re-apply while the target is out of view and the user has not
+  // scrolled or typed (any wheel / touch / key input stops the effect immediately).
   const tick = () => {
     const el = document.getElementById(hash);
-    if (el) {
+    const now = performance.now();
+    if (el && landedAt) {
+      const r = el.getBoundingClientRect();
+      if (r.top < -4 || r.top >= window.innerHeight) el.scrollIntoView({ block: "start", behavior: "instant" });
+      if (now - landedAt > 4000) { stop(); return; }
+    } else if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY;
       stable = Math.abs(top - lastTop) < 1 ? stable + 1 : 0; lastTop = top;
-      if (stable >= 3) { el.scrollIntoView({ block: "start", behavior: "instant" }); stop(); return; }
+      if (stable >= 3) { el.scrollIntoView({ block: "start", behavior: "instant" }); landedAt = now; }
     }
-    if (performance.now() - t0 > 3000) { if (el) el.scrollIntoView({ block: "start", behavior: "instant" }); stop(); return; }
+    if (!landedAt && now - t0 > 20000) { if (el) el.scrollIntoView({ block: "start", behavior: "instant" }); stop(); return; }
     raf = requestAnimationFrame(tick);
   };
   window.addEventListener("wheel", stop, { passive: true }); window.addEventListener("touchmove", stop, { passive: true }); window.addEventListener("keydown", stop);

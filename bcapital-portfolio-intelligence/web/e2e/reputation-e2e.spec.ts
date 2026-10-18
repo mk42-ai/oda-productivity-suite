@@ -85,6 +85,43 @@ for (const vp of VIEWPORTS) {
       await page.screenshot({ path: path.join(PROOF, `reputation-quickchat-${vp.label}.png`), fullPage: false });
     });
 
+    test("plates self-hosted + mapped, headshots in the ring, card click loads that entity as the chat subject, B Capital identity", async ({ page }) => {
+      await page.goto("/reputation");
+      await expect(page.getByTestId("reputation-view")).toBeVisible();
+      // B Capital shell: brand logo + B Capital nav (Companies, Signals, B Social, News Pulse, Reputation) — and none of the source workbench's identity
+      await expect(page.getByTestId("brand-home")).toBeVisible();
+      for (const id of ["companies", "signals", "social", "news", "reputation"]) await expect(page.getByTestId("primary-nav").getByTestId(`nav-${id}`)).toHaveCount(1);
+      const html = (await page.content()).toLowerCase();
+      for (const bad of ["gulf-io-light-workbench", "start investigation", "office of development affairs", "rillion"]) expect(html, bad).not.toContain(bad);
+      // the four plates: self-hosted under /public/reputation, each mapped to its surface, each actually served (200 + image)
+      expect(await page.getByTestId("reputation-hero").evaluate((el) => getComputedStyle(el).backgroundImage)).toContain("/reputation/plate-hero-Fkray2Nt1A.jpg");
+      expect(await page.locator('[data-entity="b-capital"] [data-testid="entity-plate"]').getAttribute("data-plate")).toBe("/reputation/plate-firm-3Ha2Gnbdlt.jpg");
+      for (const id of ENTITIES.slice(1)) expect(await page.locator(`[data-entity="${id}"] [data-testid="entity-plate"]`).getAttribute("data-plate")).toBe("/reputation/plate-leadership-kmAXRIzvSH.jpg");
+      expect(await page.getByTestId("matrix-panel").getAttribute("data-plate")).toBe("/reputation/plate-matrix-gNQTYRN0OI.jpg");
+      for (const u of ["/reputation/plate-hero-Fkray2Nt1A.jpg", "/reputation/plate-firm-3Ha2Gnbdlt.jpg", "/reputation/plate-leadership-kmAXRIzvSH.jpg", "/reputation/plate-matrix-gNQTYRN0OI.jpg", "/reputation/people/eduardo-saverin.jpg", "/reputation/people/raj-ganguly.jpg", "/reputation/people/karan-mohla.jpg", "/brand/b-capital-logo.svg"]) {
+        const r = await page.request.get(u); expect(r.status(), u).toBe(200); expect(r.headers()["content-type"], u).toMatch(/image\//);
+      }
+      // headshots: self-hosted under /reputation/people, loaded, circular and centred inside the plate's ring
+      for (const id of ENTITIES.slice(1)) {
+        const img = page.locator(`[data-entity="${id}"] [data-testid="entity-photo"]`);
+        expect(await img.getAttribute("src")).toBe(`/reputation/people/${id}.jpg`);
+        await expect.poll(async () => img.evaluate((el) => (el as HTMLImageElement).naturalWidth), { timeout: 15_000 }).toBeGreaterThan(0);
+        const g = await img.evaluate((el) => { const p = el.parentElement!.getBoundingClientRect(); const r = el.getBoundingClientRect(); return { cx: (r.left + r.width / 2 - p.left) / p.width, cy: (r.top + r.height / 2 - p.top) / p.height, round: getComputedStyle(el).borderRadius }; });
+        expect(Math.abs(g.cx - 0.3122)).toBeLessThan(0.02); expect(Math.abs(g.cy - 0.4517)).toBeLessThan(0.03); expect(g.round).toMatch(/9999px|50%/);
+      }
+      await expect.poll(async () => page.locator('[data-entity="b-capital"] [data-testid="entity-photo"]').evaluate((el) => (el as HTMLImageElement).naturalWidth), { timeout: 15_000 }).toBeGreaterThan(0);
+      // clicking each card (its plate) loads that entity as the quick-chat subject
+      for (const [id, name] of [["eduardo-saverin", "Eduardo Saverin"], ["karan-mohla", "Karan Mohla"], ["b-capital", "B Capital"], ["raj-ganguly", "Raj Ganguly"]] as const) {
+        await page.locator(`[data-entity="${id}"] [data-testid="entity-plate"]`).click();
+        await expect(page.getByTestId("ask-subject")).toContainText(name);
+      }
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.screenshot({ path: path.join(PROOF, `reputation-hero-plates-${vp.label}.png`), fullPage: false });
+      await page.getByTestId("matrix-panel").scrollIntoViewIfNeeded();
+      await page.getByTestId("matrix-panel").screenshot({ path: path.join(PROOF, `reputation-matrix-plate-${vp.label}.png`) });
+      await noOverflow(page);
+    });
+
     test("unknown entity id is a real HTTP 404; known ids resolve", async ({ page }) => {
       const bad = await page.request.get("/reputation/not-a-real-entity");
       expect(bad.status()).toBe(404);

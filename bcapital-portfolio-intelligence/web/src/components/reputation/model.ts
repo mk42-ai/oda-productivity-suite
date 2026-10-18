@@ -26,7 +26,7 @@ export function fmtDelta(seconds: number): string {
   return `${(seconds / 86400).toFixed(1)}d`;
 }
 
-export const UNPROVEN_BANNER = 'Coordination: UNPROVEN — links show co-action, not intent';
+export const UNPROVEN_BANNER = 'Correlation: links show shared sourced facts, not endorsement';
 
 /** DEF-024 (label only, the node id stays the raw handle): URL-string handles lose their scheme / `www.` / trailing slash. */
 export function nodeLabel(handle: string): string {

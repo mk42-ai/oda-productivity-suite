@@ -1,6 +1,6 @@
 'use client';
 /**
- * Reputation & Prestige — client view. Hosts the ported Rilian panels (Communities, Centrality, MatrixHeatmap — verbatim) over the
+ * Reputation & Prestige — client view. Hosts the ported correlation-engine panels (Communities, Centrality, MatrixHeatmap — verbatim) over the
  * engine result computed on the server (adapter.ts → engine.ts), the four entity cards (factor tables with source links), the
  * WHY CONNECTED edge facts and the ASK · OnDemand quick-chat dock. Clicking a card publishes that entity's on-screen context as the
  * ASK subject (buildNodeContext, contextToMetadata — Rilian context.ts, verbatim); clicking an edge publishes the edge context.
@@ -19,6 +19,7 @@ import { MatrixHeatmap } from './MatrixHeatmap';
 import { Badge, cx } from './rilian-ui';
 import { MODE_PATTERN, UNPROVEN_BANNER, edgeLookup, fmtDelta } from './model';
 import { ReputationAskPanel } from './ReputationAskPanel';
+import type { Plates } from '@/lib/reputation/assets';
 import './reputation.css';
 
 type FactorLookup = Record<string, { id: string; title: string; excerpt?: string | null; claimStatus?: string | null; reliability?: string | null; source?: string | null; publishedAt?: string | null }>;
@@ -29,15 +30,17 @@ function entityPrompts(e: ReputationEntity) {
   return e.starterPrompts.map((q, i) => ({ id: `starter-${i}`, label: q.length > 44 ? `${q.slice(0, 43)}…` : q, question: q }));
 }
 
-export function EntityCard({ entity, node, onAsk, active, ambient }: { entity: ReputationEntity; node: CorrelationResult['nodes'][number] | undefined; onAsk: (e: ReputationEntity) => void; active: boolean; ambient?: string }) {
+export function EntityCard({ entity, node, onAsk, active, plate }: { entity: ReputationEntity; node: CorrelationResult['nodes'][number] | undefined; onAsk: (e: ReputationEntity) => void; active: boolean; plate?: string }) {
   const [open, setOpen] = useState(false);
   const risks = entity.factors.filter((f) => f.riskFlag).length;
   return (
-    <article className={cx('card relative overflow-hidden', active && 'border-ink')} data-testid="entity-card" data-entity={entity.id} aria-label={entity.name}>
-      {ambient && <div className="rep-ambient" style={{ backgroundImage: `url(${ambient})` }} aria-hidden="true" />}
-      <div className="relative flex gap-4 p-4">
+    <article className={cx('card relative overflow-hidden', active && 'border-ink is-subject')} data-testid="entity-card" data-entity={entity.id} data-kind={entity.kind} aria-label={entity.name}>
+      {/* Plate band: firm card → 3Ha2Gnbdlt backdrop with the B Capital logo; leadership → kmAXRIzvSH with the real headshot inside the plate's empty ring. Clicking loads this entity as the quick-chat subject. */}
+      <button type="button" className={cx('rep-plate', entity.kind === 'firm' ? 'rep-plate--firm' : 'rep-plate--leader')} style={plate ? { backgroundImage: `url(${plate})` } : undefined} data-testid="entity-plate" data-plate={plate} onClick={() => onAsk(entity)} aria-label={`Ask about ${entity.name}`}>
         {/* Real photo only — never generated or altered; source URL recorded in entity.photo.sourceUrl */}
-        <img src={entity.photo.src} alt={entity.photo.alt} width={72} height={72} className={cx('rep-entity-photo', entity.kind === 'firm' && 'rep-entity-photo--firm')} data-testid="entity-photo" data-source={entity.photo.sourceUrl} loading="eager" decoding="async" />
+        <img src={entity.photo.src} alt={entity.photo.alt} width={entity.kind === 'firm' ? 220 : 120} height={entity.kind === 'firm' ? 48 : 150} className={cx('rep-entity-photo', entity.kind === 'firm' ? 'rep-entity-photo--firm' : 'rep-entity-photo--ring')} data-testid="entity-photo" data-source={entity.photo.sourceUrl} loading="eager" decoding="async" />
+      </button>
+      <div className="relative flex gap-4 p-4">
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h2 className="text-[15px] font-semibold text-ink" data-testid="entity-name">{entity.name}</h2>
@@ -103,7 +106,7 @@ function WhyConnected({ edge, lookup, onAsk }: { edge: CoEdge | null; lookup: Fa
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-[12px] font-semibold text-ink">WHY CONNECTED</span>
         <span className="mono text-[11px] text-secondary">{edge.source} × {edge.target}</span>
-        <Badge pattern="dashed" className="badge-unproven" title={UNPROVEN_BANNER}>UNPROVEN</Badge>
+        <Badge pattern="dashed" className="badge-unproven" title={UNPROVEN_BANNER}>CORRELATION ONLY</Badge>
         {edge.syndicated && <Badge pattern="hatched">syndicated</Badge>}
         <button type="button" className="btn ml-auto" onClick={() => onAsk(edge)} data-testid="edge-ask"><MessageSquare className="h-3 w-3" /> Ask about this link</button>
       </div>
@@ -130,7 +133,7 @@ function WhyConnected({ edge, lookup, onAsk }: { edge: CoEdge | null; lookup: Fa
   );
 }
 
-export function ReputationView({ entities, result, lookup, ambient }: { entities: ReputationEntity[]; result: CorrelationResult; lookup: FactorLookup; ambient: { hero?: string; firm?: string; leader?: string } }) {
+export function ReputationView({ entities, result, lookup, plates }: { entities: ReputationEntity[]; result: CorrelationResult; lookup: FactorLookup; plates: Plates }) {
   const setSubject = useAskDock((s) => s.setSubject);
   const subject = useAskDock((s) => s.subject);
   const [highlighted, setHighlighted] = useState<number | null>(null);
@@ -162,13 +165,13 @@ export function ReputationView({ entities, result, lookup, ambient }: { entities
       </div>
       <div className="grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-2" data-testid="entity-grid">
         {entities.map((e) => (
-          <EntityCard key={e.id} entity={e} node={nodeById.get(e.handle)} onAsk={askEntity} active={subject?.subjectKey === e.handle} ambient={e.kind === 'firm' ? ambient.firm : ambient.leader} />
+          <EntityCard key={e.id} entity={e} node={nodeById.get(e.handle)} onAsk={askEntity} active={subject?.subjectKey === e.handle} plate={e.kind === 'firm' ? plates.firm : plates.leader} />
         ))}
       </div>
       <h2 className="mt-6 text-[14px] font-semibold text-ink">Correlation output</h2>
-      <p className="mb-3 text-[12px] text-secondary">Rilian correlation engine — co-share / co-link / co-hashtag / co-reply / co-text inside the window, distinct-pair dedup, discriminating weight (log-scaled pairs × specificity × precision ÷ (1 + syndication)), Louvain communities and Brandes betweenness. Shade = normalised weight.</p>
+      <p className="mb-3 text-[12px] text-secondary">Correlation engine — co-share / co-link / co-hashtag / co-reply / co-text inside the window, distinct-pair dedup, discriminating weight (log-scaled pairs × specificity × precision ÷ (1 + syndication)), Louvain communities and Brandes betweenness. Shade = normalised weight.</p>
       <div className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-3" data-testid="correlation-output">
-        <div className="card min-w-0 p-3 lg:col-span-1">
+        <div className="card rep-matrix-panel min-w-0 p-3 lg:col-span-1" style={{ backgroundImage: `url(${plates.matrix})` }} data-testid="matrix-panel" data-plate={plates.matrix}>
           <div className="label-xs mb-2">Co-occurrence matrix</div>
           <div className="rep-matrix-wrap" data-testid="correlation-matrix">
             <MatrixHeatmap matrix={result.matrix} edges={edges} height={240} highlightedCommunity={highlighted} onCellClick={(id) => { const e = lookupEdges.get(id); if (e) setEdgeId(e.id); }} />

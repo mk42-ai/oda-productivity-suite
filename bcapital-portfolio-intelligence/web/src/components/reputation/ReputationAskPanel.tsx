@@ -106,7 +106,7 @@ export function ReputationAskPanel({ externalUserId = 'bcapital-reputation' }: {
     <section className="card flex min-h-[420px] flex-col" data-testid="ondemand-ask-panel" aria-label="Quick chat · OnDemand">
       <header className="flex flex-wrap items-center gap-2 border-b border-hairline px-3 py-2">
         <span className="text-[12px] font-semibold text-ink">ASK · OnDemand</span>
-        <Badge pattern="dashed" className="badge-unproven" title={STANDING_RULE}>UNPROVEN</Badge>
+        <Badge pattern="dashed" className="badge-unproven" title={STANDING_RULE}>CORRELATION ONLY</Badge>
         <label className="ml-auto flex items-center gap-1 text-[11px] text-secondary">
           model
           <select className="input !w-auto !min-h-[24px] !py-0" value={endpointId} onChange={(e) => setEndpointId(e.target.value)} data-testid="ask-model-select" aria-label="Model">

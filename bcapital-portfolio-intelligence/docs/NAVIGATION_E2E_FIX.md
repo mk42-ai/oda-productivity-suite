@@ -322,3 +322,43 @@ Open item: `nav-stress › back-forward-spam` reproduces React #418 on `/news` o
 
 Screenshots (`.ui-proof/`): `reputation-page-{1440x900,390x844}.png`, `reputation-card-{b-capital,eduardo-saverin,raj-ganguly,karan-mohla}-{1440x900,390x844}.png`,
 `reputation-quickchat-{1440x900,390x844}.png` (Playwright, live), `after-reputation-*`, `after-reputation-quickchat-*` (ui-validator, live), `live-reputation-*` (live-smoke).
+
+## Reputation port re-target + verification — 2026-10-18
+
+Target repo: `mk42-ai/oda-productivity-suite`, app root `bcapital-portfolio-intelligence/` (B Capital Portfolio Intelligence — `web/package.json`
+name `bcap-portfolio-intelligence-web`), branch `fix/navigation-crashes-20261014`. Safety tag `pre-bcap-reputation-20261018` → `8021f223`
+(pushed 2026-10-18T02:09:35Z). The source workbench `mk42-ai/gulf-io-light-workbench @ 38effe89` was only read (clean working tree, nothing
+pushed or deployed from it). Note: `mk42-ai/bcapital-portfolio-intelligence` exists but has no `fix/navigation-crashes-20261014` branch and does not
+contain `8021f223`; the branch and commit live in `oda-productivity-suite`, so all work and the push are there.
+
+Changes on top of 8021f223:
+- Four uploaded plates self-hosted in `web/public/reputation/` and mapped: hero (Fkray2Nt1A, content on the left half, white scrim),
+  firm card backdrop (3Ha2Gnbdlt, B Capital logo on a white pill), leadership backdrop (kmAXRIzvSH, headshot drawn inside the plate's
+  empty ring — centre measured at 31.2% / 45.2%, r 15.4% of width), matrix panel texture (gNQTYRN0OI under an 80% white veil).
+- Headshots re-downloaded from b.capital into `web/public/reputation/people/`; unused `public/assets/reputation/*` (ambient-*, old copies) removed.
+- 59 factors kept; refreshed with the 2026-10-18 sourced facts (Ascent III $500M hard cap + $254M Ascent II, $12B+ AUM, Caproasia $307M/$9B,
+  Forbes/Business Standard Opportunities II $750M vs $415M, Bloomberg $2.1B / $360M / $500M talks, b.capital/about leadership + BCG, 130 founders).
+- Personalised copy rewritten per entity; workbench framing strings removed from UI and prompts (no "UNPROVEN"/OSINT/"recycled footage").
+- Clicking a card's plate loads that entity as the quick-chat subject; ONDEMAND_API_KEY stays server-only (`/api/reputation/ondemand`).
+- /news React #418 root cause: `getAllNews()` sorted by date-only `published_at` with ties left in fetch-completion order of 16 concurrent
+  workers, so each ISR generation emitted a different item order and a cached document could hydrate against a newer RSC payload. Ties are now
+  broken by company slug + id (deterministic). /overview "N min ago" moved to a client clock (second #418 source). #news deep-link scroll
+  re-applies for 4 s after landing if hydration resets scroll (live: 1 in 3 cold loads).
+- Middleware: `/reputation/*.{jpg,png,…}` passes through as static assets (was rewritten to 404).
+
+Live preview https://sb-4ynhlojce4bm.vercel.run (sandbox `sbx_5jhw8BHaK239aHxTSej6ui83lggX`, Vercel project `prj_iZcctLWyRrr0jXMfAAQYMLHm06jF`;
+Hono `node dist/server.js` :4000 → /health 200, Next `next start` 0.0.0.0:5173), built from `bcapital-portfolio-intelligence/web`.
+
+| Suite | Local `next start` | Live |
+|---|---|---|
+| reputation-e2e | 8/8 | 8/8 |
+| navigation-e2e | 12/12 | 12/12 |
+| nav-stress | 18/18 | 18/18 (0 events) |
+| chat-error-retry | 1/1 | 1/1 |
+| navigation-retry-proof | 2/2 | 2/2 |
+| live-smoke | — | 28/28 |
+| ui-validator (home, /signals, /reputation, card→subject; 1440x900 + 390x844) | — | 4/4 |
+| tsc --noEmit / next build | 0 / 0 | 0 / 0 |
+| ONDEMAND_API_KEY in .next/static | 0 / 1759 files | 0 / 1759 files |
+
+Quick-chat proxy (live): `createSession` 200, `query` 200 in 7.9 s with a 206-char answer.

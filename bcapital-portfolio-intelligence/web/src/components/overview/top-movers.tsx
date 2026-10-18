@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowDownRight, Minus } from "lucide-react";
 import { imageSrc } from "@/lib/img-proxy";
@@ -46,11 +46,15 @@ function LogoChip({ src, name }: { src: string | null | undefined; name: string 
 
 export function TopMovers({ movers, lastRunAt }: { movers: TopMover[]; lastRunAt: string | null | undefined }) {
   const moved = movers.filter((m) => m.delta != null && m.delta !== 0);
+  // Hydration-safe relative time (React #418 caught by nav-stress deep-link-reload on /overview): server and browser render at different
+  // instants, so "N min ago" can land in different buckets. The clock lives in state (refreshed after mount and every minute).
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => { setNow(Date.now()); const id = setInterval(() => setNow(Date.now()), 60_000); return () => clearInterval(id); }, []);
   return (
     <section className="card tm-card" data-testid="top-movers" aria-labelledby="top-movers-title">
       <header className="tm-head">
         <h2 id="top-movers-title" className="tm-title">Top movers since last run</h2>
-        <p className="tm-sub text-muted">{lastRunAt ? <>scored <time dateTime={lastRunAt}>{relativeTime(lastRunAt)}</time> · {absUtc(lastRunAt)}</> : "no runs yet"}</p>
+        <p className="tm-sub text-muted">{lastRunAt ? <>scored <time dateTime={lastRunAt} suppressHydrationWarning>{relativeTime(lastRunAt, now)}</time> · {absUtc(lastRunAt)}</> : "no runs yet"}</p>
       </header>
       {moved.length === 0 ? (
         <p className="tm-empty text-muted">No movement since the last run</p>

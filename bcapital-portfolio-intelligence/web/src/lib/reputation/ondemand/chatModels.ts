@@ -13,7 +13,7 @@
  * Every id is checked against the registry catalogue (`src/data/ondemand/endpoints.snapshot.json`, fetched 2026-09-15T23:48:13Z, 81 rows,
  * plus the live rows when the registry was refreshed this session): an id that is NOT in the catalogue is rendered greyed
  * "not on OnDemand" by the selector and is never sent (`isOnCatalogue`). The 45 s per-attempt timeout is configurable
- * (`askTimeoutMs()`, localStorage `gulf-io.chat.askTimeoutMs`). The selection itself persists in localStorage through
+ * (`askTimeoutMs()`, localStorage `bcap.reputation.askTimeoutMs`). The selection itself persists in localStorage through
  * `useModelRegistry.select()` → `ondemand:live:settings.endpointId`.
  */
 import snapshot from '../data/endpoints.snapshot.json';
@@ -109,7 +109,7 @@ export function stripThinking(text: string): string {
 
 /* ------------------------------------------------------------------ configurable per-attempt timeout */
 export const DEFAULT_ASK_TIMEOUT_MS = 45_000;
-export const ASK_TIMEOUT_KEY = 'gulf-io.chat.askTimeoutMs';
+export const ASK_TIMEOUT_KEY = 'bcap.reputation.askTimeoutMs';
 export const ASK_TIMEOUT_MIN_MS = 5_000;
 export const ASK_TIMEOUT_MAX_MS = 180_000;
 export function clampTimeoutMs(ms: number): number {

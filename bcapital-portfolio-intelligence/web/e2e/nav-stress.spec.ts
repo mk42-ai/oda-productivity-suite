@@ -152,15 +152,17 @@ for (const vp of [{ width: 1440, height: 900, label: "1440x900" }, { width: 390,
       const ev = attach(page, vp.label, "news-anchor");
       await page.goto("/company/fervo-energy#news");
       await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
-      await page.waitForTimeout(600);
-      const top = await page.locator("#news").evaluate((el) => el.getBoundingClientRect().top).catch(() => 99999);
+      // The section streams behind loading.tsx; RouteEffects scrolls once it exists. Poll instead of a fixed sleep.
+      let top = 99999;
+      for (let i = 0; i < 60; i++) { top = await page.locator("#news").evaluate((el) => el.getBoundingClientRect().top).catch(() => 99999); if (top >= -4 && top < vp.height) break; await page.waitForTimeout(250); }
       if (!(top >= -4 && top < vp.height)) ev.push({ viewport: vp.label, test: "news-anchor", route: page.url(), kind: "anchor", message: `#news not in viewport after deep link (top=${Math.round(top)})` });
       // Client-side path: quick view drawer → "news" link
       await step(ev, page, vp.label, "news-anchor", "drawer news link", async () => {
         await page.goto("/companies"); const trig = page.getByTestId("company-quick-view-trigger").first(); await trig.click();
         const link = page.locator('[data-testid="company-quick-view-drawer"] a[href*="#news"]').first();
-        if (await link.count()) { await link.click(); await page.waitForURL(/#news/, { timeout: 15000 }); await page.waitForTimeout(800);
-          const t2 = await page.locator("#news").evaluate((el) => el.getBoundingClientRect().top);
+        if (await link.count()) { await link.click(); await page.waitForURL(/#news/, { timeout: 15000 });
+          let t2 = 99999;
+          for (let i = 0; i < 60; i++) { t2 = await page.locator("#news").evaluate((el) => el.getBoundingClientRect().top).catch(() => 99999); if (t2 >= -4 && t2 < vp.height) break; await page.waitForTimeout(250); }
           if (!(t2 >= -4 && t2 < vp.height)) ev.push({ viewport: vp.label, test: "news-anchor", route: page.url(), kind: "anchor", message: `#news not in viewport after client nav (top=${Math.round(t2)})` }); }
       });
       await finish(page, ev, vp.label, "news-anchor", info);

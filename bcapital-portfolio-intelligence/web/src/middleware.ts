@@ -13,6 +13,8 @@ export async function middleware(req: NextRequest) {
   const slug = req.nextUrl.pathname.split("/")[2] ?? "";
   // /reputation/<id>: same real-404 rule — an unknown subject id never streams a 200 shell.
   if (req.nextUrl.pathname.startsWith("/reputation/")) {
+    // Self-hosted plates/headshots live under /public/reputation/** — a path with a file extension (or the people/ folder) is a static asset, never a subject id.
+    if (/\.[a-z0-9]{2,5}$/i.test(req.nextUrl.pathname)) return NextResponse.next();
     return REPUTATION_IDS.has(slug) ? NextResponse.next() : NextResponse.rewrite(new URL(`/__not-found/reputation/${encodeURIComponent(slug)}`, req.url));
   }
   // Invalid slug shape (uppercase, %XX, dots, >80 chars) can never match a company:

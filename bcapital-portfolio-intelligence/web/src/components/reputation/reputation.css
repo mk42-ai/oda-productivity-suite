@@ -1,6 +1,6 @@
-/* Reputation & Prestige — the Rilian correlation-engine design tokens, scoped to `.reputation-engine` so the host app's
+/* Reputation & Prestige — the ported correlation-engine design tokens, scoped to `.reputation-engine` so the host app's
  * --primary / .card / .chip stay untouched. Values copied from gulf-io-light-workbench/src/styles/tokens.css (v5 palette) with the
- * brand accent mapped to the host's B Capital green (#047857) for the indigo roles. Class names (.badge, .chip, .bar-track,
+ * brand accent mapped to B Capital green (#0AC985 brand, #047857 for AA text on white). Class names (.badge, .chip, .bar-track,
  * .bar-fill, .card, .table-th, .table-td) and the Tailwind-style utilities the ported panels use are reproduced here 1:1. */
 .reputation-engine {
   --page: #faf9f5;
@@ -15,7 +15,7 @@
   --hairline-2: #d9d7ce;
   --primary: #047857;
   --on-primary: #ffffff;
-  --accent: #047857;
+  --accent: #0AC985;
   --accent-tint: #e6faf3;
   --focus-ring: #0ac985;
   --warning: #f2994a;
@@ -68,15 +68,12 @@
 .reputation-engine .btn { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border-radius: 6px; border: 1px solid var(--hairline-2); background: var(--surface); color: var(--ink); font-size: 12px; font-weight: 500; cursor: pointer; white-space: nowrap; }
 .reputation-engine .btn:hover { background: var(--fill); }
 .reputation-engine .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.reputation-engine .btn-primary { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
-.reputation-engine .btn-primary:hover { filter: brightness(0.95); background: var(--primary); }
+.reputation-engine .btn-primary { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+.reputation-engine .btn-primary:hover { filter: brightness(0.95); background: var(--accent); }
 .reputation-engine .input { min-height: 28px; padding: 4px 8px; border: 1px solid var(--hairline-2); border-radius: 4px; background: var(--surface); color: var(--ink); font-size: 12px; width: 100%; }
 .reputation-engine .input::placeholder { color: var(--tertiary); }
 .reputation-engine .input:focus { outline: 2px solid var(--focus-ring); outline-offset: -1px; }
 /* Entity cards */
-.reputation-engine .rep-entity-photo { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; border: 1px solid var(--hairline-2); background: var(--surface-2); flex-shrink: 0; }
-.reputation-engine .rep-entity-photo--firm { object-fit: contain; padding: 8px; background: var(--surface); }
-.reputation-engine .rep-ambient { position: absolute; inset: 0; pointer-events: none; opacity: 0.12; background-size: cover; background-position: right center; background-repeat: no-repeat; }
 .reputation-engine .rep-factor-row:nth-child(even) { background: var(--surface-2); }
 .reputation-engine .rep-risk { color: var(--warning-text); }
 .reputation-engine .rep-matrix-wrap { overflow: auto; border: 1px solid var(--hairline); border-radius: 8px; background: var(--surface); }
@@ -87,3 +84,23 @@
 .reputation-engine [data-testid='edge-chip'], .reputation-engine [data-testid='ask-preset'] { height: auto; min-height: 20px; white-space: normal; text-align: left; }
 .reputation-engine pre { max-width: 100%; overflow-x: auto; }
 .reputation-engine [data-testid='why-connected-trail'] li span.text-ink { overflow-wrap: anywhere; }
+
+/* ---- Background plates (2026-10-18). All four plates are light green-on-white (mean luminance ≥ 247/255). Text never sits on the busy
+ * part of a plate without a white scrim, so body ink (#141413 / #5e5d59) keeps WCAG AA. Brand #0AC985 only — no blue anywhere. ---- */
+.rep-hero { position: relative; margin: -0.25rem 0 1.25rem; border-radius: 16px; overflow: hidden; background-size: cover; background-position: right center; border: 1px solid #e8e6dc; }
+.rep-hero__scrim { padding: 20px 20px 4px; max-width: 100%; background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.35) 75%, rgba(255,255,255,0) 100%); }
+.rep-hero__scrim > * { max-width: 52%; }
+@media (max-width: 900px) { .rep-hero__scrim { padding: 14px 14px 2px; background: rgba(255,255,255,0.9); } .rep-hero__scrim > * { max-width: 100%; } }
+.reputation-engine .rep-plate { position: relative; display: block; width: 100%; border: 0; border-bottom: 1px solid var(--hairline); padding: 0; cursor: pointer; background-color: #fff; background-repeat: no-repeat; aspect-ratio: 3 / 1; overflow: hidden; }
+.reputation-engine .rep-plate:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: -2px; }
+.reputation-engine .rep-plate--firm { background-size: cover; background-position: center; }
+.reputation-engine .rep-entity-photo--firm { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(56%, 260px); height: auto; padding: 12px 18px; border-radius: 12px; background: rgba(255,255,255,0.86); box-shadow: 0 1px 2px rgba(20,20,19,0.06); }
+/* Leadership: background-position p% aligns the plate's p% point with the band's p% point, so the ring centre (31.22% / 45.17% of the
+ * plate) lands on the same spot in the band; background-size scales the plate so the ring diameter (2·237/1024 of plate height) equals
+ * --ring-d of the band height. The headshot circle (88% of the ring) is drawn inside the ring. */
+.reputation-engine .rep-plate--leader { --ring-d: 82%; background-size: auto calc(var(--ring-d) / (2 * 237 / 1024)); background-position: 31.22% 45.17%; }
+.reputation-engine .rep-entity-photo--ring { position: absolute; top: 45.17%; left: 31.22%; height: calc(var(--ring-d) * 0.88); width: auto; aspect-ratio: 1 / 1; transform: translate(-50%, -50%); border-radius: 9999px; object-fit: cover; object-position: 50% 22%; border: 3px solid #fff; box-shadow: 0 0 0 1px rgba(10,201,133,0.45), 0 4px 14px rgba(20,20,19,0.12); background: var(--surface-2); }
+.reputation-engine .card.is-subject { box-shadow: 0 0 0 2px var(--accent), var(--shadow-card); }
+.reputation-engine .rep-matrix-panel { background-size: cover; background-position: center; position: relative; }
+.reputation-engine .rep-matrix-panel::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: rgba(255,255,255,0.8); pointer-events: none; }
+.reputation-engine .rep-matrix-panel > * { position: relative; }

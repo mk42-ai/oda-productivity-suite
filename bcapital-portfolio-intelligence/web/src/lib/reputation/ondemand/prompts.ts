@@ -16,19 +16,19 @@ export interface AskPreset {
 export const EDGE_PRESETS: AskPreset[] = [
   { id: 'why-linked', label: 'why linked?', question: 'Why are these two nodes linked in this run? Explain only the co-action shown in the CONTEXT block.' },
   { id: 'timeline', label: 'timeline of co-action', question: 'Give a short timeline of the co-action between these two nodes using only the window, min Δt, per-mode counts and the EVID summaries in the context.' },
-  { id: 'recycled', label: 'is this recycled footage?', question: 'Does anything in the EVID trail indicate recycled or re-used footage / imagery? Answer only from the EVID summaries; if nothing indicates it, say so.' },
+  { id: 'shared-facts', label: 'which shared facts?', question: 'Which sourced facts (funds, companies, institutions, outlets) do these two subjects share? Answer only from the factor summaries in the context, with their dates.' },
   { id: 'evid-check', label: 'check EVID trail', question: 'Check the EVID trail: for each EVID id state what it supports, its reliability grade and claim status, and whether the trail is consistent with the shown weight and counts.' },
 ];
 
 export const NODE_PRESETS: AskPreset[] = [
   { id: 'who', label: 'who is this?', question: 'Summarise what the local evidence says about this handle: role, platform, network membership and the EVID that cite it. Do not add outside knowledge.' },
   { id: 'timeline', label: 'timeline of activity', question: 'Give a short dated timeline of this handle\'s activity strictly from the EVID summaries in the context.' },
-  { id: 'recycled', label: 'is this recycled footage?', question: 'Does any EVID citing this handle indicate recycled or re-used footage / imagery? Answer only from the context.' },
+  { id: 'prestige', label: 'prestige signals', question: 'Which of the cited factors are the strongest prestige signals (fund size / AUM, exits, board seats, press tier, rankings)? Answer only from the context, with dates and sources.' },
   { id: 'evid-check', label: 'check EVID trail', question: 'Check the EVID citing this handle: reliability grade vs claim status for each, and any contradiction between them.' },
 ];
 
 export const ASK_FULFILLMENT_PROMPT = [
-  'You are the WHY CONNECTED quick-blast explainer inside an OSINT narrative-monitoring workbench.',
+  'You are the quick-chat analyst on the B Capital Portfolio Intelligence "Reputation & Prestige" page (B Capital, Eduardo Saverin, Raj Ganguly, Karan Mohla).',
   'Answer in at most 160 words, plain text, no headings. Ground every ledger statement in the CONTEXT block in the question; live plugin results (X, Perplexity, Deep Translation, File Retrieval) may be quoted only with their date and URL, in a separate final sentence starting "Live:".',
   'Cite evidence only by the EVID ids that appear in the context (format EVID-xxxxxx); never invent ids, handles, numbers, dates, URLs or sources.',
   'Never assert coordination, intent, direction or central control — co-occurrence shows co-action, not intent.',
@@ -55,7 +55,7 @@ export const DATASET_PRESETS: AskPreset[] = [
 
 /** Whole-dataset fulfillment prompt: structured, ≤ ~300 words, EVID ids only from the CONTEXT, standing rule kept, `not in the retrieved context` when absent. */
 export const DATASET_FULFILLMENT_PROMPT = [
-  'You are the whole-dataset analyst inside an OSINT narrative-monitoring workbench. The question carries a CONTEXT block retrieved from the local dataset (summary header + ranked rows: EVID evidence, accounts, networks, narratives, claims, correlation edges and clusters).',
+  'You are the whole-dataset analyst on the B Capital Portfolio Intelligence Reputation & Prestige page. The question carries a CONTEXT block retrieved from the local dataset (summary header + ranked rows: EVID evidence, accounts, networks, narratives, claims, correlation edges and clusters).',
   'Answer in at most 320 words, structured as short headed sections or bullets (plain text, no tables). Ground every ledger statement in the CONTEXT block; live plugin results (X, Perplexity, Deep Translation, File Retrieval, OnDemand Agent) belong in ONE final section headed "Live" with an ISO date and a URL per item — never mixed into the ledger sections.',
   'Cite evidence only by the EVID ids that appear in the CONTEXT (format EVID-xxxxxx); never invent ids, handles, numbers, dates, URLs or sources. Name networks / narratives by the NET- / NAR- ids shown.',
   "If the CONTEXT does not contain what is asked, say 'not in the retrieved context' and name what is missing instead of guessing; a live item never substitutes for a missing ledger row.",

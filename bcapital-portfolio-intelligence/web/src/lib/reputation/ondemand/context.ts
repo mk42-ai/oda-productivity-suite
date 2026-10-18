@@ -8,7 +8,7 @@
 // Port note (B Capital): the whole-dataset DEF-027 section (retrieval.ts BM25 over the Rilian workbench corpus) is not ported — only the
 // subject (edge / node) context builders below are used by the Reputation & Prestige quick-chat.
 
-export const STANDING_RULE = 'Coordination: UNPROVEN — links show co-action, not intent · SIMILARITY ≠ COORDINATION';
+export const STANDING_RULE = 'Correlation: links show shared sourced facts, not endorsement · CO-OCCURRENCE ≠ CAUSATION';
 export const CONTEXT_BYTE_CAP = 3 * 1024; // ~3 KB per call
 
 export interface EvidenceSummary {

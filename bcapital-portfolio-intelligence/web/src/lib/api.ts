@@ -108,7 +108,12 @@ export async function getAllNews(): Promise<Sourced<FeedItem[]> & { total: numbe
   };
   await Promise.all(Array.from({ length: 16 }, worker));
   const allLive = cs.source === "live" && summary.source === "live" && failedCompanies.length === 0;
-  return { data: [...items.values()].sort((a, b) => (b.published_at ?? "").localeCompare(a.published_at ?? "")), source: allLive ? "live" : "snapshot", fetched_at: summary.fetched_at, total: summary.data.total, perCompany: summary.data.by_company, definition: summary.data.definition, liveCompanies, failedCompanies, summarySource: summary.source };
+  // Deterministic order (root cause of the /news React #418 under back/forward spam): 99.9% of published_at values are date-only, so
+  // ties were broken by the completion order of the 16 concurrent fetch workers — every ISR regeneration produced a different item
+  // order, and a cached HTML document from one generation could be hydrated against an RSC payload from another. Break ties by a
+  // stable key so every render of the same data yields byte-identical markup.
+  const order = (a: FeedItem, b: FeedItem) => (b.published_at ?? "").localeCompare(a.published_at ?? "") || a.company_slug.localeCompare(b.company_slug) || String(a.id).localeCompare(String(b.id));
+  return { data: [...items.values()].sort(order), source: allLive ? "live" : "snapshot", fetched_at: summary.fetched_at, total: summary.data.total, perCompany: summary.data.by_company, definition: summary.data.definition, liveCompanies, failedCompanies, summarySource: summary.source };
 }
 /** PitchBook record for one company (backend `/pitchbook/{slug}`, built by the PitchBook team). No snapshot exists: the offline fallback is
  *  `null` (source 'snapshot'), which the panel renders as its honest "offline" state — never a blank card, never a credentials message. */
