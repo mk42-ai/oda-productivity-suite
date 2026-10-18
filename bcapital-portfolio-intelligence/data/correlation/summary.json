@@ -1,0 +1,1019 @@
+{
+ "runId": "REP-BATCH-001",
+ "generatedAt": "2026-10-18T03:42:24Z",
+ "now": "2026-10-18T00:00:00Z",
+ "params": {
+  "chunkSize": 250,
+  "retries": 2,
+  "halfLifeDays": 365,
+  "engineWindowSeconds": 86400,
+  "engineMinWeight": 0.01
+ },
+ "counts": {
+  "ingested": 13233,
+  "rejected": 933,
+  "deduped": 236,
+  "processed": 12064,
+  "chunks": 53,
+  "chunkRetries": 0,
+  "nanScores": 0
+ },
+ "perSource": {
+  "raw/bcapital.jsonl": 185,
+  "raw/ganguly.jsonl": 35,
+  "raw/mohla.jsonl": 32,
+  "raw/saverin.jsonl": 64,
+  "raw/seeds.jsonl": 21,
+  "factors/entities.ts": 59,
+  "portfolio/news_items": 2100,
+  "portfolio/social-feed (portfolio companies)": 10738
+ },
+ "shards": {
+  "shard-0": 1254,
+  "shard-1": 1516,
+  "shard-2": 1221,
+  "shard-3": 1182,
+  "shard-4": 1351,
+  "shard-5": 996,
+  "shard-6": 1411,
+  "shard-7": 925,
+  "shard-8": 1405,
+  "shard-9": 1576
+ },
+ "rejectReasons": {
+  "missing_date": 928,
+  "entity_mismatch": 2,
+  "not_verified": 3,
+  "duplicate_url_headline": 28,
+  "duplicate_syndicated_headline": 208
+ },
+ "byEntity": {
+  "raj-ganguly": 50,
+  "eduardo-saverin": 79,
+  "b-capital": 11892,
+  "karan-mohla": 43
+ },
+ "byCategory": {
+  "track-record": 25,
+  "exits": 36,
+  "network": 36,
+  "geography": 10,
+  "portfolio-social": 10287,
+  "portfolio-news": 1327,
+  "ipos": 28,
+  "unicorns": 9,
+  "co-investor-lp-quality": 3,
+  "media-sentiment": 43,
+  "thought-leadership": 178,
+  "aum-fund-size": 54,
+  "sector-leadership": 5,
+  "rankings": 11,
+  "founder-references": 2,
+  "risk-controversy": 9,
+  "board-seats": 1
+ },
+ "byEntityCategory": {
+  "raj-ganguly": {
+   "track-record": 6,
+   "exits": 2,
+   "network": 6,
+   "geography": 7,
+   "thought-leadership": 15,
+   "board-seats": 1,
+   "media-sentiment": 5,
+   "sector-leadership": 2,
+   "aum-fund-size": 4,
+   "rankings": 1,
+   "founder-references": 1
+  },
+  "eduardo-saverin": {
+   "track-record": 4,
+   "network": 9,
+   "geography": 1,
+   "media-sentiment": 28,
+   "thought-leadership": 9,
+   "rankings": 6,
+   "aum-fund-size": 13,
+   "founder-references": 1,
+   "risk-controversy": 8
+  },
+  "b-capital": {
+   "network": 17,
+   "portfolio-social": 10287,
+   "portfolio-news": 1327,
+   "exits": 32,
+   "ipos": 28,
+   "track-record": 5,
+   "unicorns": 9,
+   "co-investor-lp-quality": 3,
+   "thought-leadership": 138,
+   "aum-fund-size": 34,
+   "media-sentiment": 7,
+   "sector-leadership": 2,
+   "geography": 1,
+   "rankings": 1,
+   "risk-controversy": 1
+  },
+  "karan-mohla": {
+   "geography": 1,
+   "track-record": 10,
+   "exits": 2,
+   "network": 4,
+   "rankings": 3,
+   "thought-leadership": 16,
+   "sector-leadership": 1,
+   "media-sentiment": 3,
+   "aum-fund-size": 3
+  }
+ },
+ "timingsMs": {
+  "ingest_ms": 439,
+  "validate_ms": 151,
+  "dedupe_ms": 142,
+  "conflicts_ms": 7,
+  "engine_ms": 990,
+  "scores_ms": 44,
+  "total_ms": 1779
+ },
+ "engine": {
+  "postsConsidered": 12064,
+  "edges": 6,
+  "modularity": 0,
+  "durationMs": 961,
+  "precisionRejects": 0,
+  "droppedObjects": 1,
+  "trailInvariantViolations": 0,
+  "edgeList": [
+   {
+    "id": "@eduardosaverin|@rajganguly",
+    "source": "@eduardosaverin",
+    "target": "@rajganguly",
+    "weight": 0.055,
+    "count": 31,
+    "rawCount": 46,
+    "byMode": {
+     "co-share": 2,
+     "co-link": 14,
+     "co-hashtag": 21,
+     "co-reply": 6,
+     "co-text": 3
+    },
+    "sameDay": false,
+    "syndicationShare": 0.452
+   },
+   {
+    "id": "@bcapital|@eduardosaverin",
+    "source": "@bcapital",
+    "target": "@eduardosaverin",
+    "weight": 0.047,
+    "count": 103,
+    "rawCount": 163,
+    "byMode": {
+     "co-share": 12,
+     "co-link": 61,
+     "co-hashtag": 74,
+     "co-text": 16
+    },
+    "sameDay": false,
+    "syndicationShare": 0.68
+   },
+   {
+    "id": "@bcapital|@rajganguly",
+    "source": "@bcapital",
+    "target": "@rajganguly",
+    "weight": 0.047,
+    "count": 51,
+    "rawCount": 75,
+    "byMode": {
+     "co-share": 8,
+     "co-link": 31,
+     "co-hashtag": 32,
+     "co-reply": 1,
+     "co-text": 3
+    },
+    "sameDay": false,
+    "syndicationShare": 0.706
+   },
+   {
+    "id": "@bcapital|@karanmohla",
+    "source": "@bcapital",
+    "target": "@karanmohla",
+    "weight": 0.045,
+    "count": 26,
+    "rawCount": 49,
+    "byMode": {
+     "co-share": 1,
+     "co-link": 18,
+     "co-hashtag": 24,
+     "co-reply": 1,
+     "co-text": 5
+    },
+    "sameDay": false,
+    "syndicationShare": 0.731
+   },
+   {
+    "id": "@eduardosaverin|@karanmohla",
+    "source": "@eduardosaverin",
+    "target": "@karanmohla",
+    "weight": 0.032,
+    "count": 4,
+    "rawCount": 8,
+    "byMode": {
+     "co-link": 3,
+     "co-hashtag": 3,
+     "co-reply": 2
+    },
+    "sameDay": false,
+    "syndicationShare": 0.75
+   },
+   {
+    "id": "@karanmohla|@rajganguly",
+    "source": "@karanmohla",
+    "target": "@rajganguly",
+    "weight": 0.03,
+    "count": 3,
+    "rawCount": 5,
+    "byMode": {
+     "co-link": 2,
+     "co-hashtag": 3
+    },
+    "sameDay": false,
+    "syndicationShare": 0.667
+   }
+  ]
+ },
+ "matrix4": {
+  "entities": [
+   "b-capital",
+   "eduardo-saverin",
+   "raj-ganguly",
+   "karan-mohla"
+  ],
+  "handles": [
+   "@bcapital",
+   "@eduardosaverin",
+   "@rajganguly",
+   "@karanmohla"
+  ],
+  "weights": [
+   [
+    1,
+    0.047,
+    0.047,
+    0.045
+   ],
+   [
+    0.047,
+    1,
+    0.055,
+    0.032
+   ],
+   [
+    0.047,
+    0.055,
+    1,
+    0.03
+   ],
+   [
+    0.045,
+    0.032,
+    0.03,
+    1
+   ]
+  ],
+  "counts": [
+   [
+    0,
+    103,
+    51,
+    26
+   ],
+   [
+    103,
+    0,
+    31,
+    4
+   ],
+   [
+    51,
+    31,
+    0,
+    3
+   ],
+   [
+    26,
+    4,
+    3,
+    0
+   ]
+  ]
+ },
+ "scores": [
+  {
+   "entity": "b-capital",
+   "name": "B Capital",
+   "items": 11892,
+   "reputation": {
+    "slug": "b-capital",
+    "sector": "venture",
+    "score": 52,
+    "confidence": 0.98,
+    "percentile": 38,
+    "label": "balanced",
+    "factors": {
+     "level": 0.186,
+     "momentum": -0.065,
+     "volume": 6.58,
+     "confidence": 0.981
+    },
+    "z": {
+     "level": 0.252,
+     "momentum": -1.5,
+     "volume": 1.448,
+     "confidence": 1.35,
+     "composite": 0.158
+    },
+    "contributions": {
+     "level": 0.113,
+     "momentum": -0.375,
+     "volume": 0.217,
+     "confidence": 0.203
+    },
+    "evidence": {
+     "items": 11892,
+     "decayed_mass": 719.429,
+     "dated_items": 11892,
+     "window_days": 90,
+     "positive_share": 0.517,
+     "wilson_lower": 0.501
+    },
+    "momentum": {
+     "d7": 0.114,
+     "d30": 0.179,
+     "delta": -0.065
+    },
+    "top_sources": [
+     {
+      "title": "BCG strategic partnership; led by Saverin, Ganguly and Howard Morgan. B Capital pairs its investment team with a strategic partnership with Boston Consulting Group; the firm is led by Eduardo Saverin, Raj Ganguly and Howard Morgan, with offices across the US and Asia.",
+      "url": "https://b.capital/about",
+      "source": "B Capital",
+      "published_at": "2026-10-18",
+      "weight": 0.8,
+      "sentiment": 0.5,
+      "tier": "company-owned"
+     },
+     {
+      "title": "Goodfire says its new 'inside-out' monitors catch rogue AI agents at a fraction of the cost | TechCrunch",
+      "url": "https://techcrunch.com/2026/10/08/goodfire-says-its-new-inside-out-monitors-catch-rogue-ai-agents-at-a-fraction-of-the-cost",
+      "source": "techcrunch.com",
+      "published_at": "2026-10-08",
+      "weight": 0.61,
+      "sentiment": 0.6,
+      "tier": "tier-1 press / filings"
+     },
+     {
+      "title": "Tranquility Achieves FedRAMP Class D Certification Through Partnership with Knox Systems",
+      "url": "https://prnewswire.com/news-releases/tranquility-achieves-fedramp-class-d-certification-through-partnership-with-knox-systems-302901747.html",
+      "source": "prnewswire.com",
+      "published_at": "2026-10-08",
+      "weight": 0.61,
+      "sentiment": 0.5,
+      "tier": "tier-1 press / filings"
+     }
+    ],
+    "sparkline": [],
+    "computed_at": "2026-10-18T00:00:00Z",
+    "method": "level(shrink K=3→prior 0) 45% · momentum 7d−30d 25% · log volume 15% · Wilson confidence 15%; recency half-life 14 d; z within portfolio+sector; score=50+15z"
+   },
+   "prestige": {
+    "index": 81,
+    "prestigeItems": 116,
+    "weightedMass": 43.202,
+    "positiveShare": 0.879,
+    "wilsonLower": 0.808
+   },
+   "wilson": {
+    "positive": 4964,
+    "n": 11892,
+    "lower": 0.409
+   },
+   "categories": {
+    "network": {
+     "n": 17,
+     "mass": 4.361,
+     "meanSentiment": 0.385,
+     "wilsonLower": 0.816,
+     "contribution": 0.001
+    },
+    "portfolio-social": {
+     "n": 10287,
+     "mass": 2494.475,
+     "meanSentiment": 0.157,
+     "wilsonLower": 0.338,
+     "contribution": 0.122
+    },
+    "portfolio-news": {
+     "n": 1327,
+     "mass": 639.586,
+     "meanSentiment": 0.462,
+     "wilsonLower": 0.831,
+     "contribution": 0.092
+    },
+    "exits": {
+     "n": 32,
+     "mass": 13.625,
+     "meanSentiment": 0.46,
+     "wilsonLower": 0.682,
+     "contribution": 0.002
+    },
+    "ipos": {
+     "n": 28,
+     "mass": 15.232,
+     "meanSentiment": 0.322,
+     "wilsonLower": 0.605,
+     "contribution": 0.002
+    },
+    "track-record": {
+     "n": 5,
+     "mass": 3.262,
+     "meanSentiment": 0.458,
+     "wilsonLower": 0.566,
+     "contribution": 0
+    },
+    "unicorns": {
+     "n": 9,
+     "mass": 4.51,
+     "meanSentiment": 0.158,
+     "wilsonLower": 0.354,
+     "contribution": 0
+    },
+    "co-investor-lp-quality": {
+     "n": 3,
+     "mass": 1.012,
+     "meanSentiment": 0.366,
+     "wilsonLower": 0.438,
+     "contribution": 0
+    },
+    "thought-leadership": {
+     "n": 138,
+     "mass": 13.555,
+     "meanSentiment": 0.316,
+     "wilsonLower": 0.973,
+     "contribution": 0.001
+    },
+    "aum-fund-size": {
+     "n": 34,
+     "mass": 6.682,
+     "meanSentiment": 0.569,
+     "wilsonLower": 0.898,
+     "contribution": 0.001
+    },
+    "media-sentiment": {
+     "n": 7,
+     "mass": 1.147,
+     "meanSentiment": 0.477,
+     "wilsonLower": 0.646,
+     "contribution": 0
+    },
+    "sector-leadership": {
+     "n": 2,
+     "mass": 0.944,
+     "meanSentiment": 0.487,
+     "wilsonLower": 0.342,
+     "contribution": 0
+    },
+    "geography": {
+     "n": 1,
+     "mass": 0.117,
+     "meanSentiment": 0.3,
+     "wilsonLower": 0.207,
+     "contribution": 0
+    },
+    "rankings": {
+     "n": 1,
+     "mass": 0.05,
+     "meanSentiment": 0.5,
+     "wilsonLower": 0.207,
+     "contribution": 0
+    },
+    "risk-controversy": {
+     "n": 1,
+     "mass": 0.053,
+     "meanSentiment": -0.4,
+     "wilsonLower": 0,
+     "contribution": 0
+    }
+   }
+  },
+  {
+   "entity": "eduardo-saverin",
+   "name": "Eduardo Saverin",
+   "items": 79,
+   "reputation": {
+    "slug": "eduardo-saverin",
+    "sector": "venture",
+    "score": 55,
+    "confidence": 0.36,
+    "percentile": 63,
+    "label": "balanced",
+    "factors": {
+     "level": 0.227,
+     "momentum": 0,
+     "volume": 1.519,
+     "confidence": 0.359
+    },
+    "z": {
+     "level": 0.627,
+     "momentum": 0.5,
+     "volume": -0.321,
+     "confidence": -0.18,
+     "composite": 0.332
+    },
+    "contributions": {
+     "level": 0.282,
+     "momentum": 0.125,
+     "volume": -0.048,
+     "confidence": -0.027
+    },
+    "evidence": {
+     "items": 79,
+     "decayed_mass": 3.568,
+     "dated_items": 79,
+     "window_days": 90,
+     "positive_share": 1,
+     "wilson_lower": 0.676
+    },
+    "momentum": {
+     "d7": 0.42,
+     "d30": 0.42,
+     "delta": 0
+    },
+    "top_sources": [
+     {
+      "title": "Co-Founder & Co-CEO of B Capital; Facebook's first investor and co-founder. B Capital team page: Co-Founder and Co-CEO, based in Singapore; Harvard BA.",
+      "url": "https://b.capital/team/eduardo-saverin",
+      "source": "B Capital",
+      "published_at": "2026-10-18",
+      "weight": 0.7,
+      "sentiment": 0.5,
+      "tier": "other press"
+     },
+     {
+      "title": "Eduardo Saverin is Co-Founder and Co-CEO of B Capital",
+      "url": "https://b.capital/team/eduardo-saverin",
+      "source": "B Capital",
+      "published_at": "2026-10-18",
+      "weight": 0.7,
+      "sentiment": 0.4,
+      "tier": "other press"
+     },
+     {
+      "title": "Saverin was the first investor in and Co-Founder of Facebook",
+      "url": "https://b.capital/team/eduardo-saverin",
+      "source": "B Capital",
+      "published_at": "2026-10-18",
+      "weight": 0.7,
+      "sentiment": 0.4,
+      "tier": "other press"
+     }
+    ],
+    "sparkline": [],
+    "computed_at": "2026-10-18T00:00:00Z",
+    "method": "level(shrink K=3→prior 0) 45% · momentum 7d−30d 25% · log volume 15% · Wilson confidence 15%; recency half-life 14 d; z within portfolio+sector; score=50+15z"
+   },
+   "prestige": {
+    "index": 58,
+    "prestigeItems": 47,
+    "weightedMass": 9.148,
+    "positiveShare": 1,
+    "wilsonLower": 0.924
+   },
+   "wilson": {
+    "positive": 71,
+    "n": 79,
+    "lower": 0.813
+   },
+   "categories": {
+    "track-record": {
+     "n": 4,
+     "mass": 2.504,
+     "meanSentiment": 0.444,
+     "wilsonLower": 0.51,
+     "contribution": 0.064
+    },
+    "network": {
+     "n": 9,
+     "mass": 2.475,
+     "meanSentiment": 0.412,
+     "wilsonLower": 0.701,
+     "contribution": 0.059
+    },
+    "geography": {
+     "n": 1,
+     "mass": 0.7,
+     "meanSentiment": 0.4,
+     "wilsonLower": 0.207,
+     "contribution": 0.016
+    },
+    "media-sentiment": {
+     "n": 28,
+     "mass": 5.279,
+     "meanSentiment": 0.233,
+     "wilsonLower": 0.879,
+     "contribution": 0.071
+    },
+    "thought-leadership": {
+     "n": 9,
+     "mass": 0.855,
+     "meanSentiment": 0.402,
+     "wilsonLower": 0.701,
+     "contribution": 0.02
+    },
+    "rankings": {
+     "n": 6,
+     "mass": 2.317,
+     "meanSentiment": 0.499,
+     "wilsonLower": 0.61,
+     "contribution": 0.067
+    },
+    "aum-fund-size": {
+     "n": 13,
+     "mass": 1.552,
+     "meanSentiment": 0.486,
+     "wilsonLower": 0.772,
+     "contribution": 0.044
+    },
+    "founder-references": {
+     "n": 1,
+     "mass": 0.404,
+     "meanSentiment": 0.5,
+     "wilsonLower": 0.207,
+     "contribution": 0.012
+    },
+    "risk-controversy": {
+     "n": 8,
+     "mass": 1.155,
+     "meanSentiment": -0.4,
+     "wilsonLower": 0,
+     "contribution": -0.027
+    }
+   }
+  },
+  {
+   "entity": "raj-ganguly",
+   "name": "Raj Ganguly",
+   "items": 50,
+   "reputation": {
+    "slug": "raj-ganguly",
+    "sector": "venture",
+    "score": 55,
+    "confidence": 0.39,
+    "percentile": 88,
+    "label": "balanced",
+    "factors": {
+     "level": 0.224,
+     "momentum": 0,
+     "volume": 1.65,
+     "confidence": 0.39
+    },
+    "z": {
+     "level": 0.599,
+     "momentum": 0.5,
+     "volume": -0.275,
+     "confidence": -0.105,
+     "composite": 0.338
+    },
+    "contributions": {
+     "level": 0.27,
+     "momentum": 0.125,
+     "volume": -0.041,
+     "confidence": -0.016
+    },
+    "evidence": {
+     "items": 50,
+     "decayed_mass": 4.209,
+     "dated_items": 50,
+     "window_days": 90,
+     "positive_share": 0.857,
+     "wilson_lower": 0.487
+    },
+    "momentum": {
+     "d7": 0.383,
+     "d30": 0.383,
+     "delta": 0
+    },
+    "top_sources": [
+     {
+      "title": "Raj Ganguly is Co-Founder and Co-CEO of B Capital; previously at Bain Capital investing in tech across U.S./Asia and co-led its global technology initiative; earlier McKinsey and Diageo",
+      "url": "https://b.capital/team/raj-ganguly",
+      "source": "B Capital",
+      "published_at": "2026-10-18",
+      "weight": 0.7,
+      "sentiment": 0.5,
+      "tier": "other press"
+     },
+     {
+      "title": "Co-Founder & Co-CEO; ex-Bain Capital technology co-lead. B Capital team page: Co-Founder and Co-CEO, based in Los Angeles; previously Bain Capital, McKinsey, Diageo and Miradiant; HBS MBA, Wharton / Penn Engineering.",
+      "url": "https://b.capital/team/raj-ganguly",
+      "source": "B Capital",
+      "published_at": "2026-10-18",
+      "weight": 0.7,
+      "sentiment": 0.5,
+      "tier": "other press"
+     },
+     {
+      "title": "Has backed about 130 founders. 10/10 podcast profile: Raj Ganguly and B Capital have backed roughly 130 founders.",
+      "url": "https://tenoneten.com/podcast/raj-ganguly-b-capital",
+      "source": "Ten One Ten",
+      "published_at": "2026-10-18",
+      "weight": 0.7,
+      "sentiment": 0.5,
+      "tier": "other press"
+     }
+    ],
+    "sparkline": [],
+    "computed_at": "2026-10-18T00:00:00Z",
+    "method": "level(shrink K=3→prior 0) 45% · momentum 7d−30d 25% · log volume 15% · Wilson confidence 15%; recency half-life 14 d; z within portfolio+sector; score=50+15z"
+   },
+   "prestige": {
+    "index": 27,
+    "prestigeItems": 15,
+    "weightedMass": 2.47,
+    "positiveShare": 1,
+    "wilsonLower": 0.796
+   },
+   "wilson": {
+    "positive": 49,
+    "n": 50,
+    "lower": 0.895
+   },
+   "categories": {
+    "track-record": {
+     "n": 6,
+     "mass": 2.79,
+     "meanSentiment": 0.486,
+     "wilsonLower": 0.61,
+     "contribution": 0.09
+    },
+    "exits": {
+     "n": 2,
+     "mass": 1.104,
+     "meanSentiment": 0.437,
+     "wilsonLower": 0.342,
+     "contribution": 0.032
+    },
+    "network": {
+     "n": 6,
+     "mass": 2.102,
+     "meanSentiment": 0.416,
+     "wilsonLower": 0.61,
+     "contribution": 0.058
+    },
+    "geography": {
+     "n": 7,
+     "mass": 1.769,
+     "meanSentiment": 0.305,
+     "wilsonLower": 0.487,
+     "contribution": 0.036
+    },
+    "thought-leadership": {
+     "n": 15,
+     "mass": 5.941,
+     "meanSentiment": 0.476,
+     "wilsonLower": 0.796,
+     "contribution": 0.187
+    },
+    "board-seats": {
+     "n": 1,
+     "mass": 0.404,
+     "meanSentiment": 0.5,
+     "wilsonLower": 0.207,
+     "contribution": 0.013
+    },
+    "media-sentiment": {
+     "n": 5,
+     "mass": 0.429,
+     "meanSentiment": 0.441,
+     "wilsonLower": 0.566,
+     "contribution": 0.013
+    },
+    "sector-leadership": {
+     "n": 2,
+     "mass": 0.136,
+     "meanSentiment": 0.4,
+     "wilsonLower": 0.342,
+     "contribution": 0.004
+    },
+    "aum-fund-size": {
+     "n": 4,
+     "mass": 0.347,
+     "meanSentiment": 0.449,
+     "wilsonLower": 0.51,
+     "contribution": 0.01
+    },
+    "rankings": {
+     "n": 1,
+     "mass": 0.05,
+     "meanSentiment": 0.5,
+     "wilsonLower": 0.207,
+     "contribution": 0.002
+    },
+    "founder-references": {
+     "n": 1,
+     "mass": 0.037,
+     "meanSentiment": 0.4,
+     "wilsonLower": 0.207,
+     "contribution": 0.001
+    }
+   }
+  },
+  {
+   "entity": "karan-mohla",
+   "name": "Karan Mohla",
+   "items": 43,
+   "reputation": {
+    "slug": "karan-mohla",
+    "sector": "venture",
+    "score": 38,
+    "confidence": 0,
+    "percentile": 13,
+    "label": "soft",
+    "factors": {
+     "level": 0,
+     "momentum": 0,
+     "volume": 0,
+     "confidence": 0
+    },
+    "z": {
+     "level": -1.478,
+     "momentum": 0.5,
+     "volume": -0.852,
+     "confidence": -1.065,
+     "composite": -0.828
+    },
+    "contributions": {
+     "level": -0.665,
+     "momentum": 0.125,
+     "volume": -0.128,
+     "confidence": -0.16
+    },
+    "evidence": {
+     "items": 43,
+     "decayed_mass": 0,
+     "dated_items": 43,
+     "window_days": 90,
+     "positive_share": 0.5,
+     "wilson_lower": 0
+    },
+    "momentum": {
+     "d7": null,
+     "d30": null,
+     "delta": 0
+    },
+    "top_sources": [],
+    "sparkline": [],
+    "computed_at": "2026-10-18T00:00:00Z",
+    "method": "level(shrink K=3→prior 0) 45% · momentum 7d−30d 25% · log volume 15% · Wilson confidence 15%; recency half-life 14 d; z within portfolio+sector; score=50+15z"
+   },
+   "prestige": {
+    "index": 30,
+    "prestigeItems": 12,
+    "weightedMass": 3.252,
+    "positiveShare": 1,
+    "wilsonLower": 0.757
+   },
+   "wilson": {
+    "positive": 43,
+    "n": 43,
+    "lower": 0.918
+   },
+   "categories": {
+    "geography": {
+     "n": 1,
+     "mass": 0.575,
+     "meanSentiment": 0.4,
+     "wilsonLower": 0.207,
+     "contribution": 0.016
+    },
+    "track-record": {
+     "n": 10,
+     "mass": 5.75,
+     "meanSentiment": 0.42,
+     "wilsonLower": 0.722,
+     "contribution": 0.163
+    },
+    "exits": {
+     "n": 2,
+     "mass": 1.15,
+     "meanSentiment": 0.5,
+     "wilsonLower": 0.342,
+     "contribution": 0.039
+    },
+    "network": {
+     "n": 4,
+     "mass": 2.013,
+     "meanSentiment": 0.271,
+     "wilsonLower": 0.51,
+     "contribution": 0.037
+    },
+    "rankings": {
+     "n": 3,
+     "mass": 1.725,
+     "meanSentiment": 0.567,
+     "wilsonLower": 0.438,
+     "contribution": 0.066
+    },
+    "thought-leadership": {
+     "n": 16,
+     "mass": 3.219,
+     "meanSentiment": 0.49,
+     "wilsonLower": 0.806,
+     "contribution": 0.107
+    },
+    "sector-leadership": {
+     "n": 1,
+     "mass": 0.12,
+     "meanSentiment": 0.4,
+     "wilsonLower": 0.207,
+     "contribution": 0.003
+    },
+    "media-sentiment": {
+     "n": 3,
+     "mass": 0.147,
+     "meanSentiment": 0.365,
+     "wilsonLower": 0.438,
+     "contribution": 0.004
+    },
+    "aum-fund-size": {
+     "n": 3,
+     "mass": 0.11,
+     "meanSentiment": 0.467,
+     "wilsonLower": 0.438,
+     "contribution": 0.003
+    }
+   }
+  }
+ ],
+ "conflicts": [
+  {
+   "key": "Ascent Fund II",
+   "entity": "b-capital",
+   "values": [
+    {
+     "amount": "$250M",
+     "stage": "final",
+     "source_url": "https://forbes.com/sites/jonathanburgos/2022/07/20/facebook-billionaire-eduardo-saverins-b-capital-raises-250-million-for-its-early-stage-vc-fund",
+     "source_name": "Forbes",
+     "published_date": "2022-07-20",
+     "headline": "Forbes: Saverin's B Capital raises $250M early-stage fund. Forbes coverage of the Ascent Fund II close, framed around Facebook co-founder Eduardo Saverin."
+    },
+    {
+     "amount": "$254M",
+     "stage": "final",
+     "source_url": "https://peforum.org/b-capital-closes-oversubscribed-ascent-fund-iii-at-500-million-hard-cap",
+     "source_name": "PE Forum",
+     "published_date": "2022-07-19",
+     "headline": "Ascent Fund II: $254M early-stage fund (July 2022). The predecessor early-stage vehicle, Ascent Fund II, closed at $254 million in July 2022; Ascent Fund III ne"
+    },
+    {
+     "amount": "$250M",
+     "stage": "final",
+     "source_url": "https://b.capital/news-article/b-capital-closes-250m-early-stage-fund-dedicated-to-building-the-economy-of-the-future",
+     "source_name": "B Capital",
+     "published_date": "2022-07-19",
+     "headline": "Founding member of the Ascent early-stage team (Ascent Fund II, $250M). Named in the Ascent Fund II close announcement."
+    },
+    {
+     "amount": "$250M",
+     "stage": "final",
+     "source_url": "https://techinasia.com/bcapital-250",
+     "source_name": "Tech in Asia",
+     "published_date": "2022-07-01",
+     "headline": "B Capital closes $250M Ascent Fund II early-stage fund"
+    }
+   ]
+  },
+  {
+   "key": "First fund",
+   "entity": "b-capital",
+   "values": [
+    {
+     "amount": "$360M",
+     "stage": "final",
+     "source_url": "https://bloomberg.com/news/articles/2018-02-09/facebook-co-founder-saverin-s-b-capital-closes-360-million-fund",
+     "source_name": "Bloomberg",
+     "published_date": "2018-02-09",
+     "headline": "B Capital Group raises $360 million for its first fund"
+    },
+    {
+     "amount": "$143.6M",
+     "stage": "final",
+     "source_url": "https://theedgemalaysia.com/article/facebook-co-founder-saverin%E2%80%99s-b-capital-raises-us1436-mil-eyes-asian-growth",
+     "source_name": "The Edge Malaysia",
+     "published_date": "2016-05-01",
+     "headline": "Fund I closed at $143.6M (2016). First fund of US$143.6 million with a stated focus on Asian growth."
+    }
+   ]
+  }
+ ]
+}

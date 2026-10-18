@@ -20,6 +20,7 @@ import { Badge, cx } from './rilian-ui';
 import { MODE_PATTERN, UNPROVEN_BANNER, edgeLookup, fmtDelta } from './model';
 import { ReputationAskPanel } from './ReputationAskPanel';
 import type { Plates } from '@/lib/reputation/assets';
+import { BatchSummary, EvidenceExplorer, type BatchSummaryData } from './BatchPanels';
 import './reputation.css';
 
 type FactorLookup = Record<string, { id: string; title: string; excerpt?: string | null; claimStatus?: string | null; reliability?: string | null; source?: string | null; publishedAt?: string | null }>;
@@ -133,7 +134,7 @@ function WhyConnected({ edge, lookup, onAsk }: { edge: CoEdge | null; lookup: Fa
   );
 }
 
-export function ReputationView({ entities, result, lookup, plates }: { entities: ReputationEntity[]; result: CorrelationResult; lookup: FactorLookup; plates: Plates }) {
+export function ReputationView({ entities, result, lookup, plates, batch, categories }: { entities: ReputationEntity[]; result: CorrelationResult; lookup: FactorLookup; plates: Plates; batch?: BatchSummaryData; categories?: string[] }) {
   const setSubject = useAskDock((s) => s.setSubject);
   const subject = useAskDock((s) => s.subject);
   const [highlighted, setHighlighted] = useState<number | null>(null);
@@ -161,13 +162,14 @@ export function ReputationView({ entities, result, lookup, plates }: { entities:
     <div className="reputation-engine w-full min-w-0" data-testid="reputation-view">
       <div className="banner-outline mb-4 flex flex-wrap items-center gap-2" data-testid="reputation-banner">
         <span>{UNPROVEN_BANNER}</span>
-        <span className="mono normal-case tracking-normal text-secondary">run {result.runId} · {result.postsConsidered} sourced factors · window {result.params.windowSeconds}s · {edges.length} edges · modularity {result.modularity.toFixed(3)}</span>
+        <span className="mono normal-case tracking-normal text-secondary">run {result.runId} · {result.postsConsidered.toLocaleString('en-US')} sourced items · window {result.params.windowSeconds}s · {edges.length} edges · modularity {result.modularity.toFixed(3)}</span>
       </div>
       <div className="grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-2" data-testid="entity-grid">
         {entities.map((e) => (
           <EntityCard key={e.id} entity={e} node={nodeById.get(e.handle)} onAsk={askEntity} active={subject?.subjectKey === e.handle} plate={e.kind === 'firm' ? plates.firm : plates.leader} />
         ))}
       </div>
+      {batch && <BatchSummary data={batch} />}
       <h2 className="mt-6 text-[14px] font-semibold text-ink">Correlation output</h2>
       <p className="mb-3 text-[12px] text-secondary">Correlation engine — co-share / co-link / co-hashtag / co-reply / co-text inside the window, distinct-pair dedup, discriminating weight (log-scaled pairs × specificity × precision ÷ (1 + syndication)), Louvain communities and Brandes betweenness. Shade = normalised weight.</p>
       <div className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-3" data-testid="correlation-output">
@@ -197,6 +199,7 @@ export function ReputationView({ entities, result, lookup, plates }: { entities:
         <WhyConnected edge={edge} lookup={lookup} onAsk={askEdge} />
         <div id="reputation-ask"><ReputationAskPanel /></div>
       </div>
+      {batch && <EvidenceExplorer entities={batch.matrix4.entities} categories={categories ?? Object.keys(batch.byCategory)} />}
     </div>
   );
 }

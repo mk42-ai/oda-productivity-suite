@@ -51,7 +51,7 @@ for (const vp of VIEWPORTS) {
       // the "not verified" rows (Forbes Midas List) are labelled, never scored as facts
       expect(await page.locator('[data-testid="factor-row"][data-verified="false"]').count()).toBeGreaterThanOrEqual(3);
       // correlation output rendered: banner with run stats, matrix canvas, centrality table, communities, WHY CONNECTED
-      await expect(page.getByTestId("reputation-banner")).toContainText(/run REP-001 · \d+ sourced factors/);
+      await expect(page.getByTestId("reputation-banner")).toContainText(/run REP-BATCH-001 · [\d,]+ sourced items/);
       await expect(page.getByTestId("correlation-output")).toBeVisible();
       await expect(page.locator('[data-testid="correlation-matrix"] canvas')).toBeVisible();
       expect(await page.getByTestId("edge-chip").count()).toBeGreaterThanOrEqual(3);
@@ -119,6 +119,51 @@ for (const vp of VIEWPORTS) {
       await page.screenshot({ path: path.join(PROOF, `reputation-hero-plates-${vp.label}.png`), fullPage: false });
       await page.getByTestId("matrix-panel").scrollIntoViewIfNeeded();
       await page.getByTestId("matrix-panel").screenshot({ path: path.join(PROOF, `reputation-matrix-plate-${vp.label}.png`) });
+      await noOverflow(page);
+    });
+
+    test("evidence batch: >=3,000 processed, finite scores, 4x4 matrix, virtualized list with entity + category filters", async ({ page }) => {
+      await page.goto("/reputation");
+      const counts = page.getByTestId("batch-counts");
+      await expect(counts).toBeVisible();
+      const processed = Number(((await counts.textContent()) ?? "").match(/([\d,]+) processed/)?.[1]?.replace(/,/g, "") ?? 0);
+      expect(processed, "processed items").toBeGreaterThanOrEqual(3000);
+      await expect(counts).toContainText(" 0 NaN");
+      const rows = page.getByTestId("batch-score-row");
+      await expect(rows).toHaveCount(4);
+      for (const t of await page.locator('[data-testid="score-reputation"], [data-testid="score-prestige"]').allTextContents()) expect(Number.isFinite(parseFloat(t)), `score "${t}"`).toBe(true);
+      await expect(page.getByTestId("batch-matrix-cell")).toHaveCount(16);
+      // virtualized: total ≥ 3,000 but only a window of rows in the DOM
+      const total = page.getByTestId("evidence-total");
+      await expect.poll(async () => Number(((await total.textContent()) ?? "0").replace(/[^\d]/g, "")), { timeout: 20_000 }).toBeGreaterThanOrEqual(3000);
+      await expect(page.getByTestId("evidence-row").first()).toBeVisible({ timeout: 20_000 });
+      expect(await page.locator('[data-testid="evidence-row"], [data-testid="evidence-row-loading"]').count()).toBeLessThan(80);
+      // entity filter with counts → list narrows to that subject
+      const mohla = page.locator('[data-testid="entity-filter"][data-value="karan-mohla"]');
+      const mohlaN = Number(((await mohla.textContent()) ?? "").replace(/[^\d]/g, ""));
+      expect(mohlaN).toBeGreaterThan(10);
+      await mohla.click();
+      await expect.poll(async () => Number(((await total.textContent()) ?? "0").replace(/[^\d]/g, "")), { timeout: 15_000 }).toBe(mohlaN);
+      await expect(page.getByTestId("evidence-row").first()).toContainText(/Mohla/);
+      // category filter with counts (counts follow the entity filter)
+      const cat = page.locator('[data-testid="category-filter"]:not([data-value="all"])').first();
+      const catN = Number(((await cat.textContent()) ?? "").replace(/[^\d]/g, ""));
+      await cat.click();
+      await expect.poll(async () => Number(((await total.textContent()) ?? "0").replace(/[^\d]/g, "")), { timeout: 15_000 }).toBe(catN);
+      // scrolling deep into the full list fetches later pages on demand
+      await page.locator('[data-testid="entity-filter"][data-value="all"]').click();
+      await page.locator('[data-testid="category-filter"][data-value="all"]').click();
+      await expect.poll(async () => Number(((await total.textContent()) ?? "0").replace(/[^\d]/g, "")), { timeout: 15_000 }).toBeGreaterThanOrEqual(3000);
+      await page.getByTestId("evidence-scroll").evaluate((el) => { el.scrollTop = 58 * 2500; });
+      await expect.poll(async () => page.locator('[data-testid="evidence-row"]').evaluateAll((els) => Math.max(...els.map((e) => Number(e.getAttribute("data-index"))))), { timeout: 15_000 }).toBeGreaterThan(2000);
+      await page.getByTestId("batch-summary").scrollIntoViewIfNeeded();
+      await page.screenshot({ path: path.join(PROOF, `reputation-batch-${vp.label}.png`), fullPage: false });
+      await page.getByTestId("evidence-explorer").scrollIntoViewIfNeeded();
+      await page.screenshot({ path: path.join(PROOF, `reputation-evidence-${vp.label}.png`), fullPage: false });
+      // the 12k rows are served by the API route, never inlined in the page HTML
+      const html = await (await page.request.get("/reputation")).text();
+      expect(html.length).toBeLessThan(2_500_000);
+      expect((html.match(/itm-/g) ?? []).length).toBeLessThan(500);
       await noOverflow(page);
     });
 

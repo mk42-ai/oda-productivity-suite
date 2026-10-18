@@ -19,7 +19,9 @@
     "start": "node dist/server.js",
     "smoke": "tsx scripts/smoke.ts",
     "test": "tsx scripts/test.ts",
-    "test:pitchbook": "tsx scripts/test-pitchbook.ts"
+    "test:pitchbook": "tsx scripts/test-pitchbook.ts",
+    "batch:correlation": "tsx scripts/batch-correlation.ts",
+    "test:batch": "tsx scripts/test-batch-correlation.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.0",

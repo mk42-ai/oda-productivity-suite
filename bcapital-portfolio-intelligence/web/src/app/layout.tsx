@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Shell } from "@/components/shell/shell";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { PopstateGuardScript } from "@/components/shell/popstate-guard";
 
 /* Brand typefaces: Reckless Neue (display) + Yellix (body) are licensed fonts not bundled here; the licensed fallbacks
    Fraunces (display) and Inter (body) are self-hosted, subset to Latin, preloaded, font-display: swap. */
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`light ${display.variable} ${body.variable}`} style={{ colorScheme: "light" }}>
       {/* Browser extensions (e.g. Grammarly: data-gr-ext-installed) add attributes to <body> before hydration; ignore those attribute diffs only. */}
       <body suppressHydrationWarning>
+        <PopstateGuardScript />
         <a href="#main" className="sr-only sr-only-focusable fixed left-2 top-2 z-[100] rounded-md bg-primary px-3 py-2 text-primary-foreground">Skip to main content</a>
         <TooltipProvider delayDuration={150}>
           <Shell>{children}</Shell>

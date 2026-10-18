@@ -53,6 +53,9 @@ function scrollToHash(): () => void {
 export function RouteEffects() {
   const path = usePathname();
   const first = useRef(true);
+  // Hydration finished (this is a root-level client effect): release the back/forward guard (components/shell/popstate-guard.tsx) so the
+  // App Router's client-side popstate restore takes over again.
+  useEffect(() => { (window as Window & { __bcapMarkHydrated?: () => void }).__bcapMarkHydrated?.(); }, []);
   // Hash targets: first load + every path change + in-page hashchange.
   useEffect(() => {
     let cancel = scrollToHash();

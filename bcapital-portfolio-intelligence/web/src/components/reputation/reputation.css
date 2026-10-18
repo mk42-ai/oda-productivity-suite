@@ -104,3 +104,8 @@
 .reputation-engine .rep-matrix-panel { background-size: cover; background-position: center; position: relative; }
 .reputation-engine .rep-matrix-panel::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: rgba(255,255,255,0.8); pointer-events: none; }
 .reputation-engine .rep-matrix-panel > * { position: relative; }
+
+/* Evidence explorer (virtualized; only the visible window is in the DOM). */
+.reputation-engine .rep-evidence-scroll { height: 520px; overflow: auto; overscroll-behavior: contain; border: 1px solid var(--hairline); border-radius: 8px; background: var(--surface); contain: strict; }
+@media (max-width: 640px) { .reputation-engine .rep-evidence-scroll { height: 440px; } }
+.reputation-engine [data-testid='entity-filter'], .reputation-engine [data-testid='category-filter'] { height: auto; min-height: 24px; text-transform: capitalize; }
