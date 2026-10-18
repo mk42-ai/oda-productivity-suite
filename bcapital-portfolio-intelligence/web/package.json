@@ -45,12 +45,16 @@
     "radix-ui": "^1.8.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "react-force-graph-2d": "1.29.1",
+    "react-force-graph-3d": "1.29.1",
     "react-markdown": "^10.1.0",
     "recharts": "^3.3.0",
     "remark-gfm": "^4.0.1",
+    "simple-icons": "^16.30.0",
     "sonner": "^2.0.8",
     "sse.js": "^2.8.0",
     "tailwind-merge": "^3.3.1",
+    "three": "0.181.2",
     "zod": "^4.6.5",
     "zustand": "^4.5.7"
   },
@@ -61,8 +65,24 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "0.181.0",
     "lighthouse": "^12.8.0",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.6.0"
+  },
+  "overrides": {
+    "three": "0.181.2",
+    "3d-force-graph": {
+      "three": "0.181.2"
+    },
+    "three-forcegraph": {
+      "three": "0.181.2"
+    },
+    "three-render-objects": {
+      "three": "0.181.2"
+    },
+    "react-force-graph-3d": {
+      "three": "0.181.2"
+    }
   }
 }

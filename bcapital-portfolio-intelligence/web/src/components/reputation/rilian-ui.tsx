@@ -5,7 +5,7 @@
  * `BrandIcon` is the Rilian `web` branch (Globe glyph) — the only platform the reputation subjects use.
  */
 'use client';
-import { type ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import { Globe } from 'lucide-react';
 import type { BadgePattern, Platform } from '@/lib/reputation/engine/rilian-types';
 
@@ -63,5 +63,19 @@ export function BrandIcon({ platform, size = 16, className, title }: { platform:
     <span role="img" aria-label={title ?? platform} title={title ?? platform} className={cx('inline-flex items-center justify-center', className)} style={{ width: size, height: size, minWidth: size, minHeight: size }}>
       <Globe size={glyph} strokeWidth={1.5} aria-hidden="true" />
     </span>
+  );
+}
+
+/** Rilian KeyValue — copied VERBATIM from gulf-io-light-workbench/src/ui/index.tsx. */
+export function KeyValue({ rows, className }: { rows: Array<[string, ReactNode]>; className?: string }) {
+  return (
+    <dl className={cx('grid grid-cols-[minmax(96px,auto)_1fr] gap-x-3 gap-y-1.5 text-[12px]', className)}>
+      {rows.map(([k, v]) => (
+        <Fragment key={k}>
+          <dt className="text-secondary">{k}</dt>
+          <dd className="m-0 min-w-0 break-words text-ink">{v}</dd>
+        </Fragment>
+      ))}
+    </dl>
   );
 }

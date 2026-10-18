@@ -1,15 +1,23 @@
 {
-  "note": "Self-hosted assets for /reputation (2026-10-18). Real photos only — downloaded unmodified except proportional downscaling to 480x600; plates re-encoded as JPEG (q84) at their original 1536x1024.",
-  "people": {
-    "people/eduardo-saverin.jpg": "https://b.capital/wp-content/uploads/team_member/eduardo_saverin.jpg (HTTP 200, 1080x1350)",
-    "people/raj-ganguly.jpg": "https://b.capital/wp-content/uploads/team_member/raj_ganguly.jpg (HTTP 200, 1080x1350)",
-    "people/karan-mohla.jpg": "https://b.capital/wp-content/uploads/team_member/karan_mohla.jpg (HTTP 200, 1080x1350)",
-    "firm logo": "/brand/b-capital-logo.svg (official B Capital logo already in the repo)"
-  },
-  "plates": {
-    "plate-hero-Fkray2Nt1A.jpg": "upload Fkray2Nt1A.png → section hero",
-    "plate-firm-3Ha2Gnbdlt.jpg": "upload 3Ha2Gnbdlt.png → B Capital firm card backdrop",
-    "plate-leadership-kmAXRIzvSH.jpg": "upload kmAXRIzvSH.png → leadership card backdrop (ring centre 479.5,462.5 r≈237 on 1536x1024)",
-    "plate-matrix-gNQTYRN0OI.jpg": "upload gNQTYRN0OI.png → correlation matrix panel texture"
+ "note": "Self-hosted assets for /reputation (2026-10-18). Real photos only \u2014 downloaded unmodified except proportional downscaling to 480x600; plates re-encoded as JPEG (q84) at their original 1536x1024.",
+ "people": {
+  "people/eduardo-saverin.jpg": "https://b.capital/wp-content/uploads/team_member/eduardo_saverin.jpg (HTTP 200, 1080x1350)",
+  "people/raj-ganguly.jpg": "https://b.capital/wp-content/uploads/team_member/raj_ganguly.jpg (HTTP 200, 1080x1350)",
+  "people/karan-mohla.jpg": "https://b.capital/wp-content/uploads/team_member/karan_mohla.jpg (HTTP 200, 1080x1350)",
+  "firm logo": "/brand/b-capital-logo.svg (official B Capital logo already in the repo)"
+ },
+ "plates": {
+  "plate-hero-Fkray2Nt1A.jpg": "upload Fkray2Nt1A.png \u2192 section hero",
+  "plate-firm-3Ha2Gnbdlt.jpg": "upload 3Ha2Gnbdlt.png \u2192 B Capital firm card backdrop",
+  "plate-leadership-kmAXRIzvSH.jpg": "upload kmAXRIzvSH.png \u2192 leadership card backdrop (ring centre 479.5,462.5 r\u2248237 on 1536x1024)",
+  "plate-matrix-gNQTYRN0OI.jpg": "upload gNQTYRN0OI.png \u2192 correlation matrix panel texture"
+ },
+ "photos": {
+  "b-capital-logo.png": {
+   "sourceUrl": "https://b.capital/wp-content/uploads/2023/10/BCapital_Logo_XL.png",
+   "httpStatus": 200,
+   "note": "padded to a 512x512 square on white for the subject-hub bubble (no alteration of the mark)",
+   "fetched_at": "2026-10-18T12:55:00Z"
   }
+ }
 }

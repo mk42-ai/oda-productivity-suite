@@ -21,6 +21,8 @@ import { MODE_PATTERN, UNPROVEN_BANNER, edgeLookup, fmtDelta } from './model';
 import { ReputationAskPanel } from './ReputationAskPanel';
 import type { Plates } from '@/lib/reputation/assets';
 import { BatchSummary, EvidenceExplorer, type BatchSummaryData } from './BatchPanels';
+import dynamic from 'next/dynamic';
+const ReputationGraph = dynamic(() => import('./graph/ReputationGraph').then((m) => m.ReputationGraph), { ssr: false, loading: () => <div className="card flex min-w-0 items-center justify-center text-[12px] text-secondary" style={{ height: 'clamp(420px, 68vh, 760px)' }} role="status">loading the correlation graph…</div> });
 import './reputation.css';
 
 type FactorLookup = Record<string, { id: string; title: string; excerpt?: string | null; claimStatus?: string | null; reliability?: string | null; source?: string | null; publishedAt?: string | null }>;
@@ -139,9 +141,12 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
   const subject = useAskDock((s) => s.subject);
   const [highlighted, setHighlighted] = useState<number | null>(null);
   const [edgeId, setEdgeId] = useState<string | null>(result.edges[0]?.id ?? null);
+  const [graphEdge, setGraphEdge] = useState<CoEdge | null>(null);
+  const [graphLookup, setGraphLookup] = useState<FactorLookup>({});
+  const mergedLookup = useMemo(() => ({ ...graphLookup, ...lookup }), [graphLookup, lookup]);
   const edges = result.edges;
   const lookupEdges = useMemo(() => edgeLookup(edges), [edges]);
-  const edge = useMemo(() => edges.find((e) => e.id === edgeId) ?? null, [edges, edgeId]);
+  const edge = useMemo(() => graphEdge ?? edges.find((e) => e.id === edgeId) ?? null, [edges, edgeId, graphEdge]);
   const nodeById = useMemo(() => new Map(result.nodes.map((n) => [n.id, n])), [result.nodes]);
   const evidenceLookup = (id: string) => lookup[id];
   useEffect(() => () => setSubject(null), [setSubject]);
@@ -164,7 +169,10 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
         <span>{UNPROVEN_BANNER}</span>
         <span className="mono normal-case tracking-normal text-secondary">run {result.runId} · {result.postsConsidered.toLocaleString('en-US')} sourced items · window {result.params.windowSeconds}s · {edges.length} edges · modularity {result.modularity.toFixed(3)}</span>
       </div>
-      <div className="grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-2" data-testid="entity-grid">
+      <h2 className="mb-2 text-[14px] font-semibold text-ink">Interactive correlation graph</h2>
+      <p className="mb-2 text-[12px] text-secondary">Rilian correlation engine canvas — four dashed-ring subject registers (B Capital, Eduardo Saverin, Raj Ganguly, Karan Mohla), publisher / account / portfolio-company bubbles sized by evidence count, curved link width = co-occurrence weight. Drag nodes · click a link for WHY CONNECTED · click a node to load it into ASK · OnDemand.</p>
+      <ReputationGraph onSelectEdge={(e, ev) => { if (e) { setGraphEdge(e); setGraphLookup(ev as FactorLookup); } }} />
+      <div className="mt-4 grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-2" data-testid="entity-grid">
         {entities.map((e) => (
           <EntityCard key={e.id} entity={e} node={nodeById.get(e.handle)} onAsk={askEntity} active={subject?.subjectKey === e.handle} plate={e.kind === 'firm' ? plates.firm : plates.leader} />
         ))}
@@ -176,11 +184,11 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
         <div className="card rep-matrix-panel min-w-0 p-3 lg:col-span-1" style={{ backgroundImage: `url(${plates.matrix})` }} data-testid="matrix-panel" data-plate={plates.matrix}>
           <div className="label-xs mb-2">Co-occurrence matrix</div>
           <div className="rep-matrix-wrap" data-testid="correlation-matrix">
-            <MatrixHeatmap matrix={result.matrix} edges={edges} height={240} highlightedCommunity={highlighted} onCellClick={(id) => { const e = lookupEdges.get(id); if (e) setEdgeId(e.id); }} />
+            <MatrixHeatmap matrix={result.matrix} edges={edges} height={240} highlightedCommunity={highlighted} onCellClick={(id) => { const e = lookupEdges.get(id); if (e) { setGraphEdge(null); setEdgeId(e.id); } }} />
           </div>
           <ul className="mt-2 text-[11px]" data-testid="edge-list">
             {edges.map((e) => (
-              <li key={e.id}><button type="button" className={cx('chip my-0.5', edgeId === e.id && 'is-active')} onClick={() => setEdgeId(e.id)} data-testid="edge-chip">{e.source} × {e.target} · {e.weight.toFixed(3)}</button></li>
+              <li key={e.id}><button type="button" className={cx('chip my-0.5', edgeId === e.id && 'is-active')} onClick={() => { setGraphEdge(null); setEdgeId(e.id); }} data-testid="edge-chip">{e.source} × {e.target} · {e.weight.toFixed(3)}</button></li>
             ))}
           </ul>
         </div>
@@ -196,7 +204,7 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
         </div>
       </div>
       <div className="mt-4 grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-2">
-        <WhyConnected edge={edge} lookup={lookup} onAsk={askEdge} />
+        <WhyConnected edge={edge} lookup={mergedLookup} onAsk={askEdge} />
         <div id="reputation-ask"><ReputationAskPanel /></div>
       </div>
       {batch && <EvidenceExplorer entities={batch.matrix4.entities} categories={categories ?? Object.keys(batch.byCategory)} />}

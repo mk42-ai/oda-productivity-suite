@@ -109,3 +109,16 @@
 .reputation-engine .rep-evidence-scroll { height: 520px; overflow: auto; overscroll-behavior: contain; border: 1px solid var(--hairline); border-radius: 8px; background: var(--surface); contain: strict; }
 @media (max-width: 640px) { .reputation-engine .rep-evidence-scroll { height: 440px; } }
 .reputation-engine [data-testid='entity-filter'], .reputation-engine [data-testid='category-filter'] { height: auto; min-height: 24px; text-transform: capitalize; }
+/* Ported graph toolbar (Rilian .btn-sm) + the MAX AGE slider recoloured to Caribbean Green — no blue anywhere on the canvas. */
+.reputation-engine .btn-sm { height: 24px; padding: 0 8px; font-size: 11px; gap: 4px; }
+.reputation-engine .btn.bg-fill-2 { background: var(--fill-2); }
+.reputation-engine .bg-ink { background: var(--ink); }
+.reputation-engine .text-white { color: #ffffff; }
+.reputation-engine input[type='range'] { accent-color: #0ac985; }
+.reputation-engine input[type='range']::-webkit-slider-thumb { background: #0ac985; }
+.reputation-engine input[type='range']::-moz-range-thumb { background: #0ac985; }
+.reputation-engine input[type='range']::-moz-range-progress { background: #0ac985; }
+.reputation-engine input[type='checkbox'], .reputation-engine input[type='radio'] { accent-color: #0ac985; }
+.reputation-engine .graph-unproven-pill.badge { height: auto; padding: 4px 8px; white-space: normal; }
+.reputation-engine .correlation-graph-wrap { min-height: 420px; }
+.reputation-engine .correlation-graph-wrap[data-fullscreen='inpage'], .reputation-engine .correlation-graph-wrap:fullscreen { background: #ffffff; }
