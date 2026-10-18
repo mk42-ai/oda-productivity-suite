@@ -8,7 +8,7 @@ import batch from '@/data/reputation-batch.json';
 import type { CorrelationResult } from '@/lib/reputation/engine/types';
 import type { BatchSummaryData } from '@/components/reputation/BatchPanels';
 
-export const metadata: Metadata = { title: 'Reputation & Prestige', description: 'Correlation engine over sourced reputation factors for B Capital, Eduardo Saverin, Raj Ganguly and Karan Mohla — co-occurrence weights, communities, centrality and an OnDemand quick-chat.' };
+export const metadata: Metadata = { title: "Reputation & Prestige", description: "Correlation engine over sourced reputation factors for B Capital, Eduardo Saverin, Raj Ganguly and Karan Mohla — co-occurrence weights, communities, centrality and an OnDemand quick-chat.", openGraph: { title: "Reputation & Prestige", description: "Correlation engine over sourced reputation factors for B Capital, Eduardo Saverin, Raj Ganguly and Karan Mohla — co-occurrence weights, communities, centrality and an OnDemand quick-chat." }, twitter: { title: "Reputation & Prestige", description: "Correlation engine over sourced reputation factors for B Capital, Eduardo Saverin, Raj Ganguly and Karan Mohla — co-occurrence weights, communities, centrality and an OnDemand quick-chat." } };
 export const dynamic = 'force-static';
 
 export default function ReputationPage() {

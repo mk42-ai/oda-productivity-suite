@@ -18,6 +18,8 @@ export function PageFrame({ children }: { children: React.ReactNode }) {
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-2">
           <span>© 2026 B Capital · We empower entrepreneurs to think bigger. Scale faster. Grow global.</span>
           <span>Refreshed daily at 06:00 UTC · <Link href="/settings" className="underline underline-offset-2">Help & settings</Link></span>
+          {/* NEXT_PUBLIC_* are inlined at build (next.config.ts env), so server and client render identical text. */}
+          <span data-testid="build-stamp">v{process.env.NEXT_PUBLIC_APP_VERSION} · {process.env.NEXT_PUBLIC_BUILD_COMMIT} · last updated <time dateTime={process.env.NEXT_PUBLIC_BUILD_TIME}>{process.env.NEXT_PUBLIC_BUILD_TIME_LABEL}</time></span>
         </div>
       </footer>
     </>

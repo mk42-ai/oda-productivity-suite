@@ -24,7 +24,7 @@ import { statusChips, PORTFOLIO_EVENTS } from "@/lib/status";
 import { fmtUsd, fmtPct, fmtScore, fmtDelta, SECTORS } from "@/lib/format";
 import workflows from "@/data/workflows.json";
 
-export const metadata: Metadata = { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." };
+export const metadata: Metadata = { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates.", openGraph: { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." }, twitter: { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." } };
 export const revalidate = 120;
 const SECTOR_ICON = { Technology: Cpu, Healthcare: HeartPulse, "Energy & Resilience": Zap } as const;
 
@@ -67,13 +67,13 @@ async function OverviewBody({ searchParams }: { searchParams: Promise<Record<str
       <PageHeader title="Overview" lede={`${all.length} companies · sentiment scored daily 06:00 UTC`} sources={[{ name: "companies", source: cs.source }, { name: "portfolio sentiment", source: pf.source }, { name: "ingest runs", source: runs.source }, { name: "news", source: news.source }, { name: "signals", source: sig.source }]} fetchedAt={cs.fetched_at} />
       <HeroStats sentimentMean={all.length ? all.reduce((a, c) => a + c.sentiment.score, 0) / all.length : null} sentimentDeltaMean={(() => { const ds = all.map((c) => c.sentiment.delta).filter((d): d is number => typeof d === "number"); return ds.length ? ds.reduce((a, d) => a + d, 0) / ds.length : null; })()} companies={all.length} newsTotal={news.total} lastRunAt={lastRun?.receivedAt ?? null} sentimentSeries={sentimentSeries} newsSeries={newsSeries} />
       <KpiTiles tiles={[
-        { label: "Companies", value: String(all.length), sub: `${all.filter((c) => c.in_brand_matrix).length} in brand matrix` },
-        { label: "News items", value: news.total.toLocaleString("en-US"), spark: newsSeries, sparkLabel: "News items per day, last 14 days", sub: `across ${Object.keys(news.perCompany).length} companies · backend /news/summary` },
-        { label: "Sectors", value: String(uniq(all.map((c) => c.sector)).length), sub: SECTORS.join(" · ") },
-        { label: "Public / IPO", value: String(counts.public), sub: "Fervo (FRVO), Meesho" },
-        { label: "Unicorn / renamed", value: `${counts.unicorn} / ${counts.renamed}`, sub: "Code Metal · Judi Rx" },
-        { label: "Portfolio Signal Score", value: sig.data.portfolio.n ? `${Math.round(sig.data.portfolio.mean)} / 100` : "—", sub: sig.data.portfolio.n ? `p25–p75 ${Math.round(sig.data.portfolio.p25)}–${Math.round(sig.data.portfolio.p75)} · ${sig.data.portfolio.n} scored` : `sentiment ${fmtScore(pf.data.portfolio?.avg_score ?? 0)} · signals offline` },
-        { label: "Last workflow run", value: lastRun ? lastRun.receivedAt.slice(11, 16) + " UTC" : "—", sub: lastRun ? `${lastRun.workflowName ?? lastRun.source} · ${lastRun.receivedAt.slice(0, 10)}` : "no runs yet" },
+        { label: "Companies", hint: "Portfolio records, B Capital firm record excluded", value: String(all.length), sub: `${all.filter((c) => c.in_brand_matrix).length} in brand matrix` },
+        { label: "News items", hint: "News items stored by the backend across all companies", value: news.total.toLocaleString("en-US"), spark: newsSeries, sparkLabel: "News items per day, last 14 days", sub: `across ${Object.keys(news.perCompany).length} companies · backend /news/summary` },
+        { label: "Sectors", hint: "Distinct sectors across the portfolio", value: String(uniq(all.map((c) => c.sector)).length), sub: SECTORS.join(" · ") },
+        { label: "Public / IPO", hint: "Portfolio companies that are publicly listed", value: String(counts.public), sub: "Fervo (FRVO), Meesho" },
+        { label: "Unicorn / renamed", hint: "Companies valued at $1B+ / companies that changed name", value: `${counts.unicorn} / ${counts.renamed}`, sub: "Code Metal · Judi Rx" },
+        { label: "Portfolio Signal Score", hint: "Mean evidence-weighted Signal Score, 0–100", value: sig.data.portfolio.n ? `${Math.round(sig.data.portfolio.mean)} / 100` : "—", sub: sig.data.portfolio.n ? `p25–p75 ${Math.round(sig.data.portfolio.p25)}–${Math.round(sig.data.portfolio.p75)} · ${sig.data.portfolio.n} scored` : `sentiment ${fmtScore(pf.data.portfolio?.avg_score ?? 0)} · signals offline` },
+        { label: "Last workflow run", hint: "When the most recent workflow run was received (UTC)", value: lastRun ? lastRun.receivedAt.slice(11, 16) + " UTC" : "—", sub: lastRun ? `${lastRun.workflowName ?? lastRun.source} · ${lastRun.receivedAt.slice(0, 10)}` : "no runs yet" },
       ]} />
       {/* verdict → movement → news: Top movers (span 5) and News Pulse (span 7) share one bento row */}
       <div className="overview-bento mt-5">

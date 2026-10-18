@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PitchbookSidebar } from "@/components/pitchbook/pitchbook-sidebar";
 import { getPitchbookStoreIndex, getPitchbookStoreProfile } from "@/lib/pitchbook-store";
 
-export const metadata: Metadata = { title: "PitchBook — batch store", description: "Queryable PitchBook profiles for every portfolio company, from the batch pull." };
+export const metadata: Metadata = { title: "PitchBook", description: "Queryable PitchBook profiles for every B Capital portfolio company, from the batch pull: deals, investors and financing history.", openGraph: { title: "PitchBook", description: "Queryable PitchBook profiles for every B Capital portfolio company, from the batch pull: deals, investors and financing history." }, twitter: { title: "PitchBook", description: "Queryable PitchBook profiles for every B Capital portfolio company, from the batch pull: deals, investors and financing history." } };
 export const dynamic = "force-dynamic";
 
 export default async function PitchbookPage({ searchParams }: { searchParams: Promise<{ slug?: string | string[] }> }) {

@@ -1,6 +1,7 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { toast } from "sonner";
 import type { NewsItem } from "@/lib/types";
 import { NewsCard } from "@/components/company/news-cards";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -19,7 +20,24 @@ function sourcePlugin(n: Item): string {
   if (s.includes("linkedin") || s.includes("reddit") || /(^|\W)(x\.com|twitter)/.test(s) || s.includes("utm_source=openai")) return "legacy"; return "perplexity";
 }
 const sentBucket = (s: number | null) => s == null ? "unknown" : s <= -0.2 ? "negative" : s < 0.2 ? "neutral" : "positive";
-export function NewsFeed({ items, companies }: { items: Item[]; companies: Co[] }) {
+/**
+ * /news React #418 fix (polish run 2): the document ships only the first page of items (it used to inline all ~2,100 items twice —
+ * HTML + RSC payload, ≈1.9 MB — and that long streaming window is where back/forward spam interrupted hydration). The first render
+ * on server AND client uses only the `items` prop (already in a deterministic, tie-broken order from getAllNews), so the markup is
+ * identical; the full list is fetched from /api/news/feed after hydration for the filters.
+ */
+export function NewsFeed({ items: firstPage, total, companies }: { items: Item[]; total?: number; companies: Co[] }) {
+  const [items, setItems] = useState<Item[]>(firstPage);
+  useEffect(() => {
+    setItems(firstPage);
+    if (total != null && total <= firstPage.length) return;
+    const ctl = new AbortController();
+    fetch("/api/news/feed", { signal: ctl.signal })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j: { items?: Item[] } | null) => { if (j?.items?.length) setItems(j.items); })
+      .catch(() => { /* keep the first page */ });
+    return () => ctl.abort();
+  }, [firstPage, total]);
   const [company, setCompany] = useState(""); const [sector, setSector] = useState(""); const [src, setSrc] = useState("all"); const [sent, setSent] = useState(""); const [q, setQ] = useState("");
   const PAGE = 120; const [limit, setLimit] = useState(PAGE);
   const sectors = useMemo(() => [...new Set(items.map((i) => i.sector))].sort(), [items]);
@@ -38,10 +56,10 @@ export function NewsFeed({ items, companies }: { items: Item[]; companies: Co[] 
           <div className="flex flex-col gap-1"><label htmlFor="nf-sector" className="text-xs font-medium text-muted">Sector</label><Select id="nf-sector" value={sector} onChange={(e) => setSector(e.target.value)}><option value="">All</option>{sectors.map((s) => <option key={s} value={s}>{s}</option>)}</Select></div>
           <div className="flex flex-col gap-1"><label htmlFor="nf-src" className="text-xs font-medium text-muted">Source plugin</label><Select id="nf-src" value={src} onChange={(e) => setSrc(e.target.value)}>{SOURCE_PLUGINS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</Select></div>
           <div className="flex flex-col gap-1"><label htmlFor="nf-sent" className="text-xs font-medium text-muted">Company sentiment</label><Select id="nf-sent" value={sent} onChange={(e) => setSent(e.target.value)}><option value="">Any</option><option value="positive">Positive</option><option value="neutral">Neutral</option><option value="negative">Negative</option></Select></div>
-          <div className="flex items-end lg:col-span-4"><p className="text-xs text-muted" role="status" aria-live="polite">{filtered.length} of {items.length} items{(company || sector || src !== "all" || sent || q) && <> · <button className="underline" onClick={reset}>clear filters</button></>}</p></div>
+          <div className="flex items-end lg:col-span-4"><p className="text-xs text-muted" role="status" aria-live="polite">{filtered.length} of {Math.max(items.length, total ?? 0)} items{(company || sector || src !== "all" || sent || q) && <> · <button className="underline" onClick={reset}>clear filters</button></>}</p></div>
         </section>
         {groups.length === 0 ? (
-          <EmptyState icon="no-news" title="No news for these filters" body="The 06:00 UTC workflow adds fresh Perplexity results daily." action={<Button variant="outline" onClick={reset}>Clear filters</Button>} />
+          <EmptyState icon="no-news" illustration title="No news for these filters" body="The 06:00 UTC workflow adds fresh Perplexity results daily." action={<Button variant="outline" onClick={() => { reset(); toast.success("Filters reset"); }}>Clear filters</Button>} />
         ) : groups.map(([day, list]) => (
           <section key={day} aria-labelledby={`day-${day}`} className="mb-6">
             <h2 id={`day-${day}`} className="sticky top-14 z-10 mb-3 flex items-center gap-2 bg-background/95 py-1 font-display text-lg font-semibold backdrop-blur lg:top-0"><time dateTime={day !== "Undated" ? day : undefined}>{day}</time><Badge tone="muted">{list.length}</Badge></h2>

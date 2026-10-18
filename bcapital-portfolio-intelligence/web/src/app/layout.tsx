@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { PopstateGuardScript } from "@/components/shell/popstate-guard";
 import { RouteProgress } from "@/components/shell/route-progress";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next";
 
 /* Brand typefaces: Reckless Neue (display) + Yellix (body) are licensed fonts not bundled here; the licensed fallbacks
    Fraunces (display) and Inter (body) are self-hosted, subset to Latin, preloaded, font-display: swap. */
@@ -26,8 +27,7 @@ export const viewport: Viewport = { themeColor: "#ffffff", colorScheme: "light",
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`light ${display.variable} ${body.variable}`} style={{ colorScheme: "light" }}>
-      {/* Browser extensions (e.g. Grammarly: data-gr-ext-installed) add attributes to <body> before hydration; ignore those attribute diffs only. */}
-      <body suppressHydrationWarning>
+      <body>
         <RouteProgress />
         <PopstateGuardScript />
         <a href="#main" className="sr-only sr-only-focusable fixed left-2 top-2 z-[100] rounded-md bg-primary px-3 py-2 text-primary-foreground">Skip to main content</a>
@@ -35,6 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Shell>{children}</Shell>
         </TooltipProvider>
         <Toaster position="bottom-right" closeButton />
+        {/* Vercel Web Analytics: no secret needed; only rendered on Vercel deployments (the sandbox has no /_vercel/insights endpoint). */}
+        {process.env.VERCEL === "1" && <Analytics />}
       </body>
     </html>
   );

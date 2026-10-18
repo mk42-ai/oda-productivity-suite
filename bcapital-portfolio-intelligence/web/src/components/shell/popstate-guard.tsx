@@ -12,14 +12,24 @@
  * response. Hash-only changes update the recorded URL instead of reloading. After hydration the guard removes itself and the App Router's own
  * popstate handling (client-side restore) applies unchanged. Inline + synchronous so it is registered before any streamed chunk.
  */
+/*
+ * 2026-10-18 (polish run 2): the guard stays ARMED until BOTH the root has hydrated AND the document has finished loading (window "load":
+ * every streamed Suspense chunk applied). Previously it disarmed as soon as the shell hydrated, while /news boundaries were still streaming
+ * (`<!--$?-->` + `<template id="B:n">`), so a traversal in that window let the router render another route into a half-streamed document.
+ * While armed, a URL-changing traversal stops the document, swallows the event (stopImmediatePropagation, so the App Router never starts a
+ * client transition) and replaces the page with a full load of the new URL. bfcache: a `pageshow` with persisted=true that restores a page
+ * frozen mid-stream (pending boundaries still in the DOM) is reloaded instead of resumed.
+ */
 const GUARD = `(function(){try{
-var hydrated=false, href=location.href, fired=false;
-function reload(){ if(hydrated||fired) return; fired=true; try{ window.stop(); }catch(e){} window.location.replace(window.location.href); }
-function check(){ if(!hydrated && location.href!==href) reload(); }
-window.addEventListener('popstate',check,true);
+var hydrated=false, loaded=document.readyState==='complete', armed=true, href=location.href, fired=false;
+function disarm(){ if(hydrated&&loaded&&armed){ armed=false; window.removeEventListener('popstate',onPop,true); } }
+function hard(){ if(fired) return; fired=true; try{ window.stop(); }catch(x){} window.location.replace(window.location.href); }
+function onPop(e){ if(!armed||fired) return; if(location.href===href) return; try{ e.stopImmediatePropagation(); }catch(x){} hard(); }
+window.addEventListener('popstate',onPop,true);
 window.addEventListener('hashchange',function(){ href=location.href; },true);
-if(window.navigation&&navigation.addEventListener){ navigation.addEventListener('currententrychange',function(e){ if(e&&e.navigationType==='traverse') check(); }); }
-window.__bcapMarkHydrated=function(){ hydrated=true; window.removeEventListener('popstate',check,true); };
+window.addEventListener('load',function(){ loaded=true; disarm(); });
+window.addEventListener('pageshow',function(e){ if(e&&e.persisted){ var pending=document.querySelector('template[id^="B:"]')||document.documentElement.innerHTML.indexOf('<!--$?-->')>=0; if(pending||!hydrated){ fired=false; hard(); } } });
+window.__bcapMarkHydrated=function(){ hydrated=true; disarm(); };
 }catch(e){}})();`;
 
 export function PopstateGuardScript() {

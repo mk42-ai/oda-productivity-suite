@@ -18,6 +18,8 @@ import { CardTopBadges, CardFoundersStrip } from "./card-badges-and-people";
 import { CompanyQuickViewDrawer, type QuickViewTab } from "./company-quick-view-drawer";
 import type { CompanySentimentProvenance } from "@/lib/sentiment-provenance";
 import { MotionCard } from "@/components/ui/motion-card";
+import { EmptyState } from "@/components/ui/empty-state";
+import { toast } from "sonner";
 import "./companies-gallery.css";
 import "./companies-redesign.css";
 
@@ -184,6 +186,7 @@ export function CompaniesGallery({ rows }: { rows: GalleryCompany[] }) {
       debounceRef.current = undefined;
     }
     setQState("");
+    toast.success("Filters reset");
     const n = new URLSearchParams(sp.toString());
     n.delete("q");
     n.delete("sector");
@@ -295,14 +298,17 @@ export function CompaniesGallery({ rows }: { rows: GalleryCompany[] }) {
 
       {visible.length === 0 && (
         <div className="cg-empty" data-testid="companies-empty-state">
-          <p>No companies match your active filters.</p>
-          <button
-            type="button"
-            className="dfb-reset-btn"
-            onClick={clearAllFilters}
-          >
-            Reset all filters
-          </button>
+          <EmptyState
+            illustration
+            compact
+            title="No companies match these filters"
+            body="Try a different sector or clear the search."
+            action={
+              <button type="button" className="dfb-reset-btn" onClick={clearAllFilters}>
+                Reset all filters
+              </button>
+            }
+          />
         </div>
       )}
 

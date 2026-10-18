@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { useNow } from "@/lib/use-now";
 import { Newspaper } from "lucide-react";
 import { safeExternalUrl } from "@/lib/outbound";
 import "./news-mini-feed.css";
@@ -16,7 +17,7 @@ export const hostOf = (url: string | null | undefined): string => { if (!url) re
 export const publisherOf = (url: string | null | undefined, source?: string | null): string => { const h = hostOf(url); return PUBLISHER[h] ?? (h || source || "Source"); };
 export const faviconFor = (host: string) => `/api/favicon?host=${encodeURIComponent(host)}`;
 
-export function relTime(iso: string | null | undefined, now = Date.now()): string {
+export function relTime(iso: string | null | undefined, now: number): string {
   if (!iso) return "";
   const t = Date.parse(iso); if (Number.isNaN(t)) return "";
   const s = Math.max(0, Math.round((now - t) / 1000));
@@ -45,10 +46,8 @@ function EmptyGlyph() {
 
 export function NewsMiniFeed({ items, total }: { items: NewsMiniItem[]; total: number }) {
   const companies = new Set(items.map((i) => i.company_slug)).size;
-  // Hydration-safe clock: relative times render
-  // with suppressHydrationWarning and refresh right after mount (+ every minute) — same pattern as HeroStats.
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => { setNow(Date.now()); const id = setInterval(() => setNow(Date.now()), 60_000); return () => clearInterval(id); }, []);
+  // Hydration-safe clock: null on the server and first client render (the date-only fallback is identical on both), relative after mount.
+  const now = useNow();
   return (
     <section className="card nmf" data-testid="news-mini-feed" aria-labelledby="nmf-title">
       <header className="nmf__head">
@@ -68,7 +67,7 @@ export function NewsMiniFeed({ items, total }: { items: NewsMiniItem[]; total: n
                 {safe ? <a href={safe} target="_blank" rel="noopener noreferrer" className="nmf-row__link">{n.title}</a> : <span className="nmf-row__link">{n.title}</span>}
               </span>
               <Link href={`/company/${n.company_slug}`} className="nmf-row__co">{n.company_name}</Link>
-              <time className="nmf-row__time tabular-nums" dateTime={n.published_at ?? undefined} title={n.published_at ?? undefined} suppressHydrationWarning>{relTime(n.published_at, now)}</time>
+              <time className="nmf-row__time tabular-nums" dateTime={n.published_at ?? undefined} title={n.published_at ?? undefined}>{now == null ? (n.published_at ?? "").slice(5, 10) : relTime(n.published_at, now)}</time>
             </li>); })}
         </ol>
       ) : (

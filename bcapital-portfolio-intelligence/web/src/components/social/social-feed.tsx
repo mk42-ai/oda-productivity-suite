@@ -12,6 +12,7 @@ import { SECTOR_THEMES, SECTOR_KEYS, sectorTheme, faviconUrl, PLATFORM_LABEL, PL
 import { BrandLogo } from "@/components/brand/logo";
 import { isPublicSocialPost, SOCIAL_PROVIDERS, type SocialProviderState } from "@/lib/social-content";
 import { canonicalOriginalUrl, safeExternalUrl, stopOutbound } from "@/lib/outbound";
+import { EmptyState } from "@/components/ui/empty-state";
 import "./social.css";
 
 export type FeedPost = {
@@ -441,7 +442,7 @@ export function SocialFeed({ initial, total, counts, suggestions, stories, unava
         <div className="bs-feed" data-testid="social-feed" data-total={tot}>
           {error && <p role="alert" className="bs-unavailable">{error}</p>}
           {posts.map((p) => <PostCard key={p.id} p={p} />)}
-          {posts.length === 0 && !loading && <div className="bs-empty"><p>No posts for this source and sector.</p></div>}
+          {posts.length === 0 && !loading && <EmptyState illustration compact title="No verified posts for this source and sector." body="Try another sector or check back after the next daily refresh." />}
           {posts.length < tot && <button type="button" className="bs-more" onClick={() => void load(sector, posts.length)} disabled={loading} data-testid="bs-load-more">{loading ? "Loading…" : `Show more (${tot - posts.length} left)`}</button>}
         </div>
         <aside className="bs-side">

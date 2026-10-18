@@ -7,11 +7,7 @@ import { getPortfolioData, getPeople, getFeed } from "@/lib/social";
 import { buildRealCompanyProvenance, type RawSocialPostInput } from "@/lib/sentiment-provenance";
 import { safeExternalUrl } from "@/lib/outbound";
 
-export const metadata: Metadata = {
-  title: "Companies",
-  description:
-    "Every B Capital portfolio company, organized by sector, with interactive funding timelines, evidence-weighted sentiment provenance, native source citations, PitchBook records and leadership.",
-};
+export const metadata: Metadata = { title: "Companies", description: "Every B Capital portfolio company, organized by sector, with interactive funding timelines, evidence-weighted sentiment provenance, native source citations, PitchBook records and leadership.", openGraph: { title: "Companies", description: "Every B Capital portfolio company, organized by sector, with interactive funding timelines, evidence-weighted sentiment provenance, native source citations, PitchBook records and leadership." }, twitter: { title: "Companies", description: "Every B Capital portfolio company, organized by sector, with interactive funding timelines, evidence-weighted sentiment provenance, native source citations, PitchBook records and leadership." } };
 export const revalidate = 300;
 
 async function rows(): Promise<{ rows: GalleryCompany[]; generatedAt: string }> {

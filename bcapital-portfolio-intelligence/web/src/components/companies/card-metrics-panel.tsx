@@ -223,7 +223,7 @@ export function CardMetricsPanel({
       <div className="cg-facts__cell">
         <dt>
           <Calendar className="size-3 shrink-0" aria-hidden="true" />
-          <span>Last round</span>
+          <span title="Most recent funding round">Last round</span>
         </dt>
         <dd data-testid="company-card-deal" title={fullDealTitle}>
           {lr ? (
@@ -256,7 +256,7 @@ export function CardMetricsPanel({
       <div className="cg-facts__cell">
         <dt>
           <DollarSign className="size-3 shrink-0" aria-hidden="true" />
-          <span>Total raised</span>
+          <span title="Total capital raised to date">Total raised</span>
         </dt>
         <dd data-testid="company-card-raised">
           <strong className="cg-raised-val">{fmtUsd(company.total_raised_usd) ?? "—"}</strong>
@@ -272,7 +272,7 @@ export function CardMetricsPanel({
       <div className="cg-facts__cell" data-testid="pitchbook-fields" ref={pbRef}>
         <dt>
           <Landmark className="size-3 shrink-0" aria-hidden="true" />
-          <span>PitchBook</span>
+          <span title="PitchBook investor-row match">PitchBook</span>
         </dt>
         <dd>
           <button
@@ -347,7 +347,7 @@ export function CardMetricsPanel({
       <div className="cg-facts__cell">
         <dt>
           <TrendingUp className="size-3 shrink-0" aria-hidden="true" />
-          <span>Sentiment</span>
+          <span title="Latest sentiment score and history">Sentiment</span>
         </dt>
         <dd>
           <InteractiveSparkline company={company} onQuickView={onQuickView} />
