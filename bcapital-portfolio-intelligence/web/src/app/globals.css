@@ -31,6 +31,20 @@
   --font-sans: var(--font-body), Yellix, Inter, system-ui, sans-serif;
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 0.25rem);
+  /* shadcn/ui slots mapped onto the existing light palette */
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted);
+  --color-input: var(--border);
+  /* brand + shared design tokens (tokens.css) */
+  --color-brand: var(--brand-green);
+  --color-brand-ink: var(--brand-green-ink);
+  --color-brand-soft: var(--brand-green-soft);
+  --color-brand-line: var(--brand-green-line);
+  --radius-token-sm: var(--r-sm);
+  --radius-token-md: var(--r-md);
+  --radius-token-lg: var(--r-lg);
+  --shadow-brand-lift: var(--elev-lift);
 }
 
 @layer base {

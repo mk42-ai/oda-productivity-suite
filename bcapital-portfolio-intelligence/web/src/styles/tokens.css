@@ -26,12 +26,13 @@
   --danger: #b91c1c;           /* 6.5:1 on white; used sparingly for negative deltas/errors */
   --danger-foreground: #ffffff;
   --danger-soft: #991b1b;
-  --ring: #1a9c6b;
+  --ring: #0AC985;
   /* B Capital brand green — #1a9c6b.
      --brand-green-ink is the AA-safe text variant on white (#15785a); --brand-green-soft is the pale tint (#e8f6f0). */
-  --brand-green: #1a9c6b;
-  --brand-green-ink: #15785a;
-  --brand-green-soft: #e8f6f0;
+  --brand-green: #0AC985;     /* Caribbean Green — fills, accent lines, sparklines, progress bar (decorative: 2.1:1 on white) */
+  --brand-green-ink: #067a52; /* AA text on white (5.6:1) and on --brand-green-soft (5.2:1) */
+  --brand-green-soft: #eefbf5; /* light brand tint: metric panels, tile washes */
+  --brand-green-line: #c9f0de; /* soft green divider / panel border */
   --brand-green-strong: #15785a;
   --radius: 0.5rem;
   --chart-1: #202327; --chart-2: #6e7277; --chart-3: #9ea2a8; --chart-4: #1a9c6b; --chart-5: #b91c1c; --chart-6: #c9ccd1;
@@ -138,4 +139,15 @@
   /* Motion */
   --motion-fast: 150ms;
   --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ---- Shared design tokens (2026-10-18 run 1): one spacing / type / radius scale, exposed to Tailwind via @theme in globals.css ---- */
+:root {
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-8: 32px;
+  --fs-2xs: 10px; --fs-xs: 12px; --fs-sm: 14px; --fs-base: 16px; --fs-lg: 18px; --fs-xl: 24px; --fs-2xl: 28px; --fs-3xl: 40px;
+  --r-sm: 6px; --r-md: 10px; --r-lg: 12px; --r-pill: 999px;
+  --elev-card: 0 1px 2px rgba(22, 24, 27, 0.05);
+  --elev-lift: 0 2px 4px rgba(22, 24, 27, 0.05), 0 10px 22px rgba(6, 122, 82, 0.10);
+  /* sentiment scale (score → colour), green family + neutral + red; no blue */
+  --sent-strong: #067a52; --sent-pos: #0f8a5f; --sent-neu: #5c6168; --sent-neg: #b42318;
 }

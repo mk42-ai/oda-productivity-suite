@@ -17,6 +17,7 @@ import { CardFundingTimeline, timelineLabelsOverlap } from "./card-funding-timel
 import { CardTopBadges, CardFoundersStrip } from "./card-badges-and-people";
 import { CompanyQuickViewDrawer, type QuickViewTab } from "./company-quick-view-drawer";
 import type { CompanySentimentProvenance } from "@/lib/sentiment-provenance";
+import { MotionCard } from "@/components/ui/motion-card";
 import "./companies-gallery.css";
 import "./companies-redesign.css";
 
@@ -109,7 +110,7 @@ export function CompanyGalleryCard({
         } as CSSProperties
       }
     >
-      <div className="cg-card__body">
+      <MotionCard className="cg-card__body">
         <CardTopBadges
           company={c}
           activeSector={activeSector}
@@ -131,7 +132,7 @@ export function CompanyGalleryCard({
           company={c}
           onQuickViewPeople={(comp) => handleQuickView(comp, "people")}
         />
-      </div>
+      </MotionCard>
     </article>
   );
 }

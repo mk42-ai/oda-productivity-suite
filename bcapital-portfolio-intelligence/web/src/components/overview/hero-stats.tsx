@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import "./hero-stats.css";
+import { Sparkline } from "@/components/charts/sparkline";
+import { sentimentColor } from "@/lib/sentiment-tone";
 
 /** a17 — Overview verdict row. The largest number answers "am I okay?" first; the rest is context. */
 export type HeroStatsProps = {
@@ -13,6 +15,10 @@ export type HeroStatsProps = {
   newsTotal: number;
   /** ISO timestamp of the last scoring run, or null */
   lastRunAt: string | null;
+  /** portfolio mean sentiment per scoring run, oldest → newest (backend /sentiment/runs) */
+  sentimentSeries?: number[];
+  /** news items per day, oldest → newest (last 14 days of the feed) */
+  newsSeries?: number[];
 };
 
 const DURATION_MS = 600;
@@ -56,17 +62,18 @@ function relTime(iso: string, nowMs: number): string {
 }
 const fmtUtc = (iso: string) => { const d = new Date(iso); return Number.isNaN(d.getTime()) ? iso : d.toISOString().slice(0, 16).replace("T", " ") + " UTC"; };
 
-function Tile({ k, label, children, sub, title, primary }: { k: string; label: string; children: React.ReactNode; sub?: React.ReactNode; title?: string; primary?: boolean }) {
+function Tile({ k, label, children, sub, title, primary, color, spark, sparkLabel }: { k: string; label: string; children: React.ReactNode; sub?: React.ReactNode; title?: string; primary?: boolean; color?: string; spark?: number[]; sparkLabel?: string }) {
   return (
     <div className={`hero-stat${primary ? " hero-stat--primary" : ""}`} data-key={k} role="group" aria-label={label}>
       <dt className="hero-stat-label">{label}</dt>
-      <dd className="hero-stat-value" title={title}>{children}</dd>
+      <dd className="hero-stat-value" title={title} style={color ? { color } : undefined}>{children}</dd>
+      {spark && spark.length > 1 && <dd className="hero-stat-spark" data-testid="hero-stat-spark"><Sparkline values={spark} width={120} height={22} stroke="#0AC985" accent="#067a52" fill ariaLabel={sparkLabel} /></dd>}
       {sub != null && <dd className="hero-stat-sub">{sub}</dd>}
     </div>
   );
 }
 
-export function HeroStats({ sentimentMean, sentimentDeltaMean, companies, newsTotal, lastRunAt }: HeroStatsProps) {
+export function HeroStats({ sentimentMean, sentimentDeltaMean, companies, newsTotal, lastRunAt, sentimentSeries, newsSeries }: HeroStatsProps) {
   const sent = useCountUp(sentimentMean ?? 0);
   const comp = useCountUp(companies);
   const news = useCountUp(newsTotal);
@@ -78,12 +85,12 @@ export function HeroStats({ sentimentMean, sentimentDeltaMean, companies, newsTo
   return (
     <section className="hero-stats" data-testid="hero-stats" aria-label="Portfolio verdict">
       <dl className="hero-stats-grid">
-        <Tile k="sentiment" label="Portfolio sentiment" primary title={sentimentMean == null ? undefined : `Mean sentiment score across ${companies} companies (−1 to +1)`}
+        <Tile k="sentiment" label="Portfolio sentiment" primary color={sentimentMean == null ? undefined : sentimentColor(sentimentMean)} spark={sentimentSeries} sparkLabel="Portfolio mean sentiment per scoring run" title={sentimentMean == null ? undefined : `Mean sentiment score across ${companies} companies (−1 to +1)`}
           sub={<span className="hero-stat-delta" data-trend={trend}>{"Δ vs last run "}<span className="hero-stat-delta-num">{delta == null ? "—" : fmtSigned(delta)}</span></span>}>
           {sentimentMean == null ? "—" : fmtSigned(sent)}
         </Tile>
         <Tile k="companies" label="Companies tracked" sub="portfolio records, firm excluded">{fmtInt(comp)}</Tile>
-        <Tile k="news" label="News items" sub="across the portfolio">{fmtInt(news)}</Tile>
+        <Tile k="news" label="News items" sub="across the portfolio" spark={newsSeries} sparkLabel="News items per day, last 14 days">{fmtInt(news)}</Tile>
         <Tile k="last-run" label="Last scoring run" title={lastRunAt ? fmtUtc(lastRunAt) : undefined} sub={lastRunAt ? <time dateTime={lastRunAt}>{fmtUtc(lastRunAt)}</time> : "no runs yet"}>
           <span suppressHydrationWarning>{lastRunAt ? relTime(lastRunAt, now) : "—"}</span>
         </Tile>

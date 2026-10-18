@@ -362,3 +362,24 @@ Hono `node dist/server.js` :4000 → /health 200, Next `next start` 0.0.0.0:5173
 | ONDEMAND_API_KEY in .next/static | 0 / 1759 files | 0 / 1759 files |
 
 Quick-chat proxy (live): `createSession` 200, `query` 200 in 7.9 s with a 206-char answer.
+
+## Polish run 1 — 2026-10-18 (cleanup + green brightening + finishing packages)
+
+Safety tag `pre-polish-run1-20261018` → `6a654e1`. Scope kept small (run 1 of 2).
+
+Removal manifest (knip/depcheck output re-verified by grep; nothing from chat, quick-chat proxy, /reputation, scoring, Dream Labs, GROWTH, /docs/interactive-ui or the recorder touched):
+| Item | Kind | Why |
+|---|---|---|
+| `src/components/companies/companies-list.tsx`, `company-card.tsx`, `company-card.css`, `toolbar.css` | dead components + CSS | superseded by `companies-gallery.tsx`; zero importers |
+| `src/lib/url-state.ts` + `tests/unit/url-state.test.ts` + `test:url-state` script | dead util + its test | only importer was companies-list.tsx |
+| `src/lib/icons.ts` | dead registry | zero importers |
+| `public/icons/glyphs/*.svg` (10), `public/icons/glyphs-src/*.png` (10), `public/icons/icon-manifest.json` | stale assets | referenced only by icons.ts / icon-qa.py |
+| `scripts/icon-qa.py` | stale QA script | QA'd the deleted glyph sources |
+| `DAILY_REFRESH_WORKFLOW_ID` in `web/.env.example` | env key | read nowhere |
+depcheck: no unused runtime deps (`tailwindcss`/`@tailwindcss/postcss` are CSS-only false positives). `console.log` in non-chat src: 0.
+
+Tokens: `--brand-green` #0AC985, `--brand-green-ink` #067a52 (AA), `--brand-green-soft`/`-line`, spacing/type/radius/elevation scale and a sentiment colour scale in `styles/tokens.css`, exposed through `@theme` (`bg-brand`, `text-brand-ink`, `rounded-token-md`, …).
+
+Brightening: company-card metrics panel (LAST ROUND / TOTAL RAISED / PITCHBOOK / SENTIMENT) on a light green tint with green labels; overview hero + stat tiles get a 3 px #0AC985 top line, green numbers, real-data green sparklines (portfolio mean per scoring run, news per day) and softened dividers; sentiment values coloured by score (`lib/sentiment-tone.ts`). Category chips unchanged. No blue.
+
+Packages: shadcn/ui CLI v4 (`components.json`, manual config; added command, dialog (command dependency), dropdown-menu, avatar, tabs, sonner — existing skeleton/tooltip kept to preserve their API), `cmdk`, `radix-ui`, `sonner`, `motion` (MotionCard: 6 px entrance + 2 px hover lift, reduced-motion aware, no opacity animation), `nextjs-toploader` (#0AC985, client-only), `lucide-react` (already the only icon set).

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Landmark, TrendingUp, ExternalLink, Info, Calendar, DollarSign, AlertTriangle } from "lucide-react";
-import { sectorTheme } from "@/lib/social-sectors";
+import { sentimentColor, sentimentTone } from "@/lib/sentiment-tone";
 import { stopOutbound, safeExternalUrl } from "@/lib/outbound";
 import { SentimentProvenanceView } from "./sentiment-provenance-view";
 import type { GalleryCompany } from "./companies-gallery";
@@ -73,7 +73,8 @@ function InteractiveSparkline({
 }) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
-  const t = sectorTheme(company.sector);
+  const tone = sentimentTone(company.sentiment.score);
+  const toneColor = sentimentColor(company.sentiment.score);
   const pts = company.sentiment.history;
   const hasConflict = Boolean(company.provenance?.conflict?.hasConflict);
 
@@ -132,11 +133,11 @@ function InteractiveSparkline({
           <path
             d={d}
             strokeDasharray={isPlaceholder ? "3 3" : undefined}
-            style={{ stroke: isPlaceholder ? "#9ca3af" : "#047857" }}
+            style={{ stroke: isPlaceholder ? "#9ca3af" : tone === "negative" ? toneColor : "#0AC985" }}
           />
         </svg>
-        <span className="cg-spark__val" style={{ color: t.ink }}>
-          <strong>{latestScore}</strong>
+        <span className="cg-spark__val" data-tone={tone} style={{ color: toneColor }}>
+          <strong style={{ color: toneColor }}>{latestScore}</strong>
           <small>{company.sentiment.label}</small>
         </span>
         {hasConflict && (

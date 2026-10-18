@@ -606,9 +606,10 @@
   gap: 8px;
   margin: 0;
   padding: 9px 10px;
-  border-radius: 10px;
-  background: #f8fafc;
-  border: 1px solid #edf0f3;
+  border-radius: var(--r-md, 10px);
+  /* 2026-10-18: light Caribbean Green tint instead of flat pale grey (text stays AA: ink #067a52 = 5.2:1 on #eefbf5) */
+  background: linear-gradient(180deg, var(--brand-green-soft, #eefbf5) 0%, #f6fdf9 100%);
+  border: 1px solid var(--brand-green-line, #c9f0de);
 }
 
 .cg-facts__cell {
@@ -627,8 +628,9 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #4b5563;
+  color: var(--brand-green-ink, #067a52);
 }
+.cg-facts dt svg { color: var(--brand-green-ink, #067a52); }
 
 .cg-facts dd {
   margin: 0;
@@ -656,7 +658,7 @@
 
 .cg-deal-amt {
   font-weight: 700;
-  color: #047857;
+  color: var(--brand-green-ink, #067a52);
   white-space: nowrap;
 }
 
