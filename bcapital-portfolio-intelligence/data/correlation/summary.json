@@ -1,6 +1,6 @@
 {
  "runId": "REP-BATCH-001",
- "generatedAt": "2026-10-18T13:28:51Z",
+ "generatedAt": "2026-10-18T14:23:28Z",
  "now": "2026-10-18T00:00:00Z",
  "params": {
   "chunkSize": 250,
@@ -135,19 +135,19 @@
   }
  },
  "timingsMs": {
-  "ingest_ms": 351,
-  "validate_ms": 148,
-  "dedupe_ms": 129,
-  "conflicts_ms": 23,
-  "engine_ms": 952,
-  "scores_ms": 45,
-  "total_ms": 1654
+  "ingest_ms": 369,
+  "validate_ms": 163,
+  "dedupe_ms": 130,
+  "conflicts_ms": 19,
+  "engine_ms": 960,
+  "scores_ms": 42,
+  "total_ms": 1688
  },
  "engine": {
   "postsConsidered": 16368,
   "edges": 6,
   "modularity": 0,
-  "durationMs": 923,
+  "durationMs": 926,
   "precisionRejects": 0,
   "droppedObjects": 1,
   "trailInvariantViolations": 0,
