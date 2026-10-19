@@ -1,0 +1,360 @@
+{
+  "class": "g-bcapital",
+  "items": 565,
+  "dropped": {
+    "off-subject": 871,
+    "invalid": 1
+  },
+  "file": "data/sweep/g-bcapital.jsonl",
+  "seeds_total": 40,
+  "seeds_ok": 40,
+  "seeds_failed": [
+    {
+      "url": "https://www.bloomberg.com/news/articles/2018-02-09/facebook-co-founder-saverin-s-b-capital-closes-360-million-fund",
+      "status": 403,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2020-06-30/facebook-co-founder-saverin-s-venture-firm-raises-820-million",
+      "status": 403,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2021-11-04/eduardo-saverin-s-b-capital-eyes-2-5-billion-for-newest-fund",
+      "status": 403,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2023-01-19/eduardo-saverin-s-b-capital-raises-2-1-billion",
+      "status": 403,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.reuters.com/business/finance/facebook-co-founder-saverins-b-capital-raises-750-mln-new-opportunities-fund-2024-03-19/",
+      "status": 999,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.forbes.com/sites/yessarrosendar/2026/07/08/billionaire-eduardo-saverin-backed-b-capital-raises-500-million-to-fund-early-stage-startups/",
+      "status": 403,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.wsj.com/pro/venture-capital/b-capital-unveils-500-million-early-stage-fund-as-startup-valuations-soar-cd73bc9e",
+      "status": 999,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.axios.com/2026/07/23/vc-job-chief-ai-officer",
+      "status": 403,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://tracxn.com/d/venture-capital/b-capital/__vAnWVl1HF7mLz_Whht2Z2hZ4ns8OQXK6WrDhblsa8UE",
+      "status": 999,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://pitchbook.com/profiles/investor/155248-48",
+      "status": 403,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.crunchbase.com/organization/b-capital-group",
+      "status": 403,
+      "kept_from_hints": true
+    },
+    {
+      "url": "https://www.linkedin.com/company/b-capital-group",
+      "status": 999,
+      "kept_from_hints": true
+    }
+  ],
+  "tag_pages_tried": 35,
+  "tag_pages_blocked": 14,
+  "tag_candidates": 420,
+  "gnews_rows": 3971,
+  "gnews_calls": 849,
+  "bing_rows": 191,
+  "gdelt_rows": 881,
+  "namesake_dropped": 0,
+  "namesake_prefiltered": 0,
+  "http_status_counts": {
+    "200": 2597,
+    "403": 114,
+    "404": 29,
+    "999": 215,
+    "503": 2,
+    "429": 38,
+    "410": 2,
+    "0": 83,
+    "202": 9,
+    "405": 1,
+    "401": 5
+  },
+  "estimated_dates": 8,
+  "items_by_register": {
+    "BCAP-001": 556,
+    "BCAP-002": 167,
+    "BCAP-003": 74,
+    "BCAP-004": 15
+  },
+  "items_by_glyph": {
+    "news": 451,
+    "web": 12,
+    "linkedin": 56,
+    "pr": 46
+  },
+  "duration_s": 1837,
+  "processed": 3555,
+  "counters": {
+    "queued_tag": 420,
+    "queued_bing": 14,
+    "queued_gnews-li": 350,
+    "added_tag": 121,
+    "seeds_ok": 40,
+    "seeds_200_ok": 27,
+    "added_bing": 14,
+    "tag_candidates": 420,
+    "added_gnews-li": 57,
+    "queued_bing-web": 40,
+    "gnews_unresolved": 38,
+    "seeds_already": 1,
+    "queued_gnews": 3971,
+    "linkedin_discovery_rows": 410,
+    "skipped_seen": 2133,
+    "added_gnews": 190,
+    "queued_gdelt": 873,
+    "added_gdelt": 138,
+    "noitem_gdelt": 1
+  },
+  "blockers": [
+    {
+      "source": "tag",
+      "outlet": "dealstreetasia.com",
+      "url": "https://www.dealstreetasia.com/tag/b-capital/",
+      "status": 999
+    },
+    {
+      "source": "tag",
+      "outlet": "dealstreetasia.com",
+      "url": "https://www.dealstreetasia.com/?s=%22B+Capital%22",
+      "status": 503
+    },
+    {
+      "source": "tag",
+      "outlet": "kr-asia.com",
+      "url": "https://kr-asia.com/tag/b-capital",
+      "status": 404
+    },
+    {
+      "source": "tag",
+      "outlet": "asia.nikkei.com",
+      "url": "https://asia.nikkei.com/search?query=%22B%20Capital%22",
+      "status": 999
+    },
+    {
+      "source": "tag",
+      "outlet": "vccircle.com",
+      "url": "https://www.vccircle.com/search?q=%22B%20Capital%22",
+      "status": 404
+    },
+    {
+      "source": "tag",
+      "outlet": "axios.com",
+      "url": "https://www.axios.com/search?q=%22B+Capital%22",
+      "status": 403
+    },
+    {
+      "source": "tag",
+      "outlet": "fortune.com",
+      "url": "https://fortune.com/search/?q=%22B%20Capital%22",
+      "status": 999
+    },
+    {
+      "source": "tag",
+      "outlet": "businessinsider.com",
+      "url": "https://www.businessinsider.com/s?q=%22B+Capital%22",
+      "status": 410
+    },
+    {
+      "source": "tag",
+      "outlet": "businesswire.com",
+      "url": "https://www.businesswire.com/portal/site/home/search/?searchType=news&searchTerm=%22B%20Capital%22",
+      "status": 403
+    },
+    {
+      "source": "tag",
+      "outlet": "globenewswire.com",
+      "url": "https://www.globenewswire.com/search/keyword/%22B%20Capital%22",
+      "status": 403
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20160701000000&enddatetime=201",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20170101000000&enddatetime=201",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20170701000000&enddatetime=201",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20180101000000&enddatetime=201",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20180701000000&enddatetime=201",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20190101000000&enddatetime=201",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20190701000000&enddatetime=202",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20200101000000&enddatetime=202",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20200701000000&enddatetime=202",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20210701000000&enddatetime=202",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20220101000000&enddatetime=202",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20220701000000&enddatetime=202",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20230101000000&enddatetime=202",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%20Group%22&mode=artlist&maxrecords=250&format=json&startdatetime=20240101000000&enddatetime=202",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    },
+    {
+      "source": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28Saverin%20OR%20Ganguly%20OR%20venture%29&mode=artlist&maxrecords=250&format=json&startd",
+      "status": 429
+    }
+  ],
+  "finished_at": "2026-10-19T13:20:11Z",
+  "resume_runs": [
+    {
+      "duration_s": 94,
+      "note": "bing apiclick → publisher URL unwrap; +6 items"
+    }
+  ],
+  "new_vs_evidence": {
+    "kept": 565,
+    "new": 45,
+    "already_present": 520
+  }
+}
