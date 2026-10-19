@@ -1,0 +1,211 @@
+{
+  "class": "g-eduardo",
+  "items": 797,
+  "dropped": {
+    "film-noise": 94,
+    "off-subject": 433
+  },
+  "file": "data/sweep/g-eduardo.jsonl",
+  "register": "BCAP-002",
+  "seeds_total": 37,
+  "seeds_ok": 22,
+  "seeds_failed": [
+    {
+      "url": "https://www.forbes.com/sites/pamelaambler/2019/10/13/from-silicon-valley-to-singapore-eduardo-saverin-and-vc-partners-approach-to-accelerate-innovation/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/naazneenkarmali/2023/09/06/singapores-50-richest-2023-facebook-cofounder-eduardo-saverin-is-new-no-1-as-combined-wealth-rises-8-to-177-billion/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/janeho/2025/09/03/singapores-50-richest-2025-combined-wealth-jumps-to-239-billion-facebook-cofounder-eduardo-saverin-adds-14-billion-to-remain-at-no-1/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/alexkonrad/2019/03/19/life-after-facebook--the-untold-story-of-billionaire-eduardo-saverins-highly-networked-venture-firm/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/naazneenkarmali/2024/09/04/singapores-50-richest-2024-a-double-digit-boost-propels-combined-wealth-to-195-billion/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/naazneenkarmali/2017/12/08/facebook-co-founder-eduardo-saverin-becomes-singapores-richest-person/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/yessarrosendar/2024/03/20/billionaire-eduardo-saverins-b-capital-raises-750-million-to-fund-late-stage-startups/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/jonathanburgos/2022/07/20/facebook-billionaire-eduardo-saverins-b-capital-raises-250-million-for-its-early-stage-vc-fund/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/jonathanburgos/2022/05/02/facebook-billionaire-eduardo-saverins-b-capital-halts-spac-plans-amid-market-volatility/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/irisleung/2016/04/15/eduardo-saverin-unlike-the-valley-mobile-first-southeast-asia-is-a-white-space/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/janeroberts/2015/06/24/facebook-cofounder-eduardo-saverin-invests-in-tech-in-asia/",
+      "status": 403
+    },
+    {
+      "url": "https://www.forbes.com/sites/worldviews/2012/05/11/why-eduardo-saverin-moved-to-singapore/",
+      "status": 403
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2022-07-19/eduardo-saverin-s-b-capital-raises-first-early-stage-vc-fund",
+      "status": 403
+    },
+    {
+      "url": "https://tecnoblog.net/responde/quem-e-eduardo-saverin-conheca-o-brasileiro-cofundador-do-facebook/",
+      "status": 403
+    },
+    {
+      "url": "https://www.mediaite.com/online/eduardo-saverin-facebook-co-founder-responds-to-the-social-network/",
+      "status": 403
+    }
+  ],
+  "seed_status": {
+    "https://www.forbes.com/sites/pamelaambler/2019/10/13/from-silicon-valley-to-singapore-eduardo-saverin-and-vc-partners-approach-to-accelerate-innovation/": 403,
+    "https://www.forbes.com/sites/naazneenkarmali/2023/09/06/singapores-50-richest-2023-facebook-cofounder-eduardo-saverin-is-new-no-1-as-combined-wealth-rises-8-to-177-billion/": 403,
+    "https://www.forbes.com/sites/janeho/2025/09/03/singapores-50-richest-2025-combined-wealth-jumps-to-239-billion-facebook-cofounder-eduardo-saverin-adds-14-billion-to-remain-at-no-1/": 403,
+    "https://www.forbes.com/sites/alexkonrad/2019/03/19/life-after-facebook--the-untold-story-of-billionaire-eduardo-saverins-highly-networked-venture-firm/": 403,
+    "https://www.forbes.com/sites/naazneenkarmali/2024/09/04/singapores-50-richest-2024-a-double-digit-boost-propels-combined-wealth-to-195-billion/": 403,
+    "https://www.forbes.com/sites/naazneenkarmali/2017/12/08/facebook-co-founder-eduardo-saverin-becomes-singapores-richest-person/": 403,
+    "https://www.forbes.com/sites/yessarrosendar/2024/03/20/billionaire-eduardo-saverins-b-capital-raises-750-million-to-fund-late-stage-startups/": 403,
+    "https://www.forbes.com/sites/jonathanburgos/2022/07/20/facebook-billionaire-eduardo-saverins-b-capital-raises-250-million-for-its-early-stage-vc-fund/": 403,
+    "https://www.forbes.com/sites/jonathanburgos/2022/05/02/facebook-billionaire-eduardo-saverins-b-capital-halts-spac-plans-amid-market-volatility/": 403,
+    "https://www.forbes.com/sites/irisleung/2016/04/15/eduardo-saverin-unlike-the-valley-mobile-first-southeast-asia-is-a-white-space/": 403,
+    "https://www.forbes.com/sites/janeroberts/2015/06/24/facebook-cofounder-eduardo-saverin-invests-in-tech-in-asia/": 403,
+    "https://www.forbes.com/sites/worldviews/2012/05/11/why-eduardo-saverin-moved-to-singapore/": 403,
+    "https://www.bloomberg.com/news/articles/2022-07-19/eduardo-saverin-s-b-capital-raises-first-early-stage-vc-fund": 403,
+    "https://www.businessinsider.com/facebook-cofounder-eduardo-saverin-donation-singapore-american-school-2024-9": 200,
+    "https://malaysia.news.yahoo.com/eduardo-saverin-keeps-singapore-rich-033139936.html": 200,
+    "https://bilyonaryo.com/singapores-50-richest-worth-239b-facebook-co-founder-eduardo-saverin-stays-no-1-for-4th-year/": 200,
+    "https://b.capital/team/eduardo-saverin/": 200,
+    "https://www.straitstimes.com/singapore/community/singapore-a-special-place-in-giving-journey-of-facebook-co-founder-eduardo-saverin-and-wife-elaine": 200,
+    "https://lifestylesmagazine.com/latest-news/20-million-gift-to-cancer-center-from-elaine-and-eduardo-saverin/": 200,
+    "https://www.asiaone.com/money/singapore-50-richest-list-2026-eduardo-saverin-ocbc-lee-family": 200,
+    "https://forbes.com.br/forbes-tech/2026/08/conheca-a-trajetoria-de-eduardo-saverin-o-brasileiro-com-a-maior-fortuna-pessoal-desde-2024/": 200,
+    "https://www.forbes.com/profile/eduardo-saverin/": 200,
+    "https://www.scmp.com/magazines/style/entertainment/article/3245743/where-facebook-co-founder-eduardo-saverin-now-brazilian-billionaire-still-owns-stake-meta-and": 200,
+    "https://forbes.com.br/negocios/2016/10/procuro-investir-no-ecossistema-brasileiro-de-startups-afirma-saverin-bilionario-cofundador-do-facebook/": 200,
+    "https://forbes.com.br/forbes-tech/2025/03/oriente-medio-a-nova-grande-aposta-de-eduardo-saverin/": 200,
+    "https://brasil.perfil.com/economia/quem-e-eduardo-saverin-o-brasileiro-mais-rico-da-historia.phtml": 200,
+    "https://eesaverinfoundation.org/media-center/scholarship-to-build-singapores-mental-health-workforce/": 200,
+    "https://eesaverinfoundation.org/": 200,
+    "https://forbes.com.br/forbes-money/2022/07/b-capital-de-eduardo-saverin-capta-us-250-milhoes-para-venture-capital/": 200,
+    "https://tecnoblog.net/responde/quem-e-eduardo-saverin-conheca-o-brasileiro-cofundador-do-facebook/": 403,
+    "https://www.thekeyexecutives.com/2022/05/30/status-update-eduardo-saverin/": 200,
+    "https://www.caproasia.com/2025/11/27/facebook-co-founder-singapore-richest-man-with-34-billion-fortune-eduardo-saverin-wife-elaine-saverin-elaine-and-eduardo-saverin-foundation-launch-mental-health-scholarship-in-singapore-starts/": 200,
+    "https://gpsbrasilia.com.br/quem-e-eduardo-saverin-o-brasileiro-mais-rico-do-mundo/": 200,
+    "https://www.bloomberglinea.com.br/2023/01/19/bilionario-brasileiro-eduardo-saverin-capta-us-21-bi-para-investir-em-startups/": 200,
+    "https://www.estadao.com.br/link/empresas/quem-eduardo-saverin-brasileiro-mais-rico-do-mundo-nprei/": 200,
+    "https://medicine.nus.edu.sg/news/nus-medicine-establishes-new-mental-health-scholarship-with-s3-million-gift-from-elaine-and-eduardo-saverin-foundation/": 200,
+    "https://www.mediaite.com/online/eduardo-saverin-facebook-co-founder-responds-to-the-social-network/": 403
+  },
+  "film_noise_dropped": 94,
+  "rejects_file_totals": {
+    "film-noise": 94,
+    "off-subject": 433
+  },
+  "tag_pages_tried": 25,
+  "tag_links": 293,
+  "foundation_links": 1,
+  "gnews_queries": 730,
+  "gnews_rows": 4382,
+  "gnews_skipped_in_evidence": 2192,
+  "gnews_resolved": 1033,
+  "gnews_unresolved": 9,
+  "bing_rows": 53,
+  "bing_web_rows": 90,
+  "gdelt_calls": 24,
+  "gdelt_rows": 206,
+  "x_tweets": 0,
+  "candidates": 1404,
+  "fetched": 1322,
+  "skipped_in_evidence": 267,
+  "http_status_counts": {
+    "403": 86,
+    "200": 1207,
+    "404": 36,
+    "429": 18,
+    "999": 22,
+    "0": 14,
+    "410": 2,
+    "202": 2,
+    "307": 1
+  },
+  "estimated_dates": 3,
+  "new_vs_evidence": {
+    "new": 770,
+    "already_in_evidence": 27
+  },
+  "top_hosts": {
+    "forbes.com.br": 56,
+    "estadao.com.br": 37,
+    "g1.globo.com": 32,
+    "oglobo.globo.com": 27,
+    "infomoney.com.br": 20,
+    "epocanegocios.globo.com": 19,
+    "terra.com.br": 16,
+    "exame.com": 14,
+    "forbes.com": 13,
+    "businessinsider.com": 12,
+    "cnnbrasil.com.br": 11,
+    "veja.abril.com.br": 11,
+    "bloomberglinea.com.br": 10,
+    "istoedinheiro.com.br": 10,
+    "economicnewsbrasil.com.br": 9,
+    "correiobraziliense.com.br": 8,
+    "caras.com.br": 8,
+    "valor.globo.com": 8,
+    "portalin.com.br": 8,
+    "revistapegn.globo.com": 7,
+    "aventurasnahistoria.com.br": 7,
+    "forbes.it": 7,
+    "jornalopcao.com.br": 6,
+    "seudinheiro.com": 6,
+    "www1.folha.uol.com.br": 5
+  },
+  "run_added": 797,
+  "duration_s": 1758.8,
+  "blockers": [
+    "seed forbes.com HTTP 403",
+    "seed bloomberg.com HTTP 403",
+    "seed tecnoblog.net HTTP 403",
+    "x syndication HTTP 429",
+    "gdelt HTTP 429",
+    "tag page tatlerasia.com HTTP 403",
+    "tag page channelnewsasia.com HTTP 999",
+    "tag page epocanegocios.globo.com HTTP 999",
+    "tag page forbeschina.com HTTP 0",
+    "tag page fortune.com HTTP 999"
+  ],
+  "mediaite_oped_kept": true,
+  "mediaite_note": "Stage would drop as film-noise; force-added via stage.f with noise_override='first-person op-ed'",
+  "samples": [
+    {
+      "title": "Eduardo Saverin — Sites Pamelaambler 2019 10 13 From Silicon Valley To Singapore Eduardo Saverin And Vc Partners Approach To Accelerate Innovation",
+      "published_at": "2019-10-13T00:00:00Z",
+      "url": "https://forbes.com/sites/pamelaambler/2019/10/13/from-silicon-valley-to-singapore-eduardo-saverin-and-vc-partners-approach-to-accelerate-innovation"
+    },
+    {
+      "title": "Eduardo Saverin — Sites Naazneenkarmali 2023 09 06 Singapores 50 Richest 2023 Facebook Cofounder Eduardo Saverin Is New No 1 As Combined Wealth Rises 8 To 177 Billion",
+      "published_at": "2023-09-06T00:00:00Z",
+      "url": "https://forbes.com/sites/naazneenkarmali/2023/09/06/singapores-50-richest-2023-facebook-cofounder-eduardo-saverin-is-new-no-1-as-combined-wealth-rises-8-to-177-billion"
+    },
+    {
+      "title": "Eduardo Saverin — Sites Janeho 2025 09 03 Singapores 50 Richest 2025 Combined Wealth Jumps To 239 Billion Facebook Cofounder Eduardo Saverin Adds 14 Billion To Remain At No 1",
+      "published_at": "2025-09-03T00:00:00Z",
+      "url": "https://forbes.com/sites/janeho/2025/09/03/singapores-50-richest-2025-combined-wealth-jumps-to-239-billion-facebook-cofounder-eduardo-saverin-adds-14-billion-to-remain-at-no-1"
+    }
+  ],
+  "finished_at": "2026-10-19T13:17:25Z"
+}
