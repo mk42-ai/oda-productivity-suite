@@ -139,15 +139,15 @@ for (const vp of VIEWPORTS) {
       await expect(page.getByTestId("evidence-row").first()).toBeVisible({ timeout: 20_000 });
       expect(await page.locator('[data-testid="evidence-row"], [data-testid="evidence-row-loading"]').count()).toBeLessThan(80);
       // entity filter with counts → list narrows to that subject
-      const mohla = page.locator('[data-testid="entity-filter"][data-value="karan-mohla"]');
-      const mohlaN = Number(((await mohla.textContent()) ?? "").replace(/[^\d]/g, ""));
+      const mohla = page.locator('[data-testid="entity-filter"][data-value="BCAP-004"]');
+      const mohlaN = Number((await mohla.getAttribute("data-count")) ?? "0");
       expect(mohlaN).toBeGreaterThan(10);
       await mohla.click();
       await expect.poll(async () => Number(((await total.textContent()) ?? "0").replace(/[^\d]/g, "")), { timeout: 15_000 }).toBe(mohlaN);
       await expect(page.getByTestId("evidence-row").first()).toContainText(/Mohla/);
       // category filter with counts (counts follow the entity filter)
       const cat = page.locator('[data-testid="category-filter"]:not([data-value="all"])').first();
-      const catN = Number(((await cat.textContent()) ?? "").replace(/[^\d]/g, ""));
+      const catN = Number((await cat.getAttribute("data-count")) ?? "0");
       await cat.click();
       await expect.poll(async () => Number(((await total.textContent()) ?? "0").replace(/[^\d]/g, "")), { timeout: 15_000 }).toBe(catN);
       // scrolling deep into the full list fetches later pages on demand

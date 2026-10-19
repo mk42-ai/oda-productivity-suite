@@ -69,9 +69,9 @@
 .cg-chip[data-sector="biotech"],
 .bs-tabs button[data-sector="biotech"],
 .chip[data-sector="biotech"] {
-  background: #f1ecfb;
-  border-color: color-mix(in srgb, #6d4fc2 55%, #fff);
-  color: #6d4fc2;
+  background: #faeaf3;
+  border-color: color-mix(in srgb, #9c2f73 55%, #fff);
+  color: #9c2f73;
 }
 
 .cg-chip[data-sector="healthtech"],
@@ -109,9 +109,9 @@
 .cg-chip[data-sector="ai-infra"],
 .bs-tabs button[data-sector="ai-infra"],
 .chip[data-sector="ai-infra"] {
-  background: #e7f2fb;
-  border-color: color-mix(in srgb, #1d6fa5 55%, #fff);
-  color: #1d6fa5;
+  background: #e3f6ee;
+  border-color: color-mix(in srgb, #047857 55%, #fff);
+  color: #047857;
 }
 
 .cg-chip[data-sector="edtech"],
@@ -125,9 +125,9 @@
 .cg-chip[data-sector="logistics"],
 .bs-tabs button[data-sector="logistics"],
 .chip[data-sector="logistics"] {
-  background: #e8f0fb;
-  border-color: color-mix(in srgb, #2563a8 55%, #fff);
-  color: #2563a8;
+  background: #f3f3e2;
+  border-color: color-mix(in srgb, #6b6a12 55%, #fff);
+  color: #6b6a12;
 }
 
 .cg-chip[data-sector="consumer"],

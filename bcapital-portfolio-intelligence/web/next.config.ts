@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
   images: { remotePatterns: [{ protocol: "https", hostname: "**" }, { protocol: "http", hostname: "**" }], formats: ["image/avif", "image/webp"] },
   experimental: { optimizePackageImports: ["lucide-react", "recharts"] },
   // The /reputation evidence route reads the batch rows from disk at request time (never bundled for the client).
-  outputFileTracingIncludes: { "/api/reputation/evidence": ["./data/reputation-items.json"], "/api/reputation/graph": ["./data/reputation-graph.json"] },
+  outputFileTracingIncludes: { "/api/reputation/evidence": ["./data/reputation/evidence.json", "./data/reputation/graph.json"], "/api/reputation/graph": ["./data/reputation/graph.json", "./data/reputation/evidence.json"], "/reputation": ["./data/reputation/evidence.json", "./data/reputation/graph.json"] },
   // Always emit metadata in <head> (no streamed/hoisted <title>/<meta>): our metadata is static per route, so blocking costs nothing,
   // and crawlers / Lighthouse read <meta name="description"> without running JS.
   htmlLimitedBots: /./,

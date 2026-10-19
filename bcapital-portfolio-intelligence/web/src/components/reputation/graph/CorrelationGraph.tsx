@@ -199,7 +199,7 @@ export function CorrelationGraph({ display, selectedEdgeId, onSelectEdge, onSele
 
   /* ---------- data → bubbles (tooltip fields included) */
   const watch = useMemo(() => new Set(watchHandles), [watchHandles]);
-  // v4.3-combined (DEF-019): the legend names the ACTIVE investigation's network register, never a fixed NET-001…NET-004
+  // v4.3-combined (DEF-019): the legend names the ACTIVE investigation's network register, never a fixed NET-00x set — here the four BCAP registers
   const networkRegisterLabel = useMemo(() => registers.map((r) => r.short).join(' · '), [registers]);
   const nodes = useMemo<BubbleNode[]>(() => {
     if (!display) return [];
@@ -253,7 +253,7 @@ export function CorrelationGraph({ display, selectedEdgeId, onSelectEdge, onSele
     for (const c of display?.communities ?? []) out[c.index] = `C${c.index + 1} · ${c.dominantNetworkId ?? 'independent'} · ${c.size}`;
     return out;
   }, [display]);
-  // v4.2: one dashed ring per network register (NET-001…NET-004) — label = id · short title · displayed members
+  // v4.2: one dashed ring per register (BCAP-001…BCAP-004) — label = id · short title · displayed members
   const haloLabels = useMemo<Record<string, string>>(() => {
     const out: Record<string, string> = {};
     const counts = new Map<string, number>();
@@ -362,7 +362,7 @@ export function CorrelationGraph({ display, selectedEdgeId, onSelectEdge, onSele
         <div className="graph-overlay-top" data-testid="graph-overlay-top">
         <div className="graph-overlay-passthrough graph-overlay-pill">
           <span className="graph-unproven-pill badge badge-dashed badge-unproven" data-testid="unproven-banner" title={UNPROVEN_BANNER}>
-            CORRELATION ONLY
+            CORRELATION ONLY <span className="font-normal normal-case tracking-normal">· Coordination: UNPROVEN — links show co-action, not intent</span>
           </span>
         </div>
         <span className="graph-pulse" data-testid="graph-pulse" role="status" aria-live="polite" aria-atomic="true" data-active={pulse ? '1' : '0'}>

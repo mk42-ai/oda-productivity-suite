@@ -21,6 +21,7 @@ import { MODE_PATTERN, UNPROVEN_BANNER, edgeLookup, fmtDelta } from './model';
 import { ReputationAskPanel } from './ReputationAskPanel';
 import type { Plates } from '@/lib/reputation/assets';
 import { BatchSummary, EvidenceExplorer, type BatchSummaryData } from './BatchPanels';
+import type { GraphStats } from './graph/ReputationGraph';
 import dynamic from 'next/dynamic';
 const ReputationGraph = dynamic(() => import('./graph/ReputationGraph').then((m) => m.ReputationGraph), { ssr: false, loading: () => <div className="card flex min-w-0 items-center justify-center text-[12px] text-secondary" style={{ height: 'clamp(420px, 68vh, 760px)' }} role="status">loading the correlation graph…</div> });
 import './reputation.css';
@@ -143,6 +144,7 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
   const [edgeId, setEdgeId] = useState<string | null>(result.edges[0]?.id ?? null);
   const [graphEdge, setGraphEdge] = useState<CoEdge | null>(null);
   const [graphLookup, setGraphLookup] = useState<FactorLookup>({});
+  const [graphStats, setGraphStats] = useState<GraphStats | null>(null);
   const mergedLookup = useMemo(() => ({ ...graphLookup, ...lookup }), [graphLookup, lookup]);
   const edges = result.edges;
   const lookupEdges = useMemo(() => edgeLookup(edges), [edges]);
@@ -170,8 +172,19 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
         <span className="mono normal-case tracking-normal text-secondary">run {result.runId} · {result.postsConsidered.toLocaleString('en-US')} sourced items · window {result.params.windowSeconds}s · {edges.length} edges · modularity {result.modularity.toFixed(3)}</span>
       </div>
       <h2 className="mb-2 text-[14px] font-semibold text-ink">Interactive correlation graph</h2>
-      <p className="mb-2 text-[12px] text-secondary">Rilian correlation engine canvas — four dashed-ring subject registers (B Capital, Eduardo Saverin, Raj Ganguly, Karan Mohla), publisher / account / portfolio-company bubbles sized by evidence count, curved link width = co-occurrence weight. Drag nodes · click a link for WHY CONNECTED · click a node to load it into ASK · OnDemand.</p>
-      <ReputationGraph onSelectEdge={(e, ev) => { if (e) { setGraphEdge(e); setGraphLookup(ev as FactorLookup); } }} />
+      <p className="mb-2 text-[12px] text-secondary">Rilian correlation engine canvas over the 2026-10-18 evidence corpus — four dashed-ring registers (BCAP-001 B Capital, BCAP-002 Eduardo Saverin, BCAP-003 Raj Ganguly, BCAP-004 Karan Mohla), publisher / portfolio-company / social / podcast bubbles sized by evidence count, curved link width = co-action weight. Drag nodes · click a link for WHY CONNECTED · click a node to load it into ASK · OnDemand · the MAX AGE slider filters the graph, the Evidence table and every count together.</p>
+      <ReputationGraph onSelectEdge={(e, ev) => { if (e) { setGraphEdge(e); setGraphLookup(ev as FactorLookup); } }} onStats={setGraphStats} />
+      {graphStats && (
+        <div className="mt-2 flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-secondary" data-testid="register-counts" aria-label="Per-register counts versus targets">
+          <span className="mono text-ink" data-testid="register-counts-total">{graphStats.items.toLocaleString('en-US')} items · {graphStats.nodes} nodes · {graphStats.edges.toLocaleString('en-US')} edges · {graphStats.isolates} isolates</span>
+          {graphStats.perRegister.map((r) => (
+            <span key={r.id} className={cx('chip rep-register-chip cursor-default', r.items < r.target && 'rep-risk')} data-testid="register-count" data-register={r.id} data-items={r.items} data-target={r.target} title={`${r.name}: ${r.items.toLocaleString('en-US')} evidence items vs target ${r.target.toLocaleString('en-US')} · ${r.nodes} nodes · ${r.edges.toLocaleString('en-US')} edges touch this register · ${r.isolates} isolates`}>
+              <span className="mono">{r.id}</span> {r.name} · {r.items.toLocaleString('en-US')}/{r.target.toLocaleString('en-US')} {r.items >= r.target ? '✓' : `(−${r.target - r.items})`} · {r.nodes}n · {r.edges}e · {r.isolates}i
+            </span>
+          ))}
+          <span className="mono text-tertiary">{graphStats.source}</span>
+        </div>
+      )}
       <div className="mt-4 grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-2" data-testid="entity-grid">
         {entities.map((e) => (
           <EntityCard key={e.id} entity={e} node={nodeById.get(e.handle)} onAsk={askEntity} active={subject?.subjectKey === e.handle} plate={e.kind === 'firm' ? plates.firm : plates.leader} />
@@ -207,7 +220,7 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
         <WhyConnected edge={edge} lookup={mergedLookup} onAsk={askEdge} />
         <div id="reputation-ask"><ReputationAskPanel /></div>
       </div>
-      {batch && <EvidenceExplorer entities={batch.matrix4.entities} categories={categories ?? Object.keys(batch.byCategory)} />}
+      <EvidenceExplorer categories={categories ?? []} />
     </div>
   );
 }

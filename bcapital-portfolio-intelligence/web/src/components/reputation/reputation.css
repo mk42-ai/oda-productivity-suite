@@ -122,3 +122,13 @@
 .reputation-engine .graph-unproven-pill.badge { height: auto; padding: 4px 8px; white-space: normal; }
 .reputation-engine .correlation-graph-wrap { min-height: 420px; }
 .reputation-engine .correlation-graph-wrap[data-fullscreen='inpage'], .reputation-engine .correlation-graph-wrap:fullscreen { background: #ffffff; }
+/* Skeleton shown while the corpus graph payload lazy-loads after first paint — five pulsing sage bubbles, green-on-white only. */
+.reputation-engine .rep-graph-skeleton { display: flex; gap: 14px; align-items: flex-end; }
+.reputation-engine .rep-graph-skeleton span { display: block; width: 28px; height: 28px; border-radius: 999px; border: 2px dashed #0ac985; background: #e3f6ee; animation: rep-skel 1.2s ease-in-out infinite; }
+.reputation-engine .rep-graph-skeleton span:nth-child(2) { width: 44px; height: 44px; animation-delay: 0.15s; }
+.reputation-engine .rep-graph-skeleton span:nth-child(3) { width: 64px; height: 64px; animation-delay: 0.3s; }
+.reputation-engine .rep-graph-skeleton span:nth-child(4) { width: 40px; height: 40px; animation-delay: 0.45s; }
+.reputation-engine .rep-graph-skeleton span:nth-child(5) { width: 24px; height: 24px; animation-delay: 0.6s; }
+@keyframes rep-skel { 0%, 100% { opacity: 0.35; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-4px); } }
+/* Per-register count chips under the graph: allowed to wrap on narrow viewports (the generic .chip is nowrap). */
+.reputation-engine .rep-register-chip { height: auto; min-height: 20px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; line-height: 1.3; padding-top: 2px; padding-bottom: 2px; }

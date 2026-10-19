@@ -21,7 +21,8 @@
     "test:e2e:live": "playwright test",
     "logo:audit": "node scripts/logo-audit.mjs",
     "favicon:audit": "node scripts/favicon-audit.mjs",
-    "test:brand-icons": "node ../node_modules/tsx/dist/cli.mjs tests/unit/brand-icons.test.ts"
+    "test:brand-icons": "node ../node_modules/tsx/dist/cli.mjs tests/unit/brand-icons.test.ts",
+    "palette:audit": "node scripts/palette-audit.mjs"
   },
   "dependencies": {
     "@openuidev/react-headless": "^0.17.0",

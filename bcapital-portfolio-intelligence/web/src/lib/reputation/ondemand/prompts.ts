@@ -50,14 +50,14 @@ export const DATASET_PRESETS: AskPreset[] = [
   { id: 'changed', label: 'summarize what changed this cycle', question: 'Summarize what changed this cycle across the retrieved context: new or updated EVID rows, narratives whose status moved, and edges or clusters from the latest run. Cite EVID ids only from the context.' },
   { id: 'top-accounts', label: 'which accounts appear most across EVID rows', question: 'Which accounts appear most across the EVID rows in the retrieved context? List handle, platform, network and the EVID ids that cite each; say "not in the retrieved context" for anything you cannot see.' },
   { id: 'strongest-edges', label: 'list edges with strongest dedup-adjusted score', question: 'List the edges with the strongest dedup-adjusted score in the retrieved context (weight, count vs raw count, syndicated flag, EVID trail). Co-action only — never intent.' },
-  { id: 'net-001', label: 'what narratives does NET-001 push', question: 'What narratives does NET-001 push according to the retrieved context? Name the NAR ids, their status and the EVID ids that support each; never assert coordination or intent.' },
+  { id: 'bcap-001', label: 'what themes cluster around BCAP-001', question: 'What themes cluster around the BCAP-001 B Capital register according to the retrieved context? Name the registers (BCAP-001…BCAP-004), the shared objects and the EVID ids that support each; never assert coordination or intent.' },
 ];
 
 /** Whole-dataset fulfillment prompt: structured, ≤ ~300 words, EVID ids only from the CONTEXT, standing rule kept, `not in the retrieved context` when absent. */
 export const DATASET_FULFILLMENT_PROMPT = [
   'You are the whole-dataset analyst on the B Capital Portfolio Intelligence Reputation & Prestige page. The question carries a CONTEXT block retrieved from the local dataset (summary header + ranked rows: EVID evidence, accounts, networks, narratives, claims, correlation edges and clusters).',
   'Answer in at most 320 words, structured as short headed sections or bullets (plain text, no tables). Ground every ledger statement in the CONTEXT block; live plugin results (X, Perplexity, Deep Translation, File Retrieval, OnDemand Agent) belong in ONE final section headed "Live" with an ISO date and a URL per item — never mixed into the ledger sections.',
-  'Cite evidence only by the EVID ids that appear in the CONTEXT (format EVID-xxxxxx); never invent ids, handles, numbers, dates, URLs or sources. Name networks / narratives by the NET- / NAR- ids shown.',
+  'Cite evidence only by the EVID ids that appear in the CONTEXT (format EVID-xxxxxx); never invent ids, handles, numbers, dates, URLs or sources. Name registers / narratives by the BCAP- / NAR- ids shown.',
   "If the CONTEXT does not contain what is asked, say 'not in the retrieved context' and name what is missing instead of guessing; a live item never substitutes for a missing ledger row.",
   'Never assert coordination, intent, direction or central control — co-occurrence and edges show co-action, not intent; source reliability (A–F) stays separate from claim status.',
   `Keep the framing: ${STANDING_RULE}.`,
@@ -86,7 +86,7 @@ export interface RunComposerParams {
 }
 
 const RUN_JSON_SHAPE =
-  '{"nodes":[{"id":"@handle","platform":"tiktok|x|reddit|web|instagram|telegram|youtube|facebook","network":"NET-00x or null"}],' +
+  '{"nodes":[{"id":"@handle","platform":"tiktok|x|reddit|web|instagram|telegram|youtube|facebook","network":"BCAP-00x or null"}],' +
   '"edges":[{"source":"@a","target":"@b","mode":"co-share|co-link|co-hashtag|co-reply|co-text","weight":0.0,"window":60,"co_occurrences":0,' +
   '"per_mode":{"co-share":0,"co-hashtag":0},"min_dt":0,"evid":["EVID-000000"]}],"quality_score":0.0,"caveat":"UNPROVEN — co-action, not intent"}';
 
@@ -103,7 +103,7 @@ export const RUN_FULFILLMENT_PROMPT = [
 
 /** Pre-filled, editable composer text. */
 export function buildRunPrompt(p: RunComposerParams): string {
-  const nets = p.activeNetworkIds.length ? p.activeNetworkIds.join(', ') : 'all live networks (NET-004 excluded, HISTORICAL ONLY)';
+  const nets = p.activeNetworkIds.length ? p.activeNetworkIds.join(', ') : 'all four registers (BCAP-001 … BCAP-004)';
   return [
     p.corpus === 'all'
       ? `Re-run the correlation over ALL investigations (${Object.entries(p.corpusRows ?? {}).map(([k, v]) => `${k} ${v}`).join(' + ')} = ${p.postsConsidered ?? '?'} accepted rows; started from ${p.investigationId}).`

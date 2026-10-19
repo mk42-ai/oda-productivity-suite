@@ -116,14 +116,14 @@ interface BubbleGraphProps {
   onHoverNode?: (id: string | null) => void;
   onHoverLink?: (id: string | null) => void;
   highlightedCommunity?: number | null;
-  /** Optional label per community index (e.g. "C1 · NET-001 · 7"). */
+  /** Optional label per community index (e.g. "C1 · BCAP-001 · 7"). */
   communityLabels?: Record<number, string>;
   showHalos?: boolean;
   showLabels?: boolean;
   /**
-   * Halo grouping (v4.2): 'network' draws one dashed ring per network id (NET-001…NET-004 — nodes without a network fall back
+   * Halo grouping (v4.2): 'network' draws one dashed ring per register id (BCAP-001…BCAP-004 — nodes without a register fall back
    * to their Louvain community), 'community' (default) one ring per community index. Labels come from `haloLabels` keyed by
-   * the group key ('NET-002' or 'c3'), falling back to `communityLabels[communityIndex]`.
+   * the group key ('BCAP-002' or 'c3'), falling back to `communityLabels[communityIndex]`.
    */
   haloBy?: 'community' | 'network';
   haloLabels?: Record<string, string>;

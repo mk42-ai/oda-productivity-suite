@@ -6,14 +6,14 @@
 export type SectorKey = "biotech" | "healthtech" | "fintech" | "robotics" | "climate" | "ai-infra" | "edtech" | "logistics" | "consumer" | "ai-enterprise";
 export type SectorTheme = { key: SectorKey; label: string; image: string; from: string; to: string; ink: string; soft: string };
 export const SECTOR_THEMES: Record<SectorKey, SectorTheme> = {
-  biotech: { key: "biotech", label: "Biotech", image: "/media/sector-biotech.webp", from: "#6d4fc2", to: "#6d4fc2", ink: "#6d4fc2", soft: "#f1ecfb" },
+  biotech: { key: "biotech", label: "Biotech", image: "/media/sector-biotech.webp", from: "#9c2f73", to: "#9c2f73", ink: "#9c2f73", soft: "#faeaf3" },
   healthtech: { key: "healthtech", label: "Healthtech", image: "/media/sector-healthtech.webp", from: "#0f766e", to: "#0f766e", ink: "#0f766e", soft: "#e6f7f5" },
   fintech: { key: "fintech", label: "Fintech & Crypto", image: "/media/sector-fintech.webp", from: "#b45309", to: "#b45309", ink: "#b45309", soft: "#fdf3e3" },
   robotics: { key: "robotics", label: "Robotics & Space", image: "/media/sector-robotics-space.webp", from: "#475569", to: "#475569", ink: "#475569", soft: "#eef1f5" },
   climate: { key: "climate", label: "Climate & Mobility", image: "/media/sector-climate-mobility.webp", from: "#3f7f1f", to: "#3f7f1f", ink: "#3f7f1f", soft: "#ecf7e6" },
-  "ai-infra": { key: "ai-infra", label: "AI Infrastructure", image: "/media/sector-ai-infra.webp", from: "#1d6fa5", to: "#1d6fa5", ink: "#1d6fa5", soft: "#e7f2fb" },
+  "ai-infra": { key: "ai-infra", label: "AI Infrastructure", image: "/media/sector-ai-infra.webp", from: "#047857", to: "#047857", ink: "#047857", soft: "#e3f6ee" },
   edtech: { key: "edtech", label: "Edtech", image: "/media/sector-edtech.webp", from: "#c2410c", to: "#c2410c", ink: "#c2410c", soft: "#fdeee6" },
-  logistics: { key: "logistics", label: "Logistics", image: "/media/sector-logistics.webp", from: "#2563a8", to: "#2563a8", ink: "#2563a8", soft: "#e8f0fb" },
+  logistics: { key: "logistics", label: "Logistics", image: "/media/sector-logistics.webp", from: "#6b6a12", to: "#6b6a12", ink: "#6b6a12", soft: "#f3f3e2" },
   consumer: { key: "consumer", label: "Consumer & Marketplaces", image: "/media/sector-consumer.webp", from: "#be3a7a", to: "#be3a7a", ink: "#be3a7a", soft: "#fbe9f2" },
   "ai-enterprise": { key: "ai-enterprise", label: "AI & Enterprise", image: "/media/sector-ai-enterprise.webp", from: "#15785a", to: "#15785a", ink: "#15785a", soft: "#e8f6f0" },
 };
