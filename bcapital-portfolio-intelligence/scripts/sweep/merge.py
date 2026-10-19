@@ -30,6 +30,20 @@ NOW = S.NOW()
 REG_HANDLE = {"BCAP-001": "@bcapital", "BCAP-002": "@eduardosaverin", "BCAP-003": "@rajganguly", "BCAP-004": "@karanmohla"}
 CLASS_SOURCE_TYPE = {"a": "first_party", "b": "portfolio_news", "c": "press", "d": "video", "e": "social", "f": "press", "g-karan": "press", "g-raj": "press", "g-eduardo": "press", "g-bcapital": "press", "g-portfolio": "portfolio_news"}
 SECTOR_OF = {c["slug"]: c["sector"] for c in S.portfolio_companies()}
+# portfolio companies whose NAME is an ordinary English word — companies_in() matches them in running prose ("when", "percent", "remote", …),
+# which would wire hundreds of unrelated items (and their bubbles) to those company nodes. Keep the attribution only when the item's text
+# also carries a capitalised/brand form next to an investing cue, else drop it.
+GENERIC_SLUGS = {"when", "percent", "remote", "extend", "wildfire", "forest", "goose", "nalu", "writer", "bolt", "notable", "clari", "stord"}
+GENERIC_OK = {"when": r"\bWhen\b[^.]{0,40}\b(raises|raised|Series|startup|app|platform|founder)", "percent": r"\bPercent\b[^.]{0,40}\b(raises|raised|Series|fintech|credit|platform)", "remote": r"\bRemote\b[^.]{0,40}\b(raises|raised|Series|HR|payroll|platform|unicorn)", "extend": r"\bExtend\b[^.]{0,40}\b(raises|raised|Series|card|fintech|platform)", "wildfire": r"\bWildfire\b[^.]{0,40}\b(raises|raised|Series|startup|app|platform)", "forest": r"\bForest\b[^.]{0,40}\b(raises|raised|Series|startup|e-?bike|mobility|app)", "goose": r"\bGoose\b[^.]{0,40}\b(raises|raised|Series|startup|insurance|platform)", "nalu": r"\bNalu\b[^.]{0,40}\b(raises|raised|Series|medical|startup)", "writer": r"\bWRITER\b|\bWriter\b[^.]{0,40}\b(raises|raised|Series|AI|enterprise|unicorn)", "bolt": r"\bBolt\b[^.]{0,40}\b(raises|raised|Series|checkout|ride|mobility)", "notable": r"\bNotable\b[^.]{0,40}\b(raises|raised|Series|health|AI|platform)", "clari": r"\bClari\b", "stord": r"\bStord\b"}
+def filter_companies(comps, blob):
+  out = []
+  for c in comps:
+    if c in GENERIC_SLUGS:
+      rx = GENERIC_OK.get(c)
+      if rx and re.search(rx, blob or ""): out.append(c)
+      continue
+    out.append(c)
+  return out
 LINK_NOISE = re.compile(r"fonts\.(gstatic|googleapis)|cdn\.prod\.website-files|\.(png|jpe?g|svg|gif|webp|css|js|woff2?)(\?|$)|facebook\.com/sharer|twitter\.com/(intent|share)|x\.com/intent|linkedin\.com/share|linkedin\.com/sharing|wp-content|gravatar|google\.com/(maps|recaptcha)|schema\.org|w3\.org|creativecommons|apple\.com/app-store|play\.google|youtube\.com/embed|gstatic|googletagmanager|cloudflare|jsdelivr|unpkg|typekit", re.I)
 
 # ---------------------------------------------------------------- simhash ---------------------------------------------------------
@@ -96,6 +110,7 @@ def main():
       stats["near_dup_removed"] += 1; continue
     it["canonical_url"] = canon
     it.setdefault("source_class", "prior"); it.setdefault("origin", "v3-corpus-2026-10-18"); it.setdefault("published_at_estimated", False); it["_text"] = None; it["text_len"] = 0
+    it["companies"] = filter_companies(it.get("companies") or [], f"{it['title']}\n{it.get('snippet') or ''}")
     it["sectors"] = sorted({SECTOR_OF[c] for c in (it.get("companies") or []) if c in SECTOR_OF})
     by_canon[canon] = it; nd.add(h); merged.append(it)
   stats["base_kept"] = len(merged)
@@ -129,7 +144,7 @@ def main():
           prev["_text"] = txt[:6000]; prev["text_len"] = len(txt); pc["enriched"] = pc.get("enriched", 0) + 1
           if not prev.get("snippet") or len(prev["snippet"]) < 120: prev["snippet"] = re.sub(r"\s+", " ", txt)[:400]
         if r.get("author") and not prev.get("author"): prev["author"] = r["author"]
-        comps0 = [c for c in (r.get("companies") or []) if len(r.get("companies") or []) <= 8]
+        comps0 = filter_companies([c for c in (r.get("companies") or []) if len(r.get("companies") or []) <= 8], f"{r['title']}\n{r.get('text') or ''}")
         if comps0: prev["companies"] = sorted(set(prev.get("companies") or []) | set(comps0)); prev["sectors"] = sorted({SECTOR_OF[c] for c in prev["companies"] if c in SECTOR_OF})
         prev.setdefault("provenance", []).append({"source_url": r.get("original_url") or canon, "http_status": r.get("http_status"), "fetched_at": r.get("fetched_at"), "collector": f"sweep-2026-10-19/{cls}", "subagent": f"class-{cls}", "query": None})
         prev["also_in_classes"] = sorted(set(prev.get("also_in_classes") or []) | {cls})
@@ -139,7 +154,7 @@ def main():
       text = (r.get("text") or "").strip()
       # listing / index pages (b.capital/portfolio, news hubs) name dozens of companies — they are kept as evidence but must not fan out into
       # an N² co-link clique of company bubbles, so a page naming > 8 portfolio companies carries no company attribution for the graph.
-      comps = list(r.get("companies") or [])
+      comps = filter_companies(list(r.get("companies") or []), f"{r['title']}\n{r.get('text') or ''}")
       if len(comps) > 8: comps = []
       links = [u for u in (r.get("outbound_links") or []) if not LINK_NOISE.search(u)][:25]
       snippet = re.sub(r"\s+", " ", text)[:400] if text else None
