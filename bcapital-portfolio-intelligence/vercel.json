@@ -7,7 +7,7 @@
       "entrypoint": "src/app.ts",
       "functions": {
         "src/app.ts": {
-          "includeFiles": "{data/portfolio.sqlite,data/social-native.sqlite,data/social-receipt-public.pem,data/portfolio.json,data/people.json,data/pitchbook/profiles.json,data/social-feed.json,data/social/verified-posts.json,data/social/sources.json,data/social/legacy-reddit-recovered.json,node_modules/sql.js/dist/sql-wasm.wasm}"
+          "includeFiles": "{data/portfolio.sqlite,data/corpus.json,data/social-native.sqlite,data/social-receipt-public.pem,data/portfolio.json,data/people.json,data/pitchbook/profiles.json,data/social-feed.json,data/social/verified-posts.json,data/social/sources.json,data/social/legacy-reddit-recovered.json,node_modules/sql.js/dist/sql-wasm.wasm}"
         }
       }
     },

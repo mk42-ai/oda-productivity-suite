@@ -1,0 +1,39 @@
+{
+  "class": "a",
+  "items": 536,
+  "dropped": {},
+  "file": "data/sweep/a.jsonl",
+  "http_status_counts_cumulative": {
+    "200": 433,
+    "404": 12,
+    "noitem": 3
+  },
+  "real_date_total": 400,
+  "estimated_date_total": 136,
+  "note_companies_pages": "135 /companies/<slug>/ URLs resolve (301) to the generic /portfolio/ page and carry identical text; merge.py should prefer the enriched /portfolio/?company=<slug> items",
+  "urls_discovered": 402,
+  "fetched": 1,
+  "added_this_run": 0,
+  "http_status_counts": {
+    "200": 11,
+    "404": 4,
+    "noitem": 1
+  },
+  "real_date": 0,
+  "estimated_date": 0,
+  "duration_s": 92.5,
+  "blockers": [
+    "note: /companies/<slug>/ pages 301 to the generic /portfolio/ page (identical text); enriched per-company items are at /portfolio/?company=<slug>"
+  ],
+  "finished_at": "2026-10-19T08:37:56Z",
+  "http_status_counts_first_full_run": {
+    "200": 411,
+    "404": 4,
+    "noitem": 1
+  },
+  "notes": [
+    "404s are expected pagination probes (/insights/page/2/, /why-we-invested/page/2/, /news-category/press/page/2/, /team/page/2/, /portfolio/page/2/) \u2014 only /news-and-insights/ paginates (page/2 repeats page/1 link set)",
+    "noitem = https://b.capital/news-category/press/feed/ style non-HTML or an untitled page",
+    "1 item (Press Archives listing) has date_source=estimated (no date on page, no wayback capture)"
+  ]
+}

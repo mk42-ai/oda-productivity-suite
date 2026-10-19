@@ -2,6 +2,8 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import crypto from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
 import { sql, eq, and, like, desc, asc } from "drizzle-orm";
 import { getDb, persist, nowIso, schema } from "./db/client.js";
 import { config } from "./config.js";
@@ -692,10 +694,36 @@ inner.get("/news/count", async (c) => {
   const s = newsSummary(db);
   return c.json({ total: s.total, by_company: s.by_company, companies: s.companies, orphan_items: s.orphan_items, dedup_removed: s.dedup_removed, definition: s.definition, timestamp: nowIso() });
 });
+/** 2026-10-19 sweep: per-company aggregate of the merged evidence corpus (data/corpus.json meta + items naming a portfolio company) — the
+ *  "news aggregator over the new dataset" that /news/summary and the News Pulse header carry next to the news_items count. Cached per process. */
+let corpusAggCache: { items: number; subject_items: number; companies: number; by_company: Record<string, number>; by_source_class: Record<string, number>; generated_at: string | null; source: string } | null = null;
+export function corpusNewsAggregate() {
+  if (corpusAggCache) return corpusAggCache;
+  const candidates = [path.resolve(process.cwd(), "data/corpus.json"), path.resolve(process.cwd(), "web/data/reputation/evidence.json")];
+  for (const f of candidates) {
+    try {
+      if (!fs.existsSync(f)) continue;
+      const raw = JSON.parse(fs.readFileSync(f, "utf8")) as { meta?: Record<string, unknown>; items?: Array<{ companies?: string[]; registers?: string[]; source_class?: string }> } | Array<{ companies?: string[]; registers?: string[]; source_class?: string }>;
+      const items = Array.isArray(raw) ? raw : raw.items ?? [];
+      const by_company: Record<string, number> = {}; const by_source_class: Record<string, number> = {}; let subject = 0;
+      for (const it of items) {
+        if (it.registers?.length) subject++;
+        by_source_class[it.source_class ?? "prior"] = (by_source_class[it.source_class ?? "prior"] ?? 0) + 1;
+        for (const slug of it.companies ?? []) by_company[slug] = (by_company[slug] ?? 0) + 1;
+      }
+      corpusAggCache = { items: items.length, subject_items: subject, companies: Object.keys(by_company).length, by_company, by_source_class, generated_at: (Array.isArray(raw) ? null : (raw.meta?.generated_at as string | undefined)) ?? null, source: path.relative(process.cwd(), f) };
+      return corpusAggCache;
+    } catch { /* try the next candidate */ }
+  }
+  corpusAggCache = { items: 0, subject_items: 0, companies: 0, by_company: {}, by_source_class: {}, generated_at: null, source: "unavailable" };
+  return corpusAggCache;
+}
+inner.get("/news/corpus", (c) => c.json({ ...corpusNewsAggregate(), timestamp: nowIso() }));
 inner.get("/news/summary", async (c) => {
   const { db } = await getDb();
   const rec = newsReconciliation(db);
-  return c.json({ ...newsSummary(db), reconciliation: { raw_rows_all: rec.totals.all_rows.raw, dedup_url: rec.totals.listed_companies.dedup_url, dedup_title: rec.totals.listed_companies.dedup_title, in_window_30d: rec.totals.listed_companies.in_window_30d, in_window_7d: rec.totals.listed_companies.in_window_7d, no_url: rec.totals.listed_companies.no_url, embedded_latest_news_total: rec.legacy_latest_news.embedded_total, detail: "/news/reconciliation" }, timestamp: nowIso() });
+  const corpus = corpusNewsAggregate();
+  return c.json({ ...newsSummary(db), corpus: { items: corpus.items, subject_items: corpus.subject_items, companies: corpus.companies, by_source_class: corpus.by_source_class, generated_at: corpus.generated_at, source: corpus.source, detail: "/news/corpus" }, reconciliation: { raw_rows_all: rec.totals.all_rows.raw, dedup_url: rec.totals.listed_companies.dedup_url, dedup_title: rec.totals.listed_companies.dedup_title, in_window_30d: rec.totals.listed_companies.in_window_30d, in_window_7d: rec.totals.listed_companies.in_window_7d, no_url: rec.totals.listed_companies.no_url, embedded_latest_news_total: rec.legacy_latest_news.embedded_total, detail: "/news/reconciliation" }, timestamp: nowIso() });
 });
 /** Full reconciliation: same SQL as scripts/news-reconciliation.ts (proof/data-lane/news-reconciliation-2026-10-11.json). */
 inner.get("/news/reconciliation", async (c) => {

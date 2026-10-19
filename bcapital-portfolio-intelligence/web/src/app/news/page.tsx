@@ -13,6 +13,11 @@ export default async function NewsPage() {
   return (
     <>
       <PageHeader title="News Pulse" lede={`${news.total.toLocaleString("en-US")} items · ${Object.keys(news.perCompany).length} companies · daily 06:00 UTC`} sources={[{ name: "companies", source: cs.source }, { name: "news total", source: news.summarySource }, { name: news.failedCompanies.length ? `news lists of ${news.failedCompanies.length} companies` : "news lists", source: news.failedCompanies.length || news.liveCompanies === 0 ? "snapshot" : "live" }]} fetchedAt={news.fetched_at} />
+      {/* 2026-10-19: the summary line the e2e/proof reads — GET /news/summary (backend, via the /backend prefix on Vercel Services) answered or not,
+          plus the corpus aggregate served by /api/news/summary. `data-summary-source=live` means the backend route returned 200. */}
+      <p className="mono mb-3 text-[11px] text-secondary" data-testid="news-summary-line" data-summary-source={news.summarySource} data-summary-total={news.total}>
+        GET /news/summary → {news.summarySource === "live" ? "200 · backend" : "snapshot fallback"} · {news.total.toLocaleString("en-US")} items across {Object.keys(news.perCompany).length} companies · {news.definition}
+      </p>
       <Suspense fallback={<Skeleton className="h-64 w-full" />}><NewsFeed items={news.data.slice(0, NEWS_FIRST_PAGE).map(slimNewsItem)} total={news.data.length} companies={companies} /></Suspense>
     </>
   );

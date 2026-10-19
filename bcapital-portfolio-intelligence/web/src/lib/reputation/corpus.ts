@@ -1,6 +1,6 @@
 /**
  * Typed loader for the /reputation evidence corpus — web/data/reputation/ (v3 sweep, 2026-10-18T22:54Z):
- *   evidence.json — 7,736 normalised items {id, registers[], subject_handles[], title, canonical_url, publisher, platform_glyph, source_type,
+ *   evidence.json — the merged 2026-10-19 corpus (v3 sweep + classes a–f + reclassified portfolio-social rows) of normalised items {id, registers[], subject_handles[], title, canonical_url, publisher, platform_glyph, source_type,
  *                   published_at, snippet, hashtags[], mentions[], outbound_links[], reply_to, text_hash, companies[], author, match_basis, provenance[]}
  *   graph.json    — {registers[4], nodes[], edges[], isolates[], …} built by scripts/build-reputation-graph-v3.ts with the SAME runEngine /
  *                   edgeWeight port that serves the page (weight, co_occurrence_count, event_count, min_delta_t_seconds, syndication_share,
@@ -27,7 +27,12 @@ export interface EvidenceItem {
   published_at: string; snippet: string | null; hashtags: string[]; mentions: string[]; outbound_links: string[]; reply_to: string | null; text_hash: string;
   companies?: string[]; author?: string | null; sentiment?: number | null; match_basis: string; provenance: Array<{ source_url: string | null; http_status: number | null; fetched_at: string | null; collector: string; subagent: string; query?: string | null }>;
   published_at_conflicts?: Array<{ published_at: string; source_url: string | null; collector: string }>;
+  /** 2026-10-19 sweep fields: source class a–f | 'prior' | 'portfolio-social'; portfolio sectors of the companies named; estimated date flag. */
+  source_class?: string; origin?: string; sectors?: string[]; published_at_estimated?: boolean; date_source?: string | null; text_len?: number; provider_receipt?: boolean; page_verification?: string;
 }
+/** Evidence sector chips (data/portfolio.json → companies[].sector). Order = the brief's list. */
+export const SECTOR_IDS = ['biotech', 'healthtech', 'fintech', 'robotics', 'climate', 'ai-infra', 'edtech', 'logistics', 'consumer', 'ai-enterprise'] as const;
+export const SECTOR_LABEL: Record<string, string> = { biotech: 'Biotech', healthtech: 'Healthtech', fintech: 'Fintech & Crypto', robotics: 'Robotics & Space', climate: 'Climate & Mobility', 'ai-infra': 'AI Infrastructure', edtech: 'Edtech', logistics: 'Logistics', consumer: 'Consumer & Marketplaces', 'ai-enterprise': 'AI & Enterprise' };
 export interface CorpusGraphNode {
   id: string; kind: string; label: string; registers: RegisterId[]; register: RegisterId | null; evidence_count: number; evidence_ids: string[]; photo?: string; name?: string; role?: string; hub?: boolean;
   platform_glyph: string; platform: string; size: number; degree: number; weighted_degree: number; betweenness: number; community: number; isolate: boolean; first_seen: string | null; last_seen: string | null; slug?: string; website?: string | null;
@@ -81,7 +86,9 @@ export function canvasPlatform(glyph: string): Platform {
   return 'web';
 }
 const CATEGORY_SKIP = new Set(['6f6f6f']);
+const SOURCE_CLASS_CATEGORY: Record<string, string> = { a: 'b.capital archive', b: 'portfolio release', c: 'press', d: 'video / podcast', e: 'public social', f: 'rich-list / biography', 'portfolio-social': 'portfolio social' };
 export function categoryOf(it: EvidenceItem): string {
+  if (it.source_class && it.source_class !== 'prior' && SOURCE_CLASS_CATEGORY[it.source_class]) return SOURCE_CLASS_CATEGORY[it.source_class];
   for (const h of it.hashtags) if (!CATEGORY_SKIP.has(h)) return h;
   return it.source_type === 'press_release' ? 'press-release' : it.source_type;
 }

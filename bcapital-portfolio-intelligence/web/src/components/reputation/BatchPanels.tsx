@@ -5,7 +5,7 @@
  *     (precomputed server-side by the ported engine — the browser never runs the correlation), conflicting sources surfaced as-is.
  *   - EvidenceExplorer: register (BCAP-001…004) + category chips with EXACT counts from the corpus, text search, the graph's MAX AGE filter
  *     (shared useGraphPrefs store → the canvas, this table and every count move together) and a virtualized list (@tanstack/react-virtual)
- *     over the paged server route /api/reputation/evidence (web/data/reputation/evidence.json — 7,736 items) so the rows never ship in a bundle.
+ *     over the paged server route /api/reputation/evidence (web/data/reputation/evidence.json — merged 2026-10-19 corpus) so the rows never ship in a bundle.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
@@ -91,17 +91,20 @@ export function BatchSummary({ data }: { data: BatchSummaryData }) {
 }
 
 type Row = [string, number, string, string, string, string, string, number, string, string];
-type Resp = { total: number; offset: number; rows: Row[]; counts: { entity: Record<string, number>; category: Record<string, number> }; entities: string[]; source: string; nowIso: string };
+type Resp = { total: number; offset: number; rows: Row[]; counts: { entity: Record<string, number>; category: Record<string, number>; sector?: Record<string, number> }; entities: string[]; sectors?: string[]; source: string; nowIso: string };
+const SECTOR_IDS = ['biotech', 'healthtech', 'fintech', 'robotics', 'climate', 'ai-infra', 'edtech', 'logistics', 'consumer', 'ai-enterprise'] as const;
+const SECTOR_LABEL: Record<string, string> = { biotech: 'Biotech', healthtech: 'Healthtech', fintech: 'Fintech & Crypto', robotics: 'Robotics & Space', climate: 'Climate & Mobility', 'ai-infra': 'AI Infrastructure', edtech: 'Edtech', logistics: 'Logistics', consumer: 'Consumer & Marketplaces', 'ai-enterprise': 'AI & Enterprise' };
 const PAGE = 200;
 export const REGISTERS = ['BCAP-001', 'BCAP-002', 'BCAP-003', 'BCAP-004'] as const;
 const REG_NAME: Record<string, string> = { 'BCAP-001': 'B Capital', 'BCAP-002': 'Eduardo Saverin', 'BCAP-003': 'Raj Ganguly', 'BCAP-004': 'Karan Mohla' };
 const REG_SHORT: Record<string, string> = { 'BCAP-001': 'B Capital', 'BCAP-002': 'Saverin', 'BCAP-003': 'Ganguly', 'BCAP-004': 'Mohla' };
-const BASIS_LABEL: Record<string, string> = { text: 'named in text', query: 'query-bound', 'publisher-scope': 'b.capital archive', curated: 'curated', seed: 'seed' };
+const BASIS_LABEL: Record<string, string> = { text: 'named in text', query: 'query-bound', 'publisher-scope': 'b.capital archive', curated: 'curated', seed: 'seed', author: 'authored by subject', 'portfolio-only': 'portfolio only · no register' };
 const maskRegs = (mask: number) => REGISTERS.filter((_, i) => mask & (1 << i)).map((r) => REG_SHORT[r]).join(' · ');
 
 export function EvidenceExplorer({ categories, onTotal }: { entities?: string[]; categories: string[]; onTotal?: (total: number) => void }) {
   const [entity, setEntity] = useState('all');
   const [category, setCategory] = useState('all');
+  const [sector, setSector] = useState('all');
   const [q, setQ] = useState('');
   const [debouncedQ, setDebouncedQ] = useState('');
   const [total, setTotal] = useState(0);
@@ -120,7 +123,7 @@ export function EvidenceExplorer({ categories, onTotal }: { entities?: string[];
   const fetchPage = useMemo(() => (page: number, g: number, ctl?: AbortController) => {
     if (loading.current.has(page)) return;
     loading.current.add(page);
-    const sp = new URLSearchParams({ entity, category, q: debouncedQ, maxAge: debouncedAge, offset: String(page * PAGE), limit: String(PAGE) });
+    const sp = new URLSearchParams({ entity, category, sector, q: debouncedQ, maxAge: debouncedAge, offset: String(page * PAGE), limit: String(PAGE) });
     fetch(`/api/reputation/evidence?${sp}`, { signal: ctl?.signal })
       .then((r) => (r.ok ? (r.json() as Promise<Resp>) : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((d) => {
@@ -130,7 +133,7 @@ export function EvidenceExplorer({ categories, onTotal }: { entities?: string[];
       })
       .catch(() => { /* aborted on filter change / unmount */ })
       .finally(() => loading.current.delete(page));
-  }, [entity, category, debouncedQ, debouncedAge, onTotal]);
+  }, [entity, category, sector, debouncedQ, debouncedAge, onTotal]);
   useEffect(() => {
     const g = ++gen.current; const ctl = new AbortController();
     loading.current.clear(); setRows(new Map()); setTotal(0);
@@ -155,9 +158,16 @@ export function EvidenceExplorer({ categories, onTotal }: { entities?: string[];
         <input className="input ml-auto !w-full sm:!w-64" placeholder="Search titles, publishers or snippets…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search evidence" data-testid="evidence-search" />
       </div>
       <div className="mt-2 flex flex-wrap gap-1" role="group" aria-label="Filter by register" data-testid="entity-filters">
-        {['all', ...REGISTERS].map((e) => (
-          <button key={e} type="button" className={chip(entity === e)} aria-pressed={entity === e} onClick={() => setEntity(e)} data-testid="entity-filter" data-value={e} data-count={counts?.entity[e] ?? 0}>
-            {e === 'all' ? 'All registers' : <><span className="mono text-tertiary">{e}</span> {REG_NAME[e]}</>} <span className="text-tertiary">{fmt(counts?.entity[e] ?? 0)}</span>
+        {['all', ...REGISTERS, 'portfolio-only'].map((e) => (
+          <button key={e} type="button" className={chip(entity === e)} aria-pressed={entity === e} onClick={() => setEntity(e)} data-testid="entity-filter" data-value={e} data-count={counts?.entity[e] ?? 0} title={e === 'portfolio-only' ? 'Portfolio social posts that never name B Capital, Saverin, Ganguly or Mohla — kept in the corpus, never counted on a subject chip' : undefined}>
+            {e === 'all' ? 'All items' : e === 'portfolio-only' ? 'Portfolio only · no register' : <><span className="mono text-tertiary">{e}</span> {REG_NAME[e]}</>} <span className="text-tertiary">{fmt(counts?.entity[e] ?? 0)}</span>
+          </button>
+        ))}
+      </div>
+      <div className="mt-1 flex flex-wrap gap-1" role="group" aria-label="Filter by portfolio sector" data-testid="sector-filters">
+        {['all', ...SECTOR_IDS].map((sc) => (
+          <button key={sc} type="button" className={chip(sector === sc)} aria-pressed={sector === sc} onClick={() => setSector(sc)} data-testid="sector-filter" data-value={sc} data-count={counts?.sector?.[sc] ?? 0}>
+            {sc === 'all' ? 'All sectors' : SECTOR_LABEL[sc]} <span className="text-tertiary">{fmt(counts?.sector?.[sc] ?? 0)}</span>
           </button>
         ))}
       </div>

@@ -145,5 +145,12 @@ await t("/backend prefix (Vercel Services rewrite) reaches the news routes — G
   const h = await get("/backend/health"); expect(h.status === 200, `backend/health ${h.status}`);
   const n = await get("/backend/nope"); const nj: any = await n.json(); expect(n.status === 404 && nj.errorCode === "not_found" && /Route not found: GET \/nope/.test(nj.message), "prefix-stripped 404 shape");
 });
+await t("news summary carries the 2026-10-19 corpus aggregate and /news/corpus answers with and without the /backend prefix", async () => {
+  const r = await get("/news/summary"); const j: any = await r.json();
+  expect(r.status === 200 && j.corpus && typeof j.corpus.items === "number" && j.corpus.items > 10000 && j.corpus.companies > 50, `summary.corpus ${JSON.stringify(j.corpus).slice(0, 160)}`);
+  const c = await get("/backend/news/corpus"); const cj: any = await c.json();
+  expect(c.status === 200 && cj.items === j.corpus.items && cj.by_company && Object.keys(cj.by_company).length === j.corpus.companies, `backend/news/corpus ${c.status}`);
+  expect(typeof cj.by_source_class === "object" && Object.keys(cj.by_source_class).length >= 3, "source classes present");
+});
 console.log(failed ? `\n${failed} test(s) FAILED` : "\nall tests passed");
 process.exit(failed ? 1 : 0);
