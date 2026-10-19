@@ -1,0 +1,33 @@
+{
+  "class": "d",
+  "items": 111,
+  "dropped": {
+    "off-subject": 45,
+    "film-noise": 8,
+    "dup": 13,
+    "namesake": 2
+  },
+  "file": "data/sweep/d.jsonl",
+  "videos": 27,
+  "podcasts": 59,
+  "transcripts_obtained": 0,
+  "channels_scanned": 14,
+  "itunes_rows": 373,
+  "http_status_counts": {
+    "200": 110,
+    "403": 10,
+    "404": 4,
+    "999": 2
+  },
+  "duration_s": 88.5,
+  "blockers": [
+    "cnbc search endpoint empty: https://search.cnbc.com/rs/search/combinedcms/view.xml",
+    "bloomberg.com video page HTTP 403 (paywall/bot wall) — og: tags unavailable, used URL slug",
+    "youtube_transcript_api RequestBlocked / IP-blocked — transcripts unavailable for YouTube"
+  ],
+  "run_added": {
+    "videos": 27,
+    "podcasts": 59
+  },
+  "finished_at": "2026-10-19T08:34:51Z"
+}
