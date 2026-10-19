@@ -1,0 +1,332 @@
+{
+  "class": "c",
+  "items": 804,
+  "dropped": {
+    "off-subject": 918,
+    "film-noise": 16,
+    "namesake": 3
+  },
+  "file": "data/sweep/c.jsonl",
+  "seeds_total": 31,
+  "seeds_ok": 0,
+  "seeds_fetched": 0,
+  "outlet_pages_tried": 139,
+  "outlet_pages_blocked": 45,
+  "outlet_candidates": 995,
+  "bing_rows": 118,
+  "gnews_rows": 1553,
+  "gnews_calls": 768,
+  "gdelt_rows": 699,
+  "http_status_counts": {
+    "200": 2710,
+    "403": 126,
+    "404": 81,
+    "410": 5,
+    "503": 4,
+    "999": 41,
+    "401": 2,
+    "429": 31,
+    "0": 45,
+    "202": 3,
+    "302": 1,
+    "405": 4,
+    "526": 1
+  },
+  "duration_s": 1169,
+  "processed": 3386,
+  "queue_left": 0,
+  "counters": {
+    "queued_seed": 31,
+    "skipped_seen": 1733,
+    "queued_outlet": 995,
+    "queued_bing": 118,
+    "added_bing": 104,
+    "outlet_candidates": 995,
+    "added_outlet": 161,
+    "queued_gnews": 1553,
+    "queued_gdelt": 689,
+    "added_gnews": 317,
+    "gnews_unresolved": 15,
+    "added_gdelt": 123
+  },
+  "blockers": [
+    {
+      "outlet": "livemint.com",
+      "url": "https://www.livemint.com/Search/Link/Keyword/Raj%20Ganguly",
+      "status": 410,
+      "subject": "Raj Ganguly"
+    },
+    {
+      "outlet": "livemint.com",
+      "url": "https://www.livemint.com/Search/Link/Keyword/B%20Capital",
+      "status": 410,
+      "subject": "B Capital"
+    },
+    {
+      "outlet": "dealstreetasia.com",
+      "url": "https://www.dealstreetasia.com/?s=Raj%20Ganguly",
+      "status": 503,
+      "subject": "Raj Ganguly"
+    },
+    {
+      "outlet": "dealstreetasia.com",
+      "url": "https://www.dealstreetasia.com/?s=B%20Capital",
+      "status": 503,
+      "subject": "B Capital"
+    },
+    {
+      "outlet": "channelnewsasia.com",
+      "url": "https://www.channelnewsasia.com/search?q=B%20Capital",
+      "status": 999,
+      "subject": "B Capital"
+    },
+    {
+      "outlet": "channelnewsasia.com",
+      "url": "https://www.channelnewsasia.com/search?q=Raj%20Ganguly",
+      "status": 999,
+      "subject": "Raj Ganguly"
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Eduardo%20Saverin%22&mode=artlist&maxrecords=250&format=json&startdatetime=20180101000000&enddatetime=20190",
+      "status": 429
+    },
+    {
+      "outlet": "scmp.com",
+      "url": "https://www.scmp.com/search/Raj%20Ganguly",
+      "status": 0,
+      "subject": "Raj Ganguly"
+    },
+    {
+      "outlet": "scmp.com",
+      "url": "https://www.scmp.com/search/B%20Capital",
+      "status": 0,
+      "subject": "B Capital"
+    },
+    {
+      "outlet": "asiaone.com",
+      "url": "https://www.asiaone.com/search/Raj%20Ganguly",
+      "status": 999,
+      "subject": "Raj Ganguly"
+    },
+    {
+      "outlet": "asiaone.com",
+      "url": "https://www.asiaone.com/search/B%20Capital",
+      "status": 999,
+      "subject": "B Capital"
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Eduardo%20Saverin%22&mode=artlist&maxrecords=250&format=json&startdatetime=20190101000000&enddatetime=20200",
+      "status": 429
+    },
+    {
+      "outlet": "mediabrief.com",
+      "url": "https://mediabrief.com/?s=Raj%20Ganguly",
+      "status": 0,
+      "subject": "Raj Ganguly"
+    },
+    {
+      "outlet": "livemint.com",
+      "url": "https://www.livemint.com/Search/Link/Keyword/Karan%20Mohla",
+      "status": 410,
+      "subject": "Karan Mohla"
+    },
+    {
+      "outlet": "dealstreetasia.com",
+      "url": "https://www.dealstreetasia.com/?s=Karan%20Mohla",
+      "status": 503,
+      "subject": "Karan Mohla"
+    },
+    {
+      "outlet": "channelnewsasia.com",
+      "url": "https://www.channelnewsasia.com/search?q=Karan%20Mohla",
+      "status": 999,
+      "subject": "Karan Mohla"
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Eduardo%20Saverin%22&mode=artlist&maxrecords=250&format=json&startdatetime=20200101000000&enddatetime=20210",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Eduardo%20Saverin%22&mode=artlist&maxrecords=250&format=json&startdatetime=20210101000000&enddatetime=20220",
+      "status": 429
+    },
+    {
+      "outlet": "scmp.com",
+      "url": "https://www.scmp.com/search/Karan%20Mohla",
+      "status": 0,
+      "subject": "Karan Mohla"
+    },
+    {
+      "outlet": "asiaone.com",
+      "url": "https://www.asiaone.com/search/Karan%20Mohla",
+      "status": 999,
+      "subject": "Karan Mohla"
+    },
+    {
+      "outlet": "livemint.com",
+      "url": "https://www.livemint.com/Search/Link/Keyword/Eduardo%20Saverin",
+      "status": 410,
+      "subject": "Eduardo Saverin"
+    },
+    {
+      "outlet": "dealstreetasia.com",
+      "url": "https://www.dealstreetasia.com/?s=Eduardo%20Saverin",
+      "status": 503,
+      "subject": "Eduardo Saverin"
+    },
+    {
+      "outlet": "channelnewsasia.com",
+      "url": "https://www.channelnewsasia.com/search?q=Eduardo%20Saverin",
+      "status": 999,
+      "subject": "Eduardo Saverin"
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Eduardo%20Saverin%22&mode=artlist&maxrecords=250&format=json&startdatetime=20220101000000&enddatetime=20230",
+      "status": 429
+    },
+    {
+      "outlet": "scmp.com",
+      "url": "https://www.scmp.com/search/Eduardo%20Saverin",
+      "status": 0,
+      "subject": "Eduardo Saverin"
+    },
+    {
+      "outlet": "asiaone.com",
+      "url": "https://www.asiaone.com/search/Eduardo%20Saverin",
+      "status": 999,
+      "subject": "Eduardo Saverin"
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Eduardo%20Saverin%22&mode=artlist&maxrecords=250&format=json&startdatetime=20250101000000&enddatetime=20260",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Eduardo%20Saverin%22&mode=artlist&maxrecords=250&format=json&startdatetime=20260101000000&enddatetime=20261",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28venture%20OR%20fund%20OR%20Saverin%20OR%20startup%29&mode=artlist&maxrecords=250&format",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28venture%20OR%20fund%20OR%20Saverin%20OR%20startup%29&mode=artlist&maxrecords=250&format",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28venture%20OR%20fund%20OR%20Saverin%20OR%20startup%29&mode=artlist&maxrecords=250&format",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28venture%20OR%20fund%20OR%20Saverin%20OR%20startup%29&mode=artlist&maxrecords=250&format",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28venture%20OR%20fund%20OR%20Saverin%20OR%20startup%29&mode=artlist&maxrecords=250&format",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28venture%20OR%20fund%20OR%20Saverin%20OR%20startup%29&mode=artlist&maxrecords=250&format",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28venture%20OR%20fund%20OR%20Saverin%20OR%20startup%29&mode=artlist&maxrecords=250&format",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22B%20Capital%22%20%28venture%20OR%20fund%20OR%20Saverin%20OR%20startup%29&mode=artlist&maxrecords=250&format",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Raj%20Ganguly%22&mode=artlist&maxrecords=250&format=json&startdatetime=20170101000000&enddatetime=201801010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Raj%20Ganguly%22&mode=artlist&maxrecords=250&format=json&startdatetime=20180101000000&enddatetime=201901010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Raj%20Ganguly%22&mode=artlist&maxrecords=250&format=json&startdatetime=20190101000000&enddatetime=202001010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Raj%20Ganguly%22&mode=artlist&maxrecords=250&format=json&startdatetime=20200101000000&enddatetime=202101010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Raj%20Ganguly%22&mode=artlist&maxrecords=250&format=json&startdatetime=20210101000000&enddatetime=202201010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Raj%20Ganguly%22&mode=artlist&maxrecords=250&format=json&startdatetime=20220101000000&enddatetime=202301010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Raj%20Ganguly%22&mode=artlist&maxrecords=250&format=json&startdatetime=20240101000000&enddatetime=202501010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Raj%20Ganguly%22&mode=artlist&maxrecords=250&format=json&startdatetime=20260101000000&enddatetime=202610200",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Karan%20Mohla%22&mode=artlist&maxrecords=250&format=json&startdatetime=20170101000000&enddatetime=201801010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Karan%20Mohla%22&mode=artlist&maxrecords=250&format=json&startdatetime=20180101000000&enddatetime=201901010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Karan%20Mohla%22&mode=artlist&maxrecords=250&format=json&startdatetime=20190101000000&enddatetime=202001010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Karan%20Mohla%22&mode=artlist&maxrecords=250&format=json&startdatetime=20220101000000&enddatetime=202301010",
+      "status": 429
+    },
+    {
+      "outlet": "gdelt",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Karan%20Mohla%22&mode=artlist&maxrecords=250&format=json&startdatetime=20230101000000&enddatetime=202401010",
+      "status": 429
+    }
+  ],
+  "finished_at": "2026-10-19T09:03:32Z",
+  "items_by_register": {
+    "BCAP-002": 427,
+    "BCAP-001": 653,
+    "BCAP-003": 169,
+    "BCAP-004": 123
+  },
+  "seeds_in_corpus": 29,
+  "seeds_missing": [
+    "https://www.forbes.com/sites/alexkonrad/2019/03/19/life-after-facebook--the-untold-story-of-billionaire-eduardo-saverins-highly-networked-venture-firm/",
+    "https://www.axios.com/2026/07/23/vc-job-chief-ai-officer"
+  ]
+}
