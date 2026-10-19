@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-19T09:52:01Z",
+ "run_at": "2026-10-19T13:23:56Z",
  "raw_fetched": {},
  "canonical_dup_removed": 0,
  "near_dup_removed": 398,
@@ -103,33 +103,93 @@
    "undated": 0,
    "estimated_dates": 3,
    "enriched": 236
+  },
+  "g-karan": {
+   "staged": 29,
+   "kept": 8,
+   "canonical_dup": 21,
+   "near_dup": 0,
+   "film_noise": 0,
+   "namesake": 0,
+   "off_subject": 0,
+   "undated": 0,
+   "estimated_dates": 3,
+   "enriched": 1
+  },
+  "g-raj": {
+   "staged": 228,
+   "kept": 14,
+   "canonical_dup": 212,
+   "near_dup": 2,
+   "film_noise": 0,
+   "namesake": 0,
+   "off_subject": 0,
+   "undated": 0,
+   "estimated_dates": 1,
+   "enriched": 14
+  },
+  "g-eduardo": {
+   "staged": 797,
+   "kept": 743,
+   "canonical_dup": 28,
+   "near_dup": 25,
+   "film_noise": 1,
+   "namesake": 0,
+   "off_subject": 0,
+   "undated": 0,
+   "estimated_dates": 1,
+   "enriched": 3
+  },
+  "g-bcapital": {
+   "staged": 565,
+   "kept": 141,
+   "canonical_dup": 380,
+   "near_dup": 44,
+   "film_noise": 0,
+   "namesake": 0,
+   "off_subject": 0,
+   "undated": 0,
+   "estimated_dates": 3,
+   "enriched": 109
+  },
+  "g-portfolio": {
+   "staged": 855,
+   "kept": 176,
+   "canonical_dup": 672,
+   "near_dup": 7,
+   "film_noise": 0,
+   "namesake": 0,
+   "off_subject": 0,
+   "undated": 0,
+   "estimated_dates": 0,
+   "enriched": 382
   }
  },
  "merged": {
-  "generated_at": "2026-10-19T09:52:01Z",
+  "generated_at": "2026-10-19T13:23:56Z",
   "run": "sweep-2026-10-19",
-  "items": 18189,
-  "subject_items": 7975,
+  "items": 19271,
+  "subject_items": 9057,
   "portfolio_only_items": 10214,
   "registers": {
    "BCAP-001": {
-    "items": 5316,
-    "items_named_in_text": 3978,
+    "items": 5841,
+    "items_named_in_text": 4499,
     "target": 2000
    },
    "BCAP-002": {
-    "items": 3191,
-    "items_named_in_text": 2254,
+    "items": 3958,
+    "items_named_in_text": 3020,
     "target": 800
    },
    "BCAP-003": {
-    "items": 831,
-    "items_named_in_text": 697,
+    "items": 942,
+    "items_named_in_text": 808,
     "target": 600
    },
    "BCAP-004": {
-    "items": 458,
-    "items_named_in_text": 387,
+    "items": 466,
+    "items_named_in_text": 394,
     "target": 500
    }
   },
@@ -137,35 +197,40 @@
    "a": 139,
    "b": 92,
    "f": 56,
+   "g-karan": 8,
+   "g-raj": 14,
+   "g-bcapital": 141,
    "prior": 7216,
    "e": 181,
+   "g-portfolio": 176,
    "portfolio-social": 10253,
    "c": 238,
+   "g-eduardo": 743,
    "d": 14
   },
   "platforms": {
-   "web": 6695,
-   "linkedin": 403,
+   "web": 7700,
+   "instagram": 30,
+   "x": 7434,
+   "linkedin": 433,
    "podcast": 273,
-   "x": 7428,
-   "pr": 266,
+   "pr": 306,
    "reddit": 2939,
-   "instagram": 29,
    "video": 55,
    "youtube": 100,
    "facebook": 1
   },
   "sectors": {
-   "logistics": 482,
-   "ai-enterprise": 3141,
-   "robotics": 1399,
-   "edtech": 684,
-   "climate": 1188,
-   "biotech": 1665,
-   "healthtech": 1320,
-   "fintech": 2009,
-   "consumer": 999,
-   "ai-infra": 794
+   "logistics": 507,
+   "ai-enterprise": 2531,
+   "robotics": 1440,
+   "edtech": 693,
+   "climate": 1213,
+   "biotech": 1711,
+   "healthtech": 1359,
+   "fintech": 1860,
+   "consumer": 1044,
+   "ai-infra": 842
   },
   "sources": {
    "evidence": "web/data/reputation/evidence.json",
@@ -173,8 +238,8 @@
   }
  },
  "sizes": {
-  "evidence_json": 28713107,
-  "corpus_json": 28714134,
-  "corpus_sqlite": 28295168
+  "evidence_json": 32303804,
+  "corpus_json": 32304916,
+  "corpus_sqlite": 37888000
  }
 }
