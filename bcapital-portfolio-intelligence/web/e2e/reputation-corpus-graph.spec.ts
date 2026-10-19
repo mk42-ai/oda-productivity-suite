@@ -156,9 +156,12 @@ for (const vp of VIEWPORTS) {
       await page.goto("/reputation?skip=1");
       await settled(page);
       const chips = page.locator("[data-testid=entity-filter]");
-      await expect.poll(async () => chips.count(), { timeout: 60_000 }).toBe(5);
+      // 2026-10-19: 'all' + the four BCAP registers + 'portfolio-only' (portfolio social rows that never name a subject — in the corpus, never on a register chip)
+      await expect.poll(async () => chips.count(), { timeout: 60_000 }).toBe(6);
       const values = await chips.evaluateAll((els) => els.map((e) => e.getAttribute("data-value")).sort());
-      expect(values).toEqual(["BCAP-001", "BCAP-002", "BCAP-003", "BCAP-004", "all"]);
+      expect(values).toEqual(["BCAP-001", "BCAP-002", "BCAP-003", "BCAP-004", "all", "portfolio-only"]);
+      const sectors = page.locator("[data-testid=sector-filter]");
+      await expect.poll(async () => sectors.count(), { timeout: 60_000 }).toBe(11);
       expect(await page.locator("text=/NET-00\\d/").count()).toBe(0);
       const total = page.getByTestId("evidence-total");
       await expect.poll(async () => num(await total.textContent()), { timeout: 60_000 }).toBeGreaterThan(0);
@@ -167,7 +170,9 @@ for (const vp of VIEWPORTS) {
       const counts = await chips.evaluateAll((els) => els.map((e) => [e.getAttribute("data-value"), Number(e.getAttribute("data-count"))] as [string, number]));
       const byReg = Object.fromEntries(counts);
       expect(byReg["all"]).toBe(t0);
-      expect(byReg["BCAP-001"] + byReg["BCAP-002"] + byReg["BCAP-003"] + byReg["BCAP-004"]).toBeGreaterThanOrEqual(t0);
+      // subject chips + the portfolio-only bucket cover the whole table (multi-register items count once per register)
+      expect(byReg["BCAP-001"] + byReg["BCAP-002"] + byReg["BCAP-003"] + byReg["BCAP-004"] + byReg["portfolio-only"]).toBeGreaterThanOrEqual(t0);
+      expect(byReg["portfolio-only"], "reclassified portfolio-social rows never count toward a register").toBeGreaterThan(0);
       await page.locator('[data-testid=entity-filter][data-value="BCAP-004"]').click();
       await expect.poll(async () => num(await total.textContent()), { timeout: 60_000 }).toBe(byReg["BCAP-004"]);
       await expect(page.getByTestId("evidence-row").first()).toContainText(/Mohla|Karan/i, { timeout: 30_000 });

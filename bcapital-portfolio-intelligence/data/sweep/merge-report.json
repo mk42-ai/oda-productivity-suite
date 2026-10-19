@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-19T09:05:30Z",
+ "run_at": "2026-10-19T09:52:01Z",
  "raw_fetched": {},
  "canonical_dup_removed": 0,
  "near_dup_removed": 398,
@@ -58,9 +58,9 @@
    "enriched": 468
   },
   "c": {
-   "staged": 804,
-   "kept": 237,
-   "canonical_dup": 527,
+   "staged": 806,
+   "kept": 238,
+   "canonical_dup": 528,
    "near_dup": 40,
    "film_noise": 0,
    "namesake": 0,
@@ -106,20 +106,20 @@
   }
  },
  "merged": {
-  "generated_at": "2026-10-19T09:05:30Z",
+  "generated_at": "2026-10-19T09:52:01Z",
   "run": "sweep-2026-10-19",
-  "items": 18188,
-  "subject_items": 7974,
+  "items": 18189,
+  "subject_items": 7975,
   "portfolio_only_items": 10214,
   "registers": {
    "BCAP-001": {
-    "items": 5315,
-    "items_named_in_text": 3977,
+    "items": 5316,
+    "items_named_in_text": 3978,
     "target": 2000
    },
    "BCAP-002": {
-    "items": 3190,
-    "items_named_in_text": 2253,
+    "items": 3191,
+    "items_named_in_text": 2254,
     "target": 800
    },
    "BCAP-003": {
@@ -140,11 +140,11 @@
    "prior": 7216,
    "e": 181,
    "portfolio-social": 10253,
-   "c": 237,
+   "c": 238,
    "d": 14
   },
   "platforms": {
-   "web": 6694,
+   "web": 6695,
    "linkedin": 403,
    "podcast": 273,
    "x": 7428,
@@ -173,8 +173,8 @@
   }
  },
  "sizes": {
-  "evidence_json": 28711613,
-  "corpus_json": 28712640,
+  "evidence_json": 28713107,
+  "corpus_json": 28714134,
   "corpus_sqlite": 28295168
  }
 }

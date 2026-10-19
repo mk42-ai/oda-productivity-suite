@@ -132,14 +132,14 @@ for (const vp of VIEWPORTS) {
       expect(r.status()).toBe(200);
       const j = (await r.json()) as { total: number; source: string; counts: { entity: Record<string, number> } };
       expect(j.source).toBe("web/data/reputation/evidence.json");
-      expect(j.total, "≈4,000-item target").toBeGreaterThanOrEqual(4_000);
+      expect(j.total, "merged 2026-10-19 corpus incl. the reclassified portfolio-social rows").toBeGreaterThanOrEqual(4_000);
       expect(j.counts.entity["BCAP-001"]).toBeGreaterThanOrEqual(2_000);
       expect(j.counts.entity["BCAP-002"]).toBeGreaterThanOrEqual(800);
       expect(j.counts.entity["BCAP-003"]).toBeGreaterThanOrEqual(600);
       expect(j.counts.entity["BCAP-004"], "Mohla — target 500 (honest shortfall shown on the page)").toBeGreaterThanOrEqual(400);
       await page.goto("/reputation?skip=1");
       // the first evidence page is fetched after hydration; under a loaded runner that can take longer than the default expect timeout
-      await expect(page.getByTestId("evidence-total")).toContainText(/\d,\d{3} items/, { timeout: 60_000 });
+      await expect(page.getByTestId("evidence-total")).toContainText(/\d{1,2},\d{3} items/, { timeout: 60_000 });
       await noOverflow(page);
     });
   });
