@@ -28,7 +28,7 @@ CORPUS_DB = os.path.join(ROOT, "data/corpus.sqlite")
 REPORT = os.path.join(ROOT, "data/sweep/merge-report.json")
 NOW = S.NOW()
 REG_HANDLE = {"BCAP-001": "@bcapital", "BCAP-002": "@eduardosaverin", "BCAP-003": "@rajganguly", "BCAP-004": "@karanmohla"}
-CLASS_SOURCE_TYPE = {"a": "first_party", "b": "portfolio_news", "c": "press", "d": "video", "e": "social", "f": "press"}
+CLASS_SOURCE_TYPE = {"a": "first_party", "b": "portfolio_news", "c": "press", "d": "video", "e": "social", "f": "press", "g-karan": "press", "g-raj": "press", "g-eduardo": "press", "g-bcapital": "press", "g-portfolio": "portfolio_news"}
 SECTOR_OF = {c["slug"]: c["sector"] for c in S.portfolio_companies()}
 LINK_NOISE = re.compile(r"fonts\.(gstatic|googleapis)|cdn\.prod\.website-files|\.(png|jpe?g|svg|gif|webp|css|js|woff2?)(\?|$)|facebook\.com/sharer|twitter\.com/(intent|share)|x\.com/intent|linkedin\.com/share|linkedin\.com/sharing|wp-content|gravatar|google\.com/(maps|recaptcha)|schema\.org|w3\.org|creativecommons|apple\.com/app-store|play\.google|youtube\.com/embed|gstatic|googletagmanager|cloudflare|jsdelivr|unpkg|typekit", re.I)
 
@@ -98,7 +98,7 @@ def main():
   # 2) this run's staged classes (a)–(f)
   per_class: dict[str, dict] = {}
   next_id = len(base) + 1
-  for cls in "abcdef":
+  for cls in list("abcdef") + ["g-karan", "g-raj", "g-eduardo", "g-bcapital", "g-portfolio"]:
     p = os.path.join(S.STAGE, f"{cls}.jsonl")
     pc = per_class[cls] = {"staged": 0, "kept": 0, "canonical_dup": 0, "near_dup": 0, "film_noise": 0, "namesake": 0, "off_subject": 0, "undated": 0, "estimated_dates": 0}
     if not os.path.exists(p): continue
@@ -110,8 +110,9 @@ def main():
       reason = S.noise_reason(r["title"], r.get("text") or "", regs)
       if reason == "film-noise": pc["film_noise"] += 1; continue
       if reason == "namesake": pc["namesake"] += 1; continue
-      if reason == "off-subject" and cls != "a": pc["off_subject"] += 1; continue
-      if cls == "a" and "BCAP-001" not in regs: regs = sorted(set(regs) | {"BCAP-001"})
+      first_party = cls == "a" or (cls == "g-bcapital" and "b.capital" in S.host_of(r["canonical_url"]))
+      if reason == "off-subject" and not first_party: pc["off_subject"] += 1; continue
+      if first_party and "BCAP-001" not in regs: regs = sorted(set(regs) | {"BCAP-001"})
       if not r.get("published_at"): pc["undated"] += 1; continue
       canon = S.canonical(r["canonical_url"]) or r["canonical_url"]
       if canon in by_canon:

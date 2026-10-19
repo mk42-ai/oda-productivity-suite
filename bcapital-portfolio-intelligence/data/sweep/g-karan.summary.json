@@ -1,0 +1,133 @@
+{
+  "class": "g-karan",
+  "items": 29,
+  "dropped": {
+    "off-subject": 196
+  },
+  "file": "data/sweep/g-karan.jsonl",
+  "register": "BCAP-004",
+  "seeds_ok": 21,
+  "seeds_failed": [
+    {
+      "url": "https://www.bwdisrupt.com/article/solarsquare-raises-53-mn-in-series-c-round-from-b-capital-existing-investors-610837",
+      "status": 403
+    },
+    {
+      "url": "https://www.outlookbusiness.com/enterprise/trend/pace-of-money-flowing-into-early-stage-has-accelerated-ev",
+      "status": 404
+    },
+    {
+      "url": "https://www.linkedin.com/in/karan-mohla-153998",
+      "status": 999
+    },
+    {
+      "url": "https://twitter.com/karanmohla",
+      "status": 999
+    }
+  ],
+  "seed_status": {
+    "https://b.capital/team/karan-mohla/": 200,
+    "https://b.capital/why-we-invested/why-we-invested-in-solarsquare/": 200,
+    "https://b.capital/why-we-invested/why-we-invested-sugarfit/": 200,
+    "https://b.capital/why-we-invested/why-we-invested-bhanzu/": 200,
+    "https://www.cnbc.com/video/2026/06/17/b-capital-on-space-tech.html": 200,
+    "https://www.cnbc.com/video/2026/06/17/b-capital-on-india-space-tech.html": 200,
+    "https://m.economictimes.com/tech/funding/cleantech-startup-solarsquare-raises-53-million-in-funding-round-led-by-b-capital/articleshow/131760590.cms": 200,
+    "https://m.economictimes.com/industry/renewables/solarsquare-raises-53-million-in-indias-largest-residential-solar-funding-round/articleshow/131758098.cms": 200,
+    "https://www.moneycontrol.com/news/business/startup/solarsquare-raises-53-million-in-series-c-round-led-by-b-capital-13950439.html": 200,
+    "https://www.energetica-india.net/news/solarsquare-raises-usd-53-mn-in-series-c-round-led-by-b-capital-to-expand-residential-solar-business": 200,
+    "https://www.thehindubusinessline.com/markets/solarsquare-raises-53-million-series-c-funding-led-by-b-capital-to-expand-residential-solar/article71109815.ece": 200,
+    "https://www.bwdisrupt.com/article/solarsquare-raises-53-mn-in-series-c-round-from-b-capital-existing-investors-610837": 403,
+    "https://startuptalky.com/news/solarsquare-raises-53-million-series-c-funding/": 200,
+    "https://www.instagram.com/reel/CzBTpy_PHd6/": 200,
+    "https://india.entrepreneur.com/finance/being-a-value-added-partner-to-founders-and-making/456364": 200,
+    "https://yourstory.com/2020/08/investors-startup-pitching-tips-chiratae-ventures-karan-mohla": 200,
+    "https://kr-asia.com/what-it-takes-for-indian-startups-to-go-global-qa-with-karan-mohla-of-chiratae-ventures": 200,
+    "https://www.outlookbusiness.com/enterprise/trend/pace-of-money-flowing-into-early-stage-has-accelerated-ev": 404,
+    "https://www.linkedin.com/in/karan-mohla-153998": 999,
+    "https://twitter.com/karanmohla": 999,
+    "https://b.capital/why-we-invested/why-we-invested-eureka-robotics/": 200,
+    "https://www.youtube.com/watch?v=eSBr39UU2k8": 200,
+    "https://www.youtube.com/watch?v=6w9OEy-BOUA": 200,
+    "https://www.youtube.com/watch?v=d5HbrW6SDwk": 200,
+    "https://www.youtube.com/watch?v=Ear_HgkuCPQ": 200
+  },
+  "tag_pages_tried": 23,
+  "tag_links": 207,
+  "gnews_queries": 486,
+  "gnews_rows": 561,
+  "gnews_resolved": 176,
+  "gnews_unresolved": 5,
+  "bing_rows": 49,
+  "gdelt_rows": 12,
+  "x_tweets": 0,
+  "candidates": 366,
+  "known_skipped": 205,
+  "fetched": 213,
+  "http_status_counts": {
+    "200": 226,
+    "403": 2,
+    "404": 3,
+    "999": 31,
+    "429": 7,
+    "503": 1
+  },
+  "estimated_dates": 9,
+  "new_vs_evidence": {
+    "new": 8,
+    "already_in_evidence": 21
+  },
+  "per_glyph": {
+    "web": 5,
+    "news": 14,
+    "instagram": 1,
+    "linkedin": 2,
+    "x": 3,
+    "youtube": 4
+  },
+  "rejects_file_totals": {
+    "off-subject": 196
+  },
+  "duration_s": 823.4,
+  "blockers": [
+    "seed bwdisrupt.com HTTP 403: https://www.bwdisrupt.com/article/solarsquare-raises-53-mn-in-series-c-round-from-b-capital-existing-investors-610837",
+    "seed outlookbusiness.com HTTP 404: https://www.outlookbusiness.com/enterprise/trend/pace-of-money-flowing-into-early-stage-has-accelerated-ev",
+    "seed linkedin.com HTTP 999: https://www.linkedin.com/in/karan-mohla-153998",
+    "social profile blocked (999): https://www.linkedin.com/in/karan-mohla-153998",
+    "seed twitter.com HTTP 999: https://twitter.com/karanmohla",
+    "social profile blocked (999): https://twitter.com/karanmohla",
+    "x syndication timeline HTTP 429 / no __NEXT_DATA__",
+    "tag page vccircle.com HTTP 404",
+    "tag page economictimes.indiatimes.com HTTP 404",
+    "tag page financialexpress.com HTTP 403",
+    "gdelt HTTP 429"
+  ],
+  "samples": [
+    {
+      "title": "SolarSquare raises $53 million Series C funding led by B Capital to expand residential solar",
+      "published_at": "2026-06-16T15:21:51Z",
+      "url": "https://thehindubusinessline.com/markets/solarsquare-raises-53-million-series-c-funding-led-by-b-capital-to-expand-residential-solar/article71109815.ece"
+    },
+    {
+      "title": "VC funding: 2022 Year in Review | VC funding for startups down 30% to $24 billion - The Economic Times",
+      "published_at": "2022-12-29T00:00:00Z",
+      "url": "https://economictimes.indiatimes.com/tech/startups/2022-year-in-review-vc-funding-for-startups-down-30-this-year-to-24-billion/articleshow/96578425.cms"
+    },
+    {
+      "title": "B Capital (@BCapitalGroup) - X",
+      "published_at": "2024-05-10T00:47:38Z",
+      "url": "https://x.com/BCapitalGroup"
+    },
+    {
+      "title": "SolarSquare raises $53 million in Series C round led by B Capital Residential rooftop solar company SolarSquare has raised $53 million in a Series C funding round led by B Capital, with existing investors Lightspeed, Elevation Capital, Lowercarbon Capital, - LinkedIn",
+      "published_at": "2026-06-15T07:00:00Z",
+      "url": "https://linkedin.com/posts/chandra-r-srikanth-6b13a05_solarsquare-raises-53-million-in-series-activity-7472477216694702080-Ysqw"
+    },
+    {
+      "title": "Union Minister for Finance & Corporate Affairs Smt. @nsitharaman met Mr. Raj Ganguly, Co-founder and CEO of @BCapitalGroup, in Singapore today. Discussions covered opportunities in Sovereign AI and the broader AI ecosystem. FM highlighted India’s po - X",
+      "published_at": "2026-10-11T15:55:46Z",
+      "url": "https://x.com/FinMinIndia/status/2109312008361480673/photo/2"
+    }
+  ],
+  "finished_at": "2026-10-19T12:59:27Z"
+}

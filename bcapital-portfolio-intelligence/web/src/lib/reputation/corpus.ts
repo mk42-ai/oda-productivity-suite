@@ -86,7 +86,7 @@ export function canvasPlatform(glyph: string): Platform {
   return 'web';
 }
 const CATEGORY_SKIP = new Set(['6f6f6f']);
-const SOURCE_CLASS_CATEGORY: Record<string, string> = { a: 'b.capital archive', b: 'portfolio release', c: 'press', d: 'video / podcast', e: 'public social', f: 'rich-list / biography', 'portfolio-social': 'portfolio social' };
+const SOURCE_CLASS_CATEGORY: Record<string, string> = { a: 'b.capital archive', b: 'portfolio release', c: 'press', d: 'video / podcast', e: 'public social', f: 'rich-list / biography', 'portfolio-social': 'portfolio social', 'g-karan': 'subject press · Mohla', 'g-raj': 'subject press · Ganguly', 'g-eduardo': 'subject press · Saverin', 'g-bcapital': 'subject press · B Capital', 'g-portfolio': 'portfolio release' };
 export function categoryOf(it: EvidenceItem): string {
   if (it.source_class && it.source_class !== 'prior' && SOURCE_CLASS_CATEGORY[it.source_class]) return SOURCE_CLASS_CATEGORY[it.source_class];
   for (const h of it.hashtags) if (!CATEGORY_SKIP.has(h)) return h;

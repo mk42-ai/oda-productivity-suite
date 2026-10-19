@@ -33,8 +33,8 @@ _REG_RE = {k: re.compile("|".join(v), re.I) for k, v in REGISTER_PATTERNS.items(
 # surname-only hit is a namesake (Sourav Ganguly the cricketer, the ksmhomes.ca realtor, …).
 _CONTEXT_RE = re.compile(r"\b(b[\s\.\-]?capital|venture|vc\b|investor|investment|fund|startup|portfolio|series [a-f]|raises?|raised|co-?ceo|general partner|chiratae|idg ventures|bain capital|velos|facebook co-?founder|billionaire|forbes)", re.I)
 _FULLNAME_RE = {"BCAP-002": re.compile(r"\beduardo\s+saverin\b|@esaverin|@eduardosaverin", re.I), "BCAP-003": re.compile(r"\braj\s+ganguly\b|@rajganguly", re.I), "BCAP-004": re.compile(r"\bkaran\s+mohla\b|@karanmohla", re.I)}
-FILM_NOISE_RE = re.compile(r"the social network|social reckoning|andrew garfield|jesse eisenberg|aaron sorkin|fincher|armie hammer|winklevoss twins|mikey madison|jeremy strong\b|oscar|box office|trailer|screenplay|sequel|movie|film\b", re.I)
-NAMESAKE_RE = re.compile(r"ksmhomes|sourav ganguly|dada ganguly|kolkata knight riders|cricket|bcci|realtor|real estate agent|mls listing|ganguly.*(bengali|actor|singer|professor of)|mohla.*(dermatolog|dentist|realty)", re.I)
+FILM_NOISE_RE = re.compile(r"the social network|social reckoning|andrew garfield|jesse eisenberg|aaron sorkin|fincher|armie hammer|winklevoss twins|mikey madison|jeremy strong\b|\bartificial\b.*(film|movie|luca guadagnino)|screenrant|collider\.com|imdb\.com|oscar|box office|trailer|screenplay|sequel|movie|film\b", re.I)
+NAMESAKE_RE = re.compile(r"ksmhomes|kaps realty|capital b news|city of new berlin|sourav ganguly|dada ganguly|kolkata knight riders|cricket|bcci|realtor|real estate agent|mls listing|ganguly.*(bengali|actor|singer|professor of)|mohla.*(dermatolog|dentist|realty)", re.I)
 
 def registers_for(text: str) -> list[str]:
   """Registers an item is tagged with. BCAP-001 on any B Capital mention; persons need the full name/handle, or the surname + investing context."""

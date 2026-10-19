@@ -125,3 +125,21 @@ What it checks — `/overview /companies /news /chat?skip=1 /artifacts /settings
 Output: a PASS/FAIL table on stdout, the full record in `web/proof/pass-3/smoke/<label>.json`, exit code **1 on any hard failure**
 (status ≠ 200, console/page errors, overflow, missing `html.light`/white body, blue hit, rail > 224 px, API non-200/non-JSON). Runs in ≈45 s on one CPU
 (16 page loads + 4 fetches, sequential). Baseline: `web/proof/pass-3/smoke/before.json` (20/20 against the URLs above).
+
+## 2026-10-19 — "deployable github repo produced no live preview URL" (second deploy job) — root cause + fix
+
+**Root cause (job-level, not code-level).** The repository root (`oda-productivity-suite/`) holds TWO unrelated
+`package.json` roots: `app/` (a Vite + Express demo with its own legacy `vercel.json` using `builds`/`routes`) and
+`bcapital-portfolio-intelligence/` (this app: Hono API at its root + Next.js in `web/`, described by a Vercel **Services**
+`vercel.json`). A deploy that targets the repository root — or picks the shallowest `package.json` — finds `app/` or no
+`package.json` at all, never runs `web/`'s `next build`, and therefore produces no preview URL. The previous job also ended
+before `sandbox create` ran (all local gates had passed), so there was no sandbox to report. Nothing in this app was broken:
+`npm test`, `tsc`, `next build`, key-leak and palette gates were green at ab14074, and `/backend/news/summary` already answered 200.
+
+**Fix applied.** Deploy from `bcapital-portfolio-intelligence/` (the directory holding the Services `vercel.json`): copy that
+directory alone into the sandbox, build the API (`npm run build` → `dist/server.js`, port 4000) and the web app
+(`web/`: `npm run build` → `.next`, port 5173) with the app's `.env` files exported (`PORTFOLIO_API_URL=http://127.0.0.1:4000`
+server-side, `NEXT_PUBLIC_PORTFOLIO_API_URL=<4000 sandbox URL>` for the browser, `ONDEMAND_API_KEY` server-only — never
+`NEXT_PUBLIC_*`), start both tiers detached (`setsid nohup … < /dev/null & disown`), and publish 5173 + 4000. Node 22 runtime
+(`engines.node >= 20`). Exactly one `sandbox create` per job, run BEFORE the long verification suites so a time-out can never
+leave the job without a URL.
