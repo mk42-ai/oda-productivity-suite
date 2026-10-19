@@ -1,0 +1,63 @@
+{
+  "class": "e",
+  "items": 275,
+  "dropped": {
+    "film-noise": 6,
+    "off-subject": 48
+  },
+  "file": "data/sweep/e.jsonl",
+  "linkedin_items": 124,
+  "x_items": 151,
+  "per_account_new_items": {
+    "x:esaverin": 93,
+    "x:bcapitalgroup": 19,
+    "linkedin:rajganguly": 14,
+    "linkedin:other": 97,
+    "linkedin:b-capital-group": 11,
+    "linkedin:saverin": 2,
+    "x:other": 39
+  },
+  "endpoints_tried": {
+    "syndication.twitter.com/timeline-profile/rajganguly_": 200,
+    "syndication.twitter.com/timeline-profile/esaverin": 200,
+    "syndication.twitter.com/timeline-profile/BCapitalGroup": 200,
+    "syndication.twitter.com/timeline-profile/karanmohla": 200,
+    "cdn.syndication.twimg.com/tweet-result": 200,
+    "bing.com/search": 200,
+    "news.google.com/rss/search": 200,
+    "html.duckduckgo.com/html": 202
+  },
+  "search_pages_parsed": 61,
+  "http_status_counts": {
+    "syndication.twitter.com:200": 4,
+    "www.bing.com:200": 42,
+    "cdn.syndication.twimg.com:200": 92,
+    "www.linkedin.com:999": 116,
+    "gq.linkedin.com:999": 1,
+    "bg.linkedin.com:999": 1,
+    "in.linkedin.com:999": 2,
+    "so.linkedin.com:999": 1,
+    "pe.linkedin.com:999": 1,
+    "uk.linkedin.com:999": 1,
+    "bm.linkedin.com:999": 1,
+    "news.google.com:rss": 19,
+    "gnews-resolve:ok": 230,
+    "gnews-resolve:fail": 11,
+    "html.duckduckgo.com:202": 3
+  },
+  "duration_s": 284.2,
+  "blockers": [
+    "duckduckgo bot-challenge (HTTP 202) for 'site:linkedin.com/posts \"B Capital\"'",
+    "duckduckgo bot-challenge (HTTP 202) for 'site:linkedin.com/posts \"Karan Mohla\"'",
+    "duckduckgo bot-challenge (HTTP 202) for 'site:linkedin.com/posts \"Raj Ganguly\"'",
+    "syndication.twitter.com timeline-profile: first pass 200 for all 4 handles but rajganguly_ and karanmohla returned 0 entries (profile with timeline hidden from embed / no public tweets); follow-up --x-only rerun got HTTP 429 'Rate limit exceeded' on every attempt (4 x back-off up to 90s) — endpoint is burst-limited per IP",
+    "linkedin.com post pages: robots.txt disallows /posts/ and /pulse/ (sweeplib status 999) — items built from search-result title/snippet + activity-id timestamp, no og: fetch attempted",
+    "country subdomains (uk./in./gq.linkedin.com) are not folded by sweeplib.canonical → possible near-dups for the merge step's SimHash pass"
+  ],
+  "budget_hit": false,
+  "generated_at": "2026-10-19T08:40:51Z",
+  "x_timeline_rerun": {
+    "status": 429,
+    "note": "all 4 handles 429 on 09:51-10:01 UTC rerun; no new items"
+  }
+}

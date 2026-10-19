@@ -65,6 +65,7 @@ def canonical(u: str | None) -> str | None:
     if p.scheme not in ("http", "https"): return None
     host = p.netloc.lower().split("@")[-1].split(":")[0]
     host = re.sub(r"^(www|m|amp|mobile)\.", "", host)
+    host = re.sub(r"^[a-z]{2}\.linkedin\.com$", "linkedin.com", host)  # uk./in./gq. country mirrors of the same activity id
     if host == "youtu.be": return f"https://youtube.com/watch?v={p.path.strip('/')}"
     if host == "twitter.com": host = "x.com"
     q = [(k, v) for k, v in urllib.parse.parse_qsl(p.query, keep_blank_values=False) if not _TRACK.match(k)]
