@@ -39,17 +39,21 @@ export async function GET(req: NextRequest) {
   const matchQ = (it: EvidenceItem) => !q || it.title.toLowerCase().includes(q) || it.publisher.toLowerCase().includes(q) || (it.snippet ?? '').toLowerCase().includes(q);
   const matchAge = (it: EvidenceItem) => maxAge === null || maxAge >= 120 || itemAgeDays(it, nowMs) <= maxAge;
   // counts are computed for the OTHER filter (register counts honour the category filter and vice versa) so the chips show what a click yields
-  const entityCounts: Record<string, number> = { all: 0 };
+  const entityCounts: Record<string, number> = { all: 0, 'portfolio-only': 0 };
   const categoryCounts: Record<string, number> = { all: 0 };
+  const sectorCounts: Record<string, number> = { all: 0 };
   const filtered: Row[] = [];
   for (const it of items) {
     if (!matchQ(it) || !matchAge(it)) continue;
     const cat = categoryOf(it);
-    const eOk = ei < 0 || it.registers.includes(REGISTER_IDS[ei]);
+    const secs = it.sectors ?? [];
+    const eOk = portfolioOnly ? it.registers.length === 0 : ei < 0 || it.registers.includes(REGISTER_IDS[ei]);
     const cOk = category === 'all' || cat === category;
-    if (cOk) { entityCounts.all++; for (const r of it.registers) entityCounts[r] = (entityCounts[r] ?? 0) + 1; }
-    if (eOk) { categoryCounts.all++; categoryCounts[cat] = (categoryCounts[cat] ?? 0) + 1; }
-    if (eOk && cOk) filtered.push(toRow(it));
+    const sOk = sector === 'all' || secs.includes(sector);
+    if (cOk && sOk) { entityCounts.all++; if (!it.registers.length) entityCounts['portfolio-only']++; for (const r of it.registers) entityCounts[r] = (entityCounts[r] ?? 0) + 1; }
+    if (eOk && sOk) { categoryCounts.all++; categoryCounts[cat] = (categoryCounts[cat] ?? 0) + 1; }
+    if (eOk && cOk) { sectorCounts.all++; for (const sc of secs) sectorCounts[sc] = (sectorCounts[sc] ?? 0) + 1; }
+    if (eOk && cOk && sOk) filtered.push(toRow(it));
   }
-  return Response.json({ total: filtered.length, offset, limit, rows: filtered.slice(offset, offset + limit), counts: { entity: entityCounts, category: categoryCounts }, entities: REGISTER_IDS, source: 'web/data/reputation/evidence.json', nowIso }, { headers: { 'Cache-Control': 'public, max-age=60' } });
+  return Response.json({ total: filtered.length, offset, limit, rows: filtered.slice(offset, offset + limit), counts: { entity: entityCounts, category: categoryCounts, sector: sectorCounts }, entities: REGISTER_IDS, sectors: SECTOR_IDS, source: 'web/data/reputation/evidence.json', nowIso });
 }

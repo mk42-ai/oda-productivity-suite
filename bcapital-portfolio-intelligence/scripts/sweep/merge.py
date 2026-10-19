@@ -90,7 +90,7 @@ def main():
     if nd.find(h) is not None:
       stats["near_dup_removed"] += 1; continue
     it["canonical_url"] = canon
-    it.setdefault("source_class", "prior"); it.setdefault("origin", "v3-corpus-2026-10-18"); it.setdefault("published_at_estimated", False)
+    it.setdefault("source_class", "prior"); it.setdefault("origin", "v3-corpus-2026-10-18"); it.setdefault("published_at_estimated", False); it["_text"] = None; it["text_len"] = 0
     it["sectors"] = sorted({SECTOR_OF[c] for c in (it.get("companies") or []) if c in SECTOR_OF})
     by_canon[canon] = it; nd.add(h); merged.append(it)
   stats["base_kept"] = len(merged)
@@ -114,7 +114,20 @@ def main():
       if cls == "a" and "BCAP-001" not in regs: regs = sorted(set(regs) | {"BCAP-001"})
       if not r.get("published_at"): pc["undated"] += 1; continue
       canon = S.canonical(r["canonical_url"]) or r["canonical_url"]
-      if canon in by_canon: pc["canonical_dup"] += 1; continue
+      if canon in by_canon:
+        # same URL already in the corpus (most of classes b/c/f re-found yesterday's Google-News rows): keep ONE item, but ENRICH it with this
+        # run's full text / author / sectors / provenance — the v3 row only carried a snippet.
+        pc["canonical_dup"] += 1
+        prev = by_canon[canon]; txt = (r.get("text") or "").strip()
+        if txt and len(txt) > max(400, prev.get("text_len") or 0):
+          prev["_text"] = txt[:6000]; prev["text_len"] = len(txt); pc["enriched"] = pc.get("enriched", 0) + 1
+          if not prev.get("snippet") or len(prev["snippet"]) < 120: prev["snippet"] = re.sub(r"\s+", " ", txt)[:400]
+        if r.get("author") and not prev.get("author"): prev["author"] = r["author"]
+        comps0 = [c for c in (r.get("companies") or []) if len(r.get("companies") or []) <= 8]
+        if comps0: prev["companies"] = sorted(set(prev.get("companies") or []) | set(comps0)); prev["sectors"] = sorted({SECTOR_OF[c] for c in prev["companies"] if c in SECTOR_OF})
+        prev.setdefault("provenance", []).append({"source_url": r.get("original_url") or canon, "http_status": r.get("http_status"), "fetched_at": r.get("fetched_at"), "collector": f"sweep-2026-10-19/{cls}", "subagent": f"class-{cls}", "query": None})
+        prev["also_in_classes"] = sorted(set(prev.get("also_in_classes") or []) | {cls})
+        continue
       h = simhash64(sig_text(r["title"], r.get("text")))
       if nd.find(h) is not None: pc["near_dup"] += 1; continue
       text = (r.get("text") or "").strip()
