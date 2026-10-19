@@ -1,0 +1,163 @@
+{
+  "class": "g-raj",
+  "items": 228,
+  "dropped": {
+    "off-subject": 403,
+    "namesake": 3,
+    "dup": 4
+  },
+  "file": "data/sweep/g-raj.jsonl",
+  "seeds_ok": 20,
+  "seeds_failed": [
+    {
+      "url": "https://www.linkedin.com/in/rajganguly",
+      "status": 999
+    },
+    {
+      "url": "https://www.bloomberg.com/news/videos/2026-06-24/focused-on-ai-at-the-enterprise-level-ganguly-video",
+      "status": 403
+    },
+    {
+      "url": "https://fintechleaders.substack.com/p/investing-in-transformational-technologies",
+      "status": 403
+    },
+    {
+      "url": "https://www.instagram.com/reel/DeLzwRvE6Zs/",
+      "status": 200
+    },
+    {
+      "url": "https://www.crunchbase.com/person/raj-ganguly",
+      "status": 403
+    }
+  ],
+  "seed_status": {
+    "https://b.capital/team/raj-ganguly/": 200,
+    "https://www.linkedin.com/in/rajganguly": 999,
+    "https://x.com/rajganguly_": 999,
+    "https://www.cnbc.com/video/2026/01/23/b-capital-pharma-biotech-undergoing-transformation-thanks-to-ai.html": 200,
+    "https://www.cnbc.com/video/2025/09/18/todays-generative-ai-could-be-the-worst-yet-b-capital-co-founder.html": 200,
+    "https://www.cnbc.com/video/2025/01/09/should-see-successful-tech-ipos-in-the-second-half-of-2025-b-capital.html": 200,
+    "https://www.cnbc.com/video/2024/08/15/we-focus-on-helping-great-japanese-startups-go-global-b-capital.html": 200,
+    "https://www.cnbc.com/video/2024/03/26/investment-firm-b-capital-announces-its-new-750-million-opportunities-fund-co-ceo-discusses.html": 200,
+    "https://www.cnbc.com/video/2023/01/20/were-excited-about-software-health-care-and-fintech-investment-firm.html": 200,
+    "https://www.bloomberg.com/news/videos/2026-06-24/focused-on-ai-at-the-enterprise-level-ganguly-video": 403,
+    "https://www.youtube.com/watch?v=hp4Foxv0sdE": 200,
+    "https://www.youtube.com/watch?v=sL7Cq0u3vu4": 200,
+    "https://www.moneycontrol.com/news/business/startup/davos-2026-b-capital-to-do-more-ai-services-deals-in-india-says-co-founder-raj-ganguly-13782579.html": 200,
+    "https://www.moneycontrol.com/news/business/startup/india-is-becoming-an-innovation-economy-b-capitals-raj-ganguly-9902781.html": 200,
+    "https://milkeninstitute.org/events/global-conference-2026/speakers/raj-ganguly": 200,
+    "https://milkeninstitute.org/events/global-conference-2023/speakers/raj-ganguly": 200,
+    "https://www.cnbcevents.com/speakers/raj-ganguly/": 200,
+    "https://labusinessjournal.com/special-editions/la500/2023-la500/finance-2023/la500-2023-raj-ganguly/": 200,
+    "https://labusinessjournal.com/la500-2024/banks-2024/la500-2024-raj-ganguly/": 200,
+    "https://dot.la/b-capital-group-raj-ganguly-2657710464.html": 200,
+    "https://www.tenoneten.com/podcast/raj-ganguly-b-capital": 200,
+    "https://fintechleaders.substack.com/p/investing-in-transformational-technologies": 403,
+    "https://www.instagram.com/reel/DeLzwRvE6Zs/": 200,
+    "https://www.icertis.com/company/leadership/board/raj-ganguly/": 200,
+    "https://www.crunchbase.com/person/raj-ganguly": 403
+  },
+  "cnbc_rows": 13,
+  "tag_pages_tried": 29,
+  "tag_links": 354,
+  "gnews_queries": 615,
+  "gnews_rows": 909,
+  "gnews_resolved": 290,
+  "gnews_unresolved": 3,
+  "bing_rows": 4,
+  "bing_web_rows": 50,
+  "gdelt_rows": 28,
+  "itunes_rows": 171,
+  "x_tweets": 0,
+  "candidates": 679,
+  "fetched": 661,
+  "run_added": 228,
+  "http_status_counts": {
+    "200": 423,
+    "999": 184,
+    "429": 8,
+    "403": 45,
+    "404": 11,
+    "503": 1,
+    "0": 8,
+    "202": 1
+  },
+  "estimated_dates": 15,
+  "namesake_dropped": 3,
+  "glyphs": {
+    "web": 8,
+    "linkedin": 68,
+    "x": 1,
+    "news": 139,
+    "youtube": 2,
+    "podcast": 7,
+    "pr": 3
+  },
+  "top_outlets": {
+    "LinkedIn": 53,
+    "CNBC": 18,
+    "linkedin.com": 11,
+    "TechCrunch": 10,
+    "The Economic Times": 10,
+    "Los Angeles Business Journal": 8,
+    "Forbes": 8,
+    "Moneycontrol": 4,
+    "dot.LA": 4,
+    "VCCircle": 4,
+    "Yahoo Finance": 4,
+    "Bloomberg.com": 4,
+    "LinkedIn Singapore": 3,
+    "Vulcan Post": 3,
+    "Milken Institute": 2,
+    "Augment": 2,
+    "FinSMEs": 2,
+    "The Edge Malaysia": 2,
+    "YourStory": 2,
+    "Business Insider": 2,
+    "WSJ": 2,
+    "Business Wire": 2,
+    "Business Standard": 2,
+    "KrASIA": 2,
+    "B Capital": 1
+  },
+  "duration_s": 1202.0,
+  "blockers": [
+    "seed linkedin.com HTTP 999: https://www.linkedin.com/in/rajganguly",
+    "x syndication timeline HTTP 429",
+    "x.com profile HTTP 999",
+    "seed bloomberg.com HTTP 403: https://www.bloomberg.com/news/videos/2026-06-24/focused-on-ai-at-the-enterprise-level-ganguly-video",
+    "youtube transcripts IP-blocked (youtube_transcript_api)",
+    "seed fintechleaders.substack.com HTTP 403: https://fintechleaders.substack.com/p/investing-in-transformational-technologies",
+    "seed crunchbase.com HTTP 403: https://www.crunchbase.com/person/raj-ganguly",
+    "gdelt HTTP 429",
+    "tag page axios.com HTTP 403"
+  ],
+  "samples": [
+    {
+      "title": "Raj Ganguly - B Capital",
+      "published_at": "2021-05-29T21:45:06Z",
+      "url": "https://b.capital/team/raj-ganguly"
+    },
+    {
+      "title": "B Capital: Pharma and biotech undergoing profound transformation thanks to AI",
+      "published_at": "2026-01-23T08:29:40Z",
+      "url": "https://cnbc.com/video/2026/01/23/b-capital-pharma-biotech-undergoing-transformation-thanks-to-ai.html"
+    },
+    {
+      "title": "Today's generative AI may be the worst model we'll ever have, says B Capital Co-Founder",
+      "published_at": "2025-09-18T06:59:20Z",
+      "url": "https://cnbc.com/video/2025/09/18/todays-generative-ai-could-be-the-worst-yet-b-capital-co-founder.html"
+    },
+    {
+      "title": "Should see IPOs returning to the market in the second half of 2025: B Capital's Ganguly",
+      "published_at": "2025-01-09T09:36:44Z",
+      "url": "https://cnbc.com/video/2025/01/09/should-see-successful-tech-ipos-in-the-second-half-of-2025-b-capital.html"
+    },
+    {
+      "title": "We're focused on helping 'great' Japanese startups go global, investment firm says",
+      "published_at": "2024-08-15T06:07:43Z",
+      "url": "https://cnbc.com/video/2024/08/15/we-focus-on-helping-great-japanese-startups-go-global-b-capital.html"
+    }
+  ],
+  "finished_at": "2026-10-19T13:06:39Z"
+}

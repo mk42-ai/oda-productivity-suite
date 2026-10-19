@@ -72,7 +72,12 @@ def main():
   # so re-running after another class lands never double-counts the previous merge's rows as duplicates.
   base_p = os.path.join(S.STAGE, "base-evidence.json")
   if not os.path.exists(base_p):
-    import shutil; shutil.copyfile(EVID, base_p)
+    import subprocess
+    try:  # the frozen v3 corpus lives at commit 42809f6 (pre-merge); a fresh clone must not treat the already-merged evidence.json as the base
+      raw = subprocess.check_output(["git", "show", "42809f6:bcapital-portfolio-intelligence/web/data/reputation/evidence.json"], cwd=ROOT)
+      open(base_p, "wb").write(raw)
+    except Exception:
+      import shutil; shutil.copyfile(EVID, base_p)
   base: list[dict] = json.load(open(base_p, encoding="utf-8"))
   stats["base_items"] = len(base)
   by_canon: dict[str, dict] = {}
