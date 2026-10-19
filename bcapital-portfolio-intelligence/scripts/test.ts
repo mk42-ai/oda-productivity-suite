@@ -138,5 +138,12 @@ await t("404 shape {errorCode,message} for unknown routes, unknown slugs, and /a
   const rw = await get("/apps/anything/health"); expect(rw.status === 200, `apps prefix rewrite ${rw.status}`);
   const rw404 = await get("/apps/anything/nope"); const rj: any = await rw404.json(); expect(rw404.status === 404 && rj.errorCode === "not_found", "rewrite keeps 404 shape");
 });
+await t("/backend prefix (Vercel Services rewrite) reaches the news routes — GET /backend/news/summary is no longer a 404", async () => {
+  const r = await get("/backend/news/summary"); const j: any = await r.json();
+  expect(r.status === 200 && typeof j.total === "number" && j.total > 0 && j.by_company && typeof j.by_company === "object", `backend/news/summary ${r.status} ${JSON.stringify(j).slice(0, 160)}`);
+  const d = await get("/news/summary"); const dj: any = await d.json(); expect(d.status === 200 && dj.total === j.total, "same total with and without the prefix");
+  const h = await get("/backend/health"); expect(h.status === 200, `backend/health ${h.status}`);
+  const n = await get("/backend/nope"); const nj: any = await n.json(); expect(n.status === 404 && nj.errorCode === "not_found" && /Route not found: GET \/nope/.test(nj.message), "prefix-stripped 404 shape");
+});
 console.log(failed ? `\n${failed} test(s) FAILED` : "\nall tests passed");
 process.exit(failed ? 1 : 0);

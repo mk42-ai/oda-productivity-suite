@@ -35,6 +35,12 @@ app.all("*", async (c) => {
   if (config.basePath && p.startsWith(config.basePath)) p = p.slice(config.basePath.length) || "/";
   const m = p.match(/^\/apps\/[^/]+(\/.*)?$/);
   if (m) p = m[1] || "/";
+  // Vercel Services rewrite (vercel.json: "/backend/(.*)" → service app) forwards the ORIGINAL path, so the web tier's
+  // `/backend/news/summary` reached this router verbatim and fell through to notFound ("Route not found: GET /backend/news/summary").
+  // Strip that prefix too so every route works with and without it — the portfolio news feed (/news/summary, /companies/{slug}/news)
+  // is what the /reputation evidence set and the overview tiles read through it.
+  const b = p.match(/^\/backend(\/.*)?$/);
+  if (b) p = b[1] || "/";
   if (p === u.pathname) return inner.fetch(c.req.raw);
   const rewritten = new Request(new URL(p + u.search, u.origin).toString(), c.req.raw);
   return inner.fetch(rewritten);

@@ -64,7 +64,7 @@ function applyIsolates(nodes: CoNode[], edges: CoEdge[], communities: Community[
   return { nodes: nodes.filter((n) => keep(n.id)), communities: communities.map((c) => ({ ...c, members: c.members.filter(keep), size: c.members.filter(keep).length })).filter((c) => c.size > 0), hidden: hidden.size };
 }
 
-export function ReputationGraph({ onSelectEdge, onStats }: { onSelectEdge?: (edge: CoEdge | null, evidence: Record<string, EvidenceRow>) => void; onStats?: (s: GraphStats) => void }) {
+export function ReputationGraph({ onSelectEdge, onStats, onSelectNode: onSelectNodeExternal }: { onSelectEdge?: (edge: CoEdge | null, evidence: Record<string, EvidenceRow>) => void; onStats?: (s: GraphStats) => void; /** node click → the host scrolls the matching entity card into view (subject hubs) */ onSelectNode?: (node: { id: string; register: string; hub: boolean; name?: string; label: string }) => void }) {
   const [data, setData] = useState<GraphPayload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [selectedEdgeId, setSelectedEdgeId] = useState<string | null>(null);
@@ -131,9 +131,11 @@ export function ReputationGraph({ onSelectEdge, onStats }: { onSelectEdge?: (edg
       const reg = data.registers.find((r) => r.id === n.register);
       const context = buildNodeContext({ handle: n.hub ? n.name ?? handle : handle, platform: n.platform, networkId: reg ? `${reg.name} register` : n.networkId, role: n.hub ? n.role ?? null : `${n.kind} · ${n.evidenceCount} items`, evidenceIds: (n.evidenceIds ?? []).slice(0, 24), investigation: REPUTATION_INVESTIGATION }, (x) => { const r = lookup(x); return r ? { id: x, title: r.title, excerpt: r.excerpt, source: r.source, publishedAt: r.publishedAt } : undefined; });
       setSubject({ scope: 'node', subjectKey: handle, title: n.hub ? `${n.name} · ${n.role ?? ''}`.trim() : `${n.label} · ${n.kind} · ${reg?.name ?? ''}`.trim(), investigationId: REPUTATION_INVESTIGATION.id, context, presets: NODE_PRESETS, contextMetadata: contextToMetadata(context, 'node'), placeholder: `quick query on ${n.name ?? n.label}…` });
-      document.getElementById('reputation-ask')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      // node click → entity card (the host highlights + scrolls the register's card) AND the ASK · OnDemand subject above
+      onSelectNodeExternal?.({ id: n.id, register: n.register, hub: !!n.hub, name: n.name, label: n.label });
+      if (!n.hub) document.getElementById('reputation-ask')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     },
-    [data, lookup, setSubject],
+    [data, lookup, setSubject, onSelectNodeExternal],
   );
 
   return (

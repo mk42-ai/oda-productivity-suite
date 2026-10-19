@@ -29,6 +29,8 @@ import './reputation.css';
 type FactorLookup = Record<string, { id: string; title: string; excerpt?: string | null; claimStatus?: string | null; reliability?: string | null; source?: string | null; publishedAt?: string | null }>;
 
 const INVESTIGATION = { id: 'BCAP-REP', cycle: 1, baseline: '2026-10-17' };
+/** Register id → entity card id (the four dashed-ring registers are the four cards). */
+const REGISTER_ENTITY: Record<string, string> = { 'BCAP-001': 'b-capital', 'BCAP-002': 'eduardo-saverin', 'BCAP-003': 'raj-ganguly', 'BCAP-004': 'karan-mohla' };
 
 function entityPrompts(e: ReputationEntity) {
   return e.starterPrompts.map((q, i) => ({ id: `starter-${i}`, label: q.length > 44 ? `${q.slice(0, 43)}…` : q, question: q }));
@@ -145,6 +147,7 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
   const [graphEdge, setGraphEdge] = useState<CoEdge | null>(null);
   const [graphLookup, setGraphLookup] = useState<FactorLookup>({});
   const [graphStats, setGraphStats] = useState<GraphStats | null>(null);
+  const [focusedEntity, setFocusedEntity] = useState<string | null>(null);
   const mergedLookup = useMemo(() => ({ ...graphLookup, ...lookup }), [graphLookup, lookup]);
   const edges = result.edges;
   const lookupEdges = useMemo(() => edgeLookup(edges), [edges]);
@@ -173,7 +176,14 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
       </div>
       <h2 className="mb-2 text-[14px] font-semibold text-ink">Interactive correlation graph</h2>
       <p className="mb-2 text-[12px] text-secondary">Rilian correlation engine canvas over the 2026-10-18 evidence corpus — four dashed-ring registers (BCAP-001 B Capital, BCAP-002 Eduardo Saverin, BCAP-003 Raj Ganguly, BCAP-004 Karan Mohla), publisher / portfolio-company / social / podcast bubbles sized by evidence count, curved link width = co-action weight. Drag nodes · click a link for WHY CONNECTED · click a node to load it into ASK · OnDemand · the MAX AGE slider filters the graph, the Evidence table and every count together.</p>
-      <ReputationGraph onSelectEdge={(e, ev) => { if (e) { setGraphEdge(e); setGraphLookup(ev as FactorLookup); } }} onStats={setGraphStats} />
+      <ReputationGraph onSelectEdge={(e, ev) => { if (e) { setGraphEdge(e); setGraphLookup(ev as FactorLookup); } }} onStats={setGraphStats} onSelectNode={(n) => {
+        // graph node → the matching entity card (register hubs map 1:1 onto the four cards; member nodes light up their register's card)
+        const reg = REGISTER_ENTITY[n.register];
+        const card = reg ? document.querySelector<HTMLElement>(`[data-testid="entity-card"][data-entity="${reg}"]`) : null;
+        setFocusedEntity(reg ?? null);
+        if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); card.classList.add('rep-card-flash'); window.setTimeout(() => card.classList.remove('rep-card-flash'), 1600); }
+        if (n.hub) { const e = entities.find((x) => x.id === reg); if (e) askEntity(e); }
+      }} />
       {graphStats && (
         <div className="mt-2 flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-secondary" data-testid="register-counts" aria-label="Per-register counts versus targets">
           <span className="mono text-ink" data-testid="register-counts-total">{graphStats.items.toLocaleString('en-US')} items · {graphStats.nodes} nodes · {graphStats.edges.toLocaleString('en-US')} edges · {graphStats.isolates} isolates</span>
@@ -187,7 +197,7 @@ export function ReputationView({ entities, result, lookup, plates, batch, catego
       )}
       <div className="mt-4 grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-2" data-testid="entity-grid">
         {entities.map((e) => (
-          <EntityCard key={e.id} entity={e} node={nodeById.get(e.handle)} onAsk={askEntity} active={subject?.subjectKey === e.handle} plate={e.kind === 'firm' ? plates.firm : plates.leader} />
+          <EntityCard key={e.id} entity={e} node={nodeById.get(e.handle)} onAsk={askEntity} active={subject?.subjectKey === e.handle || focusedEntity === e.id} plate={e.kind === 'firm' ? plates.firm : plates.leader} />
         ))}
       </div>
       {batch && <BatchSummary data={batch} />}

@@ -132,3 +132,6 @@
 @keyframes rep-skel { 0%, 100% { opacity: 0.35; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-4px); } }
 /* Per-register count chips under the graph: allowed to wrap on narrow viewports (the generic .chip is nowrap). */
 .reputation-engine .rep-register-chip { height: auto; min-height: 20px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; line-height: 1.3; padding-top: 2px; padding-bottom: 2px; }
+/* Graph node click → the register's entity card pulses once in Caribbean Green (no blue anywhere). */
+.reputation-engine .rep-card-flash { animation: rep-card-flash 1.6s ease-out 1; }
+@keyframes rep-card-flash { 0% { box-shadow: 0 0 0 0 rgba(10, 201, 133, 0.55); } 100% { box-shadow: 0 0 0 14px rgba(10, 201, 133, 0); } }
