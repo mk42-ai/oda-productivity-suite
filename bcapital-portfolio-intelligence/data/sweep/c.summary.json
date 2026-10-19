@@ -1,6 +1,6 @@
 {
   "class": "c",
-  "items": 804,
+  "items": 806,
   "dropped": {
     "off-subject": 918,
     "film-noise": 16,
@@ -319,14 +319,11 @@
   ],
   "finished_at": "2026-10-19T09:03:32Z",
   "items_by_register": {
-    "BCAP-002": 427,
-    "BCAP-001": 653,
-    "BCAP-003": 169,
+    "BCAP-002": 429,
+    "BCAP-001": 655,
+    "BCAP-003": 170,
     "BCAP-004": 123
   },
-  "seeds_in_corpus": 29,
-  "seeds_missing": [
-    "https://www.forbes.com/sites/alexkonrad/2019/03/19/life-after-facebook--the-untold-story-of-billionaire-eduardo-saverins-highly-networked-venture-firm/",
-    "https://www.axios.com/2026/07/23/vc-job-chief-ai-officer"
-  ]
+  "seeds_in_corpus": 31,
+  "seeds_missing": []
 }

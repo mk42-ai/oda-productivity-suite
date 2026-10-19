@@ -152,9 +152,14 @@ def slug_title(u: str) -> str:
   s = seg[-1] if seg else u
   s = re.sub(r"\.html?$|-\d{6,}$|-[0-9a-f]{8}$|^\d+$", "", s)
   return re.sub(r"[-_]+", " ", s).strip().capitalize() or u
+SEED_EXCERPTS = {
+  "life-after-facebook": "Forbes cover story by Alex Konrad on Eduardo Saverin and B Capital Group, the venture firm he co-founded with Raj Ganguly.",
+  "vc-job-chief-ai-officer": "Axios Pro Rata: B Capital names a chief AI officer — venture firms are creating the role; B Capital, Eduardo Saverin's firm, among them.",
+}
 def run_seeds():
   for u in SEEDS:
-    enqueue(0, "seed", u, outlet=L.host_of(u), title=slug_title(u), date=L.date_from_url(u))
+    ex = next((v for k, v in SEED_EXCERPTS.items() if k in u), None)
+    enqueue(0, "seed", u, outlet=L.host_of(u), title=slug_title(u), date=L.date_from_url(u), excerpt=ex)
   stage.log(f"seeds queued: {len(SEEDS)}")
 
 # ---------------------------------------------------------------- 2. OUTLET SEARCH / TAG PAGES ----------------------------------------

@@ -9,3 +9,4 @@ dist/
 .vercel
 data/b-social.db
 data/sweep/base-evidence.json
+__pycache__/
