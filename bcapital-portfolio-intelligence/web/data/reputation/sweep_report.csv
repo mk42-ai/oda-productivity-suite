@@ -1,0 +1,178 @@
+B Capital reputation evidence sweep — report
+run_start_utc,2026-10-18T22:54:28Z
+run_finish_utc,2026-10-19T00:03:59Z
+evidence_items,7736
+graph_nodes,760
+graph_edges,7800
+graph_isolates,133
+engine,"web/src/lib/reputation/engine runEngine + objects.ts edgeWeight (ported Rilian WHY CONNECTED math, unchanged)"
+weight_formula,"min(1, log2(1+distinct_pairs)/log2(9) × clamp(mean_idf/idf_max, 0.5, 1) × precision_factor ÷ (1 + syndication_share)); same-day-only pairs capped at 0.1"
+
+## per-register counts vs targets
+register,subject,target,kept_items,gap_vs_target,status,text_verified,query_bound_unverifiable,publisher_scope,curated_or_seed,graph_nodes,graph_edges,graph_isolates
+BCAP-001,B Capital,2000,5157,3157,met,3490,1611,44,12,599,7308,92
+BCAP-002,Eduardo Saverin,800,2971,2171,met,2070,883,0,18,405,6963,37
+BCAP-003,Raj Ganguly,600,849,249,met,711,135,0,3,225,6106,3
+BCAP-004,Karan Mohla,500,418,-82,SHORT by 82,346,69,0,3,96,3914,2
+TOTAL,unique items (multi-register items counted once),4000,7736,3736,met,,,,,760,7800,133
+note,register sum exceeds total because,1304,items carry 2+ registers
+
+## per-source / publisher counts (top 60 domains)
+publisher_domain,items,registers,first_published,last_published
+b.capital,497,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2015-10-05,2026-10-18
+linkedin.com,363,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2014-07-03,2026-10-18
+forbes.com,213,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2010-09-22,2026-10-15
+medium.com,184,BCAP-001|BCAP-002|BCAP-003,2010-10-27,2026-10-05
+techcrunch.com,162,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2010-09-21,2026-09-30
+yourstory.com,162,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2012-12-17,2026-07-23
+bloomberg.com,156,BCAP-001|BCAP-002|BCAP-003,2012-05-11,2026-10-17
+businesswire.com,140,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2016-03-21,2026-09-30
+inc42.com,125,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2015-01-19,2026-10-07
+moneycontrol.com,119,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2011-07-19,2026-10-12
+prnewswire.com,116,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2015-12-17,2026-10-14
+entrackr.com,109,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2017-09-28,2026-07-11
+fortune.com,103,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2011-01-11,2026-10-09
+youtube.com,101,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2014-04-02,2026-10-07
+vccircle.com,99,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2011-07-18,2026-08-10
+livemint.com,98,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2010-04-02,2026-10-09
+straitstimes.com,89,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2015-02-09,2026-09-03
+economictimes.indiatimes.com,83,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2015-01-18,2026-10-16
+dealstreetasia.com,78,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2015-01-21,2026-09-03
+techinasia.com,78,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2012-05-08,2026-07-23
+businesstimes.com.sg,76,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2015-06-17,2026-10-09
+wsj.com,75,BCAP-001|BCAP-002|BCAP-003,2010-09-27,2026-10-09
+business-standard.com,74,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2014-07-28,2026-09-10
+podcasts.apple.com,73,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2019-10-07,2026-10-05
+cnbc.com,71,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2011-03-31,2026-10-07
+cfi.net.cn,71,BCAP-001,2017-12-15,2026-10-02
+businessinsider.com,62,BCAP-001|BCAP-002|BCAP-003,2012-05-11,2026-09-08
+bizjournals.com,56,BCAP-001|BCAP-002|BCAP-003,2018-02-09,2026-10-14
+reuters.com,53,BCAP-001|BCAP-002|BCAP-003,2011-01-21,2026-08-10
+economictimes.com,49,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2014-01-07,2026-10-11
+timesofindia.indiatimes.com,47,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2015-08-21,2026-08-29
+alleywatch.com,45,BCAP-001|BCAP-002,2017-07-05,2026-09-26
+axios.com,40,BCAP-001|BCAP-002|BCAP-003,2017-12-15,2026-07-23
+finsmes.com,38,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2017-01-18,2026-10-15
+pulse2.com,37,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2019-04-06,2026-09-29
+finance.yahoo.com,36,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2012-05-11,2026-09-30
+insiderph.com,34,BCAP-001|BCAP-002,2024-11-13,2026-10-15
+ft.com,33,BCAP-001|BCAP-002|BCAP-003,2010-10-13,2026-08-25
+forbes.com.br,31,BCAP-001|BCAP-002|BCAP-003,2015-06-17,2026-10-05
+msn.com,30,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2017-04-07,2026-10-12
+kr-asia.com,30,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2019-04-23,2024-12-17
+forbesindia.com,29,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2013-03-22,2026-09-29
+vechirka.kiev.ua,29,BCAP-001,2017-10-03,2017-12-24
+open.spotify.com,26,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2019-02-11,2026-10-14
+tracxn.com,24,BCAP-001|BCAP-003,2023-01-04,2026-10-16
+citybiz.co,23,BCAP-001|BCAP-002|BCAP-003,2021-05-25,2026-10-16
+news.crunchbase.com,23,BCAP-001|BCAP-003,2020-08-11,2026-09-29
+podcasters.spotify.com,23,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2020-03-15,2026-07-08
+jiji.com,23,BCAP-001,2021-10-05,2024-11-03
+business.inquirer.net,22,BCAP-001,2014-02-05,2026-08-03
+ziarelive.ro,22,BCAP-002,2017-10-03,2017-12-25
+seekingalpha.com,21,BCAP-001|BCAP-002,2017-06-12,2026-09-17
+sg.finance.yahoo.com,21,BCAP-001|BCAP-002|BCAP-003,2016-01-29,2026-06-04
+techstory.in,21,BCAP-001|BCAP-002,2016-02-29,2026-02-27
+failory.com,19,BCAP-001,2021-06-09,2025-12-15
+www3.nhk.or.jp,19,BCAP-001,2017-10-09,2024-10-20
+financialexpress.com,18,BCAP-001|BCAP-002|BCAP-003|BCAP-004,2017-04-29,2026-07-20
+jp.reuters.com,18,BCAP-001,2018-10-10,2024-12-23
+fiercebiotech.com,17,BCAP-001|BCAP-003,2020-08-14,2026-10-16
+vulcanpost.com,17,BCAP-001|BCAP-002|BCAP-003,2015-06-18,2026-09-03
+(distinct domains),1737
+
+## per-platform / source_type
+platform_glyph,items
+web,6675
+linkedin,363
+podcast,277
+pr,263
+youtube,101
+video,55
+reddit,1
+facebook,1
+source_type,items
+press,6124
+first_party,497
+social,365
+podcast,278
+press_release,254
+video,153
+portfolio_news,51
+profile,13
+filing,1
+
+"## per-subagent: items collected, duration, checkpoints"
+subagent,scope,raw_rows_collected,unique_items_first_seen_by_this_subagent,duration_s,checkpoints_written,notes
+bcapital,sitemap_index + listing pagination + team/company pages,406,3,524.3,3,"sitemap_index + listing pagination + team/company pages; /wp-json disallowed by robots.txt so HTML only; 402×200, 3×404, 1 timeout"
+portfolio,136/136 company sites probed (96 with feed/listing),1123,351,529.0,6,"136/136 company sites probed (96 with feed/listing); 85 newsroom items name a subject; 1,034 '<company> B Capital' search rows; Dealroom + CB Insights 200, Crunchbase 403"
+press,28 publisher site: filters × 4 subjects (Google+Bing) + half-year dated windows 2015–2026 + GDELT per year,7334,977,1436.0,37,28 publisher site: filters × 4 subjects (Google+Bing) + half-year dated windows 2015–2026 + GDELT per year; GDELT 429 back-offs extended the run
+media,"CNBC/Bloomberg/LA Venture/Wharton/Milken/IGF seeds, YouTube search + watch pages, Apple Podcasts search API + show RSS, LinkedIn public URLs (999/403 recorded honestly), host-scoped search feeds",1179,180,263.4,6,"CNBC/Bloomberg/LA Venture/Wharton/Milken/IGF seeds, YouTube search + watch pages, Apple Podcasts search API + show RSS, LinkedIn public URLs (999/403 recorded honestly), host-scoped search feeds"
+history,"Saverin Forbes rich lists 2015–2026 (1,344 rows), Mohla Chiratae/IDG era (216), Ganguly Bain/BCG era (274)",1834,224,583.3,10,"Saverin Forbes rich lists 2015–2026 (1,344 rows), Mohla Chiratae/IDG era (216), Ganguly Bain/BCG era (274); 38 film-noise rows tagged and dropped downstream"
+orchestrator:brief-seeds,"94 URLs supplied in the brief (inputs A/B/C), each fetched",92,31,,,"60×200, 17×403 (paywalls), 9 robots-disallowed, 8×404; the two FM-Sitharaman articles were fetched and do NOT name B Capital/Saverin → excluded as instructed"
+orchestrator:prior-corpus,15:34Z sweep already in the repo (page-verified),6039,5970,,,re-normalised into the v3 schema; its provenance retained
+orchestrator:page-verification,live fetch of every NEW query-bound item,2744,,,,"433 promoted to text-verified, 1330 dropped (page read, no subject named), 981 unverifiable (403/401/timeout) kept flagged match_basis=query"
+
+## dedup statistics
+raw_rows_ingested,17969
+google_news_ids_resolved,"3,933 of 4,139 new ids (plus 5,027 from the earlier sweep)"
+dropped_unreadable_pages_not_search_confirmed,25
+dropped_no_usable_url,21
+url_duplicates_removed,8112
+text_hash_duplicates_removed,260
+film_noise_removed,251
+offtopic_karan_noise_removed,7
+no_register_resolvable_removed,190
+verify_mention_failed_removed,2
+page_verified_no_mention_removed,1330
+undated_rejected_to_undated_rejects_json,75
+kept_unique,7736
+items_with_conflicting_dates_kept_both,419
+items_tagged_with_portfolio_companies,1640
+
+## items by publication year
+year,items
+2009,2
+2010,22
+2011,25
+2012,127
+2013,23
+2014,67
+2015,174
+2016,178
+2017,594
+2018,365
+2019,479
+2020,368
+2021,914
+2022,627
+2023,546
+2024,709
+2025,901
+2026,1615
+
+## graph
+items,7736
+posts,8718
+nodes,760
+member_nodes,756
+node_kinds,"{""portfolio_company"": 136, ""subject"": 4, ""social_account"": 26, ""podcast"": 24, ""publisher"": 567, ""press_wire"": 3}"
+edges,7800
+edge_types,"{""co-hashtag"": 5538, ""co-link"": 101, ""co-text"": 13, ""co-reply"": 229, ""co-share"": 1919}"
+isolates,133
+hub_edges,1012
+trail_invariant_violations,0
+engine_ms,2119
+total_ms,2398
+communities,10
+modularity,0.335
+params,"{""window_seconds"": 86400, ""min_weight"": 0.02, ""min_items_per_node"": 2, ""max_posts_per_node"": 60, ""max_hub_posts"": 600, ""text_threshold"": 0.6}"
+isolate_ids,li·linkedin/ganguly;pod·Building Our Future | Substack;pod·Hardware FYI | Substack;pod·Outcomes Rocket;pod·Receivables Podcast | Discussions About Debt Collection;pod·we all are robots;pub·24.com.eg;pub·247wallst.com;pub·akhbar-alkhaleej.com;pub·alayam.com;pub·albawabhnews.com;pub·alsharqtimes.com;pub·arabic.arabianbusiness.com;pub·argusleader.com;pub·asahi.com;pub·b1.ro;pub·bcapgroup.com;pub·beinsure.com;pub·binance.com;pub·blog.jrj.com.cn;pub·blogs.wsj.com;pub·blogs.yahoo.co.jp;pub·breitbart.com;pub·businessoutreach.in;pub·bzi.ro;pub·caijing.com.cn;pub·capitalxtra.com;pub·caproasia.com;pub·cb.com.cn;pub·china.hket.com;pub·chunichi.co.jp;pub·citimuzik.com;pub·cnet.com;pub·company.stcn.com;pub·constructiondive.com;pub·cybersecurityventures.com;pub·dakota.com;pub·dawnnews.tv;pub·economist.com;pub·edtimes.in;pub·eenadu.net;pub·eeo.com.cn;pub·eg.alnabaa.net;pub·elbashayeronline.com;pub·elfagr.com;pub·entrelineas.com.mx;pub·excite.co.jp;pub·express.co.uk;pub·forbes.co.il;pub·forward.com;pub·freerepublic.com;pub·gadgetsnow.com;pub·gate.ahram.org.eg;pub·globaldatacenterhub.com;pub·gobankingrates.com;pub·inc.com;pub·invest.hket.com;pub·itbear.com.cn;pub·japan.cnet.com;pub·jeffreydorsch.medium.com;pub·jiji.com;pub·jp.reuters.com;pub·kahoku.co.jp;pub·kaixian.tv;pub·kantei.go.jp;pub·kyodo.co.jp;pub·latintimes.com;pub·lawyersweekly.com.au;pub·localnews8.com;pub·loksatta.com;pub·machine-learning-made-simple.medium.com;pub·markets.co;pub·marketwatch.com;pub·mikefernandez.medium.com;pub·moguldom.com;pub·money.ycwb.com;pub·moneymorning.com;pub·mouthshut.com;pub·new.qq.com;pub·news-journal.com;pub·news.cnfol.com;pub·news.cts.com.tw;pub·news.mingpao.com;pub·news.sina.com.tw;pub·news.tbs.co.jp;pub·news.xinhuanet.com;pub·news.yam.md;pub·newyorkyimby.com;pub·nikkan.co.jp;pub·njbiz.com;pub·pctechmag.com;pub·premium.goauto.com.au;pub·real-leaders.com;pub·sabq.org;pub·sakshi.com;pub·sbsc.stock.cnfol.com;pub·sc.stock.cnfol.com;pub·scallywagandvagabond.com;pub·slashfilm.com;pub·sohu.com;pub·sportsbusinessjournal.com;pub·stock.eastmoney.com;pub·thairath.co.th;pub·thedailybeast.com;pub·therichest.com;pub·thoughtco.com;pub·trust.jrj.com.cn;pub·udn.com;pub·unosanrafael.com.ar;pub·utilitydive.com;pub·uzmanpara.milliyet.com.tr;pub·vanityfair.com;pub·vechirka.kiev.ua;pub·vocal.media;pub·voi.id;pub·worldatlas.com;pub·worldjournal.com;pub·www2.hkej.com;pub·www3.nhk.or.jp;pub·ziarelive.ro;pub·ziuanews.ro;yt·CNBC International;yt·Entrepreneur Media;yt·India Global Forum;yt·Technologies For Tomorrow;1au;judi-rx;meditrust;zaihui;xingyun;infrahub;linkmore;sharpa
+
+## remaining gaps and recommended next sweeps
+register,gap,explanation,recommended next sweep
+BCAP-004 Karan Mohla,"82 short of 500 (418 kept, 346 text-verified)","Genuine coverage ceiling from open sources: 1,785 raw rows across two sweeps collapse to ~420 unique after dedup, the bare-word 'Karan'/'Mohla' noise filter and page verification. His footprint is Indian startup press quoting him in portfolio rounds (Chiratae/IDG 2014-21, B Capital Ascent 2022-26).","(1) LinkedIn activity archive via an authenticated export (HTTP 999 to scripts); (2) ET Prime / Mint Premium / BS Premium bodies behind paywalls (403); (3) podcast transcripts (Spotify/Apple episode pages are JS-only); (4) Hindi/regional business press (Moneycontrol Hindi, Navbharat Times, Mint Hindi) not yet queried; (5) event speaker pages (Inc42 MoneyX, Money20/20 ME, IGF, SaaSBoomi)"
+BCAP-003 Raj Ganguly,met (849 ≥ 600),Text-verified 711; query-bound remainder is mostly paywalled Bloomberg/FT/WSJ video and article pages.,"Bloomberg TV / CNBC transcript archives; Bain Capital-era (2005-2014) coverage is thin in Google News — try newspaper archives (Boston Globe, Reuters archive)"
+BCAP-002 Eduardo Saverin,"met (2,971 ≥ 800)",Film noise (The Social Network / Social Reckoning / Garfield / Eisenberg / Sorkin) removed: 251 rows this run + 287 in the earlier sweep.,"Portuguese-language Brazilian press (Folha, Estadão, Valor, Exame) and Singapore Chinese-language press (Lianhe Zaobao) for the rich-list and Liverpool/1892 Holdings story"
+BCAP-001 B Capital,"met (5,157 ≥ 2,000)","1,611 items remain query-bound (publisher pages unreadable to scripts: Bloomberg, FT, WSJ, Reuters, Business Times SG paywalls).",Portfolio-company press releases via PR Newswire / Business Wire search APIs (their HTML search is 403); Dealroom/Crunchbase/PitchBook via licensed API; Wayback for the 2016-2019 bcapgroup.com Medium posts (medium.com direct is 403/404)
+all,platform depth,"X/Twitter (0 items — x.com is script-hostile), Instagram (0), Reddit (1): social-native coverage is essentially absent without authenticated APIs.","X API v2 recent/full-archive search with a bearer token; Reddit API (OAuth) for r/singapore, r/india, r/startups mentions"

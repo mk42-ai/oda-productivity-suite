@@ -1,0 +1,128 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { Cpu, HeartPulse, Zap } from "lucide-react";
+import Link from "next/link";
+import { listCompanies, getPortfolio, getRuns, getAllNews, getSignals, getSentimentRuns } from "@/lib/api";
+import { PageHeader } from "@/components/shell/page-header";
+import { KpiTiles } from "@/components/overview/kpi-tiles";
+import { HeroStats } from "@/components/overview/hero-stats";
+import { TopMovers } from "@/components/overview/top-movers";
+import { Filters } from "@/components/overview/filters";
+import { StatusChips } from "@/components/overview/status-chips";
+import { HeatmapSSR } from "@/components/charts/heatmap-ssr";
+import { TreemapSSR } from "@/components/charts/treemap-ssr";
+import { PagedTable } from "@/components/overview/paged-table";
+import { HBar } from "@/components/charts/hbar";
+import { SignalBullet, SignalMini } from "@/components/charts/signal-bullet";
+import { EstimateBadge } from "@/components/overview/estimate-badge";
+import { NewsMiniFeed } from "@/components/overview/news-mini-feed";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import OverviewSkeleton from "./loading";
+import { statusChips, PORTFOLIO_EVENTS } from "@/lib/status";
+import { fmtUsd, fmtPct, fmtScore, fmtDelta, SECTORS } from "@/lib/format";
+import workflows from "@/data/workflows.json";
+
+export const metadata: Metadata = { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates.", openGraph: { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." }, twitter: { title: "Portfolio Overview", description: "B Capital portfolio overview: 136 records, sector/region treemap, KPI heatmap, Signal Score bullets, status events and flagged ownership estimates." }, alternates: { canonical: "/overview" } };
+export const revalidate = 120;
+const SECTOR_ICON = { Technology: Cpu, Healthcare: HeartPulse, "Energy & Resilience": Zap } as const;
+
+export default function OverviewPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
+  // a26: the fallback is kept at least one viewport tall so the shell footer stays below the fold while the body streams in
+  // (measured before: the ONLY layout shift on /overview was the footer jumping when the skeleton was replaced, CLS 0.0685).
+  return <Suspense fallback={<div className="min-h-screen"><OverviewSkeleton /></div>}><OverviewBody searchParams={searchParams} /></Suspense>;
+}
+async function OverviewBody({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
+  const sp = await searchParams;
+  const [cs, pf, runs, news, sig, sruns] = await Promise.all([listCompanies(), getPortfolio(), getRuns(), getAllNews(), getSignals(), getSentimentRuns()]);
+  // Real-data sparklines for the stat tiles: portfolio mean per scoring run (oldest → newest) and news items per day (last 14 dated days).
+  const sentimentSeries = [...sruns.data.data].filter((r) => typeof r.avg_score === "number").sort((a, b) => a.started_at.localeCompare(b.started_at)).map((r) => r.avg_score as number);
+  const newsByDay = new Map<string, number>(); for (const n of news.data) { const d = n.published_at?.slice(0, 10); if (d && /^\d{4}-\d{2}-\d{2}$/.test(d)) newsByDay.set(d, (newsByDay.get(d) ?? 0) + 1); }
+  const newsSeries = [...newsByDay.entries()].sort((a, b) => a[0].localeCompare(b[0])).slice(-14).map(([, v]) => v);
+  const sigBy = new Map(sig.data.data.map((x) => [x.slug, x]));
+  const sectorSig = (s: string) => { const xs = sig.data.data.filter((x) => x.sector === s); const agg = sig.data.sectors[s]; return agg ? { ...agg, confidence: xs.length ? xs.reduce((a, x) => a + x.confidence, 0) / xs.length : 0 } : null; };
+  const all = cs.data.filter((c) => c.b_capital_role !== "firm");
+  const newsCount = new Map<string, number>(Object.entries(news.perCompany)); // backend's per-company count (one definition), never a client re-sum
+  const lastRun = runs.data.find((r) => r.workflowName && r.workflowName !== "smoke") ?? runs.data[0];
+  const uniq = (xs: (string | null)[]) => [...new Set(xs.filter((x): x is string => !!x))].sort();
+  const stageOf = (c: typeof all[number]) => c.stage ? (c.stage.match(/Series [A-Z]|Seed|IPO|Public|Growth|Late-stage/i)?.[0] ?? "Other") : "Unknown";
+  const statusOf = (c: typeof all[number]) => c.status.startsWith("public") ? "public" : c.status.includes("unicorn") ? "unicorn" : c.status.includes("renamed") ? "renamed" : c.status.includes("merged") ? "merged" : "private";
+  const filtered = all.filter((c) => (!sp.sector || c.sector === sp.sector) && (!sp.region || c.region === sp.region) && (!sp.stage || stageOf(c) === sp.stage) && (!sp.status || statusOf(c) === sp.status) && (!sp.role || c.b_capital_role === sp.role));
+  const rows = filtered.map((c) => ({ ...c, newsCount: newsCount.get(c.slug) ?? 0 }));
+  const groupBy: "sector" | "region" = sp.group === "region" ? "region" : "sector";
+  const group = (key: "sector" | "region") => ({ name: "Portfolio", children: uniq(filtered.map((c) => c[key])).map((g) => ({ name: g, children: filtered.filter((c) => c[key] === g).map((c) => ({ name: c.name, slug: c.slug, value: Math.max(c.estimated_ticket_size_usd ?? 0, 2_000_000), score: c.sentiment.score })) })) });
+  // Heatmap: focus companies + top movers + most-covered, capped at 24 rows for legibility; full table below covers the rest.
+  const maxNews = Math.max(1, ...rows.map((r) => r.newsCount));
+  const recency = (c: typeof all[number]) => { const d = c.latest_news?.map((n) => n.published_at).filter(Boolean).sort().at(-1); if (!d) return 0; const days = (Date.parse("2026-10-09") - Date.parse(d)) / 864e5; return Math.max(0, Math.min(100, Math.round(100 - days / 7.3))); };
+  const heatRows = [...rows].sort((a, b) => (Number(b.is_focus) - Number(a.is_focus)) || (Math.abs(b.sentiment.delta ?? 0) - Math.abs(a.sentiment.delta ?? 0)) || (b.newsCount - a.newsCount)).slice(0, 24)
+    .map((c) => ({ id: c.name, slug: c.slug, data: [{ x: "Sentiment", y: Math.round((c.sentiment.score + 1) * 50) }, { x: "News volume", y: Math.round((c.newsCount / maxNews) * 100) }, { x: "Funding recency", y: recency(c) }] }));
+  const chips = [...all.flatMap((c) => statusChips(c).map((chip) => ({ chip, name: c.name, slug: c.slug }))), ...PORTFOLIO_EVENTS.map((chip) => ({ chip, name: "Synack", slug: null as string | null }))].sort((a, b) => (b.chip.date ?? "").localeCompare(a.chip.date ?? ""));
+  const sectorRoll = (s: string) => pf.data.sectors.find((r) => r.key === s);
+  const est = [...all].filter((c) => c.estimated_ticket_size_usd).sort((a, b) => (b.estimated_ticket_size_usd ?? 0) - (a.estimated_ticket_size_usd ?? 0)).slice(0, 10);
+  const counts = { public: all.filter((c) => statusOf(c) === "public").length, unicorn: all.filter((c) => statusOf(c) === "unicorn").length, renamed: all.filter((c) => statusOf(c) === "renamed").length };
+  return (
+    <>
+      
+      <PageHeader title="Overview" lede={`${all.length} companies · sentiment scored daily 06:00 UTC`} sources={[{ name: "companies", source: cs.source }, { name: "portfolio sentiment", source: pf.source }, { name: "ingest runs", source: runs.source }, { name: "news", source: news.source }, { name: "signals", source: sig.source }]} fetchedAt={cs.fetched_at} />
+      <HeroStats sentimentMean={all.length ? all.reduce((a, c) => a + c.sentiment.score, 0) / all.length : null} sentimentDeltaMean={(() => { const ds = all.map((c) => c.sentiment.delta).filter((d): d is number => typeof d === "number"); return ds.length ? ds.reduce((a, d) => a + d, 0) / ds.length : null; })()} companies={all.length} newsTotal={news.total} lastRunAt={lastRun?.receivedAt ?? null} sentimentSeries={sentimentSeries} newsSeries={newsSeries} />
+      <KpiTiles tiles={[
+        { label: "Companies", hint: "Portfolio records, B Capital firm record excluded", value: String(all.length), sub: `${all.filter((c) => c.in_brand_matrix).length} in brand matrix` },
+        { label: "News items", hint: "News items stored by the backend across all companies", value: news.total.toLocaleString("en-US"), spark: newsSeries, sparkLabel: "News items per day, last 14 days", sub: `across ${Object.keys(news.perCompany).length} companies · backend /news/summary` },
+        { label: "Sectors", hint: "Distinct sectors across the portfolio", value: String(uniq(all.map((c) => c.sector)).length), sub: SECTORS.join(" · ") },
+        { label: "Public / IPO", hint: "Portfolio companies that are publicly listed", value: String(counts.public), sub: "Fervo (FRVO), Meesho" },
+        { label: "Unicorn / renamed", hint: "Companies valued at $1B+ / companies that changed name", value: `${counts.unicorn} / ${counts.renamed}`, sub: "Code Metal · Judi Rx" },
+        { label: "Portfolio Signal Score", hint: "Mean evidence-weighted Signal Score, 0–100", value: sig.data.portfolio.n ? `${Math.round(sig.data.portfolio.mean)} / 100` : "—", sub: sig.data.portfolio.n ? `p25–p75 ${Math.round(sig.data.portfolio.p25)}–${Math.round(sig.data.portfolio.p75)} · ${sig.data.portfolio.n} scored` : `sentiment ${fmtScore(pf.data.portfolio?.avg_score ?? 0)} · signals offline` },
+        { label: "Last workflow run", hint: "When the most recent workflow run was received (UTC)", value: lastRun ? lastRun.receivedAt.slice(11, 16) + " UTC" : "—", sub: lastRun ? `${lastRun.workflowName ?? lastRun.source} · ${lastRun.receivedAt.slice(0, 10)}` : "no runs yet" },
+      ]} />
+      {/* verdict → movement → news: Top movers (span 5) and News Pulse (span 7) share one bento row */}
+      <div className="overview-bento mt-5">
+      <TopMovers movers={[...all].sort((a, b) => Math.abs(b.sentiment.delta ?? 0) - Math.abs(a.sentiment.delta ?? 0)).slice(0, 6).map((c) => ({ slug: c.slug, name: c.name, sector: c.sector, score: c.sentiment.score, delta: c.sentiment.delta ?? null, prior_run_at: c.sentiment.prior_run_at ?? null, logo_url: c.logo_url }))} lastRunAt={lastRun?.receivedAt ?? null} />
+      <NewsMiniFeed items={news.data.slice(0, 8).map((n) => ({ title: n.title, url: n.url, source: n.source, published_at: n.published_at, company_name: n.company_name, company_slug: n.company_slug }))} total={news.total} />
+      </div>
+      <Suspense fallback={<Skeleton className="mb-6 h-24 w-full" />}>
+        <Filters sectors={uniq(all.map((c) => c.sector))} regions={uniq(all.map((c) => c.region))} stages={uniq(all.map(stageOf))} statuses={["private", "public", "unicorn", "renamed", "merged"]} />
+      </Suspense>
+      <p className="mb-4 text-sm text-muted" role="status">{filtered.length === all.length ? `Showing all ${all.length} companies` : `Showing ${filtered.length} of ${all.length} companies`}</p>
+
+      <div className="overview-bento grid gap-5 xl:grid-cols-3">
+        <Card className="xl:col-span-2" id="treemap" data-bento="treemap" elevate><CardHeader><CardTitle>Sector / region treemap</CardTitle><CardDescription>Tile size = estimated B Capital ticket (flagged estimates, min $2M floor for visibility); click a tile to open the company.</CardDescription></CardHeader>
+          <CardContent>
+            <div role="radiogroup" aria-label="Group treemap by" className="mb-3 inline-flex h-10 items-center rounded-lg bg-surface-2 p-1">
+              {(["sector", "region"] as const).map((m) => { const p = new URLSearchParams(Object.entries(sp).filter(([k, v]) => v && k !== "e2e") as [string, string][]); p.set("group", m); return <a key={m} href={`/overview?${p.toString()}#treemap`} role="radio" aria-checked={groupBy === m} className={`inline-flex min-h-8 items-center rounded-md px-3 text-sm font-medium focus-visible:outline-3 focus-visible:outline-ring ${groupBy === m ? "bg-surface text-foreground shadow" : "text-muted"}`}>By {m}</a>; })}
+            </div>
+            {filtered.length ? <TreemapSSR data={group(groupBy)} mode={groupBy} /> : <p className="text-sm text-muted">No companies match these filters.</p>}
+          </CardContent></Card>
+        <Card data-bento="sector-signal" elevate><CardHeader><CardTitle>Signal Score by sector</CardTitle><CardDescription>Sector mean of the evidence-weighted Signal Score, 0–100 · bar opacity = mean confidence · tick = sector median</CardDescription></CardHeader>
+          <CardContent className="grid grid-cols-1 gap-3 sm:grid-cols-3 xl:grid-cols-1">
+            {(["Technology", "Healthcare", "Energy & Resilience"] as const).map((s) => { const r = sectorSig(s); const roll = sectorRoll(s); const Icon = SECTOR_ICON[s]; return (
+              <div key={s} className="flex items-center gap-3 rounded-lg border border-border bg-surface p-3">
+                <span className="hidden size-10 shrink-0 place-items-center rounded-md border border-border bg-surface-2 text-muted sm:grid" aria-hidden><Icon className="size-5" strokeWidth={1.75} /></span>
+                <div className="min-w-0 flex-1"><p className="text-sm font-semibold">{s}</p>
+                  {r ? <><SignalBullet size="md" score={r.mean} confidence={r.confidence} name={`${s} sector mean`} bands={{ sector: { p25: r.p25, median: r.mean, p75: r.p75 }, portfolio: { p25: sig.data.portfolio.p25, median: sig.data.portfolio.mean, p75: sig.data.portfolio.p75 } }} sparkline={null} className="mt-1" /><p className="mt-1 text-xs text-muted tabular-nums">{r.n} companies · p25–p75 {Math.round(r.p25)}–{Math.round(r.p75)} · Δ sentiment {fmtDelta(roll?.delta)}</p></> : <p className="text-xs text-muted">{roll?.company_count ?? 0} companies · Signal Score offline</p>}
+                </div>
+              </div>); })}
+          </CardContent></Card>
+      </div>
+
+      <div className="overview-bento mt-5 grid min-w-0 gap-5 xl:grid-cols-2">
+        <Card className="min-w-0" data-bento="heatmap" elevate><CardHeader><CardTitle>KPI heatmap</CardTitle><CardDescription>Rows: focus companies + top movers (24). Columns scaled 0–100: sentiment, news volume, funding recency.</CardDescription></CardHeader><CardContent><HeatmapSSR rows={heatRows} /></CardContent></Card>
+        <Card className="min-w-0" data-bento="estimates" elevate><CardHeader><CardTitle>Estimated ownership & ticket</CardTitle><CardDescription>Every value is a flagged estimate — hover/focus the badge for <code>estimate_confidence</code> + <code>estimate_rationale</code>.</CardDescription></CardHeader>
+          <CardContent>
+            <HBar ariaLabel="Top 10 estimated B Capital ticket sizes in USD" data={est.map((c) => ({ name: c.name, value: c.estimated_ticket_size_usd ?? 0, color: c.estimate_confidence === "medium" ? "var(--chart-2)" : c.estimate_confidence === "high" ? "var(--chart-1)" : "var(--chart-3)" }))} format={(v) => fmtUsd(v)} />
+            <ul className="mt-3 divide-y divide-border text-sm">
+              {est.slice(0, 6).map((c) => <li key={c.slug} className="flex flex-wrap items-center justify-between gap-2 py-2"><Link href={`/company/${c.slug}`} className="font-medium underline-offset-2 hover:underline">{c.name}</Link><span className="tabular-nums text-muted">{fmtUsd(c.estimated_ticket_size_usd)} · {fmtPct(c.estimated_ownership_pct)} · {c.b_capital_role}</span><EstimateBadge confidence={c.estimate_confidence} rationale={c.estimate_rationale} /></li>)}
+            </ul>
+          </CardContent></Card>
+      </div>
+
+      <Card className="mt-5" elevate><CardHeader><CardTitle>Status events</CardTitle><CardDescription>IPO · rebrand · acquired · unicorn · funding — from the status-change register (dates verified 2026-10-09).</CardDescription></CardHeader><CardContent><StatusChips items={chips} /></CardContent></Card>
+
+      <Card className="mt-5" data-bento="top-movers-row" elevate><CardHeader><CardTitle>Top movers</CardTitle><CardDescription>Largest sentiment deltas vs the previous workflow run</CardDescription></CardHeader>
+        <CardContent><ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">{pf.data.top_movers.slice(0, 5).map((m) => <li key={m.slug} className="rounded-lg border border-border bg-surface-2 p-3"><Link href={`/company/${m.slug}`} className="font-medium underline-offset-2 hover:underline">{m.name}</Link><p className="mt-1 flex flex-wrap items-center gap-2 text-sm tabular-nums">{sigBy.get(m.slug) ? <SignalMini score={sigBy.get(m.slug)!.score} confidence={sigBy.get(m.slug)!.confidence} percentile={sigBy.get(m.slug)!.percentile} label={sigBy.get(m.slug)!.label} name={m.name} /> : null}<span>{sigBy.get(m.slug) ? sigBy.get(m.slug)!.score : fmtScore(m.score)}</span> <Badge tone={m.delta >= 0 ? "primary" : "danger"}>{fmtDelta(m.delta)}</Badge></p><p className="text-xs text-muted">{m.sector} · {m.label}</p></li>)}</ul></CardContent></Card>
+
+      <Card className="mt-5" data-bento="table" elevate><CardHeader><CardTitle>All companies ({rows.length})</CardTitle><CardDescription>Every portfolio company in one table. <Link href="/companies" data-testid="open-full-list" className="font-medium text-foreground underline underline-offset-2">Open the full list →</Link></CardDescription></CardHeader>
+        <CardContent><PagedTable rows={rows.sort((a, b) => a.name.localeCompare(b.name)).map((c) => ({ slug: c.slug, name: c.name, logo_url: c.logo_url, sector: c.sector, region: c.region, b_capital_role: c.b_capital_role, estimated_ticket_size_usd: c.estimated_ticket_size_usd, estimated_ownership_pct: c.estimated_ownership_pct, estimate_confidence: c.estimate_confidence, estimate_rationale: c.estimate_rationale, is_focus: c.is_focus, score: c.sentiment.score, delta: c.sentiment.delta ?? null, newsCount: c.newsCount, signal: sigBy.get(c.slug)?.score ?? null, signal_confidence: sigBy.get(c.slug)?.confidence ?? null, signal_percentile: sigBy.get(c.slug)?.percentile ?? null }))} caption="Portfolio companies with Signal Score, sentiment delta, news count and flagged estimates" /></CardContent></Card>
+    </>
+  );
+}

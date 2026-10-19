@@ -1,0 +1,16 @@
+/* Overview stat tiles — Caribbean Green #0AC985 accent line + green ink numbers; no blue. */
+.kpi-tile {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-4, 16px);
+  border-color: #e9eef0;
+  background: linear-gradient(180deg, #f6fdf9 0%, #ffffff 60%);
+  transition: transform 160ms var(--motion-ease, ease), box-shadow 160ms var(--motion-ease, ease);
+}
+.kpi-tile::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: #0AC985; }
+.kpi-tile:hover { transform: translateY(-2px); box-shadow: var(--elev-lift); }
+.kpi-tile__label { font-size: var(--fs-2xs, 10px); line-height: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4b5563; }
+.kpi-tile__value { margin: 4px 0 0; font-size: var(--fs-xl, 24px); line-height: 30px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--brand-green-ink, #067a52); }
+.kpi-tile__spark { margin: 4px 0 0; line-height: 0; }
+.kpi-tile__sub { margin: 4px 0 0; padding-top: 6px; border-top: 1px solid #eef3f1; font-size: var(--fs-xs, 12px); line-height: 16px; color: #5c6168; }
+@media (prefers-reduced-motion: reduce) { .kpi-tile { transition: none; } .kpi-tile:hover { transform: none; } }

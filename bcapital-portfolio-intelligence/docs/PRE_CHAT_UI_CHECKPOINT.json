@@ -1,0 +1,15 @@
+{
+  "tag": "pre-chat-ui-upgrade-checkpoint",
+  "branch": "fix/navigation-crashes-20261014",
+  "base_commit": "99d9dbabb2b7548f48b035062cf74d289bfc7869",
+  "created_at": "2026-10-15T03:42:00Z",
+  "preserved_state": {
+    "companies_count": 136,
+    "social_native_posts": 10937,
+    "social_verified": 10445,
+    "social_unverified": 492,
+    "news_items": 2100,
+    "sentiment_provenance_engine": "web/src/lib/sentiment-provenance.ts",
+    "sentiment_provenance_view": "web/src/components/companies/sentiment-provenance-view.tsx"
+  }
+}

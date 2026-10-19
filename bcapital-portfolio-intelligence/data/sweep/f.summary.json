@@ -1,0 +1,89 @@
+{
+  "class": "f",
+  "items": 500,
+  "dropped": {
+    "film-noise": 14,
+    "off-subject": 332,
+    "dup": 1,
+    "namesake": 2
+  },
+  "file": "data/sweep/f.jsonl",
+  "per_register": {
+    "BCAP-002": 394,
+    "BCAP-003": 80,
+    "BCAP-004": 87
+  },
+  "film_noise_dropped": 14,
+  "namesake_dropped": 2,
+  "rejects_file_totals": {
+    "film-noise": 14,
+    "namesake": 2,
+    "off-subject": 332
+  },
+  "gnews_queries": 297,
+  "gnews_rows": 1935,
+  "gnews_resolved": 676,
+  "gnews_unresolved": 5,
+  "bing_rows": 27,
+  "tag_pages_tried": 23,
+  "tag_links": 177,
+  "candidates": 878,
+  "fetched": 856,
+  "http_status_counts": {
+    "403": 152,
+    "200": 693,
+    "0": 7,
+    "404": 3,
+    "999": 6,
+    "410": 1,
+    "202": 5,
+    "302": 1,
+    "429": 1,
+    "520": 3,
+    "405": 1
+  },
+  "seed_status": {
+    "https://www.forbes.com/profile/eduardo-saverin/": "resumed",
+    "https://bilyonaryo.com/singapores-50-richest-worth-239b-facebook-co-founder-eduardo-saverin-stays-no-1-for-4th-year/": "resumed",
+    "https://www.asiaone.com/money/singapore-50-richest-list-2026-eduardo-saverin-ocbc-lee-family": "resumed",
+    "https://malaysia.news.yahoo.com/eduardo-saverin-keeps-singapore-rich-033139936.html": "resumed",
+    "https://www.forbes.com/sites/naazneenkarmali/2017/12/08/facebook-co-founder-eduardo-saverin-becomes-singapores-richest-person/": 403,
+    "https://yourstory.com/tag/karan-mohla": "tag-page",
+    "https://yourstory.com/2020/08/investors-startup-pitching-tips-chiratae-ventures-karan-mohla": "resumed",
+    "https://www.crunchbase.com/person/raj-ganguly": 403,
+    "https://www.bcg.com/about/people/experts/raj-ganguly": 403,
+    "https://www.velospartners.com/": 0
+  },
+  "run_added": {
+    "BCAP-002": 390,
+    "BCAP-003": 79,
+    "BCAP-004": 86
+  },
+  "duration_s": 567.9,
+  "blockers": [
+    "seed forbes.com HTTP 403: https://www.forbes.com/sites/naazneenkarmali/2017/12/08/facebook-co-founder-eduardo-saverin-becomes-singapores-richest-person/",
+    "seed crunchbase.com HTTP 403: https://www.crunchbase.com/person/raj-ganguly",
+    "seed bcg.com HTTP 403: https://www.bcg.com/about/people/experts/raj-ganguly",
+    "seed velospartners.com HTTP 0: https://www.velospartners.com/",
+    "tag page outlookbusiness.com HTTP 999",
+    "tag page axios.com HTTP 403"
+  ],
+  "samples": [
+    {
+      "title": "Singapore’s 50 richest worth $239B; Facebook co-founder Eduardo Saverin stays No.1 for 4th year",
+      "published_at": "2026-09-03T14:19:07Z",
+      "url": "https://bilyonaryo.com/singapores-50-richest-worth-239b-facebook-co-founder-eduardo-saverin-stays-no-1-for-4th-year"
+    },
+    {
+      "title": "Singapore's 50 Richest List 2026: Eduardo Saverin tops ranking; OCBC's Lee family posts biggest gain",
+      "published_at": "2026-09-03T09:55:00Z",
+      "url": "https://asiaone.com/money/singapore-50-richest-list-2026-eduardo-saverin-ocbc-lee-family"
+    },
+    {
+      "title": "Eduardo Saverin keeps Singapore rich-list crown despite US$10b hit, OCBC-linked Lee family fortune surges",
+      "published_at": "2026-09-04T03:31:39Z",
+      "url": "https://malaysia.news.yahoo.com/eduardo-saverin-keeps-singapore-rich-033139936.html"
+    }
+  ],
+  "finished_at": "2026-10-19T08:51:19Z"
+}
