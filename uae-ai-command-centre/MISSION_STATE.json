@@ -11,18 +11,20 @@
   "rollback_tag": "bcap-pre-uae-20261020T2130Z",
   "rollback_tag_pushed": false,
   "last_ready_vercel": "bcapital-portfolio-intelligence-8zsb-miu2fubxg.vercel.app (2026-10-13, branch bcapital-pitchbook-batch-20261013)",
-  "note": "All 15 Vercel git deployments of this project since 2026-10-18 are ERROR MISSING_SERVICES (project framework=services, vercel.json not at repo root)."
+  "note": "All 15 Vercel git deployments of this project since 2026-10-18 are ERROR MISSING_SERVICES (project framework=services, vercel.json not at repo root).",
+  "rollback_tag_note": "The github skill has no tag-push tool, so the tag stays local. The original state remains on GitHub as branch fix/news-summary-rewrite-live-verify-20261020 @ 816aaae (verified via API)."
  },
  "new": {
   "branch": "uae-ai-command-centre",
   "app_path": "uae-ai-command-centre/",
-  "pushed": false,
-  "pr_url": null,
+  "pushed": true,
+  "pr_url": "https://github.com/mk42-ai/oda-productivity-suite/pull/7",
   "preview_url": "https://sb-6x7pgj362xe9.vercel.run",
   "sandbox_id": "sbx_m8HCn4AgQdbdH8a3PgQGT7UVkmVr",
   "sandbox_timeout": "5h from 2026-10-20T23:10Z (expires ≈2026-10-21T04:10Z)",
   "previous_preview": "https://sb-z90e15nd4zdq.vercel.run (sbx_oCUdlLdV44vl8M7VZxuSGAsPLIeu, superseded)",
-  "base_commit": "2515e93"
+  "base_commit": "2515e93",
+  "pushed_commit": "6f39f7d"
  },
  "data": {
   "namespace": "uae_cc_v1",
@@ -68,7 +70,8 @@
  "blockers": [
   "Sandbox previews are ephemeral (5 h). There is no permanent deployment of the new app yet.",
   "Ingest results live in the OnDemand execution store and are not merged into the committed seed JSON (by design: no persistent app volume).",
-  "The checkpoint workflow persists the snapshot synced by `npm run resume` / `workflows.mjs sync-checkpoint`. OnDemand cannot read repo files on its own, so a fire between syncs re-persists the last synced snapshot."
+  "The checkpoint workflow persists the snapshot synced by `npm run resume` / `workflows.mjs sync-checkpoint`. OnDemand cannot read repo files on its own, so a fire between syncs re-persists the last synced snapshot.",
+  "Rollback tag bcap-pre-uae-20261020T2130Z is local only (no tag-push tool in the github skill). Branch fix/news-summary-rewrite-live-verify-20261020 on GitHub still points at 816aaae."
  ],
  "phases": {
   "P1": "done",
