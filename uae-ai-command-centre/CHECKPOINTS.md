@@ -24,5 +24,6 @@
 | 2026-10-20T23:27Z | Fixes: brand line, /api/plugins previous-tenant plugin filtered, pulse 24h/7d/30d, 2 dead URLs disabled, compare-tray padding → rebuild + restart |
 | 2026-10-20T23:30Z | **First scheduled fire**: checkpoint workflow cron execution 6ad7f978…5525 success |
 | 2026-10-20T23:41Z | QA round 2: 84/84 |
-| 2026-10-20T23:50Z | Docs updated; local commit; push/PR (see final commit log) |
-| 2026-10-20T23:55Z | Commit 6f39f7d; branch `uae-ai-command-centre` pushed to GitHub (github skill push_branch.sh); PR #7 opened → https://github.com/mk42-ai/oda-productivity-suite/pull/7 (base main). Rollback tag NOT pushed (no tag tool in the skill) — the original branch on GitHub still points at 816aaae |
+| 2026-10-20T23:45Z | Docs updated; resume.mjs run twice (2nd run: no change) |
+| 2026-10-20T23:47Z | Commit 6f39f7d; branch `uae-ai-command-centre` pushed to GitHub (github skill push_branch.sh); PR #7 opened → https://github.com/mk42-ai/oda-productivity-suite/pull/7 (base main). Rollback tag NOT pushed (no tag tool in the skill) — the original branch on GitHub still points at 816aaae |
+| 2026-10-20T23:50Z | Status re-check: 3 workflows isActive=true; next fires ingest 00:00Z, checkpoint 00:00Z, briefing 02:30Z |
