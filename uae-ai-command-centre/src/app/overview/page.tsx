@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ORGS, SENTIMENT, NEWS, RADAR, HF, META, ECOSYSTEM_GROUPS, SENT_CLASSES, CLASS_COLOR, classCounts, countBy, coverageStats, orgName, ageDays, GRAPH } from "@/lib/uae/data";
 import { SectionHeader, Stat, Panel, ClassDot, SourceLink, OrgLogo, hostOf } from "@/components/uae/bits";
+import { LivePipelinePanel } from "@/components/uae/live-pipeline";
 export const metadata: Metadata = { title: "National Overview", description: "UAE AI ecosystem at a glance — concept demonstration." };
 
 export default function OverviewPage() {
@@ -57,6 +58,8 @@ export default function OverviewPage() {
           <ul className="space-y-2">{topOrgs.map(([id, n]) => <li key={id}><Link href={`/watchlist/${id}`} className="flex items-center gap-2 rounded-md p-1 hover:bg-surface-2"><OrgLogo id={id} name={orgName(id)} size={28} /><span className="min-w-0 flex-1 truncate text-sm">{orgName(id)}</span><span className="text-xs tabular-nums text-muted">{n} news</span></Link></li>)}</ul>
         </Panel>
       </div>
+
+      <LivePipelinePanel />
 
       <Panel title="Technology & Innovation Radar — snapshot" testId="radar-snapshot" action={<Link href="/radar" className="text-xs font-medium text-[var(--brand-green-ink)] hover:underline">Open radar →</Link>}>
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">{RADAR.slice().sort((a, b) => b.signals - a.signals).slice(0, 8).map((r) => <div key={r.name} className="rounded-lg border border-border p-3"><p className="text-sm font-medium">{r.name}</p><p className="mt-1 text-xs text-muted"><span className="font-semibold uppercase text-[var(--brand-green-ink)]">{r.ring}</span> · {r.signals} signals · latest {r.latest || "n/a"}</p></div>)}</div>

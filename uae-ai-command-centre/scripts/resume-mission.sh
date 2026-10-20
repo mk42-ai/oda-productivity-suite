@@ -6,7 +6,7 @@ set -euo pipefail
 APP="$(cd "$(dirname "$0")/.." && pwd)"; REPO="$(cd "$APP/.." && pwd)"; cd "$APP"
 TAG=bcap-pre-uae-20261020T2130Z; BRANCH=uae-ai-command-centre; BASE_SHA=816aaaed9c3aa8fa37fbad31d3bd3f7491b3de9d
 step=${1:-status}
-status() { echo "branch: $(git -C "$REPO" branch --show-current)  head: $(git -C "$REPO" rev-parse --short HEAD)"; git -C "$REPO" tag -l "$TAG" | sed 's/^/tag: /'; jq -r '.new.preview_url' mission_state.json 2>/dev/null | sed 's/^/last preview: /'; }
+status() { echo "branch: $(git -C "$REPO" branch --show-current)  head: $(git -C "$REPO" rev-parse --short HEAD)"; git -C "$REPO" tag -l "$TAG" | sed 's/^/tag: /'; jq -r '.new.preview_url' MISSION_STATE.json 2>/dev/null | sed 's/^/last preview: /'; }
 build() { [ -d node_modules ] || npm ci --no-audit --no-fund --ignore-scripts; npx tsc --noEmit -p .; NEXT_TELEMETRY_DISABLED=1 npm run build; }
 scan() { node scripts/uae/residual-scan.mjs ${BASE_URL:+--base "$BASE_URL"} --json mission/residual_scan.json; }
 deploy() {

@@ -12,6 +12,8 @@ export const revalidate = 0;
  * back empty (or `isComplete:true`), capped at MAX_PAGES, and dedupes by id — a fixed 1..3 fan-out would silently stop at whatever the clamp allows.
  * `GET /plugin/v1/list` (account-OWNED plugins) is fetched alongside: it answers total 0 for this account, which is the honest `installed` set.
  */
+/** Plugins that belonged to the previous tenant's workflow and are never offered in this product (purged from the catalogue response). */
+const RETIRED_PLUGIN_IDS: ReadonlySet<string> = new Set(["plugin-1777018662"]);
 const PAGE_LIMIT = 100;
 const MAX_PAGES = 10;
 const UPSTREAM_TIMEOUT_MS = 15_000;
@@ -146,6 +148,7 @@ export async function GET(req: Request) {
       if (!id || seen.has(id)) continue;
       if ((raw.type ?? "chat") !== "chat") continue;
       if (wanted && !wanted.has(id)) continue;
+      if (RETIRED_PLUGIN_IDS.has(id) || /pitch\s*book/i.test(String(raw.name ?? ""))) continue; // previous-tenant investor tool — not part of this product
       seen.add(id);
       plugins.push({
         id,

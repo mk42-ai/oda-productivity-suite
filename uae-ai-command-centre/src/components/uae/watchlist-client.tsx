@@ -32,9 +32,9 @@ export function WatchlistClient({ cards, rootNames }: { cards: Card[]; rootNames
         <select value={sort} onChange={(e) => setSort(e.target.value as keyof typeof SORTS)} aria-label="Sort" className="h-8 rounded-lg border border-border bg-surface px-2 text-xs">{Object.entries(SORTS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select>
         <span className="ml-auto text-xs tabular-nums text-muted" data-testid="watchlist-count">{shown.length} / {cards.length}</span>
       </div>
-      <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" data-testid="watchlist-grid">
+      <ul className={`grid gap-3 sm:grid-cols-2 xl:grid-cols-3 ${cmp.length > 0 ? "pb-24" : ""}`} data-testid="watchlist-grid">
         {shown.map((c) => (
-          <li key={c.id} className="card group relative flex min-w-0 flex-col p-4 transition-colors hover:border-[var(--uae-gold)]" data-testid="org-card" data-org={c.id}>
+          <li key={c.id} className="card group relative flex min-w-0 scroll-mt-16 scroll-mb-24 flex-col p-4 transition-colors hover:border-[var(--uae-gold)]" data-testid="org-card" data-org={c.id}>
             <div className="flex items-start gap-3">
               <OrgLogo id={c.id} name={c.name} size={44} />
               <div className="min-w-0 flex-1">

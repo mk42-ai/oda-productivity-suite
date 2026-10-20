@@ -14,3 +14,14 @@
 | 2026-10-20T22:33Z | 5 chat acceptance questions through deployed app |
 | 2026-10-20T22:42Z | Residual scan code+DOM+network = 0 hits |
 | 2026-10-20T22:45Z | Local commit on `uae-ai-command-centre` |
+| 2026-10-20T22:52Z | Turn 2 start: GITHUB_TOKEN now present (push/admin on mk42-ai/oda-productivity-suite); live OnDemand docs re-read (Agents Flow Builder 19 ops, Chat 7, Media 3) |
+| 2026-10-20T22:54Z | Probe workflows (cron + inputText) created → activated → executed → logs/outputs read → deleted; contract confirmed |
+| 2026-10-20T23:02Z | 3 cron workflows created + activated: ingest 6ad7f32d…52cb (0 0 */2 * * *), briefing 6ad7f32e…52d2 (0 30 2 * * *), checkpoint 6ad7f32e…52d7 (0 */30 * * * *) |
+| 2026-10-20T23:03Z | Verification runs: checkpoint success (846 ms); ingest/briefing success but empty/mis-dated output → prompts fixed (PATCH 200) |
+| 2026-10-20T23:08Z | Ingest re-run: 3 news + 3 statements + 1 org signal with provenance; briefing re-run: 7.5k chars, 12 source URLs |
+| 2026-10-20T23:12Z | /api/uae/live + Live pipeline panel (Overview) + Scheduled briefing (Briefing); new sandbox sbx_m8HCn4AgQdbdH8a3PgQGT7UVkmVr, tsc + next build green |
+| 2026-10-20T23:19Z | QA round 1 (5 agents in parallel): 76/84 |
+| 2026-10-20T23:27Z | Fixes: brand line, /api/plugins previous-tenant plugin filtered, pulse 24h/7d/30d, 2 dead URLs disabled, compare-tray padding → rebuild + restart |
+| 2026-10-20T23:30Z | **First scheduled fire**: checkpoint workflow cron execution 6ad7f978…5525 success |
+| 2026-10-20T23:41Z | QA round 2: 84/84 |
+| 2026-10-20T23:50Z | Docs updated; local commit; push/PR (see final commit log) |
