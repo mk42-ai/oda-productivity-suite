@@ -25,6 +25,15 @@ const nextConfig: NextConfig = {
   htmlLimitedBots: /./,
   // Root → /overview as a real HTTP redirect (no client-side redirect() hop, which raised React #310 during the double navigation).
   async redirects() { return [{ source: "/", destination: "/overview", permanent: false }]; },
+  // Mirror the Vercel Services rewrite (vercel.json: "/backend/(.*)" → service app) when the web tier runs on its own origin
+  // (sandbox preview, `next start`, Restart): GET /backend/news/summary and the bare GET /news/summary proxy to the API tier named
+  // by PORTFOLIO_API_URL instead of answering a Next 404. On Vercel the platform rewrite wins before Next sees /backend/*, so this
+  // is a no-op there; without an API URL at build time nothing is rewritten.
+  async rewrites() {
+    const api = (process.env.PORTFOLIO_API_URL ?? process.env.NEXT_PUBLIC_PORTFOLIO_API_URL ?? "").replace(/\/$/, "");
+    if (!api) return [];
+    return { afterFiles: [{ source: "/backend/:path*", destination: `${api}/:path*` }, { source: "/news/summary", destination: `${api}/news/summary` }] };
+  },
   async headers() {
     // No X-Frame-Options: the platform shows the preview inside an iframe on another origin; SAMEORIGIN made that iframe render blank
     // even though every route answered HTTP 200. Click-jacking exposure is acceptable for a read-only dashboard whose only secret
