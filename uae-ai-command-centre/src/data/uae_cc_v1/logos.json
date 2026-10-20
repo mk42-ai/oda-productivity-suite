@@ -1,0 +1,226 @@
+{
+ "ai-data-authority": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain uaecabinet.ae"
+ },
+ "g42": {
+  "status": "official",
+  "source": "https://g42.ai/favicon.ico",
+  "size": [
+   32,
+   32
+  ]
+ },
+ "core42": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain core42.ai"
+ },
+ "inception": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "presight": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain presight.ai"
+ },
+ "aiq": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain aiq.ae"
+ },
+ "khazna": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "m42": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "space42": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain space42.ai"
+ },
+ "mgx": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "analog": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "tii": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain tii.ae"
+ },
+ "atrc": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain atrc.gov.ae"
+ },
+ "ai71": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "edge": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain edgegroup.ae"
+ },
+ "katim": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "adasi": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain edgegroup.ae"
+ },
+ "mbzuai": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain mbzuai.ac.ae"
+ },
+ "ifm": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain mbzuai.ac.ae"
+ },
+ "khalifa-university": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "airev": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "eand-enterprise": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain eandenterprise.com"
+ },
+ "hub71": {
+  "status": "monogram",
+  "reason": "government entity \u2014 no government logo used (identity check OFFICIAL_ASSET_NOT_PERMITTED / NOT_FOUND)"
+ },
+ "micropolis": {
+  "status": "official",
+  "source": "https://micropolis.ai/apple-touch-icon.png",
+  "size": [
+   96,
+   96
+  ]
+ },
+ "xpanceo": {
+  "status": "official",
+  "source": "https://xpanceo.com/apple-touch-icon.png",
+  "size": [
+   96,
+   96
+  ]
+ },
+ "derq": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain derq.com"
+ },
+ "astra-tech": {
+  "status": "official",
+  "source": "https://astratech.ae/apple-touch-icon.png",
+  "size": [
+   96,
+   96
+  ]
+ },
+ "saal-ai": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "purehealth": {
+  "status": "official",
+  "source": "https://purehealth.ae/wp-content/uploads/2025/01/cropped-favicon-32x32.jpg",
+  "size": [
+   32,
+   32
+  ]
+ },
+ "daman": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "cntxt": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "positron": {
+  "status": "official",
+  "source": "https://www.positron.ai/favicon.ico",
+  "size": [
+   16,
+   16
+  ]
+ },
+ "cerebras-uae": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "mubadala": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "adnoc": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "dff": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain dubaifuture.ae"
+ },
+ "dcai": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "digital-dubai": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "dge": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "dubai-ai-campus": {
+  "status": "monogram",
+  "reason": "no icon retrievable from official domain difc.com"
+ },
+ "doh-abu-dhabi": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "dubai-police": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "camb-ai": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "echotwin": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "neuphonic": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "endimension": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "steerai": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "aiatc": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "injazat": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ },
+ "aspire": {
+  "status": "monogram",
+  "reason": "no verified official domain"
+ }
+}

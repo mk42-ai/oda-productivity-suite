@@ -1,0 +1,89 @@
+{
+  "name": "uae-ai-command-centre",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UAE AI National Intelligence Command Centre — Concept Demonstration (not an official government system). Next.js 15 over the uae_cc_v1 seed namespace and the OnDemand Chat & Agent Tools API.",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p ${PORT:-5173}",
+    "build": "BUILD_TIME=${BUILD_TIME:-$(date -u +%Y-%m-%dT%H:%M:%SZ)} next build",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-5173}",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "test:eventmap": "node ../node_modules/tsx/dist/cli.mjs tests/unit/eventmap.test.ts",
+    "test:context": "node ../node_modules/tsx/dist/cli.mjs tests/unit/context-payload.test.ts",
+    "test:naming": "node ../node_modules/tsx/dist/cli.mjs tests/unit/naming.test.ts",
+    "test:plugin-icons": "node ../node_modules/tsx/dist/cli.mjs tests/unit/plugin-icons.test.ts",
+    "test:plan": "node ../node_modules/tsx/dist/cli.mjs tests/unit/plan.test.ts",
+    "test:sse-replay": "node ../node_modules/tsx/dist/cli.mjs tests/unit/sse-replay.test.ts",
+    "test:sector-color": "node ../node_modules/tsx/dist/cli.mjs tests/unit/sector-color.test.ts",
+    "test:sparkline": "node ../node_modules/tsx/dist/cli.mjs tests/unit/sparkline.test.ts",
+    "qa:lighthouse": "node scripts/lighthouse.mjs",
+    "test:e2e:live": "playwright test",
+    "logo:audit": "node scripts/logo-audit.mjs",
+    "favicon:audit": "node scripts/favicon-audit.mjs",
+    "test:brand-icons": "node ../node_modules/tsx/dist/cli.mjs tests/unit/brand-icons.test.ts",
+    "palette:audit": "node scripts/palette-audit.mjs"
+  },
+  "dependencies": {
+    "@openuidev/react-headless": "^0.17.0",
+    "@openuidev/react-lang": "^0.3.2",
+    "@openuidev/react-ui": "^0.17.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-switch": "^1.2.5",
+    "@radix-ui/react-tooltip": "^1.2.7",
+    "@tanstack/react-virtual": "^3.14.14",
+    "@types/d3-hierarchy": "^3.1.7",
+    "@vercel/analytics": "^2.0.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "d3-hierarchy": "^3.1.2",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.43.0",
+    "next": "15.5.27",
+    "nextjs-toploader": "^3.9.17",
+    "pdfjs-dist": "4.10.38",
+    "radix-ui": "^1.8.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-force-graph-2d": "1.29.1",
+    "react-force-graph-3d": "1.29.1",
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.3.0",
+    "remark-gfm": "^4.0.1",
+    "simple-icons": "^16.30.0",
+    "sonner": "^2.0.8",
+    "sse.js": "^2.8.0",
+    "tailwind-merge": "^3.3.1",
+    "three": "0.181.2",
+    "zod": "^4.6.5",
+    "zustand": "^4.5.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.54.0",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "0.181.0",
+    "lighthouse": "^12.8.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.6.0"
+  },
+  "overrides": {
+    "three": "0.181.2",
+    "3d-force-graph": {
+      "three": "0.181.2"
+    },
+    "three-forcegraph": {
+      "three": "0.181.2"
+    },
+    "three-render-objects": {
+      "three": "0.181.2"
+    },
+    "react-force-graph-3d": {
+      "three": "0.181.2"
+    }
+  }
+}

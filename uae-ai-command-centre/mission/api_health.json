@@ -1,0 +1,104 @@
+{
+ "tests": [
+  {
+   "endpoint": "GET /config/v1/public/docs/categories",
+   "name": "docs categories",
+   "status": 200,
+   "latency_ms": 843,
+   "timestamp": "2026-10-20T21:37:14Z"
+  },
+  {
+   "endpoint": "GET /config/v1/public/docs/reference/api/submitquery",
+   "name": "docs reference submitquery",
+   "status": 200,
+   "latency_ms": 510,
+   "timestamp": "2026-10-20T21:37:14Z"
+  },
+  {
+   "endpoint": "GET /config/v1/public/endpoints",
+   "name": "endpoints list",
+   "status": 200,
+   "latency_ms": 274,
+   "timestamp": "2026-10-20T21:37:14Z"
+  },
+  {
+   "endpoint": "POST /chat/v1/sessions",
+   "name": "createchatsession",
+   "status": 201,
+   "latency_ms": 324,
+   "timestamp": "2026-10-20T21:37:15Z"
+  },
+  {
+   "endpoint": "POST /chat/v1/sessions/6ad7df0b7bb80aa7c2d975a3/query",
+   "name": "submitquery sync (gpt-5.6-luna)",
+   "status": 200,
+   "latency_ms": 2158,
+   "timestamp": "2026-10-20T21:37:17Z"
+  },
+  {
+   "endpoint": "POST /chat/v1/sessions/6ad7df0b7bb80aa7c2d975a3/query",
+   "name": "submitquery stream (gpt-5.6-luna)",
+   "status": 200,
+   "latency_ms": 4445,
+   "first_byte_ms": 2218,
+   "timestamp": "2026-10-20T21:37:21Z"
+  },
+  {
+   "endpoint": "POST /chat/v1/sessions",
+   "name": "createchatsession (Perplexity plugin)",
+   "status": 201,
+   "latency_ms": 382,
+   "timestamp": "2026-10-20T21:37:22Z"
+  },
+  {
+   "endpoint": "POST /chat/v1/sessions/6ad7df120bb93a15a0dd35fa/query",
+   "name": "submitquery sync + Perplexity plugin-1722260873",
+   "status": 200,
+   "latency_ms": 64385,
+   "timestamp": "2026-10-20T21:38:26Z"
+  },
+  {
+   "endpoint": "GET /chat/v1/sessions",
+   "name": "getchatsessions",
+   "status": 200,
+   "latency_ms": 404,
+   "timestamp": "2026-10-20T21:38:27Z"
+  },
+  {
+   "endpoint": "GET /chat/v1/sessions/6ad7df0b7bb80aa7c2d975a3",
+   "name": "getchatsession",
+   "status": 200,
+   "latency_ms": 386,
+   "timestamp": "2026-10-20T21:38:27Z"
+  },
+  {
+   "endpoint": "GET /chat/v1/sessions/6ad7df0b7bb80aa7c2d975a3/messages",
+   "name": "getchatmessages",
+   "status": 200,
+   "latency_ms": 334,
+   "timestamp": "2026-10-20T21:38:27Z"
+  },
+  {
+   "endpoint": "GET /media/v1/public/file",
+   "name": "fetchmedia",
+   "status": 200,
+   "latency_ms": 217,
+   "timestamp": "2026-10-20T21:38:27Z"
+  },
+  {
+   "endpoint": "GET /workflow/",
+   "name": "Agents Flow Builder: list workflows",
+   "status": 200,
+   "latency_ms": 266,
+   "timestamp": "2026-10-20T21:38:28Z"
+  },
+  {
+   "endpoint": "GET /plugin/v1/list",
+   "name": "plugin list",
+   "status": 200,
+   "latency_ms": 200,
+   "timestamp": "2026-10-20T21:38:28Z"
+  }
+ ],
+ "perplexity_sample": "The available sources do not identify an announcement by TII in October 2026; TII\u2019s news page provides a listing but no October 2026 item is specified here ([TII Latest News](https://www.tii.ae/news)). The latest dated TII-related announcements in the supplied sources are from September 2026, including its Qualcomm collaboration on predictive maintenance for autonomous aircraft ([Arabian Reseller](https://arabianreseller.com/2026/09/08/qualcomm-selects-abu-dhabis-tii-for-first-middle-east-tech-for-good-grant/))."
+}
