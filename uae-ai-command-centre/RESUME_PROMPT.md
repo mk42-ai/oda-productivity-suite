@@ -24,4 +24,5 @@ Needs: `ONDEMAND_API_KEY` (or `ON_DEMAND_API_KEY`). For `--deploy` it also needs
 - ⏳ The ingest workflow (first fire 2026-10-21T00:00Z) and the briefing workflow (02:30Z) have **not yet fired on schedule** while I was watching. Only their manual runs are verified.
 - ⚠️ The checkpoint workflow stores the snapshot that was last synced into its node (by `resume`/`ensure`). OnDemand cannot read this repo, so a scheduled fire re-persists the latest synced state. It does not capture edits made since the last sync.
 - ⚠️ Ingest output is persisted in OnDemand's execution store and surfaced by `/api/uae/live`. It is not written back into the committed seed JSON.
+- ✅ Branch pushed (commits 6f39f7d, 30cce79+) and PR #7 open: https://github.com/mk42-ai/oda-productivity-suite/pull/7. ⚠️ The rollback tag is local only.
 - ✅ `resume.mjs` was run twice (second run: "all 3 active — no change").
