@@ -1,0 +1,129 @@
+{
+  "id": "cerebras-uae",
+  "name": "Cerebras Systems",
+  "type": "company",
+  "website": "unavailable",
+  "hq": "unavailable",
+  "founded": "unavailable",
+  "parent": null,
+  "ownership": "unavailable",
+  "leadership": [],
+  "ai_focus": [
+    "AI computing and generative AI acceleration",
+    "Wafer-scale inference",
+    "High-speed inference and reasoning workloads"
+  ],
+  "technologies": [
+    {
+      "name": "4-trillion-transistor chip",
+      "category": "infrastructure",
+      "source_url": "https://gulfnews.com/uae/uae-launches-worlds-largest-ai-chip-with-4-trillion-transistors-at-wgs-2026-1.500432873"
+    },
+    {
+      "name": "Condor Galaxy supercomputers",
+      "category": "infrastructure",
+      "source_url": "https://www.g42.ai/resources/news/core42-advances-us-ai-infrastructure-strategy-expanded-new-york-deployment"
+    },
+    {
+      "name": "Cerebras wafer-scale, inference-optimized compute platform",
+      "category": "platform",
+      "source_url": "https://www.g42.ai/resources/news/mbzuai-and-g42-launch-k2-think-leading-open-source-system-advanced-ai-reasoning"
+    },
+    {
+      "name": "K2 Think",
+      "category": "model",
+      "source_url": "https://www.g42.ai/resources/news/mbzuai-and-g42-launch-k2-think-leading-open-source-system-advanced-ai-reasoning"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-06-17",
+      "event": "Carnegie Endowment reported that G42, MBZUAI, and Cerebras agreed to establish a national-scale AI supercomputer in India.",
+      "source_url": "https://carnegieendowment.org/research/2026/06/early-lessons-in-the-pursuit-of-sovereign-ai?trk=article-ssr-frontend-pulse_little-text-block"
+    }
+  ],
+  "related": [
+    {
+      "org": "G42",
+      "relation": "partner",
+      "source_url": "https://gulfnews.com/uae/uae-launches-worlds-largest-ai-chip-with-4-trillion-transistors-at-wgs-2026-1.500432873"
+    },
+    {
+      "org": "Core42",
+      "relation": "partner",
+      "source_url": "https://www.g42.ai/resources/news/core42-advances-us-ai-infrastructure-strategy-expanded-new-york-deployment"
+    },
+    {
+      "org": "MBZUAI",
+      "relation": "partner",
+      "source_url": "https://carnegieendowment.org/research/2026/06/early-lessons-in-the-pursuit-of-sovereign-ai?trk=article-ssr-frontend-pulse_little-text-block"
+    }
+  ],
+  "briefing": "Gulf News reports that G42 and Cerebras co-developed a chip with 4 trillion transistors, showcased by Sheikh Saif at WGS 2026 [1]. Core42\u2019s U.S. deployments include Condor Galaxy supercomputers developed in collaboration with Cerebras, across sites including Buffalo, Dallas, Sunnyvale, Stockton, and Minneapolis [2]. Khaleej Times reports that Core42 expected to deploy nearly 40,000 GPUs globally by year-end, supported by architectures including Cerebras systems [3]. G42 said its technology collaborations with U.S. chipmakers include Cerebras, alongside projects such as Stargate UAE [4]. The K2 Think announcement said the model would be available on Cerebras\u2019 wafer-scale inference platform and described a planned throughput of 2,000 tokens per second using speculative decoding optimized for Cerebras hardware [5]. Carnegie Endowment reported that G42, MBZUAI, and Cerebras agreed to establish a national-scale AI supercomputer in India [6].",
+  "sources": [
+    {
+      "n": 1,
+      "title": "Sheikh Saif showcases revolutionary chip co-developed by Abu Dhabi\u2019s G42 and Cerebras",
+      "url": "https://gulfnews.com/uae/uae-launches-worlds-largest-ai-chip-with-4-trillion-transistors-at-wgs-2026-1.500432873",
+      "publisher": "Gulf News",
+      "date": ""
+    },
+    {
+      "n": 2,
+      "title": "Core42 advances U.S. AI infrastructure strategy with expanded New York deployment",
+      "url": "https://www.g42.ai/resources/news/core42-advances-us-ai-infrastructure-strategy-expanded-new-york-deployment",
+      "publisher": "G42",
+      "date": ""
+    },
+    {
+      "n": 3,
+      "title": "Core42 unveils sovereign AI cloud vision at GITEX Global 2025",
+      "url": "https://www.khaleejtimes.com/business/tech/core42-unveils-sovereign-ai-cloud-vision-at-gitex-global-2025",
+      "publisher": "Khaleej Times",
+      "date": ""
+    },
+    {
+      "n": 4,
+      "title": "G42 receives U.S. approval for advanced AI chip exports",
+      "url": "https://www.g42.ai/resources/news/g42-receives-us-approval-advanced-ai-chip-exports-enabling-full-scale-deployment-trusted-ai-infrastructure",
+      "publisher": "G42",
+      "date": ""
+    },
+    {
+      "n": 5,
+      "title": "MBZUAI and G42 launch K2 Think",
+      "url": "https://www.g42.ai/resources/news/mbzuai-and-g42-launch-k2-think-leading-open-source-system-advanced-ai-reasoning",
+      "publisher": "G42",
+      "date": ""
+    },
+    {
+      "n": 6,
+      "title": "Early lessons in the pursuit of sovereign AI",
+      "url": "https://carnegieendowment.org/research/2026/06/early-lessons-in-the-pursuit-of-sovereign-ai?trk=article-ssr-frontend-pulse_little-text-block",
+      "publisher": "Carnegie Endowment for International Peace",
+      "date": "2026-06-17"
+    }
+  ],
+  "confidence": 0.76,
+  "conflicts": [],
+  "unavailable": [
+    "website",
+    "headquarters city for Cerebras Systems; the supplied material identifies Abu Dhabi as G42's base but does not establish Cerebras Systems' headquarters",
+    "founded year",
+    "parent organization",
+    "ownership",
+    "Cerebras Systems leadership",
+    "exact date of the WGS 2026 chip showcase"
+  ],
+  "international": "Cerebras is linked to Core42\u2019s U.S. infrastructure footprint through the Condor Galaxy systems collaboration. Core42 reporting also describes U.S. operations and European expansion, including a sovereign infrastructure partnership in France; those are Core42 activities, not evidence of Cerebras-owned offices or operations.",
+  "parent_id": null,
+  "seed_facts": "Showed 4-trillion-transistor chip at WGS 2026; G42 partner (Condor Galaxy).",
+  "coverage": 0.545,
+  "dropped_unverified_urls": 0,
+  "provenance": {
+    "method": "OnDemand chat sessions/query (predefined-gpt-5.6-luna) over the step 3\u20134 plugin research corpus (Perplexity, GPT Search, Internet, Wikipedia) + mission-brief seed facts",
+    "generated_at": "2026-10-20T21:4xZ",
+    "namespace": "uae_cc_v1"
+  },
+  "exclusion_reason": "excluded \u2014 not UAE-HQ (US company; UAE presence via G42/Core42 partnership)"
+}

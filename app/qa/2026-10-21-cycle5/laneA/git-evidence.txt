@@ -1,0 +1,73 @@
+=== Command 1: git log --oneline 2008923..HEAD -- app/src/components/chat/inspector-drawer.tsx app/src/components/chat/run-rail.tsx app/src/components/chat/open-intelligent-ui/chat-shell.tsx ===
+8901901 fix(uae-cc): Lane D — Perplexity availability state: exponential backoff (1→2→4→8→16→30 min) skips the pinned plugin while unavailable, coverage-notice in chat (plugin_error no longer renders 'Response failed'), briefing-coverage banner, health.web_research + /api/plugins availability, unavailable chip state; Lane C 8 px status-log overflow fix; unit test
+14e032e fix(uae-cc): rail focus ring keeps the #2563EB accent (no outline-color transition), run-view no 390 px overflow (thinking block w-auto), rail thread-title carries title=, SSR-safe thread-nav snapshot (React #418 on reload), dossier Panel ids for #hash deep links, HF model links ≥24 px targets
+ec26854 fix(uae-cc): chat layout spec — inspector slide-over 360px, single muted OnDemand credit line under the composer, mobile overflow (watchlist ecosystem select, briefing code URLs)
+b37cc78 feat(uae-cc): ChatGPT-style chat layout — threads in 224/64 rail, 390px drawer, 52px top bar, 800px column, pill composer, 360px inspector
+4d0be39 feat(uae-cc): resume turn 2026-10-21 — move app to app/ (Vercel Root Directory fix, app/vercel.json), step-2 dossier patches (TII/AIREV/Inception42/G42/Space42/Khazna/GITEX/AI&Data Authority/HF), AIREV×OnDemand weave + engine credit, text-free brand marks, +37 sentiment (2 lanes) +14 news +8 edges, seed-grounded briefing workflow, QA 82/82, residue 0, state files + evidence
+
+=== Command 2: git diff 2008923:uae-ai-command-centre/src/components/chat/inspector-drawer.tsx HEAD:app/src/components/chat/inspector-drawer.tsx ===
+diff --git a/uae-ai-command-centre/src/components/chat/inspector-drawer.tsx b/app/src/components/chat/inspector-drawer.tsx
+index 69c76ef..723c008 100644
+--- a/uae-ai-command-centre/src/components/chat/inspector-drawer.tsx
++++ b/app/src/components/chat/inspector-drawer.tsx
+@@ -25,8 +25,8 @@ export function InspectorToggle({ className }: { className?: string }) {
+   const open = useInspectorOpen();
+   return (
+     <button type="button" onClick={() => inspectorStore.toggle()} data-testid="inspector-toggle" aria-expanded={open} aria-controls="chat-inspector" aria-label={open ? "Close inspector" : "Open inspector"} title="Inspector — run plan, dossier, context, plugins"
+-      className={cn("inline-flex h-8 items-center gap-1.5 rounded-md border border-border bg-surface px-2.5 text-xs font-medium text-foreground hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-ring", open && "bg-surface-3", className)}>
+-      <SlidersHorizontal className="size-3.5" aria-hidden /><span className="hidden sm:inline">Inspector</span>
++      className={cn("oiu-topbar__btn", open && "bg-[#ECECEC]", className)}>
++      <SlidersHorizontal className="size-4" aria-hidden /><span className="sr-only">Inspector</span>
+     </button>
+   );
+ }
+@@ -54,7 +54,7 @@ export function InspectorDrawer({ companies }: { companies: InspectorCompany[] }
+       {open && <button type="button" aria-label="Close inspector" className="fixed inset-0 z-[60] bg-black/20 lg:bg-transparent" data-testid="inspector-backdrop" onClick={() => inspectorStore.set(false)} />}
+       <aside id="chat-inspector" data-testid="chat-inspector" data-open={open ? "true" : "false"} aria-label="Inspector" inert={!open || undefined}
+         className={cn("fixed z-[70] flex flex-col border-border bg-background shadow-xl transition-transform duration-200 ease-out",
+-          "inset-x-0 bottom-0 max-h-[85dvh] rounded-t-xl border-t", "lg:inset-y-0 lg:left-auto lg:right-0 lg:h-dvh lg:w-[420px] lg:max-h-none lg:rounded-none lg:border-l lg:border-t-0",
++          "inset-x-0 bottom-0 max-h-[85dvh] rounded-t-xl border-t", "lg:inset-y-0 lg:left-auto lg:right-0 lg:h-dvh lg:w-[360px] lg:max-h-none lg:rounded-none lg:border-l lg:border-t-0",
+           open ? "translate-y-0 lg:translate-x-0" : "pointer-events-none translate-y-full lg:translate-x-full lg:translate-y-0")}>
+         <header className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
+           <h2 className="text-sm font-semibold">Inspector</h2>
+
+=== Command 3: git diff 2008923:uae-ai-command-centre/src/components/chat/run-rail.tsx HEAD:app/src/components/chat/run-rail.tsx ===
+diff --git a/uae-ai-command-centre/src/components/chat/run-rail.tsx b/app/src/components/chat/run-rail.tsx
+index 1e8054b..80d7a9a 100644
+--- a/uae-ai-command-centre/src/components/chat/run-rail.tsx
++++ b/app/src/components/chat/run-rail.tsx
+@@ -14,14 +14,14 @@ import { pluginName } from "@/lib/plugin-catalogue";
+ export function RunRail() {
+   const st = useStreamState();
+   const live = st.phase !== "idle";
+-  const plugins = st.pluginIds.length ? st.pluginIds : [];
++  const plugins = st.coverage && !st.pluginIds.includes("plugin-1722260873") ? ["plugin-1722260873", ...st.pluginIds] : st.pluginIds.length ? st.pluginIds : [];
+   return (
+     <Card className="p-3" data-testid="run-rail">
+       <h2 className="mb-2 text-sm font-semibold">This run</h2>
+       <p className="text-xs text-muted" data-testid="run-model" data-model-id={MODEL_ID}><span className="font-medium text-foreground">{MODEL_LABEL}</span> · reasoning {REASONING_MODE}</p>
+       {plugins.length > 0 && (
+         <ul className="mt-2 flex flex-wrap gap-1.5" aria-label="Plugins in this run" data-testid="run-plugins">
+-          {plugins.map((id) => { const failed = st.error?.code === "plugin_error" && id === "plugin-1722260873"; const done = st.answerDone || st.sources.length > 0; const state = failed ? "failed" : done ? "done" : live && (st.phase === "researching" || st.phase === "answering" || st.phase === "planning") ? "running" : "queued"; return <li key={id}><PluginChip id={id} state={state} input={st.request ? `${pluginName(id)} · ${String((st.request.body as Record<string, unknown> | undefined)?.queryChars ?? "")} chars query` : undefined} /></li>; })}
++          {plugins.map((id) => { const unavailable = (st.error?.code === "plugin_error" || !!st.coverage) && id === "plugin-1722260873"; const done = st.answerDone || st.sources.length > 0; const state = unavailable ? "unavailable" : done ? "done" : live && (st.phase === "researching" || st.phase === "answering" || st.phase === "planning") ? "running" : "queued"; const why = unavailable ? (st.coverage?.reason === "backoff" ? `unavailable — skipped (availability backoff${st.coverage?.nextRetryAt ? `, next retry ${st.coverage.nextRetryAt.slice(11, 16)} UTC` : ""})` : st.coverage?.reason === "credits" ? "unavailable — Perplexity credits exhausted (no web facts added)" : "unavailable — upstream execution error (no web facts added)") : null; return <li key={id} data-testid="run-plugin" data-plugin-state={state} title={why ?? undefined}><PluginChip id={id} state={state} input={why ?? (st.request ? `${pluginName(id)} · ${String((st.request.body as Record<string, unknown> | undefined)?.queryChars ?? "")} chars query` : undefined)} />{why && <span className="ml-1 align-middle text-[10px] text-[#8a6d1a]" data-testid="plugin-state-reason">{why}</span>}</li>; })}
+         </ul>
+       )}
+       {/* Plan checklist intentionally NOT here: it lives only in the run view (data-testid=run-view, plan-stepper). */}
+
+=== Command 4a: git grep -n -iE 'role="tab"|data-testid="(inspector-tab|plan-tab|run-tab|tab-)' 2008923 -- uae-ai-command-centre/src ===
+2008923:uae-ai-command-centre/src/app/globals.css:167::where(a, button, input, select, textarea, summary, [role="button"], [role="tab"], [role="option"], [tabindex]:not([tabindex="-1"])):focus-visible {
+
+=== Command 4b: git grep -n -iE 'role="tab"|data-testid="(inspector-tab|plan-tab|run-tab)' 816aaae -- bcapital-portfolio-intelligence/web/src ===
+816aaae:bcapital-portfolio-intelligence/web/src/app/globals.css:167::where(a, button, input, select, textarea, summary, [role="button"], [role="tab"], [role="option"], [tabindex]:not([tabindex="-1"])):focus-visible {
+816aaae:bcapital-portfolio-intelligence/web/src/components/companies/company-quick-view-drawer.tsx:165:            role="tab"
+816aaae:bcapital-portfolio-intelligence/web/src/components/companies/company-quick-view-drawer.tsx:175:            role="tab"
+816aaae:bcapital-portfolio-intelligence/web/src/components/companies/company-quick-view-drawer.tsx:185:            role="tab"
+816aaae:bcapital-portfolio-intelligence/web/src/components/companies/company-quick-view-drawer.tsx:195:            role="tab"
+
+=== Command 4c: git grep -n -E '"Plan"|>Plan<|aria-label="Plan"|aria-label="Run"' 2008923 -- uae-ai-command-centre/src ===
+2008923:uae-ai-command-centre/src/components/chat/open-intelligent-ui/chat-shell.tsx:438:    <div className="oiu-run__header" data-testid="run-header" data-live={live ? "true" : "false"} aria-label="Run">
+2008923:uae-ai-command-centre/src/components/chat/open-intelligent-ui/chat-shell.tsx:558:    <section className="od-steps" data-testid="plan-stepper" data-state={plan.provisional ? "provisional" : "ready"} aria-label="Plan">
+2008923:uae-ai-command-centre/src/components/chat/open-intelligent-ui/chat-shell.tsx:738:        {payload.planning.trim() ? <div className="oiu-payload__sec" data-phase="planning"><span className="oiu-payload__label">Plan</span><pre className="oiu-payload__pre">{prettyPayload(payload.planning)}</pre></div> : null}
+2008923:uae-ai-command-centre/src/components/chat/open-intelligent-ui/shell.css:693:/* Plan card: title "Plan", objective ≤ 2 lines (ellipsis), numbered checklist with status dots. No raw planner JSON here — that is dev-disclosure only. */
+2008923:uae-ai-command-centre/src/components/od-chat/chat-component.tsx:5: * debug-mode "Request For Increase" link render nothing. "Logs" downloads the execution log JSON; "Plan" opens the plan JSON in the
+2008923:uae-ai-command-centre/src/components/od-chat/chat-component.tsx:138:            <File className="size-3" /><span className="text-xs">Plan</span>

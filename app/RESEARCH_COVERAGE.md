@@ -1,5 +1,5 @@
 # RESEARCH_COVERAGE — namespace uae_cc_v1 (as of 2026-10-21)
-Organisations: **50** (12 government, 20 company, 14 subsidiary, 2 research centre, 2 university). Mean field coverage **72.4%** (11 fields: website, hq, founded, ownership, leadership, ai_focus, technologies, timeline, related, briefing, sources). With ≥1 verified source URL: **45/50**. Confidence ≥75%: **36**.
+Organisations: **50** (12 government, 20 company, 14 subsidiary, 2 research centre, 2 university). Mean field coverage **73.7%** (11 fields: website, hq, founded, ownership, leadership, ai_focus, technologies, timeline, related, briefing, sources). With ≥1 verified source URL: **45/50**. Confidence ≥75%: **35**.
 Excluded: Lucidya (Riyadh HQ, no verified UAE operations); "AIREV / airev.aero / Rani Plaut" (different entity).
 Low-coverage entries (KATIM, Khalifa University, ASPIRE, CAMB.AI, CNTXT AI, AIATC) are kept with explicit 'unavailable' markers rather than padded.
 
@@ -44,7 +44,7 @@ Low-coverage entries (KATIM, Khalifa University, ASPIRE, CAMB.AI, CNTXT AI, AIAT
 | Dubai Police | government | 64% | 48% | 1 | Official website, Founding year, Leadership, Ownership details | — |
 | SteerAI | company | 64% | 78% | 1 | website, founded, ownership, leadership | — |
 | Injazat | subsidiary | 64% | 78% | 2 | website, founded, leadership, Injazat-specific products and technologies | — |
-| Cerebras Systems | company | 55% | 76% | 6 | website, headquarters city for Cerebras Systems; the supplied material identifies Abu Dhabi as G42's base but does not establish Cerebras Systems' headquarters, founded year, parent organization | — |
+| Whiteshield | company | 100% | 74% | 9 | Named CEO beyond founder as-of date, Revenue / valuation, Exact DIFC licence/legal-entity details, Sep–Oct 2026 company press releases | — |
 | Dubai AI Campus | government | 55% | 83% | 3 | Founded year, Ownership details, Leadership, Specific products, models, or platforms | — |
 | Endimension Technology | company | 55% | 55% | 0 | website, founded year, ownership, leadership | — |
 | CNTXT AI | company | 46% | 55% | 1 | website, founded year, parent organization, ownership details | — |
@@ -72,3 +72,30 @@ Low-coverage entries (KATIM, Khalifa University, ASPIRE, CAMB.AI, CNTXT AI, AIAT
 - No research, dossier or sentiment edits this cycle: orgs 50 (mean coverage 72.8%, 46 with ≥1 verified source URL), sentiment 196 records (UAE-topic 180 / global 16), news 105, graph edges 168 — `/health` on build 2ce7426 reports the same counts as c005420.
 - **Web research coverage is reduced**: the Perplexity plugin (plugin-1722260873) is out of OnDemand credits (first failure ≈12:40Z; probes ≈13:22Z HTTP 500 "Not enough credits", 13:35:43Z "web search failed due to insufficient credits"; one clean call at 14:10Z — intermittent). Executive chat and the briefing now state this explicitly (`coverage-notice` / `briefing-coverage`) and ground answers on the curated uae_cc_v1 dossiers, news and sentiment only; nothing is fabricated or substituted. Decision logged: no alternative web plugin is attached silently.
 - Lucidya (excluded, Riyadh-HQ) and Derq (kept, 'unavailable' fields) decisions unchanged; no UAE-HQ replacement org added (still needs a verified inclusion test).
+
+## 2026-10-21T15:45Z — QA cycle 5 Lane F — inclusion test
+### Inclusion test scoring (0/1/2 per criterion)
+Evaluation criteria:
+- **(a)** UAE-headquartered or founded
+- **(b)** Substantially operating or strategically active in the UAE
+- **(c)** Core AI business
+- **(d)** Not a subsidiary of another company
+
+| Candidate | (a) UAE-HQ / Founded | (b) UAE Active | (c) Core AI | (d) Independent | Total | Decision |
+|---|:---:|:---:|:---:|:---:|:---:|---|
+| **Whiteshield** | 1 (Primary operating base DIFC Dubai; UK legal origin 2011) | 2 (DIFC base, Abu Dhabi office, local data science hiring, US$15M ADGM Ruya facility) | 2 (Sovereign intelligence platforms XShield, QuantumEd, Quantum Leap, Quantum Navigator; AI economics) | 2 (Private & independent; founder Fadi Farra >75% control per UK PSC filing) | **7/8** | **ADMITTED** (Rank 1) |
+| **Permus / Myndlab** | 2 (Dubai UAE HQ; founded 2005) | 2 (Dubai operations; Ai Everything Abu Dhabi 2026 launch; 35% UAE user base, sovereign data residency) | 1 (Permus is 2005 software house; core AI is 2026 Myndlab product line) | 1 (Myndlab is a product/platform operated by Permus, not an independent standalone company) | **6/8** | Standby (Rank 2) |
+| **DAMAC AI** | 2 (Dubai UAE HQ; launched 11 Mar 2026) | 2 (DAMAC Digital 6,000 MW planned IT capacity; local GPU bare-metal infrastructure) | 1 (GPU infrastructure / AI cloud hosting rather than core AI model/software development) | 0 (Wholly owned subsidiary of DAMAC Group) | **5/8** | Excluded on (d) (Rank 3) |
+| **Lucidya** | 0 (HQ Riyadh, Al Mohammadiyyah; founded 2016 Jeddah; Dubai JLT is branch only) | 1 (Branch office JLT Cluster R Dubai; Ai Everything Abu Dhabi 2026 presence) | 2 (Core AI agent / CX platform; 'Fastest Growing AI Agent Provider MENA 2026') | 2 (Independent venture-backed; Series B-II US$30M led by Impact46) | **5/8** | **EXCLUDED** on (a) (High confidence) |
+
+### Decision
+Whiteshield is admitted to the `uae_cc_v1` watchlist (replacing Cerebras Systems to maintain the mandatory 50-organisation invariant).
+- **Lucidya** — excluded (fails criterion (a), HQ Riyadh): founded Aug 2016 Jeddah; HQ relocated to Riyadh (Al Mohammadiyyah, Prince Turki Bin Abdulaziz Al Awwal Rd) in 2019; founders Abdullah Asiri, Hatem Kameli, Mohamed Milyani, Zuhair Khayyat; Dubai office at JLT Cluster R is a branch only; Series B-II US$30M closed 13 Jul 2025 led by Impact46 (Wa'ed Ventures, Takamol Ventures, SparkLabs, Rua Growth Fund, ARG), total ~US$38.43M; 2026: CRO William O'Neill hired, Ai Everything Abu Dhabi 2026 participation, 'Fastest Growing AI Agent Provider MENA 2026'. Sources: en.wikipedia.org/wiki/Lucidya, en.wikipedia.org/wiki/Abdullah_Asiri, cbinsights.com/company/lucidya, linkedin.com/company/lucidya, global.lucidya.com/our-company/investors.
+- **Cerebras Systems (`cerebras-uae`)** — excluded (fails criterion (a), US-headquartered chipmaker whose UAE presence is via G42/Core42 partnerships rather than UAE founding or headquarters; previous coverage 54.5%). Full dossier record preserved verbatim with documentation in `qa/2026-10-21-cycle5/laneF/removed-cerebras-uae.json`.
+- **Whiteshield (`whiteshield`)** — admitted: website `whiteshield.ai`; primary operating base DIFC, ICD Brookfield Place Dubai; founded 2011 by Fadi Farra (founder & CEO, >75% control per UK PSC filing); sovereign intelligence platforms (XShield, QuantumEd, Quantum Leap, Quantum Navigator) and AI economics; US$15M senior secured private credit facility from Ruya Partners (ADGM) announced Jul 2026; 9 verified sources. Coverage 100% (11/11 fields), confidence 74%.
+
+### Re-run 50-dossier coverage metrics
+- Watchlist organisations: **50** (12 government, 20 company, 14 subsidiary, 2 research centre, 2 university).
+- Mean field coverage: **73.7%** (up from 72.8% pre-cycle 5; +0.9 pp).
+- Organisations with ≥1 verified source URL: **45/50**.
+- Organisations with confidence ≥75%: **35/50**.

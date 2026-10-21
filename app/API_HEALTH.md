@@ -232,6 +232,140 @@ Design (src/lib/ondemand/plugin-availability.ts): per-process store keyed by plu
 UI/API states added: chat answer area `data-testid="coverage-notice"` (reasons credits / upstream / backoff; the "Response failed · Retry" notice is no longer shown for a pinned-plugin failure whose answer streamed — `execution_failed` for the pinned plugin is now typed `plugin_error`); inspector run-rail plugin chip state `unavailable` (amber) with `data-testid="plugin-state-reason"`; `/briefing` banner `data-testid="briefing-coverage"` (POST /api/briefing returns `coverage:{web,reason,nextRetryAt,pluginId}` and `webRequested`); `GET /health` → `web_research:{plugin,available,reason,lastError,lastFailureAt,failures,backoffMinutes,nextRetryAt}`; `GET /api/plugins` → `availability[plugin-1722260873].state` = `blocked`|`available` and `states.blocked` carries the reason + "backoff until …". Other Perplexity-routed paths checked: src/lib/uae/live.ts (reads workflow ingest output — provenance `plugin` field only, no live call), ScheduledBriefing panel (renders stored workflow output — no live call), /api/chat/prewarm and /api/od-chat/sessions (create sessions with the pinned plugin; left attached — they do not run queries). Unit test: tests/unit/plugin-availability.test.ts (`node --experimental-strip-types tests/unit/plugin-availability.test.ts`; tsx is not installed).
 84-check suite against the lane D build (port 5176, run 2026-10-21T14:11–14:15Z, `BASE_URL=http://127.0.0.1:5176 SHOT_DIR=qa/2026-10-21-cycle4/laneD/suite ROUND=c4 QA_OUT=qa/2026-10-21-cycle4/laneD node scripts/uae/qa/agentN.mjs`): **84/84** — agent1 11/11, agent2 14/14, agent3 13/13, agent4 14/14 (baseline c005420: 4/14 — the 10 chat failures were the "Response failed" notice on credit-degraded turns; on the lane D build those turns render the coverage notice instead, so agent4's `chat-error` assertion passes without any edit to the agent), agent5 32/32. Baseline total 74/84. Note: during the suite the pinned plugin was in backoff for all 10 chat questions (window opened 14:11:47Z by the parallel burst; the suite ran against the build BEFORE the 30 s failure-coalescing tweak, which is source-only at the time of writing), i.e. every chat answer was grounded on the uae_cc_v1 payload only and still carried Verified/Interpretation + curated links.
 
+### §G addendum — cycle 5 — 2026-10-21T15:37:00Z (Lane D: OnDemand connectivity probes + backoff recovery test)
+
+#### 1. Verbatim Prior Probe (STEP 3 baseline)
+Direct probe at ~14:46Z:
+```json
+{"error":"Internal server error","message":"Not enough credits","sourcesWithContent":[]}
+```
+
+#### 2. Direct Upstream Probes (Cycle 5)
+- **Session creation** (`2026-10-21T15:34:37Z`):
+  `POST $ON_DEMAND_BASE_URL/chat/v1/sessions` with `agentIds: ["plugin-1722260873"]`
+  HTTP status: `201 Created`
+  Session ID: `6ad8db8ea32a07124b4a80d0`
+- **Query execution** (`2026-10-21T15:34:48Z`):
+  `POST $ON_DEMAND_BASE_URL/chat/v1/sessions/6ad8db8ea32a07124b4a80d0/query` with `endpointId: "predefined-openai-gpt4o-mini"`, `query: "Latest UAE AI news today in one sentence"`, `agentIds: ["plugin-1722260873"]`, `responseMode: "sync"`, `reasoningMode: "low"`
+  HTTP status: `200 OK`
+  Body (`probe-direct.json`):
+  ```json
+  {"message":"Chat query submitted successfully","data":{"traceId":"d2d1c124aa7820de64e8391e3d287cda","sessionId":"6ad8db8ea32a07124b4a80d0","messageId":"6ad8db98d1b43ac6a7c4fb6e","answer":"I can’t verify today’s UAE AI news because the news lookup failed due to insufficient credits, and I don’t have reliable current headlines to summarize.","metrics":{"inputTokens":1008,"outputTokens":129,"totalTokens":1137,"ragTimeSec":7.31,"fulfillmentTimeSec":3.44,"totalTimeSec":10.75},"status":"completed"}}
+  ```
+  Result confirms upstream Perplexity credits remain exhausted; model explicitly acknowledges news lookup failed due to insufficient credits.
+
+#### 3. Endpoint Probes (/health and /api/plugins)
+- **GET /health** (before chat probe, `2026-10-21T15:33:57Z`):
+  Trimmed `web_research`:
+  ```json
+  {
+    "plugin": "plugin-1722260873",
+    "available": true,
+    "reason": "retry-window",
+    "lastError": "Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted.",
+    "lastFailureAt": "2026-10-21T15:03:44.231Z",
+    "failures": 2,
+    "backoffMinutes": 2,
+    "nextRetryAt": "2026-10-21T15:05:44.231Z"
+  }
+  ```
+- **GET /api/plugins** (`2026-10-21T15:33:57Z`):
+  Trimmed `availability` and `states`:
+  ```json
+  {
+    "availability": {
+      "plugin-1722260873": {
+        "id": "plugin-1722260873",
+        "available": true,
+        "reason": "retry-window",
+        "lastError": "Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted.",
+        "lastFailureAt": "2026-10-21T15:03:44.231Z",
+        "failures": 2,
+        "backoffMinutes": 2,
+        "nextRetryAt": "2026-10-21T15:05:44.231Z",
+        "state": "available"
+      }
+    },
+    "states": {
+      "blocked": {
+        "plugin-1722260873": "Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted. · backoff until 2026-10-21T15:05:44.231Z"
+      },
+      "invoked": ["plugin-1722260873"],
+      "authorized": [],
+      "owned": []
+    }
+  }
+  ```
+
+#### 4. App Chat Probe (POST /api/chat)
+- **Request** (`2026-10-21T15:35:36Z`):
+  `POST http://127.0.0.1:5173/api/chat` with body `{ threadId, messages: [{role: "user", content: "What has TII announced recently?"}], context: { externalUserId: "uae-cc-qa5", pluginIds: ["plugin-1722260873"] } }`
+- **Response**:
+  HTTP Status: `200 OK`
+  Content-Type: `text/event-stream; charset=utf-8`
+  Total `data:` frame count: 162
+- **Extracted Frames**:
+  - `ondemand.error` frame:
+    ```text
+    data: {"seq":3,"type":"CUSTOM","name":"ondemand.error","value":{"elapsedMs":1,"code":"plugin_error","message":"Web research source unavailable (Perplexity credits exhausted) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. (backoff: Perplexity skipped after 3 upstream failures; next retry 2026-10-21T15:38:33.952Z)","raw":"{\"id\":\"plugin-1722260873\",\"available\":false,\"reason\":\"backoff\",\"lastError\":\"Perplexity returned an upstream error: \\\"Agents execution failed\\\". No other plugin was substituted.\",\"lastFailureAt\":\"2026-10-21T15:34:33.952Z\",\"failures\":3,\"backoffMinutes\":4,\"nextRetryAt\":\"2026-10-21T15:38:33.952Z\"}","reason":"backoff","nextRetryAt":"2026-10-21T15:38:33.952Z","pluginId":"plugin-1722260873"}}
+    ```
+  - `ondemand.coverage` frame:
+    ```text
+    data: {"seq":4,"type":"CUSTOM","name":"ondemand.coverage","value":{"elapsedMs":1,"web":"unavailable","reason":"backoff","pluginId":"plugin-1722260873","nextRetryAt":"2026-10-21T15:38:33.952Z","failures":3,"text":"Web research source unavailable (Perplexity credits exhausted) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added."}}
+    ```
+- **GET /health after chat probe** (`2026-10-21T15:36:03Z`):
+  Trimmed `web_research`:
+  ```json
+  {
+    "plugin": "plugin-1722260873",
+    "available": false,
+    "reason": "backoff",
+    "lastError": "Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted.",
+    "lastFailureAt": "2026-10-21T15:34:33.952Z",
+    "failures": 3,
+    "backoffMinutes": 4,
+    "nextRetryAt": "2026-10-21T15:38:33.952Z"
+  }
+  ```
+  Confirms backoff window active: available=false, reason="backoff", failures=3, backoffMinutes=4.
+
+#### 5. Backoff Recovery Unit Tests
+- New test file created: `tests/unit/plugin-availability-recovery.test.ts`
+- Tests run with `node --experimental-strip-types`:
+  - `tests/unit/plugin-availability.test.ts`: passed (all assertions passed)
+  - `tests/unit/plugin-availability-recovery.test.ts`: passed (all recovery & schedule assertions passed)
+  - Test suite log: `qa/2026-10-21-cycle5/laneD/unit-tests.log`
+- Proof summary:
+  - After N failures, plugin is skipped until `nextRetryAt` (`shouldAttachPlugin` returns false; `available: false`, `reason: "backoff"`).
+  - At `nextRetryAt`, exactly one probe run is allowed (`shouldAttachPlugin` returns true; `available: true`, `reason: "retry-window"`).
+  - `recordPluginSuccess(id)` resets state to available/ok: `failures: 0`, `nextRetryAt: null`, `backoffMinutes: null`, `lastError: null`.
+  - Window growth schedule 1 → 2 → 4 → 8 → 16 → 30 minutes verified step-by-step and confirmed capped at 30 minutes.
+
+#### 6. Code Inspection of Live Clearing Path
+- **Clearing when real sources arrive**:
+  `src/lib/ondemand/chat-bridge.ts:1624-1627`:
+  ```ts
+  if (realSources.size && pluginIds.includes(PLUGIN_ID)) {
+    clearPluginBlocked(PLUGIN_ID); // a clean run with real sources lifts a stale `blocked` state
+    recordPluginSuccess(PLUGIN_ID); // …and closes the availability backoff window (plugin-availability.ts)
+  }
+  ```
+- **Where /health reads plugin availability**:
+  `src/app/health/route.ts:8, 10-13`:
+  ```ts
+  export function GET() {
+    return NextResponse.json({ ok: true, ..., web_research: webResearch(), ... });
+  }
+  function webResearch() {
+    const a = pluginAvailability(PLUGIN_ID);
+    return { plugin: PLUGIN_ID, available: a.available, reason: a.reason, lastError: a.lastError, lastFailureAt: a.lastFailureAt, failures: a.failures, backoffMinutes: a.backoffMinutes, nextRetryAt: a.nextRetryAt };
+  }
+  ```
+
+#### 7. Verification Status & Live Limitations
+- **Recovery MOCKED**: Recovery was MOCKED at the unit level using simulated/injected timestamps (`tests/unit/plugin-availability-recovery.test.ts`) because upstream Perplexity credits remain exhausted on the live account.
+- **Live clearing NOT VERIFIED end-to-end**: Live clearing of the coverage notice / backoff window upon successful source streaming could NOT be verified end-to-end against upstream without active credits.
+
 ## Vercel git preview — 2026-10-21T13:48:58Z (cycle 4, Lane E)
 
 Probed 2026-10-21T13:47:08Z–13:47:10Z with `curl -sS -m 15` on the branch alias (`oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app`, A) and the newest deployment URL (`oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app`, dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo, READY 13:04:50Z, c005420, D). Raw header dumps (cookie values and SSO nonces redacted): `qa/2026-10-21-cycle4/laneE/probes.txt`, summary `probes.json`.
