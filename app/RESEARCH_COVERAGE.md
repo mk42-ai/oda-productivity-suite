@@ -1,3 +1,45 @@
+# RESEARCH_COVERAGE — 2026-10-21T21:13:09Z (QA cycle 6, Lane D)
+
+## Inclusion test (50-organisation list)
+- Lucidya: **absent — excluded** (Riyadh HQ; fails the UAE-base part of the 4-part test). Check: `grep -ci lucidya orgs.json` over the 50 records → 0.
+- Whiteshield: **present** (id `whiteshield`, admitted in cycle 5 replacing Cerebras; 4-part test 7/8). Count of organizations = 50.
+
+## Whiteshield field reconciliation (orgs.json, record `whiteshield`)
+| field | value | confidence | source URL |
+|---|---|---|---|
+| hq | Dubai (DIFC) / Riyadh; UK-incorporated (Whiteshield Partners Limited) | medium | https://whiteshield.ai |
+| founded | 2011 | medium | https://find-and-update.company-information.service.gov.uk/company/07839857 |
+| leadership | Fadi Farra — Founder & CEO | high | https://whiteshield.ai/people/fadi-farra |
+| funding | US$15M senior secured private credit facility from ADGM-based Ruya Partners (~1–2 Jul 2026) | high | https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya |
+| products | XShield / QuantumEd / Quantum Leap / Quantum Navigator | medium | https://whiteshield.ai |
+| staff_range | 51–200 (new key) | low | source pending |
+| offices | London / Barcelona / Dubai / Abu Dhabi / Riyadh / Astana / Vancouver (new key) | medium | source pending |
+
+Typo fix: "US5M" → "US$15M" in timeline (2026-07-01 event), briefing, seed_facts and source titles n1/n2. New keys: `staff_range`, `offices`, `funding`, `field_sources`; `field_confidence` extended with staff_range/offices. `coverage` recomputed over the 11 app fields = 1.0 (unchanged).
+
+## News added (news.json + digest.json, 105 → 107)
+- `na5d56d1c11` — 2026-10-07 — "Permus / Myndlab launches Arabic-English full-stack AI app generator at AI Everything Abu Dhabi" — publisher "source pending", url "" (url_verified false), org_ids [] (Permus not in the 50), ring assess, technology "Arabic-first app generation". Inserted at news.json index 10 (after the existing 2026-10-07 items in the newest-first block).
+- `n00533493fa` — 2026-10-21 — "UAE Blocks 750,000 Cyberattack Attempts, With Energy and Education Among Main Targets" — TechRevolt — https://techrevolt.news/articles/uae-blocks-750-000-cyberattack-attempts-with-energy-and-education-among-main-targets (url_verified true), org_ids [] (no Cyber Security Council record among the 50), category security, ring assess. Inserted at news.json index 1 (after the 2026-12-07 GITEX header item).
+
+## Radar changes (radar.json, 12 → 13)
+- "Deepfake & AI security": news_ids += n00533493fa; signals 2 → 3; latest 2026-07-29 → 2026-10-21; ring_votes.assess 0 → 1 (ring stays adopt).
+- NEW "Arabic-first app generation": ring assess, signals 1, latest 2026-10-07, ring_votes {assess: 1}, top_orgs [], news_ids [na5d56d1c11], method = standard string + " (cycle 6: single signal, Permus/Myndlab 7 Oct 2026 launch; source URL pending)". All other entries byte-identical.
+
+## Coverage (coverageStats(), src/lib/uae/data.ts)
+- before: meanCoverage 73.7%, withVerifiedSource 45/50, highConfidence 35/50
+- after: meanCoverage 73.7%, withVerifiedSource 45/50, highConfidence 35/50 (Whiteshield coverage already 1.0; no other record touched)
+- counts: orgs 50 / news 107 / radar 13 / digest.news 107
+
+## Edit locations (grep -n after writing)
+- orgs.json:4281 hq · :4327 timeline US$15M · :4353 briefing · :4357 source title n1 · :4429 seed_facts · :4442–4446 field_confidence · :4448 staff_range · :4449 offices · :4458 funding · :4459–4466 field_sources
+- news.json:154 (UAE Blocks… item, id at :166) · :359 (Permus/Myndlab item, id at :371)
+- radar.json:407 Deepfake & AI security (latest :410, news_ids :421) · :469 Arabic-first app generation (news_ids :478)
+- digest.json: single-line file; two compact rows inserted at news[1] and news[10]
+
+Validation: JSON parse ok (4 files); `npx tsc --noEmit` exit 0; graph.json untouched.
+
+---
+
 # RESEARCH_COVERAGE — namespace uae_cc_v1 (as of 2026-10-21)
 Organisations: **50** (12 government, 20 company, 14 subsidiary, 2 research centre, 2 university). Mean field coverage **73.7%** (11 fields: website, hq, founded, ownership, leadership, ai_focus, technologies, timeline, related, briefing, sources). With ≥1 verified source URL: **45/50**. Confidence ≥75%: **35**.
 Excluded: Lucidya (Riyadh HQ, no verified UAE operations); "AIREV / airev.aero / Rani Plaut" (different entity).

@@ -4278,7 +4278,7 @@
    "name": "Whiteshield",
    "type": "company",
    "website": "whiteshield.ai",
-   "hq": "Dubai (DIFC)",
+   "hq": "Dubai (DIFC) / Riyadh; UK-incorporated (Whiteshield Partners Limited)",
    "founded": "2011",
    "parent": null,
    "ownership": "Private, independent; founder Fadi Farra holds >75% control (UK PSC filing, Whiteshield Partners Limited 07839857)",
@@ -4324,7 +4324,7 @@
     },
     {
      "date": "2026-07-01",
-     "event": "Announced US5M senior secured private credit facility from Ruya Partners (ADGM) for technology development and international expansion.",
+     "event": "Announced US$15M senior secured private credit facility from Ruya Partners (ADGM) for technology development and international expansion.",
      "source_url": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya"
     },
     {
@@ -4350,18 +4350,18 @@
      "source_url": "https://whiteshield.ai"
     }
    ],
-   "briefing": "Whiteshield operates its primary executive base out of Dubai's DIFC (ICD Brookfield Place), delivering sovereign AI intelligence and AI-economics solutions to public sector clients and governments [4][6]. The company's core technology suite includes sovereign intelligence platforms XShield, QuantumEd, Quantum Leap, and Quantum Navigator, built on agent-based simulation, nowcasting, and geospatial modeling [4][5]. In July 2026, Whiteshield secured a US5M senior secured private credit facility from ADGM-based Ruya Partners to accelerate technology development and international expansion [1][2][3]. Originally incorporated in the UK in 2011 by Founder & CEO Fadi Farra, the firm remains private and independent while maintaining operations across Dubai, Abu Dhabi, Riyadh, London, and international hubs [7][8][9].",
+   "briefing": "Whiteshield operates its primary executive base out of Dubai's DIFC (ICD Brookfield Place), delivering sovereign AI intelligence and AI-economics solutions to public sector clients and governments [4][6]. The company's core technology suite includes sovereign intelligence platforms XShield, QuantumEd, Quantum Leap, and Quantum Navigator, built on agent-based simulation, nowcasting, and geospatial modeling [4][5]. In July 2026, Whiteshield secured a US$15M senior secured private credit facility from ADGM-based Ruya Partners to accelerate technology development and international expansion [1][2][3]. Originally incorporated in the UK in 2011 by Founder & CEO Fadi Farra, the firm remains private and independent while maintaining operations across Dubai, Abu Dhabi, Riyadh, London, and international hubs [7][8][9].",
    "sources": [
     {
      "n": 1,
-     "title": "Whiteshield secures 5M private credit facility from Ruya Partners",
+     "title": "Whiteshield secures US$15M private credit facility from Ruya Partners",
      "url": "https://en.sharikatmubasher.com/media-hub/news/21559660",
      "publisher": "Sharikat Mubasher",
      "date": "2026-07-02"
     },
     {
      "n": 2,
-     "title": "Whiteshield Secures 5 Million Private Credit Facility from Ruya",
+     "title": "Whiteshield Secures US$15 Million Private Credit Facility from Ruya",
      "url": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya",
      "publisher": "TechScoop",
      "date": "2026-07-01"
@@ -4426,7 +4426,7 @@
    ],
    "international": "Offices London, Barcelona, Dubai, Abu Dhabi, Riyadh, Astana, Vancouver; UK legal origin (2011), UAE primary operating base.",
    "parent_id": null,
-   "seed_facts": "Sovereign intelligence for governments; primary operating base DIFC, ICD Brookfield Place Dubai; US5M Ruya Partners facility Jul 2026.",
+   "seed_facts": "Sovereign intelligence for governments; primary operating base DIFC, ICD Brookfield Place Dubai; US$15M Ruya Partners facility Jul 2026.",
    "coverage": 1.0,
    "dropped_unverified_urls": 0,
    "provenance": {
@@ -4441,7 +4441,29 @@
     "leadership": "high",
     "funding": "high",
     "products": "medium",
-    "international": "medium"
+    "international": "medium",
+    "staff_range": "low",
+    "offices": "medium"
+   },
+   "staff_range": "51–200",
+   "offices": [
+    "London",
+    "Barcelona",
+    "Dubai",
+    "Abu Dhabi",
+    "Riyadh",
+    "Astana",
+    "Vancouver"
+   ],
+   "funding": "US$15M senior secured private credit facility from ADGM-based Ruya Partners (announced ~1–2 Jul 2026)",
+   "field_sources": {
+    "hq": "https://whiteshield.ai",
+    "founded": "https://find-and-update.company-information.service.gov.uk/company/07839857",
+    "leadership": "https://whiteshield.ai/people/fadi-farra",
+    "funding": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya",
+    "products": "https://whiteshield.ai",
+    "staff_range": "source pending",
+    "offices": "source pending"
    }
   },
   {

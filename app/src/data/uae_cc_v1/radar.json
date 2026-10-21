@@ -406,17 +406,19 @@
   {
    "name": "Deepfake & AI security",
    "ring": "adopt",
-   "signals": 2,
-   "latest": "2026-07-29",
+   "signals": 3,
+   "latest": "2026-10-21",
    "ring_votes": {
-    "adopt": 1
+    "adopt": 1,
+    "assess": 1
    },
    "top_orgs": [
     "g42"
    ],
    "news_ids": [
     "n3c45e3ae30",
-    "nb55a7c4d38"
+    "nb55a7c4d38",
+    "n00533493fa"
    ],
    "method": "Ring = majority of per-article radar_ring labels assigned by the OnDemand news-retrieval agent; signals = matching news items in uae_cc_v1."
   },
@@ -462,6 +464,20 @@
     "n137e4c5070"
    ],
    "method": "Ring = majority of per-article radar_ring labels assigned by the OnDemand news-retrieval agent; signals = matching news items in uae_cc_v1."
+  },
+  {
+   "name": "Arabic-first app generation",
+   "ring": "assess",
+   "signals": 1,
+   "latest": "2026-10-07",
+   "ring_votes": {
+    "assess": 1
+   },
+   "top_orgs": [],
+   "news_ids": [
+    "na5d56d1c11"
+   ],
+   "method": "Ring = majority of per-article radar_ring labels assigned by the OnDemand news-retrieval agent; signals = matching news items in uae_cc_v1. (cycle 6: single signal, Permus/Myndlab 7 Oct 2026 launch; source URL pending)"
   }
  ]
 }

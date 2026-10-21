@@ -151,6 +151,23 @@
    ]
   },
   {
+   "headline": "UAE Blocks 750,000 Cyberattack Attempts, With Energy and Education Among Main Targets",
+   "date": "2026-10-21",
+   "publisher": "TechRevolt",
+   "url": "https://techrevolt.news/articles/uae-blocks-750-000-cyberattack-attempts-with-energy-and-education-among-main-targets",
+   "summary": "The UAE Cyber Security Council reported blocking about 750,000 cyberattack attempts, with energy and education among the main targets; the report notes that some attacks involved artificial intelligence.",
+   "orgs": [
+    "UAE Cyber Security Council"
+   ],
+   "category": "security",
+   "radar_ring": "assess",
+   "technology": "AI-enabled cyberattacks / deepfake & AI security",
+   "url_verified": true,
+   "id": "n00533493fa",
+   "org_ids": [],
+   "also": []
+  },
+  {
    "headline": "Jais 3 announced",
    "date": "2026-10-15",
    "publisher": "",
@@ -337,6 +354,23 @@
    "org_ids": [
     "dge"
    ]
+  },
+  {
+   "headline": "Permus / Myndlab launches Arabic-English full-stack AI app generator at AI Everything Abu Dhabi",
+   "date": "2026-10-07",
+   "publisher": "source pending",
+   "url": "",
+   "summary": "Permus Software House (Dubai, founded 2005; CEO Sevket Ayaksiz) announced the global launch of Myndlab, an Arabic/English full-stack AI application generator, at Ai Everything Abu Dhabi (6–7 Oct 2026, ADNEC). Source URL pending verification.",
+   "orgs": [
+    "Permus Software House"
+   ],
+   "category": "products",
+   "radar_ring": "assess",
+   "technology": "Arabic-first app generation",
+   "url_verified": false,
+   "id": "na5d56d1c11",
+   "org_ids": [],
+   "also": []
   },
   {
    "headline": "Saal.ai showcases AI and big-data technologies at AI Everything Abu Dhabi",
