@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Playwright Test Report - Desktop</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; padding: 24px; }
+  h1 { font-size: 24px; margin-bottom: 8px; color: #f8fafc; }
+  .summary-bar { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .card { background: #1e293b; border-radius: 8px; padding: 16px 20px; min-width: 140px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+  .card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; }
+  .card .val { font-size: 28px; font-weight: 700; margin-top: 4px; }
+  .card.passed .val { color: #22c55e; }
+  .card.failed .val { color: #ef4444; }
+  .card.not-run .val { color: #eab308; }
+  .card.total .val { color: #38bdf8; }
+  .filter-bar { margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; }
+  th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #334155; font-size: 14px; }
+  th { background: #0f172a; color: #94a3b8; font-weight: 600; text-transform: uppercase; font-size: 12px; }
+  tr.failed { background: rgba(239, 68, 68, 0.05); }
+  tr.passed { background: rgba(34, 197, 94, 0.05); }
+  tr.skipped { background: rgba(148, 163, 184, 0.02); color: #64748b; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+  .badge.failed { background: #ef4444; color: #fff; }
+  .badge.passed { background: #22c55e; color: #fff; }
+  .badge.not-run { background: #475569; color: #cbd5e1; }
+  pre { background: #0f172a; padding: 8px 12px; border-radius: 4px; font-size: 12px; overflow-x: auto; color: #fca5a5; max-width: 600px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Playwright E2E Test Report — Desktop (1440×900)</h1>
+<p style="color: #94a3b8; margin-top: 0; margin-bottom: 20px;">Target Preview: https://sb-55dvd3y2jwnj.vercel.run · Execution Timeout: 1500s (Killed at 1500s cap)</p>
+
+<div class="summary-bar">
+  <div class="card total"><div class="label">Total Specs</div><div class="val">32</div></div>
+  <div class="card total"><div class="label">Total Tests</div><div class="val">175</div></div>
+  <div class="card passed"><div class="label">Passed</div><div class="val">23</div></div>
+  <div class="card failed"><div class="label">Failed</div><div class="val">40</div></div>
+  <div class="card not-run"><div class="label">Not Run (Timeout)</div><div class="val">112</div></div>
+  <div class="card"><div class="label">Duration</div><div class="val">1500.0s</div></div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Spec File</th>
+      <th>Test Title</th>
+      <th>Duration</th>
+      <th>Error Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>a11y.spec.ts</strong></td>
+      <td>Accessibility (axe, WCAG 2.0/2.1 A+AA) › onboarding: no serious/critical violations</td>
+      <td>2.4s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>a11y.spec.ts</strong></td>
+      <td>Accessibility (axe, WCAG 2.0/2.1 A+AA) › overview: no serious/critical violations</td>
+      <td>3.5s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>a11y.spec.ts</strong></td>
+      <td>Accessibility (axe, WCAG 2.0/2.1 A+AA) › company: no serious/critical violations</td>
+      <td>2.4s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>a11y.spec.ts</strong></td>
+      <td>Accessibility (axe, WCAG 2.0/2.1 A+AA) › news: no serious/critical violations</td>
+      <td>4.5s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>a11y.spec.ts</strong></td>
+      <td>Accessibility (axe, WCAG 2.0/2.1 A+AA) › settings: no serious/critical violations</td>
+      <td>5.4s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>a11y.spec.ts</strong></td>
+      <td>Accessibility (axe, WCAG 2.0/2.1 A+AA) › chat: no serious/critical violations</td>
+      <td>2.9s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @1440x900 › /overview @1440x900: no serious/critical (WCAG 2.2 AA)</td>
+      <td>4.7s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @1440x900 › /companies @1440x900: no serious/critical (WCAG 2.2 AA)</td>
+      <td>3.2s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @1440x900 › /news @1440x900: no serious/critical (WCAG 2.2 AA)</td>
+      <td>6.1s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @1440x900 › /chat?skip=1 @1440x900: no serious/critical (WCAG 2.2 AA)</td>
+      <td>3.9s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @1440x900 › /artifacts @1440x900: no serious/critical (WCAG 2.2 AA)</td>
+      <td>3.4s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @1440x900 › /settings @1440x900: no serious/critical (WCAG 2.2 AA)</td>
+      <td>6.4s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @1440x900 › /company/tii @1440x900: no serious/critical (WCAG 2.2 AA)</td>
+      <td>3.4s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @390x844 › /overview @390x844: no serious/critical (WCAG 2.2 AA)</td>
+      <td>4.4s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @390x844 › /companies @390x844: no serious/critical (WCAG 2.2 AA)</td>
+      <td>2.8s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @390x844 › /news @390x844: no serious/critical (WCAG 2.2 AA)</td>
+      <td>5.5s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @390x844 › /chat?skip=1 @390x844: no serious/critical (WCAG 2.2 AA)</td>
+      <td>3.1s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @390x844 › /artifacts @390x844: no serious/critical (WCAG 2.2 AA)</td>
+      <td>2.9s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @390x844 › /settings @390x844: no serious/critical (WCAG 2.2 AA)</td>
+      <td>5.6s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep @390x844 › /company/tii @390x844: no serious/critical (WCAG 2.2 AA)</td>
+      <td>2.7s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>axe-sweep.spec.ts</strong></td>
+      <td>axe sweep: /chat run panel after one turn @1440x900 › /chat after-turn: no serious/critical (WCAG 2.2 AA)</td>
+      <td>18.2s</td>
+      <td><pre>Error: [
+ {</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>chat-error-retry.spec.ts</strong></td>
+      <td>chat error retry notice › forced failure shows only the discreet notice; Retry resubmits and succeeds</td>
+      <td>2.0s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>chat.spec.ts</strong></td>
+      <td>Analyst chat — streaming › answer streams incrementally via SSE with plugin activity and sources</td>
+      <td>16.8s</td>
+      <td><pre>Error: expect(locator).toBeAttached() failed
+Locator: locator('img[data-testid="brand-logo"]').first()</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>context-sync.spec.ts</strong></td>
+      <td>context line + POST /api/chat systemContext mirror the inspector chips (remove one company)</td>
+      <td>1.9s</td>
+      <td><pre>Error: expect(received).toMatch(expected)
+Expected pattern: /^Context: 5 companies — /</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>context-sync.spec.ts</strong></td>
+      <td>empty context → helper copy; mobile 390 wraps the line</td>
+      <td>31.7s</td>
+      <td><pre>Error: expect(locator).toHaveText(expected) failed
+Locator:  getByTestId('context-line')</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>copy-and-rail.spec.ts</strong></td>
+      <td>a49 copy + rail › rail ≤224 expanded / ≤64 collapsed via rail-toggle, persisted</td>
+      <td>3.1s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>copy-and-rail.spec.ts</strong></td>
+      <td>a49 copy + rail › /chat: no lede under the title, no explainer copy on user surfaces</td>
+      <td>16.8s</td>
+      <td><pre>Error: expect(locator).toHaveText(expected) failed
+Locator: getByTestId('chat-title')</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>copy-and-rail.spec.ts</strong></td>
+      <td>a49 copy + rail › overview/news ledes are short; brand line still present on onboarding</td>
+      <td>16.0s</td>
+      <td><pre>Error: expect(locator).toBeVisible() failed
+Locator: getByRole('heading', { name: 'Overview', exact: true, level: 1 })</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>keyboard-nav.spec.ts</strong></td>
+      <td>a33 keyboard nav › companies: roving tabindex, arrows, Home, typeahead, live region</td>
+      <td>15.8s</td>
+      <td><pre>Error: expect(locator).toBeVisible() failed
+Locator: getByTestId('company-row-link').first()</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>keyboard-nav.spec.ts</strong></td>
+      <td>a33 keyboard nav › nav rail: Tab + arrows, no blue focus ring anywhere</td>
+      <td>1.4s</td>
+      <td><pre>Error: blue focus ring on null: rgb(37, 99, 235)
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › route /</td>
+      <td>2.2s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › route /overview</td>
+      <td>2.0s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › route /companies</td>
+      <td>1.2s</td>
+      <td><pre>Error: /companies
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › route /social</td>
+      <td>1.2s</td>
+      <td><pre>Error: /companies
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › route /signals</td>
+      <td>1.3s</td>
+      <td><pre>Error: /companies
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › route /reputation</td>
+      <td>1.3s</td>
+      <td><pre>Error: /companies
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › route /docs/interactive-ui</td>
+      <td>1.7s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › bad urls are 404</td>
+      <td>1.6s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › nav links + back/forward</td>
+      <td>240.0s</td>
+      <td><pre>Test timeout of 240000ms exceeded.</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › preserved surfaces: docs + GROWTH</td>
+      <td>16.1s</td>
+      <td><pre>Error: expect(locator).toBeVisible() failed
+Locator: locator('[data-testid="growth-grid"]')</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › no snapshot/Lambda demo on playground or chat</td>
+      <td>2.2s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › company #news deep link lands on the news section</td>
+      <td>15.9s</td>
+      <td><pre>Error: Timeout 15000ms exceeded while waiting on the predicate</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › chat actual request 200 + answer</td>
+      <td>90.0s</td>
+      <td><pre>Error: expect(locator).toContainText(expected) failed
+Locator: locator('body')</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 1440x900 › discreet retry: forced failure, no raw in DOM, retry recovers</td>
+      <td>2.1s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › route /</td>
+      <td>2.0s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › route /overview</td>
+      <td>2.1s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › route /companies</td>
+      <td>0.9s</td>
+      <td><pre>Error: /companies
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › route /social</td>
+      <td>1.2s</td>
+      <td><pre>Error: /companies
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › route /signals</td>
+      <td>1.3s</td>
+      <td><pre>Error: /companies
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › route /reputation</td>
+      <td>1.0s</td>
+      <td><pre>Error: /companies
+expect(received).toBe(expected) // Object.is equality</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › route /docs/interactive-ui</td>
+      <td>1.5s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › bad urls are 404</td>
+      <td>1.2s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › nav links + back/forward</td>
+      <td>240.0s</td>
+      <td><pre>Test timeout of 240000ms exceeded.</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › preserved surfaces: docs + GROWTH</td>
+      <td>16.0s</td>
+      <td><pre>Error: expect(locator).toBeVisible() failed
+Locator: locator('[data-testid="growth-grid"]')</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › no snapshot/Lambda demo on playground or chat</td>
+      <td>2.1s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › company #news deep link lands on the news section</td>
+      <td>15.6s</td>
+      <td><pre>Error: Timeout 15000ms exceeded while waiting on the predicate</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › chat actual request 200 + answer</td>
+      <td>90.0s</td>
+      <td><pre>Error: expect(locator).toContainText(expected) failed
+Locator: locator('body')</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>live-smoke.spec.ts</strong></td>
+      <td>live smoke 390x844 › discreet retry: forced failure, no raw in DOM, retry recovers</td>
+      <td>2.1s</td>
+      <td></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › rapid-nav</td>
+      <td>8.8s</td>
+      <td></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › back-forward-spam</td>
+      <td>26.7s</td>
+      <td><pre>Error: stress events in back-forward-spam @1440x900
+expect(received).toEqual(expected) // deep equality</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › deep-link-reload</td>
+      <td>16.7s</td>
+      <td><pre>Error: /companies
+expect(received).toBeLessThan(expected)</pre></td>
+    </tr>
+    <tr class="failed">
+      <td><span class="badge failed">FAILED</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › drawer-open-nav</td>
+      <td>240.0s</td>
+      <td><pre>Test timeout of 240000ms exceeded.</pre></td>
+    </tr>
+    <tr class="passed">
+      <td><span class="badge passed">PASSED</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › nav-while-streaming</td>
+      <td>6.8s</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › growth-mid-nav</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › news-anchor</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › signals</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @1440x900 › bad-urls</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › rapid-nav</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › back-forward-spam</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › deep-link-reload</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › drawer-open-nav</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › nav-while-streaming</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › growth-mid-nav</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › news-anchor</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › signals</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>nav-stress.spec.ts</strong></td>
+      <td>nav stress @390x844 › bad-urls</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › route / renders @desktop</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › route /overview renders @desktop</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › route /companies renders @desktop</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › route /social renders @desktop</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › route /signals renders @desktop</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › route /docs/interactive-ui renders @desktop</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › bad urls are real 404</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › nav click-through + active + back/forward + refresh</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › company link, breadcrumb back, drawer close returns focus/scroll</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › growth tile interactive (onboarding)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>navigation e2e › chat non-empty 200</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-e2e.spec.ts</strong></td>
+      <td>mobile navigation › mobile routes + nav scroll + no overflow</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-retry-proof.spec.ts</strong></td>
+      <td>retry proof 1440x900</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>navigation-retry-proof.spec.ts</strong></td>
+      <td>retry proof 390x844</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>pdf-inline-render.spec.ts</strong></td>
+      <td>PDF artifact → side pane renders pdf.js pages (or the preview-unavailable fallback)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>pdf-inline-render.spec.ts</strong></td>
+      <td>PDF artifact → Artifacts preview pane renders pdf.js pages (or the fallback), one meta line, H1-style file name</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>pdf-inline-render.spec.ts</strong></td>
+      <td>non-PDF office artifact in the side pane shows the preview-unavailable fallback (when one exists)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-chat-timing.spec.ts</strong></td>
+      <td>QA chat timing @ desktop › two turns in one thread: timings, tool card, session reuse</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-chat-timing.spec.ts</strong></td>
+      <td>QA chat timing @ mobile › two turns in one thread: timings, tool card, session reuse</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /onboarding</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /overview</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /company/tii</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /company/mbzuai</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /news</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /settings</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /chat</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /company/does-not-exist</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ desktop 1440x900 › /onboarding with reduced motion: growth value expands</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /onboarding</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /overview</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /company/tii</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /company/mbzuai</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /news</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /settings</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /chat</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /company/does-not-exist</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>QA routes @ mobile 390x844 › /onboarding with reduced motion: growth value expands</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>qa-routes.spec.ts</strong></td>
+      <td>Logo audit (browser) @ desktop › collect every company-logo / logo-img on /overview (paging ≤60 s)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>release.spec.ts</strong></td>
+      <td>release gates (bridge) › every SSE frame carries a monotonic seq — no duplicates, no gaps, [DONE] last</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>release.spec.ts</strong></td>
+      <td>release gates (bridge) › session pre-warm answers with a session id and the shell marks itself ready</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>release.spec.ts</strong></td>
+      <td>release gates (bridge) › first turn reuses the pre-warmed session (ondemand.session viaHeader=true)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>routes-clean.spec.ts</strong></td>
+      <td>/overview → 200, 0 console errors, 0 page errors</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>routes-clean.spec.ts</strong></td>
+      <td>/companies → 200, 0 console errors, 0 page errors</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>routes-clean.spec.ts</strong></td>
+      <td>/news → 200, 0 console errors, 0 page errors</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>routes-clean.spec.ts</strong></td>
+      <td>/chat → 200, 0 console errors, 0 page errors</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>routes-clean.spec.ts</strong></td>
+      <td>/artifacts → 200, 0 console errors, 0 page errors</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>routes-clean.spec.ts</strong></td>
+      <td>/settings → 200, 0 console errors, 0 page errors</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-a11y.spec.ts</strong></td>
+      <td>run-panel a11y (a10) › every visible disclosure head is a focusable <button>/<summary> with a brand-green focus ring</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-a11y.spec.ts</strong></td>
+      <td>run-panel a11y (a10) › Tab order reaches the disclosure heads with the green ring</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-a11y.spec.ts</strong></td>
+      <td>run-panel a11y (a10) › .oiu-think__head text contrast vs effective background ≥ 4.5:1</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-a11y.spec.ts</strong></td>
+      <td>run-panel a11y (a10) › Working band (mint gradient) text is ≥ 4.5:1 when present</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-a11y.spec.ts</strong></td>
+      <td>run-panel a11y (a10) › prefers-reduced-motion: .oiu-spin has no animation</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-acceptance.spec.ts</strong></td>
+      <td>run-panel acceptance — desktop 1440×900 › thinking auto-expand, anchored header, brand chip, checklist plan, no raw JSON</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-acceptance.spec.ts</strong></td>
+      <td>run-panel acceptance — mobile 390×844 › thinking auto-expand, anchored header, brand chip, checklist plan, no raw JSON</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-visual.spec.ts</strong></td>
+      <td>run panel visual — desktop 1440×900 › captures run-view states + layout metrics</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-visual.spec.ts</strong></td>
+      <td>run panel visual — mobile 390×844 (Pixel 7) › captures run-view states + layout metrics</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-working-header.spec.ts</strong></td>
+      <td>run panel Working header invariant @ desktop › one source of truth for "Working…" across a live ≥2-tool run (desktop)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-panel-working-header.spec.ts</strong></td>
+      <td>run panel Working header invariant @ mobile › one source of truth for "Working…" across a live ≥2-tool run (mobile)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-ux.spec.ts</strong></td>
+      <td>Run UX — uploads, stream order, artifacts › upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>run-ux.spec.ts</strong></td>
+      <td>Run UX — uploads, stream order, artifacts › report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>session-continuity.spec.ts</strong></td>
+      <td>session continuity — two turns, one thread › turn 2 appends below turn 1; turn 1 thinking-block pinned; one thread; no errors</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>settings.spec.ts</strong></td>
+      <td>Settings › shows user and backend inputs; model and plugin are fixed (DeepSeek Flash v4.1 · Perplexity only)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>settings.spec.ts</strong></td>
+      <td>Settings › editing the user id persists to localStorage</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>thinking-json-filter.spec.ts</strong></td>
+      <td>desktop 1440×900 › Thinking body has no planner JSON; planner-payload lives only in dev-disclosure</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>thinking-json-filter.spec.ts</strong></td>
+      <td>mobile 390×844 › Thinking body has no planner JSON; planner-payload lives only in dev-disclosure</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>thinking-pinned-working-row.spec.ts</strong></td>
+      <td>desktop 1440×900 › Thinking pinned at top, Working rows before the answer, jump pill clear of Working rows, no planner JSON in Thinking</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>thinking-pinned-working-row.spec.ts</strong></td>
+      <td>mobile 390×844 › Thinking pinned at top, Working rows before the answer, jump pill clear of Working rows, no planner JSON in Thinking</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>thread-reopen.spec.ts</strong></td>
+      <td>thread re-open after reload › reload → recent thread listed → click → messages restored; ?thread deep link</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>title-ellipsis.spec.ts</strong></td>
+      <td>thread titles ellipsise + carry the full title (desktop)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>title-ellipsis.spec.ts</strong></td>
+      <td>thread titles ellipsise + carry the full title (mobile-390)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-artifacts.spec.ts</strong></td>
+      <td>Upload → Artifacts E2E › empty Artifacts state renders</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-artifacts.spec.ts</strong></td>
+      <td>Upload → Artifacts E2E › API: each fixture uploads via /api/media and is listed by /api/artifacts as an upload</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-artifacts.spec.ts</strong></td>
+      <td>Upload → Artifacts E2E › UI: pick → progress → processed → chip → sent → cited → Artifacts → reload</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-artifacts.spec.ts</strong></td>
+      <td>Upload → Artifacts E2E › blurred memo: agent must say it cannot read it, never invent text</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-artifacts.spec.ts</strong></td>
+      <td>Upload → Artifacts E2E › failure path shows red state + retry</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-artifacts.spec.ts</strong></td>
+      <td>Upload → Artifacts E2E › mobile 390×844 › upload chip and Artifacts page have no horizontal overflow</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-e2e.spec.ts</strong></td>
+      <td>upload-e2e @1440x900 › U1 counters baseline → PDF+PNG paperclip upload → chips ready → artifacts persisted (source upload) → one short chat turn [1440x900]</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-e2e.spec.ts</strong></td>
+      <td>upload-e2e @1440x900 › U2 /artifacts lists both as "input", PDF icon pdf / PNG icon image|chart, counters +2/+1/+1/+2, PDF download starts with %PDF [1440x900]</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-e2e.spec.ts</strong></td>
+      <td>upload-e2e @390x844 › U1 counters baseline → PDF+PNG paperclip upload → chips ready → artifacts persisted (source upload) → one short chat turn [390x844]</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-e2e.spec.ts</strong></td>
+      <td>upload-e2e @390x844 › U2 /artifacts lists both as "input", PDF icon pdf / PNG icon image|chart, counters +2/+1/+1/+2, PDF download starts with %PDF [390x844]</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — documents (desktop) › PDF: upload → ready → grounded answer cites the file → artifact persisted → survives reload</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — documents (desktop) › DOCX: compendium.docx (15 MB) → ready → answer about the DOCX → artifact persisted → survives reload</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — images (desktop 1440×900) › image: geothermal-plant.png → thumb in chip + under message → grounded description</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — images (desktop 1440×900) › image: bar-chart.png → thumb in chip + under message → grounded description</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — images (desktop 1440×900) › image: blurred-memo.png → thumb in chip + under message → honest 'cannot read' answer</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — images (desktop 1440×900) › persistence: /artifacts lists the three images as uploads, also after reload</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — failure state + retry › ui: tool.exe → error chip (red) with retry; retry stays error; remove works; 0-byte file → error</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — failure state + retry › api: POST /api/media with an unsupported extension → 400 unsupported_type</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — images (mobile 390×844) › mobile image: geothermal-plant.png</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — images (mobile 390×844) › mobile image: bar-chart.png</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload-journeys.spec.ts</strong></td>
+      <td>Upload journeys — images (mobile 390×844) › mobile image: blurred-memo.png</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload.spec.ts</strong></td>
+      <td>Media upload › upload: 26 MB file is rejected with 413 too_large</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload.spec.ts</strong></td>
+      <td>Media upload › upload: tool.exe is rejected with 400 naming the allowed types</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload.spec.ts</strong></td>
+      <td>Media upload › upload: zephyr-7.md uploads and /api/chat answers 41.7 MWh from it</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>upload.spec.ts</strong></td>
+      <td>Media upload › ui: picking zephyr-7.md in the composer shows an attachment chip (ready or error)</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>voice.spec.ts</strong></td>
+      <td>voice › voice relay: POST /api/voice/tts answers ok:true + https audioUrl, or an honest not_subscribed</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>voice.spec.ts</strong></td>
+      <td>voice › voice relay: expired/unknown clip token is a 404 and STT rejects a non-audio form</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>voice.spec.ts</strong></td>
+      <td>voice › voice UI: mic button in the composer → listening (fake mic) or an honest error; orb state matches</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+    <tr class="not-run">
+      <td><span class="badge not-run">NOT RUN</span></td>
+      <td><strong>voice.spec.ts</strong></td>
+      <td>voice › voice a11y: caption strip is a polite live region and the mic has an accessible name</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
