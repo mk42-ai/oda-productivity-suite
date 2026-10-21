@@ -1,0 +1,708 @@
+data: {"seq":1,"type":"RUN_STARTED","threadId":"uae-cc-qa6-probe-laneE","runId":"ad222a43-4c4f-4b72-99a4-8febacce9041"}
+
+data: {"seq":2,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"connecting","elapsedMs":0,"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","pluginIds":["plugin-1722260873"],"pluginNames":["Perplexity"],"droppedPluginIds":[],"sessionKnown":false,"transport":"/api/chat"}}
+
+data: {"seq":3,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"creating-session","elapsedMs":0}}
+
+data: {"seq":4,"type":"CUSTOM","name":"ondemand.session","value":{"sessionId":"6ad92aeed1b43ac6a7c50039","created":true,"viaHeader":false,"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","pluginIds":["plugin-1722260873"]}}
+
+data: {"seq":5,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"querying","elapsedMs":294,"sessionId":"6ad92aeed1b43ac6a7c50039"}}
+
+data: {"seq":6,"type":"CUSTOM","name":"ondemand.request","value":{"elapsedMs":295,"method":"POST","proxy":"/api/chat","upstream":"POST api.on-demand.io/chat/v1/sessions/{id}/query","body":{"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","responseMode":"stream","pluginIds":["plugin-1722260873"],"queryChars":32,"systemContextChars":0,"attachments":[]},"sessionId":"6ad92aeed1b43ac6a7c50039","sessionCreated":true}}
+
+data: {"seq":7,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"streaming","elapsedMs":773}}
+
+data: {"seq":8,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":1353,"firstFrameMs":1353}}
+
+data: {"seq":9,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":1353,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":1,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"initializing\",\"statusMessage\":\"Initializing the process...\",\"time\":\"2026-10-21T21:13:19Z\"}}"}}
+
+data: {"seq":10,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":1353,"statusType":"initializing","statusMessage":"Initializing the process...","stepQuery":null}}
+
+data: {"seq":11,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":1353,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":2,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"analyzing\",\"statusMessage\":\"Analyzing the prompt...\",\"time\":\"2026-10-21T21:13:19Z\"}}"}}
+
+data: {"seq":12,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":1353,"statusType":"analyzing","statusMessage":"Analyzing the prompt...","stepQuery":null}}
+
+data: {"seq":13,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":749,"elapsedMs":2102}}
+
+data: {"seq":14,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1049,"elapsedMs":2402}}
+
+data: {"seq":15,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1349,"elapsedMs":2702}}
+
+data: {"seq":16,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1648,"elapsedMs":3001}}
+
+data: {"seq":17,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":4,"quietMs":1949,"elapsedMs":3302}}
+
+data: {"seq":18,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":5,"quietMs":2250,"elapsedMs":3603}}
+
+data: {"seq":19,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":6,"quietMs":2551,"elapsedMs":3904}}
+
+data: {"seq":20,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":7,"quietMs":2850,"elapsedMs":4203}}
+
+data: {"seq":21,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":4341}}
+
+data: {"seq":22,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4341,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":3,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"**Exploring TII Announcements**\\n\\nI'm\"}}"}}
+
+data: {"seq":23,"type":"TOOL_CALL_START","toolCallId":"58e65417-6b4b-4917-83f4-d47032e0bbb7","toolCallName":"Perplexity","parentMessageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110"}
+
+data: {"seq":24,"type":"TOOL_CALL_ARGS","toolCallId":"58e65417-6b4b-4917-83f4-d47032e0bbb7","delta":"{\"plugin\":\"Perplexity\",\"pluginId\":\"plugin-1722260873\",\"query\":\"What has TII announced recently?\",\"stepId\":\"\",\"endpointId\":\"predefined-gpt-5.6-luna\",\"endpointLabel\":\"GPT-5.6 Luna\",\"reasoningMode\":\"medium\"}"}
+
+data: {"seq":25,"type":"TOOL_CALL_END","toolCallId":"58e65417-6b4b-4917-83f4-d47032e0bbb7"}
+
+data: {"seq":26,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"researching","elapsedMs":4341,"plugin":"Perplexity","pluginId":"plugin-1722260873","stepId":""}}
+
+data: {"seq":27,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4341,"kind":"planning","delta":"**Exploring TII Announcements**\n\nI'm","stepId":""}}
+
+data: {"seq":28,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4392,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":4,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" looking to gather recent announcements\"}}"}}
+
+data: {"seq":29,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4392,"kind":"planning","delta":" looking to gather recent announcements","stepId":""}}
+
+data: {"seq":30,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4494,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":5,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" from TII, but there seems to be\"}}"}}
+
+data: {"seq":31,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4494,"kind":"planning","delta":" from TII, but there seems to be","stepId":""}}
+
+data: {"seq":32,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4495,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":6,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" some ambiguity around the acronym\"}}"}}
+
+data: {"seq":33,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4495,"kind":"planning","delta":" some ambiguity around the acronym","stepId":""}}
+
+data: {"seq":34,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4594,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":7,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\". It could refer to the Technology\"}}"}}
+
+data: {"seq":35,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4595,"kind":"planning","delta":". It could refer to the Technology","stepId":""}}
+
+data: {"seq":36,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4595,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":8,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" Innovation Institute or Transport\"}}"}}
+
+data: {"seq":37,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4596,"kind":"planning","delta":" Innovation Institute or Transport","stepId":""}}
+
+data: {"seq":38,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4645,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":9,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" Infrastructure Ireland. I'll need\"}}"}}
+
+data: {"seq":39,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4645,"kind":"planning","delta":" Infrastructure Ireland. I'll need","stepId":""}}
+
+data: {"seq":40,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4696,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":10,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" to clarify this before proceeding\"}}"}}
+
+data: {"seq":41,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4696,"kind":"planning","delta":" to clarify this before proceeding","stepId":""}}
+
+data: {"seq":42,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4755,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":11,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\". I want to make sure I'm searching\"}}"}}
+
+data: {"seq":43,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4755,"kind":"planning","delta":". I want to make sure I'm searching","stepId":""}}
+
+data: {"seq":44,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4798,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":12,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" for the right organization to\"}}"}}
+
+data: {"seq":45,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4798,"kind":"planning","delta":" for the right organization to","stepId":""}}
+
+data: {"seq":46,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4848,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":13,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" pull relevant and accurate information\"}}"}}
+
+data: {"seq":47,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4848,"kind":"planning","delta":" pull relevant and accurate information","stepId":""}}
+
+data: {"seq":48,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4898,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":14,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\". I’ll search for recent announcements\"}}"}}
+
+data: {"seq":49,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4899,"kind":"planning","delta":". I’ll search for recent announcements","stepId":""}}
+
+data: {"seq":50,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4948,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":15,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\", properly disambiguating the acronym\"}}"}}
+
+data: {"seq":51,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4949,"kind":"planning","delta":", properly disambiguating the acronym","stepId":""}}
+
+data: {"seq":52,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4952,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":16,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" if necessary, and always refer\"}}"}}
+
+data: {"seq":53,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4952,"kind":"planning","delta":" if necessary, and always refer","stepId":""}}
+
+data: {"seq":54,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":4998,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":17,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" back to the original sources.\"}}"}}
+
+data: {"seq":55,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":4998,"kind":"planning","delta":" back to the original sources.","stepId":""}}
+
+data: {"seq":56,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5199,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":18,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"**Searching Recent Announcements**\\n\\nI\"}}"}}
+
+data: {"seq":57,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":5199,"kind":"planning","delta":"**Searching Recent Announcements**\n\nI","stepId":""}}
+
+data: {"seq":58,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5251,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":19,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" need to create a title that’s\"}}"}}
+
+data: {"seq":59,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":5251,"kind":"planning","delta":" need to create a title that’s","stepId":""}}
+
+data: {"seq":60,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5351,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":20,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" 3-4 words long and ends with an\"}}"}}
+
+data: {"seq":61,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":5351,"kind":"planning","delta":" 3-4 words long and ends with an","stepId":""}}
+
+data: {"seq":62,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5404,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":21,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" action verb. I’m thinking something\"}}"}}
+
+data: {"seq":63,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5404,"phase":"planning","stepId":"","delta":" action verb. I’m thinking something","kind":"planning"}}
+
+data: {"seq":64,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5405,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":22,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" like “Searching Recent Announcements\"}}"}}
+
+data: {"seq":65,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5405,"phase":"planning","stepId":"","delta":" like “Searching Recent Announcements","kind":"planning"}}
+
+data: {"seq":66,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5507,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":23,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\".” It’s simple and gets straight\"}}"}}
+
+data: {"seq":67,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5507,"phase":"planning","stepId":"","delta":".” It’s simple and gets straight","kind":"planning"}}
+
+data: {"seq":68,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5555,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":24,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" to the point! I want to ensure\"}}"}}
+
+data: {"seq":69,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5555,"phase":"planning","stepId":"","delta":" to the point! I want to ensure","kind":"planning"}}
+
+data: {"seq":70,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5557,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":25,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" that it's clear and concise so\"}}"}}
+
+data: {"seq":71,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5557,"phase":"planning","stepId":"","delta":" that it's clear and concise so","kind":"planning"}}
+
+data: {"seq":72,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5609,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":26,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" that it fits well in my plugin\"}}"}}
+
+data: {"seq":73,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5609,"phase":"planning","stepId":"","delta":" that it fits well in my plugin","kind":"planning"}}
+
+data: {"seq":74,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5658,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":27,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"'s requirements. This way, users\"}}"}}
+
+data: {"seq":75,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5658,"phase":"planning","stepId":"","delta":"'s requirements. This way, users","kind":"planning"}}
+
+data: {"seq":76,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5707,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":28,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" will understand exactly what I\"}}"}}
+
+data: {"seq":77,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5707,"phase":"planning","stepId":"","delta":" will understand exactly what I","kind":"planning"}}
+
+data: {"seq":78,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5710,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":29,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"’m doing with just a glance. Let\"}}"}}
+
+data: {"seq":79,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5710,"phase":"planning","stepId":"","delta":"’m doing with just a glance. Let","kind":"planning"}}
+
+data: {"seq":80,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5759,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":30,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"’s stick with this title for clarity\"}}"}}
+
+data: {"seq":81,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5760,"phase":"planning","stepId":"","delta":"’s stick with this title for clarity","kind":"planning"}}
+
+data: {"seq":82,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5909,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":31,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"{\\n  \\\"title\\\": \\\"I'll look up TII\"}}"}}
+
+data: {"seq":83,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5909,"phase":"planning","stepId":"","delta":"{\n  \"title\": \"I'll look up TII","kind":"plan"}}
+
+data: {"seq":84,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5912,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":32,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"'s recent announcements.\\\\nI'll\"}}"}}
+
+data: {"seq":85,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5912,"phase":"planning","stepId":"","delta":"'s recent announcements.\\nI'll","kind":"plan"}}
+
+data: {"seq":86,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5912,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":33,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" cite the sources.\\\",\\n  \\\"objective\"}}"}}
+
+data: {"seq":87,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5912,"phase":"planning","stepId":"","delta":" cite the sources.\",\n  \"objective","kind":"plan"}}
+
+data: {"seq":88,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5958,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":34,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\": \\\"I'll find what TII has announced\"}}"}}
+
+data: {"seq":89,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5958,"phase":"planning","stepId":"","delta":"\": \"I'll find what TII has announced","kind":"plan"}}
+
+data: {"seq":90,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":5958,"statusType":"planning","statusMessage":"I'll find what TII has announced"}}
+
+data: {"seq":91,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5959,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":35,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" recently and cite reliable sources\"}}"}}
+
+data: {"seq":92,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5960,"phase":"planning","stepId":"","delta":" recently and cite reliable sources","kind":"plan"}}
+
+data: {"seq":93,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":5961,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":36,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\".\\\",\\n  \\\"plan_required\\\": true,\\n \"}}"}}
+
+data: {"seq":94,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":5962,"phase":"planning","stepId":"","delta":".\",\n  \"plan_required\": true,\n ","kind":"plan"}}
+
+data: {"seq":95,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6009,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":37,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" \\\"plan_skip_reason\\\": \\\"\\\",\\n  \\\"steps\"}}"}}
+
+data: {"seq":96,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6009,"phase":"planning","stepId":"","delta":" \"plan_skip_reason\": \"\",\n  \"steps","kind":"plan"}}
+
+data: {"seq":97,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6011,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":38,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\": [\\n    {\\n      \\\"title\\\": \\\"Searching\"}}"}}
+
+data: {"seq":98,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6011,"phase":"planning","stepId":"","delta":"\": [\n    {\n      \"title\": \"Searching","kind":"plan"}}
+
+data: {"seq":99,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6061,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":39,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" recent announcements\\\",\\n      \\\"\"}}"}}
+
+data: {"seq":100,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6061,"phase":"planning","stepId":"","delta":" recent announcements\",\n      \"","kind":"plan"}}
+
+data: {"seq":101,"type":"CUSTOM","name":"ondemand.plan","value":{"elapsedMs":6061,"objective":"I'll find what TII has announced recently and cite reliable sources.","steps":[{"id":"1","title":"Searching recent announcements"}],"provisional":true,"source":"planning_output:early"}}
+
+data: {"seq":102,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6064,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":40,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"user_query\\\": \\\"[Searching recent\"}}"}}
+
+data: {"seq":103,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6064,"phase":"planning","stepId":"","delta":"user_query\": \"[Searching recent","kind":"plan"}}
+
+data: {"seq":104,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6065,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":41,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" announcements] What has TII announced\"}}"}}
+
+data: {"seq":105,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6065,"phase":"planning","stepId":"","delta":" announcements] What has TII announced","kind":"plan"}}
+
+data: {"seq":106,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6161,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":42,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" recently?\\\",\\n      \\\"assistant_query\"}}"}}
+
+data: {"seq":107,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6161,"phase":"planning","stepId":"","delta":" recently?\",\n      \"assistant_query","kind":"plan"}}
+
+data: {"seq":108,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6164,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":43,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\": \\\"\\\",\\n      \\\"depends\\\": [],\\n     \"}}"}}
+
+data: {"seq":109,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6164,"phase":"planning","stepId":"","delta":"\": \"\",\n      \"depends\": [],\n     ","kind":"plan"}}
+
+data: {"seq":110,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6165,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":44,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" \\\"plugins\\\": [\\\"perplexity\\\"]\\n   \"}}"}}
+
+data: {"seq":111,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6165,"phase":"planning","stepId":"","delta":" \"plugins\": [\"perplexity\"]\n   ","kind":"plan"}}
+
+data: {"seq":112,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6215,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":45,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" and effectiveness!\"}}"}}
+
+data: {"seq":113,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6215,"phase":"planning","stepId":"","delta":" and effectiveness!","kind":"planning"}}
+
+data: {"seq":114,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6217,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":46,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" }\\n  ]\\n}\"}}"}}
+
+data: {"seq":115,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":6217,"phase":"planning","stepId":"","delta":" }\n  ]\n}","kind":"plan"}}
+
+data: {"seq":116,"type":"CUSTOM","name":"ondemand.plan","value":{"elapsedMs":6217,"objective":"I'll find what TII has announced recently and cite reliable sources.","steps":[{"id":"1","title":"Searching recent announcements","query":"What has TII announced recently?","plugins":["perplexity"]}],"source":"planning_output"}}
+
+data: {"seq":117,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":6217,"statusType":"plan_created","statusMessage":"I'll find what TII has announced recently and cite reliable sources.","steps":1}}
+
+data: {"seq":118,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6222,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":47,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"\"}}"}}
+
+data: {"seq":119,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6222,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":48,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"\"}}"}}
+
+data: {"seq":120,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6233,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":49,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"plan_created\",\"statusMessage\":\"Execution plan created\",\"queryPlan\":{\"title\":\"I'll look up TII's recent announcements.\\nI'll cite the sources.\",\"objective\":\"I'll find what TII has announced recently and cite reliable sources.\",\"steps\":[{\"title\":\"Searching recent announcements\",\"query\":\"[Searching recent announcements] What has TII announced recently?\",\"depends\":[],\"agents\":[{\"agentId\":\"agent-1722260873\",\"operationId\":\"perplexity\"}]}]},\"time\":\"2026-10-21T21:13:24Z\"}}"}}
+
+data: {"seq":121,"type":"CUSTOM","name":"ondemand.plan","value":{"elapsedMs":6233,"objective":"I'll find what TII has announced recently and cite reliable sources.","steps":[{"id":"1","title":"Searching recent announcements","query":"What has TII announced recently?"}]}}
+
+data: {"seq":122,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":6233,"statusType":"plan_created","statusMessage":"I'll find what TII has announced recently and cite reliable sources.","steps":1}}
+
+data: {"seq":123,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6805,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":50,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Searching recent announcements\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching recent announcements] What has TII announced recently?\",\"statusType\":\"analyzing\",\"statusMessage\":\"Analyzing the prompt...\",\"time\":\"2026-10-21T21:13:24Z\"}}"}}
+
+data: {"seq":124,"type":"CUSTOM","name":"ondemand.step","value":{"elapsedMs":6805,"phase":"start","stepId":"1","index":1,"label":"[Searching recent announcements] What has TII announced recently?","query":"[Searching recent announcements] What has TII announced recently?"}}
+
+data: {"seq":125,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":700,"elapsedMs":7505}}
+
+data: {"seq":126,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1000,"elapsedMs":7805}}
+
+data: {"seq":127,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1300,"elapsedMs":8105}}
+
+data: {"seq":128,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1601,"elapsedMs":8406}}
+
+data: {"seq":129,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":4,"quietMs":1901,"elapsedMs":8706}}
+
+data: {"seq":130,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":5,"quietMs":2200,"elapsedMs":9006}}
+
+data: {"seq":131,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":6,"quietMs":2501,"elapsedMs":9306}}
+
+data: {"seq":132,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":7,"quietMs":2802,"elapsedMs":9607}}
+
+data: {"seq":133,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":9735}}
+
+data: {"seq":134,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9735,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":51,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\"**Searching for TII announcements**\\n\\nI\"}}"}}
+
+data: {"seq":135,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":9735,"kind":"step","delta":"**Searching for TII announcements**\n\nI","stepId":"1"}}
+
+data: {"seq":136,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9786,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":52,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" need to figure out if \\\"TII\\\" refers\"}}"}}
+
+data: {"seq":137,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":9786,"kind":"step","delta":" need to figure out if \"TII\" refers","stepId":"1"}}
+
+data: {"seq":138,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9887,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":53,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" to the Technology Innovation Institute\"}}"}}
+
+data: {"seq":139,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":9887,"kind":"step","delta":" to the Technology Innovation Institute","stepId":"1"}}
+
+data: {"seq":140,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9889,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":54,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" in the UAE. I'll find recent announcements\"}}"}}
+
+data: {"seq":141,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":9889,"kind":"step","delta":" in the UAE. I'll find recent announcements","stepId":"1"}}
+
+data: {"seq":142,"type":"CUSTOM","name":"ondemand.heartbeat","value":{"t":"2026-10-21T21:13:27.848Z","elapsedMs":10001,"sinceLastFrameMs":112}}
+
+data: {"seq":143,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":10037,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":55,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" from them, and I’ll use a search\"}}"}}
+
+data: {"seq":144,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":10037,"kind":"step","delta":" from them, and I’ll use a search","stepId":"1"}}
+
+data: {"seq":145,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":10140,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":56,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" plugin to get specific data. The\"}}"}}
+
+data: {"seq":146,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":10140,"kind":"step","delta":" plugin to get specific data. The","stepId":"1"}}
+
+data: {"seq":147,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":10491,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":57,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" query should focus on 2026-10\"}}"}}
+
+data: {"seq":148,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":10491,"kind":"step","delta":" query should focus on 2026-10","stepId":"1"}}
+
+data: {"seq":149,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":10695,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":58,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\"-21, looking for any updates from\"}}"}}
+
+data: {"seq":150,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":10696,"kind":"step","delta":"-21, looking for any updates from","stepId":"1"}}
+
+data: {"seq":151,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":10794,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":59,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" TII while ensuring it remains\"}}"}}
+
+data: {"seq":152,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":10795,"kind":"step","delta":" TII while ensuring it remains","stepId":"1"}}
+
+data: {"seq":153,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":10946,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":60,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" within 2048 characters. If things\"}}"}}
+
+data: {"seq":154,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":10946,"kind":"step","delta":" within 2048 characters. If things","stepId":"1"}}
+
+data: {"seq":155,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11046,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":61,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" seem ambiguous, I might broaden\"}}"}}
+
+data: {"seq":156,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":11046,"kind":"step","delta":" seem ambiguous, I might broaden","stepId":"1"}}
+
+data: {"seq":157,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11164,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":62,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" the search. Could also clarify\"}}"}}
+
+data: {"seq":158,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":11164,"kind":"step","delta":" the search. Could also clarify","stepId":"1"}}
+
+data: {"seq":159,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11198,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":63,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" by asking what TII has announced\"}}"}}
+
+data: {"seq":160,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":11198,"kind":"step","delta":" by asking what TII has announced","stepId":"1"}}
+
+data: {"seq":161,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11253,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":64,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" lately. Let's explore their latest\"}}"}}
+
+data: {"seq":162,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":11253,"kind":"step","delta":" lately. Let's explore their latest","stepId":"1"}}
+
+data: {"seq":163,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11308,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":65,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"{\\\"title\\\":\\\"Searching recent TII\"}}"}}
+
+data: {"seq":164,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11308,"phase":"step","stepId":"1","delta":"{\"title\":\"Searching recent TII","kind":"step_output"}}
+
+data: {"seq":165,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11350,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":66,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" announcements\\\",\\\"plugins\\\":[{\\\"plugin\"}}"}}
+
+data: {"seq":166,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11350,"phase":"step","stepId":"1","delta":" announcements\",\"plugins\":[{\"plugin","kind":"step_output"}}
+
+data: {"seq":167,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11403,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":67,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"Id\\\":\\\"plugin-1722260873\\\",\\\"name\\\":\\\"\"}}"}}
+
+data: {"seq":168,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11403,"phase":"step","stepId":"1","delta":"Id\":\"plugin-1722260873\",\"name\":\"","kind":"step_output"}}
+
+data: {"seq":169,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11403,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":68,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"perplexity\\\",\\\"description\\\":\\\"Search\"}}"}}
+
+data: {"seq":170,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11403,"phase":"step","stepId":"1","delta":"perplexity\",\"description\":\"Search","kind":"step_output"}}
+
+data: {"seq":171,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11455,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":69,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"es the web for recent announcements\"}}"}}
+
+data: {"seq":172,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11455,"phase":"step","stepId":"1","delta":"es the web for recent announcements","kind":"step_output"}}
+
+data: {"seq":173,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11508,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":70,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" and returns relevant sources.\\\",\\\"\"}}"}}
+
+data: {"seq":174,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11508,"phase":"step","stepId":"1","delta":" and returns relevant sources.\",\"","kind":"step_output"}}
+
+data: {"seq":175,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11508,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":71,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"api_request_parameters\\\":{\\\"message\"}}"}}
+
+data: {"seq":176,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11508,"phase":"step","stepId":"1","delta":"api_request_parameters\":{\"message","kind":"step_output"}}
+
+data: {"seq":177,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11653,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":72,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\":\\\"What has TII announced recently\"}}"}}
+
+data: {"seq":178,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11653,"phase":"step","stepId":"1","delta":"\":\"What has TII announced recently","kind":"step_output"}}
+
+data: {"seq":179,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11655,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":73,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\", as of October 21, 2026? Focus\"}}"}}
+
+data: {"seq":180,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11655,"phase":"step","stepId":"1","delta":", as of October 21, 2026? Focus","kind":"step_output"}}
+
+data: {"seq":181,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11658,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":74,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" on official announcements from\"}}"}}
+
+data: {"seq":182,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11658,"phase":"step","stepId":"1","delta":" on official announcements from","kind":"step_output"}}
+
+data: {"seq":183,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11659,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":75,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" the Technology Innovation Institute\"}}"}}
+
+data: {"seq":184,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11659,"phase":"step","stepId":"1","delta":" the Technology Innovation Institute","kind":"step_output"}}
+
+data: {"seq":185,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11661,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":76,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" (TII) in Abu Dhabi; include announcement\"}}"}}
+
+data: {"seq":186,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11661,"phase":"step","stepId":"1","delta":" (TII) in Abu Dhabi; include announcement","kind":"step_output"}}
+
+data: {"seq":187,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11666,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":77,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" dates and links to exact official\"}}"}}
+
+data: {"seq":188,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11666,"phase":"step","stepId":"1","delta":" dates and links to exact official","kind":"step_output"}}
+
+data: {"seq":189,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11667,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":78,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" source pages. If TII could refer\"}}"}}
+
+data: {"seq":190,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11667,"phase":"step","stepId":"1","delta":" source pages. If TII could refer","kind":"step_output"}}
+
+data: {"seq":191,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11669,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":79,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" to another organization, note\"}}"}}
+
+data: {"seq":192,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11669,"phase":"step","stepId":"1","delta":" to another organization, note","kind":"step_output"}}
+
+data: {"seq":193,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11704,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":80,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" the ambiguity.\\\"},\\\"all_parameters\"}}"}}
+
+data: {"seq":194,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11704,"phase":"step","stepId":"1","delta":" the ambiguity.\"},\"all_parameters","kind":"step_output"}}
+
+data: {"seq":195,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11710,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":81,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"_hydrated\\\":true,\\\"dependencies\\\":[]\"}}"}}
+
+data: {"seq":196,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11710,"phase":"step","stepId":"1","delta":"_hydrated\":true,\"dependencies\":[]","kind":"step_output"}}
+
+data: {"seq":197,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11755,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":82,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" official announcements!\"}}"}}
+
+data: {"seq":198,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":11755,"kind":"step","delta":" official announcements!","stepId":"1"}}
+
+data: {"seq":199,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11757,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":83,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\",\\\"identifier\\\":\\\"rest_api\\\"}]}\"}}"}}
+
+data: {"seq":200,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":11757,"phase":"step","stepId":"1","delta":",\"identifier\":\"rest_api\"}]}","kind":"step_output"}}
+
+data: {"seq":201,"type":"CUSTOM","name":"ondemand.step","value":{"elapsedMs":11757,"phase":"start","stepId":"1","index":2,"label":"Searching recent TII announcements","query":null,"source":"step_output"}}
+
+data: {"seq":202,"type":"CUSTOM","name":"ondemand.step_output","value":{"elapsedMs":11757,"stepId":"1","title":"Searching recent TII announcements","plugins":[{"pluginId":"plugin-1722260873","name":"perplexity","operationId":"perplexity","params":{"message":"What has TII announced recently, as of October 21, 2026? Focus on official announcements from the Technology Innovation Institute (TII) in Abu Dhabi; include announcement dates and links to exact official source pages. If TII could refer to another organization, note the ambiguity."}}],"raw":"{\"title\":\"Searching recent TII announcements\",\"plugins\":[{\"pluginId\":\"plugin-1722260873\",\"name\":\"perplexity\",\"description\":\"Searches the web for recent announcements and returns relevant sources.\",\"api_request_parameters\":{\"message\":\"What has TII announced recently, as of October 21, 2026? Focus on official announcements from the Technology Innovation Institute (TII) in Abu Dhabi; include announcement dates and links to exact official source pages. If TII could refer to another organization, note the ambiguity.\"},\"all_parameters_hydrated\":true,\"dependencies\":[],\"identifier\":\"rest_api\"}]}"}}
+
+data: {"seq":203,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11758,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":84,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\"\"}}"}}
+
+data: {"seq":204,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11760,"event":"thinking","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":85,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"\"}}"}}
+
+data: {"seq":205,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11773,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":86,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Searching recent TII announcements\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching recent announcements] What has TII announced recently?\",\"statusType\":\"agents_retrieved\",\"statusMessage\":\"Retrieved the agents\",\"retrievedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What has TII announced recently, as of October 21, 2026? Focus on official announcements from the Technology Innovation Institute (TII) in Abu Dhabi; include announcement dates and links to exact official source pages. If TII could refer to another organization, note the ambiguity.\"}}],\"time\":\"2026-10-21T21:13:29Z\"}}"}}
+
+data: {"seq":206,"type":"CUSTOM","name":"ondemand.agents","value":{"elapsedMs":11773,"phase":"retrieved","stepId":"1","plugins":[{"id":"agent-1722260873","name":"Perplexity"}]}}
+
+data: {"seq":207,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11773,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":87,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Searching recent TII announcements\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching recent announcements] What has TII announced recently?\",\"statusType\":\"executing\",\"statusMessage\":\"Executing the agents...\",\"retrievedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What has TII announced recently, as of October 21, 2026? Focus on official announcements from the Technology Innovation Institute (TII) in Abu Dhabi; include announcement dates and links to exact official source pages. If TII could refer to another organization, note the ambiguity.\"}}],\"time\":\"2026-10-21T21:13:29Z\"}}"}}
+
+data: {"seq":208,"type":"CUSTOM","name":"ondemand.agents","value":{"elapsedMs":11773,"phase":"executing","stepId":"1","plugins":[{"id":"agent-1722260873","name":"Perplexity"}]}}
+
+data: {"seq":209,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"researching","elapsedMs":11773,"statusType":"executing","stepId":"1","plugins":1}}
+
+data: {"seq":210,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11853,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":88,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Searching recent TII announcements\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching recent announcements] What has TII announced recently?\",\"statusType\":\"execution_failed\",\"statusMessage\":\"Agents execution failed\",\"executedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What has TII announced recently, as of October 21, 2026? Focus on official announcements from the Technology Innovation Institute (TII) in Abu Dhabi; include announcement dates and links to exact official source pages. If TII could refer to another organization, note the ambiguity.\"},\"statusCode\":500,\"executionTimeMs\":80,\"errorResponse\":{\"error\":\"Internal server error\",\"message\":\"Not enough credits\",\"sourcesWithContent\":[]}}],\"time\":\"2026-10-21T21:13:29Z\"}}"}}
+
+data: {"seq":211,"type":"CUSTOM","name":"ondemand.error","value":{"elapsedMs":11853,"code":"plugin_error","message":"Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted.","raw":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":88,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Searching recent TII announcements\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching recent announcements] What has TII announced recently?\",\"statusType\":\"execution_failed\",\"statusMessage\":\"Agents execution failed\",\"executedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What has TII announced recently, as of October 21, 2026? Focus on official announcements from the Technology Innovation Institute (TII) in Abu Dhabi; include announcement dates and links to exact official source pages. If TII could refer to another organization, note the ambiguity.\"},\"statusCode\":500,\"executionTimeMs\":80,\"errorResponse\":{\"error\":\"Internal server error\",\"message\":\"Not enough credits\",\"sourcesWithContent\":[]}}],\"time\":\"2026-10-21T21:13:29Z\"}}","reason":"upstream","pluginId":"plugin-1722260873"}}
+
+data: {"seq":212,"type":"CUSTOM","name":"ondemand.coverage","value":{"elapsedMs":11853,"web":"unavailable","reason":"upstream","pluginId":"plugin-1722260873","nextRetryAt":"2026-10-21T21:29:29.700Z","failures":5,"text":"Web research source unavailable (Perplexity credits exhausted) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added."}}
+
+data: {"seq":213,"type":"TOOL_CALL_RESULT","messageId":"b0052c16-5961-4797-896d-ae010790d6d5","toolCallId":"58e65417-6b4b-4917-83f4-d47032e0bbb7","role":"tool","content":"{\"status\":\"error\",\"plugin\":\"Perplexity\",\"pluginId\":\"plugin-1722260873\",\"durationMs\":7512,\"sources\":0,\"message\":\"Perplexity returned an upstream error: \\\"Agents execution failed\\\". No other plugin was substituted.\",\"raw\":\"{\\\"sessionId\\\":\\\"6ad92aeed1b43ac6a7c50039\\\",\\\"messageId\\\":\\\"6ad92aeed1b43ac6a7c5003a\\\",\\\"eventIndex\\\":88,\\\"eventType\\\":\\\"statusLog\\\",\\\"stepId\\\":\\\"1\\\",\\\"stepTitle\\\":\\\"Searching recent TII announcements\\\",\\\"status\\\":\\\"processing\\\",\\\"currentStatusLog\\\":{\\\"stepQuery\\\":\\\"[Searching recent announcements] What has TII announced recently?\\\",\\\"statusType\\\":\\\"execution_failed\\\",\\\"statusMessage\\\":\\\"Agents execution failed\\\",\\\"executedAgents\\\":[{\\\"agentId\\\":\\\"agent-1722260873\\\",\\\"name\\\":\\\"Perplexity\\\",\\\"identifier\\\":\\\"rest_api\\\",\\\"url\\\":\\\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\\\",\\\"method\\\":\\\"POST\\\",\\\"bodyParams\\\":{\\\"message\\\":\\\"What has TII announced recently, as of October 21, 2026? Focus on official announcements from the Technology Innovation Institute (TII) in Abu Dhabi; include announcement dates and links to exact official source pages. If TII could refer to another organization, note the ambiguity.\\\"},\\\"statusCode\\\":500,\\\"executionTimeMs\\\":80,\\\"errorResponse\\\":{\\\"error\\\":\\\"Internal server error\\\",\\\"message\\\":\\\"Not enough credits\\\",\\\"sourcesWithContent\\\":[]}}],\\\"time\\\":\\\"2026-10-21T21:13:29Z\\\"}}\"}","isError":true,"error":"Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted."}
+
+data: {"seq":214,"type":"CUSTOM","name":"ondemand.step","value":{"elapsedMs":11853,"phase":"failed","stepId":"1","index":2,"message":"Agents execution failed"}}
+
+data: {"seq":215,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12411,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":89,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"execution_log_created\",\"statusMessage\":\"Execution log created\",\"executionLog\":{\"companyId\":\"6692b763e851d28a036ab30e\",\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"query\":\"\\u003crun_style\\u003e\\nPlanner: write \\\"objective\\\" as one first-person sentence that starts with \\\"I'll\\\", at most 22 words, in plain words - no plugin names, operation ids, JSON or markdown. Start every step \\\"user_query\\\" with a short action-style label in square brackets (for example \\\"[Gathering news, prices and indicators]\\\", \\\"[Searching the web]\\\", \\\"[Comparing funding momentum]\\\") followed by the instruction unchanged.\\nStep executor: keep a fixed key order per plugin call, short parameters first and long text last; never copy the [label] into a parameter.\\nAnswer: start with the result (the steps are already on screen), cite each external fact inline with a markdown link to the exact page it came from; if a call failed, answer from what did succeed without a special failure note or \\\"Data gap\\\" line - never claim a success that did not happen.\\nCommand Centre: you are a CONCEPT DEMONSTRATION (never claim to be an official government system). Split the answer into \\\"## Verified facts\\\" (every bullet ends with a markdown link to its source) and \\\"## Interpretation\\\" (clearly labelled judgement). Public-statement rows are a purposive sample, never a population survey; say \\\"unavailable\\\" instead of guessing.\\n\\u003c/run_style\\u003e\\n\\nQuestion: What has TII announced recently?\",\"ragVersion\":\"v1\",\"queryPlan\":{\"title\":\"I'll look up TII's recent announcements.\\nI'll cite the sources.\",\"objective\":\"I'll find what TII has announced recently and cite reliable sources.\",\"steps\":[{\"title\":\"Searching recent announcements\",\"query\":\"[Searching recent announcements] What has TII announced recently?\",\"depends\":[],\"isExecuted\":true,\"executedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What has TII announced recently, as of October 21, 2026? Focus on official announcements from the Technology Innovation Institute (TII) in Abu Dhabi; include announcement dates and links to exact official source pages. If TII could refer to another organization, note the ambiguity.\"},\"statusCode\":500,\"executionTimeMs\":80,\"errorResponse\":[{\"Key\":\"error\",\"Value\":\"Internal server error\"},{\"Key\":\"message\",\"Value\":\"Not enough credits\"},{\"Key\":\"sourcesWithContent\",\"Value\":[]}]}]}]},\"ragStatus\":\"completed\",\"fulfillmentStatus\":\"not_started\"},\"time\":\"2026-10-21T21:13:30Z\"}}"}}
+
+data: {"seq":216,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":12411,"statusType":"execution_log_created","statusMessage":"Execution log created","stepQuery":null}}
+
+data: {"seq":217,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12411,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":90,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"fulfilling\",\"statusMessage\":\"Fulfilling the prompt...\",\"time\":\"2026-10-21T21:13:30Z\"}}"}}
+
+data: {"seq":218,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"answering","elapsedMs":12411,"statusType":"fulfilling","statusMessage":"Fulfilling the prompt...","stepQuery":null}}
+
+data: {"seq":219,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":799,"elapsedMs":13210}}
+
+data: {"seq":220,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1099,"elapsedMs":13510}}
+
+data: {"seq":221,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1399,"elapsedMs":13810}}
+
+data: {"seq":222,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1699,"elapsedMs":14110}}
+
+data: {"seq":223,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":4,"quietMs":1999,"elapsedMs":14410}}
+
+data: {"seq":224,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":5,"quietMs":2299,"elapsedMs":14710}}
+
+data: {"seq":225,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":6,"quietMs":2599,"elapsedMs":15010}}
+
+data: {"seq":226,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":7,"quietMs":2899,"elapsedMs":15310}}
+
+data: {"seq":227,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":8,"quietMs":3199,"elapsedMs":15610}}
+
+data: {"seq":228,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":9,"quietMs":3499,"elapsedMs":15910}}
+
+data: {"seq":229,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":10,"quietMs":3799,"elapsedMs":16210}}
+
+data: {"seq":230,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":11,"quietMs":4099,"elapsedMs":16510}}
+
+data: {"seq":231,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":12,"quietMs":4399,"elapsedMs":16810}}
+
+data: {"seq":232,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":13,"quietMs":4702,"elapsedMs":17114}}
+
+data: {"seq":233,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":14,"quietMs":5003,"elapsedMs":17414}}
+
+data: {"seq":234,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":15,"quietMs":5302,"elapsedMs":17713}}
+
+data: {"seq":235,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":16,"quietMs":5603,"elapsedMs":18014}}
+
+data: {"seq":236,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":17,"quietMs":5903,"elapsedMs":18314}}
+
+data: {"seq":237,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":18541}}
+
+data: {"seq":238,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18541,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":91, \"answer\": \"##\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":239,"type":"TEXT_MESSAGE_START","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","role":"assistant"}
+
+data: {"seq":240,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"##"}
+
+data: {"seq":241,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18595,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":92, \"answer\": \" Verified\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":242,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" Verified"}
+
+data: {"seq":243,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18595,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":93, \"answer\": \" facts\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":244,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" facts"}
+
+data: {"seq":245,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18595,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":94, \"answer\": \"\\n\\n\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":246,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"\n\n"}
+
+data: {"seq":247,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18595,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":95, \"answer\": \"No\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":248,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"No"}
+
+data: {"seq":249,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18595,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":96, \"answer\": \" recent\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":250,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" recent"}
+
+data: {"seq":251,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18595,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":97, \"answer\": \" T\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":252,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" T"}
+
+data: {"seq":253,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18595,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":98, \"answer\": \"II\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":254,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"II"}
+
+data: {"seq":255,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18596,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":99, \"answer\": \" announcements\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":256,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" announcements"}
+
+data: {"seq":257,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18596,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":100, \"answer\": \" could\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":258,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" could"}
+
+data: {"seq":259,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18596,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":101, \"answer\": \" be\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":260,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" be"}
+
+data: {"seq":261,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18600,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":102, \"answer\": \" verified\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":262,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" verified"}
+
+data: {"seq":263,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18600,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":103, \"answer\": \".\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":264,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"."}
+
+data: {"seq":265,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18600,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":104, \"answer\": \" The\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":266,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" The"}
+
+data: {"seq":267,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18600,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":105, \"answer\": \" news\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":268,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" news"}
+
+data: {"seq":269,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18642,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":106, \"answer\": \" lookup\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":270,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" lookup"}
+
+data: {"seq":271,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18642,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":107, \"answer\": \" failed\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":272,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" failed"}
+
+data: {"seq":273,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18692,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":108, \"answer\": \",\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":274,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":","}
+
+data: {"seq":275,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18742,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":109, \"answer\": \" and\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":276,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" and"}
+
+data: {"seq":277,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18742,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":110, \"answer\": \" \\u201c\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":278,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" “"}
+
+data: {"seq":279,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18791,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":111, \"answer\": \"T\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":280,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"T"}
+
+data: {"seq":281,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18792,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":112, \"answer\": \"II\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":282,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"II"}
+
+data: {"seq":283,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18792,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":113, \"answer\": \"\\u201d\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":284,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"”"}
+
+data: {"seq":285,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18794,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":114, \"answer\": \" could\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":286,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" could"}
+
+data: {"seq":287,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18794,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":115, \"answer\": \" refer\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":288,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" refer"}
+
+data: {"seq":289,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18796,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":116, \"answer\": \" to\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":290,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" to"}
+
+data: {"seq":291,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18841,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":117, \"answer\": \" more\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":292,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" more"}
+
+data: {"seq":293,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18851,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":118, \"answer\": \" than\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":294,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" than"}
+
+data: {"seq":295,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18851,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":119, \"answer\": \" one\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":296,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" one"}
+
+data: {"seq":297,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18852,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":120, \"answer\": \" organization\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":298,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" organization"}
+
+data: {"seq":299,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18852,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":121, \"answer\": \".\\n\\n\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":300,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":".\n\n"}
+
+data: {"seq":301,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18894,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":122, \"answer\": \"##\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":302,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"##"}
+
+data: {"seq":303,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18895,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":123, \"answer\": \" Interpretation\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":304,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" Interpretation"}
+
+data: {"seq":305,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18895,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":124, \"answer\": \"\\n\\n\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":306,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"\n\n"}
+
+data: {"seq":307,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18896,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":125, \"answer\": \"Which\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":308,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"Which"}
+
+data: {"seq":309,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18897,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":126, \"answer\": \" T\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":310,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" T"}
+
+data: {"seq":311,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18900,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":127, \"answer\": \"II\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":312,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"II"}
+
+data: {"seq":313,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18900,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":128, \"answer\": \" do\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":314,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" do"}
+
+data: {"seq":315,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18942,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":129, \"answer\": \" you\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":316,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" you"}
+
+data: {"seq":317,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18942,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":130, \"answer\": \" mean\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":318,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" mean"}
+
+data: {"seq":319,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18992,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":131, \"answer\": \"\\u2014for\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":320,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"—for"}
+
+data: {"seq":321,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18997,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":132, \"answer\": \" example\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":322,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" example"}
+
+data: {"seq":323,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18997,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":133, \"answer\": \",\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":324,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":","}
+
+data: {"seq":325,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":18998,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":134, \"answer\": \" Transport\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":326,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" Transport"}
+
+data: {"seq":327,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":19043,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":135, \"answer\": \" Infrastructure\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":328,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" Infrastructure"}
+
+data: {"seq":329,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":19048,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":136, \"answer\": \" Ireland\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":330,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" Ireland"}
+
+data: {"seq":331,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":19048,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":137, \"answer\": \" or\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":332,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" or"}
+
+data: {"seq":333,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":19048,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":138, \"answer\": \" Texas\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":334,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" Texas"}
+
+data: {"seq":335,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":19049,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":139, \"answer\": \" Instruments\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":336,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":" Instruments"}
+
+data: {"seq":337,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":19049,"event":"message","data":"{\"sessionId\": \"6ad92aeed1b43ac6a7c50039\", \"messageId\": \"6ad92aeed1b43ac6a7c5003a\", \"status\": \"processing\", \"eventIndex\":140, \"answer\": \"?\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":338,"type":"TEXT_MESSAGE_CONTENT","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110","delta":"?"}
+
+data: {"seq":339,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":19151,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":142,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"fulfillment_completed\",\"statusMessage\":\"Fulfillment completed\",\"answer\":\"## Verified facts\\n\\nNo recent TII announcements could be verified. The news lookup failed, and “TII” could refer to more than one organization.\\n\\n## Interpretation\\n\\nWhich TII do you mean—for example, Transport Infrastructure Ireland or Texas Instruments?\",\"time\":\"2026-10-21T21:13:36Z\"}}"}}
+
+data: {"seq":340,"type":"CUSTOM","name":"ondemand.answer_complete","value":{"elapsedMs":19151,"chars":252}}
+
+data: {"seq":341,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":19157,"event":"message","data":"{\"sessionId\":\"6ad92aeed1b43ac6a7c50039\",\"messageId\":\"6ad92aeed1b43ac6a7c5003a\",\"eventIndex\":143,\"eventType\":\"metricsLog\",\"status\":\"processing\",\"publicMetrics\":{\"inputTokens\":1271,\"outputTokens\":413,\"totalTokens\":1684,\"ragTimeSec\":11.61,\"fulfillmentTimeSec\":6.74,\"totalTimeSec\":18.35}}"}}
+
+data: {"seq":342,"type":"CUSTOM","name":"ondemand.metrics","value":{"elapsedMs":19157,"publicMetrics":{"inputTokens":1271,"outputTokens":413,"totalTokens":1684,"ragTimeSec":11.61,"fulfillmentTimeSec":6.74,"totalTimeSec":18.35},"firstTokenMs":18541,"toolsMs":7512,"answerMs":616,"pluginIds":["plugin-1722260873"]}}
+
+data: {"seq":343,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":658,"elapsedMs":19815}}
+
+data: {"seq":344,"type":"CUSTOM","name":"ondemand.heartbeat","value":{"t":"2026-10-21T21:13:37.848Z","elapsedMs":20001,"sinceLastFrameMs":844}}
+
+data: {"seq":345,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":957,"elapsedMs":20114}}
+
+data: {"seq":346,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1258,"elapsedMs":20415}}
+
+data: {"seq":347,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1558,"elapsedMs":20715}}
+
+data: {"seq":348,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":4,"quietMs":1858,"elapsedMs":21015}}
+
+data: {"seq":349,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":21170}}
+
+data: {"seq":350,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":21170,"event":"message","data":"[DONE]"}}
+
+data: {"seq":351,"type":"TEXT_MESSAGE_END","messageId":"690d8b19-a2cb-4409-b5d6-2ab8c8f0e110"}
+
+data: {"seq":352,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"done","elapsedMs":21170,"chars":252,"sources":0,"firstTokenMs":18541,"toolsMs":7512,"answerMs":2629,"pluginError":"Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted."}}
+
+data: {"seq":353,"type":"RUN_FINISHED","threadId":"uae-cc-qa6-probe-laneE","runId":"ad222a43-4c4f-4b72-99a4-8febacce9041"}
+
+data: [DONE]
+
