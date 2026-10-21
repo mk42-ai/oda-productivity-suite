@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-21T13:03:22Z",
+ "updated_at": "2026-10-21T14:27:30Z",
  "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
  "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
  "original": {
@@ -19,12 +19,12 @@
   "app_path": "app/",
   "pushed": true,
   "pr_url": "https://github.com/mk42-ai/oda-productivity-suite/pull/7",
-  "preview_url": "https://sb-60putp7mv2mi.vercel.run",
-  "sandbox_id": "sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw",
-  "sandbox_timeout": "90 min from 2026-10-21T12:38:45Z (expires ≈14:08Z)",
-  "previous_preview": "https://sb-6x7pgj362xe9.vercel.run (expired ≈04:10Z)",
+  "preview_url": "https://sb-2pnr5jjv61vv.vercel.run",
+  "sandbox_id": "sbx_kNCjjcHasZqxZZXLXjsc94k4PBMn",
+  "sandbox_timeout": "90 min from 2026-10-21T13:47:01Z (expires ≈15:17Z)",
+  "previous_preview": "https://sb-60putp7mv2mi.vercel.run (sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw, expires ≈14:08Z)",
   "base_commit": "2515e93",
-  "pushed_commit": "2008923 (local commits of 2026-10-21 not pushed — no GITHUB_TOKEN)",
+  "pushed_commit": "pushed to origin/uae-ai-command-centre (PR #7) this cycle",
   "vercel_git_preview": {
    "deployment": "dpl_4kp8ZTwCquMjUuTeT4HtAr5tQyC7",
    "url": "https://oda-productivity-suite-3kdb4ehd6-schoolhack-web-team.vercel.app",
@@ -33,12 +33,11 @@
   },
   "root_dir_fix": "Branch layout moved uae-ai-command-centre/ → app/ (git mv, history preserved) + app/vercel.json {framework: nextjs}; the next git push will build under the project's Root Directory 'app' without touching main or project settings.",
   "sandbox_created_at": "2026-10-21T09:09:38Z",
-  "head": "eeba60b",
+  "head": "2ce7426 (+ docs commit)",
   "git_preview": {
-   "id": "dpl_hNggcBDep1Twcp7ycWHksT7FUtSv",
-   "state": "READY",
-   "url": "https://oda-productivity-suite-k5ykmksyn-schoolhack-web-team.vercel.app",
-   "sso_protected": true
+   "note": "not re-triggered for env reasons this cycle; latest READY git build dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo = c005420 (13:04Z), 302 SSO / 401 Protected deployment",
+   "sso_protected": true,
+   "env_vars": 0
   }
  },
  "data": {
@@ -109,13 +108,38 @@
     "ingest 6ad84034c2cfee207e8f3f58 04:31:48Z success (129 s)",
     "briefing 6ad841aab28e35aa11d85744 04:38:02Z success — seed-grounded prompt, leads with 20 Oct 2026 items, 13 URLs"
    ]
+  },
+  "web_research": {
+   "plugin": "plugin-1722260873",
+   "status": "credits exhausted (intermittent)",
+   "first_failure": "2026-10-21T12:40Z",
+   "probes": [
+    {
+     "at": "2026-10-21T13:22Z",
+     "result": "HTTP 500 {\"error\":\"Internal server error\",\"message\":\"Not enough credits\"}"
+    },
+    {
+     "at": "2026-10-21T13:35:43Z",
+     "result": "sync answer: web search failed due to insufficient credits"
+    },
+    {
+     "at": "2026-10-21T14:10Z",
+     "result": "clean briefing call (intermittent)"
+    },
+    {
+     "at": "2026-10-21T14:24:53Z",
+     "result": "preview POST /api/chat → ondemand.coverage reason=upstream, backoff 1 min"
+    }
+   ],
+   "mitigation": "plugin-availability backoff 1→2→4→8→16→30 min + coverage-notice / briefing-coverage / health.web_research (commit 8901901)"
   }
  },
  "blockers": [
-  "Rollback tag + today's commits cannot be pushed: no GITHUB_TOKEN in this session (git push → 'Invalid username or token'). PR #7 therefore still shows 2008923.",
-  "Vercel git previews of this branch failed with NOW_SANDBOX_WORKER_ROOTDIR_NOT_EXIST (project Root Directory = 'app'); fixed in the branch layout (app/) but only effective after push. The API-created preview dpl_4kp8… is READY but SSO-protected.",
+  "Perplexity plugin-1722260873 out of OnDemand credits since ≈12:40Z (PERPLEXITY_CREDITS_RESTORED=false) — app degrades to curated-source coverage with a visible notice; web facts not added.",
+  "Vercel git preview: 0 ONDEMAND_API_KEY / ONDEMAND_BASE_URL on project prj_wXz5xY3PNULypuwepaqu1XKa6sP1; previews behind SSO (302 vercel.com/sso-api, POST 401 Protected deployment) — sandbox preview remains the demo surface.",
   "Sandbox previews are ephemeral (90 min).",
-  "Ingest results stay in the OnDemand execution store (not merged into seed JSON)."
+  "Ingest results stay in the OnDemand execution store (not merged into seed JSON).",
+  "10 Playwright tests need a spec-vs-design decision (5 stale Portfolio-plugin/threads-menu assertions, 5 thinking-block vs OdStatusView on live od-frame runs)."
  ],
  "phases": {
   "P1": "done",
@@ -196,7 +220,7 @@
   "residue_hits": 0,
   "screenshots_dir": "app/proof/qa-20261021"
  },
- "preview_url": "https://sb-64yp7hfte77p.vercel.run",
+ "preview_url": "https://sb-2pnr5jjv61vv.vercel.run",
  "ui_restyle_20261021": {
   "theme": "white-first neutral (ChatGPT-like)",
   "fallback_tag": "uae-navy-gold-fallback-20261021",
@@ -387,6 +411,137 @@
     "7a6d8fb",
     "a6daaf3",
     "a04bc09"
+   ]
+  },
+  "qa_cycle4": {
+   "resumed_at": "2026-10-21T13:28:49Z",
+   "base_sha": "c0054201bdbd8c2c907a88ce1c74b15af59c7cd4",
+   "origin_delta_since_c005420": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa4-pre-20261021T13Z",
+    "target": "c005420",
+    "tag_object": "9f95223",
+    "pushed_at": "2026-10-21T13:30:09Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-21T14:27:30Z",
+   "preview_url": "https://sb-2pnr5jjv61vv.vercel.run",
+   "sandbox_id": "sbx_kNCjjcHasZqxZZXLXjsc94k4PBMn",
+   "served_commit": "2ce7426",
+   "laneA": {
+    "spec": "e2e/chat-intelligent-ui-payloads.spec.ts",
+    "restored_from": "1f878a1 (1ed4247^)",
+    "scenarios": 7,
+    "viewports": [
+     "1440x900",
+     "390x844"
+    ],
+    "pass": 14,
+    "fail": 0,
+    "na": 0,
+    "app_bugs": 0
+   },
+   "laneB": {
+    "listed": 192,
+    "pass": 145,
+    "fail": 18,
+    "skipped_env": 25,
+    "not_run": 4,
+    "baseline": {
+     "pass": 138,
+     "fail": 16,
+     "skipped_env": 23,
+     "not_run": 15
+    },
+    "fail_classes": {
+     "upstream_perplexity_not_rerun": 6,
+     "stale_spec": 5,
+     "live_od_view_divergence": 5,
+     "environment": 2
+    },
+    "fixed": {
+     "nav_stress_390": "9/9",
+     "voice": "4/4 rewritten",
+     "run_ux_mobile_ux": "env-skip"
+    }
+   },
+   "laneC": {
+    "threads_seeded": 5,
+    "rail_px": {
+     "expanded": 224,
+     "collapsed": 64,
+     "persisted": true
+    },
+    "topbar_px": 52,
+    "column_px": 800,
+    "inspector_px": 360,
+    "drawer_px_390": 280,
+    "rail_items_after_reload": 5,
+    "plan_tab": "od-status log (run-logs-toggle) — no literal tabs",
+    "run_tab": "inspector run-rail + dev-disclosure",
+    "plan_stepper_live": "never mounts when raw OnDemand frames are present (structural)",
+    "overflow_fix": "status-log wrapper w-auto min-w-0 (8901901)"
+   },
+   "laneD": {
+    "perplexity_credits_restored": false,
+    "backoff_minutes": [
+     1,
+     2,
+     4,
+     8,
+     16,
+     30
+    ],
+    "surfaces": [
+     "coverage-notice",
+     "briefing-coverage",
+     "plugin chip unavailable",
+     "/health.web_research",
+     "/api/plugins availability"
+    ],
+    "suite84": {
+     "total": "84/84",
+     "agent4": "14/14",
+     "baseline": "74/84"
+    },
+    "live_preview_probe": "POST /api/chat 200 14.4 s, coverage reason=upstream"
+   },
+   "laneE": {
+    "alias": "https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app",
+    "deployment": "dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo",
+    "get_status": 302,
+    "get_redirect": "https://vercel.com/sso-api",
+    "post_api_chat_status": 401,
+    "sso_protection": "all_except_custom_domains",
+    "protection_bypass": 0,
+    "env_vars": 0,
+    "blocker": "0 ONDEMAND_API_KEY / ONDEMAND_BASE_URL on project prj_wXz5xY3PNULypuwepaqu1XKa6sP1; previews behind SSO",
+    "decision": "sandbox preview remains the demo surface"
+   },
+   "gate": {
+    "contrast_nodes": 8164,
+    "contrast_genuine": 0,
+    "hscroll": "26/26",
+    "residue": {
+     "dom": 0,
+     "network_theme": 0,
+     "network_vendored": 186
+    },
+    "typecheck": "pass",
+    "build": "pass",
+    "ui_validator": "/chat + /briefing × 2 vp pass",
+    "main": "be3f7c1 untouched",
+    "tags_untouched": [
+     "bcap-pre-uae-20261020T2130Z",
+     "uae-navy-gold-fallback-20261021"
+    ]
+   },
+   "commits": [
+    "80446e3",
+    "d2dfc95",
+    "fb848be",
+    "8901901",
+    "2ce7426"
    ]
   }
  }

@@ -67,3 +67,8 @@ Low-coverage entries (KATIM, Khalifa University, ASPIRE, CAMB.AI, CNTXT AI, AIAT
 - **GITEX** — GITEX GLOBAL 2026 = 7–11 Dec 2026, Expo City Dubai; October 2026 items re-tagged (Ai Everything Abu Dhabi, ADNEC, 6–7 Oct). Intel–AIREV MoU stays 'GITEX GLOBAL 2025'.
 - **Model tracker** — Hugging Face orgs inception42 (46), IFM (121), inceptionai (0, reserved), LLM360 (moved to IFM); Falcon-Emirati-7B added.
 - Mean dossier coverage after patches: **72.8%** (50 orgs; 46 with ≥1 verified source URL).
+
+## 2026-10-21T14:27Z — QA cycle 4 (no dossier/data change)
+- No research, dossier or sentiment edits this cycle: orgs 50 (mean coverage 72.8%, 46 with ≥1 verified source URL), sentiment 196 records (UAE-topic 180 / global 16), news 105, graph edges 168 — `/health` on build 2ce7426 reports the same counts as c005420.
+- **Web research coverage is reduced**: the Perplexity plugin (plugin-1722260873) is out of OnDemand credits (first failure ≈12:40Z; probes ≈13:22Z HTTP 500 "Not enough credits", 13:35:43Z "web search failed due to insufficient credits"; one clean call at 14:10Z — intermittent). Executive chat and the briefing now state this explicitly (`coverage-notice` / `briefing-coverage`) and ground answers on the curated uae_cc_v1 dossiers, news and sentiment only; nothing is fabricated or substituted. Decision logged: no alternative web plugin is attached silently.
+- Lucidya (excluded, Riyadh-HQ) and Derq (kept, 'unavailable' fields) decisions unchanged; no UAE-HQ replacement org added (still needs a verified inclusion test).

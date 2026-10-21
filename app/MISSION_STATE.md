@@ -1,3 +1,14 @@
+# MISSION_STATE — 2026-10-21T14:27Z (QA cycle 4)
+| Lane | Status |
+|---|---|
+| A Payload spec A–G | ✅ RESTORED + ADAPTED — `e2e/chat-intelligent-ui-payloads.spec.ts` (from 1f878a1), **14/14 pass** at 1440×900 and 390×844 (F/G on the real backend); no app bug found. Proof `qa/2026-10-21-cycle4/laneA/`. |
+| B 192-test closure | ⚠ **145 pass · 18 fail · 25 env-skip · 4 not-run** (baseline 138/16/23/15). 9 non-Perplexity failures: 5 harness → fixed (nav-stress @390 9/9), 2 stale voice → rewritten (4/4), 2 env → guarded skip. 11 not-run executed: 5 stale (Portfolio-plugin / threads-menu assertions), 5 live od-view divergence (thinking-block vs OdStatusView — design decision open), 2 environment. 6 upstream-Perplexity not re-run. Table `laneB/final-192.md`. |
+| C Plan/Run + px | ✅ MEASURED on the real backend with 5 multi-step threads: rail 224/64 persisted · 52 px bar · 800 px column · 360 px inspector · 280 px drawer · 5 rail items after reload. No literal Plan/Run tabs: Plan = od-status log (run-logs-toggle), Run = inspector run-rail; `plan-stepper` cannot mount on live od-frame runs (structural). 8 px status-log overflow fixed (8901901). |
+| D Perplexity coverage | ✅ SHIPPED — availability backoff 1→2→4→8→16→30 min, `coverage-notice` in chat (no more "Response failed" for plugin_error turns), `briefing-coverage` banner, `/health.web_research`, `/api/plugins` availability, `unavailable` chip. Live on the preview (POST /api/chat 200, coverage reason=upstream). **84-check 84/84** on the lane build (baseline 74/84; agent4 14/14). Credits still exhausted (probe 13:35:43Z). |
+| E Vercel preview | ⛔ BLOCKED (documented): alias + dpl_7sWk… → 302 vercel.com/sso-api on GET, 401 "Protected deployment" on POST /api/chat; ssoProtection all_except_custom_domains, protectionBypass empty, **0 env vars** → '0 ONDEMAND_API_KEY / ONDEMAND_BASE_URL on project; previews behind SSO'. Sandbox preview stays the demo surface. |
+| Gate | contrast 8,164 nodes / **0 genuine**; h-scroll **26/26**; residue DOM 0 / network 0 theme (vendored colour tables only); tsc 0; build 0 (local + sandbox); ui-validator /chat + /briefing ×2 vp green; main @ be3f7c1 and tags `bcap-pre-uae-20261020T2130Z`, `uae-navy-gold-fallback-20261021` untouched; new tag `uae-qa4-pre-20261021T13Z` → c005420. |
+Preview: **https://sb-2pnr5jjv61vv.vercel.run** (sbx_kNCjjcHasZqxZZXLXjsc94k4PBMn, 90 min from 13:47:01Z ≈ expires 15:17Z; /health commit 2ce7426). Commits 80446e3 · d2dfc95 · fb848be · 8901901 · 2ce7426 (+ this docs commit) on PR #7.
+
 # MISSION_STATE — 2026-10-21T13:03:22Z (QA closure cycle 3)
 | Lane | Status |
 |---|---|

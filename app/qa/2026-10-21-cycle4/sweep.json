@@ -1,0 +1,597 @@
+{
+ "started": "2026-10-21T14:24:25.660Z",
+ "base": "https://sb-2pnr5jjv61vv.vercel.run",
+ "contrast": {
+  "checked": 8164,
+  "below": 0,
+  "genuine": 0,
+  "artefacts": 36,
+  "worst": []
+ },
+ "hscroll": {
+  "pass": 26,
+  "fail": []
+ },
+ "residue": {
+  "dom": 0,
+  "network": 26,
+  "networkVendored": 186,
+  "hits": [
+   {
+    "route": "/overview",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/tii",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/compare?ids=g42,edge,tii",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/sentiment",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/news",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/radar",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/graph",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/chat",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/briefing",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/methodology",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/settings",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/artifacts",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/overview",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/tii",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/compare?ids=g42,edge,tii",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/sentiment",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/news",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/radar",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/graph",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/chat",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/briefing",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/methodology",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/settings",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   },
+   {
+    "route": "/artifacts",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "qua|black|blue|dkgray|fuchsia|gray|green|lime|ltgray|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)|cmpfu"
+     }
+    ]
+   }
+  ]
+ },
+ "routes": [
+  {
+   "route": "/overview",
+   "vp": "1440x900",
+   "checked": 283,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 69
+  },
+  {
+   "route": "/watchlist",
+   "vp": "1440x900",
+   "checked": 1051,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 73
+  },
+  {
+   "route": "/watchlist/tii",
+   "vp": "1440x900",
+   "checked": 326,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 63
+  },
+  {
+   "route": "/watchlist/compare?ids=g42,edge,tii",
+   "vp": "1440x900",
+   "checked": 107,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 63
+  },
+  {
+   "route": "/sentiment",
+   "vp": "1440x900",
+   "checked": 187,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 58
+  },
+  {
+   "route": "/news",
+   "vp": "1440x900",
+   "checked": 842,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 61
+  },
+  {
+   "route": "/radar",
+   "vp": "1440x900",
+   "checked": 549,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 84
+  },
+  {
+   "route": "/graph",
+   "vp": "1440x900",
+   "checked": 64,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 59
+  },
+  {
+   "route": "/chat",
+   "vp": "1440x900",
+   "checked": 248,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 69
+  },
+  {
+   "route": "/briefing",
+   "vp": "1440x900",
+   "checked": 134,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 60
+  },
+  {
+   "route": "/methodology",
+   "vp": "1440x900",
+   "checked": 99,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 56
+  },
+  {
+   "route": "/settings",
+   "vp": "1440x900",
+   "checked": 307,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 64
+  },
+  {
+   "route": "/artifacts",
+   "vp": "1440x900",
+   "checked": 58,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 59
+  },
+  {
+   "route": "/overview",
+   "vp": "390x844",
+   "checked": 260,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 61
+  },
+  {
+   "route": "/watchlist",
+   "vp": "390x844",
+   "checked": 978,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 66
+  },
+  {
+   "route": "/watchlist/tii",
+   "vp": "390x844",
+   "checked": 302,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 59
+  },
+  {
+   "route": "/watchlist/compare?ids=g42,edge,tii",
+   "vp": "390x844",
+   "checked": 81,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 62
+  },
+  {
+   "route": "/sentiment",
+   "vp": "390x844",
+   "checked": 164,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 58
+  },
+  {
+   "route": "/news",
+   "vp": "390x844",
+   "checked": 819,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 57
+  },
+  {
+   "route": "/radar",
+   "vp": "390x844",
+   "checked": 526,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 57
+  },
+  {
+   "route": "/graph",
+   "vp": "390x844",
+   "checked": 41,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 59
+  },
+  {
+   "route": "/chat",
+   "vp": "390x844",
+   "checked": 232,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 69
+  },
+  {
+   "route": "/briefing",
+   "vp": "390x844",
+   "checked": 111,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 60
+  },
+  {
+   "route": "/methodology",
+   "vp": "390x844",
+   "checked": 76,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 56
+  },
+  {
+   "route": "/settings",
+   "vp": "390x844",
+   "checked": 284,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 63
+  },
+  {
+   "route": "/artifacts",
+   "vp": "390x844",
+   "checked": 35,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 59
+  }
+ ],
+ "finished": "2026-10-21T14:25:55.688Z"
+}

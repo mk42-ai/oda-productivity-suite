@@ -77,3 +77,17 @@
 | 2026-10-21T12:48Z | 84-check suite round c3: 74/84 (agent4 upstream Perplexity credits) |
 | 2026-10-21T12:59Z | Lane A shards s2/s3/s4 + re-runs complete: 177/192 executed, 138 pass, 16 fail, 23 env-skip |
 | 2026-10-21T13:03:22Z | Docs/state updated in place (QA_REPORT, MISSION_STATE(.json), NEXT_ACTIONS, API_HEALTH §G, CHECKPOINTS) |
+
+| 2026-10-21T13:28:49Z | **QA cycle 4 start** (90-min box → 14:58Z). Workspace on `uae-ai-command-centre` @ c005420 = origin (`git fetch` → no newer commit); `npm run resume` 13:29:46Z: 3 workflows active, previous preview 200; state files read before any edit |
+| 2026-10-21T13:30:09Z | STEP 0 checkpoint tag `uae-qa4-pre-20261021T13Z` → c005420 pushed (`* [new tag]`) |
+| 2026-10-21T13:35:43Z | Direct Perplexity probe (session 6ad8bfaf7bb80aa7c2d988b9, sync): "web search failed due to insufficient credits" — credits NOT restored |
+| 2026-10-21T13:37:38Z | Local `next build` of HEAD green; baseline server 127.0.0.1:5173 /health commit c005420 ondemand_key true |
+| 2026-10-21T13:44Z–14:16Z | 5 lanes in parallel: A payload spec (14/14), B 192 closure, C Plan/Run + px, D Perplexity coverage + backoff + 84-check 84/84, E Vercel preview probes |
+| 2026-10-21T13:47:01Z | Sandbox sbx_kNCjjcHasZqxZZXLXjsc94k4PBMn created → https://sb-2pnr5jjv61vv.vercel.run (deps installed 13:49Z) |
+| 2026-10-21T13:50–13:54Z | Baseline sweep on c005420: 8,238 nodes / 0 genuine AA · h-scroll 26/26 · residue DOM 0 / network 0 theme |
+| 2026-10-21T14:18–14:20Z | Lanes merged: `tsc --noEmit` exit 0, `next build` exit 0 |
+| 2026-10-21T14:20:25Z–14:20:40Z | Commits 80446e3 (Lane A spec) · d2dfc95 (Lane B specs) · fb848be (Lane C evidence) · 8901901 (Lane D fix + Lane C overflow) · 2ce7426 (Lane E docs) |
+| 2026-10-21T14:23:59Z | Sandbox rebuilt from 2ce7426: build exit 0, /health 200 commit 2ce7426 ondemand_key true |
+| 2026-10-21T14:24:53Z | Live POST /api/chat on the preview: HTTP 200, 14.4 s, ondemand.coverage web=unavailable reason=upstream, answer streamed; health.web_research backoff 1 min |
+| 2026-10-21T14:24–14:26Z | After-sweep on the preview: 8,164 nodes / 0 genuine · h-scroll 26/26 · residue 0; ui-validator /chat + /briefing ×2 vp green |
+| 2026-10-21T14:27Z | Docs/state updated in place (QA_REPORT, MISSION_STATE(.json), NEXT_ACTIONS, API_HEALTH, RESEARCH_COVERAGE, CHECKPOINTS); final docs commit + push |

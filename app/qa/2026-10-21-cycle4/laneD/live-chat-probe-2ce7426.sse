@@ -1,0 +1,454 @@
+data: {"seq":1,"type":"RUN_STARTED","threadId":"probe-c4","runId":"6ab39827-5c50-4605-9e40-5d3e0745b3bc"}
+
+data: {"seq":2,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"connecting","elapsedMs":2,"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","pluginIds":["plugin-1722260873"],"pluginNames":["Perplexity"],"droppedPluginIds":[],"sessionKnown":false,"transport":"/api/chat"}}
+
+data: {"seq":3,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"creating-session","elapsedMs":2}}
+
+data: {"seq":4,"type":"CUSTOM","name":"ondemand.session","value":{"sessionId":"6ad8cb35fff1495361aa6fc5","created":true,"viaHeader":false,"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","pluginIds":["plugin-1722260873"]}}
+
+data: {"seq":5,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"querying","elapsedMs":353,"sessionId":"6ad8cb35fff1495361aa6fc5"}}
+
+data: {"seq":6,"type":"CUSTOM","name":"ondemand.request","value":{"elapsedMs":353,"method":"POST","proxy":"/api/chat","upstream":"POST gateway.on-demand.io/chat/v1/sessions/{id}/query","body":{"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","responseMode":"stream","pluginIds":["plugin-1722260873"],"queryChars":62,"systemContextChars":0,"attachments":[]},"sessionId":"6ad8cb35fff1495361aa6fc5","sessionCreated":true}}
+
+data: {"seq":7,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"streaming","elapsedMs":807}}
+
+data: {"seq":8,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":1021,"firstFrameMs":1021}}
+
+data: {"seq":9,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":1022,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":1,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"initializing\",\"statusMessage\":\"Initializing the process...\",\"time\":\"2026-10-21T14:24:54Z\"}}"}}
+
+data: {"seq":10,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":1023,"statusType":"initializing","statusMessage":"Initializing the process...","stepQuery":null}}
+
+data: {"seq":11,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":1023,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":2,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"analyzing\",\"statusMessage\":\"Analyzing the prompt...\",\"time\":\"2026-10-21T14:24:54Z\"}}"}}
+
+data: {"seq":12,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":1023,"statusType":"analyzing","statusMessage":"Analyzing the prompt...","stepQuery":null}}
+
+data: {"seq":13,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":778,"elapsedMs":1801}}
+
+data: {"seq":14,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1078,"elapsedMs":2101}}
+
+data: {"seq":15,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1378,"elapsedMs":2401}}
+
+data: {"seq":16,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1678,"elapsedMs":2701}}
+
+data: {"seq":17,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":2847}}
+
+data: {"seq":18,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":2847,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":3,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"{\\n  \\\"title\\\": \\\"I'll check what the\"}}"}}
+
+data: {"seq":19,"type":"TOOL_CALL_START","toolCallId":"e1c54976-a63c-4d70-9df8-e38abc7149cb","toolCallName":"Perplexity","parentMessageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9"}
+
+data: {"seq":20,"type":"TOOL_CALL_ARGS","toolCallId":"e1c54976-a63c-4d70-9df8-e38abc7149cb","delta":"{\"plugin\":\"Perplexity\",\"pluginId\":\"plugin-1722260873\",\"query\":\"In one sentence, what does Technology Innovation Institute do?\",\"stepId\":\"\",\"endpointId\":\"predefined-gpt-5.6-luna\",\"endpointLabel\":\"GPT-5.6 Luna\",\"reasoningMode\":\"medium\"}"}
+
+data: {"seq":21,"type":"TOOL_CALL_END","toolCallId":"e1c54976-a63c-4d70-9df8-e38abc7149cb"}
+
+data: {"seq":22,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"researching","elapsedMs":2847,"plugin":"Perplexity","pluginId":"plugin-1722260873","stepId":""}}
+
+data: {"seq":23,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":2848,"phase":"planning","stepId":"","delta":"{\n  \"title\": \"I'll check what the","kind":"plan"}}
+
+data: {"seq":24,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":2899,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":4,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" institute does.\\\\nI'll give you\"}}"}}
+
+data: {"seq":25,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":2899,"phase":"planning","stepId":"","delta":" institute does.\\nI'll give you","kind":"plan"}}
+
+data: {"seq":26,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":2899,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":5,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" a concise answer.\\\",\\n  \\\"objective\"}}"}}
+
+data: {"seq":27,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":2899,"phase":"planning","stepId":"","delta":" a concise answer.\",\n  \"objective","kind":"plan"}}
+
+data: {"seq":28,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":2902,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":6,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\": \\\"I'll find a reliable description\"}}"}}
+
+data: {"seq":29,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":2902,"phase":"planning","stepId":"","delta":"\": \"I'll find a reliable description","kind":"plan"}}
+
+data: {"seq":30,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":2902,"statusType":"planning","statusMessage":"I'll find a reliable description"}}
+
+data: {"seq":31,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":2949,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":7,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" of what the Technology Innovation\"}}"}}
+
+data: {"seq":32,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":2949,"phase":"planning","stepId":"","delta":" of what the Technology Innovation","kind":"plan"}}
+
+data: {"seq":33,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3000,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":8,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" Institute does.\\\",\\n  \\\"plan_required\"}}"}}
+
+data: {"seq":34,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3001,"phase":"planning","stepId":"","delta":" Institute does.\",\n  \"plan_required","kind":"plan"}}
+
+data: {"seq":35,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3049,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":9,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\": true,\\n  \\\"plan_skip_reason\\\":\"}}"}}
+
+data: {"seq":36,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3050,"phase":"planning","stepId":"","delta":"\": true,\n  \"plan_skip_reason\":","kind":"plan"}}
+
+data: {"seq":37,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3050,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":10,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" \\\"\\\",\\n  \\\"steps\\\": [\\n    {\\n      \\\"\"}}"}}
+
+data: {"seq":38,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3050,"phase":"planning","stepId":"","delta":" \"\",\n  \"steps\": [\n    {\n      \"","kind":"plan"}}
+
+data: {"seq":39,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3101,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":11,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"title\\\": \\\"Finding the institute\"}}"}}
+
+data: {"seq":40,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3101,"phase":"planning","stepId":"","delta":"title\": \"Finding the institute","kind":"plan"}}
+
+data: {"seq":41,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3151,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":12,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"'s role\\\",\\n      \\\"user_query\\\": \\\"[\"}}"}}
+
+data: {"seq":42,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3151,"phase":"planning","stepId":"","delta":"'s role\",\n      \"user_query\": \"[","kind":"plan"}}
+
+data: {"seq":43,"type":"CUSTOM","name":"ondemand.plan","value":{"elapsedMs":3152,"objective":"I'll find a reliable description of what the Technology Innovation Institute does.","steps":[{"id":"1","title":"Finding the institute's role"}],"provisional":true,"source":"planning_output:early"}}
+
+data: {"seq":44,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3201,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":13,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"Searching the web] In one sentence\"}}"}}
+
+data: {"seq":45,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3201,"phase":"planning","stepId":"","delta":"Searching the web] In one sentence","kind":"plan"}}
+
+data: {"seq":46,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3252,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":14,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\", what does Technology Innovation\"}}"}}
+
+data: {"seq":47,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3252,"phase":"planning","stepId":"","delta":", what does Technology Innovation","kind":"plan"}}
+
+data: {"seq":48,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3253,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":15,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\" Institute do?\\\",\\n      \\\"assistant\"}}"}}
+
+data: {"seq":49,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3253,"phase":"planning","stepId":"","delta":" Institute do?\",\n      \"assistant","kind":"plan"}}
+
+data: {"seq":50,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3303,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":16,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"_query\\\": \\\"\\\",\\n      \\\"depends\\\": [],\\n\"}}"}}
+
+data: {"seq":51,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3303,"phase":"planning","stepId":"","delta":"_query\": \"\",\n      \"depends\": [],\n","kind":"plan"}}
+
+data: {"seq":52,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3352,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":17,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"      \\\"plugins\\\": [\\\"perplexity\\\"]\\n\"}}"}}
+
+data: {"seq":53,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3353,"phase":"planning","stepId":"","delta":"      \"plugins\": [\"perplexity\"]\n","kind":"plan"}}
+
+data: {"seq":54,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3505,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":18,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"    }\\n  ]\\n}\"}}"}}
+
+data: {"seq":55,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":3505,"phase":"planning","stepId":"","delta":"    }\n  ]\n}","kind":"plan"}}
+
+data: {"seq":56,"type":"CUSTOM","name":"ondemand.plan","value":{"elapsedMs":3505,"objective":"I'll find a reliable description of what the Technology Innovation Institute does.","steps":[{"id":"1","title":"Finding the institute's role","query":"In one sentence, what does Technology Innovation Institute do?","plugins":["perplexity"]}],"source":"planning_output"}}
+
+data: {"seq":57,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":3505,"statusType":"plan_created","statusMessage":"I'll find a reliable description of what the Technology Innovation Institute does.","steps":1}}
+
+data: {"seq":58,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3506,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":19,\"eventType\":\"planning_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"\"}}"}}
+
+data: {"seq":59,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3507,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":20,\"eventType\":\"planning_output\",\"status\":\"processing\",\"output\":{\"delta\":\"\"}}"}}
+
+data: {"seq":60,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3519,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":21,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"plan_created\",\"statusMessage\":\"Execution plan created\",\"queryPlan\":{\"title\":\"I'll check what the institute does.\\nI'll give you a concise answer.\",\"objective\":\"I'll find a reliable description of what the Technology Innovation Institute does.\",\"steps\":[{\"title\":\"Finding the institute's role\",\"query\":\"[Searching the web] In one sentence, what does Technology Innovation Institute do?\",\"depends\":[],\"agents\":[{\"agentId\":\"agent-1722260873\",\"operationId\":\"perplexity\"}]}]},\"time\":\"2026-10-21T14:24:56Z\"}}"}}
+
+data: {"seq":61,"type":"CUSTOM","name":"ondemand.plan","value":{"elapsedMs":3520,"objective":"I'll find a reliable description of what the Technology Innovation Institute does.","steps":[{"id":"1","title":"Finding the institute's role","query":"In one sentence, what does Technology Innovation Institute do?"}]}}
+
+data: {"seq":62,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":3520,"statusType":"plan_created","statusMessage":"I'll find a reliable description of what the Technology Innovation Institute does.","steps":1}}
+
+data: {"seq":63,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":3931,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":22,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Finding the institute's role\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching the web] In one sentence, what does Technology Innovation Institute do?\",\"statusType\":\"analyzing\",\"statusMessage\":\"Analyzing the prompt...\",\"time\":\"2026-10-21T14:24:57Z\"}}"}}
+
+data: {"seq":64,"type":"CUSTOM","name":"ondemand.step","value":{"elapsedMs":3931,"phase":"start","stepId":"1","index":1,"label":"[Searching the web] In one sentence, what does Technology Innovation Institute do?","query":"[Searching the web] In one sentence, what does Technology Innovation Institute do?"}}
+
+data: {"seq":65,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":870,"elapsedMs":4801}}
+
+data: {"seq":66,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1170,"elapsedMs":5101}}
+
+data: {"seq":67,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1470,"elapsedMs":5401}}
+
+data: {"seq":68,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1770,"elapsedMs":5701}}
+
+data: {"seq":69,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":4,"quietMs":2071,"elapsedMs":6002}}
+
+data: {"seq":70,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":6162}}
+
+data: {"seq":71,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6162,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":23,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\"**Formulating a plugin call**\\n\\nI\"}}"}}
+
+data: {"seq":72,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6164,"kind":"step","delta":"**Formulating a plugin call**\n\nI","stepId":"1"}}
+
+data: {"seq":73,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6165,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":24,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" need to formulate a JSON plugin\"}}"}}
+
+data: {"seq":74,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6166,"kind":"step","delta":" need to formulate a JSON plugin","stepId":"1"}}
+
+data: {"seq":75,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6262,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":25,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" call to search the web concis\"}}"}}
+
+data: {"seq":76,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6263,"kind":"step","delta":" call to search the web concis","stepId":"1"}}
+
+data: {"seq":77,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6364,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":26,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\"ely, making sure the query is under\"}}"}}
+
+data: {"seq":78,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6364,"kind":"step","delta":"ely, making sure the query is under","stepId":"1"}}
+
+data: {"seq":79,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6415,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":27,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" 2048 characters. I’m thinking\"}}"}}
+
+data: {"seq":80,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6416,"kind":"step","delta":" 2048 characters. I’m thinking","stepId":"1"}}
+
+data: {"seq":81,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6516,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":28,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" of using a title with 3 to 4 plain\"}}"}}
+
+data: {"seq":82,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6516,"kind":"step","delta":" of using a title with 3 to 4 plain","stepId":"1"}}
+
+data: {"seq":83,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6617,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":29,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" words like “Finding TII’s mission\"}}"}}
+
+data: {"seq":84,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6618,"kind":"step","delta":" words like “Finding TII’s mission","stepId":"1"}}
+
+data: {"seq":85,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6718,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":30,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\".” For that, I’ll break it down\"}}"}}
+
+data: {"seq":86,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6718,"kind":"step","delta":".” For that, I’ll break it down","stepId":"1"}}
+
+data: {"seq":87,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6771,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":31,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" into key components: “Finding\"}}"}}
+
+data: {"seq":88,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6771,"kind":"step","delta":" into key components: “Finding","stepId":"1"}}
+
+data: {"seq":89,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6873,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":32,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\",” “TII’s,” and “mission.” I’ll\"}}"}}
+
+data: {"seq":90,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6874,"kind":"step","delta":",” “TII’s,” and “mission.” I’ll","stepId":"1"}}
+
+data: {"seq":91,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6926,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":33,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" also ensure the plugin parameters\"}}"}}
+
+data: {"seq":92,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6926,"kind":"step","delta":" also ensure the plugin parameters","stepId":"1"}}
+
+data: {"seq":93,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6975,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":34,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" request exact facts and any relevant\"}}"}}
+
+data: {"seq":94,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6976,"kind":"step","delta":" request exact facts and any relevant","stepId":"1"}}
+
+data: {"seq":95,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7023,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":35,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" sources or images to provide a\"}}"}}
+
+data: {"seq":96,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":7023,"kind":"step","delta":" sources or images to provide a","stepId":"1"}}
+
+data: {"seq":97,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7075,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":36,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" thorough response. Time to search\"}}"}}
+
+data: {"seq":98,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":7076,"kind":"step","delta":" thorough response. Time to search","stepId":"1"}}
+
+data: {"seq":99,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7176,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":37,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"{\\\"title\\\":\\\"Finding TII's mission\"}}"}}
+
+data: {"seq":100,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7176,"phase":"step","stepId":"1","delta":"{\"title\":\"Finding TII's mission","kind":"step_output"}}
+
+data: {"seq":101,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7179,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":38,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\",\\\"plugins\\\":[{\\\"pluginId\\\":\\\"plugin\"}}"}}
+
+data: {"seq":102,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7179,"phase":"step","stepId":"1","delta":"\",\"plugins\":[{\"pluginId\":\"plugin","kind":"step_output"}}
+
+data: {"seq":103,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7225,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":39,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"-1722260873\\\",\\\"name\\\":\\\"perplexity\"}}"}}
+
+data: {"seq":104,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7225,"phase":"step","stepId":"1","delta":"-1722260873\",\"name\":\"perplexity","kind":"step_output"}}
+
+data: {"seq":105,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7276,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":40,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\",\\\"description\\\":\\\"Search the web\"}}"}}
+
+data: {"seq":106,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7276,"phase":"step","stepId":"1","delta":"\",\"description\":\"Search the web","kind":"step_output"}}
+
+data: {"seq":107,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7277,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":41,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" for Technology Innovation Institute\"}}"}}
+
+data: {"seq":108,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7277,"phase":"step","stepId":"1","delta":" for Technology Innovation Institute","kind":"step_output"}}
+
+data: {"seq":109,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7281,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":42,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"’s work and its official mission\"}}"}}
+
+data: {"seq":110,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7281,"phase":"step","stepId":"1","delta":"’s work and its official mission","kind":"step_output"}}
+
+data: {"seq":111,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7330,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":43,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\".\\\",\\\"api_request_parameters\\\":{\\\"\"}}"}}
+
+data: {"seq":112,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7330,"phase":"step","stepId":"1","delta":".\",\"api_request_parameters\":{\"","kind":"step_output"}}
+
+data: {"seq":113,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7330,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":44,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"message\\\":\\\"What does the Technology\"}}"}}
+
+data: {"seq":114,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7330,"phase":"step","stepId":"1","delta":"message\":\"What does the Technology","kind":"step_output"}}
+
+data: {"seq":115,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7331,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":45,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" Innovation Institute (TII), Abu\"}}"}}
+
+data: {"seq":116,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7331,"phase":"step","stepId":"1","delta":" Innovation Institute (TII), Abu","kind":"step_output"}}
+
+data: {"seq":117,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7377,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":46,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" Dhabi, do? Find its official description\"}}"}}
+
+data: {"seq":118,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7378,"phase":"step","stepId":"1","delta":" Dhabi, do? Find its official description","kind":"step_output"}}
+
+data: {"seq":119,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7486,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":47,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" and provide the exact source page\"}}"}}
+
+data: {"seq":120,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7486,"phase":"step","stepId":"1","delta":" and provide the exact source page","kind":"step_output"}}
+
+data: {"seq":121,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7487,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":48,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\" URL.\\\"},\\\"all_parameters_hydrated\"}}"}}
+
+data: {"seq":122,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7487,"phase":"step","stepId":"1","delta":" URL.\"},\"all_parameters_hydrated","kind":"step_output"}}
+
+data: {"seq":123,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7489,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":49,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\":true,\\\"dependencies\\\":[],\\\"identifier\"}}"}}
+
+data: {"seq":124,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7489,"phase":"step","stepId":"1","delta":"\":true,\"dependencies\":[],\"identifier","kind":"step_output"}}
+
+data: {"seq":125,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7530,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":50,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\" the web!\"}}"}}
+
+data: {"seq":126,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":7530,"kind":"step","delta":" the web!","stepId":"1"}}
+
+data: {"seq":127,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7540,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":51,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"\\\":\\\"rest_api\\\"}]}\"}}"}}
+
+data: {"seq":128,"type":"CUSTOM","name":"ondemand.planner_payload","value":{"elapsedMs":7540,"phase":"step","stepId":"1","delta":"\":\"rest_api\"}]}","kind":"step_output"}}
+
+data: {"seq":129,"type":"CUSTOM","name":"ondemand.step","value":{"elapsedMs":7540,"phase":"start","stepId":"1","index":2,"label":"Finding TII's mission","query":null,"source":"step_output"}}
+
+data: {"seq":130,"type":"CUSTOM","name":"ondemand.step_output","value":{"elapsedMs":7540,"stepId":"1","title":"Finding TII's mission","plugins":[{"pluginId":"plugin-1722260873","name":"perplexity","operationId":"perplexity","params":{"message":"What does the Technology Innovation Institute (TII), Abu Dhabi, do? Find its official description and provide the exact source page URL."}}],"raw":"{\"title\":\"Finding TII's mission\",\"plugins\":[{\"pluginId\":\"plugin-1722260873\",\"name\":\"perplexity\",\"description\":\"Search the web for Technology Innovation Institute’s work and its official mission.\",\"api_request_parameters\":{\"message\":\"What does the Technology Innovation Institute (TII), Abu Dhabi, do? Find its official description and provide the exact source page URL.\"},\"all_parameters_hydrated\":true,\"dependencies\":[],\"identifier\":\"rest_api\"}]}"}}
+
+data: {"seq":131,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7540,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":52,\"eventType\":\"step_thinking\",\"stepId\":\"1\",\"status\":\"processing\",\"thinking\":{\"delta\":\"\"}}"}}
+
+data: {"seq":132,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7545,"event":"thinking","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":53,\"eventType\":\"step_output\",\"stepId\":\"1\",\"status\":\"processing\",\"output\":{\"delta\":\"\"}}"}}
+
+data: {"seq":133,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7555,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":54,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Finding TII's mission\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching the web] In one sentence, what does Technology Innovation Institute do?\",\"statusType\":\"agents_retrieved\",\"statusMessage\":\"Retrieved the agents\",\"retrievedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What does the Technology Innovation Institute (TII), Abu Dhabi, do? Find its official description and provide the exact source page URL.\"}}],\"time\":\"2026-10-21T14:25:00Z\"}}"}}
+
+data: {"seq":134,"type":"CUSTOM","name":"ondemand.agents","value":{"elapsedMs":7555,"phase":"retrieved","stepId":"1","plugins":[{"id":"agent-1722260873","name":"Perplexity"}]}}
+
+data: {"seq":135,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7556,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":55,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Finding TII's mission\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching the web] In one sentence, what does Technology Innovation Institute do?\",\"statusType\":\"executing\",\"statusMessage\":\"Executing the agents...\",\"retrievedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What does the Technology Innovation Institute (TII), Abu Dhabi, do? Find its official description and provide the exact source page URL.\"}}],\"time\":\"2026-10-21T14:25:00Z\"}}"}}
+
+data: {"seq":136,"type":"CUSTOM","name":"ondemand.agents","value":{"elapsedMs":7556,"phase":"executing","stepId":"1","plugins":[{"id":"agent-1722260873","name":"Perplexity"}]}}
+
+data: {"seq":137,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"researching","elapsedMs":7556,"statusType":"executing","stepId":"1","plugins":1}}
+
+data: {"seq":138,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7826,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":56,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Finding TII's mission\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching the web] In one sentence, what does Technology Innovation Institute do?\",\"statusType\":\"execution_failed\",\"statusMessage\":\"Agents execution failed\",\"executedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What does the Technology Innovation Institute (TII), Abu Dhabi, do? Find its official description and provide the exact source page URL.\"},\"statusCode\":500,\"executionTimeMs\":264,\"errorResponse\":{\"error\":\"Internal server error\",\"message\":\"Not enough credits\",\"sourcesWithContent\":[]}}],\"time\":\"2026-10-21T14:25:00Z\"}}"}}
+
+data: {"seq":139,"type":"CUSTOM","name":"ondemand.error","value":{"elapsedMs":7827,"code":"plugin_error","message":"Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted.","raw":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":56,\"eventType\":\"statusLog\",\"stepId\":\"1\",\"stepTitle\":\"Finding TII's mission\",\"status\":\"processing\",\"currentStatusLog\":{\"stepQuery\":\"[Searching the web] In one sentence, what does Technology Innovation Institute do?\",\"statusType\":\"execution_failed\",\"statusMessage\":\"Agents execution failed\",\"executedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What does the Technology Innovation Institute (TII), Abu Dhabi, do? Find its official description and provide the exact source page URL.\"},\"statusCode\":500,\"executionTimeMs\":264,\"errorResponse\":{\"error\":\"Internal server error\",\"message\":\"Not enough credits\",\"sourcesWithContent\":[]}}],\"time\":\"2026-10-21T14:25:00Z\"}}","reason":"upstream","pluginId":"plugin-1722260873"}}
+
+data: {"seq":140,"type":"CUSTOM","name":"ondemand.coverage","value":{"elapsedMs":7827,"web":"unavailable","reason":"upstream","pluginId":"plugin-1722260873","nextRetryAt":"2026-10-21T14:26:01.105Z","failures":1,"text":"Web research source unavailable (Perplexity credits exhausted) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added."}}
+
+data: {"seq":141,"type":"TOOL_CALL_RESULT","messageId":"d4926e68-b4b1-4f84-8ff9-84867510b759","toolCallId":"e1c54976-a63c-4d70-9df8-e38abc7149cb","role":"tool","content":"{\"status\":\"error\",\"plugin\":\"Perplexity\",\"pluginId\":\"plugin-1722260873\",\"durationMs\":4980,\"sources\":0,\"message\":\"Perplexity returned an upstream error: \\\"Agents execution failed\\\". No other plugin was substituted.\",\"raw\":\"{\\\"sessionId\\\":\\\"6ad8cb35fff1495361aa6fc5\\\",\\\"messageId\\\":\\\"6ad8cb35fff1495361aa6fc6\\\",\\\"eventIndex\\\":56,\\\"eventType\\\":\\\"statusLog\\\",\\\"stepId\\\":\\\"1\\\",\\\"stepTitle\\\":\\\"Finding TII's mission\\\",\\\"status\\\":\\\"processing\\\",\\\"currentStatusLog\\\":{\\\"stepQuery\\\":\\\"[Searching the web] In one sentence, what does Technology Innovation Institute do?\\\",\\\"statusType\\\":\\\"execution_failed\\\",\\\"statusMessage\\\":\\\"Agents execution failed\\\",\\\"executedAgents\\\":[{\\\"agentId\\\":\\\"agent-1722260873\\\",\\\"name\\\":\\\"Perplexity\\\",\\\"identifier\\\":\\\"rest_api\\\",\\\"url\\\":\\\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\\\",\\\"method\\\":\\\"POST\\\",\\\"bodyParams\\\":{\\\"message\\\":\\\"What does the Technology Innovation Institute (TII), Abu Dhabi, do? Find its official description and provide the exact source page URL.\\\"},\\\"statusCode\\\":500,\\\"executionTimeMs\\\":264,\\\"errorResponse\\\":{\\\"error\\\":\\\"Internal server error\\\",\\\"message\\\":\\\"Not enough credits\\\",\\\"sourcesWithContent\\\":[]}}],\\\"time\\\":\\\"2026-10-21T14:25:00Z\\\"}}\"}","isError":true,"error":"Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted."}
+
+data: {"seq":142,"type":"CUSTOM","name":"ondemand.step","value":{"elapsedMs":7827,"phase":"failed","stepId":"1","index":2,"message":"Agents execution failed"}}
+
+data: {"seq":143,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8267,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":57,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"execution_log_created\",\"statusMessage\":\"Execution log created\",\"executionLog\":{\"companyId\":\"6692b763e851d28a036ab30e\",\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"query\":\"\\u003crun_style\\u003e\\nPlanner: write \\\"objective\\\" as one first-person sentence that starts with \\\"I'll\\\", at most 22 words, in plain words - no plugin names, operation ids, JSON or markdown. Start every step \\\"user_query\\\" with a short action-style label in square brackets (for example \\\"[Gathering news, prices and indicators]\\\", \\\"[Searching the web]\\\", \\\"[Comparing funding momentum]\\\") followed by the instruction unchanged.\\nStep executor: keep a fixed key order per plugin call, short parameters first and long text last; never copy the [label] into a parameter.\\nAnswer: start with the result (the steps are already on screen), cite each external fact inline with a markdown link to the exact page it came from; if a call failed, answer from what did succeed without a special failure note or \\\"Data gap\\\" line - never claim a success that did not happen.\\nCommand Centre: you are a CONCEPT DEMONSTRATION (never claim to be an official government system). Split the answer into \\\"## Verified facts\\\" (every bullet ends with a markdown link to its source) and \\\"## Interpretation\\\" (clearly labelled judgement). Public-statement rows are a purposive sample, never a population survey; say \\\"unavailable\\\" instead of guessing.\\n\\u003c/run_style\\u003e\\n\\nQuestion: In one sentence, what does Technology Innovation Institute do?\",\"ragVersion\":\"v1\",\"queryPlan\":{\"title\":\"I'll check what the institute does.\\nI'll give you a concise answer.\",\"objective\":\"I'll find a reliable description of what the Technology Innovation Institute does.\",\"steps\":[{\"title\":\"Finding the institute's role\",\"query\":\"[Searching the web] In one sentence, what does Technology Innovation Institute do?\",\"depends\":[],\"isExecuted\":true,\"executedAgents\":[{\"agentId\":\"agent-1722260873\",\"name\":\"Perplexity\",\"identifier\":\"rest_api\",\"url\":\"https://serverless.on-demand.io/apps/commoditiesapi/v2/serper\",\"method\":\"POST\",\"bodyParams\":{\"message\":\"What does the Technology Innovation Institute (TII), Abu Dhabi, do? Find its official description and provide the exact source page URL.\"},\"statusCode\":500,\"executionTimeMs\":264,\"errorResponse\":[{\"Key\":\"error\",\"Value\":\"Internal server error\"},{\"Key\":\"message\",\"Value\":\"Not enough credits\"},{\"Key\":\"sourcesWithContent\",\"Value\":[]}]}]}]},\"ragStatus\":\"completed\",\"fulfillmentStatus\":\"not_started\"},\"time\":\"2026-10-21T14:25:01Z\"}}"}}
+
+data: {"seq":144,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":8267,"statusType":"execution_log_created","statusMessage":"Execution log created","stepQuery":null}}
+
+data: {"seq":145,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8268,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":58,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"fulfilling\",\"statusMessage\":\"Fulfilling the prompt...\",\"time\":\"2026-10-21T14:25:01Z\"}}"}}
+
+data: {"seq":146,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"answering","elapsedMs":8268,"statusType":"fulfilling","statusMessage":"Fulfilling the prompt...","stepQuery":null}}
+
+data: {"seq":147,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":735,"elapsedMs":9003}}
+
+data: {"seq":148,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1035,"elapsedMs":9303}}
+
+data: {"seq":149,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1335,"elapsedMs":9603}}
+
+data: {"seq":150,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1635,"elapsedMs":9903}}
+
+data: {"seq":151,"type":"CUSTOM","name":"ondemand.heartbeat","value":{"t":"2026-10-21T14:25:03.279Z","elapsedMs":10001,"sinceLastFrameMs":1733}}
+
+data: {"seq":152,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":4,"quietMs":1935,"elapsedMs":10203}}
+
+data: {"seq":153,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":5,"quietMs":2235,"elapsedMs":10503}}
+
+data: {"seq":154,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":6,"quietMs":2535,"elapsedMs":10803}}
+
+data: {"seq":155,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":7,"quietMs":2836,"elapsedMs":11104}}
+
+data: {"seq":156,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":8,"quietMs":3136,"elapsedMs":11404}}
+
+data: {"seq":157,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":9,"quietMs":3436,"elapsedMs":11704}}
+
+data: {"seq":158,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":11950}}
+
+data: {"seq":159,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11950,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":59, \"answer\": \"Technology\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":160,"type":"TEXT_MESSAGE_START","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","role":"assistant"}
+
+data: {"seq":161,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":"Technology"}
+
+data: {"seq":162,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11951,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":60, \"answer\": \" Innovation\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":163,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" Innovation"}
+
+data: {"seq":164,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11953,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":61, \"answer\": \" Institute\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":165,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" Institute"}
+
+data: {"seq":166,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11956,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":62, \"answer\": \" is\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":167,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" is"}
+
+data: {"seq":168,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11956,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":63, \"answer\": \" Abu\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":169,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" Abu"}
+
+data: {"seq":170,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11960,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":64, \"answer\": \" Dhabi\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":171,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" Dhabi"}
+
+data: {"seq":172,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11967,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":65, \"answer\": \"\\u2019s\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":173,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":"’s"}
+
+data: {"seq":174,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11967,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":66, \"answer\": \" applied\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":175,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" applied"}
+
+data: {"seq":176,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11968,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":67, \"answer\": \" research\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":177,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" research"}
+
+data: {"seq":178,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11969,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":68, \"answer\": \" center\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":179,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" center"}
+
+data: {"seq":180,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12077,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":69, \"answer\": \",\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":181,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":","}
+
+data: {"seq":182,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12077,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":70, \"answer\": \" developing\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":183,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" developing"}
+
+data: {"seq":184,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12077,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":71, \"answer\": \" advanced\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":185,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" advanced"}
+
+data: {"seq":186,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12078,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":72, \"answer\": \" technologies\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":187,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" technologies"}
+
+data: {"seq":188,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12078,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":73, \"answer\": \" and\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":189,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" and"}
+
+data: {"seq":190,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12078,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":74, \"answer\": \" solutions\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":191,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" solutions"}
+
+data: {"seq":192,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12078,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":75, \"answer\": \" across\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":193,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" across"}
+
+data: {"seq":194,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12078,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":76, \"answer\": \" fields\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":195,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" fields"}
+
+data: {"seq":196,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12078,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":77, \"answer\": \" such\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":197,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" such"}
+
+data: {"seq":198,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12101,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":78, \"answer\": \" as\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":199,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" as"}
+
+data: {"seq":200,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12105,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":79, \"answer\": \" AI\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":201,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" AI"}
+
+data: {"seq":202,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12111,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":80, \"answer\": \",\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":203,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":","}
+
+data: {"seq":204,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12153,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":81, \"answer\": \" robotics\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":205,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" robotics"}
+
+data: {"seq":206,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12153,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":82, \"answer\": \",\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":207,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":","}
+
+data: {"seq":208,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12153,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":83, \"answer\": \" and\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":209,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" and"}
+
+data: {"seq":210,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12203,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":84, \"answer\": \" cybersecurity\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":211,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":" cybersecurity"}
+
+data: {"seq":212,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12205,"event":"message","data":"{\"sessionId\": \"6ad8cb35fff1495361aa6fc5\", \"messageId\": \"6ad8cb35fff1495361aa6fc6\", \"status\": \"processing\", \"eventIndex\":85, \"answer\": \".\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":213,"type":"TEXT_MESSAGE_CONTENT","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9","delta":"."}
+
+data: {"seq":214,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12309,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":87,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"fulfillment_completed\",\"statusMessage\":\"Fulfillment completed\",\"answer\":\"Technology Innovation Institute is Abu Dhabi’s applied research center, developing advanced technologies and solutions across fields such as AI, robotics, and cybersecurity.\",\"time\":\"2026-10-21T14:25:05Z\"}}"}}
+
+data: {"seq":215,"type":"CUSTOM","name":"ondemand.answer_complete","value":{"elapsedMs":12309,"chars":173}}
+
+data: {"seq":216,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":12316,"event":"message","data":"{\"sessionId\":\"6ad8cb35fff1495361aa6fc5\",\"messageId\":\"6ad8cb35fff1495361aa6fc6\",\"eventIndex\":88,\"eventType\":\"metricsLog\",\"status\":\"processing\",\"publicMetrics\":{\"inputTokens\":1275,\"outputTokens\":175,\"totalTokens\":1450,\"ragTimeSec\":7.39,\"fulfillmentTimeSec\":4.04,\"totalTimeSec\":11.43}}"}}
+
+data: {"seq":217,"type":"CUSTOM","name":"ondemand.metrics","value":{"elapsedMs":12316,"publicMetrics":{"inputTokens":1275,"outputTokens":175,"totalTokens":1450,"ragTimeSec":7.39,"fulfillmentTimeSec":4.04,"totalTimeSec":11.43},"firstTokenMs":11950,"toolsMs":4980,"answerMs":366,"pluginIds":["plugin-1722260873"]}}
+
+data: {"seq":218,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":890,"elapsedMs":13206}}
+
+data: {"seq":219,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1190,"elapsedMs":13506}}
+
+data: {"seq":220,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1490,"elapsedMs":13806}}
+
+data: {"seq":221,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1790,"elapsedMs":14106}}
+
+data: {"seq":222,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":14327}}
+
+data: {"seq":223,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":14327,"event":"message","data":"[DONE]"}}
+
+data: {"seq":224,"type":"TEXT_MESSAGE_END","messageId":"1233e737-7969-41bd-ac4e-dfe2521ba2f9"}
+
+data: {"seq":225,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"done","elapsedMs":14327,"chars":173,"sources":0,"firstTokenMs":11950,"toolsMs":4980,"answerMs":2377,"pluginError":"Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted."}}
+
+data: {"seq":226,"type":"RUN_FINISHED","threadId":"probe-c4","runId":"6ab39827-5c50-4605-9e40-5d3e0745b3bc"}
+
+data: [DONE]
+
