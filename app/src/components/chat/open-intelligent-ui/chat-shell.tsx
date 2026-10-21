@@ -118,12 +118,15 @@ type StreamState = {
   artifacts: LiveArtifact[]; outputs: StepOutput[]; tools: ToolRow[]; plannerPayload: PlannerPayload;
   /** /chat-od-style bot message built from the raw OnDemand frames (ondemand.raw) — drives the status view in RunView. */
   od: BotMessageType | null;
+  /** Lane D: web-research coverage of this run (ondemand.coverage frame) — null = the pinned plugin delivered / not yet known. */
+  coverage: Coverage | null;
 };
+export type Coverage = { web: "unavailable"; reason: "credits" | "upstream" | "backoff" | string; pluginId?: string; nextRetryAt: string | null; failures?: number | null; text?: string };
 /** One Working row = one plugin/agent action (TOOL_CALL_START/ARGS/RESULT from the bridge). */
 export type ToolRow = { id: string; name: string; pluginId: string; query: string; stepId: string; status: "running" | "done" | "failed"; sources?: number; durationMs?: number; message?: string; raw?: string; startedAt?: number; finishedAt?: number };
 export type LiveArtifact = { key: string; name: string; phase: "creating" | "ready" | "failed"; artifact?: Artifact; message?: string; media?: { status?: string; id?: string | null; message?: string | null } };
 export type StepOutput = { stepId: string; title: string; plugins: { pluginId: string; name: string; operationId?: string | null; params: Record<string, unknown> | null }[]; at: number };
-const IDLE: StreamState = { phase: "idle", detail: "", startedAt: 0, finishedAt: null, sessionId: null, version: 0, firstStatusMs: null, firstTokenMs: null, firstCitationMs: null, chunks: 0, thinking: "", thinkingKinds: [], error: null, sources: [], metrics: null, lastThreadId: null, pluginIds: [PLUGIN_ID], suggested: [], plan: null, summaries: [], prompt: null, filler: false, fillerTick: 0, text: "", answerDone: false, integrity: null, request: null, agentLog: [], stepRaw: {}, attachments: null, voice: null, artifacts: [], outputs: [], tools: [], plannerPayload: EMPTY_PAYLOAD, od: null };
+const IDLE: StreamState = { phase: "idle", detail: "", startedAt: 0, finishedAt: null, sessionId: null, version: 0, firstStatusMs: null, firstTokenMs: null, firstCitationMs: null, chunks: 0, thinking: "", thinkingKinds: [], error: null, sources: [], metrics: null, lastThreadId: null, pluginIds: [PLUGIN_ID], suggested: [], plan: null, summaries: [], prompt: null, filler: false, fillerTick: 0, text: "", answerDone: false, integrity: null, request: null, agentLog: [], stepRaw: {}, attachments: null, voice: null, artifacts: [], outputs: [], tools: [], plannerPayload: EMPTY_PAYLOAD, od: null, coverage: null };
 let streamState: StreamState = IDLE;
 let pending: Partial<StreamState> | null = null; let rafId = 0;
 const liveSources = new Map<string, Source[]>();
@@ -188,7 +191,7 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
     // unit2 — split the run time: toolsMs = first TOOL_CALL_START → last TOOL_CALL_RESULT (fallback: first status → first token when tools exist); answerMs = first token → answer done.
     const { toolsMs, answerMs } = splitRunTimings(st, t0, Date.now());
     // The live DOM never truncates the reasoning; ONLY the persisted (localStorage) copy is capped at 200,000 chars to stay inside the quota.
-    const meta: StoredMeta & { thinkingKinds?: string[]; plannerPayload?: PlannerPayload; od?: BotMessageType | null } = { model: MODEL_LABEL, modelId: MODEL_ID, reasoningMode: REASONING_MODE, pluginId: PLUGIN_ID, pluginIds: st.pluginIds, firstTokenMs: st.firstTokenMs, firstStatusMs: st.firstStatusMs, firstCitationMs: st.firstCitationMs, toolsMs, answerMs, totalMs: Date.now() - t0, chunks: st.chunks, metrics: st.metrics, thinking: st.thinking.slice(0, 200_000), thinkingKinds: st.thinkingKinds, error: st.error ? { code: st.error.code, message: st.error.message } : null, at: new Date().toISOString(), summaries: st.summaries.map((s) => ({ index: s.index, text: s.text, doneAt: s.doneAt ?? null })), plan: st.plan, artifacts: st.artifacts.filter((a) => a.phase === "ready" && a.artifact).map((a) => a.artifact!), tools: st.tools, artifactFailures: st.artifacts.filter((a) => a.phase === "failed").map((a) => ({ name: a.name, message: a.message ?? "" })), outputs: st.outputs, od: compactOdMessage(odRun.get()), plannerPayload: hasPayload(st.plannerPayload) ? { planning: st.plannerPayload.planning.slice(0, 60_000), steps: Object.fromEntries(Object.entries(st.plannerPayload.steps).map(([k, v]) => [k, v.slice(0, 60_000)])) } : undefined };
+    const meta: StoredMeta & { thinkingKinds?: string[]; plannerPayload?: PlannerPayload; od?: BotMessageType | null } = { model: MODEL_LABEL, modelId: MODEL_ID, reasoningMode: REASONING_MODE, pluginId: PLUGIN_ID, pluginIds: st.pluginIds, firstTokenMs: st.firstTokenMs, firstStatusMs: st.firstStatusMs, firstCitationMs: st.firstCitationMs, toolsMs, answerMs, totalMs: Date.now() - t0, chunks: st.chunks, metrics: st.metrics, thinking: st.thinking.slice(0, 200_000), thinkingKinds: st.thinkingKinds, error: st.error ? { code: st.error.code, message: st.error.message } : null, coverage: st.coverage ?? (st.error?.code === "plugin_error" ? { web: "unavailable", reason: "upstream", nextRetryAt: null } : null), at: new Date().toISOString(), summaries: st.summaries.map((s) => ({ index: s.index, text: s.text, doneAt: s.doneAt ?? null })), plan: st.plan, artifacts: st.artifacts.filter((a) => a.phase === "ready" && a.artifact).map((a) => a.artifact!), tools: st.tools, artifactFailures: st.artifacts.filter((a) => a.phase === "failed").map((a) => ({ name: a.name, message: a.message ?? "" })), outputs: st.outputs, od: compactOdMessage(odRun.get()), plannerPayload: hasPayload(st.plannerPayload) ? { planning: st.plannerPayload.planning.slice(0, 60_000), steps: Object.fromEntries(Object.entries(st.plannerPayload.steps).map(([k, v]) => [k, v.slice(0, 60_000)])) } : undefined };
     liveMeta.set(key, meta); rememberMeta(key, meta);
     if (st.finishedAt == null) setStream({ finishedAt: Date.now(), toolsMs, answerMs }, true); else setStream({ toolsMs, answerMs }, true); // freezes the run-header timer at totalMs
     if (st.sources.length) { liveSources.set(key, st.sources); rememberSources(key, st.sources); }
@@ -222,6 +225,7 @@ async function teeStream(res: Response, threadId: string, onSession: (sid: strin
           case CE.sources: if (Array.isArray(v.sources)) { const items = (v.sources as Partial<Source>[]).filter((x): x is Source => typeof x.url === "string" && !!x.url).map((x) => ({ url: x.url, title: x.title || x.sourceName || x.url, sourceName: x.sourceName || x.title || x.url, ...(typeof x.imageUrl === "string" && /^https?:\/\//.test(x.imageUrl) ? { imageUrl: x.imageUrl } : {}) })); setStream({ sources: items, firstCitationMs: st.firstCitationMs ?? (items.length ? now - t0 : null) }); } break;
           case CE.metrics: if (v.publicMetrics && typeof v.publicMetrics === "object") setStream({ metrics: v.publicMetrics as Record<string, number> }); break;
           case CE.error: setStream({ error: { code: String(v.code ?? "error"), message: "Response failed" } }, true); break; // raw upstream message intentionally not stored/rendered
+          case CE.coverage: if (v.web === "unavailable") setStream({ coverage: { web: "unavailable", reason: String(v.reason ?? "upstream"), pluginId: typeof v.pluginId === "string" ? v.pluginId : undefined, nextRetryAt: typeof v.nextRetryAt === "string" ? v.nextRetryAt : null, failures: typeof v.failures === "number" ? v.failures : null } }, true); break;
           case CE.plugins: if (Array.isArray(v.plugins) && v.plugins.length) setStream({ suggested: (v.plugins as { id: string; name: string; logoUrl?: string }[]) }); break;
           case CE.plan: { const steps = Array.isArray(v.steps) ? (v.steps as Omit<PlanStep, "state">[]).map((s, i) => ({ ...s, id: String(s.id ?? i + 1), state: "pending" as const })) : []; if (v.provisional && st.plan && !st.plan.provisional) break; setStream({ plan: { objective: typeof v.objective === "string" ? v.objective : null, steps, provisional: !!v.provisional }, ...(typeof v.objective === "string" && v.objective ? { detail: v.objective } : {}) }); break; }
           case CE.step: {
@@ -650,7 +654,25 @@ type RunData = {
   error: { code: string; message: string; raw?: string } | null; meta: Partial<StoredMeta> | null; filler: boolean; fillerTick: number; elapsedMs: number;
   startedAt: number; totalMs: number | null;
   od?: BotMessageType | null;
+  coverage?: Coverage | null;
 };
+/**
+ * Lane D 2026-10-21 — COVERAGE notice (data-testid=coverage-notice). Rendered INSIDE the answer area whenever the pinned web-research plugin
+ * did not contribute (st.error.code === "plugin_error" or an ondemand.coverage frame): credits exhausted, upstream execution error, or the
+ * server-side backoff window (plugin-availability.ts) that skipped it from the start. It is discreet, honest and NOT the "Response failed ·
+ * Retry" notice (that stays reserved for real run errors). It persists after the answer finishes and on settled replays (meta.coverage).
+ */
+function CoverageNotice({ coverage, live }: { coverage: Coverage; live: boolean }) {
+  const next = coverage.nextRetryAt ? new Date(coverage.nextRetryAt) : null;
+  const nextTxt = next && !Number.isNaN(next.getTime()) ? `${next.toISOString().slice(11, 16)} UTC` : null;
+  const why = coverage.reason === "backoff" ? `skipped for this run — availability backoff after ${coverage.failures ?? "repeated"} upstream failure${coverage.failures === 1 ? "" : "s"}` : coverage.reason === "credits" ? "Perplexity credits exhausted" : "upstream execution error";
+  return (
+    <div className="oiu-coverage" role="status" aria-live="polite" data-testid="coverage-notice" data-reason={coverage.reason} data-next-retry={coverage.nextRetryAt ?? ""} data-live={live ? "1" : "0"}>
+      <AlertTriangle className="size-3.5 shrink-0" aria-hidden />
+      <span><strong>Web research source unavailable</strong> ({why}) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added.{nextTxt ? ` Web research is retried automatically after ${nextTxt}.` : ""}</span>
+    </div>
+  );
+}
 const IMG_URL_RE = /!\[([^\]]*)\]\((https?:\/\/[^\s)]+|\/api\/artifacts\/[^\s)]+)\)/g;
 const VIDEO_URL_RE = /(https?:\/\/[^\s)"']+\.(?:mp4|webm|mov)(?:\?[^\s)"']*)?)/gi;
 function mediaFrom(text: string, arts: Artifact[]) {
@@ -773,7 +795,7 @@ function OdStatusView({ od, live, logsOpen }: { od: BotMessageType; live: boolea
   return (
     <div className="od-chat od-status" data-testid="od-status">
       {hasThinking && <div className="ml-2 mt-1 w-auto min-w-0 max-w-[840px]"><ThinkingProcess message={od} chatContainerRef={noScroll} isStreaming={live} /></div>}
-      {logsOpen && hasLogs && <div className="ml-2 w-full max-w-[840px]"><StatusLogBlock message={od} isStreaming={live} /></div>}
+      {logsOpen && hasLogs && <div className="ml-2 w-auto min-w-0 max-w-[840px]"><StatusLogBlock message={od} isStreaming={live} /></div>}
     </div>
   );
 }
@@ -796,8 +818,10 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
   // a1 — status state machine: thinking (no tool yet) → working (a tool is running / tools done but answer not started) → done | failed.
   const runningTool = r.live ? r.tools.find((t) => t.status === "running") : undefined;
   const runningStep = r.plan?.steps.find((st) => st.state === "running");
+  const coverage: Coverage | null = r.coverage ?? (r.error?.code === "plugin_error" ? { web: "unavailable", reason: "upstream", nextRetryAt: null } : null);
+  const pluginOnlyFailure = !!coverage && (!r.error || r.error.code === "plugin_error") && failedTools.every((t) => t.pluginId === PLUGIN_ID);
   const statusState: "thinking" | "working" | "done" | "failed" =
-    r.error || (!r.live && failedTools.length) ? "failed"
+    (r.error && r.error.code !== "plugin_error") || (!r.live && failedTools.length && !pluginOnlyFailure) ? "failed"
     : !r.live || (r.answerStarted && (r.answerDone || !r.live)) ? "done"
     : r.answerStarted ? "working"
     : r.tools.length > 0 || runningStep ? "working"
@@ -862,6 +886,7 @@ function RunView({ r, onAnswer }: { r: RunData; onAnswer: (text: string) => void
       {!odView && writing && <div data-testid="writing-answer"><OdAccordion status="loading" title="Writing the answer" collapsible={false} open /></div>}
       {odView && <OdFulfilment od={odView} live={r.live} />}
       {/* 7 — answer */}
+      {coverage && <CoverageNotice coverage={coverage} live={r.live} />}
       {(r.text || (r.live && r.answerStarted)) && (
         <div className="oiu-answer" data-testid="answer-block">
           <CitedMarkdown text={r.text} known={r.error?.code === "plugin_error" ? [] : r.known} streaming={r.live} onCites={setCites} />
@@ -959,7 +984,7 @@ const AssistantMessage: AssistantMessageComponent = memo(function AssistantMessa
     outputs: meta?.outputs ?? [], plannerPayload: (meta as { plannerPayload?: PlannerPayload } | null)?.plannerPayload ?? null, prompt: null, sessionId: null, text: content, known: meta?.error ? [] : known, sources: meta?.error ? [] : known,
     artifacts: [...(meta?.artifacts ?? []).map((a) => ({ key: a.id, name: a.name, phase: "ready" as const, artifact: a })), ...(meta?.artifactFailures ?? []).map((f, i) => ({ key: `f${i}`, name: f.name, phase: "failed" as const, message: f.message }))],
     error: meta?.error ?? null, meta, filler: false, fillerTick: 0, elapsedMs: meta?.totalMs ?? 0, startedAt: 0, totalMs: meta?.totalMs ?? null,
-    od: (meta as { od?: BotMessageType | null } | null)?.od ?? null,
+    od: (meta as { od?: BotMessageType | null } | null)?.od ?? null, coverage: meta?.coverage ?? null,
   };
   return (
     <div className="oiu-assistant" data-testid="assistant-message">
@@ -996,7 +1021,7 @@ const PluginTimeline: ToolCallTimelineComponent = ({ steps, isLast }) => {
     plan: st.plan, tools: st.tools, summaries: st.summaries, outputs: st.outputs, plannerPayload: st.plannerPayload, prompt: st.prompt, sessionId: st.sessionId,
     text: liveText || st.text, known: st.error?.code === "plugin_error" ? [] : st.sources, sources: st.sources, artifacts: st.artifacts,
     error: st.error, meta: { pluginIds: st.pluginIds, firstTokenMs: st.firstTokenMs, firstStatusMs: st.firstStatusMs, toolsMs: st.toolsMs ?? null, answerMs: st.answerMs ?? null, metrics: st.metrics }, filler: st.filler, fillerTick: st.fillerTick, elapsedMs: st.startedAt ? Date.now() - st.startedAt : 0,
-    startedAt: st.startedAt, totalMs: st.finishedAt != null && st.startedAt ? st.finishedAt - st.startedAt : null, od: st.od,
+    startedAt: st.startedAt, totalMs: st.finishedAt != null && st.startedAt ? st.finishedAt - st.startedAt : null, od: st.od, coverage: st.coverage,
   };
   return (
     <div className="oiu-assistant oiu-assistant--streaming" aria-live="polite" aria-busy="true" data-testid="assistant-streaming">

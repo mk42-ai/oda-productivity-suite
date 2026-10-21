@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { ONDEMAND_BASE_URL, UPSTREAM_USER_AGENT, serverApiKey } from "@/lib/ondemand/config";
 import { markPluginBlocked, pluginStateSnapshot, setOwnedPluginIds } from "@/lib/plugin-catalogue";
+import { pluginAvailability, type PluginAvailability } from "@/lib/ondemand/plugin-availability";
+import { PLUGIN_ID } from "@/lib/ondemand/config-public";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -46,7 +48,9 @@ export type ApiPlugin = {
 };
 
 export type ApiPluginStates = { blocked: Record<string, string>; invoked: string[]; authorized: string[]; owned: string[] };
-export type ApiPluginsResponse = { fetchedAt: string; total: number; plugins: ApiPlugin[]; pages?: number; declaredTotal?: number | null; owned?: string[]; states?: ApiPluginStates; error?: string };
+/** Lane D: pinned web-research plugin availability (backoff window) — `state:"blocked"` with reason + nextRetryAt while the window is open. */
+export type ApiPluginAvailability = PluginAvailability & { state: "blocked" | "available" };
+export type ApiPluginsResponse = { fetchedAt: string; total: number; plugins: ApiPlugin[]; pages?: number; declaredTotal?: number | null; owned?: string[]; states?: ApiPluginStates; availability?: Record<string, ApiPluginAvailability>; error?: string };
 
 /** Never let an upstream message leak the key (defensive — the key is only ever sent as a header). */
 const scrub = (msg: string, key: string) => (key ? msg.split(key).join("[redacted]") : msg).slice(0, 200);
@@ -123,8 +127,9 @@ async function seedBlockedFromAudit(): Promise<void> {
   } catch { /* no audit yet */ }
 }
 
+const availability = (): Record<string, ApiPluginAvailability> => { const a = pluginAvailability(PLUGIN_ID); return { [PLUGIN_ID]: { ...a, state: a.available ? "available" : "blocked" } }; };
 const respond = (body: ApiPluginsResponse) =>
-  NextResponse.json(body, { status: 200, headers: { "Cache-Control": "private, max-age=600" } });
+  NextResponse.json({ ...body, availability: body.availability ?? availability() }, { status: 200, headers: { "Cache-Control": "private, max-age=600" } });
 
 export async function GET(req: Request) {
   const fetchedAt = new Date().toISOString();
@@ -136,6 +141,7 @@ export async function GET(req: Request) {
   const wanted = idsParam ? new Set(idsParam.split(",").map((s) => s.trim()).filter(Boolean)) : null;
 
   // Cheap poll: `?states=1` returns only the in-memory state snapshot (no upstream call) so the panel can refresh badges after a run.
+  { const a = pluginAvailability(PLUGIN_ID); if (!a.available) markPluginBlocked(PLUGIN_ID, `${a.lastError ?? "upstream error"} · backoff until ${a.nextRetryAt}`); }
   if (url.searchParams.get("states") === "1") { await seedBlockedFromAudit(); return respond({ fetchedAt, total: 0, plugins: [], states: pluginStateSnapshot() }); }
 
   try {

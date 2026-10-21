@@ -1,0 +1,28 @@
+{
+ "fetchedAt": "2026-10-21T14:11:02.867Z",
+ "total": 0,
+ "plugins": [],
+ "states": {
+  "blocked": {
+   "plugin-1722260873": "Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted. · backoff until 2026-10-21T14:08:45.458Z"
+  },
+  "invoked": [
+   "plugin-1722260873"
+  ],
+  "authorized": [],
+  "owned": []
+ },
+ "availability": {
+  "plugin-1722260873": {
+   "id": "plugin-1722260873",
+   "available": true,
+   "reason": "ok",
+   "lastError": null,
+   "lastFailureAt": null,
+   "failures": 0,
+   "backoffMinutes": null,
+   "nextRetryAt": null,
+   "state": "available"
+  }
+ }
+}

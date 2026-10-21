@@ -130,6 +130,8 @@ export const CLIENT_EVENT = {
   error: "ondemand.error", clarification: "ondemand.clarification", requireCreds: "ondemand.require_creds", awaitingInput: "ondemand.awaiting_input",
   awaitingBrowserAction: "ondemand.awaiting_browser_action", filler: "ondemand.filler", agent: "ondemand.agent", heartbeat: "ondemand.heartbeat",
   answerComplete: "ondemand.answer_complete", unknown: "ondemand.unknown", request: "ondemand.request",
+  /** Lane D 2026-10-21: web-research coverage state {web:"unavailable", reason:"credits"|"upstream"|"backoff", pluginId, nextRetryAt, text}. */
+  coverage: "ondemand.coverage",
   attachments: "ondemand.attachments",  // Media API: {items:[{mediaId,name,kind,extractedChars,grounded}]} emitted right after CE.request
   voice: "ondemand.voice",              // Voice: {phase: "transcript"|"tts_queued"|"tts_playing"|"tts_done"|"barge_in", text?}
   artifact: "ondemand.artifact",        // Artifacts: {phase: "creating"|"ready"|"failed", key, name, kind?, artifact?, message?, origin}

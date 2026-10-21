@@ -1,0 +1,106 @@
+{
+ "chat1440": {
+  "chatError": [],
+  "coverage": [
+   {
+    "reason": "backoff",
+    "next": "2026-10-21T14:08:45.458Z",
+    "text": "Web research source unavailable (skipped for this run — availability backoff after 1 upstream failure) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 14:08 UTC."
+   }
+  ],
+  "chips": [
+   {
+    "id": "plugin-1722260873",
+    "state": "unavailable"
+   }
+  ],
+  "pluginReason": [
+   "unavailable — skipped (availability backoff, next retry 14:08 UTC)"
+  ],
+  "mdChars": 662,
+  "verified": true,
+  "interp": true,
+  "cites": 2,
+  "links": 2,
+  "statusHeader": "Done+7.9 s"
+ },
+ "chat390": {
+  "chatError": [],
+  "coverage": [
+   {
+    "reason": "backoff",
+    "next": "2026-10-21T14:08:45.458Z",
+    "text": "Web research source unavailable (skipped for this run — availability backoff after 1 upstream failure) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 14:08 UTC."
+   }
+  ],
+  "chips": [
+   {
+    "id": "plugin-1722260873",
+    "state": "unavailable"
+   }
+  ],
+  "pluginReason": [
+   "unavailable — skipped (availability backoff, next retry 14:08 UTC)"
+  ],
+  "mdChars": 1615,
+  "verified": true,
+  "interp": true,
+  "cites": 4,
+  "links": 4,
+  "statusHeader": "Done+13.9 s"
+ },
+ "briefing1440": {
+  "banner": "Live web research: Perplexity plugin attached and answered (web-sourced links are labelled in the text).",
+  "reason": "ok",
+  "links": 16,
+  "chars": 4835,
+  "apiCoverage": {
+   "web": "attached",
+   "reason": "ok",
+   "nextRetryAt": null,
+   "pluginId": "plugin-1722260873"
+  },
+  "pluginIds": [
+   "plugin-1722260873"
+  ],
+  "ok": true,
+  "latency": 61520
+ },
+ "briefing390": {
+  "banner": "Live web research: Perplexity plugin attached and answered (web-sourced links are labelled in the text).",
+  "reason": "ok",
+  "links": 16,
+  "chars": 4552,
+  "apiCoverage": {
+   "web": "attached",
+   "reason": "ok",
+   "nextRetryAt": null,
+   "pluginId": "plugin-1722260873"
+  },
+  "pluginIds": [
+   "plugin-1722260873"
+  ],
+  "ok": true,
+  "latency": 56836
+ },
+ "health_before": {
+  "plugin": "plugin-1722260873",
+  "available": false,
+  "reason": "backoff",
+  "lastError": "Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted.",
+  "lastFailureAt": "2026-10-21T14:07:45.458Z",
+  "failures": 1,
+  "backoffMinutes": 1,
+  "nextRetryAt": "2026-10-21T14:08:45.458Z"
+ },
+ "health_after_chat1": {
+  "plugin": "plugin-1722260873",
+  "available": false,
+  "reason": "backoff",
+  "lastError": "Perplexity returned an upstream error: \"Agents execution failed\". No other plugin was substituted.",
+  "lastFailureAt": "2026-10-21T14:07:45.458Z",
+  "failures": 1,
+  "backoffMinutes": 1,
+  "nextRetryAt": "2026-10-21T14:08:45.458Z"
+ }
+}

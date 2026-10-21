@@ -335,6 +335,9 @@
 @keyframes oiu-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .oiu-spin { animation: none; } }
 /* Compact failed-state control: no full-width alarm surface, no hidden failure. */
+.oiu-coverage { display: flex; align-items: flex-start; gap: 8px; width: 100%; max-width: 100%; margin: 6px 0 8px; padding: 8px 10px; border: 1px solid #e6e0c8; border-left: 3px solid #b8860b; border-radius: 8px; background: #fbf8ee; color: #4a4532; font-size: 12px; line-height: 1.45; }
+.oiu-coverage svg { margin-top: 2px; color: #b8860b; }
+.oiu-coverage strong { color: #3b3620; font-weight: 600; }
 .oiu-error { display: flex; align-items: center; flex-wrap: wrap; align-self: flex-start; width: fit-content; max-width: 100%; gap: 8px; margin: 4px 0 10px; padding: 2px 0; border: 0; background: transparent; color: #5c6168; font-size: 12px; }
 .oiu-error__summary { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
 .oiu-error__retry { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 3px 9px; border: 1px solid #d4d7db; border-radius: 6px; background: #fff; color: #34383d; font-size: 12px; font-weight: 600; cursor: pointer; }

@@ -105,7 +105,8 @@ export function preloadPluginFavicons(ids: readonly string[]): void {
 /* PluginChip — favicon strip chip for the source rail                 */
 /* ------------------------------------------------------------------ */
 
-export type PluginChipState = "queued" | "running" | "done" | "failed";
+/** `unavailable` (lane D): the plugin was skipped or answered a credits/upstream error — a coverage state, drawn amber (not the red "failed"). */
+export type PluginChipState = "queued" | "running" | "done" | "failed" | "unavailable";
 
 export type PluginChipProps = {
   id: string;
@@ -124,7 +125,8 @@ const GREEN = "var(--brand-green, #0D0D0D)";
 const RED = "var(--danger, #dc2626)";
 const GREY = "var(--border, #9ca3af)";
 
-const STATE_LABEL: Record<PluginChipState, string> = { queued: "queued", running: "running", done: "done", failed: "failed" };
+const AMBER = "var(--warning, #b8860b)";
+const STATE_LABEL: Record<PluginChipState, string> = { queued: "queued", running: "running", done: "done", failed: "failed", unavailable: "unavailable" };
 
 export function PluginChip({ id, meta, state, input, raw, onOpenRaw, size = 16, className }: PluginChipProps) {
   const m = meta ?? pluginMeta(id);
@@ -148,8 +150,9 @@ export function PluginChip({ id, meta, state, input, raw, onOpenRaw, size = 16, 
     state === "running" ? `0 0 0 2px ${GREEN}` :
     state === "done" ? `0 0 0 1px ${GREEN}` :
     state === "failed" ? `0 0 0 1px ${RED}` :
+    state === "unavailable" ? `0 0 0 1px ${AMBER}` :
     `0 0 0 1px ${GREY}`;
-  const dotColor = state === "done" ? GREEN : state === "failed" ? RED : undefined;
+  const dotColor = state === "done" ? GREEN : state === "failed" ? RED : state === "unavailable" ? AMBER : undefined;
   const dotPx = Math.max(7, Math.round(size * 0.45));
 
   return (

@@ -25,6 +25,13 @@ import {
   markPluginInvoked,
   clearPluginBlocked,
 } from "@/lib/plugin-catalogue";
+import {
+  shouldAttachPlugin,
+  pluginAvailability,
+  recordPluginFailure,
+  recordPluginSuccess,
+  COVERAGE_NOTICE_TEXT,
+} from "./plugin-availability";
 import { makeTextPdf } from "@/lib/artifacts/pdf";
 import { reportFileName } from "@/lib/artifacts/naming";
 import { sanitizeObjective, sanitizePlan } from "./plan";
@@ -278,10 +285,16 @@ export async function runChatBridge(
       : Promise.resolve(new Map<string, AttachmentText>())
   ).catch(() => new Map<string, AttachmentText>());
   // Explicit plugin list: pinned Perplexity + exactly the ids the user toggled on (catalogue allow-list). Nothing is ever substituted.
-  const { pluginIds, dropped: droppedPluginIds } = resolvePluginIds(
-    ctx.pluginIds ?? PLUGIN_IDS,
-    query,
-  );
+  const resolved = resolvePluginIds(ctx.pluginIds ?? PLUGIN_IDS, query);
+  // Availability backoff (plugin-availability.ts): while the pinned Perplexity plugin is inside a credits-failure window it is NOT attached
+  // to the session/query — the turn is grounded only on the uae_cc_v1 context payload and the UI gets a coverage notice at run start.
+  // Nothing is substituted for it. The browser transport has no server store, so there the check is always "attach".
+  const webAvailability = pluginAvailability(PLUGIN_ID);
+  const skipPinned = deps.transport !== "browser" && !shouldAttachPlugin(PLUGIN_ID);
+  const pluginIds = skipPinned
+    ? resolved.pluginIds.filter((id) => id !== PLUGIN_ID)
+    : resolved.pluginIds;
+  const droppedPluginIds = resolved.dropped;
   const externalUserId =
     typeof ctx.externalUserId === "string" && ctx.externalUserId
       ? ctx.externalUserId.slice(0, 64)
@@ -313,6 +326,7 @@ export async function runChatBridge(
     pluginIds,
     requestedPluginIds: ctx.pluginIds ?? null,
     droppedPluginIds,
+    webResearch: { attached: !skipPinned, reason: webAvailability.reason, nextRetryAt: webAvailability.nextRetryAt },
   };
   const rawFirst: { ms: number; raw: string }[] = [];
   let rawCount = 0;
@@ -333,8 +347,12 @@ export async function runChatBridge(
     `OnDemand did not answer within ${Math.round((Date.now() - t0) / 1000)} s (${phase}) — try again`;
 
   // 1. session — reuse the one the client remembered for this thread; create only when absent.
+  // Backoff: a session created WITH the pinned plugin rejects a query that omits it (HTTP 400 "One or more agents are invalid:
+  // agent-1722260873", verified 2026-10-21T14:05Z), while a plugin-less session accepts queries with or without it. So while the plugin
+  // is skipped the remembered/prewarmed session is NOT reused — a fresh plugin-less session is created (the client remembers it via the
+  // ondemand.session frame, and once the window closes the plugin re-attaches on that same session without error).
   let sessionId =
-    typeof ctx.sessionId === "string" && /^[A-Za-z0-9]+$/.test(ctx.sessionId)
+    !skipPinned && typeof ctx.sessionId === "string" && /^[A-Za-z0-9]+$/.test(ctx.sessionId)
       ? ctx.sessionId
       : "";
   let sessionPromise: Promise<string> | null = null;
@@ -537,6 +555,8 @@ export async function runChatBridge(
       const pluginErr: { current: { message: string; raw: string } | null } = {
         current: null,
       };
+      // Backoff window active → the coverage state is known before the first upstream byte: emit the typed plugin_error (code the shell
+      // already renders as the coverage notice, never as "Response failed") plus a coverage frame with the reason and the next retry time.
       const startText = () => {
         if (!textStarted) {
           textStarted = true;
@@ -563,6 +583,15 @@ export async function runChatBridge(
         });
         lastSentAt = Date.now();
       };
+      // Backoff window active → the coverage state is known before the first upstream byte: emit the typed plugin_error (code the shell
+      // renders as the coverage notice, never as "Response failed") plus a coverage frame with the reason and the next retry time.
+      if (skipPinned) {
+        const avail = webAvailability;
+        const msg = `${COVERAGE_NOTICE_TEXT} (backoff: ${PLUGIN_NAME} skipped after ${avail.failures} upstream failure${avail.failures === 1 ? "" : "s"}; next retry ${avail.nextRetryAt ?? "—"})`;
+        pluginErr.current = { message: msg, raw: JSON.stringify(avail) };
+        custom(CE.error, { code: "plugin_error", message: msg, raw: JSON.stringify(avail), reason: "backoff", nextRetryAt: avail.nextRetryAt, pluginId: PLUGIN_ID });
+        custom(CE.coverage, { web: "unavailable", reason: "backoff", pluginId: PLUGIN_ID, nextRetryAt: avail.nextRetryAt, failures: avail.failures, text: COVERAGE_NOTICE_TEXT });
+      }
       // a3 — SINGLE SOURCE OF TRUTH for "Working…": stall / bridge / "Summarising step N" states are carried ONLY by ondemand.filler frames
       // (consumed by the anchored RunStatusHeader via filler/fillerTick). They are NEVER emitted as an ondemand.status statusMessage, so no
       // consumer can turn them into an interleaved "Working…" step row between the Working rows and the Outputs/answer.
@@ -818,12 +847,11 @@ export async function runChatBridge(
         });
       const typedError = (code: string, message: string, raw: string) =>
         custom(CE.error, { code, message, raw: raw.slice(0, 2000) });
-      const detectPluginError = (haystack: string, raw: string) => {
+      /** Pinned-plugin failure (credits or any upstream execution error) → ONE typed plugin_error + coverage frame, backoff window opened. */
+      const pluginUnavailable = (hit: string, raw: string) => {
         if (pluginErr.current) return;
-        const m = PLUGIN_ERROR_RE.exec(haystack);
-        if (!m) return;
-        const hit = m[0].replace(/\s+/g, " ").trim();
         const credits = /credits/i.test(hit);
+        const reason = credits ? "credits" : "upstream";
         const others = pluginIds
           .filter((id) => id !== PLUGIN_ID)
           .map((id) => pluginName(id));
@@ -831,12 +859,21 @@ export async function runChatBridge(
           message: `${PLUGIN_NAME} returned an upstream error: "${credits ? "Internal server error — Not enough credits" : hit}"${credits ? " (the OnDemand account's Perplexity credits are exhausted)" : ""}. No other plugin was substituted${others.length ? `; ${others.join(", ")} ${others.length === 1 ? "was" : "were"} also attached to this turn and any text below comes from ${others.length === 1 ? "it" : "them"} or the model's own knowledge` : ""}.`,
           raw,
         };
-        typedError("plugin_error", pluginErr.current.message, raw);
+        custom(CE.error, { code: "plugin_error", message: pluginErr.current.message, raw: raw.slice(0, 2000), reason, pluginId: PLUGIN_ID });
         markPluginBlocked(PLUGIN_ID, pluginErr.current.message); // plugin-state `blocked` until a later run clears it (plugin-catalogue.ts)
+        // Open / extend the availability backoff window (1→2→4→8→16→30 min) so the NEXT server runs skip the plugin instead of re-failing.
+        const avail = deps.transport !== "browser" ? recordPluginFailure(PLUGIN_ID, pluginErr.current.message) : null;
+        custom(CE.coverage, { web: "unavailable", reason, pluginId: PLUGIN_ID, nextRetryAt: avail?.nextRetryAt ?? null, failures: avail?.failures ?? null, text: COVERAGE_NOTICE_TEXT });
         toolDone(PLUGIN_ID, "error", {
           message: pluginErr.current.message,
           raw: raw.slice(0, 1200),
         });
+      };
+      const detectPluginError = (haystack: string, raw: string) => {
+        if (pluginErr.current) return;
+        const m = PLUGIN_ERROR_RE.exec(haystack);
+        if (!m) return;
+        pluginUnavailable(m[0].replace(/\s+/g, " ").trim(), raw);
       };
       const classAcc = new Map<string, string>(); // unit1: per-channel window for classifyThinkingDelta
       let thinkingBuf = "";
@@ -1001,17 +1038,15 @@ export async function runChatBridge(
                 // Only the pinned plugin (Perplexity) is critical: its failure fails the run. A failed OPTIONAL
                 // agent/plugin step (e.g. a stale generated tool) is recorded on its tool row only — surfacing it as a
                 // run-level typedError made every successful answer end in "Response failed / Agents execution failed".
+                // Lane D 2026-10-21: the pinned plugin failing is a COVERAGE loss, not a run failure — the answer still streams from the
+                // curated context. It is typed `plugin_error` (coverage notice) instead of `execution_failed` ("Response failed · Retry").
                 if (pid === PLUGIN_ID) {
-                  typedError(
-                    "execution_failed",
-                    `${pluginName(pid)}: ${u.message || "execution failed"}`,
-                    raw,
-                  );
-                }
-                toolDone(pid, "error", {
-                  message: u.message || "execution failed",
-                  raw: raw.slice(0, 1200),
-                });
+                  pluginUnavailable(u.message || "Agents execution failed", raw);
+                } else
+                  toolDone(pid, "error", {
+                    message: u.message || "execution failed",
+                    raw: raw.slice(0, 1200),
+                  });
               }
             }
             custom(CE.step, {
@@ -1586,7 +1621,10 @@ export async function runChatBridge(
                         "Perplexity returned no sources for this question",
                     },
               );
-          if (realSources.size) clearPluginBlocked(PLUGIN_ID); // a clean run with real sources lifts a stale `blocked` state
+          if (realSources.size && pluginIds.includes(PLUGIN_ID)) {
+            clearPluginBlocked(PLUGIN_ID); // a clean run with real sources lifts a stale `blocked` state
+            recordPluginSuccess(PLUGIN_ID); // …and closes the availability backoff window (plugin-availability.ts)
+          }
           send({ type: "TEXT_MESSAGE_END", messageId });
           for (const [idx, d] of derivedSummary)
             if (!d.closed) {

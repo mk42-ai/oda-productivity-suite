@@ -2,6 +2,11 @@ import { NextRequest } from "next/server";
 import { ONDEMAND_BASE_URL, serverApiKey, UPSTREAM_USER_AGENT, PLUGIN_ID } from "@/lib/ondemand/config";
 import { buildContextPayload } from "@/lib/chat/context-payload";
 import { ORGS, SENTIMENT, NEWS, RADAR, classCounts, ageDays, META } from "@/lib/uae/data";
+import { PLUGIN_ERROR_PATTERNS } from "@/lib/ondemand/eventMap";
+import { pluginAvailability, recordPluginFailure, recordPluginSuccess, shouldAttachPlugin } from "@/lib/ondemand/plugin-availability";
+
+/** Lane D 2026-10-21: honest web-research coverage of a briefing. `web:"unavailable"` = the plugin was skipped (backoff) or failed upstream. */
+export type BriefingCoverage = { web: "not-requested" | "attached" | "unavailable"; reason: "ok" | "not-requested" | "backoff" | "credits" | "upstream"; nextRetryAt: string | null; pluginId: string };
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
@@ -9,6 +14,7 @@ export const maxDuration = 300;
  * National AI Briefing generator — real OnDemand call (POST /chat/v1/sessions → POST /chat/v1/sessions/{id}/query, responseMode sync,
  * endpoint predefined-gpt-5.6-luna). Grounded on the uae_cc_v1 digest; optional live web research via the pinned Perplexity plugin.
  * Honest failure: any upstream error is returned as-is (status + message) — no canned briefing is ever substituted.
+ * Coverage (lane D): `coverage.web` = "attached" | "unavailable" (backoff / credits / upstream) | "not-requested" — the client renders the banner.
  */
 export async function POST(req: NextRequest) {
   const key = req.headers.get("x-ondemand-key")?.trim() || serverApiKey();
@@ -28,7 +34,16 @@ Format (markdown): title line; a bold one-line bottom line up front; "## Key dev
 ${facts}
 
 ${ctx.systemContext}`;
-  const t0 = Date.now(); const pluginIds = web ? [PLUGIN_ID] : [];
+  const t0 = Date.now();
+  // Availability backoff: while the pinned plugin is inside a credits-failure window it is NOT attached (plugin-availability.ts) — the
+  // briefing stays grounded on the curated digest and the response says so in `coverage` (never silently, never another plugin).
+  const availAtStart = pluginAvailability(PLUGIN_ID);
+  const attach = web && shouldAttachPlugin(PLUGIN_ID);
+  const pluginIds = attach ? [PLUGIN_ID] : [];
+  let coverage: BriefingCoverage = !web
+    ? { web: "not-requested", reason: "not-requested", nextRetryAt: null, pluginId: PLUGIN_ID }
+    : attach ? { web: "attached", reason: "ok", nextRetryAt: null, pluginId: PLUGIN_ID }
+    : { web: "unavailable", reason: "backoff", nextRetryAt: availAtStart.nextRetryAt, pluginId: PLUGIN_ID };
   const headers = { apikey: key, "content-type": "application/json", "user-agent": UPSTREAM_USER_AGENT };
   try {
     const s = await fetch(`${ONDEMAND_BASE_URL}/chat/v1/sessions`, { method: "POST", headers, body: JSON.stringify({ externalUserId: "uae-cc-briefing", pluginIds }) });
@@ -37,7 +52,18 @@ ${ctx.systemContext}`;
     const q = await fetch(`${ONDEMAND_BASE_URL}/chat/v1/sessions/${sj.data.id}/query`, { method: "POST", headers, signal: req.signal, body: JSON.stringify({ endpointId: "predefined-gpt-5.6-luna", query, responseMode: "sync", pluginIds }) });
     const qj = (await q.json().catch(() => ({}))) as { data?: { answer?: string; messageId?: string; metrics?: Record<string, number> }; message?: string };
     if (!q.ok || !qj.data?.answer) return Response.json({ ok: false, stage: "submitquery", status: q.status, error: qj.message ?? `HTTP ${q.status}`, sessionId: sj.data.id }, { status: 502 });
-    return Response.json({ ok: true, markdown: qj.data.answer, sessionId: sj.data.id, messageId: qj.data.messageId, metrics: qj.data.metrics ?? null, endpointId: "predefined-gpt-5.6-luna", pluginIds, latency_ms: Date.now() - t0, generated_at: new Date().toISOString() });
+    const answer = qj.data.answer;
+    if (attach) {
+      // The sync answer carries the plugin failure inline ("web search failed due to insufficient credits", "Not enough credits", …) —
+      // OnDemand returns HTTP 200 for it. Detect it, open/extend the backoff window and label the coverage honestly.
+      const hit = PLUGIN_ERROR_PATTERNS.exec(answer) ?? /web search failed[^.\n]*/i.exec(answer);
+      if (hit) {
+        const credits = /credits/i.test(hit[0]);
+        const a = recordPluginFailure(PLUGIN_ID, `Perplexity (briefing, sync): "${hit[0].replace(/\s+/g, " ").trim().slice(0, 160)}"`);
+        coverage = { web: "unavailable", reason: credits ? "credits" : "upstream", nextRetryAt: a.nextRetryAt, pluginId: PLUGIN_ID };
+      } else recordPluginSuccess(PLUGIN_ID); // attached and no failure signature in the sync answer → close the backoff window
+    }
+    return Response.json({ ok: true, markdown: answer, sessionId: sj.data.id, messageId: qj.data.messageId, metrics: qj.data.metrics ?? null, endpointId: "predefined-gpt-5.6-luna", pluginIds, webRequested: web, coverage, latency_ms: Date.now() - t0, generated_at: new Date().toISOString() });
   } catch (e) {
     return Response.json({ ok: false, stage: "network", error: (e as Error).message }, { status: 502 });
   }
