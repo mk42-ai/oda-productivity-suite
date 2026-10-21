@@ -27,7 +27,7 @@ export type PluginIcon = {
 export const PORTFOLIO_PLUGIN_ICON_ID = "plugin-1791713636";
 export const PERPLEXITY_PLUGIN_ICON_ID = "plugin-1722260873";
 
-export const BRAND_MARK_SRC = "/brand/uae/mark.webp";
+export const BRAND_MARK_SRC = "/brand/mark-light.png";
 export const PERPLEXITY_ICON_SRC = "/plugins/perplexity.svg";
 export const ONDEMAND_ICON_SRC = "/plugins/ondemand.svg";
 

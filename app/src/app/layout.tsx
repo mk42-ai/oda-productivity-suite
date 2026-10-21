@@ -18,14 +18,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://uae-ai-command-centre.vercel.run"),
   title: { default: TITLE, template: "%s · UAE AI Command Centre (concept)" },
   description: DESC, applicationName: "UAE AI Command Centre (concept)",
-  openGraph: { title: TITLE, description: DESC, type: "website", images: [{ url: "/brand/uae/og-card.png", width: 1200, height: 675, alt: "UAE AI National Intelligence Command Centre — Concept Demonstration" }] },
-  twitter: { card: "summary_large_image", images: ["/brand/uae/og-card.png"] },
+  icons: { icon: [{ url: "/favicon.ico" }, { url: "/favicon.png", type: "image/png", sizes: "256x256" }], apple: "/apple-touch-icon.png" },
+  openGraph: { title: TITLE, description: DESC, type: "website", images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "UAE AI National Intelligence Command Centre — Concept Demonstration" }] },
+  twitter: { card: "summary_large_image", images: ["/og-image.png"] },
 };
-export const viewport: Viewport = { themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#12171D" }, { color: "#FBFAF7" }], width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#212121" }, { color: "#FFFFFF" }], width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`dark ${display.variable} ${body.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
       <head><script id="uaecc-theme" dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} /></head>
       <body>
         <RouteProgress />
