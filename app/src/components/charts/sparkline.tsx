@@ -5,8 +5,8 @@
  */
 import * as React from "react";
 
-export const SPARKLINE_INK = "#1F2937";
-export const SPARKLINE_ACCENT = "#147B58";
+export const SPARKLINE_INK = "#0D0D0D";
+export const SPARKLINE_ACCENT = "#6B7280";
 
 export type SparklinePoint = { x: number; y: number };
 
@@ -70,7 +70,7 @@ export type SparklineProps = {
   height?: number;
   /** Line colour (charcoal ink by default). */
   stroke?: string;
-  /** Last-point dot and area fill colour (brand green by default). */
+  /** Last-point dot and area fill colour (accent by default). */
   accent?: string;
   /** Soft area fill under the line (accent at 12% opacity). */
   fill?: boolean;

@@ -10,19 +10,19 @@ export type SectorSwatch = { name: string; fill: string; ink: string; soft: stri
 
 /** Named swatches — order matters: it is the deterministic hash → index table for unknown sectors. */
 export const SECTOR_PALETTE: readonly SectorSwatch[] = [
-  { name: "emerald", fill: "#147B58", ink: "#047857", soft: "#E7F2EC" }, // brand green — primary / Technology
-  { name: "plum",    fill: "#A21CAF", ink: "#701A75", soft: "#FAE8FF" }, // hue ~295° (outside the 190–260 band)
-  { name: "amber",   fill: "#F59E0B", ink: "#92400E", soft: "#FEF3C7" },
-  { name: "coral",   fill: "#F97316", ink: "#9A3412", soft: "#FFEDD5" },
-  { name: "teal",    fill: "#0D9488", ink: "#115E59", soft: "#CCFBF1" }, // hue 174° (< 190°, allowed)
-  { name: "olive",   fill: "#65A30D", ink: "#3F6212", soft: "#ECFCCB" },
-  { name: "rose",    fill: "#E11D48", ink: "#9F1239", soft: "#FFE4E6" },
-  { name: "slate",   fill: "#78716C", ink: "#44403C", soft: "#F5F5F4" }, // warm slate — "Other"
+  { name: "graphite", fill: "#6B7280", ink: "#374151", soft: "#F3F4F6" }, // primary / Technology
+  { name: "plum",    fill: "#8B7BA3", ink: "#4C3F63", soft: "#F1EEF6" },
+  { name: "amber",   fill: "#B8A98F", ink: "#6B5B3E", soft: "#F5F2EC" },
+  { name: "coral",   fill: "#C4A6A6", ink: "#7A4B4B", soft: "#F7EFEF" },
+  { name: "teal",    fill: "#8FAE9A", ink: "#3F5E4B", soft: "#EEF4F0" },
+  { name: "olive",   fill: "#A3A3A3", ink: "#525252", soft: "#F5F5F5" },
+  { name: "rose",    fill: "#B48A9A", ink: "#6D3F52", soft: "#F6EEF1" },
+  { name: "slate",   fill: "#94A3B8", ink: "#475569", soft: "#F1F5F9" }, // warm slate — "Other"
 ] as const;
 
 /** Explicit sector → swatch assignment (SECTORS from format.ts + extra names seen in snapshot.json companies[].sector). */
 export const SECTOR_SWATCH: Readonly<Record<string, SectorSwatch["name"]>> = {
-  "Technology": "emerald",
+  "Technology": "graphite",
   "Healthcare": "plum",
   "Energy & Resilience": "amber",
   "Opportunistic": "coral",
@@ -44,8 +44,8 @@ function hash32(s: string): number {
 }
 
 const byName = new Map(SECTOR_PALETTE.map((p) => [p.name, p]));
-/** Fallback pool for unknown sectors: every chromatic swatch except the brand emerald (reserved) and slate (reserved for "Other"). */
-const FALLBACK_POOL = SECTOR_PALETTE.filter((p) => p.name !== "emerald" && p.name !== "slate");
+/** Fallback pool for unknown sectors: every chromatic swatch except primary (reserved) and slate (reserved for "Other"). */
+const FALLBACK_POOL = SECTOR_PALETTE.filter((p) => p.name !== "graphite" && p.name !== "slate");
 
 export type SectorColor = {
   /** CSS `var(--sector-<slug>)` reference (fill). Known sectors resolve to their own variable; unknown ones to the fallback swatch's variable. */

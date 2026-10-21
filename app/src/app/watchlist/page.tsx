@@ -9,7 +9,7 @@ export default function WatchlistPage() {
   const rootNames = Object.fromEntries(ECOSYSTEM_GROUPS.map((id) => [id, orgName(id)]));
   return (
     <>
-      <SectionHeader eyebrow="Watchlist" title="50 organisations shaping UAE AI" image="/brand/uae/sections/dossier-header"
+      <SectionHeader eyebrow="Watchlist" title="50 organisations shaping UAE AI"
         lede={`Companies, government bodies, universities, research centres and subsidiaries. Mean research coverage ${Math.round(cov.meanCoverage * 100)}% · ${cov.highConfidence} high-confidence dossiers · parents and subsidiaries are de-duplicated into ${ECOSYSTEM_GROUPS.length} ecosystem groups for aggregates.`} />
       <WatchlistClient cards={cards} rootNames={rootNames} />
     </>

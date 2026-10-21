@@ -5,7 +5,16 @@ import remarkGfm from "remark-gfm";
 import { Activity, AlertTriangle, Loader2, ExternalLink } from "lucide-react";
 import type { LiveSnapshot } from "@/lib/uae/live";
 /** Same palette as CLASS_COLOR in lib/uae/data.ts (kept local so the client bundle does not pull the seed JSON). */
-const CLASS_COLOR: Record<string, string> = { Optimists: "#147B58", Pragmatists: "#5E9C84", Skeptics: "#B8975A", "Safety Advocates": "#3E6E8E", "Disruption Concerned": "#C0763A", "Pessimists/Doomers": "#A23B3B", "Neutral/Informational": "#8A8F96" };
+const CLASS_COLOR: Record<string, string> = {
+  Optimists: "#6B8F71",
+  Pragmatists: "#6B7280",
+  Skeptics: "#B8A98F",
+  "Safety Advocates": "#7C9CBF",
+  "Disruption Concerned": "#C4A6A6",
+  "Pessimists/Doomers": "#A06A6A",
+  "Neutral/Informational": "#A3A3A3",
+  Unclassified: "#D4D4D4",
+};
 
 const ago = (iso?: string | null) => { if (!iso) return "—"; const m = Math.round((Date.now() - Date.parse(iso)) / 60000); return m < 60 ? `${m} min ago` : `${Math.round(m / 60)} h ago`; };
 const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; } };
@@ -21,21 +30,21 @@ export function LivePipelinePanel() {
   return (
     <section className="card min-w-0 p-4 sm:p-5" data-testid="live-pipeline">
       <p className="mb-2 inline-flex items-center gap-1.5 text-[11px] text-muted" data-testid="engine-credit">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/plugins/ondemand.svg" width={14} height={14} alt="" aria-hidden />Intelligence engine: OnDemand (AIREV) · Agents Flow Builder execution store</p>
-      <div className="mb-3 flex items-center justify-between gap-2"><h2 className="flex items-center gap-2 text-sm font-semibold tracking-tight"><Activity className="size-4 text-[var(--uae-emerald)]" />Live pipeline — scheduled OnDemand workflows</h2><span className="text-[11px] text-muted">namespace uae_cc_v1</span></div>
-      {!s && !err && <p className="flex items-center gap-2 text-sm text-muted" data-testid="live-loading"><Loader2 className="size-4 animate-spin" />Reading the workflow execution store…</p>}
-      {err && <p role="alert" className="flex items-center gap-2 rounded-md border border-[#A23B3B]/50 bg-[#A23B3B]/10 px-3 py-2 text-sm" data-testid="live-error"><AlertTriangle className="size-4 text-[#A23B3B]" />Live pipeline unavailable: {err}. Seed data below is unaffected.</p>}
+      <div className="mb-3 flex items-center justify-between gap-2"><h2 className="flex items-center gap-2 text-sm font-semibold tracking-tight"><Activity className="size-4 text-[#5D5D5D]" />Live pipeline — scheduled OnDemand workflows</h2><span className="text-[11px] text-muted">namespace uae_cc_v1</span></div>
+      {!s && !err && <p className="flex items-center gap-2 text-sm text-muted" data-testid="live-loading"><Loader2 className="size-4 animate-spin text-[#5D5D5D]" />Reading the workflow execution store…</p>}
+      {err && <p role="alert" className="flex items-center gap-2 rounded-md border border-[#A06A6A]/50 bg-[#A06A6A]/10 px-3 py-2 text-sm text-[#0D0D0D]" data-testid="live-error"><AlertTriangle className="size-4 text-[#A06A6A]" />Live pipeline unavailable: {err}. Seed data below is unaffected.</p>}
       {s?.ok && <>
         <div className="grid gap-2 sm:grid-cols-3">{s.workflows.map((w) => (
           <div key={w.kind} className="rounded-lg border border-border p-3 text-xs" data-testid={`wf-${w.kind}`}>
             <p className="font-semibold capitalize">{w.kind} <code className="ml-1 font-normal text-muted">{w.cron}</code></p>
-            <p className="mt-1 text-muted">last run: <span className={w.last?.status === "success" ? "text-[var(--brand-green-ink)]" : "text-[#A23B3B]"}>{w.last?.status ?? "none yet"}</span> · {ago(w.last?.startedAt)} ({w.last?.trigger || "—"})</p>
+            <p className="mt-1 text-muted">last run: <span className={w.last?.status === "success" ? "text-[#0D0D0D]" : "text-[#A06A6A]"}>{w.last?.status ?? "none yet"}</span> · {ago(w.last?.startedAt)} ({w.last?.trigger || "—"})</p>
             <p className="text-muted">next: {w.next_runs_utc[0]?.replace("T", " ").replace(":00Z", " UTC") ?? "—"}</p>
             <p className="truncate text-[10px] text-muted" title={w.id}>workflow {w.id}</p>
           </div>))}</div>
         <div className="mt-3 grid gap-3 lg:grid-cols-2">
           <div><p className="mb-1 text-xs font-semibold">Newest ingested news ({s.ingest.news.length})</p>
             {s.ingest.news.length === 0 ? <p className="text-xs text-muted" data-testid="live-news-empty">No live news records yet{s.ingest.parse_error ? ` (${s.ingest.parse_error})` : ""}.</p> :
-              <ul className="space-y-1.5" data-testid="live-news">{s.ingest.news.slice(0, 6).map((n, i) => <li key={i} className="text-xs"><a href={n.provenance.source_url} target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">{n.headline}<ExternalLink className="ml-1 inline size-3" /></a><span className="block text-[10px] text-muted">{n.publisher || host(n.provenance.source_url)} · {n.published_at || "date n/a"} · via {n.provenance.plugin}{n.provenance.confidence != null ? ` · conf ${n.provenance.confidence}` : ""}</span></li>)}</ul>}
+              <ul className="space-y-1.5" data-testid="live-news">{s.ingest.news.slice(0, 6).map((n, i) => <li key={i} className="text-xs"><a href={n.provenance.source_url} target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">{n.headline}<ExternalLink className="ml-1 inline size-3 text-[#5D5D5D]" /></a><span className="block text-[10px] text-muted">{n.publisher || host(n.provenance.source_url)} · {n.published_at || "date n/a"} · via {n.provenance.plugin}{n.provenance.confidence != null ? ` · conf ${n.provenance.confidence}` : ""}</span></li>)}</ul>}
           </div>
           <div><p className="mb-1 text-xs font-semibold">Newest classified statements ({s.ingest.statements.length})</p>
             {s.ingest.statements.length === 0 ? <p className="text-xs text-muted" data-testid="live-statements-empty">No attributable statements in the latest run — none are synthesised.</p> :
@@ -55,12 +64,12 @@ export function ScheduledBriefing() {
   return (
     <section className="card mt-4 p-4 sm:p-6" data-testid="scheduled-briefing">
       <h2 className="text-sm font-semibold">Latest scheduled briefing <span className="font-normal text-muted">· workflow cron 0 30 2 * * * (06:30 GST)</span></h2>
-      {!s && !err && <p className="mt-2 flex items-center gap-2 text-sm text-muted"><Loader2 className="size-4 animate-spin" />Loading…</p>}
-      {err && <p role="alert" className="mt-2 text-sm text-[#A23B3B]">Scheduled briefing unavailable: {err}</p>}
+      {!s && !err && <p className="mt-2 flex items-center gap-2 text-sm text-muted"><Loader2 className="size-4 animate-spin text-[#5D5D5D]" />Loading…</p>}
+      {err && <p role="alert" className="mt-2 text-sm text-[#A06A6A]">Scheduled briefing unavailable: {err}</p>}
       {s?.ok && !b?.markdown && <p className="mt-2 text-sm text-muted" data-testid="scheduled-briefing-empty">No scheduled briefing has completed yet. Next run: {s.workflows.find((w) => w.kind === "briefing")?.next_runs_utc[0] ?? "—"}.</p>}
       {b?.markdown && <>
         <p className="mt-1 text-xs text-muted">Generated by execution {b.run?.executionId} · {b.run?.endedAt} ({b.run?.trigger})</p>
-        <div className="mt-3 text-[14px] leading-relaxed [&_a]:text-[var(--brand-green-ink)] [&_a]:underline [&_h1]:text-xl [&_h1]:font-semibold [&_h2]:mt-4 [&_h2]:font-semibold [&_li]:my-1 [&_ul]:ml-5 [&_ul]:list-disc"><ReactMarkdown remarkPlugins={[remarkGfm]} components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> }}>{b.markdown}</ReactMarkdown></div>
+        <div className="mt-3 text-[14px] leading-relaxed [&_a]:text-[#2563EB] [&_a]:underline [&_h1]:text-xl [&_h1]:font-semibold [&_h2]:mt-4 [&_h2]:font-semibold [&_li]:my-1 [&_ul]:ml-5 [&_ul]:list-disc"><ReactMarkdown remarkPlugins={[remarkGfm]} components={{ a: ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> }}>{b.markdown}</ReactMarkdown></div>
       </>}
     </section>
   );

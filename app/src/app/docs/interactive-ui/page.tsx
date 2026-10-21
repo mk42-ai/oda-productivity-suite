@@ -54,7 +54,7 @@ export default function InteractiveUiDocsPage() {
 
       <Card className="mb-6 overflow-hidden">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2"><Sparkles className="size-4" aria-hidden style={{ color: "var(--brand-green-ink)" }} /> Synergy matrix</CardTitle>
+          <CardTitle className="flex items-center gap-2"><Sparkles className="size-4 text-[#5D5D5D]" aria-hidden /> Synergy matrix</CardTitle>
           <CardDescription>{SYNERGY_MATRIX.length} frames · one row per frame, in the order they typically arrive during a run.</CardDescription>
         </CardHeader>
         <CardContent className="p-0 pt-0">
@@ -87,14 +87,14 @@ export default function InteractiveUiDocsPage() {
       </Card>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <Card className="border-[#fecaca]" data-testid="honest-failure">
+        <Card className="border-[#E5E5E5] border-l-[3px] border-l-[#A06A6A]" data-testid="honest-failure">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-danger-soft"><AlertTriangle className="size-4" aria-hidden /> Honest failure</CardTitle>
+            <CardTitle className="flex items-center gap-2 text-[#A06A6A]"><AlertTriangle className="size-4" aria-hidden /> Honest failure</CardTitle>
             <CardDescription>A failed tool call looks like a failed tool call.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-2 text-sm leading-relaxed text-muted">
             <p>
-              When Perplexity returns <code className="rounded bg-[#fef2f2] px-1 py-0.5 text-xs text-danger-soft">Not enough credits</code>, the tool card turns
+              When Perplexity returns <code className="rounded border border-[#E5E5E5] bg-[#F9F9F9] px-1 py-0.5 text-xs text-[#A06A6A]">Not enough credits</code>, the tool card turns
               <Badge tone="danger" className="mx-1">failed</Badge> and shows the raw <code className="rounded bg-surface-2 px-1 py-0.5 text-xs">execution_failed</code> frame verbatim.
             </p>
             <p>
@@ -106,14 +106,14 @@ export default function InteractiveUiDocsPage() {
 
         <Card data-testid="performance-budget">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2"><Gauge className="size-4" aria-hidden style={{ color: "var(--brand-green-ink)" }} /> Performance budget</CardTitle>
+            <CardTitle className="flex items-center gap-2"><Gauge className="size-4 text-[#5D5D5D]" aria-hidden /> Performance budget</CardTitle>
             <CardDescription>Interactivity is only worth it if it is smooth.</CardDescription>
           </CardHeader>
           <CardContent>
             <ul className="space-y-2.5 text-sm leading-relaxed">
               {PERFORMANCE_BUDGET.map((item) => (
                 <li key={item.label} className="flex gap-2.5">
-                  <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full" style={{ backgroundColor: "var(--brand-green)" }} />
+                  <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-[#0D0D0D]" />
                   <span><span className="font-medium text-foreground">{item.label}</span> <span className="text-muted">— {item.detail}</span></span>
                 </li>
               ))}

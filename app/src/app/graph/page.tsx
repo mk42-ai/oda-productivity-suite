@@ -9,7 +9,7 @@ export default async function GraphPage({ searchParams }: { searchParams: Promis
   const verified = GRAPH.edges.filter((e) => e.url).length;
   return (
     <>
-      <SectionHeader eyebrow="Ecosystem Relationship Graph" title="Who owns, funds and partners with whom" image="/brand/uae/sections/graph-backdrop" lede={`${GRAPH.edges.length} relationships between ${GRAPH.nodes.length} organisations (${verified} with a verified source link). G42 ⊃ Core42 / Inception / Khazna / Presight ⊃ AIQ and ATRC ⊃ TII / AI71 are modelled as ownership edges.`} />
+      <SectionHeader eyebrow="Ecosystem Relationship Graph" title="Who owns, funds and partners with whom" lede={`${GRAPH.edges.length} relationships between ${GRAPH.nodes.length} organisations (${verified} with a verified source link). G42 ⊃ Core42 / Inception / Khazna / Presight ⊃ AIQ and ATRC ⊃ TII / AI71 are modelled as ownership edges.`} />
       <EcoGraph nodes={nodes} edges={GRAPH.edges} initialFocus={sp.focus} />
     </>
   );

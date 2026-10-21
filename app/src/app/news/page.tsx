@@ -9,7 +9,7 @@ export default function NewsPage() {
   const d30 = NEWS.filter((n) => (ageDays(n.date) ?? 999) <= 30).length; const verified = NEWS.filter((n) => n.url).length;
   return (
     <>
-      <SectionHeader eyebrow="News Intelligence" title="What happened, who did it, where it came from" image="/brand/uae/sections/news-header" lede="Events extracted by the OnDemand News-Retrieval agent from Perplexity, GPT Search and Internet-search results, de-duplicated by headline similarity with corroborating reports folded in." />
+      <SectionHeader eyebrow="News Intelligence" title="What happened, who did it, where it came from" lede="Events extracted by the OnDemand News-Retrieval agent from Perplexity, GPT Search and Internet-search results, de-duplicated by headline similarity with corroborating reports folded in." />
       <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4"><Stat label="Events" value={NEWS.length} /><Stat label="Last 30 days" value={d30} /><Stat label="With verified link" value={`${verified}`} sub={`${Math.round((verified / NEWS.length) * 100)}%`} /><Stat label="Categories" value={cats.length} /></div>
       <NewsClient items={items} categories={cats} />
     </>
