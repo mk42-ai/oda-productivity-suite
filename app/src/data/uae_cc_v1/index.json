@@ -256,10 +256,10 @@
   "logo": "/logos/uae/positron.png"
  },
  {
-  "id": "cerebras-uae",
-  "name": "Cerebras Systems",
+  "id": "whiteshield",
+  "name": "Whiteshield",
   "type": "company",
-  "hq": "unavailable",
+  "hq": "Dubai (DIFC)",
   "parent_id": null,
   "logo": null
  },

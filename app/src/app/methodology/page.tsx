@@ -26,7 +26,7 @@ export default function MethodologyPage() {
           <li>{META.sampling}</li><li>Native X, TikTok, YouTube and Instagram ingestion was not run for this namespace (those platforms appear only when quoted in reporting).</li>
           <li>Some leaders, dates and ownership splits conflict between sources (e.g. TII CEO: Dr Ray O. Johnson named Sep 2026 vs earlier sources citing Najwa Aaraj). Conflicts are flagged on the dossier, not resolved silently.</li>
           <li>HuggingFace search results for inception42 and IFM do not return download/like counts; shown as n/a. The inceptionai, LLM360, core42 and g42 HF orgs returned 0 models.</li>
-          <li>Lucidya (Riyadh HQ) is excluded; “AIREV / airev.aero / Rani Plaut” is a different entity and was rejected.</li>
+          <li>Lucidya (Riyadh HQ) is excluded; Cerebras Systems was moved out (US-HQ, partnership-only UAE presence) and Whiteshield (Dubai DIFC primary base, UK legal origin 2011) was admitted after the four-part inclusion test (cycle 5); “AIREV / airev.aero / Rani Plaut” is a different entity and was rejected.</li>
           <li>No live data is fabricated: where a value is missing the UI says “unavailable”.</li></ul></Panel>
       </div>
     </>

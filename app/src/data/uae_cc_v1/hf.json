@@ -80,9 +80,6 @@
    "positron": [
     "positron"
    ],
-   "cerebras-uae": [
-    "cerebras-uae"
-   ],
    "mubadala": [
     "mubadala"
    ],
@@ -125,6 +122,9 @@
    ],
    "aiatc": [
     "aiatc"
+   ],
+   "whiteshield": [
+    "whiteshield"
    ]
   }
  },

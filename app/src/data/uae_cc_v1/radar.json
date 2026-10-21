@@ -80,9 +80,6 @@
    "positron": [
     "positron"
    ],
-   "cerebras-uae": [
-    "cerebras-uae"
-   ],
    "mubadala": [
     "mubadala"
    ],
@@ -125,6 +122,9 @@
    ],
    "aiatc": [
     "aiatc"
+   ],
+   "whiteshield": [
+    "whiteshield"
    ]
   }
  },
@@ -143,7 +143,7 @@
     "tii",
     "inception",
     "atrc",
-    "cerebras-uae"
+    "core42"
    ],
    "news_ids": [
     "n2f45ba268f",
@@ -249,8 +249,7 @@
     "g42",
     "m42",
     "khazna",
-    "core42",
-    "cerebras-uae"
+    "core42"
    ],
    "news_ids": [
     "nbf4317923e",

@@ -93,7 +93,7 @@
  },
  "hub71": {
   "status": "monogram",
-  "reason": "government entity \u2014 no government logo used (identity check OFFICIAL_ASSET_NOT_PERMITTED / NOT_FOUND)"
+  "reason": "government entity — no government logo used (identity check OFFICIAL_ASSET_NOT_PERMITTED / NOT_FOUND)"
  },
  "micropolis": {
   "status": "official",
@@ -151,9 +151,9 @@
    16
   ]
  },
- "cerebras-uae": {
+ "whiteshield": {
   "status": "monogram",
-  "reason": "no verified official domain"
+  "reason": "no verified official logo asset with usage terms"
  },
  "mubadala": {
   "status": "monogram",

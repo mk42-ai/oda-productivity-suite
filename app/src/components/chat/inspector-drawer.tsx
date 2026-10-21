@@ -3,9 +3,9 @@
  * Inspector drawer — opened from the chat top bar (data-testid=inspector-toggle). Holds everything that used to live in the right rail:
  * This run (model · plugins · plan · agent events), Organisation context picker (watchlist), Model & plugins.
  * Telemetry (first event / first token / tokens / stream integrity) AND the raw SSE request frame sit behind ONE reveal (<details data-testid=dev-disclosure>).
- * It is a right-side overlay on desktop (420 px) and a bottom sheet on mobile; it never changes the thread's width or scroll position.
+ * It is a right-side overlay on desktop (360 px) and a bottom sheet on mobile; it never changes the thread's width or scroll position.
  */
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Building2, Puzzle, SlidersHorizontal, X } from "lucide-react";
 import { useSettings } from "@/lib/settings";
 import { MODEL_LABEL, REASONING_MODE } from "@/lib/plugins";
@@ -13,11 +13,15 @@ import { cn } from "@/lib/utils";
 import { CompanyPicker, ContextCounter } from "./company-picker";
 import { PluginPanel } from "./plugin-panel";
 import { RunRail } from "./run-rail";
+import { InspectorTabs, InspectorPlanPanel, type InspectorTabKey } from "./inspector-tabs";
 import { CompanyLogo } from "@/components/ui/company-logo";
 import { BrandIcon } from "@/components/ui/brand-icon";
 import { brandIconForCompany } from "@/lib/brand-icons";
 import { EmptyState } from "@/components/ui/empty-state";
 import { inspectorStore, useInspectorOpen } from "@/components/chat/open-intelligent-ui/composer-store";
+
+export { InspectorTabs, InspectorPlanPanel } from "./inspector-tabs";
+export type { InspectorTabKey } from "./inspector-tabs";
 
 export type InspectorCompany = { slug: string; name: string; sector: string; logo_url?: string | null; score: number; news: number; signal?: number | null; signal_confidence?: number | null; signal_percentile?: number | null };
 
@@ -43,6 +47,7 @@ function Section({ icon: Icon, title, children, testId }: { icon: typeof Buildin
 export function InspectorDrawer({ companies }: { companies: InspectorCompany[] }) {
   const open = useInspectorOpen();
   const [s, set] = useSettings();
+  const [activeTab, setActiveTab] = useState<InspectorTabKey>("run");
   const ctx = companies.filter((c) => s.companies.includes(c.slug));
   useEffect(() => {
     if (!open) return;
@@ -61,7 +66,27 @@ export function InspectorDrawer({ companies }: { companies: InspectorCompany[] }
           <button type="button" onClick={() => inspectorStore.set(false)} data-testid="inspector-close" aria-label="Close inspector" className="inline-flex size-8 items-center justify-center rounded-md text-muted hover:bg-surface-2 hover:text-foreground"><X className="size-4" aria-hidden /></button>
         </header>
         <div className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3" data-testid="inspector-body">
-          <RunRail />
+          <InspectorTabs activeTab={activeTab} onTabChange={setActiveTab} />
+          <div
+            role="tabpanel"
+            id="inspector-panel-run"
+            aria-labelledby="inspector-tab-run"
+            data-testid="inspector-panel-run"
+            hidden={activeTab !== "run"}
+            className={activeTab === "run" ? undefined : "hidden"}
+          >
+            <RunRail />
+          </div>
+          <div
+            role="tabpanel"
+            id="inspector-panel-plan"
+            aria-labelledby="inspector-tab-plan"
+            data-testid="inspector-panel-plan"
+            hidden={activeTab !== "plan"}
+            className={activeTab === "plan" ? undefined : "hidden"}
+          >
+            <InspectorPlanPanel />
+          </div>
           <Section icon={Building2} title={<span className="flex flex-1 items-baseline justify-between gap-2">Organisation context <ContextCounter count={s.companies.length} max={5} /></span>} testId="inspector-context">
             <CompanyPicker compact counterInTitle options={companies} value={s.companies} onChange={(v) => set({ companies: v.slice(0, 5) })} max={5} />
             {ctx.length === 0 && <EmptyState icon="no-selection" compact className="mt-2 border-dashed" title="No organisations selected" body="The whole watchlist is used; pick up to 5 to focus the run." />}
@@ -71,7 +96,6 @@ export function InspectorDrawer({ companies }: { companies: InspectorCompany[] }
             <p className="mb-2 text-xs text-muted" data-testid="sidebar-model">{MODEL_LABEL} · reasoning {REASONING_MODE}</p>
             <PluginPanel variant="rail" testId="sidebar-plugins" />
           </Section>
-          
         </div>
       </aside>
     </>

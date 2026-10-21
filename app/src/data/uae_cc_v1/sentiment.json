@@ -80,9 +80,6 @@
    "positron": [
     "positron"
    ],
-   "cerebras-uae": [
-    "cerebras-uae"
-   ],
    "mubadala": [
     "mubadala"
    ],
@@ -125,6 +122,9 @@
    ],
    "aiatc": [
     "aiatc"
+   ],
+   "whiteshield": [
+    "whiteshield"
    ]
   },
   "ingest_2026_10_21": {
@@ -1679,7 +1679,6 @@
    "classified_by": "OnDemand chat sessions/query · predefined-gpt-5.6-luna · topic-classification prompt v1",
    "namespace": "uae_cc_v1",
    "org_ids": [
-    "cerebras-uae",
     "g42",
     "mbzuai"
    ],
@@ -3866,7 +3865,6 @@
    "classified_by": "OnDemand chat sessions/query · predefined-gpt-5.6-luna · topic-classification prompt v1",
    "namespace": "uae_cc_v1",
    "org_ids": [
-    "cerebras-uae",
     "g42",
     "ifm",
     "inception",
@@ -4420,7 +4418,6 @@
    "classified_by": "OnDemand chat sessions/query · predefined-gpt-5.6-luna · topic-classification prompt v1",
    "namespace": "uae_cc_v1",
    "org_ids": [
-    "cerebras-uae",
     "g42"
    ],
    "x": 0.1309,
@@ -4455,7 +4452,6 @@
    "classified_by": "OnDemand chat sessions/query · predefined-gpt-5.6-luna · topic-classification prompt v1",
    "namespace": "uae_cc_v1",
    "org_ids": [
-    "cerebras-uae",
     "g42"
    ],
    "x": 0.1443,
@@ -4489,7 +4485,6 @@
    "classified_by": "OnDemand chat sessions/query · predefined-gpt-5.6-luna · topic-classification prompt v1",
    "namespace": "uae_cc_v1",
    "org_ids": [
-    "cerebras-uae",
     "g42"
    ],
    "x": 0.1198,

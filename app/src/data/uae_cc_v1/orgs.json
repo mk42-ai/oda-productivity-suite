@@ -80,9 +80,6 @@
    "positron": [
     "positron"
    ],
-   "cerebras-uae": [
-    "cerebras-uae"
-   ],
    "mubadala": [
     "mubadala"
    ],
@@ -125,9 +122,12 @@
    ],
    "aiatc": [
     "aiatc"
+   ],
+   "whiteshield": [
+    "whiteshield"
    ]
   },
-  "patched": "2026-10-21 step-2 verified facts (TII, AIREV, Inception42, G42, Space42/Khazna, GITEX, AI & Data Authority)"
+  "patched": "2026-10-21 step-2 verified facts (TII, AIREV, Inception42, G42, Space42/Khazna, GITEX, AI & Data Authority); cycle 5 Lane F inclusion test (Whiteshield replaces Cerebras Systems)"
  },
  "organizations": [
   {
@@ -4274,131 +4274,174 @@
    }
   },
   {
-   "id": "cerebras-uae",
-   "name": "Cerebras Systems",
+   "id": "whiteshield",
+   "name": "Whiteshield",
    "type": "company",
-   "website": "unavailable",
-   "hq": "unavailable",
-   "founded": "unavailable",
+   "website": "whiteshield.ai",
+   "hq": "Dubai (DIFC)",
+   "founded": "2011",
    "parent": null,
-   "ownership": "unavailable",
-   "leadership": [],
+   "ownership": "Private, independent; founder Fadi Farra holds >75% control (UK PSC filing, Whiteshield Partners Limited 07839857)",
+   "leadership": [
+    {
+     "name": "Fadi Farra",
+     "role": "Founder & CEO",
+     "source_url": "https://whiteshield.ai/people/fadi-farra",
+     "as_of": "2026-10-21"
+    }
+   ],
    "ai_focus": [
-    "AI computing and generative AI acceleration",
-    "Wafer-scale inference",
-    "High-speed inference and reasoning workloads"
+    "Sovereign intelligence for governments",
+    "AI economics (agent-based simulation, nowcasting, geospatial)"
    ],
    "technologies": [
     {
-     "name": "4-trillion-transistor chip",
-     "category": "infrastructure",
-     "source_url": "https://gulfnews.com/uae/uae-launches-worlds-largest-ai-chip-with-4-trillion-transistors-at-wgs-2026-1.500432873"
-    },
-    {
-     "name": "Condor Galaxy supercomputers",
-     "category": "infrastructure",
-     "source_url": "https://www.g42.ai/resources/news/core42-advances-us-ai-infrastructure-strategy-expanded-new-york-deployment"
-    },
-    {
-     "name": "Cerebras wafer-scale, inference-optimized compute platform",
+     "name": "XShield",
      "category": "platform",
-     "source_url": "https://www.g42.ai/resources/news/mbzuai-and-g42-launch-k2-think-leading-open-source-system-advanced-ai-reasoning"
+     "source_url": "https://whiteshield.ai"
     },
     {
-     "name": "K2 Think",
-     "category": "model",
-     "source_url": "https://www.g42.ai/resources/news/mbzuai-and-g42-launch-k2-think-leading-open-source-system-advanced-ai-reasoning"
+     "name": "QuantumEd",
+     "category": "platform",
+     "source_url": "https://whiteshield.ai"
+    },
+    {
+     "name": "Quantum Leap",
+     "category": "platform",
+     "source_url": "https://whiteshield.ai"
+    },
+    {
+     "name": "Quantum Navigator",
+     "category": "platform",
+     "source_url": "https://whiteshield.ai"
     }
    ],
    "timeline": [
     {
-     "date": "2026-06-17",
-     "event": "Carnegie Endowment reported that G42, MBZUAI, and Cerebras agreed to establish a national-scale AI supercomputer in India.",
-     "source_url": "https://carnegieendowment.org/research/2026/06/early-lessons-in-the-pursuit-of-sovereign-ai?trk=article-ssr-frontend-pulse_little-text-block"
+     "date": "2011",
+     "event": "Founded in London (Whiteshield Partners Limited, UK 07839857) by Fadi Farra; subsequently established primary operating base in Dubai DIFC.",
+     "source_url": "https://find-and-update.company-information.service.gov.uk/company/07839857"
+    },
+    {
+     "date": "2026-07-01",
+     "event": "Announced US5M senior secured private credit facility from Ruya Partners (ADGM) for technology development and international expansion.",
+     "source_url": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya"
+    },
+    {
+     "date": "2026-10-19",
+     "event": "Project Syndicate published policy column co-authored by Fadi Farra and Christopher Pissarides.",
+     "source_url": "https://www1.project-syndicate.org/columnist/fadi-farra"
     }
    ],
    "related": [
     {
-     "org": "G42",
-     "relation": "partner",
-     "source_url": "https://gulfnews.com/uae/uae-launches-worlds-largest-ai-chip-with-4-trillion-transistors-at-wgs-2026-1.500432873"
+     "org": "Ruya Partners",
+     "relation": "lender/investor",
+     "source_url": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya"
     },
     {
-     "org": "Core42",
-     "relation": "partner",
-     "source_url": "https://www.g42.ai/resources/news/core42-advances-us-ai-infrastructure-strategy-expanded-new-york-deployment"
+     "org": "DIFC",
+     "relation": "operating base",
+     "source_url": "https://whiteshield.ai"
     },
     {
-     "org": "MBZUAI",
-     "relation": "partner",
-     "source_url": "https://carnegieendowment.org/research/2026/06/early-lessons-in-the-pursuit-of-sovereign-ai?trk=article-ssr-frontend-pulse_little-text-block"
+     "org": "Abu Dhabi / Riyadh offices",
+     "relation": "regional network",
+     "source_url": "https://whiteshield.ai"
     }
    ],
-   "briefing": "Gulf News reports that G42 and Cerebras co-developed a chip with 4 trillion transistors, showcased by Sheikh Saif at WGS 2026 [1]. Core42’s U.S. deployments include Condor Galaxy supercomputers developed in collaboration with Cerebras, across sites including Buffalo, Dallas, Sunnyvale, Stockton, and Minneapolis [2]. Khaleej Times reports that Core42 expected to deploy nearly 40,000 GPUs globally by year-end, supported by architectures including Cerebras systems [3]. G42 said its technology collaborations with U.S. chipmakers include Cerebras, alongside projects such as Stargate UAE [4]. The K2 Think announcement said the model would be available on Cerebras’ wafer-scale inference platform and described a planned throughput of 2,000 tokens per second using speculative decoding optimized for Cerebras hardware [5]. Carnegie Endowment reported that G42, MBZUAI, and Cerebras agreed to establish a national-scale AI supercomputer in India [6].",
+   "briefing": "Whiteshield operates its primary executive base out of Dubai's DIFC (ICD Brookfield Place), delivering sovereign AI intelligence and AI-economics solutions to public sector clients and governments [4][6]. The company's core technology suite includes sovereign intelligence platforms XShield, QuantumEd, Quantum Leap, and Quantum Navigator, built on agent-based simulation, nowcasting, and geospatial modeling [4][5]. In July 2026, Whiteshield secured a US5M senior secured private credit facility from ADGM-based Ruya Partners to accelerate technology development and international expansion [1][2][3]. Originally incorporated in the UK in 2011 by Founder & CEO Fadi Farra, the firm remains private and independent while maintaining operations across Dubai, Abu Dhabi, Riyadh, London, and international hubs [7][8][9].",
    "sources": [
     {
      "n": 1,
-     "title": "Sheikh Saif showcases revolutionary chip co-developed by Abu Dhabi’s G42 and Cerebras",
-     "url": "https://gulfnews.com/uae/uae-launches-worlds-largest-ai-chip-with-4-trillion-transistors-at-wgs-2026-1.500432873",
-     "publisher": "Gulf News",
-     "date": ""
+     "title": "Whiteshield secures 5M private credit facility from Ruya Partners",
+     "url": "https://en.sharikatmubasher.com/media-hub/news/21559660",
+     "publisher": "Sharikat Mubasher",
+     "date": "2026-07-02"
     },
     {
      "n": 2,
-     "title": "Core42 advances U.S. AI infrastructure strategy with expanded New York deployment",
-     "url": "https://www.g42.ai/resources/news/core42-advances-us-ai-infrastructure-strategy-expanded-new-york-deployment",
-     "publisher": "G42",
-     "date": ""
+     "title": "Whiteshield Secures 5 Million Private Credit Facility from Ruya",
+     "url": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya",
+     "publisher": "TechScoop",
+     "date": "2026-07-01"
     },
     {
      "n": 3,
-     "title": "Core42 unveils sovereign AI cloud vision at GITEX Global 2025",
-     "url": "https://www.khaleejtimes.com/business/tech/core42-unveils-sovereign-ai-cloud-vision-at-gitex-global-2025",
-     "publisher": "Khaleej Times",
-     "date": ""
+     "title": "Whiteshield Funding Round: Debt July 2026",
+     "url": "https://seedtable.com/companies/whiteshield/funding-rounds/debt-2026-07",
+     "publisher": "Seedtable",
+     "date": "2026-07-01"
     },
     {
      "n": 4,
-     "title": "G42 receives U.S. approval for advanced AI chip exports",
-     "url": "https://www.g42.ai/resources/news/g42-receives-us-approval-advanced-ai-chip-exports-enabling-full-scale-deployment-trusted-ai-infrastructure",
-     "publisher": "G42",
+     "title": "Whiteshield — Sovereign Intelligence and Public Policy",
+     "url": "https://whiteshield.ai",
+     "publisher": "Whiteshield",
      "date": ""
     },
     {
      "n": 5,
-     "title": "MBZUAI and G42 launch K2 Think",
-     "url": "https://www.g42.ai/resources/news/mbzuai-and-g42-launch-k2-think-leading-open-source-system-advanced-ai-reasoning",
-     "publisher": "G42",
+     "title": "AI Economics: Agent-based simulation, nowcasting, and geospatial intelligence",
+     "url": "https://whiteshield.ai/ai-economics",
+     "publisher": "Whiteshield",
      "date": ""
     },
     {
      "n": 6,
-     "title": "Early lessons in the pursuit of sovereign AI",
-     "url": "https://carnegieendowment.org/research/2026/06/early-lessons-in-the-pursuit-of-sovereign-ai?trk=article-ssr-frontend-pulse_little-text-block",
-     "publisher": "Carnegie Endowment for International Peace",
-     "date": "2026-06-17"
+     "title": "Fadi Farra — Founder & CEO Profile",
+     "url": "https://whiteshield.ai/people/fadi-farra",
+     "publisher": "Whiteshield",
+     "date": ""
+    },
+    {
+     "n": 7,
+     "title": "Whiteshield Partners Limited — Company Information (07839857)",
+     "url": "https://find-and-update.company-information.service.gov.uk/company/07839857",
+     "publisher": "UK Companies House",
+     "date": ""
+    },
+    {
+     "n": 8,
+     "title": "Whiteshield Advisory Company Profile & Careers",
+     "url": "https://linkedin.com/company/whiteshield-advisory",
+     "publisher": "LinkedIn",
+     "date": ""
+    },
+    {
+     "n": 9,
+     "title": "Fadi Farra Commentary",
+     "url": "https://www1.project-syndicate.org/columnist/fadi-farra",
+     "publisher": "Project Syndicate",
+     "date": "2026-10-19"
     }
    ],
-   "confidence": 0.76,
+   "confidence": 0.74,
    "conflicts": [],
    "unavailable": [
-    "website",
-    "headquarters city for Cerebras Systems; the supplied material identifies Abu Dhabi as G42's base but does not establish Cerebras Systems' headquarters",
-    "founded year",
-    "parent organization",
-    "ownership",
-    "Cerebras Systems leadership",
-    "exact date of the WGS 2026 chip showcase"
+    "Named CEO beyond founder as-of date",
+    "Revenue / valuation",
+    "Exact DIFC licence/legal-entity details",
+    "Sep–Oct 2026 company press releases"
    ],
-   "international": "Cerebras is linked to Core42’s U.S. infrastructure footprint through the Condor Galaxy systems collaboration. Core42 reporting also describes U.S. operations and European expansion, including a sovereign infrastructure partnership in France; those are Core42 activities, not evidence of Cerebras-owned offices or operations.",
+   "international": "Offices London, Barcelona, Dubai, Abu Dhabi, Riyadh, Astana, Vancouver; UK legal origin (2011), UAE primary operating base.",
    "parent_id": null,
-   "seed_facts": "Showed 4-trillion-transistor chip at WGS 2026; G42 partner (Condor Galaxy).",
-   "coverage": 0.545,
+   "seed_facts": "Sovereign intelligence for governments; primary operating base DIFC, ICD Brookfield Place Dubai; US5M Ruya Partners facility Jul 2026.",
+   "coverage": 1.0,
    "dropped_unverified_urls": 0,
    "provenance": {
-    "method": "OnDemand chat sessions/query (predefined-gpt-5.6-luna) over the step 3–4 plugin research corpus (Perplexity, GPT Search, Internet, Wikipedia) + mission-brief seed facts",
-    "generated_at": "2026-10-20T21:4xZ",
+    "method": "cycle-5 Lane F research pack (web search 2026-10-21 ~14:52Z), facts limited to the supplied source list",
+    "generated_at": "2026-10-21T15:39:10Z",
     "namespace": "uae_cc_v1"
+   },
+   "field_confidence": {
+    "hq": "medium",
+    "founded": "medium",
+    "ownership": "high",
+    "leadership": "high",
+    "funding": "high",
+    "products": "medium",
+    "international": "medium"
    }
   },
   {

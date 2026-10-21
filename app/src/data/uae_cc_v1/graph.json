@@ -80,9 +80,6 @@
    "positron": [
     "positron"
    ],
-   "cerebras-uae": [
-    "cerebras-uae"
-   ],
    "mubadala": [
     "mubadala"
    ],
@@ -125,6 +122,9 @@
    ],
    "aiatc": [
     "aiatc"
+   ],
+   "whiteshield": [
+    "whiteshield"
    ]
   }
  },
@@ -322,8 +322,8 @@
    "kind": "watchlist"
   },
   {
-   "id": "cerebras-uae",
-   "label": "Cerebras Systems",
+   "id": "whiteshield",
+   "label": "Whiteshield",
    "type": "company",
    "kind": "watchlist"
   },
@@ -750,6 +750,12 @@
   {
    "id": "ext:ministry-of-foreign-trade",
    "label": "Ministry of Foreign Trade",
+   "type": "external",
+   "kind": "external"
+  },
+  {
+   "id": "ext:ruya-partners",
+   "label": "Ruya Partners",
    "type": "external",
    "kind": "external"
   }
@@ -1548,33 +1554,6 @@
    "origin": "dossier"
   },
   {
-   "source": "cerebras-uae",
-   "target": "g42",
-   "relation": "partner",
-   "label": "G42",
-   "url": "https://gulfnews.com/uae/uae-launches-worlds-largest-ai-chip-with-4-trillion-transistors-at-wgs-2026-1.500432873",
-   "date": "",
-   "origin": "dossier"
-  },
-  {
-   "source": "cerebras-uae",
-   "target": "core42",
-   "relation": "partner",
-   "label": "Core42",
-   "url": "https://www.g42.ai/resources/news/core42-advances-us-ai-infrastructure-strategy-expanded-new-york-deployment",
-   "date": "",
-   "origin": "dossier"
-  },
-  {
-   "source": "cerebras-uae",
-   "target": "mbzuai",
-   "relation": "partner",
-   "label": "MBZUAI",
-   "url": "https://carnegieendowment.org/research/2026/06/early-lessons-in-the-pursuit-of-sovereign-ai?trk=article-ssr-frontend-pulse_little-text-block",
-   "date": "",
-   "origin": "dossier"
-  },
-  {
    "source": "mubadala",
    "target": "g42",
    "relation": "owns",
@@ -1914,15 +1893,6 @@
    "label": "Stargate UAE operator",
    "url": "https://thegulftape.com/articles/stargate-uae",
    "date": "2025-11",
-   "origin": "news"
-  },
-  {
-   "source": "g42",
-   "target": "cerebras-uae",
-   "relation": "research_collab",
-   "label": "Co-developed four-trillion-transistor chip",
-   "url": "https://gulfnews.com/uae/uae-launches-worlds-largest-ai-chip-with-4-trillion-transistors-at-wgs-2026-1.500432873",
-   "date": "2026-02-05",
    "origin": "news"
   },
   {
@@ -2266,6 +2236,15 @@
    "url": "https://www.wam.ae/en/article/airev-chairman-al-zeyoudi-2026-06-23",
    "date": "2026-06-23",
    "origin": "dossier-2026-10-21"
+  },
+  {
+   "source": "whiteshield",
+   "target": "ext:ruya-partners",
+   "relation": "financing",
+   "label": "Ruya Partners",
+   "url": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya",
+   "date": "2026-07-01",
+   "origin": "cycle5-laneF"
   }
  ]
 }
