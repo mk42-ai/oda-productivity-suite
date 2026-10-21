@@ -214,3 +214,45 @@ With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetc
 | briefing | `6ad7f32e5e60695bc4d052d2` | 5 | 5/5 | 1 | `6ad841aab28e35aa11d85744` api success 2026-10-21T04:38:02.615Z → 2026-10-21T04:38:58.388Z (55773 ms) |
 | checkpoint | `6ad7f32e5e60695bc4d052d7` | 25 | 25/25 | 24 | `6ad8a238c2cfee207e8f42a6` cron success 2026-10-21T11:30:00.397Z → 2026-10-21T11:30:01.616Z (1219 ms) |
 Checkpoint cron fires seen (newest first): 11:30 11:00 10:30 10:00 09:30 09:00 08:30 08:00 07:30 07:00 06:30 06:00 05:30 04:30 04:00 03:30 03:00 02:30 02:00 01:30 01:00 00:30 00:00 23:30 — every 30 min from 2026-10-20T23:30Z to 2026-10-21T11:30Z except the 05:00Z slot (skipped by the scheduler, as recorded in §F). Ingest cron fired 00:00 / 02:00 / 04:00 / 06:00 / 08:00 / 10:00Z (6 of 6 expected since activation), all success; the 10:00Z run took 143.8 s.
+
+
+### §G addendum — 2026-10-21 lane D: Perplexity plugin credits exhausted → availability backoff + coverage state (written 2026-10-21T14:13Z)
+
+| UTC | Probe | Result |
+|---|---|---|
+| ≈12:40 | first failure observed in live chat runs (plugin-1722260873 pinned) | tool card red; answer streamed; UI ended with "Response failed · Retry" (code `execution_failed`) |
+| ≈13:22 | direct probe, sync query via the plugin | HTTP 500 body `{"error":"Internal server error","message":"Not enough credits"}` |
+| 13:35:43 | direct probe, session 6ad8bfaf7bb80aa7c2d988b9, sync query | answer text: "web search failed due to insufficient credits" |
+| 14:01:16 | lane D build (port 5176), live chat q1 | statusLog `execution_done ok:false "Agents execution failed"` for the pinned plugin → now typed `plugin_error` + `ondemand.coverage`, backoff window 1 min opened |
+| 14:03:57 | lane D build, POST /api/briefing `web:true` (plugin attached, probe after window) | HTTP 200, answer carried "insufficient credits" → `coverage:{web:"unavailable",reason:"credits",nextRetryAt:"2026-10-21T14:05:57Z"}` |
+| 14:05 | upstream contract check | a session created WITH the plugin rejects a query that omits it: HTTP 400 `One or more agents are invalid: agent-1722260873`; a plugin-less session accepts queries with or without it → while skipped, the bridge creates a fresh plugin-less session instead of reusing the remembered one |
+| 14:10 | briefing `web:true` after window elapsed | plugin attached, no failure signature in the sync answer → window closed (`web_research.available:true`) — upstream is intermittent, not permanently out |
+
+Design (src/lib/ondemand/plugin-availability.ts): per-process store keyed by plugin id; `recordPluginFailure` opens a window of 1 → 2 → 4 → 8 → 16 → 30 min (cap 30; failures < 30 s apart coalesce into one step so a parallel burst does not jump the schedule), `recordPluginSuccess` (a run with real sources / a clean briefing answer) resets it. While the window is active the pinned plugin is NOT attached to new chat sessions/queries or briefing sessions — the run is grounded only on the uae_cc_v1 context payload; the chat stream gets `CUSTOM ondemand.error {code:"plugin_error", reason:"backoff", nextRetryAt}` + `CUSTOM ondemand.coverage` at run start. Nothing is substituted. No whole-chat re-run.
+UI/API states added: chat answer area `data-testid="coverage-notice"` (reasons credits / upstream / backoff; the "Response failed · Retry" notice is no longer shown for a pinned-plugin failure whose answer streamed — `execution_failed` for the pinned plugin is now typed `plugin_error`); inspector run-rail plugin chip state `unavailable` (amber) with `data-testid="plugin-state-reason"`; `/briefing` banner `data-testid="briefing-coverage"` (POST /api/briefing returns `coverage:{web,reason,nextRetryAt,pluginId}` and `webRequested`); `GET /health` → `web_research:{plugin,available,reason,lastError,lastFailureAt,failures,backoffMinutes,nextRetryAt}`; `GET /api/plugins` → `availability[plugin-1722260873].state` = `blocked`|`available` and `states.blocked` carries the reason + "backoff until …". Other Perplexity-routed paths checked: src/lib/uae/live.ts (reads workflow ingest output — provenance `plugin` field only, no live call), ScheduledBriefing panel (renders stored workflow output — no live call), /api/chat/prewarm and /api/od-chat/sessions (create sessions with the pinned plugin; left attached — they do not run queries). Unit test: tests/unit/plugin-availability.test.ts (`node --experimental-strip-types tests/unit/plugin-availability.test.ts`; tsx is not installed).
+84-check suite against the lane D build (port 5176, run 2026-10-21T14:11–14:15Z, `BASE_URL=http://127.0.0.1:5176 SHOT_DIR=qa/2026-10-21-cycle4/laneD/suite ROUND=c4 QA_OUT=qa/2026-10-21-cycle4/laneD node scripts/uae/qa/agentN.mjs`): **84/84** — agent1 11/11, agent2 14/14, agent3 13/13, agent4 14/14 (baseline c005420: 4/14 — the 10 chat failures were the "Response failed" notice on credit-degraded turns; on the lane D build those turns render the coverage notice instead, so agent4's `chat-error` assertion passes without any edit to the agent), agent5 32/32. Baseline total 74/84. Note: during the suite the pinned plugin was in backoff for all 10 chat questions (window opened 14:11:47Z by the parallel burst; the suite ran against the build BEFORE the 30 s failure-coalescing tweak, which is source-only at the time of writing), i.e. every chat answer was grounded on the uae_cc_v1 payload only and still carried Verified/Interpretation + curated links.
+
+## Vercel git preview — 2026-10-21T13:48:58Z (cycle 4, Lane E)
+
+Probed 2026-10-21T13:47:08Z–13:47:10Z with `curl -sS -m 15` on the branch alias (`oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app`, A) and the newest deployment URL (`oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app`, dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo, READY 13:04:50Z, c005420, D). Raw header dumps (cookie values and SSO nonces redacted): `qa/2026-10-21-cycle4/laneE/probes.txt`, summary `probes.json`.
+
+| URL | Method | Status | Redirect host | Meaning |
+|---|---|---|---|---|
+| A /health | GET | 302 | https://vercel.com (/sso-api) | Vercel Authentication (SSO) — app never reached |
+| A /api/uae/live | GET | 302 | https://vercel.com (/sso-api) | SSO |
+| A /api/chat | POST | 401 | — (JSON `{"error":{"message":"Protected deployment","code":"401"},"protection":{"vercel_auth_enabled":true,"password_enabled":false}}`) | SSO (API-style 401) |
+| A /api/plugins | GET | 302 | https://vercel.com (/sso-api) | SSO |
+| A /chat | GET | 302 | https://vercel.com (/sso-api) | SSO |
+| D /health | GET | 302 | https://vercel.com (/sso-api) | SSO |
+| D /api/uae/live | GET | 302 | https://vercel.com (/sso-api) | SSO |
+| D /api/chat | POST | 401 | — (same JSON body) | SSO |
+| D /api/plugins | GET | 302 | https://vercel.com (/sso-api) | SSO |
+| D /chat | GET | 302 | https://vercel.com (/sso-api) | SSO |
+
+All 10 responses: `server: Vercel`, `x-robots-tag: noindex`, `set-cookie: _vercel_sso_nonce` (only cookie name), `x-vercel-id: iad1::…`. A headless visitor (playwright-core, 1440×900 and 390×844) following the redirect lands on `https://vercel.com/login?next=/sso-api…` ("Log in to Vercel") for both `/chat` and `/api/uae/live`: `qa/2026-10-21-cycle4/laneE/vercel-preview-sso-{chat,api-live}-{1440x900,390x844}.png`.
+
+Protection / project state (Vercel REST `GET /v9/projects/prj_wXz5xY3PNULypuwepaqu1XKa6sP1`, 13:47:32Z; `qa/2026-10-21-cycle4/laneE/vercel-project.json`): `ssoProtection = {deploymentType: "all_except_custom_domains"}`, `passwordProtection = null`, `trustedIps = null`, `protectionBypass = {}` (0 keys), `rootDirectory = "app"`, `framework = "vite"` (deployment projectSettings snapshot says `nextjs`), `nodeVersion = "24.x"`, git link mk42-ai/oda-productivity-suite, production branch `main`. `GET /v9/projects/<id>/env` → **0 environment variables** (empty list). `GET /v13/deployments/dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo` → readyState READY, 137 build/runtime env keys, all Vercel/Turbo system keys, **0 user-defined keys, no ONDEMAND_* present**; builds=[] routes=[] functions=null in the API view. Last 5 deployments (all branch `uae-ai-command-centre`, all READY, target null): c005420 13:03:41Z, a6daaf3 12:42:24Z, 60e604c 11:46:00Z, d32b691 11:23:12Z, dd8f056 11:18:17Z (`qa/2026-10-21-cycle4/laneE/vercel-deployments.json`).
+
+**Blocker:** 0 ONDEMAND_API_KEY / ONDEMAND_BASE_URL on project prj_wXz5xY3PNULypuwepaqu1XKa6sP1; previews behind SSO. (The 12 ONDEMAND_*/VITE_ONDEMAND_* variables seen earlier belong to the separate project `ondemand-hq`, prj_olGcFYXgDjTILUSp3VvNyhAd3G9P.) Even with SSO bypassed the preview would run without an OnDemand key.
+
+**Decision:** sandbox preview remains the demo surface. Comparison at 13:48Z: `http://127.0.0.1:5173/health` → 200 (commit c005420, ondemand_key true); `/api/uae/live` → 200 application/json, 20 040 bytes (`qa/2026-10-21-cycle4/laneE/sandbox-live.json`, first 2 KB); `/overview` renders at both viewports (`qa/2026-10-21-cycle4/laneE/sandbox-overview-{1440x900,390x844}.png`). Nothing was created, redeployed or changed on Vercel this lane.

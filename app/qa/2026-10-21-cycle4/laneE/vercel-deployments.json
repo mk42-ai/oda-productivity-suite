@@ -1,0 +1,112 @@
+{
+  "deployments": [
+    {
+      "uid": "dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo",
+      "state": "READY",
+      "readyState": "READY",
+      "target": null,
+      "ref": "uae-ai-command-centre",
+      "sha7": "c005420",
+      "createdAt": "2026-10-21T13:03:41Z",
+      "url": "oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app"
+    },
+    {
+      "uid": "dpl_FzNPBuqfvZu4Sc3R39iMsJDyjiJT",
+      "state": "READY",
+      "readyState": "READY",
+      "target": null,
+      "ref": "uae-ai-command-centre",
+      "sha7": "a6daaf3",
+      "createdAt": "2026-10-21T12:42:24Z",
+      "url": "oda-productivity-suite-8m5ds7p6c-schoolhack-web-team.vercel.app"
+    },
+    {
+      "uid": "dpl_8KRafSw1uxmodMzFEVQborwk7wHT",
+      "state": "READY",
+      "readyState": "READY",
+      "target": null,
+      "ref": "uae-ai-command-centre",
+      "sha7": "60e604c",
+      "createdAt": "2026-10-21T11:46:00Z",
+      "url": "oda-productivity-suite-e7w933rhs-schoolhack-web-team.vercel.app"
+    },
+    {
+      "uid": "dpl_8RvgGVLcxvJtVgDCvW4EANVaC72B",
+      "state": "READY",
+      "readyState": "READY",
+      "target": null,
+      "ref": "uae-ai-command-centre",
+      "sha7": "d32b691",
+      "createdAt": "2026-10-21T11:23:12Z",
+      "url": "oda-productivity-suite-5sqwlm7xy-schoolhack-web-team.vercel.app"
+    },
+    {
+      "uid": "dpl_r4qGtYU1B3c3QLUhGowjECMyW7Vv",
+      "state": "READY",
+      "readyState": "READY",
+      "target": null,
+      "ref": "uae-ai-command-centre",
+      "sha7": "dd8f056",
+      "createdAt": "2026-10-21T11:18:17Z",
+      "url": "oda-productivity-suite-gkbr82ka5-schoolhack-web-team.vercel.app"
+    }
+  ],
+  "deployment_dpl_7sWk": {
+    "id": "dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo",
+    "readyState": "READY",
+    "status": "READY",
+    "target": null,
+    "url": "oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app",
+    "alias": [
+      "oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app"
+    ],
+    "createdAt": "2026-10-21T13:03:41Z",
+    "ready": "2026-10-21T13:04:50Z",
+    "meta_ref": "uae-ai-command-centre",
+    "meta_sha7": "c005420",
+    "projectSettings": {
+      "buildCommand": "npm run build",
+      "devCommand": null,
+      "framework": "nextjs",
+      "commandForIgnoringBuildStep": null,
+      "installCommand": "npm ci --no-audit --no-fund",
+      "outputDirectory": null,
+      "speedInsights": {
+        "id": "Ef9gDYHHHQAsxcaaLdW6KjucsJG",
+        "hasData": false
+      },
+      "webAnalytics": {
+        "id": "MCehnlk0eQBNDkZSrL3mE14Ij"
+      },
+      "nodeVersion": "24.x"
+    },
+    "build_env_keys_total": 137,
+    "build_env_keys_user_defined": [],
+    "build_env_keys_system_sample": [
+      "CI",
+      "VERCEL",
+      "VERCEL_ENV",
+      "VERCEL_TARGET_ENV",
+      "TURBO_REMOTE_ONLY",
+      "TURBO_RUN_SUMMARY"
+    ],
+    "env_keys_total": 137,
+    "env_keys_user_defined": [],
+    "env_keys_system_sample": [
+      "CI",
+      "VERCEL",
+      "VERCEL_ENV",
+      "VERCEL_TARGET_ENV",
+      "TURBO_REMOTE_ONLY",
+      "TURBO_RUN_SUMMARY"
+    ],
+    "env_keys_empty_of_user_vars": true,
+    "ondemand_vars_present": false,
+    "build_output_summary": {
+      "builds_count": 0,
+      "routes_count": 0,
+      "functions": null,
+      "note": "v13 response has builds=[] routes=[] functions=null (Next.js build output not itemised here); projectSettings snapshot framework=nextjs, buildCommand=npm run build, installCommand=npm ci"
+    }
+  }
+}
