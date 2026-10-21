@@ -217,7 +217,7 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
                   </div>
                   <div className="mt-1 space-y-0.5" data-testid="rail-chats-list">
                     {recentThreads.length === 0 && (
-                      <p className="px-2 py-2 text-xs text-[#8E8E8E]">No chats yet</p>
+                      <p className="flex flex-col items-center gap-1 px-2 py-3 text-center text-xs text-[#737373]" data-testid="threads-empty">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/illustrations/empty-state.png" alt="" aria-hidden width={96} height={35} loading="lazy" className="opacity-80" />No chats yet</p>
                     )}
                     {recentThreads.map((t) => {
                       const active = t.id === selectedId;
@@ -317,7 +317,7 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
               </div>
               <div className="flex-1 overflow-y-auto space-y-0.5 px-1 min-h-0" data-testid="rail-chats-list">
                 {recentThreads.length === 0 && (
-                  <p className="px-2 py-2 text-xs text-[#8E8E8E]">No chats yet</p>
+                  <p className="flex flex-col items-center gap-1 px-2 py-3 text-center text-xs text-[#737373]" data-testid="threads-empty">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/illustrations/empty-state.png" alt="" aria-hidden width={96} height={35} loading="lazy" className="opacity-80" />No chats yet</p>
                 )}
                 {recentThreads.map((t) => {
                   const active = t.id === selectedId;

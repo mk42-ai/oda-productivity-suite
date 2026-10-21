@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://uae-ai-command-centre.vercel.run"),
   title: { default: TITLE, template: "%s · UAE AI Command Centre (concept)" },
   description: DESC, applicationName: "UAE AI Command Centre (concept)",
-  icons: { icon: [{ url: "/favicon.ico" }, { url: "/favicon.png", type: "image/png", sizes: "256x256" }], apple: "/apple-touch-icon.png" },
+  icons: { icon: [{ url: "/favicon.ico" }, { url: "/favicon.png", type: "image/png", sizes: "256x256" }, { url: "/brand/avatar-512.png", type: "image/png", sizes: "512x512" }], apple: "/apple-touch-icon.png" },
   openGraph: { title: TITLE, description: DESC, type: "website", images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "UAE AI National Intelligence Command Centre — Concept Demonstration" }] },
   twitter: { card: "summary_large_image", images: ["/og-image.png"] },
 };
