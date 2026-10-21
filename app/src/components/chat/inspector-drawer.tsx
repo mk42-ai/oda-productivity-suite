@@ -54,7 +54,7 @@ export function InspectorDrawer({ companies }: { companies: InspectorCompany[] }
       {open && <button type="button" aria-label="Close inspector" className="fixed inset-0 z-[60] bg-black/20 lg:bg-transparent" data-testid="inspector-backdrop" onClick={() => inspectorStore.set(false)} />}
       <aside id="chat-inspector" data-testid="chat-inspector" data-open={open ? "true" : "false"} aria-label="Inspector" inert={!open || undefined}
         className={cn("fixed z-[70] flex flex-col border-border bg-background shadow-xl transition-transform duration-200 ease-out",
-          "inset-x-0 bottom-0 max-h-[85dvh] rounded-t-xl border-t", "lg:inset-y-0 lg:left-auto lg:right-0 lg:h-dvh lg:w-[420px] lg:max-h-none lg:rounded-none lg:border-l lg:border-t-0",
+          "inset-x-0 bottom-0 max-h-[85dvh] rounded-t-xl border-t", "lg:inset-y-0 lg:left-auto lg:right-0 lg:h-dvh lg:w-[360px] lg:max-h-none lg:rounded-none lg:border-l lg:border-t-0",
           open ? "translate-y-0 lg:translate-x-0" : "pointer-events-none translate-y-full lg:translate-x-full lg:translate-y-0")}>
         <header className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
           <h2 className="text-sm font-semibold">Inspector</h2>

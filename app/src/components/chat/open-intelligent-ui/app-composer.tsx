@@ -78,6 +78,8 @@ export function AppComposer({ footer }: { footer?: ReactNode } = {}) {
       </div>
       <p className="oiu-composer__hint" data-testid="composer-hint">{uploading ? "Waiting for the upload to finish…" : `${MODEL_LABEL} · Enter to send`}</p>
       {footer}
+      {/* Single, muted engine credit — the only OnDemand mention on /chat (no header, hero or logo placement). */}
+      <p className="oiu-composer__credit" data-testid="engine-credit">Intelligence engine: OnDemand</p>
       <p className="sr-only" role="status" aria-live="polite" data-testid="attachment-live">{att.live}</p>
     </div>
   );
