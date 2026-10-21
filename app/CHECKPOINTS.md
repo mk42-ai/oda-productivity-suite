@@ -67,3 +67,13 @@
 | 2026-10-21T11:19:27Z | Vercel git build for the new HEAD **READY**: dpl_6mSwFCHYFCGcUtACzFNKfteHcJzS (5b6a994, ready 11:17:52Z) and dpl_r4qGtYU1B3c3QLUhGowjECMyW7Vv (dd8f056, ready 11:19:27Z) — both 302 behind SSO; HEAD sandbox sbx → **https://sb-64yp7hfte77p.vercel.run** (health 200 at 11:22:47Z) |
 
 | 2026-10-21T11:45:48Z | **QA closure cycle 3 start** (90-min box → 13:14Z). Workspace on `uae-ai-command-centre` @ d32b691 = origin (`git log d32b691..origin/uae-ai-command-centre` empty); state files read before any edit; checkpoint commit before chat-UI changes |
+| 2026-10-21T11:47Z | Local `next build` of HEAD + `next start` with the session key (health ondemand_key=true); Lane G run audit fetched (briefing 02:30Z cron run success) |
+| 2026-10-21T12:21Z | Lane B fixes verified locally (run-view 318/318 @390 mocked + live; rail ring rgb(37,99,235)); 11 spec files rewritten (Lane C) |
+| 2026-10-21T12:28:50Z | Lane A shard s1 (108 tests) 103 pass / 5 fail → fixes applied |
+| 2026-10-21T12:38:45Z | Sandbox sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw created → **https://sb-60putp7mv2mi.vercel.run** (health 200 at 12:40:13Z) |
+| 2026-10-21T12:41Z | Lane E on the real backend: 5 threads seeded, rail/topbar/column/composer/inspector/drawer measured (laneE-results.json) |
+| 2026-10-21T12:42Z | Commits 14e032e (fix) · 7a6d8fb (test rewrites) · a6daaf3 (fixtures) pushed to origin/uae-ai-command-centre (PR #7) |
+| 2026-10-21T12:43Z | Sweep on the sandbox: contrast 0 genuine / 8,240 nodes · h-scroll 26/26 · residue DOM 0 / network 0 (134 vendored colour-name matches) |
+| 2026-10-21T12:48Z | 84-check suite round c3: 74/84 (agent4 upstream Perplexity credits) |
+| 2026-10-21T12:59Z | Lane A shards s2/s3/s4 + re-runs complete: 177/192 executed, 138 pass, 16 fail, 23 env-skip |
+| 2026-10-21T13:03:22Z | Docs/state updated in place (QA_REPORT, MISSION_STATE(.json), NEXT_ACTIONS, API_HEALTH §G, CHECKPOINTS) |

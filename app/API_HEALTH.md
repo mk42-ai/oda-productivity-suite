@@ -205,3 +205,12 @@ With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetc
 - **Ingest** (`6ad7f32d5e60695bc4d052cb`): Executed on schedule every 2 hours (00:00, 02:00, 04:00, 06:00, 08:00, 10:00 UTC) with 1 manual API run (04:31 UTC). All 7 runs succeeded.
 - **Briefing** (`6ad7f32e5e60695bc4d052d2`): Executed on schedule at 02:30 UTC (= 06:30 GST) with 2 manual API runs (04:31 and 04:38 UTC). All 3 runs succeeded.
 - **Checkpoint** (`6ad7f32e5e60695bc4d052d7`): Executed on schedule every 30 minutes with 22 runs between 23:30:00Z and 10:30:00Z. Notice: 05:00:00 UTC run was omitted by the OnDemand platform scheduler (ran at 04:30:00Z and 05:30:00Z). All 22 recorded runs succeeded.
+
+## §G cycle-3 run audit — Agents Flow Builder API, fetched 2026-10-21T11:49:00.807Z (`GET /automation/api/execution/list?workflowID=<id>`, HTTP 200 ×3; raw: `qa/2026-10-21-cycle3/laneG-executions.json`)
+**Briefing workflow 6ad7f32e5e60695bc4d052d2 — 02:30 UTC scheduled run on 2026-10-21: EXECUTED = YES** → execution `6ad823a85e60695bc4d054a0`, trigger `cron` (trigger id 6ad7fd19b28e35aa11d8555d), status `success`, started 2026-10-21T02:30:00.573Z, ended 2026-10-21T02:30:58.921Z (58348 ms; 9 log lines, 'starting workflow execution' → success). Next cron fires 2026-10-22T02:30:00Z.
+| Workflow | id | runs listed | success | cron-triggered | latest run (UTC) |
+|---|---|---|---|---|---|
+| ingest | `6ad7f32d5e60695bc4d052cb` | 9 | 9/9 | 6 | `6ad88d20c2cfee207e8f4204` cron success 2026-10-21T10:00:00.603Z → 2026-10-21T10:02:24.416Z (143813 ms) |
+| briefing | `6ad7f32e5e60695bc4d052d2` | 5 | 5/5 | 1 | `6ad841aab28e35aa11d85744` api success 2026-10-21T04:38:02.615Z → 2026-10-21T04:38:58.388Z (55773 ms) |
+| checkpoint | `6ad7f32e5e60695bc4d052d7` | 25 | 25/25 | 24 | `6ad8a238c2cfee207e8f42a6` cron success 2026-10-21T11:30:00.397Z → 2026-10-21T11:30:01.616Z (1219 ms) |
+Checkpoint cron fires seen (newest first): 11:30 11:00 10:30 10:00 09:30 09:00 08:30 08:00 07:30 07:00 06:30 06:00 05:30 04:30 04:00 03:30 03:00 02:30 02:00 01:30 01:00 00:30 00:00 23:30 — every 30 min from 2026-10-20T23:30Z to 2026-10-21T11:30Z except the 05:00Z slot (skipped by the scheduler, as recorded in §F). Ingest cron fired 00:00 / 02:00 / 04:00 / 06:00 / 08:00 / 10:00Z (6 of 6 expected since activation), all success; the 10:00Z run took 143.8 s.

@@ -1,3 +1,49 @@
+# QA_REPORT — 2026-10-21 QA closure cycle 3 (11:44Z → 2026-10-21T13:02:31Z) — preview https://sb-60putp7mv2mi.vercel.run (sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw, built from the working tree at 12:38Z = 14e032e content, health 200 at 12:40:13Z)
+Raw run output for every lane: `qa/2026-10-21-cycle3/` (laneA/*.json|*.log + shards.txt, laneB/, laneC-stale-triage.md, laneD-environment.md, laneE/, laneF-payloads.md, laneG-executions.json, sweep.json, results-agent*-c3.json).
+
+## Lane A — Playwright (192 tests listed after the rewrites: 180 desktop · 6 mobile · 2 mobile-ux · 4 qa-final state-capture)
+| Shard | Specs | Budget | Executed | Pass | Fail | Skipped | Not run | Base |
+|---|---|---|---|---|---|---|---|---|
+| s1-routes (12:25–12:28Z) | a11y, axe-sweep, routes-clean, live-smoke, navigation-e2e, qa-routes, copy-and-rail, keyboard-nav, context-sync, chat-error-retry, navigation-retry-proof, settings, release, title-ellipsis | 900 s | 108 | 103 | 5 | 0 | 0 | local 60e604c+fixes |
+| s1b/s1c re-runs after fixes (12:57–13:00Z) | axe-sweep 15, keyboard-nav 2, settings 2, title-ellipsis 2 | 400 s | 21 | **21** | 0 | 0 | 0 | sandbox |
+| s2-runpanel (12:41–12:54Z, hit 780 s cap) | chat, pdf-inline-render, qa-chat-timing, run-panel-a11y, run-panel-acceptance, run-panel-visual, run-panel-working-header, thinking-*, thread-reopen, session-continuity | 780 s | 12 | 5 | 7 | 0 | **11** | local |
+| s3-uploads (12:48–12:59Z) | upload*, voice, run-ux, nav-stress | 780 s | 49 | 19 | 7 | 23 (env guard) | 0 | sandbox |
+| s4-mobile (12:45–12:46Z) | mobile, run-panel-mobile, run-ux@390 | 600 s | 8 | 6 | 2 | 0 | 0 | sandbox |
+| **Latest status per unique test** | | | **177 / 192** | **138** | **16** | **23** | **15** (11 budget + 4 qa-final by design) | |
+Failure classification (16): **upstream/environment 7** — chat.spec, qa-chat-timing ×2, run-panel-a11y ×3, run-panel-acceptance desktop: every live run after ≈12:40Z ends in the discreet "Response failed · Retry" notice because OnDemand's Perplexity plugin (plugin-1722260873, pinned) answers *"lookup failed for insufficient credits"* (verified with a direct `POST /chat/v1/sessions/<id>/query` at 12:55Z: HTTP 200, answer = "I can't verify … insufficient credits"); the bridge's `execution_failed` for the pinned plugin is by design (chat-bridge.ts ~L1004). The five Lane-E threads seeded at 12:39Z still got full cited answers, so credits ran out mid-cycle. **harness 3** — nav-stress @390 back-forward-spam / drawer-open-nav / nav-while-streaming: the recorded events are `SecurityError: localStorage … about:blank` from the harness' own init script when `goBack()` lands on about:blank, plus one React #418 on /chat re-entry at 390 (open, see below). **timeout 2** — nav-stress @390 radar / bad-urls (150 s, drawer-aware nav on the remote sandbox). **stale 2** — voice.spec: `POST /api/voice/tts` no longer exists (voice went through `/api/voice/workflow` in the UAE build) and the mic button is not rendered in the composer slot — triage pending. **env 2** — run-ux @390 (artifact store `not_provisioned`; the guard added in a04bc09 turns these into skips on the next run).
+Previous-run buckets: 22 stale specs → **all rewritten** (laneC table, 28 rows, 1 DELETE-merged); 17 app bugs → 14 were fixed last turn, the remaining 3 fixed in 14e032e (below); 4 environment → documented in laneD (ffmpeg mitigated, live-smoke assertion rewritten).
+
+## Lane B — the 3 remaining app bugs (fix commit 14e032e; proof `qa/2026-10-21-cycle3/laneB/`)
+| Bug | Root cause | Fix | Re-run / measurement |
+|---|---|---|---|
+| keyboard-nav: rail focus ring read `rgb(37,99,235)` → spec said "no blue" | spec/token conflict (spec'd single accent IS #2563EB) **plus** a real defect: `transition-colors` on rail links animated `outline-color` from the text colour, so the ring measured `rgb(13,13,13)` / `rgb(14,16,20)` right after focus | `transition-[background-color,color]` on the rail links; spec now asserts every ring == `37, 99, 235` | keyboard-nav 2/2 pass (s1b); live probe on the sandbox: outlineColor `rgb(37, 99, 235)` @1440, `rgb(37, 99, 235)` @390 — screenshots focus-ring-rail-1440x900.png / -390x844.png |
+| run-panel-mobile: run-view scrollWidth 326 > 319 @390 | the thinking block wrapper `ml-2 … w-full max-w-[840px]` is 100 % wide **plus** 8 px margin inside the run view | `w-auto min-w-0` (chat-shell.tsx ×2, od-chat/chat-component.tsx) | run-panel-mobile pass (s4): `rvScroll 318 / rvClient 318` streaming and settled; probe: {'scrollWidth': 318, 'clientWidth': 318, 'docScroll': 390, 'inner': 390} @390, {'scrollWidth': 712, 'clientWidth': 712, 'docScroll': 1440, 'inner': 1440} @1440 — run-view-390x844.png |
+| nav-stress back-forward-spam "stress events" | the harness clicked `nav-companies/signals/social` which no longer exist → `harness-step` + console errors | spec rewritten to the UAE routes with a drawer-aware `openNavIfHidden()`; nav-stress @1440 now 9/9 pass | @390: 5/9 still fail (3 harness about:blank artefacts + React #418, 2 timeouts) — open |
+Also fixed on the way: axe `target-size` on dossier HF model links (`min-h-[24px]`, 15/15 axe green), rail `thread-title` span carries `title=` (CSS contract), SSR-safe `useThreadNav` snapshot (React #418 on /chat reload with saved threads — fixed for the desktop rail; a 390 re-entry case remains).
+
+## Lane E — live rail verification on the real OnDemand backend (local build of HEAD, key from the session env; `qa/2026-10-21-cycle3/laneE/laneE-results.json` + 12 PNGs)
+5 real threads seeded through the chat flow (real answers with Verified-facts sections + citation chips; 35.0 / 20.4 / 14.9 / 15.9 / 10.9 s).
+| Element | Spec | Measured @1440×900 | Measured @390×844 | Persistence across reload | Screenshot(s) |
+|---|---|---|---|---|---|
+| Rail expanded | 224 px | **224 px** (`data-collapsed=false`) | n/a (rail hidden, drawer) | `uaecc.nav.rail=expanded` → 224 px after hard reload | rail-expanded-threads-1440x900.png, rail-expanded-after-reload-1440x900.png |
+| Rail collapsed | 64 px | **64 px** | n/a | `collapsed` → 64 px after reload | rail-collapsed-threads-1440x900.png, rail-collapsed-after-reload-1440x900.png |
+| Rail-hosted thread list | ≥5 threads inside the rail | **5 items**, descendant of `nav-rail` = True (collapsed: icons only, 0 rows) | drawer 280 px shows the nav; thread rows in the drawer: 0 (mobile threads live in the top-bar `threads-menu`) | 5 items again after reload | rail-expanded-after-reload-1440x900.png, drawer-open-threads-390x844.png |
+| Top bar | 52 px | **52 px** | **52 px** | — | run-settled-1440x900.png, chat-390x844.png |
+| Conversation column | 800 px centred | **800 px** (left offset 427 px expanded / 347 px collapsed) | full width, docScroll 390 = 390 | — | run-settled-1440x900.png |
+| Composer | one row | row 50 px, textarea 24 px / rows=1 | row 70 px | — | chat-390x844.png |
+| Run-panel inspector | ≤360 px, populated | **360 px**, content: "This run · GPT-5.6 Luna · reasoning medium · Developer details · Organisation context 2/5 …" | bottom sheet 390×717 px | — | inspector-open-1440x900.png, inspector-open-390x844.png |
+| Plan / Run surfaces | populated | `run-logs-toggle` present; reopened thread 3 shows the run view with header "14.0 s · 10,838 tokens", Thinking log (planner objective + plan_required flag) and answer; **`plan-stepper` count 0** — the planner returned `plan_required:false` for all 5 one-line questions, so the checklist never mounted | — | thread-reopened-plan-run-1440x900.png, run-streaming-1440x900.png |
+| 390 drawer | open / overlay / outside-tap close | — | **280 px**, overlay True, aria-hidden false → after tap at (380,400): aria-hidden true, overlay False | — | drawer-open-threads-390x844.png |
+Page errors on reload with 5 saved threads: [] (the SSR snapshot fix).
+
+## Regression gate (on https://sb-60putp7mv2mi.vercel.run)
+- Existing 84-check suite (round c3, 12:42–12:48Z): **74/84** — 1440×900 28/33 · 390×844 27/32 · server 19/19. Agents 1/2/3/5 = 11/11, 14/14, 13/13, 32/32; **agent4 4/14**: the 5 demo questions ×2 vp answer (HTTP 200, Verified+Interpretation, 1–7 citation chips) but the discreet failure notice is shown because the pinned Perplexity call fails upstream for *insufficient credits* (see Lane A); briefing-generate + scheduled-panel pass.
+- AA contrast sweep: **8240 text nodes / 0 below AA / 0 genuine** (13 routes × 2 vp, 24 `oklab()/color()` background artefacts skipped).
+- Horizontal scroll: **26/26 clean**.
+- Residual sweeps: B Capital / bcapital / b-capital — code 0 (6 `bcap` matches are the rollback tag name + the residual scanner's own pattern list), DOM 0/26, network 0; navy / gold / emerald — code 0 (2 `emerald` hits are the token-audit script's Tailwind palette list), DOM 0/26, network: 134 matches, **all** inside vendored CSS-colour-name tables in three library chunks (`navy:128`, `gold:0xffd700`, Tailwind `emerald:{…oklch}` in 7507-*.js / 19881-*.js / 5ced8d4d-*.js) — not theme tokens.
+- `tsc --noEmit` exit 0; `next build` exit 0 (71 static pages) at 12:21Z and 12:31Z.
+
+---
 # QA_REPORT — 2026-10-21 verification turn (10:16Z → ~11:30Z): contrast fix, layout spec, dark theme, e2e, assets
 Preview under test: new sandbox build of the working tree, https://sb-55dvd3y2jwnj.vercel.run (created 10:28:46Z from HEAD 0aa7eb2 + this turn's edits); previous build https://sb-54yh1uujw0kw.vercel.run (eeba60b) served as BEFORE until it stopped (HTTP 410 SANDBOX_STOPPED at ~10:41Z). The Vercel git preview dpl_Ga19v74DiAHLkG3xjMQC3xJVVdez (0aa7eb2, READY 09:58:38Z) answers 302 "Protected by Vercel Authentication" (project ssoProtection = all_except_custom_domains), so browser QA ran on the sandbox.
 

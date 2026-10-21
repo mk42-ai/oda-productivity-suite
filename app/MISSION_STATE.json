@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-21T11:45:48Z",
+ "updated_at": "2026-10-21T13:03:22Z",
  "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
  "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
  "original": {
@@ -19,9 +19,9 @@
   "app_path": "app/",
   "pushed": true,
   "pr_url": "https://github.com/mk42-ai/oda-productivity-suite/pull/7",
-  "preview_url": "https://sb-54yh1uujw0kw.vercel.run",
-  "sandbox_id": "sbx_k8lbUZ7s5ISiX1o5VkZphOtOrEZD",
-  "sandbox_timeout": "90 min from 2026-10-21T04:17Z (expires ≈05:47Z)",
+  "preview_url": "https://sb-60putp7mv2mi.vercel.run",
+  "sandbox_id": "sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw",
+  "sandbox_timeout": "90 min from 2026-10-21T12:38:45Z (expires ≈14:08Z)",
   "previous_preview": "https://sb-6x7pgj362xe9.vercel.run (expired ≈04:10Z)",
   "base_commit": "2515e93",
   "pushed_commit": "2008923 (local commits of 2026-10-21 not pushed — no GITHUB_TOKEN)",
@@ -337,7 +337,57 @@
    "resumed_at": "2026-10-21T11:45:48Z",
    "base_sha": "d32b6912e0f7951a04e080a9b18bc744b640d706",
    "origin_delta_since_d32b691": "none",
-   "status": "in_progress"
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-21T13:03:22Z",
+   "preview_url": "https://sb-60putp7mv2mi.vercel.run",
+   "sandbox_id": "sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw",
+   "playwright": {
+    "listed": 192,
+    "executed": 177,
+    "pass": 138,
+    "fail": 16,
+    "skipped_env": 23,
+    "not_run": 15,
+    "fail_classes": {
+     "upstream_perplexity_credits": 7,
+     "harness_artefact": 3,
+     "timeout": 2,
+     "stale_voice": 2,
+     "artifact_store_env": 2
+    }
+   },
+   "suite84": {
+    "total": "74/84",
+    "1440x900": "28/33",
+    "390x844": "27/32",
+    "server": "19/19",
+    "agent4_note": "upstream Perplexity insufficient credits"
+   },
+   "contrast_genuine": 0,
+   "contrast_nodes": 8240,
+   "hscroll": "26/26",
+   "residue": {
+    "code": 0,
+    "dom": 0,
+    "network_theme": 0,
+    "network_vendored_colour_names": 134
+   },
+   "typecheck": "pass",
+   "build": "pass",
+   "briefing_0230Z": {
+    "executed": true,
+    "execution": "6ad823a85e60695bc4d054a0",
+    "status": "success",
+    "started": "2026-10-21T02:30:00.573Z",
+    "ended": "2026-10-21T02:30:58.921Z"
+   },
+   "commits": [
+    "60e604c",
+    "14e032e",
+    "7a6d8fb",
+    "a6daaf3",
+    "a04bc09"
+   ]
   }
  }
 }

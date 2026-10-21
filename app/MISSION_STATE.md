@@ -1,3 +1,16 @@
+# MISSION_STATE — 2026-10-21T13:03:22Z (QA closure cycle 3)
+| Lane | Status |
+|---|---|
+| A Playwright | ⚠ PARTIAL — 177/192 listed tests executed this cycle (138 pass · 16 fail · 23 env-skip); 11 run-panel/chat tests not reached inside the 780 s shard cap, 4 qa-final capture tests skipped by design. 16 failures = 7 upstream (Perplexity "insufficient credits" since ≈12:40Z), 3 harness artefacts + 2 timeouts (nav-stress @390), 2 stale voice specs, 2 artifact-store env (now guarded). Detail: QA_REPORT cycle-3 section + `qa/2026-10-21-cycle3/laneA/`. |
+| B App bugs | ✅ 3/3 fixed (14e032e): rail focus ring = #2563EB (transition fix), run-view 318/318 @390, nav-stress rewritten; + axe target-size, thread-title title=, SSR-safe thread nav. Proof `qa/2026-10-21-cycle3/laneB/`. |
+| C Stale specs | ✅ 22 → 28 REWRITE rows + 1 DELETE-merged (7a6d8fb), fixtures restored (a6daaf3); table `qa/2026-10-21-cycle3/laneC-stale-triage.md`. |
+| D Environment | ✅ documented (`laneD-environment.md`): ffmpeg symlink mitigation verified, live-smoke assertion rewritten, PROOF_DIR requirement, Artifacts backend guard (a04bc09). |
+| E Live rail | ✅ VERIFIED on the real backend: 5 real threads; rail 224/64 px persisted; 5 rail items inside `nav-rail`; 52 px bar; 800 px column; 1-row composer; inspector 360 px populated; drawer 280 px + overlay + outside-tap; 0 page errors on reload. `plan-stepper` not mounted (planner chose plan_required:false for one-line questions). |
+| F Payload spec | ⛔ NOT RUN — `chat-intelligent-ui-payloads.spec.ts` was deleted upstream in 1ed4247 (2026-10-15); intents mapped to live specs in `laneF-payloads.md`. |
+| G Workflows | ✅ briefing 6ad7f32e5e60695bc4d052d2 cron run 02:30:00.573Z → success (6ad823a85e60695bc4d054a0, 58.3 s); ingest 9/9, checkpoint 25/25 success (API_HEALTH §G). |
+| Gate | 84-check **74/84** (agent4 10 fails = upstream Perplexity credits, not UI); contrast 0 genuine / 8,240 nodes; h-scroll 26/26; residue code/DOM/network 0 (134 network matches are vendored CSS colour-name tables); tsc 0; build 0. |
+Preview: **https://sb-60putp7mv2mi.vercel.run** (sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw, 90 min from 12:38:45Z). HEAD pushed to PR #7 (see CHECKPOINTS). main @ be3f7c1 untouched; tags untouched.
+
 # MISSION_STATE — 2026-10-21T11:17:46Z (verification turn: contrast / layout / dark / e2e / assets / pipeline)
 | Lane | Status |
 |---|---|
