@@ -1,0 +1,682 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.laneB.config.ts",
+      "e2e/voice.spec.ts",
+      "e2e/run-ux.spec.ts",
+      "--project=desktop",
+      "--project=mobile-ux",
+      "--workers=1"
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/playwright.laneB.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [
+          "/mobile\\.spec\\.ts|qa-final\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/mobile\\.spec\\.ts/"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-ux",
+        "name": "mobile-ux",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/run-ux\\.spec\\.ts/"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final",
+        "name": "qa-final",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 240000
+      },
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final-mobile",
+        "name": "qa-final-mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": {},
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 240000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile-ux",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 240000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-ux"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results-laneB/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "run-ux.spec.ts",
+      "file": "run-ux.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Run UX — uploads, stream order, artifacts",
+          "file": "run-ux.spec.ts",
+          "line": 83,
+          "column": 6,
+          "specs": [
+            {
+              "title": "upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 676,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T13:57:06.149Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB/run-ux-Run-UX-—-uploads-st-24389-layed-in-chat-and-Artifacts-desktop/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "34f62394b85627674749-bb781308317f30a11cd7",
+              "file": "run-ux.spec.ts",
+              "line": 85,
+              "column": 7
+            },
+            {
+              "title": "report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 569,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T13:57:07.321Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB/run-ux-Run-UX-—-uploads-st-765c1-red-and-listed-in-Artifacts-desktop/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "34f62394b85627674749-db2e4b0e2632808892e3",
+              "file": "run-ux.spec.ts",
+              "line": 138,
+              "column": 7
+            },
+            {
+              "title": "upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile-ux",
+                  "projectName": "mobile-ux",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 469,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T13:57:13.767Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB/run-ux-Run-UX-—-uploads-st-24389-layed-in-chat-and-Artifacts-mobile-ux/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "34f62394b85627674749-6de37359c100cc2c22c0",
+              "file": "run-ux.spec.ts",
+              "line": 85,
+              "column": 7
+            },
+            {
+              "title": "report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile-ux",
+                  "projectName": "mobile-ux",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 531,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T13:57:14.732Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results-laneB/run-ux-Run-UX-—-uploads-st-765c1-red-and-listed-in-Artifacts-mobile-ux/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "34f62394b85627674749-a7bc0be93d8724b9c475",
+              "file": "run-ux.spec.ts",
+              "line": 138,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "voice.spec.ts",
+      "file": "voice.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "voice",
+          "file": "voice.spec.ts",
+          "line": 40,
+          "column": 6,
+          "specs": [
+            {
+              "title": "voice relay: POST /api/voice/workflow executes the advanced-voice workflow (ok:true + executionId) or answers an honest 503 no_workflow when VOICE_WORKFLOW_ID is empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [
+                    {
+                      "type": "voice",
+                      "description": "BLOCKED_BY_EXTERNAL_DEPENDENCY: no_workflow — VOICE_WORKFLOW_ID is not configured"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 377,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T13:57:08.462Z",
+                      "annotations": [
+                        {
+                          "type": "voice",
+                          "description": "BLOCKED_BY_EXTERNAL_DEPENDENCY: no_workflow — VOICE_WORKFLOW_ID is not configured"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4f8e77fcf9b309101475-98313dd55c56db08d21f",
+              "file": "voice.spec.ts",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "voice relay: expired/unknown clip token is a 404 and STT rejects a non-audio form",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 247,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T13:57:09.310Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4f8e77fcf9b309101475-c5124532bf4a63682ae3",
+              "file": "voice.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "voice UI: composer mic → full-duplex panel (listening with the fake mic, or an honest error); orb + Start/End toggle match; a voice turn shows the honest workflow status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [
+                    {
+                      "type": "voice",
+                      "description": "fake mic → listening (full duplex)"
+                    },
+                    {
+                      "type": "voice-workflow",
+                      "description": "unavailable: VOICE_WORKFLOW_ID is not configured"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2042,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T13:57:09.571Z",
+                      "annotations": [
+                        {
+                          "type": "voice",
+                          "description": "fake mic → listening (full duplex)"
+                        },
+                        {
+                          "type": "voice-workflow",
+                          "description": "unavailable: VOICE_WORKFLOW_ID is not configured"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4f8e77fcf9b309101475-d81a190c0d16add21efb",
+              "file": "voice.spec.ts",
+              "line": 73,
+              "column": 3
+            },
+            {
+              "title": "voice a11y: caption strip is a polite live region and the mic has an accessible name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1576,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T13:57:11.626Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4f8e77fcf9b309101475-424e348563027ca751e7",
+              "file": "voice.spec.ts",
+              "line": 132,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T13:57:05.518Z",
+    "duration": 9875.96,
+    "expected": 4,
+    "skipped": 4,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

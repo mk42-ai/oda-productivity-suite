@@ -63,9 +63,15 @@ async function finish(page: Page, ev: Ev[], vp: string, name: string, info: Test
 const nav = (page: Page, id: string) => page.locator(`[data-testid="primary-nav"] [data-testid="nav-${id}"]`).first();
 /** At 390 px the primary nav lives in the off-canvas rail drawer — open it first when the link is not visible. */
 async function openNavIfHidden(page: Page) {
-  if (await nav(page, "overview").isVisible().catch(() => false)) return;
+  // The 390 px drawer is translated off-canvas (-translate-x-full + inert), so Playwright's isVisible() still reports the
+  // nav links as visible and the old "is nav-overview visible?" probe returned early → every click timed out as a
+  // harness-step artefact. Key off the drawer toggle instead: when it is on screen we are in the drawer layout.
   const t = page.getByTestId("rail-drawer-toggle");
-  if (await t.isVisible().catch(() => false)) { await t.click({ timeout: 4000 }).catch(() => {}); await page.getByTestId("rail-drawer").waitFor({ state: "visible", timeout: 4000 }).catch(() => {}); }
+  if (!(await t.isVisible().catch(() => false))) return; // desktop rail — links are directly clickable
+  if ((await t.getAttribute("aria-expanded").catch(() => null)) === "true") return; // drawer already open
+  await t.click({ timeout: 4000 }).catch(() => {});
+  await page.getByTestId("rail-drawer").waitFor({ state: "visible", timeout: 4000 }).catch(() => {});
+  await page.waitForFunction(() => document.getElementById("rail-drawer")?.getAttribute("aria-hidden") === "false", undefined, { timeout: 4000 }).catch(() => {});
 }
 
 for (const vp of [{ width: 1440, height: 900, label: "1440x900" }, { width: 390, height: 844, label: "390x844" }]) {
@@ -176,21 +182,23 @@ for (const vp of [{ width: 1440, height: 900, label: "1440x900" }, { width: 390,
 
     test("radar", async ({ page }, info) => {
       // Replaces the removed /signals table: the Tech Radar blips link to dossiers.
+      test.setTimeout(300_000); // cycle-4: the 390 drawer round-trip + reload needs more than the shared 150 s shard budget
       const ev = attach(page, vp.label, "radar");
       const r = await page.goto("/radar"); expect.soft(r?.status()).toBe(200);
       await step(ev, page, vp.label, "radar", "blips", async () => expect(page.getByTestId("radar-blip").first()).toBeVisible());
       await page.reload();
-      await step(ev, page, vp.label, "radar", "nav to watchlist + back", async () => { await openNavIfHidden(page); await nav(page, "watchlist").click(); await page.waitForURL(/\/watchlist/); await page.goBack(); await page.waitForURL(/\/radar/); });
+      await step(ev, page, vp.label, "radar", "nav to watchlist + back", async () => { await openNavIfHidden(page); await nav(page, "watchlist").click({ timeout: 8000 }); await page.waitForURL(/\/watchlist/, { timeout: 20000 }); await page.goBack(); await page.waitForURL(/\/radar/, { timeout: 20000 }); });
       await finish(page, ev, vp.label, "radar", info);
     });
 
     test("bad-urls", async ({ page }, info) => {
+      test.setTimeout(300_000); // cycle-4: three 404 renders + drawer recovery at 390 exceeded the shared 150 s shard budget
       const ev = attach(page, vp.label, "bad-urls");
       for (const b of BADS) {
         const r = await page.goto(b); expect.soft(r?.status(), b).toBe(404);
         await step(ev, page, vp.label, "bad-urls", `${b} copy`, async () => expect(page.getByText(/Page not found|could not be found|not found/i).first()).toBeVisible());
       }
-      await step(ev, page, vp.label, "bad-urls", "recover via nav", async () => { await openNavIfHidden(page); await nav(page, "overview").click(); await page.waitForURL(/\/overview/); });
+      await step(ev, page, vp.label, "bad-urls", "recover via nav", async () => { await openNavIfHidden(page); await nav(page, "overview").click({ timeout: 8000 }); await page.waitForURL(/\/overview/, { timeout: 20000 }); });
       await finish(page, ev, vp.label, "bad-urls", info);
     });
   });

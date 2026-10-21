@@ -8,7 +8,13 @@ export async function primeSettings(page: Page, extra: Record<string, unknown> =
   const key = process.env.ONDEMAND_API_KEY ?? process.env.ON_DEMAND_API_KEY ?? "";
   await page.addInitScript(
     ([k, v]) => {
-      localStorage.setItem(k as string, JSON.stringify(v));
+      // about:blank / opaque-origin documents (history spam back to the initial entry) throw a SecurityError on
+      // localStorage access — that is harness noise, never an app error, so swallow it (cycle-4 Lane B).
+      try {
+        localStorage.setItem(k as string, JSON.stringify(v));
+      } catch {
+        /* no storage on this document */
+      }
     },
     [
       SETTINGS_KEY,

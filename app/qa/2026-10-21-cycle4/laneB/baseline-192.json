@@ -1,0 +1,1730 @@
+[
+ {
+  "spec": "a11y.spec.ts",
+  "suite": "Accessibility (axe, WCAG 2.0/2.1 A+AA)",
+  "test": "overview: no serious/critical violations",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "a11y.spec.ts",
+  "suite": "Accessibility (axe, WCAG 2.0/2.1 A+AA)",
+  "test": "company: no serious/critical violations",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "a11y.spec.ts",
+  "suite": "Accessibility (axe, WCAG 2.0/2.1 A+AA)",
+  "test": "news: no serious/critical violations",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "a11y.spec.ts",
+  "suite": "Accessibility (axe, WCAG 2.0/2.1 A+AA)",
+  "test": "settings: no serious/critical violations",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "a11y.spec.ts",
+  "suite": "Accessibility (axe, WCAG 2.0/2.1 A+AA)",
+  "test": "chat: no serious/critical violations",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @1440x900",
+  "test": "/overview @1440x900: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @1440x900",
+  "test": "/watchlist @1440x900: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @1440x900",
+  "test": "/news @1440x900: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @1440x900",
+  "test": "/chat?skip=1 @1440x900: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @1440x900",
+  "test": "/artifacts @1440x900: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @1440x900",
+  "test": "/settings @1440x900: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @1440x900",
+  "test": "/watchlist/tii @1440x900: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @390x844",
+  "test": "/overview @390x844: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @390x844",
+  "test": "/watchlist @390x844: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @390x844",
+  "test": "/news @390x844: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @390x844",
+  "test": "/chat?skip=1 @390x844: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @390x844",
+  "test": "/artifacts @390x844: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @390x844",
+  "test": "/settings @390x844: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep @390x844",
+  "test": "/watchlist/tii @390x844: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "axe-sweep.spec.ts",
+  "suite": "axe sweep: /chat run panel after one turn @1440x900",
+  "test": "/chat after-turn: no serious/critical (WCAG 2.2 AA)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "chat-error-retry.spec.ts",
+  "suite": "chat error retry notice",
+  "test": "forced failure shows only the discreet notice; Retry resubmits and succeeds",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "chat.spec.ts",
+  "suite": "Analyst chat — streaming",
+  "test": "answer streams incrementally via SSE with plugin activity and sources",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s2-runpanel.log",
+  "error": "see s2-runpanel.log"
+ },
+ {
+  "spec": "context-sync.spec.ts",
+  "suite": "",
+  "test": "context line + POST /api/chat systemContext mirror the inspector chips (remove one company)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "context-sync.spec.ts",
+  "suite": "",
+  "test": "empty context → helper copy; mobile 390 wraps the line",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "copy-and-rail.spec.ts",
+  "suite": "a49 copy + rail",
+  "test": "rail ≤224 expanded / ≤64 collapsed via rail-toggle, persisted",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "copy-and-rail.spec.ts",
+  "suite": "a49 copy + rail",
+  "test": "/chat: no lede under the title, no explainer copy on user surfaces",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "copy-and-rail.spec.ts",
+  "suite": "a49 copy + rail",
+  "test": "overview/news ledes are short; brand line present on an unprimed first visit",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "keyboard-nav.spec.ts",
+  "suite": "a33 keyboard nav",
+  "test": "watchlist: cards are keyboard-reachable with the accent focus ring",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "keyboard-nav.spec.ts",
+  "suite": "a33 keyboard nav",
+  "test": "nav rail: Tab + arrows, only the accent focus ring anywhere",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1b-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /overview",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /watchlist",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /sentiment",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /news",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /radar",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /graph",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /briefing",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /methodology",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "route /docs/interactive-ui",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "bad urls are 404",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "nav links + back/forward",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "preserved surfaces: docs + watchlist dossiers",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "no snapshot/Lambda demo on playground or chat",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "dossier #dossier-news deep link lands on the news panel",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "chat actual request 200 + answer",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 1440x900",
+  "test": "discreet retry: forced failure, no raw in DOM, retry recovers",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /overview",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /watchlist",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /sentiment",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /news",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /radar",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /graph",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /briefing",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /methodology",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "route /docs/interactive-ui",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "bad urls are 404",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "nav links + back/forward",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "preserved surfaces: docs + watchlist dossiers",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "no snapshot/Lambda demo on playground or chat",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "dossier #dossier-news deep link lands on the news panel",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "chat actual request 200 + answer",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "live-smoke.spec.ts",
+  "suite": "live smoke 390x844",
+  "test": "discreet retry: forced failure, no raw in DOM, retry recovers",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "rapid-nav",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "back-forward-spam",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "deep-link-reload",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "drawer-open-nav",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "nav-while-streaming",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "compare-mid-nav",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "news-anchor",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "radar",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @1440x900",
+  "test": "bad-urls",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "rapid-nav",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "back-forward-spam",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s3-uploads.json",
+  "error": "Error: stress events in back-forward-spam @390x844"
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "deep-link-reload",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "drawer-open-nav",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s3-uploads.json",
+  "error": "Error: stress events in drawer-open-nav @390x844"
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "nav-while-streaming",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s3-uploads.json",
+  "error": "Error: stress events in nav-while-streaming @390x844"
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "compare-mid-nav",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "news-anchor",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "radar",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s3-uploads.json",
+  "error": "Test timeout of 150000ms exceeded."
+ },
+ {
+  "spec": "nav-stress.spec.ts",
+  "suite": "nav stress @390x844",
+  "test": "bad-urls",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s3-uploads.json",
+  "error": "Test timeout of 150000ms exceeded."
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "route / renders @desktop",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "route /overview renders @desktop",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "route /watchlist renders @desktop",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "route /sentiment renders @desktop",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "route /radar renders @desktop",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "route /graph renders @desktop",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "route /docs/interactive-ui renders @desktop",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "bad urls are real 404",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "nav click-through + active + back/forward + refresh",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "dossier link, rail back to overview, #dossier-news anchor",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "navigation e2e",
+  "test": "chat non-empty 200",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-e2e.spec.ts",
+  "suite": "mobile navigation",
+  "test": "mobile routes + nav scroll + no overflow",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-retry-proof.spec.ts",
+  "suite": "",
+  "test": "retry proof 1440x900",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "navigation-retry-proof.spec.ts",
+  "suite": "",
+  "test": "retry proof 390x844",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "pdf-inline-render.spec.ts",
+  "suite": "",
+  "test": "PDF artifact → side pane renders pdf.js pages (or the preview-unavailable fallback)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s2-runpanel.log",
+  "error": ""
+ },
+ {
+  "spec": "pdf-inline-render.spec.ts",
+  "suite": "",
+  "test": "PDF artifact → Artifacts preview pane renders pdf.js pages (or the fallback), one meta line, H1-style file name",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s2-runpanel.log",
+  "error": ""
+ },
+ {
+  "spec": "pdf-inline-render.spec.ts",
+  "suite": "",
+  "test": "non-PDF office artifact in the side pane shows the preview-unavailable fallback (when one exists)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s2-runpanel.log",
+  "error": ""
+ },
+ {
+  "spec": "qa-chat-timing.spec.ts",
+  "suite": "QA chat timing @ desktop",
+  "test": "two turns in one thread: timings, tool card, session reuse",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s2-runpanel.log",
+  "error": "see s2-runpanel.log"
+ },
+ {
+  "spec": "qa-chat-timing.spec.ts",
+  "suite": "QA chat timing @ mobile",
+  "test": "two turns in one thread: timings, tool card, session reuse",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s2-runpanel.log",
+  "error": "see s2-runpanel.log"
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/overview",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/watchlist",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/watchlist/tii",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/watchlist/mbzuai",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/news",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/settings",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/chat",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/watchlist/does-not-exist",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ desktop 1440x900",
+  "test": "/watchlist with reduced motion: compare tray toggles",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/overview",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/watchlist",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/watchlist/tii",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/watchlist/mbzuai",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/news",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/settings",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/chat",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/watchlist/does-not-exist",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "QA routes @ mobile 390x844",
+  "test": "/watchlist with reduced motion: compare tray toggles",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "qa-routes.spec.ts",
+  "suite": "Logo audit (browser) @ desktop",
+  "test": "collect every org-logo / monogram on /watchlist (≤60 s)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "release.spec.ts",
+  "suite": "release gates (bridge)",
+  "test": "every SSE frame carries a monotonic seq — no duplicates, no gaps, [DONE] last",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "release.spec.ts",
+  "suite": "release gates (bridge)",
+  "test": "session pre-warm answers with a session id and the shell marks itself ready",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "release.spec.ts",
+  "suite": "release gates (bridge)",
+  "test": "first turn reuses the pre-warmed session (ondemand.session viaHeader=true)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "routes-clean.spec.ts",
+  "suite": "",
+  "test": "/overview → 200, 0 console errors, 0 page errors",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "routes-clean.spec.ts",
+  "suite": "",
+  "test": "/watchlist → 200, 0 console errors, 0 page errors",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "routes-clean.spec.ts",
+  "suite": "",
+  "test": "/news → 200, 0 console errors, 0 page errors",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "routes-clean.spec.ts",
+  "suite": "",
+  "test": "/chat → 200, 0 console errors, 0 page errors",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "routes-clean.spec.ts",
+  "suite": "",
+  "test": "/artifacts → 200, 0 console errors, 0 page errors",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "routes-clean.spec.ts",
+  "suite": "",
+  "test": "/settings → 200, 0 console errors, 0 page errors",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1-routes.json",
+  "error": ""
+ },
+ {
+  "spec": "run-panel-a11y.spec.ts",
+  "suite": "run-panel a11y (a10)",
+  "test": "every visible disclosure head is a focusable <button>/<summary> with a brand-green focus ring",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s2-runpanel.log",
+  "error": "see s2-runpanel.log"
+ },
+ {
+  "spec": "run-panel-a11y.spec.ts",
+  "suite": "run-panel a11y (a10)",
+  "test": "Tab order reaches the disclosure heads with the green ring",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s2-runpanel.log",
+  "error": "see s2-runpanel.log"
+ },
+ {
+  "spec": "run-panel-a11y.spec.ts",
+  "suite": "run-panel a11y (a10)",
+  "test": ".oiu-think__head text contrast vs effective background ≥ 4.5:1",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s2-runpanel.log",
+  "error": "see s2-runpanel.log"
+ },
+ {
+  "spec": "run-panel-a11y.spec.ts",
+  "suite": "run-panel a11y (a10)",
+  "test": "Working band (mint gradient) text is ≥ 4.5:1 when present",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s2-runpanel.log",
+  "error": ""
+ },
+ {
+  "spec": "run-panel-a11y.spec.ts",
+  "suite": "run-panel a11y (a10)",
+  "test": "prefers-reduced-motion: .oiu-spin has no animation",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s2-runpanel.log",
+  "error": ""
+ },
+ {
+  "spec": "run-panel-acceptance.spec.ts",
+  "suite": "run-panel acceptance — desktop 1440×900",
+  "test": "thinking auto-expand, anchored header, brand chip, checklist plan, no raw JSON",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s2-runpanel.log",
+  "error": "see s2-runpanel.log"
+ },
+ {
+  "spec": "run-panel-acceptance.spec.ts",
+  "suite": "run-panel acceptance — mobile 390×844",
+  "test": "thinking auto-expand, anchored header, brand chip, checklist plan, no raw JSON",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "run-panel-visual.spec.ts",
+  "suite": "run panel visual — desktop 1440×900",
+  "test": "captures run-view states + layout metrics",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "run-panel-visual.spec.ts",
+  "suite": "run panel visual — mobile 390×844 (Pixel 7)",
+  "test": "captures run-view states + layout metrics",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "run-panel-working-header.spec.ts",
+  "suite": "run panel Working header invariant @ desktop",
+  "test": "one source of truth for \"Working…\" across a live ≥2-tool run (desktop)",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "run-panel-working-header.spec.ts",
+  "suite": "run panel Working header invariant @ mobile",
+  "test": "one source of truth for \"Working…\" across a live ≥2-tool run (mobile)",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "run-ux.spec.ts",
+  "suite": "Run UX — uploads, stream order, artifacts",
+  "test": "upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "run-ux.spec.ts",
+  "suite": "Run UX — uploads, stream order, artifacts",
+  "test": "report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "session-continuity.spec.ts",
+  "suite": "session continuity — two turns, one thread",
+  "test": "turn 2 appends below turn 1; turn 1 thinking-block pinned; one thread; no errors",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "settings.spec.ts",
+  "suite": "Settings",
+  "test": "shows user and backend inputs; model and plugin are fixed (DeepSeek Flash v4.1 · Perplexity only)",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s1b-rerun.json",
+  "error": "Error: expect(locator).toContainText(expected) failed"
+ },
+ {
+  "spec": "settings.spec.ts",
+  "suite": "Settings",
+  "test": "editing the user id persists to localStorage",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1c-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "thinking-json-filter.spec.ts",
+  "suite": "desktop 1440×900",
+  "test": "Thinking body has no planner JSON; planner-payload lives only in dev-disclosure",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "thinking-json-filter.spec.ts",
+  "suite": "mobile 390×844",
+  "test": "Thinking body has no planner JSON; planner-payload lives only in dev-disclosure",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "thinking-pinned-working-row.spec.ts",
+  "suite": "desktop 1440×900",
+  "test": "Thinking pinned at top, Working rows before the answer, jump pill clear of Working rows, no planner JSON in Thinking",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "thinking-pinned-working-row.spec.ts",
+  "suite": "mobile 390×844",
+  "test": "Thinking pinned at top, Working rows before the answer, jump pill clear of Working rows, no planner JSON in Thinking",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "thread-reopen.spec.ts",
+  "suite": "thread re-open after reload",
+  "test": "reload → recent thread listed → click → messages restored; ?thread deep link",
+  "project": "desktop",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "title-ellipsis.spec.ts",
+  "suite": "",
+  "test": "thread titles ellipsise + carry the full title (desktop)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1c-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "title-ellipsis.spec.ts",
+  "suite": "",
+  "test": "thread titles ellipsise + carry the full title (mobile-390)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s1c-rerun.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-artifacts.spec.ts",
+  "suite": "Upload → Artifacts E2E",
+  "test": "empty Artifacts state renders",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-artifacts.spec.ts",
+  "suite": "Upload → Artifacts E2E",
+  "test": "API: each fixture uploads via /api/media and is listed by /api/artifacts as an upload",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-artifacts.spec.ts",
+  "suite": "Upload → Artifacts E2E",
+  "test": "UI: pick → progress → processed → chip → sent → cited → Artifacts → reload",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-artifacts.spec.ts",
+  "suite": "Upload → Artifacts E2E",
+  "test": "blurred memo: agent must say it cannot read it, never invent text",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-artifacts.spec.ts",
+  "suite": "Upload → Artifacts E2E",
+  "test": "failure path shows red state + retry",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-artifacts.spec.ts",
+  "suite": "Upload → Artifacts E2E › mobile 390×844",
+  "test": "upload chip and Artifacts page have no horizontal overflow",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-e2e.spec.ts",
+  "suite": "upload-e2e @1440x900",
+  "test": "U1 counters baseline → PDF+PNG paperclip upload → chips ready → artifacts persisted (source upload) → one short chat turn [1440x900]",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-e2e.spec.ts",
+  "suite": "upload-e2e @1440x900",
+  "test": "U2 /artifacts lists both as \"input\", PDF icon pdf / PNG icon image|chart, counters +2/+1/+1/+2, PDF download starts with %PDF [1440x900]",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-e2e.spec.ts",
+  "suite": "upload-e2e @390x844",
+  "test": "U1 counters baseline → PDF+PNG paperclip upload → chips ready → artifacts persisted (source upload) → one short chat turn [390x844]",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-e2e.spec.ts",
+  "suite": "upload-e2e @390x844",
+  "test": "U2 /artifacts lists both as \"input\", PDF icon pdf / PNG icon image|chart, counters +2/+1/+1/+2, PDF download starts with %PDF [390x844]",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — documents (desktop)",
+  "test": "PDF: upload → ready → grounded answer cites the file → artifact persisted → survives reload",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — documents (desktop)",
+  "test": "DOCX: compendium.docx (15 MB) → ready → answer about the DOCX → artifact persisted → survives reload",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — images (desktop 1440×900)",
+  "test": "image: geothermal-plant.png → thumb in chip + under message → grounded description",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — images (desktop 1440×900)",
+  "test": "image: bar-chart.png → thumb in chip + under message → grounded description",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — images (desktop 1440×900)",
+  "test": "image: blurred-memo.png → thumb in chip + under message → honest 'cannot read' answer",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — images (desktop 1440×900)",
+  "test": "persistence: /artifacts lists the three images as uploads, also after reload",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — failure state + retry",
+  "test": "ui: tool.exe → error chip (red) with retry; retry stays error; remove works; 0-byte file → error",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — failure state + retry",
+  "test": "api: POST /api/media with an unsupported extension → 400 unsupported_type",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — images (mobile 390×844)",
+  "test": "mobile image: geothermal-plant.png",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — images (mobile 390×844)",
+  "test": "mobile image: bar-chart.png",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload-journeys.spec.ts",
+  "suite": "Upload journeys — images (mobile 390×844)",
+  "test": "mobile image: blurred-memo.png",
+  "project": "desktop",
+  "status": "skip",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload.spec.ts",
+  "suite": "Media upload",
+  "test": "upload: 26 MB file is rejected with 413 too_large",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload.spec.ts",
+  "suite": "Media upload",
+  "test": "upload: tool.exe is rejected with 400 naming the allowed types",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload.spec.ts",
+  "suite": "Media upload",
+  "test": "upload: zephyr-7.md uploads and /api/chat answers 41.7 MWh from it",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "upload.spec.ts",
+  "suite": "Media upload",
+  "test": "ui: picking zephyr-7.md in the composer shows an attachment chip (ready or error)",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "voice.spec.ts",
+  "suite": "voice",
+  "test": "voice relay: POST /api/voice/tts answers ok:true + https audioUrl, or an honest not_subscribed",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s3-uploads.json",
+  "error": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+ },
+ {
+  "spec": "voice.spec.ts",
+  "suite": "voice",
+  "test": "voice relay: expired/unknown clip token is a 404 and STT rejects a non-audio form",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "voice.spec.ts",
+  "suite": "voice",
+  "test": "voice UI: mic button in the composer → listening (fake mic) or an honest error; orb state matches",
+  "project": "desktop",
+  "status": "fail",
+  "source": "s3-uploads.json",
+  "error": "Error: expect(locator).toBeVisible() failed"
+ },
+ {
+  "spec": "voice.spec.ts",
+  "suite": "voice",
+  "test": "voice a11y: caption strip is a polite live region and the mic has an accessible name",
+  "project": "desktop",
+  "status": "pass",
+  "source": "s3-uploads.json",
+  "error": ""
+ },
+ {
+  "spec": "mobile.spec.ts",
+  "suite": "Mobile layout (Pixel 7, 390x844)",
+  "test": "overview: no horizontal overflow, nav visible, no page errors",
+  "project": "mobile",
+  "status": "pass",
+  "source": "s4-mobile.json",
+  "error": ""
+ },
+ {
+  "spec": "mobile.spec.ts",
+  "suite": "Mobile layout (Pixel 7, 390x844)",
+  "test": "company: no horizontal overflow, nav visible, no page errors",
+  "project": "mobile",
+  "status": "pass",
+  "source": "s4-mobile.json",
+  "error": ""
+ },
+ {
+  "spec": "mobile.spec.ts",
+  "suite": "Mobile layout (Pixel 7, 390x844)",
+  "test": "news: no horizontal overflow, nav visible, no page errors",
+  "project": "mobile",
+  "status": "pass",
+  "source": "s4-mobile.json",
+  "error": ""
+ },
+ {
+  "spec": "mobile.spec.ts",
+  "suite": "Mobile layout (Pixel 7, 390x844)",
+  "test": "settings: no horizontal overflow, nav visible, no page errors",
+  "project": "mobile",
+  "status": "pass",
+  "source": "s4-mobile.json",
+  "error": ""
+ },
+ {
+  "spec": "mobile.spec.ts",
+  "suite": "Mobile layout (Pixel 7, 390x844)",
+  "test": "chat: no horizontal overflow, nav visible, no page errors",
+  "project": "mobile",
+  "status": "pass",
+  "source": "s4-mobile.json",
+  "error": ""
+ },
+ {
+  "spec": "run-panel-mobile.spec.ts",
+  "suite": "a11 run panel @ 390×844",
+  "test": "no horizontal overflow; working rows ≤ 72 px; header/footer wrap",
+  "project": "mobile",
+  "status": "pass",
+  "source": "s4-mobile.json",
+  "error": ""
+ },
+ {
+  "spec": "run-ux.spec.ts",
+  "suite": "Run UX — uploads, stream order, artifacts",
+  "test": "upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts",
+  "project": "mobile-ux",
+  "status": "fail",
+  "source": "s4-mobile.json",
+  "error": "Error: artifact for geothermal.jpg"
+ },
+ {
+  "spec": "run-ux.spec.ts",
+  "suite": "Run UX — uploads, stream order, artifacts",
+  "test": "report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts",
+  "project": "mobile-ux",
+  "status": "fail",
+  "source": "s4-mobile.json",
+  "error": "Error: DOM order answer-block → sources-list → inline-artifacts"
+ },
+ {
+  "spec": "qa-final.spec.ts",
+  "suite": "qa-final [baseline]",
+  "test": "routes: console + page errors per route",
+  "project": "qa-final",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "qa-final.spec.ts",
+  "suite": "qa-final [baseline]",
+  "test": "chat: upload states, run states, sources, artifacts, lightbox, doc preview",
+  "project": "qa-final",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "qa-final.spec.ts",
+  "suite": "qa-final [baseline]",
+  "test": "routes: console + page errors per route",
+  "project": "qa-final-mobile",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ },
+ {
+  "spec": "qa-final.spec.ts",
+  "suite": "qa-final [baseline]",
+  "test": "chat: upload states, run states, sources, artifacts, lightbox, doc preview",
+  "project": "qa-final-mobile",
+  "status": "not-run",
+  "source": "",
+  "error": ""
+ }
+]
