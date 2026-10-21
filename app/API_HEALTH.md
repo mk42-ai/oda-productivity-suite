@@ -423,3 +423,6 @@ Credentials check: `VERCEL_TOKEN` / `VERCEL_AUTH_TOKEN` / `VERCEL_TEAM_ID` / `VE
 | POST /api/chat (malformed body) | 401 Protected deployment | **400** `{"error":{"message":"no user message"}}` (app reached) |
 
 So the SSO wall can now be bypassed by QA agents that send the header; the second half of the blocker is unchanged — the preview still has **no OnDemand key** (`ondemand_key:false`), so chat/briefing on the git preview run keyless until preview-scoped `ONDEMAND_API_KEY` + `ONDEMAND_BASE_URL` are added for branch `uae-ai-command-centre` (not done: adding env vars with a secret value is a manual owner action; see NEXT_ACTIONS). The project's env count is still 0 after the bypass creation (the bypass secret is a protection setting, not an env var row).
+
+### Vercel addendum — cycle 6 close (2026-10-21T22:45Z)
+Git builds triggered by this cycle's pushes (REST `GET /v6/deployments`, 21:59:54Z): **e0c3d4b READY** created 21:40:17Z (`oda-productivity-suite-2jgp1bilz-schoolhack-web-team.vercel.app`) and **1c2953c READY** created 21:53:48Z (`oda-productivity-suite-qk3ozg1mf-schoolhack-web-team.vercel.app`), both branch `uae-ai-command-centre`; production still main @ be3f7c1. Env vars still 0 → those previews answer with `ondemand_key:false` (chat/briefing keyless) even when the bypass header is sent.

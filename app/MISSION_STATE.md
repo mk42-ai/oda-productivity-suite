@@ -1,3 +1,15 @@
+# MISSION_STATE — 2026-10-21T22:45Z (QA cycle 6)
+| Lane | Status |
+|---|---|
+| A Colour pass | ✅ off-ramp hex tokens **815 → 4** (html.dark only); Sentiment Universe grayscale ramp + confidence-as-opacity + legend caption; charts/radar/graph/watchlist/news/briefing/run-rail on the ramp (1c2953c); after-sweep caught 10 `/chat` chip-score misses → #5D5D5D (7c860b7). AA genuine **0** on the redeployed sandbox. |
+| B Inspector | ✅ Literal Plan/Run `role=tab` tabs EXIST (since aaaa6e0 15:59:57Z); measured 360 px aside @1440, 390×717 sheet @390, keyboard nav verified; 5 screenshots + `laneB/layout-spec-inspector.md` (3315f90). Nothing restored/renamed. |
+| C Tests | ✅ payload spec serves the mock stream over HTTPS → **A–G 14/14 on the HTTPS preview** (3a07efb and 1c2953c) and 14/14 local; stale-5 5/5, thinking-5 5/5, never-run 4/4; e2e+tests residue B Capital/Portfolio → 0 (e0c3d4b). Open app bug: run-panel-mobile `.oiu-cite__preview` overflow @390 (intermittent). |
+| D Watchlist/News | ✅ Lucidya absent, Whiteshield reconciled (US$15M typo fixed, per-field confidence/sources, 'source pending' where unverified); news 105→107 (Permus/Myndlab — URL pending; UAE Cyber Security Council 21 Oct — techrevolt.news); radar 12→13; coverage 73.7% → 73.7% (3f36842). |
+| E Perplexity | ⛔ still exhausted — direct probe 20:52:45Z "news lookup failed due to insufficient credits"; app POST /api/chat 200 with coverage reason=upstream→backoff (API_HEALTH §G cycle-6). |
+| F Vercel | ⚠ 0 env vars (unchanged); **Protection Bypass for Automation secret created 20:50:08Z** (header → /health 200 on the git preview); CLI policy-blocked, REST works; Vercel built e0c3d4b (READY 21:40:17Z) and 1c2953c (READY 21:53:48Z); key still missing on git previews → manual env step remains. |
+| Gates | 84-check **83/84** (agent4 q3@1440 no citations — upstream/non-deterministic; rerun 14/14) · off-ramp 815→4 · AA 8,226 nodes / 0 genuine (after 7c860b7) · h-scroll 26/26 · residue 0 brand in code/DOM/network (20 DOM `portfolio` = dossier prose) · tsc 0 · build 0 ('ai' warning persists) · Playwright 199 listed: 157 pass / 17 fail / 25 env-skip / 0 not-run → 13 hard fails after one re-run (3 upstream, 3 stale run-panel-a11y, 3 contrast fixed in 7c860b7 and re-verified 4/4, 4 ffmpeg). |
+Preview: **https://sb-1p1cmfeo08vc.vercel.run** (sbx_F6RtiRxRW8LXWX46poK7aFU2F4FK, 90 min from 21:45:35Z ≈ expires 23:15Z; serving 7c860b7 since 22:38:02Z). Pre-cycle tag `uae-qa6-pre-20261021T20Z` → 3a07efb (pushed 20:46:03Z). main @ be3f7c1 and all prior tags untouched. Resume step: `git fetch`; if HEAD unchanged, start with NEXT_ACTIONS #0–#3 (credits → Vercel env → cite-preview overflow → run-panel-a11y selectors).
+
 # MISSION_STATE — 2026-10-21T14:27Z (QA cycle 4)
 | Lane | Status |
 |---|---|

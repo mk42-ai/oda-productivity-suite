@@ -1,0 +1,607 @@
+{
+ "started": "2026-10-21T21:16:37.623Z",
+ "base": "https://sb-1rpldsghtcd5.vercel.run",
+ "contrast": {
+  "checked": 8164,
+  "below": 0,
+  "genuine": 0,
+  "artefacts": 36,
+  "worst": []
+ },
+ "hscroll": {
+  "pass": 26,
+  "fail": []
+ },
+ "residue": {
+  "dom": 20,
+  "network": 36,
+  "networkVendored": 4,
+  "hits": [
+   {
+    "route": "/watchlist",
+    "vp": "1440x900",
+    "domHits": [
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/tii",
+    "vp": "1440x900",
+    "domHits": [
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     }
+    ]
+   },
+   {
+    "route": "/news",
+    "vp": "1440x900",
+    "domHits": [
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist",
+    "vp": "390x844",
+    "domHits": [
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/tii",
+    "vp": "390x844",
+    "domHits": [
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     }
+    ]
+   },
+   {
+    "route": "/news",
+    "vp": "390x844",
+    "domHits": [
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     },
+     {
+      "rx": "/\\bportfolio\\b/i",
+      "m": "portfolio"
+     }
+    ]
+   },
+   {
+    "asset": "/_next/static/chunks/208-984968241d27fa03.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "{file:\"icon-listing.png\",label:\"Organisation listing\",role:\"Portfolio Plugin operations listPortfolioCompanies / getPort"
+   },
+   {
+    "asset": "/_next/static/chunks/208-984968241d27fa03.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "e/i.test(t)?\"news-sentiment\":/list|companies|company|search|portfolio|signal/i.test(t)?\"org-listing\":/compare|synergy/i."
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ishing\"},{\"date\":\"2020-07\",\"event\":\"Al Olama\\'s ministerial portfolio was expanded to include Digital Economy and Remote"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "and UAE Data Office and incorporates the digital government portfolio of the Telecommunications and Digital Government R"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "State for Artificial Intelligence in October 2017, with his portfolio expanded in July 2020 [1]. Its stated remit includ"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ied AI, cybersecurity, and professional services [2]. G42’s portfolio company Inception developed (In)Business Procureme"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "\":\"Identified as a G42 subsidiary and described by G42 as a portfolio company; exact shareholding is unavailable.\",\"lead"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ficer around June 2025 [1][6]. G42 describes Inception as a portfolio company and announced its (In)Business Procurement"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": " gas, and it remains a standalone company within Presight’s portfolio. [1][2] AIQ announced a $340 million, three-year A"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ts-suspended-mgx-backed-consortium-eyes-another-data-center-portfolio-mubadala-eyes-stake-in-italian-turbine-maker/\"}],\""
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "cked consortium was reported to be discussing a data-centre portfolio across Tokyo, Sydney, and Johor Bahru. [5]\",\"sourc"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": " suspended + MGX-backed consortium eyes another data center portfolio\",\"url\":\"https://enterpriseam.com/uae/2026/09/25/th"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ts-suspended-mgx-backed-consortium-eyes-another-data-center-portfolio-mubadala-eyes-stake-in-italian-turbine-maker/\",\"pu"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ing AI and other advanced-technology fields. [1] Its Falcon portfolio includes foundation, reasoning, Arabic-language, m"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "{\"headline\":\"MGX-backed consortium eyes another data-center portfolio\",\"date\":\"2026-09-25\",\"publisher\":\"EnterpriseAM\",\"u"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ts-suspended-mgx-backed-consortium-eyes-another-data-center-portfolio-mubadala-eyes-stake-in-italian-turbine-maker/\",\"su"
+   },
+   {
+    "asset": "/_next/static/chunks/app/watchlist/page-21c3f55dc10e5de8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "an MGX-backed consortium is considering another data-center portfolio; the excerpt provides no further deal details.\",\"o"
+   },
+   {
+    "asset": "/_next/static/chunks/95880-ab851d6dfc85f1c8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "4);let n=\"/brand/mark-light.png\",r=\"#F3F4F6\",s=\"#1F2937\",o=/portfolio/i,c=/perplexity/i,l=/ondemand|on-demand|terminal a"
+   },
+   {
+    "asset": "/_next/static/chunks/95880-ab851d6dfc85f1c8.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "provides d\"},{\"id\":\"plugin-1735467690\",\"name\":\"Solana Token Portfolio Tracker\",\"identifier\":\"rest_api\",\"category\":\"web3\""
+   },
+   {
+    "asset": "/_next/static/chunks/app/settings/page-962905a9134bfa30.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "{file:\"icon-listing.png\",label:\"Organisation listing\",role:\"Portfolio Plugin operations listPortfolioCompanies / getPort"
+   },
+   {
+    "asset": "/_next/static/chunks/app/settings/page-962905a9134bfa30.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "e/i.test(t)?\"news-sentiment\":/list|companies|company|search|portfolio|signal/i.test(t)?\"org-listing\":/compare|synergy/i."
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "and UAE Data Office and incorporates the digital government portfolio of the Telecommunications and Digital Government R"
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "-establishing\"},{\"d\":\"2020-07\",\"e\":\"Al Olama\\'s ministerial portfolio was expanded to include Digital Economy and Remote"
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ficer around June 2025 [1][6]. G42 describes Inception as a portfolio company and announced its (In)Business Procurement"
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": " gas, and it remains a standalone company within Presight’s portfolio. [1][2] AIQ announced a $340 million, three-year A"
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ts-suspended-mgx-backed-consortium-eyes-another-data-center-portfolio-mubadala-eyes-stake-in-italian-turbine-maker/\",\"t\""
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ts-suspended-mgx-backed-consortium-eyes-another-data-center-portfolio-mubadala-eyes-stake-in-italian-turbine-maker/\"},{\""
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ing AI and other advanced-technology fields. [1] Its Falcon portfolio includes foundation, reasoning, Arabic-language, m"
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ence\"},{\"h\":\"MGX-backed consortium eyes another data-center portfolio\",\"d\":\"2026-09-25\",\"u\":\"https://enterpriseam.com/ua"
+   },
+   {
+    "asset": "/_next/static/chunks/app/chat/page-de3b1f4647f7915d.js",
+    "rx": "/\\bportfolio\\b/i",
+    "ctx": "ts-suspended-mgx-backed-consortium-eyes-another-data-center-portfolio-mubadala-eyes-stake-in-italian-turbine-maker/\",\"p\""
+   },
+   {
+    "asset": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+    "rx": "/\\bnavy\\b/i",
+    "ctx": "etRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+   },
+   {
+    "asset": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+    "rx": "/\\bnavy\\b/i",
+    "ctx": "etRed|MidnightBlue|MintCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+   },
+   {
+    "asset": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+    "rx": "/\\bgold\\b/i",
+    "ctx": "eBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+   },
+   {
+    "asset": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+    "rx": "/\\bgold\\b/i",
+    "ctx": "eBrick|FloralWhite|ForestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+   },
+   {
+    "asset": "/_next/static/chunks/7820.e199472f6386cfc0.js",
+    "rx": "/\\bnavy\\b/i",
+    "ctx": "\",mistyrose:\"ffe4e1\",moccasin:\"ffe4b5\",navajowhite:\"ffdead\",navy:\"000080\",oldlace:\"fdf5e6\",olive:\"808000\",olivedrab:\"6b8"
+   },
+   {
+    "asset": "/_next/static/chunks/7820.e199472f6386cfc0.js",
+    "rx": "/\\bgold\\b/i",
+    "ctx": "28b22\",fuchsia:\"f0f\",gainsboro:\"dcdcdc\",ghostwhite:\"f8f8ff\",gold:\"ffd700\",goldenrod:\"daa520\",gray:\"808080\",green:\"008000"
+   }
+  ]
+ },
+ "routes": [
+  {
+   "route": "/overview",
+   "vp": "1440x900",
+   "checked": 283,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/watchlist",
+   "vp": "1440x900",
+   "checked": 1050,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 7,
+   "worst": []
+  },
+  {
+   "route": "/watchlist/tii",
+   "vp": "1440x900",
+   "checked": 326,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 1,
+   "worst": []
+  },
+  {
+   "route": "/watchlist/compare?ids=g42,edge,tii",
+   "vp": "1440x900",
+   "checked": 107,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/sentiment",
+   "vp": "1440x900",
+   "checked": 187,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/news",
+   "vp": "1440x900",
+   "checked": 841,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 2,
+   "worst": []
+  },
+  {
+   "route": "/radar",
+   "vp": "1440x900",
+   "checked": 548,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/graph",
+   "vp": "1440x900",
+   "checked": 65,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/chat",
+   "vp": "1440x900",
+   "checked": 250,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/briefing",
+   "vp": "1440x900",
+   "checked": 134,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/methodology",
+   "vp": "1440x900",
+   "checked": 99,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/settings",
+   "vp": "1440x900",
+   "checked": 307,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/artifacts",
+   "vp": "1440x900",
+   "checked": 58,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/overview",
+   "vp": "390x844",
+   "checked": 260,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/watchlist",
+   "vp": "390x844",
+   "checked": 977,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 7,
+   "worst": []
+  },
+  {
+   "route": "/watchlist/tii",
+   "vp": "390x844",
+   "checked": 302,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 1,
+   "worst": []
+  },
+  {
+   "route": "/watchlist/compare?ids=g42,edge,tii",
+   "vp": "390x844",
+   "checked": 81,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/sentiment",
+   "vp": "390x844",
+   "checked": 164,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/news",
+   "vp": "390x844",
+   "checked": 818,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 2,
+   "worst": []
+  },
+  {
+   "route": "/radar",
+   "vp": "390x844",
+   "checked": 525,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/graph",
+   "vp": "390x844",
+   "checked": 42,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/chat",
+   "vp": "390x844",
+   "checked": 234,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/briefing",
+   "vp": "390x844",
+   "checked": 111,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/methodology",
+   "vp": "390x844",
+   "checked": 76,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/settings",
+   "vp": "390x844",
+   "checked": 284,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  },
+  {
+   "route": "/artifacts",
+   "vp": "390x844",
+   "checked": 35,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "domHits": 0,
+   "worst": []
+  }
+ ],
+ "finished": "2026-10-21T21:17:25.318Z"
+}

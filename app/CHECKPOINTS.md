@@ -91,3 +91,24 @@
 | 2026-10-21T14:24:53Z | Live POST /api/chat on the preview: HTTP 200, 14.4 s, ondemand.coverage web=unavailable reason=upstream, answer streamed; health.web_research backoff 1 min |
 | 2026-10-21T14:24–14:26Z | After-sweep on the preview: 8,164 nodes / 0 genuine · h-scroll 26/26 · residue 0; ui-validator /chat + /briefing ×2 vp green |
 | 2026-10-21T14:27Z | Docs/state updated in place (QA_REPORT, MISSION_STATE(.json), NEXT_ACTIONS, API_HEALTH, RESEARCH_COVERAGE, CHECKPOINTS); final docs commit + push |
+| 2026-10-21T20:44:55Z | Cycle 6 start: `git fetch` → HEAD 3a07efb unchanged; main be3f7c1; tags verified |
+| 2026-10-21T20:46:03Z | Tag `uae-qa6-pre-20261021T20Z` → 3a07efb pushed |
+| 2026-10-21T20:50:08Z | Vercel Protection Bypass for Automation secret created via REST (protectionBypass 0→1); 20:50:19Z /health 200 with header on dpl_9aTL… (ondemand_key:false) |
+| 2026-10-21T20:52:45Z | Direct Perplexity probe (session 6ad92611…): "news lookup failed due to insufficient credits" |
+| 2026-10-21T21:00:30–21:00:59Z | Before-screenshots (12) from sb-1rpldsghtcd5 (3a07efb); 21:16–21:17Z baseline sweep 8,164 nodes / 0 genuine, h-scroll 26/26 |
+| 2026-10-21T21:13:17–21:14:01Z | POST /api/chat probes on 3a07efb: 200 reason=upstream then 200 reason=backoff (nextRetry 21:29:29Z) |
+| 2026-10-21T21:16:53Z | Lane D commit 3f36842 (Whiteshield reconcile, news 107, radar 13) |
+| 2026-10-21T21:17:08Z | Lanes E/F commit 978be46 (API_HEALTH §G cycle-6 + Vercel state) |
+| 2026-10-21T21:34:24Z | Lane B commit 3315f90 (inspector Plan/Run evidence, 5 PNG) |
+| 2026-10-21T21:39:58Z | Lane C commit e0c3d4b (payload HTTPS fix 14/14, stale/thinking 10/10, never-run 4/4, tests residue 0); pushed 21:40:11Z → Vercel build READY 21:40:17Z |
+| 2026-10-21T21:45:35Z | Sandbox sbx_F6RtiRxRW8LXWX46poK7aFU2F4FK created (https://sb-1p1cmfeo08vc.vercel.run), npm ci 21:46:07Z |
+| 2026-10-21T21:53:37Z | Lane A commit 1c2953c (colour pass 815→4); pushed 21:53:41Z → Vercel build READY 21:53:48Z |
+| 2026-10-21T21:54:09–21:55:30Z | Sandbox: tsc 0, build 0 ('ai' warning), /health 200 serving 1c2953c |
+| 2026-10-21T21:56:33–21:56:57Z | After-screenshots (12); ui-validator /sentiment after-pass green; after-sweep 8,226 / 10 genuine (chip-score) |
+| 2026-10-21T21:56:45–22:03:53Z | 84-check 83/84 on 1c2953c (agent4 q3@1440 no citations; rerun 14/14 22:04–22:07Z) |
+| 2026-10-21T21:57:06–22:23:57Z | Full Playwright 199: 157 pass / 17 fail / 25 env-skip / 0 not-run; payload HTTPS 14/14; qa-final 4/4 |
+| 2026-10-21T21:59:23Z | Commit 7c860b7 (chip-score #5D5D5D; 'Portfolio Plugin' wording retired) |
+| 2026-10-21T22:08:03–22:11:10Z | Payload gate local HTTP :5190 14/14 |
+| 2026-10-21T22:36:31–22:38:02Z | Sandbox rebuilt with 7c860b7 (BUILD_ID gO-aM2HBEj9kkpYC_QpKs), CSS verified #5D5D5D |
+| 2026-10-21T22:38:20–22:40Z | Post-fix: a11y chat + axe-sweep /chat 4/4; sweep 8,226 nodes / 0 genuine; h-scroll 26/26; residual-scan 0 in src/DOM/network |
+| 2026-10-21T22:45Z | Docs/state updated in place (QA_REPORT, MISSION_STATE(.json), NEXT_ACTIONS, API_HEALTH, RESEARCH_COVERAGE, CHECKPOINTS); final docs commit + push |

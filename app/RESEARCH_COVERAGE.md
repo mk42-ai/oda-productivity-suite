@@ -40,6 +40,8 @@ Validation: JSON parse ok (4 files); `npx tsc --noEmit` exit 0; graph.json untou
 
 ---
 
+Cycle-6 close note (22:45Z): data edits above shipped in 3f36842; `/health` on the new sandbox reports orgs 50 · news 107 · edges 165 · sentiment 196. Coverage unchanged at 73.7 % (withVerifiedSource 45 / highConfidence 35). Open research items: Permus/Myndlab launch URL (publisher "source pending", url_verified false), Whiteshield staff_range/offices sources, Derq fields still 'unavailable'.
+
 # RESEARCH_COVERAGE — namespace uae_cc_v1 (as of 2026-10-21)
 Organisations: **50** (12 government, 20 company, 14 subsidiary, 2 research centre, 2 university). Mean field coverage **73.7%** (11 fields: website, hq, founded, ownership, leadership, ai_focus, technologies, timeline, related, briefing, sources). With ≥1 verified source URL: **45/50**. Confidence ≥75%: **35**.
 Excluded: Lucidya (Riyadh HQ, no verified UAE operations); "AIREV / airev.aero / Rani Plaut" (different entity).

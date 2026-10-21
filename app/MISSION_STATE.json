@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-21T14:27:30Z",
+ "updated_at": "2026-10-21T22:45:00Z",
  "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
  "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
  "original": {
@@ -220,7 +220,7 @@
   "residue_hits": 0,
   "screenshots_dir": "app/proof/qa-20261021"
  },
- "preview_url": "https://sb-2pnr5jjv61vv.vercel.run",
+ "preview_url": "https://sb-1p1cmfeo08vc.vercel.run",
  "ui_restyle_20261021": {
   "theme": "white-first neutral (ChatGPT-like)",
   "fallback_tag": "uae-navy-gold-fallback-20261021",
@@ -543,6 +543,145 @@
     "8901901",
     "2ce7426"
    ]
+  },
+  "qa_cycle6": {
+   "resumed_at": "2026-10-21T20:44:41Z",
+   "base_sha": "3a07efbfac428dc5a1fe86c13e07059984bcecbc",
+   "origin_delta_since_3a07efb": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa6-pre-20261021T20Z",
+    "target": "3a07efb",
+    "tag_object": "e848f65",
+    "pushed_at": "2026-10-21T20:46:03Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-21T22:45:00Z",
+   "preview_url": "https://sb-1p1cmfeo08vc.vercel.run",
+   "sandbox_id": "sbx_F6RtiRxRW8LXWX46poK7aFU2F4FK",
+   "sandbox_created_at": "2026-10-21T21:45:35Z",
+   "served_commit": "7c860b7 (1c2953c from 21:55:30Z, rebuilt 22:37:32Z)",
+   "commits": [
+    {
+     "sha": "3f36842",
+     "at": "2026-10-21T21:16:53Z",
+     "lane": "D"
+    },
+    {
+     "sha": "978be46",
+     "at": "2026-10-21T21:17:08Z",
+     "lane": "E/F"
+    },
+    {
+     "sha": "3315f90",
+     "at": "2026-10-21T21:34:24Z",
+     "lane": "B"
+    },
+    {
+     "sha": "e0c3d4b",
+     "at": "2026-10-21T21:39:58Z",
+     "lane": "C"
+    },
+    {
+     "sha": "1c2953c",
+     "at": "2026-10-21T21:53:37Z",
+     "lane": "A"
+    },
+    {
+     "sha": "7c860b7",
+     "at": "2026-10-21T21:59:23Z",
+     "lane": "coordinator fix"
+    }
+   ],
+   "pushes": [
+    "2026-10-21T21:40:11Z",
+    "2026-10-21T21:53:41Z"
+   ],
+   "laneA": {
+    "offramp_before": 815,
+    "offramp_after": 4,
+    "remaining": "html.dark tokens.css:204-205,227-228",
+    "sentiment_ramp": {
+     "Optimists": "#0D0D0D",
+     "Pragmatists": "#2F2F2F",
+     "Safety Advocates": "#5D5D5D",
+     "Neutral/Informational": "#737373",
+     "Skeptics": "#A3A3A3",
+     "Disruption Concerned": "#B4B4B4",
+     "Pessimists/Doomers": "#D4D4D4",
+     "Unclassified": "#ECECEC"
+    },
+    "confidence_as_opacity": "0.25+0.6*conf"
+   },
+   "laneB": {
+    "tabs": "Plan/Run literal role=tab since aaaa6e0",
+    "inspector_px": 360,
+    "sheet_px_390": [
+     390,
+     717
+    ],
+    "screenshots": 5
+   },
+   "laneC": {
+    "payload_https": "14/14",
+    "payload_local": "14/14",
+    "stale5": "5/5",
+    "thinking5": "5/5",
+    "never_run4": "4/4",
+    "tests_residue": 0,
+    "open_app_bug": "run-panel-mobile .oiu-cite__preview overflow @390 (intermittent)"
+   },
+   "laneD": {
+    "lucidya": "absent",
+    "whiteshield": "reconciled",
+    "news": 107,
+    "radar": 13,
+    "coverage_before": 0.737,
+    "coverage_after": 0.737
+   },
+   "laneE": {
+    "perplexity_credits_restored": false,
+    "direct_probe_at": "2026-10-21T20:52:45Z",
+    "app_probe": "200 reason=upstream then backoff"
+   },
+   "laneF": {
+    "env_vars": 0,
+    "protection_bypass_created_at": "2026-10-21T20:50:08Z",
+    "bypass_verified": "/health 200 with header",
+    "vercel_builds": {
+     "e0c3d4b": "READY 21:40:17Z",
+     "1c2953c": "READY 21:53:48Z"
+    }
+   },
+   "gates": {
+    "suite84": "83/84",
+    "contrast": {
+     "nodes": 8226,
+     "genuine_after_1c2953c": 10,
+     "genuine_after_7c860b7": 0
+    },
+    "hscroll": "26/26",
+    "residue": {
+     "brand": 0,
+     "dom_portfolio_prose": 20
+    },
+    "tsc": 0,
+    "build": 0,
+    "build_warning": "Module not found: Can't resolve 'ai'",
+    "playwright": {
+     "listed": 199,
+     "pass": 157,
+     "fail": 17,
+     "env_skip": 25,
+     "not_run": 0,
+     "hard_fail_after_rerun": 13,
+     "classes": {
+      "upstream_perplexity": 3,
+      "stale_spec": 3,
+      "app_bug_fixed_7c860b7": 3,
+      "environment": 4
+     }
+    }
+   }
   }
  }
 }
