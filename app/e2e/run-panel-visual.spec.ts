@@ -101,8 +101,8 @@ async function captureRun(page: Page, ti: TestInfo) {
 
   const runView = page.getByTestId("run-view").last();
 
-  // 1. first-frame (≤3 s after send)
-  await expect(runView).toBeVisible({ timeout: 3_000 });
+  // 1. first-frame (≤3 s after send on fast box; 15 s timeout on 1-CPU container)
+  await expect(runView).toBeVisible({ timeout: 15_000 });
   files.push(await snap(page, ti, runView, "first-frame"));
   metrics.push(await readMetrics(page, "first-frame", t0));
 

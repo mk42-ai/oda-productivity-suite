@@ -26,7 +26,7 @@ import { MERGED_LIST_CAP, PINNED_PLUGIN_ID } from "../src/lib/plugin-catalogue";
  */
 const VIEWPORT = (process.env.PW_VIEWPORT ?? "1440x900").split("x").map(Number) as [number, number];
 const VP = `${VIEWPORT[0]}x${VIEWPORT[1]}`;
-const OUT = path.resolve(__dirname, "..", "qa", "2026-10-21-cycle4", "laneA");
+const OUT = process.env.PAYLOAD_OUT ? path.resolve(process.env.PAYLOAD_OUT) : path.resolve(__dirname, "..", "qa", "2026-10-21-cycle4", "laneA"); // PAYLOAD_OUT: per-cycle evidence dir (cycle 5+)
 fs.mkdirSync(OUT, { recursive: true });
 const RESULTS = path.join(OUT, "pass2-results.jsonl");
 const record = (row: Record<string, unknown>) => fs.appendFileSync(RESULTS, JSON.stringify({ viewport: VP, utc: new Date().toISOString(), ...row }) + "\n");

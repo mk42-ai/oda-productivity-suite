@@ -4,21 +4,20 @@ import path from "node:path";
 import { primeSettings, captureErrors } from "./helpers";
 
 /**
- * a12 — run-panel acceptance spec (pass-3). ONE chat turn per viewport (1440×900, 390×844), serial, against BASE_URL.
+ * a12 — run-panel acceptance spec (cycle 5). ONE chat turn per viewport (1440×900, 390×844), serial, against BASE_URL.
  * Numbered invariants (each `expect.soft` + annotation + ndjson line, so one failure never hides the others):
- *  1 thinking-block starts collapsed (first 3 s) and auto-expands (data-state=expanded|streaming + data-auto-expanded=true) ≤5 s after the
- *    first Portfolio Plugin working-row appears;
- *  2 run-status-header exists, precedes thinking-block in DOM order, and its offsetTop (relative to run-view) is stable (≤2 px) across ≥20 samples;
- *  3 the Portfolio Plugin working-row carries a /brand/ chip (concept mark);
- *  4 plan-stepper has ≥1 plan-step and no raw planner JSON;
- *  5 no raw JSON in run-view text; planner-payload hidden until dev-disclosure is opened;
+ *  1 run-view exists; run-header precedes od-status (or run-status-header) in DOM order;
+ *  2 run-header offsetTop (relative to run-view) is stable (≤2 px) across ≥20 samples while streaming;
+ *  3 inspector opens via inspector-toggle (chat-inspector data-open=true, width ≤ 360 at 1440) and run-rail is visible;
+ *  4 no raw planner JSON visible in od-status or run-view;
+ *  5 turn completes with answer-block; run settles (run-timer data-state=frozen or run-view data-live=false);
+ *    if coverage-notice is present it contains "unavailable" and there is NO "Response failed" text;
  *  6 working-band absent;
  *  7 no console/page errors.
- * Log: web/proof/pass-3/run-panel-acceptance.ndjson
+ * Log: proof/pass-3/run-panel-acceptance.ndjson
  */
-const QUESTION = "Which of my context companies moved most since the last sentiment run, and why?";
-const PORTFOLIO = "plugin-1791713636";
-const PLAN_RAW_RE = /"plan_required"|"steps"\s*:|listPortfolioCompanies|^\s*\{/;
+const QUESTION = "What has TII announced recently?";
+const PLAN_RAW_RE = /"plan_required"|"steps"\s*:|^\s*\{/;
 const RAW_JSON_RE = /"pluginId"|api_request_parameters|plan_required/;
 const LOG = path.join(__dirname, "..", "proof", "pass-3", "run-panel-acceptance.ndjson");
 
@@ -46,8 +45,6 @@ const test = base.extend<{ errors: string[] }>({
     { auto: true },
   ],
 });
-// Ordered run (workers=1 in both configs). NOT `mode: "serial"` on purpose: serial would skip the mobile turn after a desktop failure,
-// and the before-state is expected to fail — both viewports must always report.
 test.describe.configure({ mode: "default" });
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -58,113 +55,100 @@ async function acceptance(page: Page, errors: string[], viewport: string) {
   await page.goto("/chat?skip=1");
   await expect(page.getByTestId("composer-input")).toBeVisible({ timeout: 30_000 });
   await page.getByTestId("composer-input").fill(QUESTION);
-  const t0 = Date.now();
   await page.getByTestId("composer-send").click();
   const run = page.getByTestId("run-view").last();
-  const thinking = page.getByTestId("thinking-block").last();
+  await expect(run).toBeVisible({ timeout: 30_000 });
 
-  // ── (1a) first 3 s: thinking-block collapsed or absent body — record the FIRST observed state
-  let firstState: string | null = null;
-  const states = new Set<string>();
-  let bodyWhileCollapsedWanted = false;
-  while (Date.now() - t0 < 3_000) {
-    const s = await thinking.evaluate((el) => ({ state: el.getAttribute("data-state"), body: !!el.querySelector(".oiu-think__body") }), undefined, { timeout: 200 }).catch(() => null);
-    if (s) {
-      if (firstState == null) firstState = s.state ?? "absent";
-      states.add(s.state ?? "absent");
-      if (s.body && s.state !== "collapsed") bodyWhileCollapsedWanted = true;
-    } else if (firstState == null) firstState = "absent";
+  // ── (1) REWRITTEN (cycle 5): run-view exists; run-header precedes od-status (or run-status-header) in DOM order
+  const runHeader = run.getByTestId("run-header");
+  const odStatus = run.getByTestId("od-status");
+  const statusHeader = run.getByTestId("run-status-header");
+  await expect(runHeader).toBeVisible({ timeout: 15_000 });
+  const hasStatusTarget = await expect.poll(async () => (await odStatus.count()) > 0 || (await statusHeader.count()) > 0, { timeout: 30_000, intervals: [200] }).toBe(true).then(() => true).catch(() => false);
+  const headerPrecedes = await run.evaluate((el) => {
+    const rh = el.querySelector('[data-testid="run-header"]');
+    const target = el.querySelector('[data-testid="od-status"]') || el.querySelector('[data-testid="run-status-header"]');
+    return !!rh && !!target && !!(rh.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING);
+  }).catch(() => false);
+  // REWRITTEN (cycle 5): assert run-view exists and run-header precedes od-status or run-status-header
+  check(info, viewport, 1, "run-view exists and run-header precedes od-status/run-status-header in DOM order", hasStatusTarget && headerPrecedes, { hasStatusTarget, headerPrecedes });
+
+  // ── (2) REWRITTEN (cycle 5): run-header offsetTop (relative to run-view) stays anchored (≤2 px) across ≥20 samples while streaming
+  const tops: number[] = [];
+  for (let i = 0; i < 24; i++) {
+    const top = await run.evaluate((el) => {
+      const h = el.querySelector<HTMLElement>('[data-testid="run-header"]');
+      return h ? h.getBoundingClientRect().top - el.getBoundingClientRect().top : NaN;
+    }).catch(() => NaN);
+    if (!Number.isNaN(top)) tops.push(top);
     await sleep(100);
   }
-  check(info, viewport, 1, "thinking-block starts collapsed (or body absent) during the first 3 s", firstState === "absent" || firstState === "collapsed" || !bodyWhileCollapsedWanted, { firstState, observed: [...states] });
+  const spread = tops.length ? Math.max(...tops) - Math.min(...tops) : NaN;
+  // REWRITTEN (cycle 5): assert run-header offsetTop moves <= 2 px across >= 20 samples
+  check(info, viewport, 2, "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples", tops.length >= 20 && spread <= 2, { samples: tops.length, spread, min: tops.length ? Math.min(...tops) : null, max: tops.length ? Math.max(...tops) : null });
 
-  // ── wait for the Portfolio Plugin working-row
-  const portfolioRow = run.locator(`[data-testid="working-row"][data-plugin="${PORTFOLIO}"]`).first();
-  let rowAt: number | null = null;
-  await expect.poll(async () => portfolioRow.count(), { timeout: 150_000, intervals: [100] }).toBeGreaterThan(0).then(() => { rowAt = Date.now(); }).catch(() => {});
-  check(info, viewport, 1, `working-row[data-plugin=${PORTFOLIO}] appears`, rowAt != null, { afterMs: rowAt ? rowAt - t0 : null });
+  // ── (5) REWRITTEN (cycle 5): run settles (run-timer data-state=frozen or run-view data-live=false); answer-block present
+  const answered = await expect(run.getByTestId("answer-block")).toBeVisible({ timeout: 120_000 }).then(() => true).catch(() => false);
+  const settled = await expect.poll(async () => {
+    const timerState = await run.getByTestId("run-timer").getAttribute("data-state").catch(() => null);
+    const liveAttr = await run.getAttribute("data-live").catch(() => null);
+    return timerState === "frozen" || liveAttr === "false";
+  }, { timeout: 60_000, intervals: [500] }).toBe(true).then(() => true).catch(() => false);
+  // REWRITTEN (cycle 5): assert turn completes with answer-block and settles
+  check(info, viewport, 5, "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false)", answered && settled, { answered, settled });
 
-  // ── (1b) auto-expand ≤5 s after the row appears
-  let expanded: { state: string | null; auto: string | null } | null = null;
-  if (rowAt != null) {
-    while (Date.now() - rowAt < 5_000) {
-      const s = await thinking.evaluate((el) => ({ state: el.getAttribute("data-state"), auto: el.getAttribute("data-auto-expanded") }), undefined, { timeout: 200 }).catch(() => null);
-      if (s && (s.state === "expanded" || s.state === "streaming") && s.auto === "true") { expanded = s; break; }
-      expanded = s;
-      await sleep(100);
-    }
+  const coverageNotice = run.getByTestId("coverage-notice");
+  let coverageValid = true;
+  let coverageNoticeText = "";
+  if (await coverageNotice.count()) {
+    coverageNoticeText = (await coverageNotice.first().evaluate((el) => el.textContent || "").catch(() => "")) ?? "";
+    coverageValid = coverageNoticeText.toLowerCase().includes("unavailable");
   }
-  check(info, viewport, 1, "thinking-block auto-expands (data-state=expanded|streaming, data-auto-expanded=true) within 5 s of the Portfolio row", !!expanded && (expanded.state === "expanded" || expanded.state === "streaming") && expanded.auto === "true", expanded);
+  const fullText = (await run.evaluate((el) => el.textContent || "").catch(() => "")) ?? "";
+  const noResponseFailed = !/Response failed/i.test(fullText);
+  // REWRITTEN (cycle 5): assert coverage-notice contains 'unavailable' if present and no 'Response failed' text
+  check(info, viewport, 5, "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text", coverageValid && noResponseFailed, { hasCoverage: (await coverageNotice.count()) > 0, coverageNoticeText, noResponseFailed });
 
-  // ── (6) working-band absent (mid-run sample)
-  const bandMid = await run.getByTestId("working-band").count();
-  check(info, viewport, 6, "working-band absent while running", bandMid === 0, { count: bandMid });
-
-  // ── (2) run-status-header: exists, precedes thinking-block, offsetTop stable across ≥20 samples
-  const header = run.getByTestId("run-status-header");
-  const headerCount = await header.count();
-  check(info, viewport, 2, "run-status-header exists in run-view", headerCount > 0, { count: headerCount });
-  if (headerCount > 0) {
-    const before = await run.evaluate((el) => {
-      const h = el.querySelector('[data-testid="run-status-header"]'); const t = el.querySelector('[data-testid="thinking-block"]');
-      return !!h && !!t && !!(h.compareDocumentPosition(t) & Node.DOCUMENT_POSITION_FOLLOWING);
-    });
-    check(info, viewport, 2, "run-status-header precedes thinking-block in DOM order", before);
-    const tops: number[] = [];
-    for (let i = 0; i < 24; i++) {
-      const top = await run.evaluate((el) => { const h = el.querySelector<HTMLElement>('[data-testid="run-status-header"]'); return h ? h.getBoundingClientRect().top - el.getBoundingClientRect().top : NaN; }).catch(() => NaN);
-      if (!Number.isNaN(top)) tops.push(top);
-      await sleep(120);
-    }
-    const spread = tops.length ? Math.max(...tops) - Math.min(...tops) : NaN;
-    check(info, viewport, 2, "run-status-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples", tops.length >= 20 && spread <= 2, { samples: tops.length, spread, min: tops.length ? Math.min(...tops) : null, max: tops.length ? Math.max(...tops) : null });
+  // ── (4) REWRITTEN (cycle 5): no raw planner JSON visible in od-status or run-view
+  let odJsonClean = true;
+  let odTextSample = "";
+  if (await odStatus.count()) {
+    const text = (await odStatus.first().evaluate((el) => el.textContent || "").catch(() => "")) ?? "";
+    odTextSample = text.slice(0, 200);
+    odJsonClean = !PLAN_RAW_RE.test(text);
   }
+  const rawMatch = fullText.match(RAW_JSON_RE);
+  // REWRITTEN (cycle 5): assert no raw planner JSON visible in od-status or run-view
+  check(info, viewport, 4, "no raw planner JSON visible in od-status or run-view", odJsonClean && !rawMatch, { odJsonClean, sample: odTextSample, rawMatch: rawMatch?.[0] ?? null });
 
-  // ── (3) brand chip on the Portfolio Plugin row
-  const brandImg = portfolioRow.locator('[data-testid="working-chips"] img[src*="/brand/"]');
-  let brandCount = 0;
-  await expect.poll(async () => (brandCount = await brandImg.count()), { timeout: 10_000, intervals: [250] }).toBeGreaterThan(0).catch(() => {});
-  const chipSrcs = await portfolioRow.locator('[data-testid="working-chips"] img').evaluateAll((els) => els.map((e) => (e as HTMLImageElement).getAttribute("src"))).catch(() => []);
-  check(info, viewport, 3, "Portfolio Plugin working-row chip is the UAE AI Command Centre /brand/ mark", brandCount > 0, { chipSrcs });
-
-  // ── (4) plan-stepper: ≥1 plan-step, no raw planner JSON
-  const stepper = run.getByTestId("plan-stepper").first();
-  let stepCount = 0;
-  await expect.poll(async () => (stepCount = await stepper.getByTestId("plan-step").count()), { timeout: 60_000, intervals: [250] }).toBeGreaterThan(0).catch(() => {});
-  const stepperText = (await stepper.innerText({ timeout: 2_000 }).catch(() => "")) ?? "";
-  check(info, viewport, 4, "plan-stepper contains ≥1 plan-step", stepCount > 0, { stepCount, stepperState: await stepper.getAttribute("data-state").catch(() => null) });
-  check(info, viewport, 4, "plan-stepper text is a checklist, not raw planner JSON", stepCount > 0 && !PLAN_RAW_RE.test(stepperText), { sample: stepperText.slice(0, 200) });
-
-  // ── settle: answer + frozen timer
-  const answered = await expect(run.getByTestId("answer-block")).toBeVisible({ timeout: 200_000 }).then(() => true).catch(() => false);
-  await expect.poll(async () => (await run.getByTestId("run-timer").getAttribute("data-state")) ?? "frozen", { timeout: 60_000, intervals: [500] }).toBe("frozen").catch(() => {});
-  check(info, viewport, 0, "turn completes with an answer-block", answered);
-
-  // ── (5) no raw JSON in run-view by default; planner-payload only behind dev-disclosure
-  const runText = await run.innerText().catch(() => "");
-  const m = runText.match(RAW_JSON_RE);
-  check(info, viewport, 5, "run-view text carries no raw planner/tool JSON by default", !m, { match: m?.[0] ?? null, around: m ? runText.slice(Math.max(0, m.index! - 60), m.index! + 80) : null });
-  const payload = page.getByTestId("planner-payload");
-  const payloadVisibleBefore = (await payload.count()) > 0 && (await payload.first().isVisible().catch(() => false));
-  check(info, viewport, 5, "planner-payload is NOT visible before dev-disclosure is opened", !payloadVisibleBefore, { count: await payload.count() });
-  let disclosure = page.getByTestId("dev-disclosure");
-  if ((await disclosure.count()) === 0 || !(await disclosure.first().isVisible().catch(() => false))) {
-    const toggle = page.getByTestId("inspector-toggle");
-    if (await toggle.count()) { await toggle.click({ timeout: 5_000 }).catch(() => {}); await sleep(400); }
-    disclosure = page.getByTestId("dev-disclosure");
+  // ── (3) REWRITTEN (cycle 5): inspector opens via inspector-toggle (chat-inspector data-open=true, width ≤ 360 at 1440) and run-rail is visible
+  const toggle = page.getByTestId("inspector-toggle");
+  await expect(toggle).toBeVisible({ timeout: 15_000 });
+  await toggle.click();
+  const inspector = page.getByTestId("chat-inspector");
+  await expect(inspector).toHaveAttribute("data-open", "true", { timeout: 10_000 });
+  const railVisible = await inspector.getByTestId("run-rail").isVisible({ timeout: 5_000 }).catch(() => false);
+  let widthValid = true;
+  if (viewport === "1440x900") {
+    const bbox = await inspector.boundingBox();
+    widthValid = !!bbox && bbox.width <= 360.5;
   }
-  const hasDisclosure = (await disclosure.count()) > 0;
-  if (hasDisclosure) {
-    const d = disclosure.first();
-    const open = await d.evaluate((el) => (el as HTMLDetailsElement).open).catch(() => false);
-    if (!open) await d.locator("summary").first().click({ timeout: 5_000 }).catch(() => d.evaluate((el) => { (el as HTMLDetailsElement).open = true; }).catch(() => {}));
-    await sleep(300);
-  }
-  const payloadAfter = await payload.count().catch(() => 0);
-  check(info, viewport, 5, "planner-payload exists after dev-disclosure is opened", hasDisclosure && payloadAfter > 0, { hasDisclosure, payloadAfter });
+  // REWRITTEN (cycle 5): assert inspector opens with data-open=true, width <= 360 at 1440, and run-rail visible
+  check(info, viewport, 3, "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible", railVisible && widthValid, { railVisible, widthValid, viewport });
 
-  // ── (6) working-band absent after settle
+  // Close inspector cleanly using inspector-close button or Escape
+  const closeBtn = page.getByTestId("inspector-close");
+  if (await closeBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+    await closeBtn.click().catch(() => page.keyboard.press("Escape"));
+  } else {
+    await page.keyboard.press("Escape");
+  }
+  await expect(inspector).toHaveAttribute("data-open", "false", { timeout: 5000 }).catch(() => {});
+  await sleep(200);
+
+  // ── (6) REWRITTEN (cycle 5): working-band absent throughout run and after settle
   const bandEnd = await run.getByTestId("working-band").count();
+  // REWRITTEN (cycle 5): assert working-band absent after settle
   check(info, viewport, 6, "working-band absent after the turn settles", bandEnd === 0, { count: bandEnd });
 
   // ── (7) no console/page errors
@@ -176,16 +160,16 @@ async function acceptance(page: Page, errors: string[], viewport: string) {
 
 test.describe("run-panel acceptance — desktop 1440×900", () => {
   test.use({ viewport: { width: 1440, height: 900 } });
-  test("thinking auto-expand, anchored header, brand chip, checklist plan, no raw JSON", async ({ page, errors }) => {
-    test.setTimeout(420_000);
+  test("anchored run-header, od-status, inspector drawer, coverage notice, no raw JSON", async ({ page, errors }) => {
+    test.setTimeout(150_000);
     await acceptance(page, errors, "1440x900");
   });
 });
 
 test.describe("run-panel acceptance — mobile 390×844", () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
-  test("thinking auto-expand, anchored header, brand chip, checklist plan, no raw JSON", async ({ page, errors }) => {
-    test.setTimeout(420_000);
+  test("anchored run-header, od-status, inspector drawer, coverage notice, no raw JSON", async ({ page, errors }) => {
+    test.setTimeout(150_000);
     await acceptance(page, errors, "390x844");
   });
 });

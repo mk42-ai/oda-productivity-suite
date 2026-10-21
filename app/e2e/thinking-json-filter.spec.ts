@@ -25,15 +25,33 @@ function filterChecks() {
   test.skip(!hasKey() && !process.env.BASE_URL, "needs a live BASE_URL");
   test("Thinking body has no planner JSON; planner-payload lives only in dev-disclosure", async ({ page }) => {
     const run = await runOneTurn(page);
-    const think = run.getByTestId("thinking-block");
-    await expect(think).toBeVisible();
-    if ((await think.getAttribute("data-state")) === "collapsed") await think.locator("button.oiu-think__head").click();
-    const body = await think.locator(".oiu-think__body, .oiu-think__pre").first().innerText().catch(() => "");
-    const header = await think.locator(".oiu-think__head").innerText().catch(() => "");
-    expect(body + "\n" + header, "thinking text must not match planner JSON markers").not.toMatch(PAYLOAD_RE);
+    // RETARGETED (cycle 5, decision: OdStatusView): Thinking = od-status (ThinkingProcess + StatusLogBlock)
+    const odStatus = run.getByTestId("od-status");
+    await expect(odStatus).toBeAttached();
+
+    // If any collapsible StatusAccordion buttons are present (e.g. Thinking accordion), expand them
+    const accordions = odStatus.locator("button[aria-expanded='false']");
+    const count = await accordions.count();
+    for (let i = 0; i < count; i++) {
+      await accordions.nth(i).click().catch(() => {});
+    }
+
+    const odStatusText = await odStatus.innerText().catch(() => "");
+    // RETARGETED (cycle 5, decision: OdStatusView): od-status text contains no planner JSON markers and no raw "plan_required" / {"objective" JSON
+    expect(odStatusText, "thinking text must not match planner JSON markers").not.toMatch(PAYLOAD_RE);
+    expect(odStatusText, "od-status text never contains plan_required or raw objective JSON").not.toMatch(/"plan_required"|{"objective"/);
+
     // a6: the planner-payload disclosure lives ONLY inside the single developer reveal (run-rail dev-disclosure), never in the run view.
     await expect(run.getByTestId("planner-payload"), "no planner-payload inside the run view").toHaveCount(0);
     expect(await run.innerText(), "run view never shows raw planner JSON").not.toMatch(/"plan_required"|"user_query"\s*:/);
+
+    // RETARGETED (cycle 5, decision: OdStatusView): dev-disclosure inside run-rail in the inspector; open it via inspector-toggle
+    const drawer = page.getByTestId("chat-inspector");
+    if ((await drawer.count()) > 0 && (await drawer.getAttribute("data-open")) !== "true") {
+      const toggle = page.getByTestId("inspector-toggle");
+      if (await toggle.count()) await toggle.click();
+    }
+
     const dev = page.locator("details[data-testid=dev-disclosure]");
     if (await dev.count()) {
       await page.evaluate(() => { const d = document.querySelector<HTMLDetailsElement>("details[data-testid=dev-disclosure]"); if (d) d.open = true; });
