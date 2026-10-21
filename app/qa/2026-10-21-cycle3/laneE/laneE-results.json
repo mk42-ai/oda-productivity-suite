@@ -1,0 +1,211 @@
+{
+ "started": "2026-10-21T12:39:29.448Z",
+ "base": "http://127.0.0.1:5173",
+ "threads": [
+  {
+   "q": "In one sentence, what does Technology Innovation Institute do?",
+   "ok": true,
+   "ms": 35001,
+   "answer": "Verified facts\nTechnology Innovation Institute is Abu Dhabi’s applied-research centre under ATRC, working across AI and other advanced technologies, including i",
+   "citations": 1
+  },
+  {
+   "q": "Which UAE organisations announced new AI partnerships this month? One line.",
+   "ok": true,
+   "ms": 20438,
+   "answer": "Verified facts\nG42 announced the Stargate UAE AI-infrastructure partnership with OpenAI, Oracle, NVIDIA, SoftBank Group, and Cisco. \ng42\n1\nSource\ng42.ai\nInterpr",
+   "citations": 1
+  },
+  {
+   "q": "What is Jais 3 and who released it? One line.",
+   "ok": true,
+   "ms": 14901,
+   "answer": "Verified facts\nJais 3 is an Arabic-native AI model family released by MBZUAI’s Institute of Foundation Models and Inception42. \nmbzuai.ac\n1\nSource\nmbzuai.ac.ae\n",
+   "citations": 1
+  },
+  {
+   "q": "Summarise G42's ownership in one sentence.",
+   "ok": true,
+   "ms": 15895,
+   "answer": "Verified facts\nG42’s named owners include Mubadala, Microsoft, and Silver Lake; Microsoft’s 2024 investment was for a minority stake, while ownership percentage",
+   "citations": 2
+  },
+  {
+   "q": "What does AIREV's OnDemand platform do? One line.",
+   "ok": true,
+   "ms": 10894,
+   "answer": "AIREV’s OnDemand is an agentic-AI platform launched with Core42. \nwam\n1\nSource\nwam.ae",
+   "citations": 1
+  }
+ ],
+ "measure": {
+  "planStepperDuringRun": {
+   "count": 0,
+   "text": ""
+  },
+  "runSettled": {
+   "logsToggle": 1,
+   "planStepper": 0,
+   "runHeader": "UAE AI Command Centre\n14.9 s\n10,670 tokens"
+  },
+  "defaultOnChat1440": {
+   "rail": 64,
+   "railCollapsedAttr": "true",
+   "railState": null,
+   "threadItems": 0,
+   "threadListInsideRail": false,
+   "topbar": 52,
+   "column": 800,
+   "columnLeft": 347,
+   "columnMaxW": "800px",
+   "composerH": 50,
+   "composerRows": {
+    "h": 24,
+    "lh": "22.5px",
+    "rows": 1
+   },
+   "inspector": 360,
+   "inspectorOpen": "false",
+   "drawer": null,
+   "inner": 1440
+  },
+  "expanded1440": {
+   "rail": 224,
+   "railCollapsedAttr": "false",
+   "railState": "expanded",
+   "threadItems": 5,
+   "threadListInsideRail": true,
+   "topbar": 52,
+   "column": 800,
+   "columnLeft": 427,
+   "columnMaxW": "800px",
+   "composerH": 50,
+   "composerRows": {
+    "h": 24,
+    "lh": "22.5px",
+    "rows": 1
+   },
+   "inspector": 360,
+   "inspectorOpen": "false",
+   "drawer": null,
+   "inner": 1440
+  },
+  "collapsed1440": {
+   "rail": 64,
+   "railCollapsedAttr": "true",
+   "railState": "collapsed",
+   "threadItems": 0,
+   "threadListInsideRail": false,
+   "topbar": 52,
+   "column": 800,
+   "columnLeft": 347,
+   "columnMaxW": "800px",
+   "composerH": 50,
+   "composerRows": {
+    "h": 24,
+    "lh": "22.5px",
+    "rows": 1
+   },
+   "inspector": 360,
+   "inspectorOpen": "false",
+   "drawer": null,
+   "inner": 1440
+  },
+  "collapsedAfterReload1440": {
+   "rail": 64,
+   "railCollapsedAttr": "true",
+   "railState": "collapsed",
+   "threadItems": 0,
+   "threadListInsideRail": false,
+   "topbar": 52,
+   "column": 0,
+   "columnLeft": 0,
+   "columnMaxW": "800px",
+   "composerH": 50,
+   "composerRows": {
+    "h": 24,
+    "lh": "22.5px",
+    "rows": 1
+   },
+   "inspector": 360,
+   "inspectorOpen": "false",
+   "drawer": null,
+   "inner": 1440
+  },
+  "expandedAfterReload1440": {
+   "rail": 224,
+   "railCollapsedAttr": "false",
+   "railState": "expanded",
+   "threadItems": 5,
+   "threadListInsideRail": true,
+   "topbar": 52,
+   "column": 0,
+   "columnLeft": 0,
+   "columnMaxW": "800px",
+   "composerH": 50,
+   "composerRows": {
+    "h": 24,
+    "lh": "22.5px",
+    "rows": 1
+   },
+   "inspector": 360,
+   "inspectorOpen": "false",
+   "drawer": null,
+   "inner": 1440
+  },
+  "pageErrorsOnReload": [],
+  "inspectorOpen1440": {
+   "rail": 224,
+   "railCollapsedAttr": "false",
+   "railState": "expanded",
+   "threadItems": 5,
+   "threadListInsideRail": true,
+   "topbar": 52,
+   "column": 0,
+   "columnLeft": 0,
+   "columnMaxW": "800px",
+   "composerH": 50,
+   "composerRows": {
+    "h": 24,
+    "lh": "22.5px",
+    "rows": 1
+   },
+   "inspector": 360,
+   "inspectorOpen": "true",
+   "drawer": null,
+   "inner": 1440
+  },
+  "inspectorContent": "Inspector\nThis run\n\nGPT-5.6 Luna · reasoning medium\n\nDeveloper details\nOrganisation context\n2/5\nT\nTechnology Innovation Institute\nG42\nAdd a company\nG42\n29 news · 50 voices\nT\nTechnology Innovation Institute\n7 news · 14 voices\nModel & plugins\n\nGPT-5.6 Luna · reasoning medium\n\nPlugins (40 available · 1",
+  "reopened": {
+   "runViews": 1,
+   "planStepper": 0,
+   "answer": 1,
+   "title": "What is Jais 3 and who released it? One line.",
+   "logsOpenText": "UAE AI Command Centre\n14.0 s\n10,838 tokens\nNeeds attention\n+14.0 s\nThinking\n\n{\"title\":\"I'll identify Jais 3 and its creators.\\nI'll keep it to one line.\",\"objective\":\"I'll identify what Jais 3 is and who released it using the supplied information.\",\"plan_required\":false,\"plan_skip_reason\":\"The supplied context already contains the answer and source; no plugin execution is needed.\",\"steps\":[]}\n\nVer"
+  },
+  "mobileClosed": {
+   "inner": 390,
+   "docScroll": 390,
+   "topbar": 52,
+   "railHidden": true,
+   "composerH": 70
+  },
+  "mobileDrawer": {
+   "drawerW": 280,
+   "ariaHidden": "false",
+   "overlay": true,
+   "threadItems": 0,
+   "docScroll": 390
+  },
+  "mobileDrawerClosed": {
+   "ariaHidden": "true",
+   "overlay": false
+  },
+  "mobileInspector": {
+   "w": 390,
+   "h": 717,
+   "open": "true"
+  }
+ },
+ "finished": "2026-10-21T12:41:18.721Z"
+}

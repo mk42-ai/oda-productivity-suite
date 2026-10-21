@@ -1,0 +1,28 @@
+{
+ "base": "https://sb-60putp7mv2mi.vercel.run",
+ "at": "2026-10-21T12:44:57.415Z",
+ "focusRing_1440": {
+  "tid": "nav-watchlist",
+  "outlineColor": "rgb(37, 99, 235)",
+  "outlineWidth": "3px",
+  "transition": "background-color, color"
+ },
+ "runView_1440": {
+  "scrollWidth": 712,
+  "clientWidth": 712,
+  "docScroll": 1440,
+  "inner": 1440
+ },
+ "focusRing_390": {
+  "tid": "nav-watchlist",
+  "outlineColor": "rgb(37, 99, 235)",
+  "outlineWidth": "3px",
+  "transition": "background-color, color"
+ },
+ "runView_390": {
+  "scrollWidth": 318,
+  "clientWidth": 318,
+  "docScroll": 390,
+  "inner": 390
+ }
+}

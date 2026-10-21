@@ -1,0 +1,142 @@
+[
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q1",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "\"What has TII announced recently?\" → HTTP 200, 17354 ms, 611 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips, CHAT-ERROR shown; sources: www.khaleejtimes.com, gulfbusiness.com",
+  "ts": "2026-10-21T12:44:51.165Z",
+  "shot": "agent4-chat-c3-q1-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q3",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "\"What is driving negative sentiment about AI employment?\" → HTTP 200, 21613 ms, 700 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips, CHAT-ERROR shown; sources: mbzuai.ac.ae, gulfbusiness.com",
+  "ts": "2026-10-21T12:44:55.461Z",
+  "shot": "agent4-chat-c3-q3-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q2",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "\"Which UAE AI companies are accelerating internationally?\" → HTTP 200, 22721 ms, 1381 chars, Verified=true Interpretation=true, 4 inline links + 4 citation chips, CHAT-ERROR shown; sources: www.g42.ai, breakingdefense.com, www.middleeastainews.com",
+  "ts": "2026-10-21T12:44:56.543Z",
+  "shot": "agent4-chat-c3-q2-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q5",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "\"Which UAE organizations announced new AI partnerships this month?\" → HTTP 200, 24443 ms, 612 chars, Verified=true Interpretation=true, 1 inline links + 1 citation chips, CHAT-ERROR shown; sources: mbzuai.ac.ae",
+  "ts": "2026-10-21T12:45:01.142Z",
+  "shot": "agent4-chat-c3-q5-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q4",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "\"Compare G42, EDGE and TII's AI research activity.\" → HTTP 200, 27844 ms, 1859 chars, Verified=true Interpretation=true, 5 inline links + 5 citation chips, CHAT-ERROR shown; sources: www.tii.ae, gulfbusiness.com, www.g42.ai, www.middleeastainews.com",
+  "ts": "2026-10-21T12:45:04.359Z",
+  "shot": "agent4-chat-c3-q4-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q1",
+  "viewport": "390x844",
+  "pass": false,
+  "detail": "\"What has TII announced recently?\" → HTTP 200, 16960 ms, 636 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips, CHAT-ERROR shown; sources: www.khaleejtimes.com, gulfbusiness.com",
+  "ts": "2026-10-21T12:45:25.510Z",
+  "shot": "agent4-chat-c3-q1-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q5",
+  "viewport": "390x844",
+  "pass": false,
+  "detail": "\"Which UAE organizations announced new AI partnerships this month?\" → HTTP 200, 20828 ms, 774 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips, CHAT-ERROR shown; sources: mbzuai.ac.ae, www.eand.com",
+  "ts": "2026-10-21T12:45:29.297Z",
+  "shot": "agent4-chat-c3-q5-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q3",
+  "viewport": "390x844",
+  "pass": false,
+  "detail": "\"What is driving negative sentiment about AI employment?\" → HTTP 200, 28211 ms, 748 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips, CHAT-ERROR shown; sources: gulfbusiness.com, mbzuai.ac.ae",
+  "ts": "2026-10-21T12:45:36.808Z",
+  "shot": "agent4-chat-c3-q3-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q2",
+  "viewport": "390x844",
+  "pass": false,
+  "detail": "\"Which UAE AI companies are accelerating internationally?\" → HTTP 200, 27319 ms, 1606 chars, Verified=true Interpretation=true, 6 inline links + 6 citation chips, CHAT-ERROR shown; sources: www.g42.ai, breakingdefense.com, www.middleeastainews.com",
+  "ts": "2026-10-21T12:45:38.657Z",
+  "shot": "agent4-chat-c3-q2-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "q4",
+  "viewport": "390x844",
+  "pass": false,
+  "detail": "\"Compare G42, EDGE and TII's AI research activity.\" → HTTP 200, 34427 ms, 2634 chars, Verified=true Interpretation=true, 7 inline links + 7 citation chips, CHAT-ERROR shown; sources: www.tii.ae, gulfbusiness.com, www.khaleejtimes.com, www.g42.ai, www.middleeastainews.com",
+  "ts": "2026-10-21T12:45:45.874Z",
+  "shot": "agent4-chat-c3-q4-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "briefing-generate",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "POST /api/briefing HTTP 200, 41102 ms, loading-state=true, 3796 chars, 13 source links",
+  "ts": "2026-10-21T12:46:28.922Z",
+  "shot": "agent4-chat-c3-briefing-generate-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "briefing-scheduled-panel",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "scheduled panel: Latest scheduled briefing · workflow cron 0 30 2 * * * (06:30 GST)  Generated by execution 6ad841aab28e35aa11d85744 · 2026-10-21T04:38:58.388Z (api)  Bottom line: October’s signals",
+  "ts": "2026-10-21T12:46:29.509Z",
+  "shot": "agent4-chat-c3-briefing-scheduled-panel-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "briefing-generate",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "POST /api/briefing HTTP 200, 51104 ms, loading-state=true, 4282 chars, 11 source links",
+  "ts": "2026-10-21T12:47:22.453Z",
+  "shot": "agent4-chat-c3-briefing-generate-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c3",
+  "test": "briefing-scheduled-panel",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "scheduled panel: Latest scheduled briefing · workflow cron 0 30 2 * * * (06:30 GST)  Generated by execution 6ad841aab28e35aa11d85744 · 2026-10-21T04:38:58.388Z (api)  Bottom line: October’s signals",
+  "ts": "2026-10-21T12:47:23.023Z",
+  "shot": "agent4-chat-c3-briefing-scheduled-panel-390x844.jpg"
+ }
+]

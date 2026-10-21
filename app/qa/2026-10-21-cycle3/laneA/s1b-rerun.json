@@ -1,0 +1,1268 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/node_modules/@playwright/test/cli.js",
+      "test",
+      "--project=desktop",
+      "--workers=1",
+      "--timeout=120000",
+      "e2e/axe-sweep.spec.ts",
+      "e2e/settings.spec.ts",
+      "e2e/title-ellipsis.spec.ts",
+      "e2e/keyboard-nav.spec.ts",
+      "--reporter=line,json"
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/playwright.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [
+          "/mobile\\.spec\\.ts|qa-final\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/mobile\\.spec\\.ts/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-ux",
+        "name": "mobile-ux",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/run-ux\\.spec\\.ts/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final",
+        "name": "qa-final",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final-mobile",
+        "name": "qa-final-mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": {},
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "https://sb-60putp7mv2mi.vercel.run",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "axe-sweep.spec.ts",
+      "file": "axe-sweep.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "axe sweep @1440x900",
+          "file": "axe-sweep.spec.ts",
+          "line": 101,
+          "column": 8,
+          "specs": [
+            {
+              "title": "/overview @1440x900: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "1440x900",
+                "1440x900:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4356,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:18.572Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-8949c98b02c314d6142e",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/watchlist @1440x900: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "1440x900",
+                "1440x900:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5943,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:23.388Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-3c8d39eea8fe8782e0cf",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/news @1440x900: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "1440x900",
+                "1440x900:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5505,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:29.343Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-7b3b70ddf76c0de364c1",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/chat?skip=1 @1440x900: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "1440x900",
+                "1440x900:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3217,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:34.860Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-0b415e3c2cfb2d7c312f",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/artifacts @1440x900: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "1440x900",
+                "1440x900:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3026,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:38.090Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-53d00aeb1e43514d9c13",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/settings @1440x900: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "1440x900",
+                "1440x900:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5885,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:41.129Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-993c3034bc4756d689f3",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/watchlist/tii @1440x900: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "1440x900",
+                "1440x900:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3731,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:47.028Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-5c6dad962a9816023a89",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "axe sweep @390x844",
+          "file": "axe-sweep.spec.ts",
+          "line": 101,
+          "column": 8,
+          "specs": [
+            {
+              "title": "/overview @390x844: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "390x844",
+                "390x844:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4170,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:50.776Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-2d66574f93d7497d0337",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/watchlist @390x844: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "390x844",
+                "390x844:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5762,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:57:54.960Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-83501df532bcbcdae1e9",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/news @390x844: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "390x844",
+                "390x844:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5450,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:00.733Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-ecf285271cc3229d899e",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/chat?skip=1 @390x844: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "390x844",
+                "390x844:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5219,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:06.195Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-9ab7b0d8063d902021c5",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/artifacts @390x844: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "390x844",
+                "390x844:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3066,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:11.426Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-0bde812c02db494afb29",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/settings @390x844: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "390x844",
+                "390x844:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5458,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:14.503Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-9be2d556c3d4418401e8",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            },
+            {
+              "title": "/watchlist/tii @390x844: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "390x844",
+                "390x844:"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3521,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:19.975Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-565928af0d2d96a1b242",
+              "file": "axe-sweep.spec.ts",
+              "line": 104,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "axe sweep: /chat run panel after one turn @1440x900",
+          "file": "axe-sweep.spec.ts",
+          "line": 115,
+          "column": 6,
+          "specs": [
+            {
+              "title": "/chat after-turn: no serious/critical (WCAG 2.2 AA)",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "axe",
+                      "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 22083,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:23.508Z",
+                      "annotations": [
+                        {
+                          "type": "axe",
+                          "description": "{\"critical\":0,\"serious\":0,\"moderate\":1,\"minor\":0,\"total\":1}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c19074f6e1c366f2d023-aba83029e9746ca0b79c",
+              "file": "axe-sweep.spec.ts",
+              "line": 117,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "keyboard-nav.spec.ts",
+      "file": "keyboard-nav.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "a33 keyboard nav",
+          "file": "keyboard-nav.spec.ts",
+          "line": 15,
+          "column": 6,
+          "specs": [
+            {
+              "title": "watchlist: cards are keyboard-reachable with the accent focus ring",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2666,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:45.606Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4eaf4802f992b6f7d0f8-9197eed333b6c55ecad7",
+              "file": "keyboard-nav.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "nav rail: Tab + arrows, only the accent focus ring anywhere",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2460,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:48.287Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4eaf4802f992b6f7d0f8-2a8970c64ce83396cd30",
+              "file": "keyboard-nav.spec.ts",
+              "line": 40,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "settings.spec.ts",
+      "file": "settings.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Settings",
+          "file": "settings.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "shows user and backend inputs; model and plugin are fixed (DeepSeek Flash v4.1 · Perplexity only)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 16090,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('fixed-model')\nExpected substring: \u001b[32m\"DeepSeek Flash v4.1\"\u001b[39m\nReceived string:    \u001b[31m\"Model (fixed): GPT-5.6 LunaendpointId predefined-gpt-5.6-luna · reasoningMode medium · responseMode stream. The bridge sends exactly this configuration on every query — there is no model fallback chain and no per-user override.\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('fixed-model') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('fixed-model')\u001b[22m\n\u001b[2m    33 × locator resolved to <div data-testid=\"fixed-model\" class=\"rounded-md border border-border bg-surface-2 p-3 text-sm\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Model (fixed): GPT-5.6 LunaendpointId predefined-gpt-5.6-luna · reasoningMode medium · responseMode stream. The bridge sends exactly this configuration on every query — there is no model fallback chain and no per-user override.\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('fixed-model')\nExpected substring: \u001b[32m\"DeepSeek Flash v4.1\"\u001b[39m\nReceived string:    \u001b[31m\"Model (fixed): GPT-5.6 LunaendpointId predefined-gpt-5.6-luna · reasoningMode medium · responseMode stream. The bridge sends exactly this configuration on every query — there is no model fallback chain and no per-user override.\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('fixed-model') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('fixed-model')\u001b[22m\n\u001b[2m    33 × locator resolved to <div data-testid=\"fixed-model\" class=\"rounded-md border border-border bg-surface-2 p-3 text-sm\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Model (fixed): GPT-5.6 LunaendpointId predefined-gpt-5.6-luna · reasoningMode medium · responseMode stream. The bridge sends exactly this configuration on every query — there is no model fallback chain and no per-user override.\"\u001b[22m\n\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/settings.spec.ts:11:25",
+                        "location": {
+                          "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/settings.spec.ts",
+                          "column": 25,
+                          "line": 11
+                        },
+                        "snippet": "   9 |     const model = page.getByTestId(\"fixed-model\");\n  10 |     await expect(model).toBeVisible();\n> 11 |     await expect(model).toContainText(\"DeepSeek Flash v4.1\");\n     |                         ^\n  12 |     await expect(model).toContainText(\"predefined-deepseek-flash\");\n  13 |     await expect(model).toContainText(\"medium\");\n  14 |     await expect(page.locator(\"select#set-model\")).toHaveCount(0);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/settings.spec.ts",
+                            "column": 25,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('fixed-model')\nExpected substring: \u001b[32m\"DeepSeek Flash v4.1\"\u001b[39m\nReceived string:    \u001b[31m\"Model (fixed): GPT-5.6 LunaendpointId predefined-gpt-5.6-luna · reasoningMode medium · responseMode stream. The bridge sends exactly this configuration on every query — there is no model fallback chain and no per-user override.\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('fixed-model') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('fixed-model')\u001b[22m\n\u001b[2m    33 × locator resolved to <div data-testid=\"fixed-model\" class=\"rounded-md border border-border bg-surface-2 p-3 text-sm\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"Model (fixed): GPT-5.6 LunaendpointId predefined-gpt-5.6-luna · reasoningMode medium · responseMode stream. The bridge sends exactly this configuration on every query — there is no model fallback chain and no per-user override.\"\u001b[22m\n\n\n   9 |     const model = page.getByTestId(\"fixed-model\");\n  10 |     await expect(model).toBeVisible();\n> 11 |     await expect(model).toContainText(\"DeepSeek Flash v4.1\");\n     |                         ^\n  12 |     await expect(model).toContainText(\"predefined-deepseek-flash\");\n  13 |     await expect(model).toContainText(\"medium\");\n  14 |     await expect(page.locator(\"select#set-model\")).toHaveCount(0);\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/settings.spec.ts:11:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:58:50.760Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results/settings-Settings-shows-us-2e9ac-ash-v4-1-·-Perplexity-only--desktop/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results/settings-Settings-shows-us-2e9ac-ash-v4-1-·-Perplexity-only--desktop/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results/settings-Settings-shows-us-2e9ac-ash-v4-1-·-Perplexity-only--desktop/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/settings.spec.ts",
+                        "column": 25,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d877ffdf71ec720167ae-edfee1084ae1c0eb93b4",
+              "file": "settings.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "editing the user id persists to localStorage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1540,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T12:59:07.743Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d877ffdf71ec720167ae-75f7206edc7a6667c580",
+              "file": "settings.spec.ts",
+              "line": 24,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "title-ellipsis.spec.ts",
+      "file": "title-ellipsis.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "thread titles ellipsise + carry the full title (desktop)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16872,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('rail-chats-list')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('rail-chats-list') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rail-chats-list')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('rail-chats-list')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('rail-chats-list') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rail-chats-list')\u001b[22m\n\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/title-ellipsis.spec.ts:47:57",
+                    "location": {
+                      "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/title-ellipsis.spec.ts",
+                      "column": 57,
+                      "line": 47
+                    },
+                    "snippet": "  45 |     let item;\n  46 |     if (vp.width >= 1024) {\n> 47 |       await expect(page.getByTestId(\"rail-chats-list\")).toBeVisible();\n     |                                                         ^\n  48 |       item = page.locator('[data-testid=\"rail-chats-list\"] [data-testid=\"rail-chat-item\"][data-thread-id=\"t-long-120\"]');\n  49 |     } else {\n  50 |       const menu = page.getByTestId(\"threads-menu\");"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/title-ellipsis.spec.ts",
+                        "column": 57,
+                        "line": 47
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('rail-chats-list')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('rail-chats-list') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rail-chats-list')\u001b[22m\n\n\n  45 |     let item;\n  46 |     if (vp.width >= 1024) {\n> 47 |       await expect(page.getByTestId(\"rail-chats-list\")).toBeVisible();\n     |                                                         ^\n  48 |       item = page.locator('[data-testid=\"rail-chats-list\"] [data-testid=\"rail-chat-item\"][data-thread-id=\"t-long-120\"]');\n  49 |     } else {\n  50 |       const menu = page.getByTestId(\"threads-menu\");\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/title-ellipsis.spec.ts:47:57"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T12:59:09.781Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results/title-ellipsis-thread-titl-5dc7e-rry-the-full-title-desktop--desktop/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results/title-ellipsis-thread-titl-5dc7e-rry-the-full-title-desktop--desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/test-results/title-ellipsis-thread-titl-5dc7e-rry-the-full-title-desktop--desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/title-ellipsis.spec.ts",
+                    "column": 57,
+                    "line": 47
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "f63493d738836471cc3a-c8239aff674093f01211",
+          "file": "title-ellipsis.spec.ts",
+          "line": 37,
+          "column": 7
+        },
+        {
+          "title": "thread titles ellipsise + carry the full title (mobile-390)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1965,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[title-ellipsis mobile-390] thread item {\"overflowOk\":false,\"textOverflow\":\"ellipsis\",\"whiteSpace\":\"nowrap\",\"outerTextOverflow\":\"ellipsis\",\"title\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\",\"spanTitle\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\",\"hasSpan\":true,\"text\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\"}\n"
+                    },
+                    {
+                      "text": "[title-ellipsis mobile-390] chat-title {\"overflowOk\":false,\"textOverflow\":\"ellipsis\",\"whiteSpace\":\"nowrap\",\"outerTextOverflow\":\"ellipsis\",\"title\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\",\"spanTitle\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\",\"hasSpan\":true,\"text\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\"}\n"
+                    },
+                    {
+                      "text": "[title-ellipsis mobile-390] welcome-thread {\"overflowOk\":false,\"textOverflow\":\"ellipsis\",\"whiteSpace\":\"nowrap\",\"outerTextOverflow\":\"ellipsis\",\"title\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\",\"spanTitle\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\",\"hasSpan\":true,\"text\":\"Which of my context companies moved most since the last scoring run, and create me a document on all of these companies\"}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-21T12:59:27.609Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f63493d738836471cc3a-38072c8492434c9505b3",
+          "file": "title-ellipsis.spec.ts",
+          "line": 37,
+          "column": 7
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T12:57:17.854Z",
+    "duration": 132298.789,
+    "expected": 19,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

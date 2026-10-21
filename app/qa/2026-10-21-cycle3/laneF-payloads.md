@@ -1,0 +1,13 @@
+# Lane F — `web/tests/chat-intelligent-ui-payloads.spec.ts` scenarios A–G — cycle 3 disposition
+**The spec does not exist on this branch (or on the base commit).** `git ls-tree -r HEAD | grep chat-intelligent` → no match; `git log --all -- '*chat-intelligent-ui-payloads*'` shows it was added in `ff81ef7` (feat(chat-ui): pass-2 … A-G payload harness) and **deleted in `1ed4247` on 2026-10-15T10:11:02Z — "revert(chat): remove Intelligent UI, restore b33be278 chat UI + discreet retry notice"** (273 lines removed, together with `web/tests/payloads.config.ts` and `web/tests/metrics.spec.ts`). The protected baseline 816aaae (2026-10-20) and the UAE branch therefore carry neither the spec nor the Intelligent-UI payload surfaces it exercised (root-first slots, ODImage lightbox, `/api/chat/creds` prompt). `live-smoke.spec.ts` even asserts the opposite: "no snapshot/Lambda demo on playground or chat" and forbids the `[data-testid*="payload-"]` markers.
+Decision: NOT RUN — cannot be run without resurrecting a feature the base branch intentionally reverted (would violate "preserve first, no feature re-introduction"). The scenario intents are covered on the current UI by existing specs, which did execute this cycle:
+| Scenario | Intent | Coverage on the current UI (cycle-3 run) |
+|---|---|---|
+| A deliverables | artifacts / outputs shelf after a run | `upload-artifacts.spec.ts`, `run-ux.spec.ts › report` (artifact present), `/artifacts` route in routes-clean + axe-sweep |
+| B pipeline + waiting | plan/steps + waiting-for-you prompt | `run-panel-acceptance.spec.ts`, `run-panel-working-header.spec.ts`, `thinking-pinned-working-row.spec.ts` |
+| C citations | publisher chips, safe outbound anchors | `agent4` of the 84-check suite (Verified/Interpretation split + citation chips on 5 questions × 2 vp), `chat.spec.ts` (plugin card) |
+| D root-first UI | skeleton on first tick, slots fill | `run-ux.spec.ts` (first skeleton latency, order), `qa-chat-timing.spec.ts` |
+| E summarisation vs history | thinking list stays mounted, scroll anchoring | `session-continuity.spec.ts`, `thinking-json-filter.spec.ts`, `thread-reopen.spec.ts` |
+| F settings + plugin caps | settings override headers, plugin list | `settings.spec.ts` (2), `context-sync.spec.ts` (POST body mirrors inspector) |
+| G failure/retry + cross-app regression | forced /api/chat failure → discreet retry → 200 | `chat-error-retry.spec.ts`, `navigation-retry-proof.spec.ts` (2 vp), `live-smoke › discreet retry` (2 vp), `nav-stress` |
+Per-viewport pass/fail for those substitutes is in the Lane A shard tables (`qa/2026-10-21-cycle3/laneA/*.json`).

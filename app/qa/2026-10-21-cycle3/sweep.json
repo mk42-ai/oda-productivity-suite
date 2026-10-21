@@ -1,0 +1,1116 @@
+{
+ "started": "2026-10-21T12:41:57.229Z",
+ "base": "https://sb-60putp7mv2mi.vercel.run",
+ "contrast": {
+  "checked": 8240,
+  "below": 0,
+  "genuine": 0,
+  "artefacts": 24,
+  "worst": []
+ },
+ "hscroll": {
+  "pass": 26,
+  "fail": []
+ },
+ "residue": {
+  "dom": 0,
+  "network": 134,
+  "hits": [
+   {
+    "route": "/overview",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/tii",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/compare?ids=g42,edge,tii",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/sentiment",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/news",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/radar",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/graph",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/7820.e199472f6386cfc0.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:\"ffe4b5\",navajowhite:\"ffdead\",navy:\"000080\",oldlace:\"fdf5e6\",olive:\"808000\",olivedrab:\"6b8"
+     },
+     {
+      "u": "/_next/static/chunks/7820.e199472f6386cfc0.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:\"dcdcdc\",ghostwhite:\"f8f8ff\",gold:\"ffd700\",goldenrod:\"daa520\",gray:\"808080\",green:\"008000"
+     },
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     }
+    ]
+   },
+   {
+    "route": "/chat",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/briefing",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/methodology",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/settings",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/artifacts",
+    "vp": "1440x900",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/overview",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/tii",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/watchlist/compare?ids=g42,edge,tii",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/sentiment",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/news",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/radar",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/graph",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/7820.e199472f6386cfc0.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:\"ffe4b5\",navajowhite:\"ffdead\",navy:\"000080\",oldlace:\"fdf5e6\",olive:\"808000\",olivedrab:\"6b8"
+     },
+     {
+      "u": "/_next/static/chunks/7820.e199472f6386cfc0.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:\"dcdcdc\",ghostwhite:\"f8f8ff\",gold:\"ffd700\",goldenrod:\"daa520\",gray:\"808080\",green:\"008000"
+     },
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     }
+    ]
+   },
+   {
+    "route": "/chat",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/briefing",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/methodology",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/settings",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   },
+   {
+    "route": "/artifacts",
+    "vp": "390x844",
+    "domHits": [],
+    "netHits": [
+     {
+      "u": "/_next/static/chunks/5ced8d4d-13979d2b60142147.js",
+      "rx": "/\\bemerald\\b/i",
+      "ctx": "\",1e3:\"oklch(0.206 0.033 191.443 / 1)\"},emerald:{25:\"oklch(0.99 0.01 164.879 / 1)\",50:\"oklch(0.979 0"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": ",moccasin:0xffe4b5,navajowhite:0xffdead,navy:128,oldlace:0xfdf5e6,olive:8421376,olivedrab:7048739,or"
+     },
+     {
+      "u": "/_next/static/chunks/7507-2a21718ae2b0fec2.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": ",gainsboro:0xdcdcdc,ghostwhite:0xf8f8ff,gold:0xffd700,goldenrod:0xdaa520,gray:8421504,green:32768,gr"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bnavy\\b/i",
+      "ctx": "intCream|MistyRose|Moccasin|NavajoWhite|Navy|OldLace|Olive|OliveDrab|Orange|OrangeRed|Orchid|PaleGol"
+     },
+     {
+      "u": "/_next/static/chunks/19881-4ca44b81e2948f2d.js",
+      "rx": "/\\bgold\\b/i",
+      "ctx": "orestGreen|Fuchsia|Gainsboro|GhostWhite|Gold|GoldenRod|Gr[ae]y|Green|GreenYellow|HoneyDew|HotPink|In"
+     }
+    ]
+   }
+  ]
+ },
+ "routes": [
+  {
+   "route": "/overview",
+   "vp": "1440x900",
+   "checked": 359,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 61
+  },
+  {
+   "route": "/watchlist",
+   "vp": "1440x900",
+   "checked": 1051,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 62
+  },
+  {
+   "route": "/watchlist/tii",
+   "vp": "1440x900",
+   "checked": 326,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 58
+  },
+  {
+   "route": "/watchlist/compare?ids=g42,edge,tii",
+   "vp": "1440x900",
+   "checked": 107,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 57
+  },
+  {
+   "route": "/sentiment",
+   "vp": "1440x900",
+   "checked": 187,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 53
+  },
+  {
+   "route": "/news",
+   "vp": "1440x900",
+   "checked": 842,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 56
+  },
+  {
+   "route": "/radar",
+   "vp": "1440x900",
+   "checked": 549,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 79
+  },
+  {
+   "route": "/graph",
+   "vp": "1440x900",
+   "checked": 64,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 54
+  },
+  {
+   "route": "/chat",
+   "vp": "1440x900",
+   "checked": 217,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 54
+  },
+  {
+   "route": "/briefing",
+   "vp": "1440x900",
+   "checked": 134,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 53
+  },
+  {
+   "route": "/methodology",
+   "vp": "1440x900",
+   "checked": 99,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 52
+  },
+  {
+   "route": "/settings",
+   "vp": "1440x900",
+   "checked": 300,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 53
+  },
+  {
+   "route": "/artifacts",
+   "vp": "1440x900",
+   "checked": 58,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 1440,
+   "inner": 1440,
+   "netResponses": 54
+  },
+  {
+   "route": "/overview",
+   "vp": "390x844",
+   "checked": 336,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 54
+  },
+  {
+   "route": "/watchlist",
+   "vp": "390x844",
+   "checked": 978,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 56
+  },
+  {
+   "route": "/watchlist/tii",
+   "vp": "390x844",
+   "checked": 302,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 54
+  },
+  {
+   "route": "/watchlist/compare?ids=g42,edge,tii",
+   "vp": "390x844",
+   "checked": 81,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 56
+  },
+  {
+   "route": "/sentiment",
+   "vp": "390x844",
+   "checked": 164,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 53
+  },
+  {
+   "route": "/news",
+   "vp": "390x844",
+   "checked": 819,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 53
+  },
+  {
+   "route": "/radar",
+   "vp": "390x844",
+   "checked": 526,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 52
+  },
+  {
+   "route": "/graph",
+   "vp": "390x844",
+   "checked": 41,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 54
+  },
+  {
+   "route": "/chat",
+   "vp": "390x844",
+   "checked": 201,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 54
+  },
+  {
+   "route": "/briefing",
+   "vp": "390x844",
+   "checked": 111,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 53
+  },
+  {
+   "route": "/methodology",
+   "vp": "390x844",
+   "checked": 76,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 52
+  },
+  {
+   "route": "/settings",
+   "vp": "390x844",
+   "checked": 277,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 53
+  },
+  {
+   "route": "/artifacts",
+   "vp": "390x844",
+   "checked": 35,
+   "below": 0,
+   "genuine": 0,
+   "scrollW": 390,
+   "inner": 390,
+   "netResponses": 54
+  }
+ ],
+ "finished": "2026-10-21T12:42:57.682Z"
+}
