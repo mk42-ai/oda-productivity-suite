@@ -21,7 +21,7 @@ function sourceFor(url: string, m: PluginMeta | undefined): PluginFaviconSource 
 }
 
 /**
- * Plugin favicon. Resolution order (see `pluginIconFor`): brand mark (Portfolio Plugin) → shipped local svg (Perplexity, OnDemand)
+ * Plugin favicon. Resolution order (see `pluginIconFor`): brand mark (organisation plugin (retired id)) → shipped local svg (Perplexity, OnDemand)
  * → remote faviconChain (live logoUrl → logoUrlBase → Google s2, advanced on error / 0-width) → monogram tile (charcoal on #F0F0F0).
  */
 export function PluginFavicon({ id, meta, size = 20, className }: Props) {

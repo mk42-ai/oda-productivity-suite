@@ -925,22 +925,22 @@ function thinkingPhases(kinds: string[], plan: RunData["plan"], answerStarted: b
   if (kinds.some((k) => k.startsWith("fulfillment")) || answerStarted) out.push("Answer");
   return out;
 }
-/** a2: Portfolio Plugin id — the first tool row with this pluginId auto-expands the Thinking block (once per run). */
+/** a2: organisation plugin (retired id) id — the first tool row with this pluginId auto-expands the Thinking block (once per run). */
 const PORTFOLIO_PLUGIN = "plugin-1791713636";
 /** Thinking block pinned at the top of the turn. Starts COLLAPSED (one-line head: spinner/brain · "Thinking" · phase chips · last prose line) even
- *  while live; auto-expands exactly once when the first Portfolio Plugin tool row appears; a manual click wins for the rest of the run (no further
+ *  while live; auto-expands exactly once when the first organisation plugin (retired id) tool row appears; a manual click wins for the rest of the run (no further
  *  auto open/close); state resets when a new live turn starts. Open body = fixed-height scrollable (auto-follows the tail); closed body = unmounted (0 px).
  *  Never truncates. */
 function ThinkingBlock({ text, kinds, plan, answerStarted, live, collapsed, elapsedMs, portfolioToolStarted }: { text: string; kinds: string[]; plan: RunData["plan"]; answerStarted: boolean; live: boolean; collapsed: boolean; elapsedMs: number; portfolioToolStarted: boolean }) {
   const [open, setOpen] = useState<boolean | null>(null); // manual override (null = automatic)
-  const [auto, setAuto] = useState(false); // currently auto-expanded by the Portfolio Plugin start
+  const [auto, setAuto] = useState(false); // currently auto-expanded by the organisation plugin (retired id) start
   const manualRef = useRef(false); // user toggled → automatic changes stop for this run
   const autoDoneRef = useRef(false); // auto-expansion already happened once this run
   const prevLiveRef = useRef(live);
   const bodyRef = useRef<HTMLDivElement | null>(null);
   // New turn (live false→true): forget the manual + auto decisions of the previous run.
   useEffect(() => { if (live && !prevLiveRef.current) { manualRef.current = false; autoDoneRef.current = false; setAuto(false); setOpen(null); } prevLiveRef.current = live; }, [live]);
-  // Auto-expand exactly once when the first Portfolio Plugin tool row appears — unless the user already toggled manually.
+  // Auto-expand exactly once when the first organisation plugin (retired id) tool row appears — unless the user already toggled manually.
   useEffect(() => { if (live && !collapsed && portfolioToolStarted && !autoDoneRef.current && !manualRef.current) { autoDoneRef.current = true; setAuto(true); } }, [live, collapsed, portfolioToolStarted]);
   // First answer token → collapse again (automatic mode only; a manual toggle is never overridden).
   useEffect(() => { if (collapsed && !manualRef.current) { setAuto(false); setOpen(null); } }, [collapsed]);

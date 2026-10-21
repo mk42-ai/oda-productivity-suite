@@ -2,7 +2,7 @@
  * brand-icons.ts — the 10 flat-line brand icons (1024² PNG, 2px charcoal strokes, ONE accent) delivered 2026-10-11
  * and shipped under /public/brand/icons/icon-<slug>.png. Pure, framework-free: this module only maps plugin ids / operation ids /
  * feature slots to a local public path, so every surface (run status row, Working rows, Outputs step rows, Inspector, plugin panel,
- * empty states, welcome starters) draws the same asset. The concept mark (/brand/mark-light.png) stays the Portfolio Plugin's
+ * empty states, welcome starters) draws the same asset. The concept mark (/brand/mark-light.png) stays the organisation plugin (retired id)'s
  * own icon — these icons are for the TOOLS the plugin exposes and for feature/empty-state slots.
  *
  * Tests: web/tests/unit/brand-icons.test.ts (`npm run test:brand-icons`).
@@ -27,7 +27,7 @@ export const BRAND_ICONS: Record<BrandIconName, BrandIconEntry> = {
   "compare":             { file: "icon-compare.png",             label: "Compare",                 role: "'Compare two' starter · /compare strip · no-selection empty state", accent: "divider" },
   "stock-market":        { file: "icon-stock-market.png",        label: "Stock / market",          role: "US Stock fundamental/technical plugins · Overview sentiment delta", accent: "trend arrow" },
   "energy":    { file: "icon-energy.png",    label: "Energy",      role: "energy / climate glyph", accent: "steam curl" },
-  "org-listing":   { file: "icon-listing.png",   label: "Organisation listing",       role: "Portfolio Plugin operations listPortfolioCompanies / getPortfolioCompany* (Outputs step rows, run status row)", accent: "list marker" },
+  "org-listing":   { file: "icon-listing.png",   label: "Organisation listing",       role: "Organisation-listing plugin operations (retired plugin id; listPortfolioCompanies / getPortfolioCompany*) (Outputs step rows, run status row)", accent: "list marker" },
   "agent":               { file: "icon-agent.png",               label: "Agent",                   role: "OnDemand agent / executePrompt tool rows · G42 company glyph", accent: "eye" },
   "autonomous-mobility": { file: "icon-autonomous-mobility.png", label: "Autonomous mobility",     role: "Core42 company glyph", accent: "radar arc" },
   "news-sentiment":      { file: "icon-news-sentiment.png",      label: "News sentiment",          role: "getPortfolioCompanySentiment / news operations · News Pulse · no-news empty state", accent: "pulse line" },
@@ -72,7 +72,7 @@ export function brandIconForPlugin(id: string | null | undefined, name?: string 
   return null;
 }
 
-/** Portfolio Plugin operations (operationIds from the registered OpenAPI tool) → brand icon. */
+/** organisation plugin (retired id) operations (operationIds from the registered OpenAPI tool) → brand icon. */
 export function brandIconForOperation(operationId: string | null | undefined): BrandIconName | null {
   const op = (operationId ?? "").trim();
   if (!op) return null;

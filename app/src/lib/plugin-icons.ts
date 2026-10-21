@@ -1,7 +1,7 @@
 /**
  * plugin-icons.ts — pure, framework-free map from a plugin id/name to the icon the run-view chips should draw.
  *
- *   brand    → the 16px concept mark (our own Portfolio Plugin — never a grey "P")
+ *   brand    → the 16px concept mark (our own organisation plugin (retired id) — never a grey "P")
  *   local    → a Lucide-style SVG we ship in /public/plugins (Perplexity, OnDemand agent) — no third-party bitmaps
  *   remote   → the catalogue favicon chain (live logoUrl → logoUrlBase → Google s2), resolved by <PluginFavicon/>
  *   monogram → first letter, charcoal on #F0F0F0 — the terminal fallback when a remote favicon fails to load

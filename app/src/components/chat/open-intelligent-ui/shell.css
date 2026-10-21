@@ -125,7 +125,7 @@
 .oiu-welcome__chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .oiu-welcome__chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border: 1px solid #E5E5E5; border-radius: 9999px; background: #f7f8f9; font-size: 12px; color: #2F2F2F; }
 .oiu-welcome__dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--brand-green, #0D0D0D); }
-.oiu-welcome__chip-score { font-variant-numeric: tabular-nums; color: #737373; }
+.oiu-welcome__chip-score { font-variant-numeric: tabular-nums; color: #5D5D5D; } /* 7.0:1 on #f7f8f9 (#737373 was 4.46:1) */
 .oiu-welcome__starters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .oiu-welcome__starter { display: flex; align-items: flex-start; gap: 8px; padding: 10px 12px; border: 1px solid #E5E5E5; border-radius: 10px; background: #ffffff; text-align: left; font-size: 12px; line-height: 1.35; color: #2F2F2F; cursor: pointer; transition: border-color 150ms ease, background-color 150ms ease; }
 .oiu-welcome__starter > svg { flex: none; margin-top: 1px; color: var(--brand-green-ink, #0D0D0D); }
@@ -643,7 +643,7 @@
 .oiu-badge { flex-wrap: wrap; row-gap: 2px; }
 /* end unit2 */
 /* a2 */
-/* Thinking block: collapsed by default (head only, body unmounted = 0 px); auto-expands once on Portfolio Plugin start; manual toggle wins. */
+/* Thinking block: collapsed by default (head only, body unmounted = 0 px); auto-expands once on organisation plugin (retired id) start; manual toggle wins. */
 .oiu-think:not(.oiu-think--open) .oiu-think__body { display: none; height: 0; margin: 0; }
 .oiu-think__head:focus-visible { outline: 2px solid #2563EB; outline-offset: -2px; border-radius: 10px; }
 .oiu-think--live:not(.oiu-think--open) .oiu-think__tail { color: #2F2F2F; }
