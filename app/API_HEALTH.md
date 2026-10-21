@@ -110,3 +110,8 @@ HTTP 200 · ~31 s · grounded, cited markdown with Verified/Interpretation bulle
 Conclusion: both the 2-hourly ingest and the 02:30 UTC briefing **did run on schedule**; no manual trigger was required for evidence, but manual runs were executed to refresh content after the dossier/news patches. `workflows.mjs ensure` re-PATCHed all three (200/200/200; isActive true; next: ingest 06:00Z, briefing 2026-10-22T02:30Z, checkpoint 05:00Z).
 
 Runtime key supply (verified): Vercel project env count = 0. The app reads `ONDEMAND_API_KEY` server-side only (`src/lib/ondemand/config.ts`); in the sandbox it is injected via an untracked `.env.local` (0600, never committed, value never printed). Git previews therefore have no key until a preview-scoped env var is added (NEXT_ACTIONS #1).
+
+## 2026-10-21T09:54Z (white restyle turn)
+- `npm run resume`: ingest 6ad7f32d…52cb / briefing 6ad7f32e…52d2 / checkpoint 6ad7f32e…52d7 all isActive=true, last checkpoint cron run success @ 09:30:00Z; next ingest 10:00Z, briefing 2026-10-22T02:30Z.
+- QA agent 4 on the new preview: 5 chat questions × 2 viewports HTTP 200 via real OnDemand sessions (Verified/Interpretation + citations), POST /api/briefing 200 (43 s, 13 source links), scheduled-briefing panel shows execution 6ad841aab28e35aa11d85744.
+- Runtime key: the sandbox reads ONDEMAND_API_KEY from `.env.local` copied at deploy; the Vercel project still has 0 env vars, so the git preview dpl_hNggcBDep1Twcp7ycWHksT7FUtSv has no OnDemand connectivity (and is SSO-protected).

@@ -1,0 +1,1393 @@
+{
+ "pages": [
+  {
+   "route": "/overview",
+   "vp": "1440x900",
+   "checked": 175,
+   "fails": 2,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "National Overview · as of 21 Oct 2026",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "National Overview · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/watchlist",
+   "vp": "1440x900",
+   "checked": 705,
+   "fails": 8,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Watchlist",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    },
+    {
+     "text": "Search watchlist",
+     "ratio": 1.08,
+     "color": "rgb(13, 13, 13)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "span",
+     "cls": "sr-only"
+    },
+    {
+     "text": "company",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    },
+    {
+     "text": "subsidiary",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    },
+    {
+     "text": "government",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    },
+    {
+     "text": "university",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    },
+    {
+     "text": "research centre",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    }
+   ],
+   "worst": {
+    "ratio": 1.08,
+    "text": "Search watchlist",
+    "color": "rgb(13, 13, 13)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+    "tag": "span",
+    "cls": "sr-only"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Watchlist · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/watchlist/tii",
+   "vp": "1440x900",
+   "checked": 232,
+   "fails": 3,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Watchlist",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "a",
+     "cls": "hover:underline"
+    },
+    {
+     "text": "· Dossier",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "text-xs font-semibold uppercase tracking-wider text-[#8E8E8E"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Technology Innovation Institute — dossier · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/watchlist/compare",
+   "vp": "1440x900",
+   "checked": 93,
+   "fails": 2,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Watchlist · Compare",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Compare organisations · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/sentiment",
+   "vp": "1440x900",
+   "checked": 134,
+   "fails": 2,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Sentiment Universe",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Sentiment Universe · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/news",
+   "vp": "1440x900",
+   "checked": 803,
+   "fails": 2,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "News Intelligence",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "News Intelligence · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/radar",
+   "vp": "1440x900",
+   "checked": 369,
+   "fails": 5,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Technology & Innovation Radar",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    },
+    {
+     "text": "assess",
+     "ratio": 2.31,
+     "color": "rgb(255, 255, 255)",
+     "bg": "rgb(184, 169, 143)",
+     "tag": "span",
+     "cls": "rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase te"
+    },
+    {
+     "text": "assess",
+     "ratio": 2.31,
+     "color": "rgb(255, 255, 255)",
+     "bg": "rgb(184, 169, 143)",
+     "tag": "span",
+     "cls": "rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase te"
+    },
+    {
+     "text": "assess",
+     "ratio": 2.31,
+     "color": "rgb(255, 255, 255)",
+     "bg": "rgb(184, 169, 143)",
+     "tag": "span",
+     "cls": "rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase te"
+    }
+   ],
+   "worst": {
+    "ratio": 2.31,
+    "text": "assess",
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgb(184, 169, 143)",
+    "tag": "span",
+    "cls": "rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase te"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Technology & Innovation Radar · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/graph",
+   "vp": "1440x900",
+   "checked": 65,
+   "fails": 2,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Ecosystem Relationship Graph",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Ecosystem Relationship Graph · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/chat",
+   "vp": "1440x900",
+   "checked": 137,
+   "fails": 7,
+   "failList": [
+    {
+     "text": "Concept Demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "oiu-topbar__concept-label"
+    },
+    {
+     "text": "GPT-5.6 Luna · Enter to send",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "oiu-composer__hint"
+    },
+    {
+     "text": "Technology Innovation Institute",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "G42",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "EDGE Group",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "Mohamed bin Zayed University of Artificial Intelli",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "Core42",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    }
+   ],
+   "worst": {
+    "ratio": 2.03,
+    "text": "Technology Innovation Institute",
+    "color": "rgb(68, 64, 60)",
+    "bg": "color(srgb 0.931176 0.927608 0.925059)",
+    "tag": "span",
+    "cls": "context-chip__name"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Executive Intelligence Chat · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/briefing",
+   "vp": "1440x900",
+   "checked": 119,
+   "fails": 2,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "National AI Briefing",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "National AI Briefing · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/methodology",
+   "vp": "1440x900",
+   "checked": 90,
+   "fails": 2,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Methodology",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Methodology & limitations · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/settings",
+   "vp": "1440x900",
+   "checked": 297,
+   "fails": 7,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Technology Innovation Institute",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "G42",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "EDGE Group",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "Mohamed bin Zayed University of Artificial Intelli",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "Core42",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    }
+   ],
+   "worst": {
+    "ratio": 2.03,
+    "text": "Technology Innovation Institute",
+    "color": "rgb(68, 64, 60)",
+    "bg": "color(srgb 0.931176 0.927608 0.925059)",
+    "tag": "span",
+    "cls": "context-chip__name"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Settings · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/artifacts",
+   "vp": "1440x900",
+   "checked": 52,
+   "fails": 1,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Artifacts · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/overview",
+   "vp": "390x844",
+   "checked": 264,
+   "fails": 3,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "National Overview · as of 21 Oct 2026",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "National Overview · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/watchlist",
+   "vp": "390x844",
+   "checked": 657,
+   "fails": 9,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Watchlist",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    },
+    {
+     "text": "Search watchlist",
+     "ratio": 1.08,
+     "color": "rgb(13, 13, 13)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "span",
+     "cls": "sr-only"
+    },
+    {
+     "text": "company",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    },
+    {
+     "text": "subsidiary",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    },
+    {
+     "text": "government",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    },
+    {
+     "text": "university",
+     "ratio": 3.19,
+     "color": "rgb(93, 93, 93)",
+     "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+     "tag": "button",
+     "cls": "h-8 rounded-full border px-2.5 text-xs capitalize border-[#E"
+    }
+   ],
+   "worst": {
+    "ratio": 1.08,
+    "text": "Search watchlist",
+    "color": "rgb(13, 13, 13)",
+    "bg": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+    "tag": "span",
+    "cls": "sr-only"
+   },
+   "scrollWidth": 406,
+   "innerWidth": 406,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Watchlist · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/watchlist/tii",
+   "vp": "390x844",
+   "checked": 233,
+   "fails": 4,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Watchlist",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "a",
+     "cls": "hover:underline"
+    },
+    {
+     "text": "· Dossier",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "text-xs font-semibold uppercase tracking-wider text-[#8E8E8E"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Technology Innovation Institute — dossier · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/watchlist/compare",
+   "vp": "390x844",
+   "checked": 92,
+   "fails": 3,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Watchlist · Compare",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Compare organisations · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/sentiment",
+   "vp": "390x844",
+   "checked": 136,
+   "fails": 3,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Sentiment Universe",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Sentiment Universe · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/news",
+   "vp": "390x844",
+   "checked": 805,
+   "fails": 3,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "News Intelligence",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "News Intelligence · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/radar",
+   "vp": "390x844",
+   "checked": 371,
+   "fails": 6,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Technology & Innovation Radar",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    },
+    {
+     "text": "assess",
+     "ratio": 2.31,
+     "color": "rgb(255, 255, 255)",
+     "bg": "rgb(184, 169, 143)",
+     "tag": "span",
+     "cls": "rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase te"
+    },
+    {
+     "text": "assess",
+     "ratio": 2.31,
+     "color": "rgb(255, 255, 255)",
+     "bg": "rgb(184, 169, 143)",
+     "tag": "span",
+     "cls": "rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase te"
+    },
+    {
+     "text": "assess",
+     "ratio": 2.31,
+     "color": "rgb(255, 255, 255)",
+     "bg": "rgb(184, 169, 143)",
+     "tag": "span",
+     "cls": "rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase te"
+    }
+   ],
+   "worst": {
+    "ratio": 2.31,
+    "text": "assess",
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgb(184, 169, 143)",
+    "tag": "span",
+    "cls": "rounded px-1.5 py-0.5 text-[11px] font-semibold uppercase te"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Technology & Innovation Radar · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/graph",
+   "vp": "390x844",
+   "checked": 67,
+   "fails": 3,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Ecosystem Relationship Graph",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Ecosystem Relationship Graph · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/chat",
+   "vp": "390x844",
+   "checked": 233,
+   "fails": 10,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "No chats yet",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "p",
+     "cls": "px-2 py-2 text-xs text-[#8E8E8E]"
+    },
+    {
+     "text": "Concept Demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "oiu-topbar__concept-label"
+    },
+    {
+     "text": "No threads yet",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "li",
+     "cls": "oiu-threads__empty"
+    },
+    {
+     "text": "Technology Innovation Institute",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "G42",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "EDGE Group",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    }
+   ],
+   "worst": {
+    "ratio": 2.03,
+    "text": "Technology Innovation Institute",
+    "color": "rgb(68, 64, 60)",
+    "bg": "color(srgb 0.931176 0.927608 0.925059)",
+    "tag": "span",
+    "cls": "context-chip__name"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Executive Intelligence Chat · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/briefing",
+   "vp": "390x844",
+   "checked": 121,
+   "fails": 3,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "National AI Briefing",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 478,
+   "innerWidth": 478,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "National AI Briefing · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/methodology",
+   "vp": "390x844",
+   "checked": 92,
+   "fails": 3,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Methodology",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "p",
+     "cls": "mb-1 text-xs font-semibold uppercase tracking-wider text-[#8"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Methodology & limitations · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/settings",
+   "vp": "390x844",
+   "checked": 299,
+   "fails": 8,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Technology Innovation Institute",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "G42",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "EDGE Group",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "Mohamed bin Zayed University of Artificial Intelli",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    },
+    {
+     "text": "Core42",
+     "ratio": 2.03,
+     "color": "rgb(68, 64, 60)",
+     "bg": "color(srgb 0.931176 0.927608 0.925059)",
+     "tag": "span",
+     "cls": "context-chip__name"
+    }
+   ],
+   "worst": {
+    "ratio": 2.03,
+    "text": "Technology Innovation Institute",
+    "color": "rgb(68, 64, 60)",
+    "bg": "color(srgb 0.931176 0.927608 0.925059)",
+    "tag": "span",
+    "cls": "context-chip__name"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Settings · UAE AI Command Centre (concept)"
+  },
+  {
+   "route": "/artifacts",
+   "vp": "390x844",
+   "checked": 54,
+   "fails": 2,
+   "failList": [
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.28,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(255, 255, 255)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    },
+    {
+     "text": "Concept demonstration",
+     "ratio": 3.11,
+     "color": "rgb(142, 142, 142)",
+     "bg": "rgb(249, 249, 249)",
+     "tag": "span",
+     "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+    }
+   ],
+   "worst": {
+    "ratio": 3.11,
+    "text": "Concept demonstration",
+    "color": "rgb(142, 142, 142)",
+    "bg": "rgb(249, 249, 249)",
+    "tag": "span",
+    "cls": "mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E"
+   },
+   "scrollWidth": 390,
+   "innerWidth": 390,
+   "hscroll": false,
+   "residue": false,
+   "bodyBg": "rgb(255, 255, 255)",
+   "title": "Artifacts · UAE AI Command Centre (concept)"
+  }
+ ],
+ "netHits": []
+}

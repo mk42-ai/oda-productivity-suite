@@ -1,3 +1,33 @@
+# QA_REPORT — 2026-10-21 white restyle (5-agent Playwright sweep + contrast/h-scroll/residue sweep)
+Preview under test: https://sb-54yh1uujw0kw.vercel.run (sandbox sbx_k8lbUZ7s5ISiX1o5VkZphOtOrEZD, HEAD eeba60b). Previous preview for BEFORE shots: local build of 4d0be39 (the Vercel preview https://oda-productivity-suite-3kdb4ehd6-schoolhack-web-team.vercel.app is SSO-protected → 302). Screenshots: `qa/screenshots/20261021-white/` (before-*/after-*: overview, watchlist, dossier-tii, sentiment (+hover, +drilldown), news, radar, graph, chat (+rail expanded/collapsed), briefing, methodology × 1440×900 + 390×844).
+
+## Existing 84-check suite (round "white", 09:50–09:56Z)
+| Agent | 1440×900 | 390×844 | server | Total |
+|---|---|---|---|---|
+| agent1-branding | 6/6 | 5/5 | – | 11/11 |
+| agent2-watchlist | 7/7 | 7/7 | – | 14/14 |
+| agent3-sentiment | 6/6 | 6/6 | 1/1 | 13/13 |
+| agent4-chat | 7/7 | 7/7 | – | 14/14 |
+| agent5-contracts | 7/7 | 7/7 | 18/18 | 32/32 |
+| **Total** | **33/33** | **32/32** | **19/19** | **84/84** |
+Failures: none. Raw results: `qa/screenshots/20261021-white/results-agent*-white.json`.
+
+## New checks (13 routes × 2 viewports; `contrast-hscroll-residue.json`)
+- **No horizontal scroll**: 26/26 pass (document.scrollWidth ≤ innerWidth on every route at both viewports).
+- **Residue ("B Capital" / bcapital / b-capital / "B Social")**: DOM 0/26, same-origin network text responses 0 hits, code 0 (the only 2 remaining code matches are history lines in this file describing the scan itself).
+- **WCAG AA contrast (computed colours, every visible text node, 4.5:1 body / 3:1 large)**: 6,695 nodes checked, **105 below threshold**. Lowest ratio per page (same offenders repeat on every page):
+  - all pages: brand-rail label "Concept demonstration" #8E8E8E on #F9F9F9/#FFFFFF = **3.11:1** (12 px) — the spec'd muted colour; also the page eyebrows (#8E8E8E, 12 px) = 3.11:1 → **NOT AA**; fix = #5D5D5D (7.0:1) or #767676.
+  - /radar: ring chip "assess" white on #B8A98F = **2.31:1** → NOT AA.
+  - /chat, /settings: company-picker chips reported 2.03:1 — **measurement artefact** (background returned as `color(srgb …)`, which the ratio parser cannot read; visually #44403C on #EDECEC ≈ 9:1). /watchlist "Search watchlist" 1.08:1 and type-filter pills — same artefact (`oklab(…)` background). Treat as NOT VERIFIED rather than failed.
+  - /chat 390: "No chats yet" / "No threads yet" #8E8E8E = 3.11:1.
+  After excluding the parser artefacts (~22 nodes) the genuine AA misses are the #8E8E8E 12 px labels (~80 nodes) and the radar "assess" chip (6 nodes).
+
+## Not verified this turn (time-box)
+- 390 px off-canvas rail drawer open/close + overlay (code landed in nav-rail.tsx; only the closed state is in the 390 screenshots).
+- Threads list inside the desktop rail on /chat with existing threads (store wired; QA ran with an empty thread list).
+- Dark theme (#212121 scale) rendering; Playwright e2e/ specs (39 files) not re-run against the new DOM.
+
+---
 # QA_REPORT — 2026-10-21 resume turn (5-agent headless Playwright sweep, 1440×900 + 390×844)
 Preview under test: https://sb-k65qriyznanv.vercel.run (sandbox sbx_JZ5XSymKk2n1Gm8QyxqFQCRjeKa2). Screenshots: `proof/qa-20261021/` (126 files).
 

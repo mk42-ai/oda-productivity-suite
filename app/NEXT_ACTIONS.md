@@ -1,4 +1,7 @@
-# NEXT_ACTIONS (priority order) — 2026-10-21T04:42Z
+# NEXT_ACTIONS (priority order) — 2026-10-21T09:58Z
+0. **Contrast**: raise the 12 px #8E8E8E labels (brand-rail "Concept demonstration", page eyebrows, chat empty states) to #5D5D5D or ≥14 px, and the radar "assess" chip ink; re-run `contrast-hscroll-residue` sweep → target 0 genuine AA misses.
+0b. Verify in the browser: 390 px rail drawer (open/overlay/Escape), rail-hosted thread list with ≥2 threads, dark theme; re-run the 39 Playwright e2e specs against the new DOM.
+0c. Previous list (04:42Z) follows.
 0. **Push** (needs GITHUB_TOKEN with Contents write): `git push origin uae-ai-command-centre` (today's commits: root-dir fix + patches) and `git push origin refs/tags/bcap-pre-uae-20261020T2130Z`. The push will trigger a Vercel git preview that now resolves Root Directory `app` (verify it goes READY instead of NOW_SANDBOX_WORKER_ROOTDIR_NOT_EXIST). Then tag the demo build `uae-cc-demo-20261021`.
 1. Set `ONDEMAND_API_KEY` as a Vercel **preview-scoped** env var on project prj_wXz5xY3PNULypuwepaqu1XKa6sP1 for branch `uae-ai-command-centre` only (never production/main) so git previews can reach OnDemand; the project currently has 0 env vars.
 2. Disable Vercel Authentication for that preview or share via the sandbox URL; sandbox expires ≈05:47Z — re-run `npm run resume -- --deploy` before the 09:00 GST demo.
