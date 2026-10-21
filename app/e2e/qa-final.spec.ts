@@ -72,7 +72,7 @@ test.describe(`qa-final [${LABEL}]`, () => {
     } else miss("upload-failed", ".exe was filtered by the file input accept list — no chip rendered");
 
     // ---------- turn 1: report (+ attached chart) — streaming states
-    const q1 = "Write a short portfolio report on Technology Innovation Institute with cited sources. Mention the attached chart in one sentence.";
+    const q1 = "Write a short intelligence brief on Technology Innovation Institute with cited sources. Mention the attached chart in one sentence.";
     const live: Record<string, boolean> = {};
     const run = () => page.getByTestId("run-view").last();
     const tick = async () => {

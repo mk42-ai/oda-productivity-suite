@@ -1,0 +1,12 @@
+ app/e2e/chat-error-retry.spec.ts             |  2 +-
+ app/e2e/chat-intelligent-ui-payloads.spec.ts | 30 +++++++++++++++++++++++-----
+ app/e2e/live-smoke.spec.ts                   |  4 ++--
+ app/e2e/navigation-retry-proof.spec.ts       |  2 +-
+ app/e2e/qa-final.spec.ts                     |  2 +-
+ app/e2e/run-panel-a11y.spec.ts               |  2 +-
+ app/e2e/run-panel-working-header.spec.ts     | 10 +++++-----
+ app/e2e/run-ux.spec.ts                       |  4 ++--
+ app/e2e/thinking-json-filter.spec.ts         | 18 +++++++++++++++++
+ app/e2e/thinking-pinned-working-row.spec.ts  | 16 +++++++++++++++
+ app/tests/fixtures/sse/README.md             |  6 +++---
+ 11 files changed, 75 insertions(+), 21 deletions(-)

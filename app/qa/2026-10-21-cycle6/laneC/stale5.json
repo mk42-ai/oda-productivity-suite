@@ -1,0 +1,640 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/node_modules/.bin/playwright",
+      "test",
+      "e2e/run-panel-acceptance.spec.ts",
+      "e2e/run-panel-working-header.spec.ts",
+      "e2e/thread-reopen.spec.ts",
+      "--project=desktop",
+      "--workers=1",
+      "--timeout=150000",
+      "--reporter=list,json",
+      "--output=/tmp/pw-laneC-1"
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/playwright.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/pw-laneC-1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [
+          "/mobile\\.spec\\.ts|qa-final\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-laneC-1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/mobile\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-laneC-1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-ux",
+        "name": "mobile-ux",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/run-ux\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-laneC-1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final",
+        "name": "qa-final",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-laneC-1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final-mobile",
+        "name": "qa-final-mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pw-laneC-1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": {},
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 150000,
+        "use": {
+          "baseURL": "https://sb-1rpldsghtcd5.vercel.run",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "run-panel-acceptance.spec.ts",
+      "file": "run-panel-acceptance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "run-panel acceptance — desktop 1440×900",
+          "file": "run-panel-acceptance.spec.ts",
+          "line": 161,
+          "column": 6,
+          "specs": [
+            {
+              "title": "anchored run-header, od-status, inspector drawer, coverage notice, no raw JSON",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "pass-1",
+                      "description": "run-view exists and run-header precedes od-status/run-status-header in DOM order — {\"hasStatusTarget\":true,\"headerPrecedes\":true}"
+                    },
+                    {
+                      "type": "pass-2",
+                      "description": "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples — {\"samples\":24,\"spread\":0,\"min\":0,\"max\":0}"
+                    },
+                    {
+                      "type": "pass-5",
+                      "description": "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false) — {\"answered\":true,\"settled\":true}"
+                    },
+                    {
+                      "type": "pass-5",
+                      "description": "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text — {\"hasCoverage\":true,\"coverageNoticeText\":\"Web research source unavailable (upstream execution error) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 21:29 UTC.\",\"noResponseFailed\":true}"
+                    },
+                    {
+                      "type": "pass-4",
+                      "description": "no raw planner JSON visible in od-status or run-view — {\"odJsonClean\":true,\"sample\":\"I'll check TII's recent announcements.\\nI'll return sourced facts and dates.Searching recent announcementsPerplexity\",\"rawMatch\":null}"
+                    },
+                    {
+                      "type": "pass-3",
+                      "description": "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible — {\"railVisible\":true,\"widthValid\":true,\"viewport\":\"1440x900\"}"
+                    },
+                    {
+                      "type": "pass-6",
+                      "description": "working-band absent after the turn settles — {\"count\":0}"
+                    },
+                    {
+                      "type": "pass-7",
+                      "description": "no console/page errors during the turn — {\"errors\":[]}"
+                    },
+                    {
+                      "type": "pass-99",
+                      "description": "summary — {\"failedNumbers\":[],\"failed\":[]}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 24960,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T21:13:08.356Z",
+                      "annotations": [
+                        {
+                          "type": "pass-1",
+                          "description": "run-view exists and run-header precedes od-status/run-status-header in DOM order — {\"hasStatusTarget\":true,\"headerPrecedes\":true}"
+                        },
+                        {
+                          "type": "pass-2",
+                          "description": "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples — {\"samples\":24,\"spread\":0,\"min\":0,\"max\":0}"
+                        },
+                        {
+                          "type": "pass-5",
+                          "description": "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false) — {\"answered\":true,\"settled\":true}"
+                        },
+                        {
+                          "type": "pass-5",
+                          "description": "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text — {\"hasCoverage\":true,\"coverageNoticeText\":\"Web research source unavailable (upstream execution error) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 21:29 UTC.\",\"noResponseFailed\":true}"
+                        },
+                        {
+                          "type": "pass-4",
+                          "description": "no raw planner JSON visible in od-status or run-view — {\"odJsonClean\":true,\"sample\":\"I'll check TII's recent announcements.\\nI'll return sourced facts and dates.Searching recent announcementsPerplexity\",\"rawMatch\":null}"
+                        },
+                        {
+                          "type": "pass-3",
+                          "description": "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible — {\"railVisible\":true,\"widthValid\":true,\"viewport\":\"1440x900\"}"
+                        },
+                        {
+                          "type": "pass-6",
+                          "description": "working-band absent after the turn settles — {\"count\":0}"
+                        },
+                        {
+                          "type": "pass-7",
+                          "description": "no console/page errors during the turn — {\"errors\":[]}"
+                        },
+                        {
+                          "type": "pass-99",
+                          "description": "summary — {\"failedNumbers\":[],\"failed\":[]}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dedc00b8d46035e5a97e-b773d991eea2d1ab1684",
+              "file": "run-panel-acceptance.spec.ts",
+              "line": 163,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "run-panel acceptance — mobile 390×844",
+          "file": "run-panel-acceptance.spec.ts",
+          "line": 169,
+          "column": 6,
+          "specs": [
+            {
+              "title": "anchored run-header, od-status, inspector drawer, coverage notice, no raw JSON",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "pass-1",
+                      "description": "run-view exists and run-header precedes od-status/run-status-header in DOM order — {\"hasStatusTarget\":true,\"headerPrecedes\":true}"
+                    },
+                    {
+                      "type": "pass-2",
+                      "description": "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples — {\"samples\":24,\"spread\":0,\"min\":0,\"max\":0}"
+                    },
+                    {
+                      "type": "pass-5",
+                      "description": "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false) — {\"answered\":true,\"settled\":true}"
+                    },
+                    {
+                      "type": "pass-5",
+                      "description": "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text — {\"hasCoverage\":true,\"coverageNoticeText\":\"Web research source unavailable (skipped for this run — availability backoff after 5 upstream failures) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 21:29 UTC.\",\"noResponseFailed\":true}"
+                    },
+                    {
+                      "type": "pass-4",
+                      "description": "no raw planner JSON visible in od-status or run-view — {\"odJsonClean\":true,\"sample\":\"\",\"rawMatch\":null}"
+                    },
+                    {
+                      "type": "pass-3",
+                      "description": "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible — {\"railVisible\":true,\"widthValid\":true,\"viewport\":\"390x844\"}"
+                    },
+                    {
+                      "type": "pass-6",
+                      "description": "working-band absent after the turn settles — {\"count\":0}"
+                    },
+                    {
+                      "type": "pass-7",
+                      "description": "no console/page errors during the turn — {\"errors\":[]}"
+                    },
+                    {
+                      "type": "pass-99",
+                      "description": "summary — {\"failedNumbers\":[],\"failed\":[]}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14226,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T21:13:33.567Z",
+                      "annotations": [
+                        {
+                          "type": "pass-1",
+                          "description": "run-view exists and run-header precedes od-status/run-status-header in DOM order — {\"hasStatusTarget\":true,\"headerPrecedes\":true}"
+                        },
+                        {
+                          "type": "pass-2",
+                          "description": "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples — {\"samples\":24,\"spread\":0,\"min\":0,\"max\":0}"
+                        },
+                        {
+                          "type": "pass-5",
+                          "description": "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false) — {\"answered\":true,\"settled\":true}"
+                        },
+                        {
+                          "type": "pass-5",
+                          "description": "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text — {\"hasCoverage\":true,\"coverageNoticeText\":\"Web research source unavailable (skipped for this run — availability backoff after 5 upstream failures) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 21:29 UTC.\",\"noResponseFailed\":true}"
+                        },
+                        {
+                          "type": "pass-4",
+                          "description": "no raw planner JSON visible in od-status or run-view — {\"odJsonClean\":true,\"sample\":\"\",\"rawMatch\":null}"
+                        },
+                        {
+                          "type": "pass-3",
+                          "description": "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible — {\"railVisible\":true,\"widthValid\":true,\"viewport\":\"390x844\"}"
+                        },
+                        {
+                          "type": "pass-6",
+                          "description": "working-band absent after the turn settles — {\"count\":0}"
+                        },
+                        {
+                          "type": "pass-7",
+                          "description": "no console/page errors during the turn — {\"errors\":[]}"
+                        },
+                        {
+                          "type": "pass-99",
+                          "description": "summary — {\"failedNumbers\":[],\"failed\":[]}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dedc00b8d46035e5a97e-f3d0349965a906db8ac1",
+              "file": "run-panel-acceptance.spec.ts",
+              "line": 171,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "run-panel-working-header.spec.ts",
+      "file": "run-panel-working-header.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "run panel Working header invariant @ desktop",
+          "file": "run-panel-working-header.spec.ts",
+          "line": 80,
+          "column": 17,
+          "specs": [
+            {
+              "title": "one source of truth for \"Working…\" across a live run (desktop)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 210000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-working-header.spec.ts",
+                        "line": 80,
+                        "column": 17
+                      }
+                    },
+                    {
+                      "type": "working-header",
+                      "description": "{\"vp\":\"desktop\",\"baseURL\":\"https://sb-1rpldsghtcd5.vercel.run\",\"note\":\"run-status-header/run-header present\",\"samples\":22,\"durationMs\":9115,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":602,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12843,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[a3 desktop] {\"vp\":\"desktop\",\"baseURL\":\"https://sb-1rpldsghtcd5.vercel.run\",\"note\":\"run-status-header/run-header present\",\"samples\":22,\"durationMs\":9115,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":602,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T21:13:47.818Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-working-header.spec.ts",
+                            "line": 80,
+                            "column": 17
+                          }
+                        },
+                        {
+                          "type": "working-header",
+                          "description": "{\"vp\":\"desktop\",\"baseURL\":\"https://sb-1rpldsghtcd5.vercel.run\",\"note\":\"run-status-header/run-header present\",\"samples\":22,\"durationMs\":9115,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":602,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51990a1ad599723321ed-5dbf67fc48dd5adf05b7",
+              "file": "run-panel-working-header.spec.ts",
+              "line": 82,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "run panel Working header invariant @ mobile",
+          "file": "run-panel-working-header.spec.ts",
+          "line": 80,
+          "column": 17,
+          "specs": [
+            {
+              "title": "one source of truth for \"Working…\" across a live run (mobile)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 210000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-working-header.spec.ts",
+                        "line": 80,
+                        "column": 17
+                      }
+                    },
+                    {
+                      "type": "working-header",
+                      "description": "{\"vp\":\"mobile\",\"baseURL\":\"https://sb-1rpldsghtcd5.vercel.run\",\"note\":\"run-status-header/run-header present\",\"samples\":23,\"durationMs\":9452,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":603,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12753,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[a3 mobile] {\"vp\":\"mobile\",\"baseURL\":\"https://sb-1rpldsghtcd5.vercel.run\",\"note\":\"run-status-header/run-header present\",\"samples\":23,\"durationMs\":9452,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":603,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T21:14:00.678Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-working-header.spec.ts",
+                            "line": 80,
+                            "column": 17
+                          }
+                        },
+                        {
+                          "type": "working-header",
+                          "description": "{\"vp\":\"mobile\",\"baseURL\":\"https://sb-1rpldsghtcd5.vercel.run\",\"note\":\"run-status-header/run-header present\",\"samples\":23,\"durationMs\":9452,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":603,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51990a1ad599723321ed-c8e9ca723c1c4804f083",
+              "file": "run-panel-working-header.spec.ts",
+              "line": 82,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "thread-reopen.spec.ts",
+      "file": "thread-reopen.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "thread re-open after reload",
+          "file": "thread-reopen.spec.ts",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "reload → recent thread listed → click → messages restored; ?thread deep link",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10027,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-21T21:14:13.452Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "56b384a3c7cad9846f63-50b618904099e6a82e1a",
+              "file": "thread-reopen.spec.ts",
+              "line": 14,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-21T21:13:07.771Z",
+    "duration": 75879.155,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

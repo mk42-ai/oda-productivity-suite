@@ -41,6 +41,24 @@ function filterChecks() {
     expect(odStatusText, "thinking text must not match planner JSON markers").not.toMatch(PAYLOAD_RE);
     expect(odStatusText, "od-status text never contains plan_required or raw objective JSON").not.toMatch(/"plan_required"|{"objective"/);
 
+    // CYCLE 6 (shipped rendering): od-status is collapsible via the run-header chevron `run-logs-toggle` (aria-expanded flips), and the
+    // visible answer (`answer-markdown`) never leaks raw frame/planner JSON.
+    const logsToggle = run.getByTestId("run-logs-toggle");
+    if (await logsToggle.count()) {
+      const before = await logsToggle.getAttribute("aria-expanded");
+      await logsToggle.click();
+      await expect(logsToggle, "run-logs-toggle flips aria-expanded").toHaveAttribute("aria-expanded", before === "true" ? "false" : "true");
+      await logsToggle.click();
+      await expect(logsToggle).toHaveAttribute("aria-expanded", before ?? "true");
+    } else {
+      test.info().annotations.push({ type: "note", description: "run-logs-toggle absent on this turn (no status logs) — collapsibility check not applicable" });
+    }
+    const answerMd = run.getByTestId("answer-markdown");
+    if (await answerMd.count()) {
+      const answerText = await answerMd.first().innerText().catch(() => "");
+      expect(answerText, "visible answer carries no raw frame/planner JSON").not.toMatch(/"pluginId"|"plan_required"|"type"\s*:\s*"(TEXT_MESSAGE|TOOL_CALL|RUN_)/);
+    }
+
     // a6: the planner-payload disclosure lives ONLY inside the single developer reveal (run-rail dev-disclosure), never in the run view.
     await expect(run.getByTestId("planner-payload"), "no planner-payload inside the run view").toHaveCount(0);
     expect(await run.innerText(), "run view never shows raw planner JSON").not.toMatch(/"plan_required"|"user_query"\s*:/);

@@ -1,5 +1,8 @@
 import { test, expect, type Page, type Request } from "@playwright/test";
 import http from "node:http";
+import https from "node:https";
+import os from "node:os";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { primeSettings, hasKey } from "./helpers";
@@ -88,25 +91,42 @@ const SCENARIOS: Record<string, Step[]> = {
   // E — three between-step summaries while the run is live; long thinking + many answer deltas so the thread scrolls.
   E: [F("RUN_STARTED", { threadId: "t", runId: "E" }), C("status", { phase: "planning" }), ...Array.from({ length: 6 }, () => think(LONG_THINK)), PLAN, C("step", { phase: "start", stepId: "1", index: 1, label: "Research sovereign compute capacity" }), ...tool("tc-e1", "1", "UAE sovereign AI compute", 500), C("step", { phase: "done", stepId: "1", index: 1 }), C("summary", { phase: "start", index: 1, stepId: "1" }), 500, C("summary", { phase: "done", index: 1, stepId: "1", text: "Summary 1: compute is expanding.", at: "2026-10-21T12:00:01.000Z" }), 300, C("step", { phase: "start", stepId: "2", index: 2, label: "Compare research output" }), ...tool("tc-e2", "2", "MBZUAI TII research output", 500), C("step", { phase: "done", stepId: "2", index: 2 }), C("summary", { phase: "start", index: 2, stepId: "2" }), 500, C("summary", { phase: "done", index: 2, stepId: "2", text: "Summary 2: research output doubled.", at: "2026-10-21T12:00:02.000Z" }), 300, C("step", { phase: "start", stepId: "3", index: 3, label: "Map applied-AI anchors" }), ...tool("tc-e3", "3", "EDGE Space42 applied AI", 500), C("step", { phase: "done", stepId: "3", index: 3 }), C("summary", { phase: "start", index: 3, stepId: "3" }), 500, C("summary", { phase: "done", index: 3, stepId: "3", text: "Summary 3: applied anchors mapped.", at: "2026-10-21T12:00:03.000Z" }), 300, C("sources", { sources: SOURCES }), ...text("m1", Array.from({ length: 70 }, (_, i) => `Paragraph ${i + 1}: ${CITED_ANSWER[1]}\n\n`), 150), F("RUN_FINISHED", { threadId: "t", runId: "E" })],
 };
-let server: http.Server; let port = 0;
+// PROTOCOL FIX (cycle 6): Playwright's route.continue({url}) must keep the request's protocol, so against an https: baseURL the paced
+// stream is served over HTTPS with a throw-away self-signed cert (openssl, generated in beforeAll); http: baseURLs keep the plain server.
+let BASE_PROTO: "http" | "https" = "http";
+let server: http.Server | https.Server; let port = 0;
+function selfSigned(): { key: Buffer; cert: Buffer } {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "pw-payload-tls-")); const key = path.join(dir, "key.pem"); const cert = path.join(dir, "cert.pem");
+  execFileSync("openssl", ["req", "-x509", "-newkey", "rsa:2048", "-nodes", "-keyout", key, "-out", cert, "-days", "2", "-subj", "/CN=127.0.0.1", "-addext", "subjectAltName=IP:127.0.0.1"], { stdio: "ignore" });
+  return { key: fs.readFileSync(key), cert: fs.readFileSync(cert) };
+}
 test.beforeAll(async () => {
-  server = http.createServer((req, res) => {
+  BASE_PROTO = String(test.info().project.use.baseURL ?? process.env.BASE_URL ?? "").startsWith("https:") ? "https" : "http";
+  const handler = (req: http.IncomingMessage, res: http.ServerResponse) => {
     const u = new URL(req.url ?? "/", "http://x"); const steps = SCENARIOS[u.searchParams.get("s") ?? ""];
     if (!steps) { res.writeHead(404); res.end(); return; }
     res.writeHead(200, { "content-type": "text/event-stream", "cache-control": "no-cache", "x-ondemand-session": "qa-mock-session", "access-control-allow-origin": "*", "access-control-expose-headers": "x-ondemand-session" });
     (async () => { for (const s of steps) { if (typeof s === "number") await new Promise((r) => setTimeout(r, s)); else res.write(`data: ${JSON.stringify(s)}\n\n`); } res.write("data: [DONE]\n\n"); res.end(); })().catch(() => res.end());
-  });
+  };
+  server = BASE_PROTO === "https" ? https.createServer(selfSigned(), handler) : http.createServer(handler);
   await new Promise<void>((r) => server.listen(0, "127.0.0.1", () => r()));
   port = (server.address() as { port: number }).port;
 });
 test.afterAll(async () => { await new Promise<void>((r) => server.close(() => r())); });
 /** Re-point POST /api/chat at the paced local stream for scenario `s` (GET /api/chat/prewarm etc. pass through to the real server). */
-const mockChat = (page: Page, s: string) => page.route("**/api/chat", (route) => (route.request().method() === "POST" ? route.continue({ url: `http://127.0.0.1:${port}/stream?s=${s}` }) : route.continue()));
+const mockChat = (page: Page, s: string) => page.route("**/api/chat", (route) => (route.request().method() === "POST" ? route.continue({ url: `${BASE_PROTO}://127.0.0.1:${port}/stream?s=${s}` }) : route.continue()));
 async function ask(page: Page, q: string) { await page.goto("/chat?skip=1"); await expect(page.getByTestId("composer-input")).toBeVisible({ timeout: 30_000 }); await page.getByTestId("composer-input").fill(q); await page.getByTestId("composer-send").click(); }
 const settled = (page: Page) => expect.poll(async () => (await page.getByTestId("run-view").last().getByTestId("run-timer").getAttribute("data-state")) ?? "frozen", { timeout: 60_000, intervals: [300] }).toBe("frozen");
 const check = (rows: Record<string, boolean>) => { for (const [k, v] of Object.entries(rows)) expect(v, k).toBe(true); };
 
-test.use({ viewport: { width: VIEWPORT[0], height: VIEWPORT[1] } });
+// PROTOCOL FIX (cycle 6): ignoreHTTPSErrors accepts the self-signed paced-stream cert; the launch args turn off Chromium ≥ 130's
+// Local Network Access gate (a public https origin fetching 127.0.0.1 is otherwise CORS-blocked with "Permission was denied").
+const LNA_ARGS = ["--disable-features=LocalNetworkAccessChecks,PrivateNetworkAccessSendPreflights,PrivateNetworkAccessRespectPreflightResults,PrivateNetworkAccessForNavigations"];
+test.use({
+  viewport: { width: VIEWPORT[0], height: VIEWPORT[1] },
+  ignoreHTTPSErrors: true,
+  launchOptions: async ({ launchOptions }, use) => use({ ...launchOptions, args: [...(launchOptions.args ?? []), ...LNA_ARGS] }),
+});
 test.describe.configure({ mode: "serial" });
 test.beforeEach(async ({ page }) => { await primeSettings(page); });
 

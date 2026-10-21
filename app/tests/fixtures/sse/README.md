@@ -1,7 +1,7 @@
 # SSE fixtures (a13)
 
 Real recordings of ONE 2-plugin run — question *"Which of my context companies moved most since the last sentiment run, and why?"*,
-`pluginIds: ["plugin-1722260873" (Perplexity), "plugin-1791713636" (Portfolio Plugin)]`, `externalUserId: INV-001`, recorded 2026-10-11 against
+`pluginIds: ["plugin-1722260873" (Perplexity), a former plugin id (retired)]`, `externalUserId: INV-001`, recorded 2026-10-11 against
 the pass-3 deployment (`https://sb-1gizcktepfgc.vercel.run`, main @ 7c43344). No secrets: `grep -c apikey` → 0 in both files.
 
 | File | What it is | Shape |
@@ -27,8 +27,8 @@ The script re-execs itself under tsx when started with plain `node` (it imports 
 
 ## What the recording shows (unit test expectations)
 
-- Both plugins start (`TOOL_CALL_START` Perplexity @2.2 s, Portfolio Plugin @6.1 s); both get a `TOOL_CALL_RESULT` (Perplexity → `status:error`
-  "returned no sources", Portfolio Plugin → `ok`).
+- Both plugins start (`TOOL_CALL_START` Perplexity @2.2 s, the retired former plugin @6.1 s); both get a `TOOL_CALL_RESULT` (Perplexity → `status:error`
+  "returned no sources", the retired former plugin → `ok`).
 - 286 `ondemand.thinking` deltas, **0** JSON-looking; the planner JSON travels in 199 `ondemand.planner_payload` frames.
 - 3 `ondemand.plan` frames (2 provisional, 1 final), objective `"I'll find which of my context companies moved most since the last sentiment run and why."`
 - `RUN_FINISHED` then `[DONE]` last.

@@ -2,7 +2,7 @@
  * a3 — Working header single-source-of-truth invariant (cycle 5).
  *
  * The run panel must have exactly ONE "Working…" surface: the anchored `run-status-header` at the top of the run panel
- * (falls back to `thinking-block` on builds that pre-date the header — annotated "header not in baseline").
+ * (falls back to `od-status` — ThinkingProcess + StatusLogBlock — on builds that pre-date the header; annotated "header not in baseline").
  * Across one full live run we sample the DOM every 400 ms (≤150 s) and assert:
  *   (a) the header's offsetTop relative to `run-view` never moves by more than 2 px once it first appears;
  *   (b) at NO sample is there an element whose visible text starts with "Working" sitting BELOW a `working-row` and
@@ -24,7 +24,7 @@ const PROOF_DIR = path.resolve(__dirname, "../proof/pass-3");
 const OUT = path.join(PROOF_DIR, "working-header-samples.ndjson");
 
 type Sample = {
-  vp: string; t: number; anchor: "run-status-header" | "thinking-block" | "run-header" | null; anchorTop: number | null; anchorIdx: number | null;
+  vp: string; t: number; anchor: "run-status-header" | "od-status" | "run-header" | null; anchorTop: number | null; anchorIdx: number | null;
   runHeaderIdx: number | null; odStatusIdx: number | null; workingRows: number; workingBand: number; outputsTop: number | null; answerTop: number | null;
   lastWorkingRowBottom: number | null; interleaved: { text: string; top: number; testid: string | null }[]; answerChars: number; live: string | null;
 };
@@ -36,7 +36,7 @@ async function sample(page: Page, vp: string, t: number): Promise<Sample> {
     const rel = (el: HTMLElement | null) => (el && rv ? el.getBoundingClientRect().top - rv.getBoundingClientRect().top : null);
     const header = rv?.querySelector<HTMLElement>("[data-testid=run-status-header]") ?? null;
     const runHeader = rv?.querySelector<HTMLElement>("[data-testid=run-header]") ?? null;
-    const think = rv?.querySelector<HTMLElement>("[data-testid=thinking-block]") ?? null;
+    const think = rv?.querySelector<HTMLElement>("[data-testid=od-status]") ?? null; // cycle 6: UAE DOM (OdStatusView)
     const anchorEl = header ?? runHeader ?? think;
     const kids = rv ? Array.from(rv.children) : [];
     const idxOf = (el: Element | null) => { if (!el) return null; let n: Element | null = el; while (n && n.parentElement !== rv) n = n.parentElement; return n ? kids.indexOf(n) : null; };
@@ -58,7 +58,7 @@ async function sample(page: Page, vp: string, t: number): Promise<Sample> {
       }
     }
     return {
-      vp, t, anchor: header ? "run-status-header" : runHeader ? "run-header" : think ? "thinking-block" : null,
+      vp, t, anchor: header ? "run-status-header" : runHeader ? "run-header" : think ? "od-status" : null,
       anchorTop: rel(anchorEl) == null ? null : Math.round(rel(anchorEl)! * 10) / 10,
       anchorIdx: idxOf(anchorEl), runHeaderIdx: idxOf(runHeader),
       odStatusIdx: idxOf(rv?.querySelector("[data-testid=od-status]") ?? null),
@@ -105,7 +105,7 @@ for (const vp of [{ name: "desktop", width: 1440, height: 900 }, { name: "mobile
       const final = samples[samples.length - 1];
       const anchorKinds = [...new Set(samples.map((s) => s.anchor).filter(Boolean))];
       const headerInBaseline = anchorKinds.includes("run-status-header") || anchorKinds.includes("run-header");
-      const note = headerInBaseline ? "run-status-header/run-header present" : "header not in baseline (fell back to thinking-block)";
+      const note = headerInBaseline ? "run-status-header/run-header present" : "header not in baseline (fell back to od-status)";
       fs.appendFileSync(OUT, samples.map((s) => JSON.stringify(s)).join("\n") + "\n");
       const summary = { vp: vp.name, baseURL: testInfo.project.use.baseURL, note, samples: samples.length, durationMs: Date.now() - t0, firstTop, maxDrift, interleavedHits, bandHits, finalLive: final?.live, finalAnswerChars: final?.answerChars, finalAnchorIdx: final?.anchorIdx, finalRunHeaderIdx: final?.runHeaderIdx, finalOdStatusIdx: final?.odStatusIdx };
       fs.appendFileSync(OUT, JSON.stringify({ summary }) + "\n");

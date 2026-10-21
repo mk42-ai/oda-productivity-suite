@@ -40,7 +40,7 @@ async function openChat(page: Page, opts: { reducedMotion?: "reduce" | "no-prefe
   // skeleton "Thinking" head + working list appear immediately).
   const box = page.locator("textarea, [contenteditable='true']").first();
   if (await box.isVisible().catch(() => false)) {
-    await box.fill("Summarise portfolio sentiment");
+    await box.fill("Summarise public sentiment on UAE AI");
     await box.press("Enter");
   }
   await page.locator(HEAD_SEL).first().waitFor({ state: "attached", timeout: 30_000 }).catch(() => {});

@@ -66,6 +66,22 @@ function invariants() {
       expect(order.stepRowTexts[0].length, "step row has title text").toBeGreaterThan(0);
     }
 
+    // 2b. CYCLE 6 (shipped rendering): the pinned "Working…" row is the a1 status header — `run-status-header` (sr-only live region in the
+    // chat shell) sits between run-header and od-status, carries `run-status-label`, and reads done (not thinking/working) once the timer is frozen.
+    const statusHeader = run.getByTestId("run-status-header");
+    if (await statusHeader.count()) {
+      expect(childTestids.indexOf("run-status-header"), "run-status-header precedes od-status").toBeLessThan(childTestids.indexOf("od-status"));
+      expect(childTestids.indexOf("run-status-header"), "run-header precedes run-status-header").toBeGreaterThan(childTestids.indexOf("run-header"));
+      // shell.css keeps `.rsh` as an sr-only live region (role=status) in the chat shell — assert attached + labelled, not visible.
+      await expect(statusHeader).toBeAttached();
+      await expect(statusHeader).toHaveAttribute("role", "status");
+      await expect(statusHeader.getByTestId("run-status-label")).toHaveText(/\S/);
+      await expect(statusHeader, "status header settled (done|failed) once the run froze").toHaveAttribute("data-state", /^(done|failed)$/);
+      expect(await statusHeader.getAttribute("data-state"), "live run settled as done, not failed").toBe("done");
+    } else {
+      test.info().annotations.push({ type: "note", description: "run-status-header absent on this build — pinned working-row semantics not applicable" });
+    }
+
     // 3. RETARGETED (cycle 5, decision: OdStatusView): od-status attached after the answer
     await expect(odStatus).toBeAttached();
 

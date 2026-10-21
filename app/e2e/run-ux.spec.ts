@@ -16,7 +16,7 @@ async function requireArtifactsBackend(request: import("@playwright/test").APIRe
  * Run-UX end-to-end (desktop 1440x900 + mobile 390x844), recorded on video.
  *  1. upload  — 3 fixture images + the UX PDF + the compendium DOCX through the composer → chips reach `ready`/`local` (honest `error` fails),
  *               every file is persisted as an Artifact (backend /artifacts), shown in the chat (image grid + attachment chips) and in /artifacts.
- *  2. report  — "portfolio report" turn: stream order Thinking (top) → Working row (before the action) → answer → Sources (collapsed, under),
+ *  2. report  — "intelligence brief" turn: stream order Thinking (top) → Working row (before the action) → answer → Sources (collapsed, under),
  *               the report PDF is created, stored (Artifacts + OnDemand Media API status) and appears in the Artifacts panel/route.
  * Every action is logged with an ISO-8601 UTC timestamp (test-results/run-ux-log.ndjson). A smoothness score /10 is computed per run from
  * measured signals (first skeleton latency, CLS, long tasks, order, console errors, artifact present) and written to run-ux-scores.json.
@@ -141,7 +141,7 @@ test.describe("Run UX — uploads, stream order, artifacts", () => {
     curPage = page; await installProbes(page); await primeSettings(page);
     log("goto /chat"); await page.goto("/chat?skip=1"); await expect(page.getByTestId("composer-input")).toBeVisible();
     const before = ((await (await request.get("/api/artifacts?limit=200")).json()) as { data: { id: string }[] }).data.map((a) => a.id);
-    await page.getByTestId("composer-input").fill("Write a short portfolio report on Technology Innovation Institute's latest news as a PDF.");
+    await page.getByTestId("composer-input").fill("Write a short intelligence brief on Technology Innovation Institute's latest news as a PDF.");
     await page.evaluate(() => { (window as unknown as { __marks: { a: string; t: number }[] }).__marks = [{ a: "send", t: performance.now() }]; });
     const t0 = Date.now(); log("send report request");
     await page.getByTestId("composer-send").click();

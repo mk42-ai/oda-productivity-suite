@@ -21,7 +21,7 @@ const FAIL_BODY = [
 const OK_BODY = [
   `data: ${JSON.stringify({ type: "RUN_STARTED", threadId: "t", runId: "r2" })}`,
   `data: ${JSON.stringify({ type: "TEXT_MESSAGE_START", messageId: "m1" })}`,
-  `data: ${JSON.stringify({ type: "TEXT_MESSAGE_CONTENT", messageId: "m1", delta: "Retry succeeded: Technology Innovation Institute is a geothermal company in the portfolio." })}`,
+  `data: ${JSON.stringify({ type: "TEXT_MESSAGE_CONTENT", messageId: "m1", delta: "Retry succeeded: Technology Innovation Institute is a UAE research institute on the watchlist." })}`,
   `data: ${JSON.stringify({ type: "TEXT_MESSAGE_END", messageId: "m1" })}`,
   `data: ${JSON.stringify({ type: "RUN_FINISHED", threadId: "t", runId: "r2" })}`,
   "data: [DONE]",
