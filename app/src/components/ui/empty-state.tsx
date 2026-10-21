@@ -1,8 +1,9 @@
 import { Inbox, FolderOpen, WifiOff, SearchX, CloudOff, MapPinOff, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { EMPTY_STATE_BRAND_ICON, brandIconPath } from "@/lib/brand-icons";
+
 const ICONS: Record<"news" | "picker" | "error", LucideIcon> = { news: Inbox, picker: FolderOpen, error: WifiOff };
-/** Brand empty-state glyphs in /public/icons/empty (Lucide-style 24×24, charcoal strokes, ONE #147B58 accent). */
+/** Brand empty-state glyphs in /public/icons/empty (Lucide-style 24×24, neutral strokes, ONE accent). */
 export type EmptyIcon = "no-results" | "no-news" | "no-selection" | "offline";
 export const EMPTY_ICON_SRC = (icon: EmptyIcon) => `/icons/empty/${icon}.svg`;
 export type EmptyIllustration = "empty" | "error" | "not-found";
@@ -11,6 +12,7 @@ const ILLUSTRATIONS: Record<EmptyIllustration, { src: string; w: number; h: numb
   error: { src: "/illustrations/error-offline.webp", w: 512, h: 512, Icon: CloudOff },
   "not-found": { src: "/illustrations/not-found.webp", w: 768, h: 512, Icon: MapPinOff },
 };
+
 /** Empty state as invitation: short title (≤6 words), optional one-line body, ONE action.
  *  `icon` (brand SVG) wins over the Lucide `kind` glyph when both are given; `kind` is kept for existing callers.
  *  `illustration` (true → "empty") replaces the glyph with a self-hosted illustration + a small inline Lucide icon before the title. */
@@ -29,7 +31,7 @@ export function EmptyState({ kind = "news", icon, title, body, action, className
       ) : (
         <span className="grid size-12 place-items-center rounded-full border border-border bg-surface-2 text-muted" aria-hidden><Icon className="size-6" strokeWidth={1.75} /></span>
       )}
-      <h2 className={cn("font-semibold", compact ? "text-base" : "text-lg", ill && "inline-flex items-center justify-center gap-1.5")}>{ill && <ill.Icon className="size-4 shrink-0 text-[#0F6447]" strokeWidth={2} aria-hidden />}{title}</h2>
+      <h2 className={cn("font-semibold", compact ? "text-base" : "text-lg", ill && "inline-flex items-center justify-center gap-1.5")}>{ill && <ill.Icon className="size-4 shrink-0 text-foreground" strokeWidth={2} aria-hidden />}{title}</h2>
       {body && <p className="max-w-md text-sm text-muted">{body}</p>}
       {action}
     </div>

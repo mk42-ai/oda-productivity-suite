@@ -1,5 +1,5 @@
 /* Cross-platform surface tokens: typography scale, radii, shadows, spacing applied to
-   Overview, Companies, social, News Pulse, Artifacts, Settings, nav rail, top bar (owner: A7).
+   Overview, Companies, social, News Pulse, Artifacts, Settings, nav rail, top bar.
    Chat (.oiu-*, .od-*) is excluded. */
 
 /* Page gutters: 16px (mobile/390px) / 24px (≥1024px) */
@@ -10,8 +10,8 @@ main:not(.chat-main):not(.oiu-root):not([class*="od-chat"]) {
 
 @media (min-width: 1024px) {
   main:not(.chat-main):not(.oiu-root):not([class*="od-chat"]) {
-    padding-left: var(--space-5, 24px);
-    padding-right: var(--space-5, 24px);
+    padding-left: var(--space-5, 20px);
+    padding-right: var(--space-5, 20px);
   }
 }
 
@@ -27,9 +27,9 @@ main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) article,
 main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).news-card,
 main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).settings-section {
   background: var(--surface, #ffffff);
-  border: 1px solid var(--border, #e4e6e9);
+  border: 1px solid var(--border, #E5E5E5);
   border-radius: var(--radius-card, 12px);
-  box-shadow: var(--shadow-1, 0 1px 2px rgba(22, 24, 27, 0.06));
+  box-shadow: var(--shadow-1, 0 1px 2px rgba(0, 0, 0, 0.05));
   transition: box-shadow var(--motion-fast, 150ms) var(--motion-ease, cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
@@ -40,7 +40,7 @@ main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).bs-post:hover,
 main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).art-card:hover,
 main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) article:hover,
 main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).news-card:hover {
-  box-shadow: var(--shadow-2, 0 4px 12px -6px rgba(22, 24, 27, 0.18));
+  box-shadow: var(--shadow-1, 0 1px 2px rgba(0, 0, 0, 0.05));
 }
 
 /* Headings scale: h1 28/34 display, h2 18/26, h3 15/22; body 14/20; mono 12.5 */
@@ -80,5 +80,5 @@ main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) pre {
 header:not([class*="oiu-"]),
 nav:not([class*="oiu-"]) {
   background: var(--surface, #ffffff);
-  border-color: var(--border, #e4e6e9);
+  border-color: var(--border, #E5E5E5);
 }

@@ -1,5 +1,5 @@
-/* a21 — Overview bento grid + hover elevation. Light-only, neutral charcoal shadows (no blue hue).
-   Children slot in by data-testid (a17 hero-stats / a19 top-movers / a20 news-mini-feed) or by data-bento key,
+/* Overview bento grid + hover elevation. Neutral system.
+   Children slot in by data-testid or by data-bento key,
    so sibling components need no edits. Default child span = 12; unlayered so it beats Tailwind utilities. */
 .overview-bento {
   display: grid;
@@ -61,16 +61,12 @@
 .card-elevate {
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
-  transition: box-shadow var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
+  transition: box-shadow var(--motion-fast) var(--motion-ease);
 }
 .card-elevate:hover,
 .card-elevate:focus-within {
   box-shadow: var(--shadow-card-hover);
-  transform: translateY(-1px);
 }
 @media (prefers-reduced-motion: reduce) {
-  .card-elevate { transition: box-shadow var(--motion-fast) linear; }
-  .card-elevate:hover,
-  .card-elevate:focus-within { transform: none; }
+  .card-elevate { transition: none; }
 }
-/* end a21 */

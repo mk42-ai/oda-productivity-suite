@@ -26,17 +26,16 @@
   --color-danger-foreground: var(--danger-foreground);
   --color-ring: var(--ring);
   --color-border-strong: var(--border-strong);
-  /* Turn 10: one Inter-style sans family everywhere — headings share the body face (semibold, tight tracking) instead of the serif display face. */
-  --font-display: var(--font-body), Inter, system-ui, sans-serif;
-  --font-sans: var(--font-body), Yellix, Inter, system-ui, sans-serif;
+  --font-display: var(--font-body), Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: var(--font-body), Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 0.25rem);
-  /* shadcn/ui slots mapped onto the existing light palette */
+  /* shadcn/ui slots mapped onto the neutral palette */
   --color-popover: var(--surface);
   --color-popover-foreground: var(--foreground);
   --color-muted-foreground: var(--muted);
   --color-input: var(--border);
-  /* brand + shared design tokens (tokens.css) */
+  /* legacy contract tokens */
   --color-brand: var(--brand-green);
   --color-brand-ink: var(--brand-green-ink);
   --color-brand-soft: var(--brand-green-soft);
@@ -50,8 +49,8 @@
 @layer base {
   * { @apply border-border; }
   html { color-scheme: light; background: var(--background); }
-  body { @apply bg-background text-foreground font-sans antialiased; }
-  h1, h2, h3, .font-display { font-family: var(--font-body), Inter, system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; }
+  body { @apply bg-background text-foreground font-sans antialiased; font-size: 15px; line-height: 1.5; }
+  h1, h2, h3, .font-display { font-family: var(--font-body), Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 600; letter-spacing: -0.015em; }
   :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 4px; }
 
   @media (prefers-reduced-motion: reduce) {
@@ -67,31 +66,24 @@
   .tap { min-width: 24px; min-height: 24px; }
 }
 
-/* a10 */
-/* Reduced motion (app-wide, outside Tailwind layers so it beats component CSS): no spin / shimmer / pulse / count-up; chevrons snap. */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .oiu-spin, .animate-spin, .animate-pulse, .skeleton, [class*="shimmer"], [class*="pulse"], [class*="count-up"], [data-count-up], [data-animate] { animation: none !important; }
   [data-chevron], [aria-expanded] > svg, summary > svg, .oiu-thinking__chev { transition-duration: 0.01ms !important; }
 }
-/* Disclosure toggles: visible 2px brand-green focus ring + pointer cursor on every <details>/<summary> and aria-expanded button. */
-details > summary, button[aria-expanded], [role="button"][aria-expanded] { cursor: pointer; }
-details > summary:focus-visible, button[aria-expanded]:focus-visible, [role="button"][aria-expanded]:focus-visible { outline: 2px solid #147B58; outline-offset: 2px; }
-/* Text on mint / green-soft surfaces is charcoal (≥4.5:1); brand green as text is always the ink shade. */
-.bg-primary-soft, .bg-accent-soft, [class*="bg-[#E7F2EC]"], [class*="bg-[#E7F2EC]"] { color: #1F2937; }
-.text-\[\#147B58\], .text-\[\#147B58\], .text-brand-green { color: var(--brand-green-ink, #047857) !important; }
-/* end a10 */
-/* a33 focus */
-/* Brand-green focus rings everywhere: hard-code the brand hex so no blue UA/tailwind ring can leak (--ring is also #147B58). */
-:where(html.light, html) :focus-visible { outline: 2px solid #147B58 !important; outline-offset: 2px; border-radius: 4px; }
-[data-testid="company-row-link"]:focus-visible, [data-testid="primary-nav"] a:focus-visible { outline-width: 3px !important; }
-/* end a33 */
 
-/* ---- od-chat (ported OnDemand streaming chat, /chat-od) ------------------------------------------------------------------
- * Design tokens from the port spec §9, scoped to `.od-chat` so the app-wide --primary (#047857) is untouched outside it.
- * TODO(od-chat tokens): --one…--eight and --scrollbar-thumb are PLACEHOLDERS derived from #3bb795 — replace with the values from
- * the source app's src/index.css. This app ships light only. */
-/* Light only for now: `dark:` is bound to a `.dark` class this app never sets, so the ported dark: classes stay inert (Tailwind's
- * default would follow the OS dark setting). No dark tokens are defined. */
+/* Disclosure toggles */
+details > summary, button[aria-expanded], [role="button"][aria-expanded] { cursor: pointer; }
+details > summary:focus-visible, button[aria-expanded]:focus-visible, [role="button"][aria-expanded]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+.bg-primary-soft, .bg-accent-soft { color: var(--foreground); }
+.text-brand-green { color: var(--foreground) !important; }
+
+/* Focus rings */
+:where(html.light, html) :focus-visible { outline: 2px solid var(--ring) !important; outline-offset: 2px; border-radius: 4px; }
+[data-testid="company-row-link"]:focus-visible, [data-testid="primary-nav"] a:focus-visible { outline-width: 3px !important; }
+
+/* ---- od-chat (ported OnDemand streaming chat, /chat-od) ------------------------------------------------------------------ */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
@@ -100,7 +92,6 @@ details > summary:focus-visible, button[aria-expanded]:focus-visible, [role="but
   --color-thinkingBg: var(--thinking-bg);
   --color-bgColor: var(--bg-color);
   --color-gray: #9F9F9F;
-  /* TODO(od-chat tokens): sidebarBg / header are used by the §8.9 code card but not listed in §9 — placeholders */
   --color-sidebarBg: var(--sidebar-bg);
   --color-header: var(--header-bg);
   --color-primary-800: var(--eight);
@@ -112,33 +103,26 @@ details > summary:focus-visible, button[aria-expanded]:focus-visible, [role="but
   --color-primary-200: var(--two);
   --color-primary-100: var(--one);
   --color-primary-50: var(--primary);
-  --animate-text-shimmer: text-shimmer 1.6s linear infinite;
-  @keyframes text-shimmer {
-    0% { background-position: 100% 0; }
-    100% { background-position: 0% 0; }
-  }
 }
 
 .od-chat {
-  --bg-color: #ffffff; /* light only: matches the white chat canvas (fade shadows blend in) */
-  --card: #ffffff;
-  --thinking-bg: #232323;
-  --border-subtle: #e3e7ec;
-  --primary: #3bb795;
-  --primary-rgb: 59, 183, 149;
-  /* TODO(od-chat tokens): placeholder primary scale (100 lightest → 800 darkest) */
-  --one: #e7f6f1;
-  --two: #c3eadd;
-  --three: #8ed8bf;
-  --four: #5cc6a5;
-  --five: #3bb795;
-  --six: #2f9478;
-  --seven: #24705c;
-  --eight: #184c3f;
-  /* TODO(od-chat tokens): placeholder */
-  --scrollbar-thumb: #c9ced5;
-  --sidebar-bg: #f0f2f4;
-  --header-bg: #e8ebee;
+  --bg-color: #FFFFFF;
+  --card: #FFFFFF;
+  --thinking-bg: #F9F9F9;
+  --border-subtle: #E5E5E5;
+  --primary: #0D0D0D;
+  --primary-rgb: 13, 13, 13;
+  --one: #F9F9F9;
+  --two: #F0F0F0;
+  --three: #E5E5E5;
+  --four: #D4D4D4;
+  --five: #8E8E8E;
+  --six: #5D5D5D;
+  --seven: #2F2F2F;
+  --eight: #0D0D0D;
+  --scrollbar-thumb: #D4D4D4;
+  --sidebar-bg: #F9F9F9;
+  --header-bg: #FFFFFF;
 }
 
 .yScrollbar { overflow: auto; }
@@ -149,9 +133,8 @@ details > summary:focus-visible, button[aria-expanded]:focus-visible, [role="but
 
 @keyframes spin { to { transform: rotate(360deg); } }
 .spinAnimation { animation: spin 1.5s linear infinite; }
-/* Composer textareas: the row/container already draws the green focus border — drop the global focus outline (no double border). */
+/* Composer textareas: the row/container already draws the focus border — drop the global focus outline (no double border). */
 .oiu-composer__input:focus-visible, .od-chat textarea:focus-visible { outline: none !important; }
-/* ---- end od-chat ---- */
 
 /* social: clean flat headers - no highlight/gradient bleed in header/tab text */
 .bs-shell ::selection { background: transparent; color: inherit; }
@@ -162,10 +145,9 @@ details > summary:focus-visible, button[aria-expanded]:focus-visible, [role="but
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-/* ---- polish run 2: accessibility ---- */
 /* Visible keyboard focus everywhere (mouse clicks keep the clean look via :focus-visible). */
 :where(a, button, input, select, textarea, summary, [role="button"], [role="tab"], [role="option"], [tabindex]:not([tabindex="-1"])):focus-visible {
-  outline: 2px solid #0F6447;
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
   border-radius: 6px;
 }

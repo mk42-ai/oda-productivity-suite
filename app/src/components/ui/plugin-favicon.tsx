@@ -120,7 +120,7 @@ export type PluginChipProps = {
   className?: string;
 };
 
-const GREEN = "var(--brand-green, #16a34a)";
+const GREEN = "var(--brand-green, #0D0D0D)";
 const RED = "var(--danger, #dc2626)";
 const GREY = "var(--border, #9ca3af)";
 

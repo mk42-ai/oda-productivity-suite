@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 const KEY = "uaecc.theme";
 /** Light/dark switch. The class is applied pre-hydration by THEME_SCRIPT (layout) to avoid a flash; this button just flips + persists it. */
-export const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem('${KEY}');var d=t?t==='dark':true;var c=document.documentElement.classList;c.toggle('dark',d);c.toggle('light',!d);document.documentElement.style.colorScheme=d?'dark':'light';}catch(e){}})();`;
+export const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem('${KEY}');var d=t?t==='dark':false;var c=document.documentElement.classList;c.toggle('dark',d);c.toggle('light',!d);document.documentElement.style.colorScheme=d?'dark':'light';}catch(e){}})();`;
 export function ThemeToggle({ compact = false }: { compact?: boolean }) {
   const [dark, setDark] = useState<boolean | null>(null);
   useEffect(() => { setDark(document.documentElement.classList.contains("dark")); }, []);

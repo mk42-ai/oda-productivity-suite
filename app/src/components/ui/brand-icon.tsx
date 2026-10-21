@@ -3,8 +3,7 @@ import { BRAND_ICONS, brandIconPath, type BrandIconName } from "@/lib/brand-icon
 import { cn } from "@/lib/utils";
 
 /**
- * <BrandIcon/> — one of the ten 2026-10-11 flat-line brand icons (/brand/icons/icon-*.png, 1024², charcoal #1F2937 strokes, ONE
- * #147B58 accent). Server-safe (no hooks). Fixed box → no CLS; `slot` names the UI slot for tests
+ * <BrandIcon/> — flat-line brand icons (/brand/icons/icon-*.png, 1024², neutral strokes, accent). Server-safe (no hooks). Fixed box → no CLS; `slot` names the UI slot for tests
  * (`[data-testid="brand-icon"][data-slot="outputs-step"]`). Decorative by default (alt="" + aria-hidden) unless `label` is given.
  */
 export function BrandIcon({ name, size = 20, slot, title, label, className }: { name: BrandIconName; size?: number; slot: string; title?: string; label?: string; className?: string }) {
