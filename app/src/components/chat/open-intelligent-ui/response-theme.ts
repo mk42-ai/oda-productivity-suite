@@ -1,5 +1,5 @@
 // Vendored from thesysdev/open-intelligent-ui src/lib/response-theme.ts @ 3b39c06 (neutral light palette); fonts switched to the app fonts.
-// Brand hue purge: every blue/purple token is remapped to institutional emerald (#147B58 / #047857 / #E7F2EC) or a hue-neutral charcoal — no computed colour may have an HSL hue in 190–260 with saturation > 0.15.
+// White-first neutral palette (2026-10-21): accents are neutral ink (#0D0D0D) on white; the single functional accent #2563EB is used for links only.
 import { createTheme } from "@openuidev/react-ui";
 
 // Shared palette and typography for the built-in shell and generated responses.
@@ -23,7 +23,7 @@ export const responseTheme = createTheme({
   "textNeutralPrimary": "#0d0d0d",
   "textNeutralSecondary": "#676767",
   "textNeutralTertiary": "#8f8f8f",
-  "textNeutralLink": "#047857",
+  "textNeutralLink": "#2563EB",
   "textBrand": "#0d0d0d",
   "textAccentPrimary": "#ffffff",
   "textAccentSecondary": "#dadada",
@@ -35,22 +35,22 @@ export const responseTheme = createTheme({
   "borderDefault": "#e7e7e7",
   "borderInteractive": "#cecece",
   "borderInteractiveEmphasis": "#8f8f8f",
-  "borderInteractiveSelected": "#147B58",
+  "borderInteractiveSelected": "#0D0D0D",
   "borderAccent": "#16181b",
   "borderAccentEmphasis": "#8f8f8f",
-  "infoBackground": "#E7F2EC",
+  "infoBackground": "#F0F0F0",
   "successBackground": "#edf9f2",
   "alertBackground": "#fff8e7",
   "dangerBackground": "#fff0ee",
   "purpleBackground": "#f1f2f4",
   "pinkBackground": "#fff0f6",
-  "textInfoPrimary": "#047857",
+  "textInfoPrimary": "#0D0D0D",
   "textSuccessPrimary": "#00805d",
   "textAlertPrimary": "#946200",
   "textDangerPrimary": "#c1322c",
   "textPurplePrimary": "#3b3f45",
   "textPinkPrimary": "#b7377c",
-  "borderInfoEmphasis": "#147B58",
+  "borderInfoEmphasis": "#0D0D0D",
   "borderSuccessEmphasis": "#008764",
   "borderAlertEmphasis": "#e2ab23",
   "borderDangerEmphasis": "#e02e2a",

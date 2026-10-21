@@ -45,32 +45,24 @@ export function isActive(path: string | null, href: string, match?: string) {
 }
 /**
  * Primary nav items. `collapsed` (desktop) shows icons only with a title tooltip; labels stay in the accessibility tree.
- * Prefetch: every link uses Next's default prefetch. For dynamic routes (/social, /chat …) Next 15 only prefetches up to the
- * nearest loading.tsx boundary — a cheap static shell — so there is no full server render to cancel (the earlier ERR_ABORTED noise).
+ * 36px tall, radius 8px, hover #F0F0F0, active #ECECEC, text #0D0D0D, icons #5D5D5D.
  */
 export function Nav({ collapsed = false }: { collapsed?: boolean }) {
   const path = usePathname();
   const { items: artifacts } = useArtifacts();
   const artifactCount = artifacts.length;
   const navRef = useRef<HTMLElement>(null);
-  // < lg the nav is a horizontally scrolling row: keep the active item visible after each route change. Scrolls ONLY the row
-  // (container.scrollTo), never the window, so it cannot fight Next's scroll-to-top / back-forward scroll restoration.
-  useEffect(() => {
-    const nav = navRef.current; if (!nav || nav.scrollWidth <= nav.clientWidth) return;
-    const el = nav.querySelector<HTMLElement>("a[aria-current='page']"); if (!el) return;
-    const left = el.offsetLeft - nav.offsetLeft; const right = left + el.offsetWidth;
-    if (left < nav.scrollLeft || right > nav.scrollLeft + nav.clientWidth) nav.scrollTo({ left: Math.max(0, left - 16), behavior: "auto" });
-  }, [path]);
+
   return (
-    <nav ref={navRef} aria-label="Primary" className={cn("flex min-w-0 max-w-full items-center gap-1 overflow-x-auto lg:mt-3 lg:flex-col lg:items-stretch lg:gap-1", collapsed && "lg:items-center")} data-testid="primary-nav" onKeyDown={onNavKeyDown}>
+    <nav ref={navRef} aria-label="Primary" className={cn("flex min-w-0 max-w-full flex-col items-stretch gap-1 mt-1", collapsed && "lg:items-center")} data-testid="primary-nav" onKeyDown={onNavKeyDown}>
       {ITEMS.map(({ href, label, icon: Icon, match }) => {
         const active = isActive(path, href, match);
         return (
           <Tooltip key={href}>
           <TooltipTrigger asChild>
           <Link href={href} aria-current={active ? "page" : undefined} aria-label={label} data-testid={`nav-${href.slice(1)}`}
-            className={cn("relative flex min-h-10 shrink-0 items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring", active ? "bg-surface-3 text-foreground" : "text-muted hover:bg-surface-2 hover:text-foreground", collapsed && "lg:size-10 lg:justify-center lg:px-0")}>
-            <Icon className="size-4 shrink-0" aria-hidden /><span className={cn("hidden sm:inline", collapsed && "lg:sr-only")}>{label}</span><span className="sr-only sm:hidden">{label}</span>
+            className={cn("relative flex h-9 min-h-[36px] shrink-0 items-center gap-2.5 rounded-lg px-2.5 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring", active ? "bg-[#ECECEC] text-[#0D0D0D]" : "text-[#0D0D0D] hover:bg-[#F0F0F0]", collapsed && "lg:size-9 lg:justify-center lg:px-0")}>
+            <Icon className="size-4 shrink-0 text-[#5D5D5D]" aria-hidden /><span className={cn(collapsed && "lg:sr-only")}>{label}</span>
             {href === "/artifacts" && artifactCount > 0 && <ArtifactsCount count={artifactCount} collapsed={collapsed} />}
           </Link>
           </TooltipTrigger>
@@ -84,7 +76,7 @@ export function Nav({ collapsed = false }: { collapsed?: boolean }) {
 
 /**
  * Artifact count merged INTO the Artifacts nav item (no floating badge anywhere in the rail): a small charcoal pill at the right end of the
- * link; icon-only collapsed rail → a green dot with the count in `title`. Hidden when there are no artifacts.
+ * link; icon-only collapsed rail → a neutral dot with the count in `title`. Hidden when there are no artifacts.
  */
 function ArtifactsCount({ count, collapsed }: { count: number; collapsed: boolean }) {
   const text = count > 99 ? "99+" : String(count);
@@ -93,7 +85,7 @@ function ArtifactsCount({ count, collapsed }: { count: number; collapsed: boolea
     <>
       <span data-testid="nav-artifacts-count" data-count={count} title={label} aria-label={label}
         className={cn("ml-auto hidden min-w-5 items-center justify-center rounded-full bg-foreground px-1.5 text-[11px] font-semibold leading-5 text-background tabular-nums sm:inline-flex", collapsed && "lg:hidden")}>{text}</span>
-      {collapsed && <span data-testid="nav-artifacts-dot" title={label} aria-hidden className="absolute right-1.5 top-1.5 hidden size-2 rounded-full bg-[#147B58] ring-2 ring-background lg:block" />}
+      {collapsed && <span data-testid="nav-artifacts-dot" title={label} aria-hidden className="absolute right-1.5 top-1.5 hidden size-2 rounded-full bg-[#0D0D0D] ring-2 ring-background lg:block" />}
     </>
   );
 }

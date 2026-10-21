@@ -25,8 +25,8 @@ export function InspectorToggle({ className }: { className?: string }) {
   const open = useInspectorOpen();
   return (
     <button type="button" onClick={() => inspectorStore.toggle()} data-testid="inspector-toggle" aria-expanded={open} aria-controls="chat-inspector" aria-label={open ? "Close inspector" : "Open inspector"} title="Inspector — run plan, dossier, context, plugins"
-      className={cn("inline-flex h-8 items-center gap-1.5 rounded-md border border-border bg-surface px-2.5 text-xs font-medium text-foreground hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-ring", open && "bg-surface-3", className)}>
-      <SlidersHorizontal className="size-3.5" aria-hidden /><span className="hidden sm:inline">Inspector</span>
+      className={cn("oiu-topbar__btn", open && "bg-[#ECECEC]", className)}>
+      <SlidersHorizontal className="size-4" aria-hidden /><span className="sr-only">Inspector</span>
     </button>
   );
 }

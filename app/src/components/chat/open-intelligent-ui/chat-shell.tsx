@@ -65,6 +65,7 @@ import { AppComposer } from "./app-composer";
 import { buildContextPayload, contextSummary } from "@/lib/chat/context-payload";
 import { getSettings } from "@/lib/settings";
 import { composerStore } from "./composer-store";
+import { threadNavStore } from "./thread-nav-store";
 import { chipsBlock, clearContextChips, getContextChips } from "./context-chips";
 import { ArtifactCard } from "@/components/artifacts/artifact-card";
 import { ArtifactsToggle } from "@/components/artifacts/artifacts-panel";
@@ -1271,6 +1272,7 @@ ${txt}`; }
         <ScrollAnchor />
         <RunFailureNotice />
         <ContextChipsBar />
+        <ThreadNavBridge />
         <Suspense fallback={null}><AutoAsk /><ThreadDeepLink /></Suspense>
       </AgentInterface>
       {/* a49: explainer sentence removed (duplicated the composer hint); keep the testids/data attributes for the plugin label. */}
@@ -1279,7 +1281,24 @@ ${txt}`; }
   );
 }
 
-/** Slim top bar over the thread: thread title · New chat · Threads menu (recent threads) · the page's right-side controls (inspector toggle). */
+/** Publishes thread state into threadNavStore so the navigation rail can list and switch chats. */
+function ThreadNavBridge() {
+  const threads = useThreadList((s) => s.threads);
+  const selectThread = useThreadList((s) => s.selectThread);
+  const selectedId = useThreadList((s) => s.selectedThreadId);
+  const switchToNewThread = useThreadList((s) => s.switchToNewThread);
+  useEffect(() => {
+    threadNavStore.publish({
+      threads,
+      selectedId,
+      select: (id: string) => { selectThread(id); },
+      newThread: () => { composerStore.clear(); switchToNewThread(); },
+    });
+  }, [threads, selectedId, selectThread, switchToNewThread]);
+  return null;
+}
+
+/** Slim 52px top bar over the thread: brand mark · page title · Concept Demonstration label · New chat · Inspector toggle · Artifacts toggle. */
 function ChatTopBar({ topBarRight }: { topBarRight?: ReactNode }) {
   const threads = useThreadList((s) => s.threads); const selectThread = useThreadList((s) => s.selectThread); const selectedId = useThreadList((s) => s.selectedThreadId);
   const switchToNewThread = useThreadList((s) => s.switchToNewThread);
@@ -1287,21 +1306,27 @@ function ChatTopBar({ topBarRight }: { topBarRight?: ReactNode }) {
   const [mounted, setMounted] = useState(false); useEffect(() => { setMounted(true); }, []);
   const current = mounted ? threads.find((t) => t.id === selectedId) : undefined;
   const recent = mounted ? threads.filter((t) => !t.isPending).slice(0, 12) : [];
+  const title = current?.title || "Executive Intelligence Chat";
   return (
     <div className="oiu-topbar" data-testid="chat-topbar">
       <div className="oiu-topbar__left">
-        <h1 className="oiu-topbar__title" data-testid="chat-title" title={current?.title || "Chat"} aria-label={current?.title || "Chat"}><span className="oiu-thread-title" data-testid="thread-title" title={current?.title || "Chat"}>{current?.title || "Chat"}</span></h1>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/brand/mark-light.png" className="size-6 shrink-0 dark:hidden" width={24} height={24} alt="" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/brand/mark-dark.png" className="hidden size-6 shrink-0 dark:block" width={24} height={24} alt="" />
+        <h1 className="oiu-topbar__title" data-testid="chat-title" title={title} aria-label={title}><span className="oiu-thread-title" data-testid="thread-title" title={title}>{title}</span></h1>
+        <span className="oiu-topbar__concept-label" data-testid="chat-concept-label">Concept Demonstration</span>
       </div>
       <div className="oiu-topbar__right">
-        <button type="button" className="oiu-topbar__btn" data-testid="new-thread" onClick={() => { composerStore.clear(); switchToNewThread(); }} disabled={isRunning} title="New chat"><Plus className="size-3.5" aria-hidden /><span>New chat</span></button>
-        <details className="oiu-threads" data-testid="threads-menu">
-          <summary className="oiu-topbar__btn" aria-label="Threads"><MessageSquareMore className="size-3.5" aria-hidden /><span>Threads{recent.length ? ` (${recent.length})` : ""}</span></summary>
+        <button type="button" className="oiu-topbar__btn" data-testid="new-thread" onClick={() => { composerStore.clear(); switchToNewThread(); }} disabled={isRunning} aria-label="New chat" title="New chat"><Plus className="size-4" aria-hidden /><span className="sr-only">New chat</span></button>
+        <details className="oiu-threads lg:hidden" data-testid="threads-menu">
+          <summary className="oiu-topbar__btn" aria-label="Threads" title="Threads"><MessageSquareMore className="size-4" aria-hidden /><span className="sr-only">Threads{recent.length ? ` (${recent.length})` : ""}</span></summary>
           <ul className="oiu-threads__list" aria-label="Recent threads">
             {recent.length === 0 && <li className="oiu-threads__empty">No threads yet</li>}
             {recent.map((t) => <li key={t.id}><button type="button" className={`oiu-threads__item${t.id === selectedId ? " oiu-threads__item--active" : ""}`} data-testid="threads-menu-item" data-thread-id={t.id} title={t.title || "Untitled thread"} aria-label={t.title || "Untitled thread"} onClick={(e) => { selectThread(t.id); (e.currentTarget.closest("details") as HTMLDetailsElement | null)?.removeAttribute("open"); }}><span className="oiu-thread-title" data-testid="thread-title" title={t.title || "Untitled thread"}>{t.title || "Untitled thread"}</span></button></li>)}
           </ul>
         </details>
-        <ArtifactsToggle className="oiu-topbar__btn" showLabel />
+        <ArtifactsToggle className="oiu-topbar__btn" showLabel={false} />
         <span className="oiu-topbar__slot" data-testid="topbar-right">{topBarRight}</span>
       </div>
     </div>
