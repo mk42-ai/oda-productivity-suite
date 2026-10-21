@@ -14,7 +14,7 @@ export function DisclaimerBar() {
       <span data-testid="brand-line" className="font-semibold">{BRAND_LINE}</span>
       <span aria-hidden className="opacity-60">·</span>
       <span className="hidden sm:inline">Not an official government system</span>
-      <span className="hidden opacity-75 lg:inline">· Public-source data, as of 21 Oct 2026 · No government logo or endorsement implied</span>
+      <span className="hidden lg:inline">· Public-source data, as of 21 Oct 2026 · No government logo or endorsement implied</span>
     </div>
   );
 }
