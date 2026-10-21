@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-21T11:17:46Z",
+ "updated_at": "2026-10-21T11:45:48Z",
  "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
  "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
  "original": {
@@ -331,5 +331,13 @@
    "portfolio_api_plugins_planner": 0
   },
   "tag_push": "bcap-pre-uae-20261020T2130Z → 816aaae pushed to origin 2026-10-21T11:16Z"
+ },
+ "cycles": {
+  "qa_closure_cycle3": {
+   "resumed_at": "2026-10-21T11:45:48Z",
+   "base_sha": "d32b6912e0f7951a04e080a9b18bc744b640d706",
+   "origin_delta_since_d32b691": "none",
+   "status": "in_progress"
+  }
  }
 }
