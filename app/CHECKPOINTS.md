@@ -64,3 +64,4 @@
 | 2026-10-21T11:03:41Z | Redeploy sbx_FMYCvAMQesXj2qLY6dY5KEh0VFVY → **https://sb-6szikitpkdgm.vercel.run** (health 200); re-check: h-scroll 26/26, inspector 360 px, toggle absent, stale dark pref cleared |
 | 2026-10-21T11:12:34Z | 84-check suite on the new build **84/84** (1440×900 33/33 · 390×844 32/32 · server 19/19) |
 | 2026-10-21T11:16:25Z | 6 commits pushed 0aa7eb2..5b6a994 (3836ec0 contrast · ec26854 layout · 249eaf7 light-only · 6a78690 assets · 2e18ad9 disclaimer · 5b6a994 evidence); tag `bcap-pre-uae-20261020T2130Z` → 816aaae pushed (`* [new tag]`) |
+| 2026-10-21T11:19:27Z | Vercel git build for the new HEAD **READY**: dpl_6mSwFCHYFCGcUtACzFNKfteHcJzS (5b6a994, ready 11:17:52Z) and dpl_r4qGtYU1B3c3QLUhGowjECMyW7Vv (dd8f056, ready 11:19:27Z) — both 302 behind SSO; HEAD sandbox sbx → **https://sb-64yp7hfte77p.vercel.run** (health 200 at 11:22:47Z) |

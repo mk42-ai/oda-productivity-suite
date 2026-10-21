@@ -196,7 +196,7 @@
   "residue_hits": 0,
   "screenshots_dir": "app/proof/qa-20261021"
  },
- "preview_url": "https://sb-6szikitpkdgm.vercel.run",
+ "preview_url": "https://sb-64yp7hfte77p.vercel.run",
  "ui_restyle_20261021": {
   "theme": "white-first neutral (ChatGPT-like)",
   "fallback_tag": "uae-navy-gold-fallback-20261021",
@@ -233,10 +233,11 @@
    "5b6a994 docs evidence"
   ],
   "preview": {
-   "url": "https://sb-6szikitpkdgm.vercel.run",
-   "sandbox_id": "sbx_FMYCvAMQesXj2qLY6dY5KEh0VFVY",
-   "created_utc": "2026-10-21T11:01:27Z",
-   "timeout": "90m"
+   "url": "https://sb-64yp7hfte77p.vercel.run",
+   "sandbox_id": "sbx_bACrpDgAiMJfNDC8O1gc6TnTaDSK",
+   "created_utc": "2026-10-21T11:21Z",
+   "timeout": "90m",
+   "serves": "dd8f056 (HEAD)"
   },
   "vercel": {
    "project": "prj_wXz5xY3PNULypuwepaqu1XKa6sP1",
@@ -249,7 +250,14 @@
     "url": "https://oda-productivity-suite-9h8g5yik4-schoolhack-web-team.vercel.app",
     "http": 302
    },
-   "new_head_build": "pending at write time — see CHECKPOINTS"
+   "new_head_build": {
+    "id": "dpl_r4qGtYU1B3c3QLUhGowjECMyW7Vv",
+    "commit": "dd8f056",
+    "ready_utc": "2026-10-21T11:19:27Z",
+    "url": "https://oda-productivity-suite-gkbr82ka5-schoolhack-web-team.vercel.app",
+    "http": 302,
+    "previous": "dpl_6mSwFCHYFCGcUtACzFNKfteHcJzS 5b6a994 READY 11:17:52Z"
+   }
   },
   "open_items": {
    "muted_label_contrast": "VERIFIED-FIXED",
