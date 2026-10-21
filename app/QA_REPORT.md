@@ -1,3 +1,59 @@
+# QA_REPORT — 2026-10-21 verification turn (10:16Z → ~11:30Z): contrast fix, layout spec, dark theme, e2e, assets
+Preview under test: new sandbox build of the working tree, https://sb-55dvd3y2jwnj.vercel.run (created 10:28:46Z from HEAD 0aa7eb2 + this turn's edits); previous build https://sb-54yh1uujw0kw.vercel.run (eeba60b) served as BEFORE until it stopped (HTTP 410 SANDBOX_STOPPED at ~10:41Z). The Vercel git preview dpl_Ga19v74DiAHLkG3xjMQC3xJVVdez (0aa7eb2, READY 09:58:38Z) answers 302 "Protected by Vercel Authentication" (project ssoProtection = all_except_custom_domains), so browser QA ran on the sandbox.
+
+## Lane A — AA contrast (`qa/screenshots/20261021-v2/contrast-{before,after}.json`, `contrast-summary.md`)
+| | BEFORE (eeba60b, baseline) | AFTER (this build) |
+|---|---|---|
+| text nodes checked (13 routes × 2 viewports) | 6,695 | 8,895 (exhaustive TreeWalker) |
+| below AA (raw) | 105 | 38 |
+| genuine | 73 | **0** |
+| parser artefacts (`oklab(…)` / `color(srgb …)` backgrounds) | 32 | 38 |
+Fix: muted-label token `#8E8E8E` → `#737373` in light (`--muted-3`, `--uae-muted`, `--five`, every `text-[#8E8E8E]`, chat shell CSS) and `#A3A3A3` in `html.dark`; brand-rail label raised 10→11 px. Measured: "Concept demonstration" #737373 on #F9F9F9 = **4.5037:1** (was 3.11), page eyebrows on white **4.74:1** (was 3.28), composer hint + engine credit 4.74:1. Radar: ring chips/blip numerals now use dark ink on the light `assess` (#B8A98F → 8.43:1, was 2.31) and `hold` (#A3A3A3 → 7.70:1, was 2.52) fills (`RINK` map in `src/app/radar/page.tsx`).
+Remaining 38 hits, all artefacts: /watchlist sticky toolbar (9 per viewport: `label.relative > span.sr-only` "Search watchlist", 5 `button[data-testid="filter-*"]` pills, `span[data-testid="watchlist-count"]`) — background reported as `oklab(0.999994 … / 0.95)` (Tailwind v4 `bg-white/95`), visually #5D5D5D on near-white ≈ 7.0:1; /chat and /settings company-picker chips (5 per viewport: `span[data-testid="context-chip"] > span.context-chip__name`) — background `color(srgb 0.931 0.928 0.925)`, visually #44403C on #EDECEC ≈ 9:1. No genuine AA miss remains.
+
+## Lane B — chat layout spec (measured on the live preview, 1440×900 unless stated; screenshots `qa/screenshots/20261021-v2/<route>-<viewport>_v2.png`, 31 files)
+| Item | Spec | Measured | Result |
+|---|---|---|---|
+| Left rail expanded / collapsed | 224 / 64 px | 224 / 64 px (`aside[data-testid="nav-rail"]`) | ✅ |
+| Collapse persisted across reload | localStorage | `uaecc.nav.rail` = `expanded` / `collapsed`, state retained after hard reload both ways | ✅ |
+| Rail-hosted thread list | inside rail | `[data-testid="rail-chats-section"] > [data-testid="rail-chats-list"]` is a descendant of the rail; empty state "No chats yet" (now with the empty-state illustration, `data-testid="threads-empty"`). Pending (unsent) threads are filtered out, so a populated list needs a real send — NOT exercised (API cost) | ✅ structure / ⚠ populated list not verified |
+| Top bar | 52 px, mark + "Concept Demonstration" only | `.openui-agent-thread-header` 52 px; children: `img[src="/brand/mark-light.png"]` 24×24 + label "Concept Demonstration" #737373 12 px; nothing else | ✅ |
+| Conversation column | 800 px centred | `max-width: 800px`, rect 800 px, left/right offset 24/24 px | ✅ |
+| Composer | one-row pill, attach icon, black circular send | flex-row, `border-radius: 9999px`, `button[data-testid="attachment-button"]` aria-label "Attach a file", send 36×36 px radius 9999 px, `rgb(13,13,13)` when enabled (#E5E5E5 disabled) | ✅ |
+| Credit line | muted, under composer only | `[data-testid="engine-credit"]` "Intelligence engine: OnDemand" #737373 11 px under the hint; no OnDemand/AIREV copy in headers, hero or logos on /chat | ✅ |
+| Run-panel inspector | ≤ 360 px, Plan/Run tabs | opened via `button[data-testid="inspector-toggle"]` → `aside#chat-inspector` measured **420 px** (`lg:w-[420px]`) → **FIXED in this turn to `lg:w-[360px]`** (re-measure pending on the next build). Plan stepper / run view mount only during a live run — not measurable without sending a message | ⚠ fixed, re-measure pending |
+| 390 px drawer | open / close / outside tap | `button[data-testid="rail-drawer-toggle"]` → `aside[data-testid="rail-drawer"]` 280 px (`min(280px, 85vw)`), overlay `[data-testid="rail-overlay"]` rgba(0,0,0,.4); tap at (380,400) closes (aria-hidden=true, -translate-x-full, overlay unmounted) | ✅ |
+| Horizontal scroll | 0 on 26 route×viewport | 24/26 at first pass: `/watchlist` 390 = 406 px (the `select[data-testid="filter-ecosystem"]` was 385 px wide inside the 16 px gutters) and `/briefing` 390 = 478 px (unwrapped `<code>` URLs in the generated markdown) → fixed (`max-w-full` on the select; `break-words` + `[&_code]:break-all` on both briefing renderers) — re-check pending on the next build | ⚠ fixed, re-check pending |
+
+## Lane C — dark theme: decision = **light-only ship, toggle hidden**
+Measured with `localStorage.uaecc.theme = dark` on all 13 routes at 1440×900: `html.dark` applies and body goes #212121 with #2F2F2F cards / #3A3A3A borders and a #60A5FA focus ring, but the page content never inverts — H1s stay `rgb(13,13,13)` on #2F2F2F (**1.45:1**), eyebrows #737373 on #2F2F2F (2.82:1), ledes #5D5D5D (2.03:1), /artifacts labels #4B5563 on #212121 (2.13:1); /chat is `force-light` (white main inside the dark shell) with 81/260 sampled nodes below AA; /settings 90/298. Only /settings and /artifacts headings pick up the dark foreground. 13/13 routes fail AA → the toggle is now gated behind `NEXT_PUBLIC_ENABLE_DARK_THEME=1` (`src/components/shell/theme-toggle.tsx`), `THEME_SCRIPT` forces `html.light` and clears a stale `dark` preference, the #212121 token scale is kept for a later pass. Evidence: `qa/screenshots/20261021-v2/overview-dark-1440x900_v2.png`, `chat-dark-1440x900_v2.png`, `/tmp/laneC.json` readings reproduced above.
+
+## Lane D — 39 Playwright e2e specs (`e2e/`: 35 spec files + 3 helpers + perf/; reports in `qa/screenshots/20261021-v2/playwright-report-{desktop,mobile}/index.html`, JSON `results-{desktop,mobile}.json`)
+Run against sb-55dvd3y2jwnj (pre-fix build of this turn), `--workers=1`, desktop capped at 1500 s, mobile + mobile-ux at 600 s; `qa-final*` projects skipped (state capture, not tests).
+| Project | Configured | Executed | Pass | Fail | Not run | Duration |
+|---|---|---|---|---|---|---|
+| desktop | 175 | 63 (+1 killed by the cap) | 23 | 40 | 112 | 1500 s (cap) |
+| mobile | 7 | 7 | 6 | 1 | 0 | 37 s |
+| mobile-ux | 2 | 2 | 0 | 2 | 0 | 0.5 s |
+| **total** | **184** | **72** | **29** | **43** | **112** | **1,538 s** |
+Spec files: 10 completed (a11y, axe-sweep, chat-error-retry, chat, context-sync, copy-and-rail, keyboard-nav, live-smoke, mobile, run-panel-mobile, run-ux), 1 partial (nav-stress 5/18), 22 desktop specs not reached (navigation-e2e … voice), qa-final skipped.
+Classification of the 43 failures: **22 STALE SPECS** (routes `/companies`, `/social`, `/signals`, `/reputation` → 404 since the UAE routes replaced them; "Context: 5 companies" vs "organisations"; `^Chat$` / `Overview` exact titles; `growth-grid`; `img[data-testid="brand-logo"]`; old drawer selectors — three of these each burn the 240 s test timeout, which is why 112 tests never ran); **17 APP BUGS**: 14 × axe `color-contrast` on the disclaimer bar's trailing `opacity-75` span (3.55:1, #848484 on #F9F9F9) → **fixed** (2e18ad9, span at full #5D5D5D ink = 7.0:1), `keyboard-nav` rail focus ring `rgb(37,99,235)` (the spec forbids a blue ring; the spec'd token is #2563EB — spec/token conflict to decide), `nav-stress back-forward-spam` stress-event mismatch, `run-panel-mobile` run-view scrollWidth 326 > 319 px @390 (open); **4 ENVIRONMENT**: 2 × `run-ux` need the Playwright `ffmpeg` binary for video, 2 × `live-smoke` 90 s wait on a real OnDemand answer.
+
+## Existing 84-check suite — re-run on the fixed build https://sb-6szikitpkdgm.vercel.run (11:04–11:12Z; `qa/screenshots/20261021-v2/results-agent*-v2.json`)
+| Agent | 1440×900 | 390×844 | server | Total |
+|---|---|---|---|---|
+| agent1-branding | 6/6 | 5/5 | – | 11/11 |
+| agent2-watchlist | 7/7 | 7/7 | – | 14/14 |
+| agent3-sentiment | 6/6 | 6/6 | 1/1 | 13/13 |
+| agent4-chat | 7/7 | 7/7 | – | 14/14 |
+| agent5-contracts | 7/7 | 7/7 | 18/18 | 32/32 |
+| **Total** | **33/33** | **32/32** | **19/19** | **84/84** |
+Post-fix re-check on the same build: horizontal scroll **26/26** pass, inspector 360 px, theme toggle absent on 13/13 routes, a stale `uaecc.theme=dark` preference is cleared on load (html.light, body #FFFFFF).
+
+## Lane E — assets
+Proof-read (tesseract + glyph-height check) of the delivered marks: social card cbN5407F9u, mark A DKtVcdTrJs and mark B 8644fozEL7 all OCR as "UAE Al Intelligence / Concept Demonstration" — the "Al" is the OCR l/I confusion (the glyph after "A" is a full-cap-height stroke, 3–38 px like "U/A/E", not an ascender-only "l"), so the lettering reads "UAE AI Intelligence" / "Concept Demonstration" exactly; variant C 9DZBiESOxF, EP7c24eLcS (empty) and eLVZbJ40GB (loading) carry no text. Shipped: `public/og-image.png` rebuilt 1200×630 from the card's lattice glyph (cropped, no baked lettering) + live Inter type ("UAE AI Intelligence" 64 px Medium #0D0D0D, "Concept Demonstration" 30 px #737373, "Not an official government system" 22 px); `public/brand/avatar-512.png` (transparent, charcoal) + `favicon.ico` (16/32/48) + `favicon.png` 256 + `apple-touch-icon.png` 180 derived from variant C (also mirrored to `src/app/favicon.ico` / `apple-icon.png`); OG/Twitter meta already point at `/og-image.png`. Empty state wired into the watchlist no-results panel (`data-testid="empty-state"`), the rail threads empty row and (already) the briefing empty card; loading state wired into the live-pipeline loader, the scheduled-briefing loader and (already) the briefing spinner. Removed 7 unreferenced legacy teal-accent icons (`icons/voice-orb.png`, `data-ready.png`, `suggestion.png`, `security.png`, `attach.png`, `browser-action.png`, `fallbacks/dropzone.webp`). Pixel scan for navy/gold/emerald-dominant assets: none; the remaining `#047857` green ink in the vendored chat CSS is the OpenUI run-status palette (54 occurrences, unchanged, not the navy/gold/emerald kit).
+
+---
 # QA_REPORT — 2026-10-21 white restyle (5-agent Playwright sweep + contrast/h-scroll/residue sweep)
 Preview under test: https://sb-54yh1uujw0kw.vercel.run (sandbox sbx_k8lbUZ7s5ISiX1o5VkZphOtOrEZD, HEAD eeba60b). Previous preview for BEFORE shots: local build of 4d0be39 (the Vercel preview https://oda-productivity-suite-3kdb4ehd6-schoolhack-web-team.vercel.app is SSO-protected → 302). Screenshots: `qa/screenshots/20261021-white/` (before-*/after-*: overview, watchlist, dossier-tii, sentiment (+hover, +drilldown), news, radar, graph, chat (+rail expanded/collapsed), briefing, methodology × 1440×900 + 390×844).
 

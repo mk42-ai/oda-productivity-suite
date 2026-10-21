@@ -1,3 +1,15 @@
+# MISSION_STATE — 2026-10-21T11:17:46Z (verification turn: contrast / layout / dark / e2e / assets / pipeline)
+| Lane | Status |
+|---|---|
+| A Contrast | ✅ VERIFIED-FIXED — muted label `#8E8E8E`→`#737373` (light) / `#A3A3A3` (dark); radar chips on dark ink. Sweep 13 routes × 2 vp: BEFORE 105/6,695 (73 genuine) → AFTER 38/8,895, **0 genuine** (38 `oklab()`/`color(srgb)` parser artefacts). |
+| B Chat layout | ✅ VERIFIED — rail 224/64 px persisted (`uaecc.nav.rail`), rail-hosted thread list, 52 px top bar (mark + label only), 800 px centred column, pill composer + 36 px black send, drawer 280 px + overlay + outside-tap close, single muted OnDemand credit under the composer. Inspector was 420 px → **360 px** (re-measured 360). H-scroll 26/26 after two mobile fixes. Populated thread list + Plan/Run tabs need a live run (not exercised). |
+| C Dark theme | ⛔ VERIFIED-FAILING in dark → **light-only ship**: toggle gated behind `NEXT_PUBLIC_ENABLE_DARK_THEME`, stale `dark` pref cleared; evidence in QA_REPORT. |
+| D e2e | ⚠ PARTIAL — 72/184 tests ran (29 pass / 43 fail / 1 killed by 1500 s cap; 112 not run). 22 stale specs (old routes `/companies`, `/social`, `/signals`, `/reputation`, "companies" copy, growth-grid), 17 app bugs (disclaimer `opacity-75` 3.55:1 → fixed 2e18ad9; blue focus ring in rail; 7 px run-view overflow @390), 4 environment (ffmpeg missing, 90 s OnDemand waits). Existing **84-check suite 84/84** on the new build. |
+| E Assets | ✅ lettering proof-read (OCR "Al" = l/I confusion; glyph heights confirm "UAE AI Intelligence"); OG card rebuilt from lattice glyph + live Inter type; favicon/apple-touch/512 avatar from square mark; empty + loading illustrations wired; 7 unreferenced teal icons removed; zero `*.blob.core.windows.net` URLs in code/public. |
+| F Pipeline | ✅ 32 runs since 2026-10-20T23:30Z (ingest 7 — 6 cron + 1 api; briefing 3 — 1 cron + 2 api; checkpoint 22 cron, 05:00Z fire skipped by the scheduler), all `success`. Vercel project has **0 env vars** (no ONDEMAND_*) and SSO protection → git previews 302; sandboxes carry the key via `.env.local`. |
+| G Dossier + sentiment | ✅ all 7 flag sets already present in data (0 patches); 196 statements = 159 + 37, 0 duplicates (sha1 url+text), lanes UAE-topic 180 / global 16, pulse 24h 4 · 7d 17 · 30d 39; Lucidya excluded (no UAE-HQ swap added — needs research). |
+Build: HEAD **5b6a994** pushed 11:16:25Z (6 commits on 0aa7eb2) → PR #7. Live preview: **https://sb-6szikitpkdgm.vercel.run** (sbx_FMYCvAMQesXj2qLY6dY5KEh0VFVY, 90 min from 11:01Z). Tag `bcap-pre-uae-20261020T2130Z` → 816aaae now on origin. main @ be3f7c1 untouched.
+
 # MISSION_STATE — 2026-10-21T09:58Z (white restyle turn)
 | UI | ✅ White-first ChatGPT-like restyle shipped: tokens (778ea96), chat layout with rail-hosted threads + 390 drawer (b37cc78), dashboard pages (25ad390), Sentiment Universe on white (e68b80a), monochrome assets (3ded306, eeba60b). Fallback tag `uae-navy-gold-fallback-20261021` → 2008923. QA 84/84, h-scroll 0/26, residue 0; AA contrast: 105/6,695 nodes below 4.5:1 (mostly the #8E8E8E 12 px labels — see QA_REPORT) |
 | Previous row set (04:42Z) | kept below for history |

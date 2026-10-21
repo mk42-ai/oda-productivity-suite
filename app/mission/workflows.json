@@ -9,11 +9,11 @@
    "upsert_status": 200,
    "activate_status": 200,
    "isActive": true,
-   "verified_at": "2026-10-21T04:40:51.249Z",
+   "verified_at": "2026-10-21T09:54:23.281Z",
    "next_runs_utc": [
-    "2026-10-21T06:00:00Z",
-    "2026-10-21T08:00:00Z",
-    "2026-10-21T10:00:00Z"
+    "2026-10-21T10:00:00Z",
+    "2026-10-21T12:00:00Z",
+    "2026-10-21T14:00:00Z"
    ],
    "last_manual_execution": {
     "id": "6ad84034c2cfee207e8f3f58",
@@ -50,7 +50,7 @@
    "upsert_status": 200,
    "activate_status": 200,
    "isActive": true,
-   "verified_at": "2026-10-21T04:40:51.703Z",
+   "verified_at": "2026-10-21T09:54:23.778Z",
    "next_runs_utc": [
     "2026-10-22T02:30:00Z",
     "2026-10-23T02:30:00Z",
@@ -89,11 +89,11 @@
    "upsert_status": 200,
    "activate_status": 200,
    "isActive": true,
-   "verified_at": "2026-10-21T04:40:52.153Z",
+   "verified_at": "2026-10-21T09:54:24.279Z",
    "next_runs_utc": [
-    "2026-10-21T05:00:00Z",
-    "2026-10-21T05:30:00Z",
-    "2026-10-21T06:00:00Z"
+    "2026-10-21T10:00:00Z",
+    "2026-10-21T10:30:00Z",
+    "2026-10-21T11:00:00Z"
    ],
    "last_manual_execution": {
     "id": "6ad7f33a5e60695bc4d052dc",
@@ -120,5 +120,5 @@
    }
   }
  },
- "updated_at": "2026-10-21T04:40:52.153Z"
+ "updated_at": "2026-10-21T09:54:24.279Z"
 }

@@ -1,222 +1,327 @@
 {
-  "updated_at": "2026-10-21T09:55:00Z",
-  "mission": "UAE AI National Intelligence Command Centre \u2014 Concept Demonstration",
-  "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
-  "original": {
-    "repo": "mk42-ai/oda-productivity-suite",
-    "app_path": "<original>/web (+ Hono API at <original>/)",
-    "branch": "fix/news-summary-rewrite-live-verify-20261020",
-    "sha": "816aaaed9c3aa8fa37fbad31d3bd3f7491b3de9d",
-    "commit_time": "2026-10-20T10:04:05Z",
-    "rollback_tag": "bcap-pre-uae-20261020T2130Z",
-    "rollback_tag_pushed": false,
-    "last_ready_vercel": "original project last READY preview 2026-10-13 (id withheld \u2014 see Vercel project prj_OGWzvDKrp97MDz28cfd7yE86EcBq)",
-    "note": "All 15 Vercel git deployments of this project since 2026-10-18 are ERROR MISSING_SERVICES (project framework=services, vercel.json not at repo root).",
-    "rollback_tag_note": "Tag exists locally on 816aaae. `git push origin refs/tags/bcap-pre-uae-20261020T2130Z` attempted 2026-10-21T04:22Z \u2192 'Invalid username or token' (no GITHUB_TOKEN in this session). Branch fix/news-summary-rewrite-live-verify-20261020 on GitHub still points at 816aaae; main at be3f7c1 untouched."
-  },
-  "new": {
-    "branch": "uae-ai-command-centre",
-    "app_path": "app/",
-    "pushed": true,
-    "pr_url": "https://github.com/mk42-ai/oda-productivity-suite/pull/7",
-    "preview_url": "https://sb-54yh1uujw0kw.vercel.run",
-    "sandbox_id": "sbx_k8lbUZ7s5ISiX1o5VkZphOtOrEZD",
-    "sandbox_timeout": "90 min from 2026-10-21T04:17Z (expires \u224805:47Z)",
-    "previous_preview": "https://sb-6x7pgj362xe9.vercel.run (expired \u224804:10Z)",
-    "base_commit": "2515e93",
-    "pushed_commit": "2008923 (local commits of 2026-10-21 not pushed \u2014 no GITHUB_TOKEN)",
-    "vercel_git_preview": {
-      "deployment": "dpl_4kp8ZTwCquMjUuTeT4HtAr5tQyC7",
-      "url": "https://oda-productivity-suite-3kdb4ehd6-schoolhack-web-team.vercel.app",
-      "state": "READY 2026-10-21T04:25Z",
-      "note": "Created via POST /v13/deployments with projectSettings.rootDirectory=uae-ai-command-centre override on commit 2008923; protected by Vercel Authentication (SSO), so it is not publicly reachable. Project rootDirectory=app and framework=vite were NOT changed. Env vars on the project: 0 \u2192 the OnDemand key is supplied only through the sandbox .env.local, never committed."
-    },
-    "root_dir_fix": "Branch layout moved uae-ai-command-centre/ \u2192 app/ (git mv, history preserved) + app/vercel.json {framework: nextjs}; the next git push will build under the project's Root Directory 'app' without touching main or project settings.",
-    "sandbox_created_at": "2026-10-21T09:09:38Z",
-    "head": "eeba60b",
-    "git_preview": {
-      "id": "dpl_hNggcBDep1Twcp7ycWHksT7FUtSv",
-      "state": "READY",
-      "url": "https://oda-productivity-suite-k5ykmksyn-schoolhack-web-team.vercel.app",
-      "sso_protected": true
-    }
-  },
-  "data": {
-    "namespace": "uae_cc_v1",
-    "organizations": 50,
-    "mean_coverage": 0.728,
-    "with_verified_source": 45,
-    "sentiment_records": 196,
-    "by_class": {
-      "Neutral/Informational": 95,
-      "Pragmatists": 20,
-      "Optimists": 37,
-      "Skeptics": 19,
-      "Disruption Concerned": 8,
-      "Safety Advocates": 14,
-      "Pessimists/Doomers": 3
-    },
-    "by_platform": {
-      "news": 79,
-      "web": 35,
-      "survey": 5,
-      "reddit": 38,
-      "government": 3,
-      "op-ed": 3,
-      "think-tank": 6,
-      "hackernews": 7,
-      "facebook": 5,
-      "editorial": 3,
-      "instagram": 5,
-      "linkedin": 4,
-      "event": 1,
-      "press": 1,
-      "report": 1
-    },
-    "by_location": {
-      "UAE_TOPIC_ONLY": 137,
-      "EXPLICIT_UAE": 43,
-      "UNKNOWN": 16
-    },
-    "news": 105,
-    "edges": 168,
-    "hf_models": 154,
-    "sentiment_dead_urls_disabled": 2,
-    "sentiment_prior": 159,
-    "sentiment_added_2026_10_21": 37,
-    "sentiment_duplicates_skipped": 0,
-    "by_lane": {
-      "UAE-topic": 180,
-      "global-discourse": 16
-    },
-    "as_of": "2026-10-21"
-  },
-  "ondemand": {
-    "pipeline_calls": 124,
-    "pipeline_ok": 124,
-    "workflow_runs_since_2026-10-20T23:30Z": {
-      "ingest_cron": [
-        "6ad80080b28e35aa11d85572 00:00:00Z success",
-        "6ad81ca05e60695bc4d05442 02:00:00Z success",
-        "6ad838c05e60695bc4d05528 04:00:00Z success"
-      ],
-      "briefing_cron": [
-        "6ad823a85e60695bc4d054a0 02:30:00Z success (5,159 chars, 12 URLs)"
-      ],
-      "checkpoint_cron": "every 30 min 23:30Z\u219204:00Z, 10 cron executions all success",
-      "manual_2026-10-21": [
-        "briefing 6ad84034b28e35aa11d85731 04:31:48Z success",
-        "ingest 6ad84034c2cfee207e8f3f58 04:31:48Z success (129 s)",
-        "briefing 6ad841aab28e35aa11d85744 04:38:02Z success \u2014 seed-grounded prompt, leads with 20 Oct 2026 items, 13 URLs"
-      ]
-    }
-  },
-  "blockers": [
-    "Rollback tag + today's commits cannot be pushed: no GITHUB_TOKEN in this session (git push \u2192 'Invalid username or token'). PR #7 therefore still shows 2008923.",
-    "Vercel git previews of this branch failed with NOW_SANDBOX_WORKER_ROOTDIR_NOT_EXIST (project Root Directory = 'app'); fixed in the branch layout (app/) but only effective after push. The API-created preview dpl_4kp8\u2026 is READY but SSO-protected.",
-    "Sandbox previews are ephemeral (90 min).",
-    "Ingest results stay in the OnDemand execution store (not merged into seed JSON)."
-  ],
-  "phases": {
-    "P1": "done",
-    "P2": "done",
-    "P3": "done",
-    "P4": "done",
-    "P5": "done (graph + polish); X/TikTok/YouTube native ingestion not run",
-    "P6": "done \u2014 durable workflows (3 active, verified runs incl. first cron fire), live pipeline UI, 5-agent QA 84/84",
-    "P7_resume_2026_10_21": "done: dossier patches, AIREV\u00d7OnDemand weave, brand marks, +37 sentiment, +14 news, briefing re-grounded, QA 82/82, residue 0"
-  },
-  "workflows": {
-    "ingest": {
-      "id": "6ad7f32d5e60695bc4d052cb",
-      "name": "UAE AI Command Centre \u2014 uae_cc_v1 ingest (news + sentiment + entities) every 2h",
-      "cron6_utc": "0 0 */2 * * *",
-      "cron5": "0 */2 * * *",
-      "isActive": true,
-      "activate_http": 200,
-      "next_runs_utc": [
-        "2026-10-21T00:00:00Z",
-        "2026-10-21T02:00:00Z",
-        "2026-10-21T04:00:00Z"
-      ],
-      "verification_execution": "6ad7f3af5e60695bc4d05305",
-      "verification_status": "success"
-    },
-    "briefing": {
-      "id": "6ad7f32e5e60695bc4d052d2",
-      "name": "UAE AI Command Centre \u2014 National AI Briefing daily 06:30 GST (02:30 UTC)",
-      "cron6_utc": "0 30 2 * * *",
-      "cron5": "30 2 * * *",
-      "isActive": true,
-      "activate_http": 200,
-      "next_runs_utc": [
-        "2026-10-21T02:30:00Z",
-        "2026-10-22T02:30:00Z",
-        "2026-10-23T02:30:00Z"
-      ],
-      "verification_execution": "6ad7f3b05e60695bc4d05309",
-      "verification_status": "success"
-    },
-    "checkpoint": {
-      "id": "6ad7f32e5e60695bc4d052d7",
-      "name": "UAE AI Command Centre \u2014 mission checkpoint every 30 min",
-      "cron6_utc": "0 */30 * * * *",
-      "cron5": "*/30 * * * *",
-      "isActive": true,
-      "activate_http": 200,
-      "next_runs_utc": [
-        "2026-10-20T23:30:00Z",
-        "2026-10-21T00:00:00Z",
-        "2026-10-21T00:30:00Z"
-      ],
-      "verification_execution": "6ad7f33a5e60695bc4d052dc",
-      "verification_status": "success",
-      "first_cron_execution": {
-        "id": "6ad7f978b28e35aa11d85525",
-        "status": "success",
-        "started_at": "2026-10-20T23:30:00.803Z"
-      }
-    }
-  },
-  "live_datastore": {
-    "read_path": "GET /api/uae/live \u2192 OnDemand /automation/api/execution/list + /execution/{id}/node/outputs",
-    "latest_ingest": {
-      "execution": "6ad7f3af5e60695bc4d05305",
-      "news": 3,
-      "statements": 3,
-      "org_signals": 1,
-      "dropped_no_url": 0
-    },
-    "merged_into_seed": false
-  },
-  "qa": {
-    "round": "2026-10-21 r2+r3",
-    "pass": 82,
-    "total": 82,
-    "residue_hits": 0,
-    "screenshots_dir": "app/proof/qa-20261021"
-  },
+ "updated_at": "2026-10-21T11:17:46Z",
+ "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
+ "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
+ "original": {
+  "repo": "mk42-ai/oda-productivity-suite",
+  "app_path": "<original>/web (+ Hono API at <original>/)",
+  "branch": "fix/news-summary-rewrite-live-verify-20261020",
+  "sha": "816aaaed9c3aa8fa37fbad31d3bd3f7491b3de9d",
+  "commit_time": "2026-10-20T10:04:05Z",
+  "rollback_tag": "bcap-pre-uae-20261020T2130Z",
+  "rollback_tag_pushed": false,
+  "last_ready_vercel": "original project last READY preview 2026-10-13 (id withheld — see Vercel project prj_OGWzvDKrp97MDz28cfd7yE86EcBq)",
+  "note": "All 15 Vercel git deployments of this project since 2026-10-18 are ERROR MISSING_SERVICES (project framework=services, vercel.json not at repo root).",
+  "rollback_tag_note": "Tag exists locally on 816aaae. `git push origin refs/tags/bcap-pre-uae-20261020T2130Z` attempted 2026-10-21T04:22Z → 'Invalid username or token' (no GITHUB_TOKEN in this session). Branch fix/news-summary-rewrite-live-verify-20261020 on GitHub still points at 816aaae; main at be3f7c1 untouched."
+ },
+ "new": {
+  "branch": "uae-ai-command-centre",
+  "app_path": "app/",
+  "pushed": true,
+  "pr_url": "https://github.com/mk42-ai/oda-productivity-suite/pull/7",
   "preview_url": "https://sb-54yh1uujw0kw.vercel.run",
-  "ui_restyle_20261021": {
-    "theme": "white-first neutral (ChatGPT-like)",
-    "fallback_tag": "uae-navy-gold-fallback-20261021",
-    "fallback_sha": "2008923e6b06e06d1b179eedc117c1ea749c0667",
-    "commits": [
-      "2c4534a",
-      "778ea96",
-      "b37cc78",
-      "25ad390",
-      "e68b80a",
-      "3ded306",
-      "eeba60b"
-    ],
-    "qa": {
-      "existing_suite": "see QA_REPORT.md",
-      "contrast_fails": 105,
-      "contrast_nodes": 6695,
-      "hscroll_fail_routes": 0,
-      "residue_dom": 0,
-      "residue_network": 0
-    }
+  "sandbox_id": "sbx_k8lbUZ7s5ISiX1o5VkZphOtOrEZD",
+  "sandbox_timeout": "90 min from 2026-10-21T04:17Z (expires ≈05:47Z)",
+  "previous_preview": "https://sb-6x7pgj362xe9.vercel.run (expired ≈04:10Z)",
+  "base_commit": "2515e93",
+  "pushed_commit": "2008923 (local commits of 2026-10-21 not pushed — no GITHUB_TOKEN)",
+  "vercel_git_preview": {
+   "deployment": "dpl_4kp8ZTwCquMjUuTeT4HtAr5tQyC7",
+   "url": "https://oda-productivity-suite-3kdb4ehd6-schoolhack-web-team.vercel.app",
+   "state": "READY 2026-10-21T04:25Z",
+   "note": "Created via POST /v13/deployments with projectSettings.rootDirectory=uae-ai-command-centre override on commit 2008923; protected by Vercel Authentication (SSO), so it is not publicly reachable. Project rootDirectory=app and framework=vite were NOT changed. Env vars on the project: 0 → the OnDemand key is supplied only through the sandbox .env.local, never committed."
+  },
+  "root_dir_fix": "Branch layout moved uae-ai-command-centre/ → app/ (git mv, history preserved) + app/vercel.json {framework: nextjs}; the next git push will build under the project's Root Directory 'app' without touching main or project settings.",
+  "sandbox_created_at": "2026-10-21T09:09:38Z",
+  "head": "eeba60b",
+  "git_preview": {
+   "id": "dpl_hNggcBDep1Twcp7ycWHksT7FUtSv",
+   "state": "READY",
+   "url": "https://oda-productivity-suite-k5ykmksyn-schoolhack-web-team.vercel.app",
+   "sso_protected": true
   }
+ },
+ "data": {
+  "namespace": "uae_cc_v1",
+  "organizations": 50,
+  "mean_coverage": 0.728,
+  "with_verified_source": 45,
+  "sentiment_records": 196,
+  "by_class": {
+   "Neutral/Informational": 95,
+   "Pragmatists": 20,
+   "Optimists": 37,
+   "Skeptics": 19,
+   "Disruption Concerned": 8,
+   "Safety Advocates": 14,
+   "Pessimists/Doomers": 3
+  },
+  "by_platform": {
+   "news": 79,
+   "web": 35,
+   "survey": 5,
+   "reddit": 38,
+   "government": 3,
+   "op-ed": 3,
+   "think-tank": 6,
+   "hackernews": 7,
+   "facebook": 5,
+   "editorial": 3,
+   "instagram": 5,
+   "linkedin": 4,
+   "event": 1,
+   "press": 1,
+   "report": 1
+  },
+  "by_location": {
+   "UAE_TOPIC_ONLY": 137,
+   "EXPLICIT_UAE": 43,
+   "UNKNOWN": 16
+  },
+  "news": 105,
+  "edges": 168,
+  "hf_models": 154,
+  "sentiment_dead_urls_disabled": 2,
+  "sentiment_prior": 159,
+  "sentiment_added_2026_10_21": 37,
+  "sentiment_duplicates_skipped": 0,
+  "by_lane": {
+   "UAE-topic": 180,
+   "global-discourse": 16
+  },
+  "as_of": "2026-10-21"
+ },
+ "ondemand": {
+  "pipeline_calls": 124,
+  "pipeline_ok": 124,
+  "workflow_runs_since_2026-10-20T23:30Z": {
+   "ingest_cron": [
+    "6ad80080b28e35aa11d85572 00:00:00Z success",
+    "6ad81ca05e60695bc4d05442 02:00:00Z success",
+    "6ad838c05e60695bc4d05528 04:00:00Z success"
+   ],
+   "briefing_cron": [
+    "6ad823a85e60695bc4d054a0 02:30:00Z success (5,159 chars, 12 URLs)"
+   ],
+   "checkpoint_cron": "every 30 min 23:30Z→04:00Z, 10 cron executions all success",
+   "manual_2026-10-21": [
+    "briefing 6ad84034b28e35aa11d85731 04:31:48Z success",
+    "ingest 6ad84034c2cfee207e8f3f58 04:31:48Z success (129 s)",
+    "briefing 6ad841aab28e35aa11d85744 04:38:02Z success — seed-grounded prompt, leads with 20 Oct 2026 items, 13 URLs"
+   ]
+  }
+ },
+ "blockers": [
+  "Rollback tag + today's commits cannot be pushed: no GITHUB_TOKEN in this session (git push → 'Invalid username or token'). PR #7 therefore still shows 2008923.",
+  "Vercel git previews of this branch failed with NOW_SANDBOX_WORKER_ROOTDIR_NOT_EXIST (project Root Directory = 'app'); fixed in the branch layout (app/) but only effective after push. The API-created preview dpl_4kp8… is READY but SSO-protected.",
+  "Sandbox previews are ephemeral (90 min).",
+  "Ingest results stay in the OnDemand execution store (not merged into seed JSON)."
+ ],
+ "phases": {
+  "P1": "done",
+  "P2": "done",
+  "P3": "done",
+  "P4": "done",
+  "P5": "done (graph + polish); X/TikTok/YouTube native ingestion not run",
+  "P6": "done — durable workflows (3 active, verified runs incl. first cron fire), live pipeline UI, 5-agent QA 84/84",
+  "P7_resume_2026_10_21": "done: dossier patches, AIREV×OnDemand weave, brand marks, +37 sentiment, +14 news, briefing re-grounded, QA 82/82, residue 0"
+ },
+ "workflows": {
+  "ingest": {
+   "id": "6ad7f32d5e60695bc4d052cb",
+   "name": "UAE AI Command Centre — uae_cc_v1 ingest (news + sentiment + entities) every 2h",
+   "cron6_utc": "0 0 */2 * * *",
+   "cron5": "0 */2 * * *",
+   "isActive": true,
+   "activate_http": 200,
+   "next_runs_utc": [
+    "2026-10-21T00:00:00Z",
+    "2026-10-21T02:00:00Z",
+    "2026-10-21T04:00:00Z"
+   ],
+   "verification_execution": "6ad7f3af5e60695bc4d05305",
+   "verification_status": "success"
+  },
+  "briefing": {
+   "id": "6ad7f32e5e60695bc4d052d2",
+   "name": "UAE AI Command Centre — National AI Briefing daily 06:30 GST (02:30 UTC)",
+   "cron6_utc": "0 30 2 * * *",
+   "cron5": "30 2 * * *",
+   "isActive": true,
+   "activate_http": 200,
+   "next_runs_utc": [
+    "2026-10-21T02:30:00Z",
+    "2026-10-22T02:30:00Z",
+    "2026-10-23T02:30:00Z"
+   ],
+   "verification_execution": "6ad7f3b05e60695bc4d05309",
+   "verification_status": "success"
+  },
+  "checkpoint": {
+   "id": "6ad7f32e5e60695bc4d052d7",
+   "name": "UAE AI Command Centre — mission checkpoint every 30 min",
+   "cron6_utc": "0 */30 * * * *",
+   "cron5": "*/30 * * * *",
+   "isActive": true,
+   "activate_http": 200,
+   "next_runs_utc": [
+    "2026-10-20T23:30:00Z",
+    "2026-10-21T00:00:00Z",
+    "2026-10-21T00:30:00Z"
+   ],
+   "verification_execution": "6ad7f33a5e60695bc4d052dc",
+   "verification_status": "success",
+   "first_cron_execution": {
+    "id": "6ad7f978b28e35aa11d85525",
+    "status": "success",
+    "started_at": "2026-10-20T23:30:00.803Z"
+   }
+  }
+ },
+ "live_datastore": {
+  "read_path": "GET /api/uae/live → OnDemand /automation/api/execution/list + /execution/{id}/node/outputs",
+  "latest_ingest": {
+   "execution": "6ad7f3af5e60695bc4d05305",
+   "news": 3,
+   "statements": 3,
+   "org_signals": 1,
+   "dropped_no_url": 0
+  },
+  "merged_into_seed": false
+ },
+ "qa": {
+  "round": "2026-10-21 r2+r3",
+  "pass": 82,
+  "total": 82,
+  "residue_hits": 0,
+  "screenshots_dir": "app/proof/qa-20261021"
+ },
+ "preview_url": "https://sb-6szikitpkdgm.vercel.run",
+ "ui_restyle_20261021": {
+  "theme": "white-first neutral (ChatGPT-like)",
+  "fallback_tag": "uae-navy-gold-fallback-20261021",
+  "fallback_sha": "2008923e6b06e06d1b179eedc117c1ea749c0667",
+  "commits": [
+   "2c4534a",
+   "778ea96",
+   "b37cc78",
+   "25ad390",
+   "e68b80a",
+   "3ded306",
+   "eeba60b"
+  ],
+  "qa": {
+   "existing_suite": "see QA_REPORT.md",
+   "contrast_fails": 105,
+   "contrast_nodes": 6695,
+   "hscroll_fail_routes": 0,
+   "residue_dom": 0,
+   "residue_network": 0
+  }
+ },
+ "verification_20261021": {
+  "started_utc": "2026-10-21T10:16:29Z",
+  "head_before": "0aa7eb2",
+  "head_after": "5b6a994",
+  "pushed_utc": "2026-10-21T11:16:25Z",
+  "commits": [
+   "3836ec0 fix contrast",
+   "ec26854 fix chat layout spec",
+   "249eaf7 feat light-only",
+   "6a78690 assets",
+   "2e18ad9 fix disclaimer contrast",
+   "5b6a994 docs evidence"
+  ],
+  "preview": {
+   "url": "https://sb-6szikitpkdgm.vercel.run",
+   "sandbox_id": "sbx_FMYCvAMQesXj2qLY6dY5KEh0VFVY",
+   "created_utc": "2026-10-21T11:01:27Z",
+   "timeout": "90m"
+  },
+  "vercel": {
+   "project": "prj_wXz5xY3PNULypuwepaqu1XKa6sP1",
+   "env_vars": 0,
+   "sso_protection": "all_except_custom_domains",
+   "last_ready_preview": {
+    "id": "dpl_Ga19v74DiAHLkG3xjMQC3xJVVdez",
+    "commit": "0aa7eb2",
+    "ready_utc": "2026-10-21T09:58:38Z",
+    "url": "https://oda-productivity-suite-9h8g5yik4-schoolhack-web-team.vercel.app",
+    "http": 302
+   },
+   "new_head_build": "pending at write time — see CHECKPOINTS"
+  },
+  "open_items": {
+   "muted_label_contrast": "VERIFIED-FIXED",
+   "drawer_390": "VERIFIED (open/overlay/outside-tap close)",
+   "rail_hosted_threads": "VERIFIED structure; populated list not exercised",
+   "dark_theme": "VERIFIED-FAILING → light-only ship, toggle gated",
+   "e2e_39_specs": "PARTIAL 72/184 (29 pass, 43 fail, 1 killed, 112 not run)"
+  },
+  "contrast": {
+   "before": {
+    "checked": 6695,
+    "fails": 105,
+    "genuine": 73,
+    "artefacts": 32
+   },
+   "after": {
+    "checked": 8895,
+    "fails": 38,
+    "genuine": 0,
+    "artefacts": 38
+   }
+  },
+  "suite84": {
+   "total": "84/84",
+   "1440x900": "33/33",
+   "390x844": "32/32",
+   "server": "19/19",
+   "base": "https://sb-6szikitpkdgm.vercel.run"
+  },
+  "e2e": {
+   "executed": 72,
+   "configured": 184,
+   "passed": 29,
+   "failed": 43,
+   "killed": 1,
+   "not_run": 112,
+   "duration_s": 1537.8,
+   "stale_specs": 22,
+   "app_bugs": 17,
+   "environment": 4,
+   "report": "qa/screenshots/20261021-v2/playwright-report-desktop/index.html"
+  },
+  "pipeline_runs_since_20261020T2330Z": {
+   "ingest": 7,
+   "briefing": 3,
+   "checkpoint": 22,
+   "cron": 29,
+   "api": 3,
+   "all_success": true,
+   "missed": "checkpoint 2026-10-21T05:00Z"
+  },
+  "sentiment": {
+   "records": 196,
+   "baseline": 159,
+   "ingested": 37,
+   "duplicates": 0,
+   "lanes": {
+    "UAE-topic": 180,
+    "global-discourse": 16
+   },
+   "pulse": {
+    "24h": 4,
+    "7d": 17,
+    "30d": 39
+   }
+  },
+  "residual_sweeps": {
+   "b_capital_code": "0 (1 comment in scripts/uae/residual-scan.mjs describing the pattern)",
+   "b_capital_dom_network": 0,
+   "navy_gold_emerald_tokens": 0,
+   "portfolio_api_plugins_planner": 0
+  },
+  "tag_push": "bcap-pre-uae-20261020T2130Z → 816aaae pushed to origin 2026-10-21T11:16Z"
+ }
 }

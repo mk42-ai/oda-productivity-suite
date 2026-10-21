@@ -115,3 +115,93 @@ Runtime key supply (verified): Vercel project env count = 0. The app reads `ONDE
 - `npm run resume`: ingest 6ad7f32d…52cb / briefing 6ad7f32e…52d2 / checkpoint 6ad7f32e…52d7 all isActive=true, last checkpoint cron run success @ 09:30:00Z; next ingest 10:00Z, briefing 2026-10-22T02:30Z.
 - QA agent 4 on the new preview: 5 chat questions × 2 viewports HTTP 200 via real OnDemand sessions (Verified/Interpretation + citations), POST /api/briefing 200 (43 s, 13 source links), scheduled-briefing panel shows execution 6ad841aab28e35aa11d85744.
 - Runtime key: the sandbox reads ONDEMAND_API_KEY from `.env.local` copied at deploy; the Vercel project still has 0 env vars, so the git preview dpl_hNggcBDep1Twcp7ycWHksT7FUtSv has no OnDemand connectivity (and is SSO-protected).
+
+## F. Lane F run audit — 2026-10-21 (~10:30Z)
+Vercel project oda-productivity-suite (prj_wXz5xY3PNULypuwepaqu1XKa6sP1) has 0 environment variables (verified via Vercel API 2026-10-21 ~10:05Z and again ~10:20Z): no ONDEMAND_API_KEY / ONDEMAND_BASE_URL exist on Vercel, so the Vercel git preview cannot reach OnDemand server-side; the project also has SSO protection (deploymentType all_except_custom_domains) so previews answer 302. The sandbox previews carry the key via .env.local only.
+
+### Workflow Runs Since 2026-10-20T23:30:00Z
+
+| Workflow | Execution ID | Start Time (UTC ISO) | Trigger | Status | Duration |
+|---|---|---|---|---|---|
+| ingest (`6ad7f32d5e60695bc4d052cb`) | `6ad88d20c2cfee207e8f4204` | 2026-10-21T10:00:00.603Z | cron | success | 143813 ms (143.8 s) |
+| ingest (`6ad7f32d5e60695bc4d052cb`) | `6ad87100b28e35aa11d858e0` | 2026-10-21T08:00:00.490Z | cron | success | 88738 ms (88.7 s) |
+| ingest (`6ad7f32d5e60695bc4d052cb`) | `6ad854e0c2cfee207e8f401e` | 2026-10-21T06:00:00.703Z | cron | success | 152184 ms (152.2 s) |
+| ingest (`6ad7f32d5e60695bc4d052cb`) | `6ad84034c2cfee207e8f3f58` | 2026-10-21T04:31:48.555Z | api | success | 129203 ms (129.2 s) |
+| ingest (`6ad7f32d5e60695bc4d052cb`) | `6ad838c05e60695bc4d05528` | 2026-10-21T04:00:00.489Z | cron | success | 104963 ms (105.0 s) |
+| ingest (`6ad7f32d5e60695bc4d052cb`) | `6ad81ca05e60695bc4d05442` | 2026-10-21T02:00:00.446Z | cron | success | 110169 ms (110.2 s) |
+| ingest (`6ad7f32d5e60695bc4d052cb`) | `6ad80080b28e35aa11d85572` | 2026-10-21T00:00:00.722Z | cron | success | 169903 ms (169.9 s) |
+| briefing (`6ad7f32e5e60695bc4d052d2`) | `6ad841aab28e35aa11d85744` | 2026-10-21T04:38:02.615Z | api | success | 55773 ms (55.8 s) |
+| briefing (`6ad7f32e5e60695bc4d052d2`) | `6ad84034b28e35aa11d85731` | 2026-10-21T04:31:48.637Z | api | success | 67064 ms (67.1 s) |
+| briefing (`6ad7f32e5e60695bc4d052d2`) | `6ad823a85e60695bc4d054a0` | 2026-10-21T02:30:00.573Z | cron | success | 58348 ms (58.3 s) |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad89428b28e35aa11d85992` | 2026-10-21T10:30:00.274Z | cron | success | 148 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad88d205e60695bc4d0578a` | 2026-10-21T10:00:00.613Z | cron | success | 194 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad88618c2cfee207e8f41bf` | 2026-10-21T09:30:00.290Z | cron | success | 149 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad87f105e60695bc4d05769` | 2026-10-21T09:00:00.669Z | cron | success | 114 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad87808c2cfee207e8f4172` | 2026-10-21T08:30:00.746Z | cron | success | 576 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad871005e60695bc4d0572c` | 2026-10-21T08:00:00.639Z | cron | success | 2045 ms (2.0 s) |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad869f8b28e35aa11d858c3` | 2026-10-21T07:30:00.666Z | cron | success | 1313 ms (1.3 s) |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad862f0b28e35aa11d85899` | 2026-10-21T07:00:00.809Z | cron | success | 1329 ms (1.3 s) |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad85be8c2cfee207e8f40c2` | 2026-10-21T06:30:00.714Z | cron | success | 1150 ms (1.1 s) |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad854e05e60695bc4d0560a` | 2026-10-21T06:00:00.765Z | cron | success | 222 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad84dd8c2cfee207e8f3fc5` | 2026-10-21T05:30:00.367Z | cron | success | 159 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad83fc8b28e35aa11d85727` | 2026-10-21T04:30:00.611Z | cron | success | 733 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad838c0b28e35aa11d856e2` | 2026-10-21T04:00:00.395Z | cron | success | 85 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad831b8c2cfee207e8f3ee2` | 2026-10-21T03:30:00.328Z | cron | success | 119 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad82ab05e60695bc4d054d0` | 2026-10-21T03:00:00.563Z | cron | success | 608 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad823a8b28e35aa11d8568d` | 2026-10-21T02:30:00.575Z | cron | success | 1432 ms (1.4 s) |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad81ca05e60695bc4d05454` | 2026-10-21T02:00:00.804Z | cron | success | 1282 ms (1.3 s) |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad81598c2cfee207e8f3dff` | 2026-10-21T01:30:00.253Z | cron | success | 147 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad80e905e60695bc4d053f2` | 2026-10-21T01:00:00.867Z | cron | success | 926 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad807885e60695bc4d053e1` | 2026-10-21T00:30:00.571Z | cron | success | 1212 ms (1.2 s) |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad800805e60695bc4d0537e` | 2026-10-21T00:00:00.340Z | cron | success | 125 ms |
+| checkpoint (`6ad7f32e5e60695bc4d052d7`) | `6ad7f978b28e35aa11d85525` | 2026-10-20T23:30:00.803Z | cron | success | 145 ms |
+
+### Execution Run Counts
+
+#### By Workflow
+- **ingest** (`6ad7f32d5e60695bc4d052cb`): **7** runs (cron: 6, api: 1)
+- **briefing** (`6ad7f32e5e60695bc4d052d2`): **3** runs (cron: 1, api: 2)
+- **checkpoint** (`6ad7f32e5e60695bc4d052d7`): **22** runs (cron: 22, api: 0)
+- **Total workflow runs**: **32**
+
+#### By Trigger Type
+- **api**: **3** runs
+- **cron**: **29** runs
+- **Total across triggers**: **32** runs
+
+### Curl Endpoint Probes
+
+| Base URL | Endpoint | HTTP Status | Body Excerpt (First 300 chars) |
+|---|---|---|---|
+| `https://sb-54yh1uujw0kw.vercel.run` | `/api/uae/live` | 200 | `{"ok":true,"fetched_at":"2026-10-21T10:34:52.224Z","namespace":"uae_cc_v1","workflows":[{"kind":"ingest","id":"6ad7f32d5e60695bc4d052cb","name":"UAE AI Command Centre — uae_cc_v1 ingest (news + sentiment + entities) every 2h","cron":"0 0 */2 * * *","next_runs_utc":[],"last":{"workflowId":"6ad7f32d5e` |
+| `https://sb-54yh1uujw0kw.vercel.run` | `/health` | 200 | `{"ok":true,"app":"uae-ai-command-centre","disclaimer":"Concept Demonstration — not an official government system","namespace":"uae_cc_v1","as_of":"2026-10-21","orgs":50,"sentiment":196,"news":105,"edges":168,"ondemand_key":true,"commit":"eeba60b","checked_at":"2026-10-21T10:34:52.790Z"}` |
+| `https://oda-productivity-suite-9h8g5yik4-schoolhack-web-team.vercel.app` | `/api/uae/live` | 302 | `Protected by Vercel Authentication To access this deployment with an authenticated Vercel CLI, run: vercel curl <deployment-url> With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL. ` |
+| `https://oda-productivity-suite-9h8g5yik4-schoolhack-web-team.vercel.app` | `/health` | 302 | `Protected by Vercel Authentication To access this deployment with an authenticated Vercel CLI, run: vercel curl <deployment-url> With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL. ` |
+| `https://sb-55dvd3y2jwnj.vercel.run` | `/api/uae/live` | 200 | `{"ok":true,"fetched_at":"2026-10-21T10:34:53.246Z","namespace":"uae_cc_v1","workflows":[{"kind":"ingest","id":"6ad7f32d5e60695bc4d052cb","name":"UAE AI Command Centre — uae_cc_v1 ingest (news + sentiment + entities) every 2h","cron":"0 0 */2 * * *","next_runs_utc":["2026-10-21T12:00:00Z","2026-10-21` |
+| `https://sb-55dvd3y2jwnj.vercel.run` | `/health` | 200 | `{"ok":true,"app":"uae-ai-command-centre","disclaimer":"Concept Demonstration — not an official government system","namespace":"uae_cc_v1","as_of":"2026-10-21","orgs":50,"sentiment":196,"news":105,"edges":168,"ondemand_key":true,"commit":"local","checked_at":"2026-10-21T10:34:53.782Z"}` |
+
+### API Errors and Limitations
+
+#### 1. OnDemand Workflow API (`/automation/api/execution/list`)
+- HTTP status codes received: `HTTP 200` for all 3 workflows (`6ad7f32d5e60695bc4d052cb`, `6ad7f32e5e60695bc4d052d2`, `6ad7f32e5e60695bc4d052d7`).
+- API errors: None (0 errors). All execution list queries completed successfully.
+- Pagination / Limits: The endpoint defaulted to `limit: 100` and returned all executions back to creation time for all 3 workflows (ingest: 9 total, briefing: 5 total, checkpoint: 23 total). All executions >= `2026-10-20T23:30:00Z` were captured without truncation or pagination cutoff.
+
+#### 2. Vercel Git Preview API Probes (`oda-productivity-suite-9h8g5yik4-schoolhack-web-team.vercel.app`)
+- HTTP status: `302 Found`
+- Verbatim response body:
+```text
+Protected by Vercel Authentication
+To access this deployment with an authenticated Vercel CLI, run: vercel curl <deployment-url>
+With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL.
+```
+- Explanation: Vercel project `oda-productivity-suite` (`prj_wXz5xY3PNULypuwepaqu1XKa6sP1`) has SSO protection enabled (`deploymentType all_except_custom_domains`) and 0 environment variables configured on Vercel. Unauthenticated curl probes to preview URLs are intercepted with HTTP 302 authentication redirects.
+
+#### 3. Sandbox Previews (`sb-54yh1uujw0kw.vercel.run` and `sb-55dvd3y2jwnj.vercel.run`)
+- Both ephemeral sandboxes answered `HTTP 200` on both `/api/uae/live` and `/health`.
+- The sandboxes read `ONDEMAND_API_KEY` from their injected `.env.local` files, allowing server-side route handlers to communicate with OnDemand APIs.
+
+#### 4. Workflow Scheduling Observations
+- **Ingest** (`6ad7f32d5e60695bc4d052cb`): Executed on schedule every 2 hours (00:00, 02:00, 04:00, 06:00, 08:00, 10:00 UTC) with 1 manual API run (04:31 UTC). All 7 runs succeeded.
+- **Briefing** (`6ad7f32e5e60695bc4d052d2`): Executed on schedule at 02:30 UTC (= 06:30 GST) with 2 manual API runs (04:31 and 04:38 UTC). All 3 runs succeeded.
+- **Checkpoint** (`6ad7f32e5e60695bc4d052d7`): Executed on schedule every 30 minutes with 22 runs between 23:30:00Z and 10:30:00Z. Notice: 05:00:00 UTC run was omitted by the OnDemand platform scheduler (ran at 04:30:00Z and 05:30:00Z). All 22 recorded runs succeeded.

@@ -1,3 +1,9 @@
+# NEXT_ACTIONS (priority order) — 2026-10-21T11:17:46Z
+0. **e2e debt**: 22 stale specs still target the pre-restyle app (`/companies`, `/social`, `/signals`, `/reputation`, "companies" copy, `growth-grid`, `img[data-testid="brand-logo"]`, drawer selectors) — rewrite or retire them; 112 desktop tests never ran inside the 1500 s cap because three stale specs each burn the 240 s timeout. Remaining app bugs: rail focus ring is `rgb(37,99,235)` where `keyboard-nav.spec` expects no blue ring (decide: spec or token), run-view 326 px > 319 px @390 (`run-panel-mobile.spec`). Install `ffmpeg` for `run-ux.spec` video projects.
+1. Dark theme: content tokens never invert (H1 #0D0D0D on #2F2F2F). Fix the `html.dark` pairings for foreground/eyebrow/lede and the `/chat` force-light shell, re-run the Lane C sweep, then set `NEXT_PUBLIC_ENABLE_DARK_THEME=1`.
+2. Vercel git preview is unusable publicly: project `prj_wXz5xY3PNULypuwepaqu1XKa6sP1` has SSO protection (`all_except_custom_domains`) and 0 env vars. Either add a preview-scoped `ONDEMAND_API_KEY` + disable protection for this branch, or keep sharing the sandbox URL (expires ≈12:31Z — `npm run resume -- --deploy`).
+3. Lane G leftovers: a UAE-HQ replacement for Lucidya (Whiteshield / DAMAC AI / Permus-Myndlab) needs a verified inclusion test before it enters the 50; no new sentiment text was harvested this turn (36 harvested items were already ingested as 37 records).
+4. Previous list (09:58Z) follows.
 # NEXT_ACTIONS (priority order) — 2026-10-21T09:58Z
 0. **Contrast**: raise the 12 px #8E8E8E labels (brand-rail "Concept demonstration", page eyebrows, chat empty states) to #5D5D5D or ≥14 px, and the radar "assess" chip ink; re-run `contrast-hscroll-residue` sweep → target 0 genuine AA misses.
 0b. Verify in the browser: 390 px rail drawer (open/overlay/Escape), rail-hosted thread list with ≥2 threads, dark theme; re-run the 39 Playwright e2e specs against the new DOM.

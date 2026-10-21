@@ -55,3 +55,12 @@
 | 2026-10-21T09:49:47Z | Sandbox preview live: sbx_k8lbUZ7s5ISiX1o5VkZphOtOrEZD → **https://sb-54yh1uujw0kw.vercel.run** (/health 200, build exit 0, BUILD_COMMIT eeba60b) |
 | 2026-10-21T09:53:05Z | QA: 5-agent suite **84/84** (42 per viewport equivalent: 1440×900 33/33, 390×844 32/32, server 19/19); contrast sweep 6,695 text nodes / 105 below AA (see QA_REPORT); horizontal scroll 0/26 route×viewport; residue DOM 0, network 0 (26 page loads) |
 | 2026-10-21T09:57:19Z | Docs + state files updated; `npm run resume`: all 3 workflows active, no change; screenshots in qa/screenshots/20261021-white (52 PNG before/after). Time-box overrun: started 08:51:06Z, shipped 2026-10-21T09:57:19Z |
+
+| 2026-10-21T10:16:29Z | **Verification turn start** (90-min box → 11:46Z). Workspace on `uae-ai-command-centre` @ 0aa7eb2 = origin (HEAD had not moved since 09:57:20Z); 7 commits since 09:45Z read; state files read before edits |
+| 2026-10-21T10:17Z | Served commits: sandbox sb-54yh1uujw0kw `/health` commit=eeba60b; Vercel dpl_Ga19v74DiAHLkG3xjMQC3xJVVdez = 0aa7eb2 READY 09:58:38Z but 302 (SSO); project env vars 0 |
+| 2026-10-21T10:28:46Z | Lane A token fix + radar ink + composer credit line applied, tsc clean; new sandbox sbx_W4UUt2gpJNIO0YxAdSPTnVLuc5LF → https://sb-55dvd3y2jwnj.vercel.run (health 200 at 10:31Z) |
+| 2026-10-21T10:30Z–10:58Z | 6 lanes in parallel: F (32 workflow runs, curls), G (data audit, 0 patches), A sweep (0 genuine AA misses), B measurements (31 v2 screenshots), D e2e (72/184 in 1538 s), E assets by coordinator |
+| 2026-10-21T10:59Z | Lane C: dark theme fails AA on 13/13 routes → toggle gated, light forced; Lane B deviations fixed (inspector 360 px, watchlist select, briefing code wrap) |
+| 2026-10-21T11:03:41Z | Redeploy sbx_FMYCvAMQesXj2qLY6dY5KEh0VFVY → **https://sb-6szikitpkdgm.vercel.run** (health 200); re-check: h-scroll 26/26, inspector 360 px, toggle absent, stale dark pref cleared |
+| 2026-10-21T11:12:34Z | 84-check suite on the new build **84/84** (1440×900 33/33 · 390×844 32/32 · server 19/19) |
+| 2026-10-21T11:16:25Z | 6 commits pushed 0aa7eb2..5b6a994 (3836ec0 contrast · ec26854 layout · 249eaf7 light-only · 6a78690 assets · 2e18ad9 disclaimer · 5b6a994 evidence); tag `bcap-pre-uae-20261020T2130Z` → 816aaae pushed (`* [new tag]`) |
