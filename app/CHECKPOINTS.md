@@ -44,3 +44,8 @@
 | 2026-10-21T04:39Z | Residual scan code+DOM+network = **0 hits** (37 doc/tool mentions of the previous tenant scrubbed; only the rollback tag name remains, exempted) |
 | 2026-10-21T04:41Z | `npm run resume` run twice: both 'all 3 active — no change' (idempotent) |
 
+| 2026-10-21T08:51:06Z | **White-restyle turn start** (60-min box → 09:51Z). Workspace resumed on `uae-ai-command-centre` @ 4d0be39 (local, 1 ahead of origin 2008923); state files read before any edit |
+| 2026-10-21T08:51:29Z | Fallback tag `uae-navy-gold-fallback-20261021` → 2008923 pushed to origin (`* [new tag]`, exit 0) |
+| 2026-10-21T08:58:00Z | 5 restyle lanes dispatched in parallel (tokens / chat layout / dashboard pages / sentiment universe / assets); BEFORE screenshots captured from the pre-change build (10 pages × 2 viewports + sentiment hover/drill-down + chat rail states) |
+| 2026-10-21T09:09:38Z | New preview sandbox created: sbx_k8lbUZ7s5ISiX1o5VkZphOtOrEZD → https://sb-54yh1uujw0kw.vercel.run (deps pre-installed 09:20Z, build pending lane merge) |
+| 2026-10-21T09:21:00Z | **Interim checkpoint (T+30)**: lanes 1/3/4 have landed edits in 20 files (tokens, surfaces, chips, globals, charts, bits, pages, sentiment universe, class/sector palettes); lanes 2 (chat) and 5 (assets) still running. Nothing verified yet — typecheck/build/QA pending |
