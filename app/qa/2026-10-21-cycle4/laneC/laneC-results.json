@@ -1,0 +1,532 @@
+{
+ "started": "2026-10-21T13:55:03.811Z",
+ "base": "http://127.0.0.1:5173",
+ "threads": [
+  {
+   "q": "Compare TII, MBZUAI and G42 on (1) latest model releases, (2) 2026 partnerships, (3) talent programmes; produce a 3-column table and a 5-bullet summary with citations.",
+   "startedAt": "2026-10-21T13:55:05.694Z",
+   "ok": true,
+   "ms": 32131,
+   "answer": "Verified facts ComparisonTIIMBZUAIG42Latest model releases listedOn 7 October 2026, reports described launches including Falcon-Emirati 7B and Arabic ",
+   "citations": 16,
+   "planSteps": 0,
+   "planStepper": 0,
+   "odStatus": 1,
+   "maxPlanSteps": 0,
+   "maxPlanStepper": 0,
+   "maxWorkingRows": 0,
+   "error": null,
+   "firstAnswerMs": 21601,
+   "sources": 0,
+   "planObjective": null,
+   "odStatusText": "I'll compare the three organisations. I'll verify releases, partnerships and talent programmes. Researching three organisations Perplexity Thinking Researching AI developments I need to create a plugin JSON that includes the current query and relevant context, particularly focusing on 2026 partnersh",
+   "thinkingBlock": 0,
+   "workingRows": 0,
+   "live": "false",
+   "finishedAt": "2026-10-21T13:55:37.825Z"
+  },
+  {
+   "q": "Build a 7-day watch brief: for each of Space42, Core42, Presight list one verified October 2026 event with source URL, then rank them by partnership activity.",
+   "startedAt": "2026-10-21T13:55:38.468Z",
+   "ok": true,
+   "ms": 45196,
+   "answer": "Verified facts Space42 — 14–20 October 2026 event: unavailable in the supplied records. The latest dated item provided is its June 9 announcement that",
+   "citations": 3,
+   "planSteps": 0,
+   "planStepper": 0,
+   "odStatus": 1,
+   "maxPlanSteps": 0,
+   "maxPlanStepper": 0,
+   "maxWorkingRows": 0,
+   "error": null,
+   "firstAnswerMs": 37681,
+   "sources": 0,
+   "planObjective": null,
+   "odStatusText": "I'll verify recent October developments. I'll rank the organisations by partnership activity. Gathering recent October evidence Perplexity Thinking Searching for event data I need to search the web for specific information. I'll focus on getting a JSON output from a plugin, keeping in mind that the ",
+   "thinkingBlock": 0,
+   "workingRows": 0,
+   "live": "false",
+   "finishedAt": "2026-10-21T13:56:23.664Z"
+  },
+  {
+   "q": "For EDGE Group and Space42: (1) list their 2026 AI-related announcements, (2) identify shared partners, (3) assess overlap risk; deliver a table plus a 4-bullet recommendation with citations.",
+   "startedAt": "2026-10-21T13:56:24.303Z",
+   "ok": true,
+   "ms": 31634,
+   "answer": "Verified facts Organisation2026 AI-related announcementsRelated 2026 activity in the available sourcesShared partners identifiedEDGE GroupA 2026 AI-re",
+   "citations": 12,
+   "planSteps": 0,
+   "planStepper": 0,
+   "odStatus": 1,
+   "maxPlanSteps": 0,
+   "maxPlanStepper": 0,
+   "maxWorkingRows": 0,
+   "error": null,
+   "firstAnswerMs": 22612,
+   "sources": 0,
+   "planObjective": null,
+   "odStatusText": "I'll research EDGE Group and Space42's 2026 AI announcements. I'll compare their partners and assess overlap risk. Researching 2026 announcements Perplexity Thinking Investigating AI announcements I need to produce a plugin JSON and search for web queries under 2048. I should investigate announcemen",
+   "thinkingBlock": 0,
+   "workingRows": 0,
+   "live": "false",
+   "finishedAt": "2026-10-21T13:56:55.937Z"
+  },
+  {
+   "q": "Produce a three-part briefing on MBZUAI: (a) 2026 research output highlights, (b) industry partnerships signed this year, (c) leadership changes; end with a 3-row table and sources.",
+   "startedAt": "2026-10-21T13:56:56.596Z",
+   "ok": true,
+   "ms": 27136,
+   "answer": "Verified facts 2026 research output highlights On 15 October, MBZUAI’s Institute of Foundation Models and Inception42 launched Jais 3, described in th",
+   "citations": 8,
+   "planSteps": 0,
+   "planStepper": 0,
+   "odStatus": 1,
+   "maxPlanSteps": 0,
+   "maxPlanStepper": 0,
+   "maxWorkingRows": 0,
+   "error": null,
+   "firstAnswerMs": 21120,
+   "sources": 0,
+   "planObjective": null,
+   "odStatusText": "I'll research MBZUAI's 2026 developments. I'll prepare a sourced briefing and table. Researching MBZUAI developments Perplexity",
+   "thinkingBlock": 0,
+   "workingRows": 0,
+   "live": "false",
+   "finishedAt": "2026-10-21T13:57:23.732Z"
+  },
+  {
+   "q": "Map the UAE sovereign AI compute landscape: step 1 list G42/Core42 data-centre projects announced in 2026, step 2 list international partners per project, step 3 rank by capacity; give a table and cite each row.",
+   "startedAt": "2026-10-21T13:57:24.364Z",
+   "ok": true,
+   "ms": 24117,
+   "answer": "Verified facts Rank2026 G42/Core42 data-centre project foundCapacity reportedInternational partner1Core42’s Lake Mariner deployment in New York was re",
+   "citations": 2,
+   "planSteps": 0,
+   "planStepper": 0,
+   "odStatus": 1,
+   "maxPlanSteps": 0,
+   "maxPlanStepper": 0,
+   "maxWorkingRows": 0,
+   "error": null,
+   "firstAnswerMs": 21110,
+   "sources": 0,
+   "planObjective": null,
+   "odStatusText": "I'll map announced UAE AI compute projects. I'll compare partners and capacity with cited sources. Mapping compute projects Perplexity Thinking Searching for project details I need to output plugin JSON and search for sources using a detailed query, keeping it under 2048 characters. I'm looking for ",
+   "thinkingBlock": 0,
+   "workingRows": 0,
+   "live": "false",
+   "finishedAt": "2026-10-21T13:57:48.481Z"
+  }
+ ],
+ "measurements": {
+  "desktop": {
+   "railChatItemsAfterSeed": 5,
+   "planSurface": {
+    "live": "false",
+    "hasRunView": true,
+    "planStepper": 0,
+    "planSteps": 0,
+    "planObjective": null,
+    "odStatus": 1,
+    "thinkingBlock": 0,
+    "workingRows": 0,
+    "answer": true,
+    "citations": 16,
+    "sources": 0,
+    "error": null,
+    "timer": "frozen",
+    "answerText": "Verified facts ComparisonTIIMBZUAIG42Latest model releases listedOn 7 October 2026, reports described launches including Falcon-Emirati 7B and Arabic ",
+    "odStatusText": "I'll compare the three organisations. I'll verify releases, partnerships and talent programmes. Researching three organisations Perplexity Thinking Researching AI developments I need to create a plugin JSON that includes the current query and relevant context, particularly focusing on 2026 partnersh"
+   },
+   "inspector": {
+    "w": 360,
+    "h": 900,
+    "x": 1080,
+    "y": 0,
+    "maxWidth": "none",
+    "width": "360px"
+   },
+   "runRail": {
+    "w": 335,
+    "h": 496,
+    "x": 1093,
+    "y": 69,
+    "maxWidth": "none",
+    "width": "335px"
+   },
+   "inspectorOpenAttr": "true",
+   "runRailText": "This run GPT-5.6 Luna · reasoning medium Developer details 11,501 tokens · first event 12 ms · first token 19,833 ms · tools 6.8 s · answer 3.8 s · total 23.6 s · 870 frames model predefined-gpt-5.6-luna · plugins plugin-1722260873 { \"endpointId\": \"predefined-gpt-5.6-luna\", \"endpointLabel\": \"GPT-5.6 Luna\", \"reasoningMode\": \"medium\", \"responseMode\": \"stream\", \"pluginIds\": [ \"plugin-1722260873\" ], \"",
+   "inspectorClosed": {
+    "w": 360,
+    "h": 900,
+    "x": 1440,
+    "y": 0,
+    "maxWidth": "none",
+    "width": "360px"
+   },
+   "topbar": {
+    "w": 1344,
+    "h": 32,
+    "x": 80,
+    "y": 38,
+    "maxWidth": "none",
+    "width": "1344px"
+   },
+   "threadHeader": {
+    "w": 1376,
+    "h": 52,
+    "x": 64,
+    "y": 28,
+    "maxWidth": "none",
+    "width": "1376px"
+   },
+   "threadMessages": {
+    "w": 800,
+    "h": 1500.83,
+    "x": 347,
+    "y": -117,
+    "maxWidth": "800px",
+    "width": "800px"
+   },
+   "composer": {
+    "w": 800,
+    "h": 143.78,
+    "x": 352,
+    "y": 758,
+    "maxWidth": "800px",
+    "width": "800px"
+   },
+   "chatCanvas": {
+    "w": 1376,
+    "h": 900,
+    "x": 64,
+    "y": 28,
+    "maxWidth": "none",
+    "width": "1376px"
+   },
+   "chatMain": {
+    "w": 1376,
+    "h": 900,
+    "x": 64,
+    "y": 28,
+    "maxWidth": "none",
+    "width": "1376px"
+   },
+   "navRailInitial": {
+    "w": 64,
+    "h": 872,
+    "x": 0,
+    "y": 28,
+    "maxWidth": "none",
+    "width": "64px"
+   },
+   "railStorageBefore": null,
+   "navRailAfterToggle1": {
+    "w": 224,
+    "h": 872,
+    "x": 0,
+    "y": 28,
+    "maxWidth": "none",
+    "width": "224px"
+   },
+   "railStorageAfterToggle1": "expanded",
+   "railChatItemsAfterToggle1": 5,
+   "navRailAfterReload": {
+    "w": 224,
+    "h": 872,
+    "x": 0,
+    "y": 28,
+    "maxWidth": "none",
+    "width": "224px"
+   },
+   "railStorageAfterReload": "expanded",
+   "railChatItemsAfterReload": 5,
+   "navRailAfterToggle2": {
+    "w": 64,
+    "h": 872,
+    "x": 0,
+    "y": 28,
+    "maxWidth": "none",
+    "width": "64px"
+   },
+   "docScrollWidth": 1440
+  },
+  "mobile": {
+   "docScrollWidth": 390,
+   "topbar": {
+    "w": 366,
+    "h": 32,
+    "x": 12,
+    "y": 90,
+    "maxWidth": "none",
+    "width": "366px"
+   },
+   "navRail": {
+    "w": 0,
+    "h": 0,
+    "x": 0,
+    "y": 0,
+    "maxWidth": "none",
+    "width": "auto"
+   },
+   "runView": null,
+   "planSurface": {
+    "hasRunView": false,
+    "planStepper": 0,
+    "planSteps": 0,
+    "planObjective": null,
+    "odStatus": 0,
+    "thinkingBlock": 0,
+    "workingRows": 0,
+    "answer": false,
+    "citations": 0,
+    "sources": 0,
+    "error": null,
+    "timer": null,
+    "answerText": "",
+    "odStatusText": ""
+   },
+   "inspector": {
+    "w": 390,
+    "h": 717.39,
+    "x": 0,
+    "y": 127,
+    "maxWidth": "none",
+    "width": "390px"
+   },
+   "inspectorMaxHeight": "717.4px",
+   "inspectorBackdrop": 1,
+   "runRail": {
+    "w": 366,
+    "h": 141,
+    "x": 12,
+    "y": 197,
+    "maxWidth": "none",
+    "width": "366px"
+   },
+   "drawer": {
+    "w": 280,
+    "h": 844,
+    "x": 0,
+    "y": 0,
+    "maxWidth": "331.5px",
+    "width": "280px"
+   },
+   "overlay": {
+    "w": 390,
+    "h": 844,
+    "x": 0,
+    "y": 0,
+    "maxWidth": "none",
+    "width": "390px"
+   },
+   "overlayCount": 1,
+   "drawerChatItems": 5,
+   "docScrollWidthDrawerOpen": 390
+  }
+ },
+ "screenshots": [
+  "run-streaming-1-1440x900.png",
+  "run-streaming-2-1440x900.png",
+  "plan-tab-1440x900.png",
+  "run-tab-1440x900.png",
+  "inspector-open-1440x900.png",
+  "rail-collapsed-1440x900.png",
+  "rail-expanded-threads-1440x900.png",
+  "rail-after-reload-1440x900.png",
+  "plan-tab-390x844.png",
+  "run-tab-390x844.png",
+  "inspector-open-390x844.png",
+  "drawer-open-390x844.png",
+  "plan-tab-logs-closed-1440x900.png"
+ ],
+ "notes": [
+  "Plan surface: there are NO literal Plan/Run tabs in this build. [data-testid=plan-stepper] (PlanStepper) is rendered ONLY in the !odView branch of RunView (chat-shell.tsx ~L841-846). Every live run on c005420 carries raw OnDemand status frames (CE.raw -> odRun), so odView is truthy and RunView renders OdStatusView ([data-testid=od-status]: ThinkingProcess planning text + StatusLogBlock with one StatusAccordion row per plan step + plugin chips) instead. plan-stepper therefore never mounts on a live run regardless of plan size; it can only mount for legacy saved turns without od frames.",
+  "Treated as PLAN tab: the [data-testid=od-status] block inside the last [data-testid=run-view], toggled by [data-testid=run-logs-toggle] (aria-expanded true=open). Treated as RUN tab: aside#chat-inspector opened via [data-testid=inspector-toggle], containing the This run card [data-testid=run-rail] with [data-testid=dev-disclosure] expanded.",
+  "All 5 multi-step prompts produced a 1-step OnDemand plan (single step title e.g. Researching three organisations, one Perplexity chip) — the planner collapsed the multi-part asks into one research step; no run returned >1 step.",
+  "run-view horizontal overflow: with logs open scrollWidth exceeds clientWidth by 8 px at both viewports (desktop 720 vs 712, mobile 316 vs 308); with logs closed 712==712. Cause: OdStatusView wrappers use ml-2 w-full (margin-left 8px + width 100%) in chat-shell.tsx OdStatusView. Document scrollWidth stays 1440/390, so no page-level horizontal scroll.",
+  "Nav rail on /chat with no stored uaecc.nav.rail key starts COLLAPSED (64) by design (setCollapsed(v ? v===collapsed : onChat)). Toggle -> 224 and key=expanded; hard reload keeps 224 and 5 thread items; second toggle -> 64.",
+  "[data-testid=chat-topbar] is the 32px inner bar inside the 52px .openui-agent-thread-header (header y=28..80 under the disclaimer strip).",
+  "run-rail Developer details show real telemetry only for the live run (pass 1: 7,679 tokens, first token 27,499 ms, total 31.6 s, 726 frames); after a thread is re-opened from storage the metrics show dashes (stream-state only).",
+  "Every run ended with the expected upstream Perplexity insufficient-credits condition; answers still streamed with citations (2-16 citation chips).",
+  "Client console: only 6 x Failed to load resource 404 (allow-listed noise); no pageerror.",
+  "Scripts: /tmp/laneC-qa.mjs (seed 5 runs + measurements, pass 1) and /tmp/laneC-pass2.mjs (re-open thread 1 from saved storageState, Plan/Run captures at both viewports). Screenshots overwritten by pass 2 where names collide."
+ ],
+ "clientErrors": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "finished": "2026-10-21T13:58:01.436Z",
+ "pass2": {
+  "started": "2026-10-21T13:58:02.113Z",
+  "railItemsOnEntry": 5,
+  "desktopThreadTitle": "Compare TII, MBZUAI and G42 on (1) latest model ",
+  "desktopPlanOpen": {
+   "odStatus": true,
+   "odRect": {
+    "w": 712,
+    "h": 136,
+    "x": 411,
+    "y": 106
+   },
+   "stepRows": 1,
+   "stepTitles": [
+    "Researching three organisations"
+   ],
+   "pluginChips": 1,
+   "planStepper": 0,
+   "planStep": 0,
+   "thinkingBlock": 0,
+   "runHeader": {
+    "w": 712,
+    "h": 24,
+    "x": 411,
+    "y": 74
+   },
+   "runView": {
+    "scrollWidth": 720,
+    "clientWidth": 712,
+    "w": 712,
+    "h": 1282,
+    "x": 411,
+    "y": 74
+   },
+   "logsToggle": "true",
+   "citations": 16,
+   "answer": true,
+   "errorNotice": null
+  },
+  "desktopPlanClosed": {
+   "odStatus": true,
+   "odRect": {
+    "w": 712,
+    "h": 4,
+    "x": 411,
+    "y": 106
+   },
+   "stepRows": 0,
+   "stepTitles": [],
+   "pluginChips": 0,
+   "planStepper": 0,
+   "planStep": 0,
+   "thinkingBlock": 0,
+   "runHeader": {
+    "w": 712,
+    "h": 24,
+    "x": 411,
+    "y": 74
+   },
+   "runView": {
+    "scrollWidth": 712,
+    "clientWidth": 712,
+    "w": 712,
+    "h": 1150,
+    "x": 411,
+    "y": 74
+   },
+   "logsToggle": "false",
+   "citations": 16,
+   "answer": true,
+   "errorNotice": null
+  },
+  "desktopInspector": {
+   "aside": {
+    "w": 360,
+    "h": 900,
+    "x": 1080,
+    "y": 0
+   },
+   "body": {
+    "w": 359,
+    "h": 843,
+    "x": 1081,
+    "y": 57
+   },
+   "runRail": {
+    "w": 335,
+    "h": 229,
+    "x": 1093,
+    "y": 69
+   },
+   "devOpen": true,
+   "runRailText": "This run GPT-5.6 Luna · reasoning medium Developer details tokens — · first event — ms · first token — ms · tools — · answer — · total — model predefined-gpt-5.6-luna · plugins plugin-1722260873"
+  },
+  "mobileAfterResizeScrollWidth": 390,
+  "mobilePlan": {
+   "odStatus": true,
+   "odRect": {
+    "w": 308,
+    "h": 176,
+    "x": 56,
+    "y": 173
+   },
+   "stepRows": 1,
+   "stepTitles": [
+    "Researching three organisations"
+   ],
+   "pluginChips": 1,
+   "planStepper": 0,
+   "planStep": 0,
+   "thinkingBlock": 0,
+   "runHeader": {
+    "w": 308,
+    "h": 42,
+    "x": 56,
+    "y": 123
+   },
+   "runView": {
+    "scrollWidth": 316,
+    "clientWidth": 308,
+    "w": 308,
+    "h": 2767,
+    "x": 56,
+    "y": 123
+   },
+   "logsToggle": "true",
+   "citations": 16,
+   "answer": true,
+   "errorNotice": null
+  },
+  "mobileInspector": {
+   "aside": {
+    "w": 390,
+    "h": 717,
+    "x": 0,
+    "y": 127
+   },
+   "maxHeight": "717.4px",
+   "backdrop": true,
+   "runRail": {
+    "w": 366,
+    "h": 229,
+    "x": 12,
+    "y": 197
+   },
+   "docScrollWidth": 390,
+   "railChatItemsInInspector": 0
+  },
+  "mobileDrawer": {
+   "drawer": {
+    "w": 280,
+    "h": 844,
+    "x": 0,
+    "y": 0,
+    "maxWidth": "331.5px"
+   },
+   "overlay": {
+    "w": 390,
+    "h": 844,
+    "x": 0,
+    "y": 0,
+    "maxWidth": "none"
+   },
+   "items": 5,
+   "docScrollWidth": 390
+  },
+  "finished": "2026-10-21T13:58:10.851Z"
+ }
+}
