@@ -3,6 +3,15 @@ import { primeSettings, hasKey, captureErrors } from "./helpers";
 import fs from "node:fs";
 import path from "node:path";
 
+
+/** Environment guard (cycle 3, 2026-10-21): these journeys persist uploads through the Artifacts backend. The uae_cc_v1 namespace has no
+ *  artifact store provisioned (`GET /api/artifacts` → backend "not_provisioned"), so the suite self-skips with a reason instead of failing. */
+async function requireArtifactsBackend(request: import("@playwright/test").APIRequestContext) {
+  const r = await request.get("/api/artifacts?limit=1").catch(() => null);
+  const j = r ? ((await r.json().catch(() => ({}))) as { backend?: string }) : {};
+  test.skip(j.backend === "not_provisioned", "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)");
+}
+
 /**
  * Lane D — Upload → Artifacts end-to-end.
  *  1. empty Artifacts state (or populated list) renders
@@ -122,6 +131,7 @@ async function sendAndSettle(page: Page, question: string, timeout = 240_000) {
 // Tests upload into the same backend store; run them serially so the empty-state check is not raced by a parallel upload.
 test.describe.configure({ mode: "serial" });
 test.describe("Upload → Artifacts E2E", () => {
+  test.beforeEach(async ({ request }) => { await requireArtifactsBackend(request); });
   test("empty Artifacts state renders", async ({ page }) => {
     await page.goto("/artifacts?skip=1");
     await expect(page.getByTestId("artifacts-page")).toBeVisible({ timeout: 30_000 });
@@ -334,6 +344,7 @@ test.describe("Upload → Artifacts E2E", () => {
   });
 
   test.describe("mobile 390×844", () => {
+  test.beforeEach(async ({ request }) => { await requireArtifactsBackend(request); });
     test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
 
     test("upload chip and Artifacts page have no horizontal overflow", async ({ page }) => {

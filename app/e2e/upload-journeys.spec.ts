@@ -4,6 +4,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { OUT, FIX_IMG, FIX_PDF, FIX_PDF_FALLBACK, FIX_DOCX, logger, shot, gap, openChat, attachAndWaitReady, askAndWait, listArtifacts, waitForArtifact, artifactItem, clickUploadsFilter, isRedState, viewportTag } from "./upload-helpers";
 
+
+/** Environment guard (cycle 3, 2026-10-21): these journeys persist uploads through the Artifacts backend. The uae_cc_v1 namespace has no
+ *  artifact store provisioned (`GET /api/artifacts` → backend "not_provisioned"), so the suite self-skips with a reason instead of failing. */
+async function requireArtifactsBackend(request: import("@playwright/test").APIRequestContext) {
+  const r = await request.get("/api/artifacts?limit=1").catch(() => null);
+  const j = r ? ((await r.json().catch(() => ({}))) as { backend?: string }) : {};
+  test.skip(j.backend === "not_provisioned", "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)");
+}
+
 /**
  * Lane D — upload journeys end-to-end against the live deployment (BASE_URL / playwright baseURL, never hard-coded).
  *  1. PDF document journey   2. DOCX document journey   3. three image journeys (geothermal plant, bar chart, UNREADABLE blurred memo)
@@ -86,6 +95,7 @@ async function documentJourney(page: import("@playwright/test").Page, request: i
 }
 
 test.describe("Upload journeys — documents (desktop)", () => {
+  test.beforeEach(async ({ request }) => { await requireArtifactsBackend(request); });
   // NOT serial: the PDF and DOCX journeys are independent, and a reported app gap in one must not hide the other.
   test("PDF: upload → ready → grounded answer cites the file → artifact persisted → survives reload", async ({ page, request }, ti) => {
     await documentJourney(page, request, ti, PDF, "What is the title of the attached document? Answer in one short sentence and cite the file name.", "pdf", PDF === FIX_PDF ? /(submit.?query|sse|event reference)/i : /zephyr/i);
@@ -132,6 +142,7 @@ async function imageJourney(page: import("@playwright/test").Page, ti: import("@
 }
 
 test.describe("Upload journeys — images (desktop 1440×900)", () => {
+  test.beforeEach(async ({ request }) => { await requireArtifactsBackend(request); });
   test.describe.configure({ mode: "serial" });
   for (const img of IMAGES) test(`image: ${img.file} → thumb in chip + under message → ${img.label === "blurred-memo" ? "honest 'cannot read' answer" : "grounded description"}`, async ({ page }, ti) => imageJourney(page, ti, img));
 
@@ -158,6 +169,7 @@ test.describe("Upload journeys — images (desktop 1440×900)", () => {
 });
 
 test.describe("Upload journeys — failure state + retry", () => {
+  test.beforeEach(async ({ request }) => { await requireArtifactsBackend(request); });
   test("ui: tool.exe → error chip (red) with retry; retry stays error; remove works; 0-byte file → error", async ({ page }, ti) => {
     test.setTimeout(120_000);
     const log = logger(ti, page); const vp = viewportTag(ti, page);
@@ -237,6 +249,7 @@ test.describe("Upload journeys — failure state + retry", () => {
 });
 
 test.describe("Upload journeys — images (mobile 390×844)", () => {
+  test.beforeEach(async ({ request }) => { await requireArtifactsBackend(request); });
   test.describe.configure({ mode: "serial" });
   test.use({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   for (const img of IMAGES) test(`mobile image: ${img.file}`, async ({ page }, ti) => imageJourney(page, ti, img));
