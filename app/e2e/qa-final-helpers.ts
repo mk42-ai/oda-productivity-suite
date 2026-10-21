@@ -18,7 +18,7 @@ export async function primeSettingsSafe(page: Page, extra: Record<string, unknow
   await page.addInitScript(([k, v]) => { try { if (window.top === window && window.localStorage) localStorage.setItem(k as string, JSON.stringify(v)); } catch { /* opaque frame */ } },
     ["uaecc.settings.v1", { onboarded: true, apikey: key, externalUserId: "INV-001", model: "predefined-deepseek-flash", theme: "light", companies: ["mbzuai", "g42", "tii", "edge", "space42"], ...extra }]);
 }
-export const ROUTES = ["/overview", "/company/1au", "/news", "/chat", "/artifacts", "/settings"];
+export const ROUTES = ["/overview", "/watchlist/tii", "/news", "/chat", "/artifacts", "/settings"];
 
 export function vpName(page: Page) {
   const v = page.viewportSize() ?? { width: 0, height: 0 };

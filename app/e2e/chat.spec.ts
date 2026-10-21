@@ -47,7 +47,7 @@ test.describe("Analyst chat — streaming", () => {
     await page.goto("/chat?skip=1");
     const textarea = page.locator("textarea").first();
     await expect(textarea).toBeVisible();
-    await expect(page.locator('img[data-testid="brand-logo"]').first()).toBeAttached();
+    await expect(page.locator('img[src="/brand/mark-light.png"]').first()).toBeAttached(); // UAE build: top-bar brand mark (brand-logo img removed in 2515e93)
 
     const responseP = page.waitForResponse((r) => /\/api\/chat(\?|$)/.test(r.url()) && r.request().method() === "POST", { timeout: 30_000 }); // not the /api/chat/prewarm GET (JSON)
     await textarea.fill(QUESTION);

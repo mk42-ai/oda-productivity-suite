@@ -5,7 +5,7 @@ import path from "node:path";
 const PROOF = process.env.PROOF_DIR || path.join(process.cwd(), "..", "..", ".ui-proof");
 fs.mkdirSync(PROOF, { recursive: true });
 const HAS_KEY = !!(process.env.ONDEMAND_API_KEY ?? process.env.ON_DEMAND_API_KEY ?? "");
-const BADS = ["/no-such-page-xyz", "/companies/nope/definitely-bad", "/api/does-not-exist-xyz"];
+const BADS = ["/no-such-page-xyz", "/watchlist/nope/definitely-bad", "/api/does-not-exist-xyz"];
 
 test.describe("navigation e2e", () => {
   test.beforeEach(async ({ page }) => { await primeSettings(page); });
@@ -13,9 +13,10 @@ test.describe("navigation e2e", () => {
   for (const r of [
     { p: "/", name: "root", expectPath: "/overview" },
     { p: "/overview", name: "overview" },
-    { p: "/companies", name: "companies" },
-    { p: "/social", name: "social" },
-    { p: "/signals", name: "signals" },
+    { p: "/watchlist", name: "watchlist" },
+    { p: "/sentiment", name: "sentiment" },
+    { p: "/radar", name: "radar" },
+    { p: "/graph", name: "graph" },
     { p: "/docs/interactive-ui", name: "docs-interactive-ui" },
   ]) {
     test(`route ${r.p} renders @desktop`, async ({ page }) => {
@@ -47,67 +48,37 @@ test.describe("navigation e2e", () => {
     await page.goto("/overview");
     const nav = page.getByTestId("primary-nav");
     await expect(nav.getByTestId("nav-overview")).toHaveAttribute("aria-current","page");
-    await nav.getByTestId("nav-companies").click(); await expect(page).toHaveURL(/\/companies/);
-    await expect(nav.getByTestId("nav-companies")).toHaveAttribute("aria-current","page");
-    await page.screenshot({ path: path.join(PROOF, "nav-click-companies-1440x900.png") });
-    await nav.getByTestId("nav-signals").click(); await expect(page).toHaveURL(/\/signals/);
-    await expect(page.getByTestId("signals-table")).toBeVisible();
-    await page.screenshot({ path: path.join(PROOF, "nav-signals-1440x900.png") });
-    await nav.getByTestId("nav-social").click(); await expect(page).toHaveURL(/\/social/);
-    await page.screenshot({ path: path.join(PROOF, "nav-social-1440x900.png") });
-    await page.goBack(); await expect(page).toHaveURL(/\/signals/);
-    await page.goForward(); await expect(page).toHaveURL(/\/social/);
-    await page.reload(); await expect(page).toHaveURL(/\/social/);
+    await nav.getByTestId("nav-watchlist").click(); await expect(page).toHaveURL(/\/watchlist/);
+    await expect(nav.getByTestId("nav-watchlist")).toHaveAttribute("aria-current","page");
+    await page.screenshot({ path: path.join(PROOF, "nav-click-watchlist-1440x900.png") });
+    await nav.getByTestId("nav-radar").click(); await expect(page).toHaveURL(/\/radar/);
+    await expect(page.getByTestId("radar-blip").first()).toBeVisible();
+    await page.screenshot({ path: path.join(PROOF, "nav-radar-1440x900.png") });
+    await nav.getByTestId("nav-sentiment").click(); await expect(page).toHaveURL(/\/sentiment/);
+    await page.screenshot({ path: path.join(PROOF, "nav-sentiment-1440x900.png") });
+    await page.goBack(); await expect(page).toHaveURL(/\/radar/);
+    await page.goForward(); await expect(page).toHaveURL(/\/sentiment/);
+    await page.reload(); await expect(page).toHaveURL(/\/sentiment/);
     expect(errs).toEqual([]);
   });
 
-  test("company link, breadcrumb back, drawer close returns focus/scroll", async ({ page }) => {
+  test("dossier link, rail back to overview, #dossier-news anchor", async ({ page }) => {
+    // The quick-view drawer + GROWTH onboarding tile were removed with the UAE build (2515e93); the watchlist card → dossier journey replaces them.
     const errs = captureErrors(page);
-    await page.goto("/companies");
+    await page.goto("/watchlist");
     await page.waitForLoadState("networkidle").catch(()=>{});
-    // drawer
-    const trig = page.getByTestId("company-quick-view-trigger").first();
-    if (await trig.count()) {
-      await trig.scrollIntoViewIfNeeded();
-      const y = await page.evaluate(()=>window.scrollY);
-      await trig.click();
-      const drawer = page.getByTestId("company-quick-view-drawer");
-      await expect(drawer).toBeVisible();
-      await expect(page.getByTestId("company-quick-view-close")).toBeFocused();
-      await page.screenshot({ path: path.join(PROOF, "nav-drawer-open-1440x900.png") });
-      await page.keyboard.press("Escape");
-      await expect(drawer).toHaveCount(0);
-      await expect(trig).toBeFocused();
-      expect(Math.abs((await page.evaluate(()=>window.scrollY))-y)).toBeLessThanOrEqual(50);
-      await page.screenshot({ path: path.join(PROOF, "nav-drawer-closed-1440x900.png") });
-    }
-    // full profile + breadcrumb
-    const link = page.locator('a[href^="/company/"]').first();
+    const link = page.locator('[data-testid="org-card"] a[href^="/watchlist/"]').first();
     const href = await link.getAttribute("href");
     await link.click();
     await expect(page).toHaveURL(new RegExp(href!.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")));
-    await page.screenshot({ path: path.join(PROOF, "nav-company-detail-1440x900.png") });
-    await page.getByRole("link",{name:"Overview"}).first().click();
+    await expect(page.getByTestId("dossier-title")).toBeVisible();
+    await page.screenshot({ path: path.join(PROOF, "nav-dossier-detail-1440x900.png") });
+    await page.getByTestId("primary-nav").getByTestId("nav-overview").click();
     await expect(page).toHaveURL(/\/overview/);
     // hash anchor
-    await page.goto(`${href}#news`);
-    await page.waitForTimeout(800);
-    const newsVisible = await page.locator("#news").isVisible().catch(()=>false);
-    expect(newsVisible).toBe(true);
-    await page.screenshot({ path: path.join(PROOF, "nav-company-news-anchor-1440x900.png") });
-    expect(errs).toEqual([]);
-  });
-
-  test("growth tile interactive (onboarding)", async ({ page }) => {
-    await primeSettings(page,{onboarded:false,companies:[]});
-    const errs = captureErrors(page);
-    await page.goto("/onboarding?skip=1");
-    const grid = page.locator('[data-testid="growth-grid"]');
-    await expect(grid).toBeVisible();
-    const first = page.locator('[data-testid="growth-value"]').first();
-    await first.click();
-    await expect(first).toHaveAttribute("aria-expanded","true");
-    await page.screenshot({ path: path.join(PROOF, "nav-growth-open-1440x900.png") });
+    await page.goto(`${href}#dossier-news`);
+    await expect.poll(async () => page.locator("#dossier-news").evaluate((el) => Math.round(el.getBoundingClientRect().top)), { timeout: 15_000 }).toBeLessThan(900);
+    await page.screenshot({ path: path.join(PROOF, "nav-dossier-news-anchor-1440x900.png") });
     expect(errs).toEqual([]);
   });
 
@@ -122,7 +93,7 @@ test.describe("navigation e2e", () => {
     await composer.fill("Tell me about Technology Innovation Institute in one line.");
     await page.getByTestId("composer-send").click();
     await expect.poll(()=>status,{timeout:90000}).toBe(200);
-    await expect(page.locator("body")).toContainText(/Fervo/i,{timeout:90000});
+    await expect(page.locator("body")).toContainText(/Technology Innovation Institute|TII/,{timeout:90000});
     await page.screenshot({ path: path.join(PROOF, "nav-chat-answer-1440x900.png") });
     expect(errs).toEqual([]);
   });
@@ -133,19 +104,20 @@ test.describe("mobile navigation", () => {
   test.beforeEach(async ({ page }) => { await primeSettings(page); });
   test("mobile routes + nav scroll + no overflow", async ({ page }) => {
     const errs = captureErrors(page);
-    for (const [p,n] of [["/overview","overview"],["/companies","companies"],["/signals","signals"],["/social","social"]] as const) {
+    for (const [p,n] of [["/overview","overview"],["/watchlist","watchlist"],["/radar","radar"],["/sentiment","sentiment"]] as const) {
       const resp = await page.goto(p);
       expect(resp?.status()).toBe(200);
       expect(await noHorizontalOverflow(page)).toBe(true);
       await page.screenshot({ path: path.join(PROOF, `nav-${n}-390x844.png`) });
     }
-    // nav is reachable (horizontal scroll container) and Signals tappable
-    const nav = page.getByTestId("primary-nav");
+    // nav lives in the 390 px off-canvas drawer; Radar tappable
+    await page.getByTestId("rail-drawer-toggle").click();
+    const nav = page.getByTestId("rail-drawer").getByTestId("primary-nav");
     await expect(nav).toBeVisible();
-    await nav.getByTestId("nav-signals").scrollIntoViewIfNeeded();
-    await nav.getByTestId("nav-signals").click();
-    await expect(page).toHaveURL(/\/signals/);
-    await page.screenshot({ path: path.join(PROOF, "nav-mobile-signals-390x844.png") });
+    await nav.getByTestId("nav-radar").scrollIntoViewIfNeeded();
+    await nav.getByTestId("nav-radar").click();
+    await expect(page).toHaveURL(/\/radar/);
+    await page.screenshot({ path: path.join(PROOF, "nav-mobile-radar-390x844.png") });
     // bad url mobile
     const resp = await page.goto("/no-such-page-xyz");
     expect(resp?.status()).toBe(404);

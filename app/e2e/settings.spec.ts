@@ -5,7 +5,7 @@ test.describe("Settings", () => {
     await page.goto("/settings");
     await expect(page.locator("#set-user")).toBeVisible();
     await expect(page.locator("#set-user")).toHaveValue("INV-001");
-    await expect(page.locator("#set-backend")).toBeVisible();
+    await expect(page.locator("#set-key"), "apikey override field (server proxy owns the backend URL; #set-backend removed in the UAE build)").toBeVisible();
     const model = page.getByTestId("fixed-model");
     await expect(model).toBeVisible();
     await expect(model).toContainText("DeepSeek Flash v4.1");

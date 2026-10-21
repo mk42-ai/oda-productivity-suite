@@ -9,7 +9,7 @@ import { primeSettings, isAllowed } from "./helpers";
  * pageerrors after the same noise filter as helpers.ts `captureErrors` (favicon / net::ERR_ABORTED / ERR_BLOCKED_BY_ORB / 404 resources) plus
  * sourcemap + aborted `_rsc` fetch noise. Results → proof/evidence/routes-clean.json [{route, viewport, status, consoleErrors, pageErrors}].
  */
-const ROUTES = ["/overview", "/companies", "/news", "/chat", "/artifacts", "/settings"] as const;
+const ROUTES = ["/overview", "/watchlist", "/news", "/chat", "/artifacts", "/settings"] as const;
 const OUT = path.resolve(__dirname, "../proof/evidence");
 const JSON_OUT = path.join(OUT, "routes-clean.json");
 fs.mkdirSync(OUT, { recursive: true });

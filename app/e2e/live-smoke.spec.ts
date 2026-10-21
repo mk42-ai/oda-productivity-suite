@@ -12,10 +12,13 @@ const OK = [`data: ${JSON.stringify({type:"RUN_STARTED",threadId:"t",runId:"r2"}
 const ROUTES = [
   { p: "/", name: "root", final: "/overview" },
   { p: "/overview", name: "overview" },
-  { p: "/companies", name: "companies" },
-  { p: "/social", name: "social" },
-  { p: "/signals", name: "signals" },
-  { p: "/reputation", name: "reputation" },
+  { p: "/watchlist", name: "watchlist" },
+  { p: "/sentiment", name: "sentiment" },
+  { p: "/news", name: "news" },
+  { p: "/radar", name: "radar" },
+  { p: "/graph", name: "graph" },
+  { p: "/briefing", name: "briefing" },
+  { p: "/methodology", name: "methodology" },
   { p: "/docs/interactive-ui", name: "docs-interactive-ui" },
 ] as const;
 /** Snapshot-demo markers that must never surface again (the removed Lambda snapshot / Intelligent-UI payload demos). */
@@ -41,7 +44,7 @@ for (const vp of [{ w: 1440, h: 900, label: "1440x900" }, { w: 390, h: 844, labe
     }
 
     test("bad urls are 404", async ({ page }) => {
-      for (const [i, b] of ["/this-route-does-not-exist-smoke", "/companies/nope/definitely-bad", "/company/does-not-exist-zz"].entries()) {
+      for (const [i, b] of ["/this-route-does-not-exist-smoke", "/watchlist/nope/definitely-bad", "/watchlist/does-not-exist-zz"].entries()) {
         const resp = await page.goto(b);
         expect(resp?.status(), b).toBe(404);
         await expect(page.getByText(/not found/i).first()).toBeVisible();
@@ -53,26 +56,27 @@ for (const vp of [{ w: 1440, h: 900, label: "1440x900" }, { w: 390, h: 844, labe
       const errs = captureErrors(page);
       await page.goto("/overview");
       const nav = page.getByTestId("primary-nav");
-      await nav.getByTestId("nav-companies").scrollIntoViewIfNeeded();
-      await nav.getByTestId("nav-companies").click(); await expect(page).toHaveURL(/\/companies/);
-      await nav.getByTestId("nav-social").scrollIntoViewIfNeeded();
-      await nav.getByTestId("nav-social").click(); await expect(page).toHaveURL(/\/social/);
-      await page.goBack(); await expect(page).toHaveURL(/\/companies/);
-      await page.goForward(); await expect(page).toHaveURL(/\/social/);
-      await expect(nav.getByTestId("nav-social")).toHaveAttribute("aria-current", "page");
+      if (vp.w < 1024) await page.getByTestId("rail-drawer-toggle").click(); // 390: primary nav lives in the off-canvas drawer
+      await nav.getByTestId("nav-watchlist").scrollIntoViewIfNeeded();
+      await nav.getByTestId("nav-watchlist").click(); await expect(page).toHaveURL(/\/watchlist/);
+      if (vp.w < 1024) await page.getByTestId("rail-drawer-toggle").click();
+      await nav.getByTestId("nav-sentiment").scrollIntoViewIfNeeded();
+      await nav.getByTestId("nav-sentiment").click(); await expect(page).toHaveURL(/\/sentiment/);
+      await page.goBack(); await expect(page).toHaveURL(/\/watchlist/);
+      await page.goForward(); await expect(page).toHaveURL(/\/sentiment/);
+      await expect(nav.getByTestId("nav-sentiment")).toHaveAttribute("aria-current", "page");
       await page.screenshot({ path: path.join(PROOF, `live-backforward-${vp.label}.png`) });
       expect(errs).toEqual([]);
     });
 
-    test("preserved surfaces: docs + GROWTH", async ({ page }) => {
+    test("preserved surfaces: docs + watchlist dossiers", async ({ page }) => {
+      // The onboarding GROWTH tile was removed with the UAE build (2515e93); the preserved surfaces are /docs/interactive-ui and the 50 dossiers.
       await page.goto("/docs/interactive-ui");
       await expect(page.locator("body")).toContainText(/Synergy matrix|Why the chat is interactive/i);
-      await primeSettings(page, { onboarded: false, companies: [] });
-      await page.goto("/onboarding?skip=1");
-      const first = page.locator('[data-testid="growth-value"]').first();
-      await expect(page.locator('[data-testid="growth-grid"]')).toBeVisible();
-      await first.click(); await expect(first).toHaveAttribute("aria-expanded", "true");
-      await page.screenshot({ path: path.join(PROOF, `live-growth-${vp.label}.png`) });
+      await page.goto("/watchlist");
+      await expect(page.getByTestId("org-card")).toHaveCount(50);
+      await expect(page.getByTestId("watchlist-count")).toContainText("50");
+      await page.screenshot({ path: path.join(PROOF, `live-watchlist-${vp.label}.png`) });
     });
 
     test("no snapshot/Lambda demo on playground or chat", async ({ page }) => {
@@ -90,10 +94,10 @@ for (const vp of [{ w: 1440, h: 900, label: "1440x900" }, { w: 390, h: 844, labe
       await page.screenshot({ path: path.join(PROOF, `live-chat-no-snapshots-${vp.label}.png`) });
     });
 
-    test("company #news deep link lands on the news section", async ({ page }) => {
+    test("dossier #dossier-news deep link lands on the news panel", async ({ page }) => {
       const errs = captureErrors(page);
-      await page.goto("/company/tii#news");
-      await expect.poll(async () => page.locator("#news").evaluate((el) => Math.round(el.getBoundingClientRect().top)), { timeout: 15_000 }).toBeLessThan(vp.h);
+      await page.goto("/watchlist/tii#dossier-news");
+      await expect.poll(async () => page.locator("#dossier-news").evaluate((el) => Math.round(el.getBoundingClientRect().top)), { timeout: 15_000 }).toBeLessThan(vp.h);
       await page.screenshot({ path: path.join(PROOF, `live-news-anchor-${vp.label}.png`) });
       expect(errs).toEqual([]);
     });
@@ -108,7 +112,7 @@ for (const vp of [{ w: 1440, h: 900, label: "1440x900" }, { w: 390, h: 844, labe
       await page.getByTestId("composer-input").fill("Tell me about Technology Innovation Institute in one line.");
       await page.getByTestId("composer-send").click();
       await expect.poll(() => status, { timeout: 90_000 }).toBe(200);
-      await expect(page.locator("body")).toContainText(/Fervo/i, { timeout: 90_000 });
+      await expect(page.locator("body")).toContainText(/Technology Innovation Institute|TII/, { timeout: 90_000 });
       await page.screenshot({ path: path.join(PROOF, `live-chat-${vp.label}.png`) });
       expect(errs).toEqual([]);
     });

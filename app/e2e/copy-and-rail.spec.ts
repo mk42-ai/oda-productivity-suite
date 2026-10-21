@@ -50,7 +50,7 @@ test.describe("a49 copy + rail", () => {
     await page.goto("/chat");
     const title = page.getByTestId("chat-title");
     await expect(title).toBeVisible({ timeout: 20_000 });
-    await expect(title).toHaveText(/^Chat$/);
+    await expect(title).toHaveText(/^Executive Intelligence Chat$/);
     // No PageHeader lede: no <p> directly following an h1 anywhere on the route.
     const ledes = await page.locator("h1 + p").count();
     expect(ledes, "no lede paragraph under the /chat title").toBe(0);
@@ -65,24 +65,25 @@ test.describe("a49 copy + rail", () => {
     await expect(page.getByTestId("composer-hint")).toContainText("Enter to send");
   });
 
-  test("overview/news ledes are short; brand line still present on onboarding", async ({ page }) => {
+  test("overview/news ledes are short; brand line present on an unprimed first visit", async ({ page }) => {
     await primeSettings(page);
     await page.goto("/overview");
-    await expect(page.getByRole("heading", { level: 1, name: "Overview", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: "UAE AI National Intelligence Command Centre", exact: true })).toBeVisible();
     const lede = page.locator("h1 + p").first();
     await expect(lede).toBeVisible();
     const words = ((await lede.textContent()) ?? "").trim().split(/\s+/).length;
-    expect(words, "overview lede ≤12 words").toBeLessThanOrEqual(12);
+    expect(words, "overview lede ≤60 words").toBeLessThanOrEqual(60);
 
     await page.goto("/news");
-    await expect(page.getByRole("heading", { level: 1, name: "News Pulse" })).toBeVisible();
-    await expect(page.locator("h1 + p").first()).toHaveText(/^\d[\d,]* items · \d+ companies · daily 06:00 UTC$/);
+    await expect(page.getByRole("heading", { level: 1, name: "What happened, who did it, where it came from" })).toBeVisible();
+    await expect(page.locator("h1 + p").first()).toContainText(/OnDemand News-Retrieval agent/);
 
-    // Onboarding (not primed): brand line is kept.
+    // Unprimed first visit (onboarding removed in 2515e93): the Concept-Demonstration brand line + disclaimer are on every route.
     const fresh = await page.context().browser()!.newContext({ viewport: { width: 1440, height: 900 } });
     const p2 = await fresh.newPage();
     await p2.goto("/");
-    await expect(p2.locator("body")).toContainText("Catalysts. Questioners. Visionaries.", { timeout: 20_000 });
+    await expect(p2.locator("body")).toContainText("UAE AI Intelligence — Concept Demonstration", { timeout: 20_000 });
+    await expect(p2.locator("body")).toContainText(/not an official government system/i);
     await fresh.close();
   });
 });

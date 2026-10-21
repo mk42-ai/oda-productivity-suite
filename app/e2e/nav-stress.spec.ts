@@ -6,7 +6,7 @@ import { primeSettings } from "./helpers";
 /**
  * Navigation stress harness (2026-10-16). Hammers the App Router with the crash classes seen in production:
  * rapid nav clicks, back/forward spam, deep-link reloads, navigating with a drawer open, navigating mid-stream,
- * GROWTH tile mid-navigation, #news anchor, /signals and bad URLs — at 1440x900 and 390x844.
+ * compare tray mid-navigation, #dossier-news anchor, /radar and bad URLs — at 1440x900 and 390x844 (UAE routes, 2026-10-21 rewrite).
  *
  * Every pageerror (with stack), console error, hydration warning, unhandled rejection and error-boundary paint is
  * recorded as an event (route + stack) instead of failing fast, so one run covers every scenario. Each test then
@@ -20,8 +20,8 @@ type Ev = { viewport: string; test: string; route: string; kind: string; message
 const NOISE = [/favicon/i, /net::ERR_ABORTED/i, /ERR_BLOCKED_BY_ORB/i, /Failed to load resource.*(404|net::)/i, /status of 404/i, /\[route-error\]|\[global-error\]/];
 const HYDRATION = /hydrat|did not match|Minified React error|#418|#423|#425/i;
 const BOUNDARY = /Application error: a client-side exception|This section hit a problem|Something went wrong/i;
-const ROUTES = ["/", "/overview", "/companies", "/social", "/signals", "/reputation", "/docs/interactive-ui", "/news", "/chat?skip=1", "/company/tii", "/company/tii#news"];
-const BADS = ["/no-such-page-xyz", "/companies/nope/definitely-bad", "/company/does-not-exist-zz"];
+const ROUTES = ["/", "/overview", "/watchlist", "/sentiment", "/radar", "/graph", "/briefing", "/methodology", "/docs/interactive-ui", "/news", "/chat?skip=1", "/watchlist/tii", "/watchlist/tii#dossier-news"];
+const BADS = ["/no-such-page-xyz", "/watchlist/nope/definitely-bad", "/watchlist/does-not-exist-zz"];
 const SSE = ["RUN_STARTED", "TEXT_MESSAGE_START", "TEXT_MESSAGE_CONTENT", "TEXT_MESSAGE_END", "RUN_FINISHED"].map((type) =>
   `data: ${JSON.stringify(type === "TEXT_MESSAGE_CONTENT" ? { type, messageId: "m", delta: "Stress answer: Technology Innovation Institute is a geothermal developer." } : type.startsWith("RUN") ? { type, threadId: "t", runId: "r" } : { type, messageId: "m" })}\n\n`).join("") + "data: [DONE]\n\n";
 
@@ -61,6 +61,12 @@ async function finish(page: Page, ev: Ev[], vp: string, name: string, info: Test
   expect(real, `stress events in ${name} @${vp}`).toEqual([]);
 }
 const nav = (page: Page, id: string) => page.locator(`[data-testid="primary-nav"] [data-testid="nav-${id}"]`).first();
+/** At 390 px the primary nav lives in the off-canvas rail drawer — open it first when the link is not visible. */
+async function openNavIfHidden(page: Page) {
+  if (await nav(page, "overview").isVisible().catch(() => false)) return;
+  const t = page.getByTestId("rail-drawer-toggle");
+  if (await t.isVisible().catch(() => false)) { await t.click({ timeout: 4000 }).catch(() => {}); await page.getByTestId("rail-drawer").waitFor({ state: "visible", timeout: 4000 }).catch(() => {}); }
+}
 
 for (const vp of [{ width: 1440, height: 900, label: "1440x900" }, { width: 390, height: 844, label: "390x844" }]) {
   test.describe(`nav stress @${vp.label}`, () => {
@@ -75,16 +81,16 @@ for (const vp of [{ width: 1440, height: 900, label: "1440x900" }, { width: 390,
       await page.goto("/overview");
       const ids = ["overview", "watchlist", "sentiment", "news", "radar", "graph", "chat", "briefing", "artifacts", "methodology", "settings"];
       for (let round = 0; round < 3; round++) for (const id of ids) {
-        await step(ev, page, vp.label, "rapid-nav", `click ${id}`, async () => { await nav(page, id).click({ timeout: 4000, noWaitAfter: true }); await page.waitForTimeout(150); });
+        await step(ev, page, vp.label, "rapid-nav", `click ${id}`, async () => { await openNavIfHidden(page); await nav(page, id).click({ timeout: 4000, noWaitAfter: true }); await page.waitForTimeout(150); });
       }
-      await step(ev, page, vp.label, "rapid-nav", "final overview", async () => { await nav(page, "overview").click({ timeout: 4000 }); await expect(page).toHaveURL(/\/overview/); });
+      await step(ev, page, vp.label, "rapid-nav", "final overview", async () => { await openNavIfHidden(page); await nav(page, "overview").click({ timeout: 4000 }); await expect(page).toHaveURL(/\/overview/); });
       await finish(page, ev, vp.label, "rapid-nav", info);
     });
 
     test("back-forward-spam", async ({ page }, info) => {
       const ev = attach(page, vp.label, "back-forward-spam");
       await page.goto("/overview");
-      for (const id of ["companies", "signals", "social", "news"]) await step(ev, page, vp.label, "back-forward-spam", `nav ${id}`, async () => { await nav(page, id).click({ timeout: 5000 }); await page.waitForURL(new RegExp(id), { timeout: 15000 }); });
+      for (const id of ["watchlist", "radar", "sentiment", "news"]) await step(ev, page, vp.label, "back-forward-spam", `nav ${id}`, async () => { await openNavIfHidden(page); await nav(page, id).click({ timeout: 5000 }); await page.waitForURL(new RegExp(id), { timeout: 15000 }); });
       await step(ev, page, vp.label, "back-forward-spam", "goto docs", () => page.goto("/docs/interactive-ui"));
       for (let i = 0; i < 10; i++) { await page.goBack({ timeout: 8000 }).catch(() => {}); await page.waitForTimeout(100); await page.goForward({ timeout: 8000 }).catch(() => {}); await page.waitForTimeout(100); }
       for (let i = 0; i < 5; i++) await page.goBack({ timeout: 8000 }).catch(() => {});
@@ -103,19 +109,20 @@ for (const vp of [{ width: 1440, height: 900, label: "1440x900" }, { width: 390,
     });
 
     test("drawer-open-nav", async ({ page }, info) => {
+      // The company quick-view drawer was removed with the UAE build; the chat inspector drawer is the modal surface that stays open across navigation.
       const ev = attach(page, vp.label, "drawer-open-nav");
-      await page.goto("/companies"); await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
+      await page.goto("/chat?skip=1"); await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
       await step(ev, page, vp.label, "drawer-open-nav", "open drawer", async () => {
-        const trig = page.getByTestId("company-quick-view-trigger").first(); await trig.scrollIntoViewIfNeeded(); await trig.click();
-        await expect(page.getByTestId("company-quick-view-drawer")).toBeVisible();
+        await page.getByTestId("inspector-toggle").click();
+        await expect(page.getByTestId("chat-inspector")).toHaveAttribute("data-open", "true");
+        await expect(page.getByTestId("inspector-backdrop")).toBeVisible();
       });
-      // Navigate while the drawer is open (the drawer overlay covers the rail on mobile → keyboard-free programmatic click on the link).
-      await step(ev, page, vp.label, "drawer-open-nav", "nav while open", async () => { await nav(page, "signals").dispatchEvent("click"); await page.waitForURL(/\/signals/, { timeout: 15000 }); });
-      await step(ev, page, vp.label, "drawer-open-nav", "drawer gone on /signals", async () => expect(page.getByTestId("company-quick-view-drawer")).toHaveCount(0));
-      await step(ev, page, vp.label, "drawer-open-nav", "back", async () => { await page.goBack(); await page.waitForURL(/\/companies/, { timeout: 15000 }); });
+      // Navigate while the drawer is open (programmatic click — the overlay covers the rail on mobile).
+      await step(ev, page, vp.label, "drawer-open-nav", "nav while open", async () => { await openNavIfHidden(page); await nav(page, "radar").dispatchEvent("click"); await page.waitForURL(/\/radar/, { timeout: 15000 }); });
+      await step(ev, page, vp.label, "drawer-open-nav", "drawer gone on /radar", async () => expect(page.getByTestId("inspector-backdrop")).toHaveCount(0));
+      await step(ev, page, vp.label, "drawer-open-nav", "back", async () => { await page.goBack(); await page.waitForURL(/\/chat/, { timeout: 15000 }); });
       const locked = await page.evaluate(() => getComputedStyle(document.body).overflow === "hidden" || getComputedStyle(document.documentElement).overflow === "hidden" || document.body.style.pointerEvents === "none");
-      if (locked) ev.push({ viewport: vp.label, test: "drawer-open-nav", route: page.url(), kind: "scroll-lock-leak", message: "body/html still scroll-locked after navigating away from an open drawer" });
-      await step(ev, page, vp.label, "drawer-open-nav", "no drawer after back", async () => expect(page.getByTestId("company-quick-view-drawer")).toHaveCount(0));
+      if (locked) ev.push({ viewport: vp.label, test: "drawer-open-nav", route: page.url(), kind: "scroll-lock", message: "body still scroll-locked / pointer-events none after navigating away from an open drawer" });
       await finish(page, ev, vp.label, "drawer-open-nav", info);
     });
 
@@ -129,52 +136,52 @@ for (const vp of [{ width: 1440, height: 900, label: "1440x900" }, { width: 390,
       await page.goto("/chat?skip=1");
       await step(ev, page, vp.label, "nav-while-streaming", "send", async () => { await page.getByTestId("composer-input").fill("Tell me about Technology Innovation Institute in one line."); await page.getByTestId("composer-send").click(); });
       await page.waitForTimeout(500);
-      await step(ev, page, vp.label, "nav-while-streaming", "nav overview mid-stream", async () => { await nav(page, "overview").click({ timeout: 5000 }); await page.waitForURL(/\/overview/, { timeout: 15000 }); });
+      await step(ev, page, vp.label, "nav-while-streaming", "nav overview mid-stream", async () => { await openNavIfHidden(page); await nav(page, "overview").click({ timeout: 5000 }); await page.waitForURL(/\/overview/, { timeout: 15000 }); });
       await page.waitForTimeout(4000);
       await step(ev, page, vp.label, "nav-while-streaming", "back to chat", async () => { await page.goBack(); await page.waitForURL(/\/chat/, { timeout: 15000 }); });
       await step(ev, page, vp.label, "nav-while-streaming", "forward", async () => { await page.goForward(); await page.waitForURL(/\/overview/, { timeout: 15000 }); });
       await finish(page, ev, vp.label, "nav-while-streaming", info);
     });
 
-    test("growth-mid-nav", async ({ page }, info) => {
-      const ev = attach(page, vp.label, "growth-mid-nav");
-      await primeSettings(page, { onboarded: false, companies: [] });
-      await page.goto("/onboarding?skip=1");
-      await step(ev, page, vp.label, "growth-mid-nav", "click growth #1", async () => { await page.getByTestId("growth-grid").waitFor(); await page.locator('[data-testid="growth-value"]').first().click({ noWaitAfter: true }); });
-      await step(ev, page, vp.label, "growth-mid-nav", "goto overview mid-animation", () => page.goto("/overview"));
-      await step(ev, page, vp.label, "growth-mid-nav", "back", () => page.goBack());
-      await step(ev, page, vp.label, "growth-mid-nav", "click growth #2", async () => { const b = page.locator('[data-testid="growth-value"]').nth(1); await b.click(); await page.locator('[data-testid="growth-value"]').nth(1).click(); });
-      await step(ev, page, vp.label, "growth-mid-nav", "forward", () => page.goForward());
-      await finish(page, ev, vp.label, "growth-mid-nav", info);
+    test("compare-mid-nav", async ({ page }, info) => {
+      // Replaces the removed GROWTH onboarding tile: toggle the watchlist compare tray, navigate mid-interaction, come back.
+      const ev = attach(page, vp.label, "compare-mid-nav");
+      await page.goto("/watchlist");
+      await step(ev, page, vp.label, "compare-mid-nav", "toggle compare #1", async () => { await page.getByTestId("org-card").first().waitFor(); await page.getByTestId("compare-toggle").first().click({ noWaitAfter: true }); });
+      await step(ev, page, vp.label, "compare-mid-nav", "goto overview mid-interaction", () => page.goto("/overview"));
+      await step(ev, page, vp.label, "compare-mid-nav", "back", () => page.goBack());
+      await step(ev, page, vp.label, "compare-mid-nav", "toggle compare #2", async () => { const b = page.getByTestId("compare-toggle").nth(1); await b.click(); await expect(b).toHaveAttribute("aria-pressed", "true"); });
+      await step(ev, page, vp.label, "compare-mid-nav", "forward", () => page.goForward());
+      await finish(page, ev, vp.label, "compare-mid-nav", info);
     });
 
     test("news-anchor", async ({ page }, info) => {
       const ev = attach(page, vp.label, "news-anchor");
-      await page.goto("/company/tii#news");
+      await page.goto("/watchlist/tii#dossier-news");
       await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});
-      // The section streams behind loading.tsx; RouteEffects scrolls once it exists. Poll instead of a fixed sleep.
+      // RouteEffects scrolls once the target exists. Poll instead of a fixed sleep.
       let top = 99999;
-      for (let i = 0; i < 60; i++) { top = await page.locator("#news").evaluate((el) => el.getBoundingClientRect().top).catch(() => 99999); if (top >= -4 && top < vp.height) break; await page.waitForTimeout(250); }
-      if (!(top >= -4 && top < vp.height)) ev.push({ viewport: vp.label, test: "news-anchor", route: page.url(), kind: "anchor", message: `#news not in viewport after deep link (top=${Math.round(top)})` });
-      // Client-side path: quick view drawer → "news" link
-      await step(ev, page, vp.label, "news-anchor", "drawer news link", async () => {
-        await page.goto("/companies"); const trig = page.getByTestId("company-quick-view-trigger").first(); await trig.click();
-        const link = page.locator('[data-testid="company-quick-view-drawer"] a[href*="#news"]').first();
-        if (await link.count()) { await link.click(); await page.waitForURL(/#news/, { timeout: 15000 });
-          let t2 = 99999;
-          for (let i = 0; i < 60; i++) { t2 = await page.locator("#news").evaluate((el) => el.getBoundingClientRect().top).catch(() => 99999); if (t2 >= -4 && t2 < vp.height) break; await page.waitForTimeout(250); }
-          if (!(t2 >= -4 && t2 < vp.height)) ev.push({ viewport: vp.label, test: "news-anchor", route: page.url(), kind: "anchor", message: `#news not in viewport after client nav (top=${Math.round(t2)})` }); }
+      for (let i = 0; i < 60; i++) { top = await page.locator("#dossier-news").evaluate((el) => el.getBoundingClientRect().top).catch(() => 99999); if (top >= -4 && top < vp.height) break; await page.waitForTimeout(250); }
+      if (!(top >= -4 && top < vp.height)) ev.push({ viewport: vp.label, test: "news-anchor", route: page.url(), kind: "anchor", message: `#dossier-news not in viewport after deep link (top=${Math.round(top)})` });
+      // Client-side path: watchlist card → dossier, then hash navigation
+      await step(ev, page, vp.label, "news-anchor", "card → dossier → hash", async () => {
+        await page.goto("/watchlist"); await page.locator('[data-testid="org-card"] a[href^="/watchlist/"]').first().click(); await page.waitForURL(/\/watchlist\/[a-z0-9-]+$/, { timeout: 15000 });
+        await page.evaluate(() => { window.location.hash = "dossier-news"; });
+        let t2 = 99999;
+        for (let i = 0; i < 60; i++) { t2 = await page.locator("#dossier-news").evaluate((el) => el.getBoundingClientRect().top).catch(() => 99999); if (t2 >= -4 && t2 < vp.height) break; await page.waitForTimeout(250); }
+        if (!(t2 >= -4 && t2 < vp.height)) ev.push({ viewport: vp.label, test: "news-anchor", route: page.url(), kind: "anchor", message: `#dossier-news not in viewport after client nav (top=${Math.round(t2)})` });
       });
       await finish(page, ev, vp.label, "news-anchor", info);
     });
 
-    test("signals", async ({ page }, info) => {
-      const ev = attach(page, vp.label, "signals");
-      const r = await page.goto("/signals"); expect.soft(r?.status()).toBe(200);
-      await step(ev, page, vp.label, "signals", "table", async () => expect(page.getByTestId("signals-table").or(page.getByText(/Signal Score unavailable/))).toBeVisible());
+    test("radar", async ({ page }, info) => {
+      // Replaces the removed /signals table: the Tech Radar blips link to dossiers.
+      const ev = attach(page, vp.label, "radar");
+      const r = await page.goto("/radar"); expect.soft(r?.status()).toBe(200);
+      await step(ev, page, vp.label, "radar", "blips", async () => expect(page.getByTestId("radar-blip").first()).toBeVisible());
       await page.reload();
-      await step(ev, page, vp.label, "signals", "nav to company + back", async () => { await page.locator('[data-testid="signals-table"] a').first().click(); await page.waitForURL(/\/company\//); await page.goBack(); await page.waitForURL(/\/signals/); });
-      await finish(page, ev, vp.label, "signals", info);
+      await step(ev, page, vp.label, "radar", "nav to watchlist + back", async () => { await openNavIfHidden(page); await nav(page, "watchlist").click(); await page.waitForURL(/\/watchlist/); await page.goBack(); await page.waitForURL(/\/radar/); });
+      await finish(page, ev, vp.label, "radar", info);
     });
 
     test("bad-urls", async ({ page }, info) => {
@@ -183,7 +190,7 @@ for (const vp of [{ width: 1440, height: 900, label: "1440x900" }, { width: 390,
         const r = await page.goto(b); expect.soft(r?.status(), b).toBe(404);
         await step(ev, page, vp.label, "bad-urls", `${b} copy`, async () => expect(page.getByText(/Page not found|could not be found|not found/i).first()).toBeVisible());
       }
-      await step(ev, page, vp.label, "bad-urls", "recover via nav", async () => { await nav(page, "overview").click(); await page.waitForURL(/\/overview/); });
+      await step(ev, page, vp.label, "bad-urls", "recover via nav", async () => { await openNavIfHidden(page); await nav(page, "overview").click(); await page.waitForURL(/\/overview/); });
       await finish(page, ev, vp.label, "bad-urls", info);
     });
   });

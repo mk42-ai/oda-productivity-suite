@@ -7,7 +7,7 @@ import { primeSettings, COMPANIES } from "./helpers";
  * intercepted (body captured, request continued, answer NOT awaited) and asserts the payload names exactly what the context line shows.
  * Run: cd web && BASE_URL=<frontend> node node_modules/@playwright/test/cli.js test e2e/context-sync.spec.ts --workers=1
  */
-const NAMES: Record<string, string> = { "mbzuai": "MBZUAI", g42: "G42", "tii": "Technology Innovation Institute", edge: "EDGE Group", writer: "Space42" };
+const NAMES: Record<string, string> = { mbzuai: "Mohamed bin Zayed University of Artificial Intelligence", g42: "G42", tii: "Technology Innovation Institute", edge: "EDGE Group", space42: "Space42 PLC" };
 const namesFromLine = (txt: string) => (txt.split("—")[1] ?? "").split(",").map((x) => x.trim()).filter(Boolean);
 
 async function openInspector(page: Page) {
@@ -27,21 +27,21 @@ test("context line + POST /api/chat systemContext mirror the inspector chips (re
   await expect(line, "context-line renders under the composer").toBeVisible({ timeout: 15_000 });
   const before = (await line.textContent()) ?? "";
   console.log("[context-sync] before:", before);
-  expect(before).toMatch(/^Context: 5 companies — /);
+  expect(before).toMatch(/^Context: 5 organisations — /);
   for (const slug of COMPANIES) expect(before).toContain(NAMES[slug]);
 
   // Remove MBZUAI in the inspector → line updates live (no reload, no send)
   const drawer = await openInspector(page);
   const chips = drawer.locator('[data-testid="inspector-context"] [data-testid="company-chip"]');
   await expect(chips).toHaveCount(5, { timeout: 10_000 });
-  await drawer.getByRole("button", { name: "Remove MBZUAI" }).click();
+  await drawer.getByRole("button", { name: `Remove ${NAMES.mbzuai}` }).click();
   await expect(chips).toHaveCount(4);
-  await expect(line).toHaveText(/^Context: 4 companies — /, { timeout: 5_000 });
+  await expect(line).toHaveText(/^Context: 4 organisations — /, { timeout: 5_000 });
   const after = (await line.textContent()) ?? "";
   console.log("[context-sync] after remove:", after);
-  expect(after).not.toContain("MBZUAI");
+  expect(after).not.toContain(NAMES.mbzuai);
   const shown = namesFromLine(after);
-  expect(shown).toEqual(["G42", "Technology Innovation Institute", "EDGE Group", "Space42"]);
+  expect(shown).toEqual(["G42", "Technology Innovation Institute", "EDGE Group", "Space42 PLC"]);
   await page.getByTestId("inspector-close").click();
 
   // Intercept the POST /api/chat body: capture, continue, do not wait for the answer.
@@ -60,11 +60,11 @@ test("context line + POST /api/chat systemContext mirror the inspector chips (re
   const sc = captured!.context?.systemContext ?? "";
   console.log("[context-sync] systemContext chars:", sc.length, "slugs:", JSON.stringify(captured!.context?.contextSlugs ?? null));
   for (const n of shown) expect(sc, `systemContext names ${n}`).toContain(n);
-  expect(sc, "removed company must NOT be sent").not.toContain("MBZUAI");
-  expect(sc).toContain("sentiment_score");
-  expect(sc).toContain("sentiment_delta_vs_prior_run");
+  expect(sc, "removed organisation must NOT be sent").not.toContain("[W:mbzuai]");
+  expect(sc).toContain("uae_cc_v1");
+  expect(sc).toContain("## Verified facts");
   const keys = (captured!.context?.sessionContext ?? []).map((c) => c.key);
-  expect(keys).toEqual(["company:g42", "company:tii", "company:edge", "company:writer"]);
+  expect(keys).toEqual(["org:g42", "org:tii", "org:edge", "org:space42"]);
   // stop the run so the spec does not wait on the model
   const stop = page.getByTestId("composer-send");
   if ((await stop.getAttribute("aria-label")) === "Cancel message") await stop.click().catch(() => {});
@@ -76,7 +76,7 @@ test("empty context → helper copy; mobile 390 wraps the line", async ({ page }
   await primeSettings(page, { companies: [] });
   await page.goto("/chat?skip=1");
   const line = page.getByTestId("context-line");
-  await expect(line).toHaveText("Context: none — pick up to 5 companies in the inspector", { timeout: 30_000 });
+  await expect(line).toHaveText("Context: whole watchlist — pick organisations in the inspector to focus", { timeout: 30_000 });
   const ws = await line.evaluate((el) => getComputedStyle(el).whiteSpace);
   expect(ws).not.toBe("nowrap");
 });

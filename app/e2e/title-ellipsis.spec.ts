@@ -41,14 +41,20 @@ for (const vp of [{ name: "desktop", width: 1440, height: 900 }, { name: "mobile
     await page.goto("/chat?skip=1");
     await expect(page.getByTestId("composer-input")).toBeVisible({ timeout: 30_000 });
 
-    // Threads menu
-    const menu = page.getByTestId("threads-menu");
-    await expect(menu).toBeVisible();
-    await menu.locator("summary").click();
-    const item = page.locator('[data-testid="threads-menu-item"][data-thread-id="t-long-120"]');
+    // Thread list: rail-hosted on desktop (b37cc78), <details> threads-menu in the top bar at 390 px
+    let item;
+    if (vp.width >= 1024) {
+      await expect(page.getByTestId("rail-chats-list")).toBeVisible();
+      item = page.locator('[data-testid="rail-chats-list"] [data-testid="rail-chat-item"][data-thread-id="t-long-120"]');
+    } else {
+      const menu = page.getByTestId("threads-menu");
+      await expect(menu).toBeVisible();
+      await menu.locator("summary").click();
+      item = page.locator('[data-testid="threads-menu-item"][data-thread-id="t-long-120"]');
+    }
     await expect(item).toBeVisible({ timeout: 10_000 });
     const m = await ellipsised(item);
-    console.log(`[title-ellipsis ${vp.name}] threads-menu-item`, JSON.stringify(m));
+    console.log(`[title-ellipsis ${vp.name}] thread item`, JSON.stringify(m));
     expect(m.text).toBe(LONG);
     expect(m.overflowOk || m.textOverflow === "ellipsis", `menu item must not overflow or must use text-overflow: ellipsis (got ${JSON.stringify(m)})`).toBeTruthy();
     expect(m.title, "menu item carries the full title in title=").toBe(LONG);

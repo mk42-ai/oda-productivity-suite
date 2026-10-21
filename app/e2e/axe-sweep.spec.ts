@@ -13,7 +13,7 @@ import { primeSettings, hasKey } from "./helpers";
 const LABEL = process.env.AXE_LABEL ?? "before";
 const OUT = path.resolve(__dirname, "..", "proof", "pass-3", "axe", LABEL);
 const TAGS = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa", "best-practice"];
-const ROUTES = ["/overview", "/companies", "/news", "/chat?skip=1", "/artifacts", "/settings", "/company/tii"];
+const ROUTES = ["/overview", "/watchlist", "/news", "/chat?skip=1", "/artifacts", "/settings", "/watchlist/tii"];
 const VIEWPORTS = [
   { name: "1440x900", width: 1440, height: 900 },
   { name: "390x844", width: 390, height: 844 },

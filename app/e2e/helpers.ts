@@ -79,9 +79,8 @@ export async function noHorizontalOverflow(page: Page) {
 }
 
 export const SCREENS: { path: string; name: string }[] = [
-  { path: "/onboarding", name: "onboarding" },
   { path: "/overview", name: "overview" },
-  { path: "/company/tii", name: "company" },
+  { path: "/watchlist/tii", name: "company" },
   { path: "/news", name: "news" },
   { path: "/settings", name: "settings" },
   { path: "/chat?skip=1", name: "chat" },

@@ -11,14 +11,14 @@ const VIEWPORTS = [
   { name: "mobile", width: 390, height: 844 },
 ];
 const ROUTES: { path: string; slug: string; onboarded?: boolean; expect404?: boolean }[] = [
-  { path: "/onboarding", slug: "onboarding", onboarded: false },
   { path: "/overview", slug: "overview" },
-  { path: "/company/tii", slug: "company-tii" },
-  { path: "/company/mbzuai", slug: "company-mbzuai" },
+  { path: "/watchlist", slug: "watchlist" },
+  { path: "/watchlist/tii", slug: "company-tii" },
+  { path: "/watchlist/mbzuai", slug: "company-mbzuai" },
   { path: "/news", slug: "news" },
   { path: "/settings", slug: "settings" },
   { path: "/chat", slug: "chat" },
-  { path: "/company/does-not-exist", slug: "company-does-not-exist", expect404: true },
+  { path: "/watchlist/does-not-exist", slug: "company-does-not-exist", expect404: true },
 ];
 
 const MATRIX_FILE = path.join(PROOF, "qa-route-matrix.json");
@@ -66,7 +66,7 @@ for (const vp of VIEWPORTS) {
         const extra: Record<string, unknown> = {};
 
         if (r.expect404) {
-          expect(status, "404 status for unknown company").toBe(404);
+          expect(status, "404 status for unknown organisation").toBe(404);
           const body = (await page.locator("body").innerText()).toLowerCase();
           expect(body, "not-found UI").toMatch(/not found|404|doesn.t exist|no such company/);
           extra.notFoundUi = true;
@@ -74,23 +74,32 @@ for (const vp of VIEWPORTS) {
 
         if (r.slug === "overview" || r.slug === "news") await scrollThrough(page);
         if (r.slug === "overview") {
+          // UAE build: org logos live on /watchlist (6 official-domain icons + 44 marked monograms); /overview carries the live pipeline + pulse panels.
+          await expect(page.locator("body")).toContainText(/UAE AI National Intelligence Command Centre/);
+          await page.screenshot({ path: path.join(PROOF, `overview-${W}.png`), fullPage: true });
+        }
+        if (r.slug === "watchlist") {
+          await scrollThrough(page);
           const logos = await page.evaluate(() =>
-            Array.from(document.querySelectorAll<HTMLImageElement>('img[data-testid="company-logo"]')).map((i) => ({ src: i.currentSrc || i.src, naturalWidth: i.naturalWidth })),
+            Array.from(document.querySelectorAll<HTMLImageElement>('img[data-testid="org-logo"]')).map((i) => ({ src: i.currentSrc || i.src, naturalWidth: i.naturalWidth })),
           );
           const ok = logos.filter((l) => l.naturalWidth > 0).length;
-          extra.companyLogos = { total: logos.length, ok, fallbacks: await page.locator('[data-testid="company-logo-fallback"]').count() };
-          expect(ok, "≥1 company-logo img rendered (naturalWidth>0)").toBeGreaterThanOrEqual(1);
-          await page.screenshot({ path: path.join(PROOF, `overview-logos-${W}.png`), fullPage: true });
+          const monograms = await page.locator('[data-testid="org-monogram"]').count();
+          extra.orgLogos = { total: logos.length, ok, monograms };
+          expect(ok + monograms, "every one of the 50 cards shows an official icon or a marked monogram").toBeGreaterThanOrEqual(50);
+          expect(ok, "≥1 official org-logo img rendered (naturalWidth>0)").toBeGreaterThanOrEqual(1);
+          await page.screenshot({ path: path.join(PROOF, `watchlist-logos-${W}.png`), fullPage: true });
         }
 
-        if (r.slug === "company-mbzuai") {
-          const hero = page.locator('[data-testid="logo-img"]').first();
-          await expect(hero).toBeAttached();
-          const info = await hero.evaluate((el) => ({ src: (el as HTMLImageElement).src, nw: (el as HTMLImageElement).naturalWidth }));
+        if (r.slug === "company-mbzuai" || r.slug === "company-tii") {
+          await expect(page.getByTestId("dossier-title")).toBeVisible();
+          const hero = page.getByTestId("dossier").locator('[data-testid="org-logo"], [data-testid="org-monogram"]').first();
+          await expect(hero, "dossier hero shows an official icon or a marked monogram").toBeAttached();
+          const info = await hero.evaluate((el) => ({ kind: el.getAttribute("data-testid"), src: (el as HTMLImageElement).src ?? null, nw: (el as HTMLImageElement).naturalWidth ?? null, title: el.getAttribute("title") }));
           extra.heroLogo = info;
-          expect(info.src, "hero logo src").toMatch(/\/brand\/logos\/perplexity\.svg$/);
-          expect(info.nw, "hero logo naturalWidth>0").toBeGreaterThan(0);
-          if (W === 1440) await page.screenshot({ path: path.join(PROOF, "perplexity-logo-rendered.png"), fullPage: false });
+          if (info.kind === "org-logo") expect(info.nw, "hero logo naturalWidth>0").toBeGreaterThan(0);
+          else expect(info.title, "monogram is marked as unverified").toMatch(/no verified official logo/);
+          if (W === 1440) await page.screenshot({ path: path.join(PROOF, `dossier-${r.slug}-hero.png`), fullPage: false });
         }
 
         if (r.slug === "news") {
@@ -99,20 +108,6 @@ for (const vp of VIEWPORTS) {
           );
           extra.newsImages = { total: imgs.length, ok: imgs.filter((n) => n > 0).length, placeholders: await page.locator('[data-testid="news-image-placeholder"]').count() };
           await page.screenshot({ path: path.join(PROOF, `news-logos-${W}.png`), fullPage: true });
-        }
-
-        if (r.slug === "onboarding") {
-          const gv = page.locator('[data-testid="growth-value"]').first();
-          await expect(gv).toBeVisible();
-          await gv.click();
-          await expect(gv).toHaveAttribute("aria-expanded", "true");
-          const panelId = await gv.getAttribute("aria-controls");
-          const panel = panelId ? page.locator(`#${panelId}`) : page.locator('[data-testid="growth-panel"]').first();
-          await expect(panel).toBeVisible();
-          const txt = (await panel.innerText()).trim();
-          expect(txt.length, "growth panel text").toBeGreaterThan(0);
-          extra.growth = { expanded: true, panelText: txt.slice(0, 120) };
-          await page.screenshot({ path: path.join(PROOF, `growth-expanded-${W}.png`), fullPage: true });
         }
 
         await page.screenshot({ path: path.join(PROOF, `qa-${r.slug}-${W}.png`), fullPage: true });
@@ -125,29 +120,31 @@ for (const vp of VIEWPORTS) {
       });
     }
 
-    test("/onboarding with reduced motion: growth value expands", async ({ page }) => {
-      await primeSettings(page, { onboarded: false });
-      const errors = captureErrors(page);
+    test("/watchlist with reduced motion: compare tray toggles", async ({ page }) => {
+      // Replaces the removed onboarding GROWTH tile (2515e93): the compare tray is the motion-bearing interaction on the watchlist.
       await page.emulateMedia({ reducedMotion: "reduce" });
-      const res = await page.goto("/onboarding", { waitUntil: "domcontentloaded" });
+      await primeSettings(page);
+      const errors = captureErrors(page);
+      const res = await page.goto("/watchlist", { waitUntil: "domcontentloaded" });
       await page.waitForLoadState("networkidle", { timeout: 15_000 }).catch(() => {});
-      const gv = page.locator('[data-testid="growth-value"]').first();
-      await gv.click();
-      await expect(gv).toHaveAttribute("aria-expanded", "true");
-      await expect(page.locator('[data-testid="growth-panel"]').first()).toBeVisible();
-      await page.screenshot({ path: path.join(PROOF, `growth-expanded-reduced-motion-${W}.png`), fullPage: true });
-      appendMatrix({ route: "/onboarding", viewport: W, reducedMotion: true, status: res?.status(), consoleErrors: errors.filter((e) => e.startsWith("console")).length, pageErrors: errors.filter((e) => e.startsWith("pageerror")).length, errors: errors.slice(0, 5) });
-      expect(errors).toEqual([]);
+      const t = page.getByTestId("compare-toggle").first();
+      await expect(t).toBeVisible();
+      await t.click();
+      await expect(t).toHaveAttribute("aria-pressed", "true");
+      await expect(page.getByText(/Compare \(1\/4\)/)).toBeVisible();
+      await page.screenshot({ path: path.join(PROOF, `compare-tray-reduced-motion-${W}.png`), fullPage: false });
+      appendMatrix({ route: "/watchlist", viewport: W, reducedMotion: true, status: res?.status(), consoleErrors: errors.filter((e) => e.startsWith("console")).length, pageErrors: errors.filter((e) => e.startsWith("pageerror")).length, errors: errors.slice(0, 5) });
+      expect(errors.filter((e) => !/Failed to load resource: net::ERR_/.test(e)), "0 console/page errors").toEqual([]);
     });
   });
 }
 
 test.describe("Logo audit (browser) @ desktop", () => {
   test.use({ viewport: { width: 1440, height: 900 } });
-  test("collect every company-logo / logo-img on /overview (paging ≤60 s)", async ({ page }) => {
+  test("collect every org-logo / monogram on /watchlist (≤60 s)", async ({ page }) => {
     test.setTimeout(120_000);
     await primeSettings(page);
-    await page.goto("/overview", { waitUntil: "domcontentloaded" });
+    await page.goto("/watchlist", { waitUntil: "domcontentloaded" });
     await page.waitForLoadState("networkidle", { timeout: 15_000 }).catch(() => {});
     const start = Date.now();
     const all: { src: string; naturalWidth: number; testid: string }[] = [];
@@ -155,11 +152,11 @@ test.describe("Logo audit (browser) @ desktop", () => {
     const collect = async () => {
       await scrollThrough(page);
       const items = await page.evaluate(() =>
-        Array.from(document.querySelectorAll<HTMLImageElement>('img[data-testid="company-logo"], img[data-testid="logo-img"]')).map((i) => ({ src: i.currentSrc || i.src, naturalWidth: i.naturalWidth, testid: i.dataset.testid! })),
+        Array.from(document.querySelectorAll<HTMLImageElement>('img[data-testid="org-logo"], img[data-testid="logo-img"]')).map((i) => ({ src: i.currentSrc || i.src, naturalWidth: i.naturalWidth, testid: i.dataset.testid! })),
       );
       all.push(...items);
       fallbacks += await page.locator('[data-testid="company-logo-fallback"]').count();
-      monograms += await page.locator('[data-testid="logo-monogram"]').count();
+      monograms += await page.locator('[data-testid="org-monogram"], [data-testid="logo-monogram"]').count();
       pages++;
     };
     await collect();
@@ -171,7 +168,7 @@ test.describe("Logo audit (browser) @ desktop", () => {
     const uniq = new Map(all.map((a) => [a.src, a]));
     const list = Array.from(uniq.values());
     const audit = {
-      generatedAt: new Date().toISOString(), route: "/overview", pagesVisited: pages,
+      generatedAt: new Date().toISOString(), route: "/watchlist", pagesVisited: pages,
       total: list.length, ok: list.filter((l) => l.naturalWidth > 0).length, broken: list.filter((l) => l.naturalWidth === 0),
       fallbacks: { companyLogoFallback: fallbacks, logoMonogram: monograms },
       images: list,
