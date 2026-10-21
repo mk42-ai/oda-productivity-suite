@@ -15,7 +15,7 @@ export function BrandLogo({ height = 28, className, variant = "auto" }: { height
       {variant === "auto" && (
         <span className="flex flex-col leading-none">
           <span className="text-[13px] font-semibold tracking-tight text-foreground">UAE AI Command Centre</span>
-          <span className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[#8E8E8E]">Concept demonstration</span>
+          <span className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-[#737373]">Concept demonstration</span>
         </span>
       )}
       <span className="sr-only">{BRAND_NAME} — concept demonstration, not an official government system</span>

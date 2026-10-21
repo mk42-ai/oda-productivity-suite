@@ -9,7 +9,7 @@
 .cmdk-search [data-slot="command-input-wrapper"] { flex: 1; min-width: 0; height: 48px; border-bottom: 0; padding: 0 0 0 14px; color: var(--muted, #5D5D5D); }
 .cmdk-panel:focus-within .cmdk-search { box-shadow: inset 0 -2px 0 var(--ring, #2563EB); }
 .cmdk-input { min-width: 0; height: 48px; font-size: 15px; line-height: 24px; color: var(--foreground, #0D0D0D); }
-.cmdk-input::placeholder { color: var(--muted-3, #8E8E8E); }
+.cmdk-input::placeholder { color: var(--muted-3, #737373); }
 .cmdk-kbd, .cmdk-foot kbd { display: inline-flex; align-items: center; gap: 2px; padding: 1px 6px; border: 1px solid var(--border, #E5E5E5); border-radius: 5px; background: var(--surface-2, #F9F9F9); color: var(--muted, #5D5D5D); font: 500 11px/16px ui-monospace, SFMono-Regular, Menlo, monospace; flex: none; }
 .cmdk-list { flex: 1; min-height: 0; max-height: min(420px, 55vh); padding: 6px; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
 .cmdk-group { padding: 0; }

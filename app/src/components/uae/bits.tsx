@@ -15,7 +15,7 @@ export function TypeChip({ type }: { type: Org["type"] }) {
 }
 export function ConfidenceMeter({ value, label = "confidence" }: { value?: number | null; label?: string }) {
   const v = Math.max(0, Math.min(1, value ?? 0)); const pct = Math.round(v * 100);
-  const color = v >= 0.75 ? "#0D0D0D" : v >= 0.55 ? "#8E8E8E" : "#A06A6A";
+  const color = v >= 0.75 ? "#0D0D0D" : v >= 0.55 ? "#737373" : "#A06A6A";
   return (
     <span className="inline-flex items-center gap-1.5 text-[11px] text-muted" title={`${label} ${pct}%`} data-testid="confidence">
       <span className="relative h-1.5 w-14 overflow-hidden rounded-full bg-[#ECECEC]"><span className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${pct}%`, background: color }} /></span>
@@ -41,7 +41,7 @@ export function SectionHeader({ title, lede, image: _image, eyebrow, children }:
   return (
     <header className="mb-6 flex flex-wrap items-end justify-between gap-4 py-2" data-testid="section-header">
       <div className="max-w-2xl">
-        {eyebrow && <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-[#8E8E8E]">{eyebrow}</p>}
+        {eyebrow && <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-[#737373]">{eyebrow}</p>}
         <h1 className="text-2xl font-semibold tracking-tight text-[#0D0D0D] sm:text-[28px]">{title}</h1>
         {lede && <p className="mt-2 text-sm text-[#5D5D5D] sm:text-[15px]">{lede}</p>}
       </div>

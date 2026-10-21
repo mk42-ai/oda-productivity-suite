@@ -25,7 +25,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
         <div className="flex flex-wrap items-center gap-4">
           <OrgLogo id={id} name={o.name} size={64} className="bg-white border-[#E5E5E5]" />
           <div className="min-w-0 flex-1">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#8E8E8E]"><Link href="/watchlist" className="hover:underline">Watchlist</Link> · Dossier</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#737373]"><Link href="/watchlist" className="hover:underline">Watchlist</Link> · Dossier</p>
             <h1 className="mt-1 text-2xl font-semibold tracking-tight text-[#0D0D0D] sm:text-3xl" data-testid="dossier-title">{o.name}</h1>{(o as { name_ar?: string }).name_ar && <p lang="ar" dir="rtl" className="mt-1 text-base text-[#5D5D5D]">{(o as { name_ar?: string }).name_ar}</p>}
             <div className="mt-2 flex flex-wrap items-center gap-3 text-xs text-[#5D5D5D]"><TypeChip type={o.type} /><span>{o.hq}</span><ConfidenceMeter value={o.confidence} /><span>coverage {Math.round(o.coverage * 100)}%</span></div>
           </div>
