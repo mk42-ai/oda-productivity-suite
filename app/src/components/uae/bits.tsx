@@ -15,7 +15,7 @@ export function TypeChip({ type }: { type: Org["type"] }) {
 }
 export function ConfidenceMeter({ value, label = "confidence" }: { value?: number | null; label?: string }) {
   const v = Math.max(0, Math.min(1, value ?? 0)); const pct = Math.round(v * 100);
-  const color = v >= 0.75 ? "#0D0D0D" : v >= 0.55 ? "#737373" : "#A06A6A";
+  const color = v >= 0.75 ? "#0D0D0D" : v >= 0.55 ? "#737373" : "#A3A3A3";
   return (
     <span className="inline-flex items-center gap-1.5 text-[11px] text-muted" title={`${label} ${pct}%`} data-testid="confidence">
       <span className="relative h-1.5 w-14 overflow-hidden rounded-full bg-[#ECECEC]"><span className="absolute inset-y-0 left-0 rounded-full" style={{ width: `${pct}%`, background: color }} /></span>
@@ -36,7 +36,7 @@ export function CitedText({ text, sources }: { text?: string; sources?: Src[] })
   return <>{parts.map((p, i) => { const m = p.match(/^\[(\d+(?:,\s*\d+)*)\]$/); if (!m) return <span key={i}>{p}</span>;
     return <sup key={i} className="mx-0.5">{m[1].split(/,\s*/).map((n) => { const s = sources?.find((x) => String(x.n) === n); return s?.url ? <a key={n} href={s.url} target="_blank" rel="noopener noreferrer" className="text-[#2563EB] hover:underline" title={s.title || hostOf(s.url)}>[{n}]</a> : <span key={n} className="text-muted" title="source not verified">[{n}]</span>; })}</sup>; })}</>;
 }
-export function ClassDot({ k, size = 10 }: { k: string; size?: number }) { return <span aria-hidden className="inline-block shrink-0 rounded-full" style={{ width: size, height: size, background: CLASS_COLOR[k] ?? "#999" }} />; }
+export function ClassDot({ k, size = 10 }: { k: string; size?: number }) { return <span aria-hidden className="inline-block shrink-0 rounded-full border border-[#737373]" style={{ width: size, height: size, background: CLASS_COLOR[k] ?? "#A3A3A3" }} />; }
 export function SectionHeader({ title, lede, image: _image, eyebrow, children }: { title: string; lede?: string; image?: string; eyebrow?: string; children?: React.ReactNode }) {
   return (
     <header className="mb-6 flex flex-wrap items-end justify-between gap-4 py-2" data-testid="section-header">

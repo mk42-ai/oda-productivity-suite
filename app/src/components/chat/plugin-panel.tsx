@@ -58,7 +58,7 @@ export function PluginPanel({ variant = "rail", testId = "sidebar-plugins", clas
   const [filter, setFilter] = React.useState("");
   const [stateTick, setStateTick] = React.useState(0);
   // Plugin states live in a client-side store (hydrated from /api/plugins and the per-turn selection); render the badges only after mount so
-  // the server HTML and the first client render are identical (avoids React hydration error #418).
+  // the server HTML and the first client render are identical (avoids React hydration error 418).
   const [mounted, setMounted] = React.useState(false); React.useEffect(() => { setMounted(true); }, []);
   const roomy = variant === "settings";
 

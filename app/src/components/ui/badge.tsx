@@ -10,7 +10,7 @@ const badgeVariants = cva("chip", {
       accent: "border-border-strong bg-surface-3 text-foreground",
       info: "border-border bg-surface-2 text-muted-2",
       muted: "border-border bg-transparent text-muted",
-      danger: "border-[#fecaca] bg-[#fef2f2] text-danger-soft",
+      danger: "border-[#E5E5E5] bg-[#F9F9F9] text-danger-soft",
       solid: "border-foreground bg-foreground text-background",
     },
   },

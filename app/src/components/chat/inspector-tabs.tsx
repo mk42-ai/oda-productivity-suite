@@ -119,7 +119,7 @@ export function InspectorPlanPanel() {
                       "mt-1.5 size-1.5 shrink-0 rounded-full",
                       step.state === "done" && "bg-[#0D0D0D]",
                       step.state === "running" && "bg-[#2563EB] animate-pulse",
-                      step.state === "failed" && "bg-[#DC2626]",
+                      step.state === "failed" && "bg-[#B91C1C]",
                       step.state === "pending" && "bg-[#D4D4D4]"
                     )}
                     aria-hidden

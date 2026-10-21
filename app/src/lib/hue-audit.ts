@@ -6,8 +6,8 @@
 export const BLUE_HUE_MIN = 190;
 export const BLUE_HUE_MAX = 260;
 export const BLUE_SAT_MIN = 0.15;
-/** Chroma gate (max−min of the 0–1 RGB channels). HSL saturation inflates for dark colours: the brand charcoal #1F2937 (chroma 0.094, hue 215°)
- *  and tailwind gray-700/800/900 are NEUTRAL inks, while every real blue (#1d4ed8 chroma 0.73, #3898EC 0.70, #000D5E 0.37) stays above this gate. */
+/** Chroma gate (max−min of the 0–1 RGB channels). HSL saturation inflates for dark colours: the former brand charcoal gray-800 (chroma 0.094, hue 215°)
+ *  and tailwind gray-700/800/900 are NEUTRAL inks, while every real blue (tailwind blue-700 chroma 0.73, Webflow blue 0.70, navy 0.37) stays above this gate. */
 export const BLUE_CHROMA_MIN = 0.15;
 
 export type HueAuditHit = { selector: string; prop: string; value: string };

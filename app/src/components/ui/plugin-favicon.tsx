@@ -22,7 +22,7 @@ function sourceFor(url: string, m: PluginMeta | undefined): PluginFaviconSource 
 
 /**
  * Plugin favicon. Resolution order (see `pluginIconFor`): brand mark (Portfolio Plugin) → shipped local svg (Perplexity, OnDemand)
- * → remote faviconChain (live logoUrl → logoUrlBase → Google s2, advanced on error / 0-width) → monogram tile (charcoal on #F3F4F6).
+ * → remote faviconChain (live logoUrl → logoUrlBase → Google s2, advanced on error / 0-width) → monogram tile (charcoal on #F0F0F0).
  */
 export function PluginFavicon({ id, meta, size = 20, className }: Props) {
   const m = meta ?? (id ? pluginMeta(id) : undefined);
@@ -122,10 +122,10 @@ export type PluginChipProps = {
 };
 
 const GREEN = "var(--brand-green, #0D0D0D)";
-const RED = "var(--danger, #dc2626)";
-const GREY = "var(--border, #9ca3af)";
+const RED = "var(--danger, #B91C1C)";
+const GREY = "var(--border-strong, #D4D4D4)";
 
-const AMBER = "var(--warning, #b8860b)";
+const AMBER = "var(--muted, #5D5D5D)";
 const STATE_LABEL: Record<PluginChipState, string> = { queued: "queued", running: "running", done: "done", failed: "failed", unavailable: "unavailable" };
 
 export function PluginChip({ id, meta, state, input, raw, onOpenRaw, size = 16, className }: PluginChipProps) {

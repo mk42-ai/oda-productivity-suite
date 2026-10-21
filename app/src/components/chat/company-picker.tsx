@@ -5,18 +5,18 @@ import { Input } from "@/components/ui/input";
 import { CompanyLogo } from "@/components/ui/company-logo";
 import "./company-picker.css";
 
-/** Sector → [base tint, ink]. Local fallback (no `@/lib/sector-color` at branch time); no blue hue anywhere. */
+/** Sector → [base tint, ink]. Local fallback (no `@/lib/sector-color` at branch time); neutral grey tints only. */
 const SECTOR_COLORS: Record<string, readonly [string, string]> = {
-  technology: ["#147B58", "#047857"],
-  healthcare: ["#0D9488", "#115E59"],
-  "energy & resilience": ["#F59E0B", "#92400E"],
-  energy: ["#F59E0B", "#92400E"],
-  financial: ["#A21CAF", "#701A75"],
-  fintech: ["#A21CAF", "#701A75"],
-  consumer: ["#F97316", "#9A3412"],
-  industrial: ["#65A30D", "#3F6212"],
+  technology: ["#737373", "#2F2F2F"],
+  healthcare: ["#A3A3A3", "#5D5D5D"],
+  "energy & resilience": ["#B4B4B4", "#5D5D5D"],
+  energy: ["#B4B4B4", "#5D5D5D"],
+  financial: ["#8E8E8E", "#2F2F2F"],
+  fintech: ["#8E8E8E", "#2F2F2F"],
+  consumer: ["#D4D4D4", "#5D5D5D"],
+  industrial: ["#5D5D5D", "#2F2F2F"],
 };
-const OTHER: readonly [string, string] = ["#78716C", "#44403C"];
+const OTHER: readonly [string, string] = ["#A3A3A3", "#5D5D5D"];
 export function sectorColor(sector?: string | null): { base: string; ink: string } {
   const key = (sector ?? "").trim().toLowerCase();
   const hit = SECTOR_COLORS[key] ?? Object.entries(SECTOR_COLORS).find(([k]) => key.includes(k))?.[1] ?? OTHER;

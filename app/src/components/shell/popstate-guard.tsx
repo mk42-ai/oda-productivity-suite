@@ -1,10 +1,10 @@
 /**
- * Back/forward-before-hydration guard (root cause of the /news and /overview React #418 under back/forward spam).
+ * Back/forward-before-hydration guard (root cause of the /news and /overview React error 418 under back/forward spam).
  *
  * The App Router hydrates the document against the RSC payload embedded in that SAME document, but it reads the route from
  * `window.location`. A browser back/forward that fires while a large streamed page (/news ≈ 1.9 MB of HTML) is still parsing or
  * hydrating changes `location` (bfcache / same-document traversal) before `hydrateRoot` finishes — React then hydrates /news markup
- * against the /overview tree and throws #418 (observed live: SSR text "2,100 items · 137 companies" vs client "136 companies · …").
+ * against the /overview tree and throws error 418 (observed live: SSR text "2,100 items · 137 companies" vs client "136 companies · …").
  *
  * The fix is at the source: until the router has hydrated, a history traversal that changes the URL (popstate, or the Navigation API's
  * `currententrychange` of type "traverse", which fires first) stops the in-flight document (window.stop — no further streamed chunks or

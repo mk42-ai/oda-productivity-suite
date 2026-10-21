@@ -10,7 +10,7 @@ export default function SentimentLine({ data, ariaLabel }: { data: { t: string; 
           <YAxis domain={[-1, 1]} ticks={[-1, -0.5, 0, 0.5, 1]} tick={{ fill: "#0D0D0D", fontSize: 12 }} tickLine={{ stroke: "#E5E5E5" }} stroke="#E5E5E5" />
           <ReferenceLine y={0} stroke="#E5E5E5" />
           <Tooltip contentStyle={{ background: "#FFFFFF", border: "1px solid #E5E5E5", borderRadius: 8, color: "#0D0D0D", fontSize: 12, boxShadow: "0 1px 2px rgba(0,0,0,.05)" }} formatter={(v) => [(Number(v) > 0 ? "+" : "") + Number(v).toFixed(2), "score"]} labelFormatter={(l) => `${l}`} />
-          <Line type="monotone" dataKey="score" stroke="#6B7280" strokeWidth={2.5} dot={{ r: 4, fill: "#6B7280" }} isAnimationActive={false} />
+          <Line type="monotone" dataKey="score" stroke="#737373" strokeWidth={2.5} dot={{ r: 4, fill: "#737373" }} isAnimationActive={false} />
         </LineChart>
       </ResponsiveContainer>
     </div>

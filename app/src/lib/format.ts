@@ -3,7 +3,7 @@ export const fmtPct = (n: number | null | undefined, d = 1) => n == null ? "—"
 export const fmtScore = (n: number | null | undefined) => n == null ? "—" : (n > 0 ? "+" : "") + n.toFixed(2);
 export const fmtDelta = (n: number | null | undefined) => n == null ? "—" : n === 0 ? "±0.00" : (n > 0 ? "▲ +" : "▼ ") + n.toFixed(2);
 /** Deterministic "18 Oct 2026" (UTC). Hand-rolled rather than toLocaleDateString("en-GB"): ICU versions disagree on en-GB month
- *  abbreviations (Node/Chrome builds render September as "Sep" or "Sept"), which made server and browser markup differ (React #418). */
+ *  abbreviations (Node/Chrome builds render September as "Sep" or "Sept"), which made server and browser markup differ (React error 418). */
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 export const fmtDate = (s: string | null | undefined) => { if (!s) return "—"; const d = new Date(s); return isNaN(+d) ? s : `${String(d.getUTCDate()).padStart(2, "0")} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
 export const fmtDateTime = (s: string | null | undefined) => { if (!s) return "—"; const d = new Date(s); return isNaN(+d) ? s : d.toISOString().replace(".000Z", "Z"); };

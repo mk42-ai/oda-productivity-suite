@@ -61,7 +61,7 @@ export const hasVisibleStep = (message: BotMessageType, stepId: string) =>
 const STATUS_DOT_COLOR: Partial<Record<StepGroup["statusType"], string>> = {
   agents_retrieved: "bg-neutral-400",
   executing: "bg-yellow-600",
-  execution_completed: "bg-[var(--status-success,#3BB795)]",
+  execution_completed: "bg-[var(--status-success,#0D0D0D)]",
 };
 
 /** Per-step thinking (step_thinking for this stepId): closed by default; while closed and streaming it shows one live line. */

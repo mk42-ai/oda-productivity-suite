@@ -163,7 +163,7 @@ export function VoiceDock() {
       hist.push(Math.max(levelRef.current, synth)); hist.shift();
       const W = cv.width, H = cv.height, cx = W / 2, cy = H / 2, R = Math.min(W, H) * 0.28; ctx.clearRect(0, 0, W, H);
       const g = ctx.createRadialGradient(cx, cy, R * 0.2, cx, cy, R * 1.6);
-      const [a, b] = st === "speaking" ? ["#147B58", "#0E7490"] : st === "thinking" ? ["#7C3AED", "#147B58"] : st === "error" ? ["#F59E0B", "#B45309"] : st === "listening" ? ["#10B981", "#047857"] : ["#A7F3D0", "#6EE7B7"];
+      const [a, b] = st === "speaking" ? ["#0D0D0D", "#5D5D5D"] : st === "thinking" ? ["#5D5D5D", "#0D0D0D"] : st === "error" ? ["#737373", "#5D5D5D"] : st === "listening" ? ["#5D5D5D", "#0D0D0D"] : ["#D4D4D4", "#A3A3A3"];
       g.addColorStop(0, a); g.addColorStop(1, b + "00"); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R * 1.6, 0, Math.PI * 2); ctx.fill();
       ctx.fillStyle = a; ctx.beginPath(); ctx.arc(cx, cy, R * (0.85 + hist[hist.length - 1] * 0.5), 0, Math.PI * 2); ctx.fill();
       ctx.strokeStyle = "rgba(255,255,255,.9)"; ctx.lineWidth = 2; ctx.beginPath();

@@ -48,16 +48,16 @@ export const RADAR: RadarItem[] = (radarPack as unknown as { radar: RadarItem[] 
 const LOGOS = logos as Record<string, { status: string; source?: string; reason?: string }>;
 
 export const SENT_CLASSES: SentClass[] = ["Optimists", "Pragmatists", "Skeptics", "Safety Advocates", "Disruption Concerned", "Pessimists/Doomers", "Neutral/Informational"];
-/** Class colours — institutional palette, hue-distinct and AA on both themes. */
+/** Class shades — monotone grey ramp, dark = optimistic → light = pessimistic (meaning is carried by shade + legend, never hue). */
 export const CLASS_COLOR: Record<string, string> = {
-  Optimists: "#6B8F71",
-  Pragmatists: "#6B7280",
-  Skeptics: "#B8A98F",
-  "Safety Advocates": "#7C9CBF",
-  "Disruption Concerned": "#C4A6A6",
-  "Pessimists/Doomers": "#A06A6A",
-  "Neutral/Informational": "#A3A3A3",
-  Unclassified: "#D4D4D4",
+  Optimists: "#0D0D0D",
+  Pragmatists: "#2F2F2F",
+  Skeptics: "#A3A3A3",
+  "Safety Advocates": "#5D5D5D",
+  "Disruption Concerned": "#B4B4B4",
+  "Pessimists/Doomers": "#D4D4D4",
+  "Neutral/Informational": "#737373",
+  Unclassified: "#ECECEC",
 };
 export const TYPE_LABEL: Record<OrgType, string> = { company: "Company", government: "Government", university: "University", "research centre": "Research centre", subsidiary: "Subsidiary" };
 

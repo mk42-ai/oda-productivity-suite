@@ -10,14 +10,14 @@ export type SectorSwatch = { name: string; fill: string; ink: string; soft: stri
 
 /** Named swatches — order matters: it is the deterministic hash → index table for unknown sectors. */
 export const SECTOR_PALETTE: readonly SectorSwatch[] = [
-  { name: "graphite", fill: "#6B7280", ink: "#374151", soft: "#F3F4F6" }, // primary / Technology
-  { name: "plum",    fill: "#8B7BA3", ink: "#4C3F63", soft: "#F1EEF6" },
-  { name: "amber",   fill: "#B8A98F", ink: "#6B5B3E", soft: "#F5F2EC" },
-  { name: "coral",   fill: "#C4A6A6", ink: "#7A4B4B", soft: "#F7EFEF" },
-  { name: "teal",    fill: "#8FAE9A", ink: "#3F5E4B", soft: "#EEF4F0" },
+  { name: "graphite", fill: "#737373", ink: "#2F2F2F", soft: "#F0F0F0" }, // primary / Technology
+  { name: "plum",    fill: "#A3A3A3", ink: "#5D5D5D", soft: "#F0F0F0" },
+  { name: "amber",   fill: "#B4B4B4", ink: "#5D5D5D", soft: "#F9F9F9" },
+  { name: "coral",   fill: "#D4D4D4", ink: "#5D5D5D", soft: "#F0F0F0" },
+  { name: "teal",    fill: "#8E8E8E", ink: "#2F2F2F", soft: "#F0F0F0" },
   { name: "olive",   fill: "#A3A3A3", ink: "#525252", soft: "#F5F5F5" },
-  { name: "rose",    fill: "#B48A9A", ink: "#6D3F52", soft: "#F6EEF1" },
-  { name: "slate",   fill: "#94A3B8", ink: "#475569", soft: "#F1F5F9" }, // warm slate — "Other"
+  { name: "rose",    fill: "#737373", ink: "#5D5D5D", soft: "#F9F9F9" },
+  { name: "slate",   fill: "#A3A3A3", ink: "#5D5D5D", soft: "#F0F0F0" }, // warm slate — "Other"
 ] as const;
 
 /** Explicit sector → swatch assignment (SECTORS from format.ts + extra names seen in snapshot.json companies[].sector). */
@@ -44,7 +44,7 @@ function hash32(s: string): number {
 }
 
 const byName = new Map(SECTOR_PALETTE.map((p) => [p.name, p]));
-/** Fallback pool for unknown sectors: every chromatic swatch except primary (reserved) and slate (reserved for "Other"). */
+/** Fallback pool for unknown sectors: every swatch except primary (reserved) and slate (reserved for "Other"). */
 const FALLBACK_POOL = SECTOR_PALETTE.filter((p) => p.name !== "graphite" && p.name !== "slate");
 
 export type SectorColor = {

@@ -37,7 +37,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
         <Panel title="Source-backed briefing" className="lg:col-span-2" testId="dossier-briefing">
           <p className="text-[15px] leading-relaxed"><CitedText text={o.briefing} sources={o.sources} /></p>
           {o.seed_facts && <p className="mt-3 rounded-md border border-[#E5E5E5] bg-[#F9F9F9] px-3 py-2 text-xs text-muted"><strong className="text-foreground">Verified seed facts (mission brief):</strong> {o.seed_facts}</p>}
-          {(o.conflicts ?? []).filter(Boolean).length > 0 && <div className="mt-3 rounded-md border border-[#E5E5E5] border-l-[3px] border-l-[#A06A6A] bg-[#F9F9F9] px-3 py-2 text-xs text-[#0D0D0D]" data-testid="conflicts"><strong>{o.conflicts!.some((c) => /leadership under review/i.test(c)) ? "Leadership under review — conflicting sources:" : "Conflicting sources:"}</strong><ul className="ml-4 list-disc">{o.conflicts!.map((c, i) => <li key={i}>{c}</li>)}</ul></div>}
+          {(o.conflicts ?? []).filter(Boolean).length > 0 && <div className="mt-3 rounded-md border border-[#E5E5E5] border-l-[3px] border-l-[#737373] bg-[#F9F9F9] px-3 py-2 text-xs text-[#0D0D0D]" data-testid="conflicts"><strong>{o.conflicts!.some((c) => /leadership under review/i.test(c)) ? "Leadership under review — conflicting sources:" : "Conflicting sources:"}</strong><ul className="ml-4 list-disc">{o.conflicts!.map((c, i) => <li key={i}>{c}</li>)}</ul></div>}
           {(o.unavailable ?? []).length > 0 && <p className="mt-3 text-xs text-muted">Unavailable: {(o.unavailable ?? []).join(" · ")}</p>}
         </Panel>
         <Panel title="Key facts" testId="dossier-facts">

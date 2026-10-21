@@ -29,6 +29,16 @@ export type U = {
 type Win = "24h" | "7d" | "30d" | "all";
 const WIN_DAYS: Record<Win, number> = { "24h": 1, "7d": 7, "30d": 30, all: 100000 };
 
+/** True for the light end of the grey ramp (relative luminance of the max channel ≥ 0xC8) — those bubbles get an explicit #737373 stroke. */
+function isLightShade(hex?: string): boolean {
+  if (!hex || !/^#[0-9a-fA-F]{6}$/.test(hex)) return false;
+  const num = parseInt(hex.slice(1), 16);
+  return Math.max((num >> 16) & 255, (num >> 8) & 255, num & 255) >= 0xc8;
+}
+
+/** Legend/tooltip dot outline: #737373 for light shades, darkened fill otherwise. */
+const dotStroke = (hex?: string): string => (isLightShade(hex) ? "#737373" : darkenColor(hex, 0.7));
+
 function darkenColor(hex?: string, factor = 0.7): string {
   if (!hex || typeof hex !== "string" || !hex.startsWith("#")) return "#333333";
   let h = hex.slice(1);
@@ -44,7 +54,7 @@ function darkenColor(hex?: string, factor = 0.7): string {
 
 /**
  * Sentiment Universe — every bubble is one attributable public statement.
- *   size = volume (times the statement surfaced across research sources, de-duplicated) · colour = 7-class taxonomy
+ *   size = volume (times the statement surfaced across research sources, de-duplicated) · shade = 7-class taxonomy (grey ramp, dark = optimistic) · opacity = classifier confidence
  *   position = semantic similarity (TF-IDF → SVD → t-SNE over statement text) · border thickness = classifier confidence
  * Playback replays the sample by publication date (24h / 7d / 30d windows ending at each playhead day). Undated items only appear in "All".
  */
@@ -260,7 +270,7 @@ export function SentimentUniverse({
             >
               <span
                 className="size-2.5 rounded-full border border-solid"
-                style={{ background: colors[k], borderColor: darkenColor(colors[k], 0.7) }}
+                style={{ background: colors[k], borderColor: dotStroke(colors[k]) }}
               />
               {k} <span className="tabular-nums text-[#5D5D5D]">{counts[k] ?? 0}</span>
             </button>
@@ -293,8 +303,9 @@ export function SentimentUniverse({
               const cx = pad + r.x * (W - 2 * pad);
               const cy = pad + r.y * (H - 2 * pad);
               const conf = r.class_confidence ?? 0.5;
-              const classCol = colors[r.sentiment_class] ?? "#888888";
-              const strokeCol = on ? darkenColor(classCol, 0.7) : "transparent";
+              const classCol = colors[r.sentiment_class] ?? "#A3A3A3";
+              // Light shades (D4D4D4 / ECECEC) need a visible #737373 stroke to stay legible on white; dark shades keep the darkened outline.
+              const strokeCol = on ? (isLightShade(classCol) ? "#737373" : darkenColor(classCol, 0.7)) : "transparent";
               return (
                 <circle
                   key={r.id}
@@ -302,7 +313,7 @@ export function SentimentUniverse({
                   cy={cy}
                   r={radius(r)}
                   fill={classCol}
-                  fillOpacity={on ? 0.7 : 0.06}
+                  fillOpacity={on ? 0.25 + 0.6 * conf : 0.06}
                   stroke={strokeCol}
                   strokeOpacity={0.35 + conf * 0.6}
                   strokeWidth={1 + conf * 1}
@@ -335,7 +346,7 @@ export function SentimentUniverse({
                   className="size-2.5 rounded-full border border-solid"
                   style={{
                     background: colors[hover.sentiment_class],
-                    borderColor: darkenColor(colors[hover.sentiment_class], 0.7),
+                    borderColor: dotStroke(colors[hover.sentiment_class]),
                   }}
                 />
                 {hover.sentiment_class} · {Math.round((hover.class_confidence ?? 0) * 100)}%
@@ -349,7 +360,7 @@ export function SentimentUniverse({
             </div>
           )}
           <div className="pointer-events-none absolute bottom-2 left-3 text-[11px] text-[#5D5D5D]">
-            size = volume · colour = class · position = semantic similarity · border = confidence
+            size = volume · shade = sentiment class (dark = optimistic → light = pessimistic) · opacity = classifier confidence · position = semantic similarity
           </div>
         </div>
         <p className="mt-2 text-xs text-[#5D5D5D]">
@@ -367,7 +378,7 @@ export function SentimentUniverse({
                     className="size-3 rounded-full border border-solid"
                     style={{
                       background: colors[sel.sentiment_class],
-                      borderColor: darkenColor(colors[sel.sentiment_class], 0.7),
+                      borderColor: dotStroke(colors[sel.sentiment_class]),
                     }}
                   />
                   {sel.sentiment_class}

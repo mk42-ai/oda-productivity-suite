@@ -129,12 +129,12 @@ function ChatComponent({ message, index, lastIndex, isLoading, isLastMessage, se
     return (
       <p className="mt-2 flex w-fit items-start gap-2">
         {message.id && botMessage.sessionId && message.id.toString().length > 15 && !message.file && (
-          <button onClick={() => downloadJson(`execution-logs-${message.id}.json`, botMessage.executionLog ?? botMessage.statusLogs ?? null)} className="flex items-center justify-center gap-2 rounded-md border border-border1 bg-card px-3 py-1.5 text-neutral-300 hover:border-[#3bb795]/80 hover:bg-[#3bb79516] hover:text-primary-400">
+          <button onClick={() => downloadJson(`execution-logs-${message.id}.json`, botMessage.executionLog ?? botMessage.statusLogs ?? null)} className="flex items-center justify-center gap-2 rounded-md border border-border1 bg-card px-3 py-1.5 text-neutral-300 hover:border-[#0D0D0D]/80 hover:bg-[#0D0D0D16] hover:text-primary-400">
             <Download className="size-3" /><span className="text-xs">Logs</span>
           </button>
         )}
         {!message.file && !message.videoUrl && (
-          <button onClick={() => openPreview({ key: `plan:${message.id}`, language: "json", code: JSON.stringify(plan, null, 2) })} className="flex items-center justify-center gap-2 rounded-md border border-border1 bg-card px-3 py-1.5 text-neutral-300 hover:border-[#3bb795]/80 hover:bg-[#3bb79516] hover:text-primary-400">
+          <button onClick={() => openPreview({ key: `plan:${message.id}`, language: "json", code: JSON.stringify(plan, null, 2) })} className="flex items-center justify-center gap-2 rounded-md border border-border1 bg-card px-3 py-1.5 text-neutral-300 hover:border-[#0D0D0D]/80 hover:bg-[#0D0D0D16] hover:text-primary-400">
             <File className="size-3" /><span className="text-xs">Plan</span>
           </button>
         )}
@@ -231,7 +231,7 @@ function ChatComponent({ message, index, lastIndex, isLoading, isLastMessage, se
               <span className="w-full">Interacting with AI to get your result...</span>
             </div>
           ) : (
-            <div className={`relative${isUser ? " rounded-xl rounded-br border border-[#cfd6df] bg-[#f0f2f4] px-4 py-3 dark:border-border1 dark:bg-[#1B1A1A]" : ""}`}>
+            <div className={`relative${isUser ? " rounded-xl rounded-br border border-[#D4D4D4] bg-[#F0F0F0] px-4 py-3 dark:border-border1 dark:bg-[#1B1A1A]" : ""}`}>
               <div
                 ref={userMessageRef}
                 className={`flex flex-col gap-[0.5rem] leading-[187.5%]${isUser ? " max-h-[500px] overflow-y-hidden" : ""}${isUser && isExpanded ? " max-h-none overflow-y-auto" : ""}`}
@@ -247,7 +247,7 @@ function ChatComponent({ message, index, lastIndex, isLoading, isLastMessage, se
                 {isMovedToBackground && <MovedToBackgroundPill />}
                 {cancelledError || isMovedToBackground ? null : renderExecutionActions()}
               </div>
-              {isUser && activateShowMore && <div className="absolute bottom-[40px] left-0 h-[50px] w-full bg-gradient-to-b from-transparent to-[#f0f2f4] dark:to-[#1B1A1A]" />}
+              {isUser && activateShowMore && <div className="absolute bottom-[40px] left-0 h-[50px] w-full bg-gradient-to-b from-transparent to-[#F0F0F0] dark:to-[#1B1A1A]" />}
               {isUser && activateShowMore && (
                 <div className="relative h-[40px] items-center justify-start">
                   <button

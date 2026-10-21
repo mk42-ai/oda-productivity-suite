@@ -18,7 +18,7 @@ export default function MethodologyPage() {
           <dt className="text-muted">News / graph / HF / radar</dt><dd>{NEWS.length} events · {GRAPH.edges.length} edges · {HF.models.length} models · {RADAR.length} radar blips</dd></dl></Panel>
         <Panel title="Pipeline (all AI steps via OnDemand)" testId="m-pipeline"><ol className="ml-4 list-decimal space-y-1 text-sm text-muted">
           <li>Research: OnDemand plugins — Perplexity, GPT Search, Internet search, Wikipedia, HuggingFace — 125 calls captured in the step 1–8 plugin payload.</li>
-          <li>Org intel + source verification: one OnDemand chat session per organisation (POST /chat/v1/sessions/&#123;id&#125;/query, predefined-gpt-5.6-luna) structures a dossier from research snippets + mission-brief seed facts; every cited URL is then checked against the research corpus and removed if absent.</li>
+          <li>Org intel + source verification: one OnDemand chat session per organisation (POST /chat/v1/sessions/{"{id}"}/query, predefined-gpt-5.6-luna) structures a dossier from research snippets + mission-brief seed facts; every cited URL is then checked against the research corpus and removed if absent.</li>
           <li>Sentiment ingestion + entity extraction: OnDemand agent extracts attributable statements and location evidence; de-duplicated; then topic classification into 7 classes + topic clusters with confidence.</li>
           <li>News retrieval + relationship mapping: OnDemand agent extracts dated events, radar rings and org-to-org edges; ownership edges from the mission brief.</li>
           <li>Briefings and executive chat: live OnDemand sessions at request time, grounded on this namespace, with the Perplexity plugin for fresh web research.</li></ol></Panel>

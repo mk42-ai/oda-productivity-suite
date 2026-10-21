@@ -133,7 +133,7 @@ export default async function SentimentPage({ searchParams }: { searchParams: Pr
                     <span>{t}</span>
                     <span className="tabular-nums text-muted">{rs.length}</span>
                   </div>
-                  <div className="mt-1 flex h-1.5 overflow-hidden rounded-full">
+                  <div className="mt-1 flex h-1.5 overflow-hidden rounded-full border border-[#E5E5E5] bg-[#F9F9F9]">
                     {SENT_CLASSES.map((k) =>
                       c[k] ? <span key={k} style={{ width: `${(c[k] / rs.length) * 100}%`, background: CLASS_COLOR[k] }} /> : null
                     )}

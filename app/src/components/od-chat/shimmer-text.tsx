@@ -4,7 +4,7 @@ import { memo, useMemo, type CSSProperties } from "react";
 import { twMerge } from "tailwind-merge";
 
 const THEME_VARS =
-  "[--shimmer-base:#9F9F9F] [--shimmer-highlight:#475467] " +
+  "[--shimmer-base:#9F9F9F] [--shimmer-highlight:#5D5D5D] " +
   "dark:[--shimmer-base:theme(colors.neutral.300)] dark:[--shimmer-highlight:theme(colors.neutral.200)]";
 
 const BASE_STYLE: CSSProperties = {

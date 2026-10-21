@@ -4,8 +4,8 @@ import { RADAR, HF, NEWS, orgName } from "@/lib/uae/data";
 import { SectionHeader, Panel } from "@/components/uae/bits";
 export const metadata: Metadata = { title: "Technology & Innovation Radar", description: "Technology rings from dated news signals plus HuggingFace open-model signals." };
 const RINGS = ["adopt", "trial", "assess", "hold"] as const;
-const RCOL: Record<string, string> = { adopt: "#0D0D0D", trial: "#6B7280", assess: "#B8A98F", hold: "#A3A3A3" };
-// Ink per ring fill: white only where it reaches AA (adopt 18.9:1, trial 4.8:1); dark ink on the light assess/hold fills (white was 2.3:1 / 2.5:1).
+const RCOL: Record<string, string> = { adopt: "#0D0D0D", trial: "#5D5D5D", assess: "#A3A3A3", hold: "#D4D4D4" };
+// Ink per ring fill: white only where it reaches AA (adopt 18.9:1, trial 7.0:1); dark ink on the light assess/hold fills (white was 2.3:1 / 2.5:1).
 const RINK: Record<string, string> = { adopt: "#FFFFFF", trial: "#FFFFFF", assess: "#0D0D0D", hold: "#0D0D0D" };
 export default function RadarPage() {
   const S = 520, c = S / 2; const ringR = { adopt: 70, trial: 130, assess: 190, hold: 245 } as Record<string, number>;

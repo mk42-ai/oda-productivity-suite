@@ -1,5 +1,5 @@
 /**
- * brand-icons.ts — the 10 flat-line brand icons (1024² PNG, 2px charcoal #1F2937 strokes, ONE #147B58 accent) delivered 2026-10-11
+ * brand-icons.ts — the 10 flat-line brand icons (1024² PNG, 2px charcoal strokes, ONE accent) delivered 2026-10-11
  * and shipped under /public/brand/icons/icon-<slug>.png. Pure, framework-free: this module only maps plugin ids / operation ids /
  * feature slots to a local public path, so every surface (run status row, Working rows, Outputs step rows, Inspector, plugin panel,
  * empty states, welcome starters) draws the same asset. The concept mark (/brand/mark-light.png) stays the Portfolio Plugin's

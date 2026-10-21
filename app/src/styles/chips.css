@@ -69,81 +69,81 @@
 .cg-chip[data-sector="biotech"],
 .bs-tabs button[data-sector="biotech"],
 .chip[data-sector="biotech"] {
-  background: #faeaf3;
-  border-color: color-mix(in srgb, #9c2f73 55%, #fff);
-  color: #9c2f73;
+  background: #F9F9F9;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
 }
 
 .cg-chip[data-sector="healthtech"],
 .bs-tabs button[data-sector="healthtech"],
 .chip[data-sector="healthtech"] {
-  background: #e6f7f5;
-  border-color: color-mix(in srgb, #0f766e 55%, #fff);
-  color: #0f766e;
+  background: #F0F0F0;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
 }
 
 .cg-chip[data-sector="fintech"],
 .bs-tabs button[data-sector="fintech"],
 .chip[data-sector="fintech"] {
-  background: #fdf3e3;
-  border-color: color-mix(in srgb, #b45309 55%, #fff);
-  color: #b45309;
+  background: #F9F9F9;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
 }
 
 .cg-chip[data-sector="robotics"],
 .bs-tabs button[data-sector="robotics"],
 .chip[data-sector="robotics"] {
-  background: #eef1f5;
-  border-color: color-mix(in srgb, #475569 55%, #fff);
-  color: #475569;
+  background: #F0F0F0;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
 }
 
 .cg-chip[data-sector="climate"],
 .bs-tabs button[data-sector="climate"],
 .chip[data-sector="climate"] {
-  background: #ecf7e6;
-  border-color: color-mix(in srgb, #3f7f1f 55%, #fff);
-  color: #3f7f1f;
+  background: #F0F0F0;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
 }
 
 .cg-chip[data-sector="ai-infra"],
 .bs-tabs button[data-sector="ai-infra"],
 .chip[data-sector="ai-infra"] {
-  background: #F3F4F6;
+  background: #F0F0F0;
   border-color: #D4D4D4;
-  color: #374151;
+  color: #2F2F2F;
 }
 
 .cg-chip[data-sector="edtech"],
 .bs-tabs button[data-sector="edtech"],
 .chip[data-sector="edtech"] {
-  background: #fdeee6;
-  border-color: color-mix(in srgb, #c2410c 55%, #fff);
-  color: #c2410c;
+  background: #F9F9F9;
+  border-color: color-mix(in srgb, #B91C1C 55%, #fff);
+  color: #B91C1C;
 }
 
 .cg-chip[data-sector="logistics"],
 .bs-tabs button[data-sector="logistics"],
 .chip[data-sector="logistics"] {
-  background: #f3f3e2;
-  border-color: color-mix(in srgb, #6b6a12 55%, #fff);
-  color: #6b6a12;
+  background: #F0F0F0;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
 }
 
 .cg-chip[data-sector="consumer"],
 .bs-tabs button[data-sector="consumer"],
 .chip[data-sector="consumer"] {
-  background: #fbe9f2;
-  border-color: color-mix(in srgb, #be3a7a 55%, #fff);
-  color: #be3a7a;
+  background: #F9F9F9;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
 }
 
 .cg-chip[data-sector="ai-enterprise"],
 .bs-tabs button[data-sector="ai-enterprise"],
 .chip[data-sector="ai-enterprise"] {
-  background: #F3F4F6;
+  background: #F0F0F0;
   border-color: #D4D4D4;
-  color: #374151;
+  color: #2F2F2F;
 }
 
 /* Inactive pastel chips: span count inherits sector ink text */

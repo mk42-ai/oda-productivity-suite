@@ -87,14 +87,14 @@ export default function InteractiveUiDocsPage() {
       </Card>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <Card className="border-[#E5E5E5] border-l-[3px] border-l-[#A06A6A]" data-testid="honest-failure">
+        <Card className="border-[#E5E5E5] border-l-[3px] border-l-[#B91C1C]" data-testid="honest-failure">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-[#A06A6A]"><AlertTriangle className="size-4" aria-hidden /> Honest failure</CardTitle>
+            <CardTitle className="flex items-center gap-2 text-[#B91C1C]"><AlertTriangle className="size-4" aria-hidden /> Honest failure</CardTitle>
             <CardDescription>A failed tool call looks like a failed tool call.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-2 text-sm leading-relaxed text-muted">
             <p>
-              When Perplexity returns <code className="rounded border border-[#E5E5E5] bg-[#F9F9F9] px-1 py-0.5 text-xs text-[#A06A6A]">Not enough credits</code>, the tool card turns
+              When Perplexity returns <code className="rounded border border-[#E5E5E5] bg-[#F9F9F9] px-1 py-0.5 text-xs text-[#B91C1C]">Not enough credits</code>, the tool card turns
               <Badge tone="danger" className="mx-1">failed</Badge> and shows the raw <code className="rounded bg-surface-2 px-1 py-0.5 text-xs">execution_failed</code> frame verbatim.
             </p>
             <p>

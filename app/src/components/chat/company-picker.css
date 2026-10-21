@@ -1,15 +1,15 @@
 /* a31 — context selection chips (max 5), coloured by sector. Light-only; colours come from sectorColor() via
    --chip-base (soft tint background) / --chip-ink (text + icon). No blue hue anywhere. */
 .cp-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 6px; font-size: 13px; font-weight: 600; }
-.cp-counter { font-variant-numeric: tabular-nums; font-weight: 500; font-size: 12px; color: var(--muted, #6B7280); }
-.cp-counter[data-full="true"] { color: var(--chip-ink, #047857); font-weight: 600; }
+.cp-counter { font-variant-numeric: tabular-nums; font-weight: 500; font-size: 12px; color: var(--muted, #737373); }
+.cp-counter[data-full="true"] { color: var(--chip-ink, #0D0D0D); font-weight: 600; }
 
 .cp-chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .cp-chips:empty { display: none; }
 
 .context-chip {
-  --chip-base: #78716c;
-  --chip-ink: #44403c;
+  --chip-base: #A3A3A3;
+  --chip-ink: #5D5D5D;
   display: inline-flex; align-items: center; gap: 6px; max-width: 100%;
   min-height: 28px; padding: 2px 2px 2px 6px; border-radius: 9999px;
   background: color-mix(in srgb, var(--chip-base) 13%, #ffffff);
@@ -30,5 +30,5 @@
 .context-chip__remove:focus-visible { outline: 2px solid var(--chip-ink); outline-offset: 1px; }
 .context-chip__remove svg { width: 14px; height: 14px; stroke-width: 2.25; }
 
-.cp-max { margin-top: 4px; font-size: 12px; color: var(--muted, #6B7280); }
+.cp-max { margin-top: 4px; font-size: 12px; color: var(--muted, #737373); }
 /* end a31 */

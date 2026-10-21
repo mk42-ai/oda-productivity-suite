@@ -67,7 +67,7 @@ export const threadNavStore = {
 };
 
 /** Server/hydration snapshot: always empty so the SSR markup (no threads) matches the first client render; the
- *  localStorage-backed list arrives on the post-hydration render (fixes React #418 on /chat reload with saved threads). */
+ *  localStorage-backed list arrives on the post-hydration render (fixes React error 418 on /chat reload with saved threads). */
 const SERVER_STATE: ThreadNavState = { threads: [], selectedId: null, select: () => {}, newThread: () => {} };
 export function useThreadNav(): ThreadNavState {
   return useSyncExternalStore(threadNavStore.subscribe, threadNavStore.get, () => SERVER_STATE);

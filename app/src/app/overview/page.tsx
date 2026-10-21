@@ -31,7 +31,7 @@ export default function OverviewPage() {
 
       <div className="grid gap-4 lg:grid-cols-3">
         <Panel title="National Pulse — public discourse by class" testId="national-pulse" className="lg:col-span-2" action={<Link href="/sentiment" className="text-xs font-medium text-[#2563EB] hover:underline">Open Sentiment Universe →</Link>}>
-          <div className="flex h-4 w-full overflow-hidden rounded-full" role="img" aria-label="Class distribution">
+          <div className="flex h-4 w-full overflow-hidden rounded-full border border-[#E5E5E5] bg-[#F9F9F9]" role="img" aria-label="Class distribution">
             {SENT_CLASSES.map((k) => cc[k] ? <span key={k} title={`${k}: ${cc[k]}`} style={{ width: `${(cc[k] / total) * 100}%`, background: CLASS_COLOR[k] }} /> : null)}
           </div>
           <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm sm:grid-cols-4">

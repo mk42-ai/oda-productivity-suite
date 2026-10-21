@@ -581,7 +581,7 @@ function StepSummaryCard({ s, live }: { s: StepSummary; live?: boolean }) {
         <Chevron open={open} />
       </button>
       <div className={`oiu-summary__panel${open ? " oiu-summary__panel--open" : ""}`}><div className="oiu-summary__inner">{s.state === "pending" ? (<>
-        <p data-testid="step-summary-pending" data-optimistic={s.optimistic ? "true" : "false"} style={{ color: "#6e7277", fontWeight: 400 }}>{LABEL.summarising(s.index)}…</p>
+        <p data-testid="step-summary-pending" data-optimistic={s.optimistic ? "true" : "false"} style={{ color: "#737373", fontWeight: 400 }}>{LABEL.summarising(s.index)}…</p>
         <div className="oiu-shimmer" aria-hidden><span /><span /><span /></div>
       </>) : <p>{s.text || "No summary text was emitted for this step."}</p>}</div></div>
     </section>
@@ -1175,7 +1175,7 @@ function ThreadDeepLink() {
 function ChatWelcome({ companies }: { companies: CoCtx[] }) {
   const processMessage = useThread((s) => s.processMessage); const isRunning = useThread((s) => s.isRunning);
   const threads = useThreadList((s) => s.threads); const selectThread = useThreadList((s) => s.selectThread); const selectedId = useThreadList((s) => s.selectedThreadId);
-  // Threads come from localStorage (client only): render the recent list only after mount so SSR and the first client render match (React #418).
+  // Threads come from localStorage (client only): render the recent list only after mount so SSR and the first client render match (React error 418).
   const [mounted, setMounted] = useState(false); useEffect(() => { setMounted(true); }, []);
   const recent = mounted ? threads.filter((t) => !t.isPending && t.id !== selectedId).slice(0, 3) : [];
   return (

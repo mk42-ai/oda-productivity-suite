@@ -4,7 +4,7 @@
  *   brand    → the 16px concept mark (our own Portfolio Plugin — never a grey "P")
  *   local    → a Lucide-style SVG we ship in /public/plugins (Perplexity, OnDemand agent) — no third-party bitmaps
  *   remote   → the catalogue favicon chain (live logoUrl → logoUrlBase → Google s2), resolved by <PluginFavicon/>
- *   monogram → first letter, charcoal on #F3F4F6 — the terminal fallback when a remote favicon fails to load
+ *   monogram → first letter, charcoal on #F0F0F0 — the terminal fallback when a remote favicon fails to load
  *
  * Tests: web/tests/unit/plugin-icons.test.ts (`npm run test:plugin-icons`).
  */
@@ -31,8 +31,8 @@ export const BRAND_MARK_SRC = "/brand/mark-light.png";
 export const PERPLEXITY_ICON_SRC = "/plugins/perplexity.svg";
 export const ONDEMAND_ICON_SRC = "/plugins/ondemand.svg";
 
-export const MONOGRAM_BG = "#F3F4F6";
-export const MONOGRAM_INK = "#1F2937";
+export const MONOGRAM_BG = "#F0F0F0";
+export const MONOGRAM_INK = "#2F2F2F";
 
 const PORTFOLIO_RE = /portfolio/i;
 const PERPLEXITY_RE = /perplexity/i;

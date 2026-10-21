@@ -6,7 +6,7 @@
 import * as React from "react";
 
 export const SPARKLINE_INK = "#0D0D0D";
-export const SPARKLINE_ACCENT = "#6B7280";
+export const SPARKLINE_ACCENT = "#737373";
 
 export type SparklinePoint = { x: number; y: number };
 

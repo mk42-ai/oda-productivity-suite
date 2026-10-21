@@ -17,9 +17,9 @@ export function resolveDataSource(sources: (FetchSource | NamedSource)[]): Resol
   return { source: "partial", label: `partial (cached fallback for ${fallbacks.join(", ")})`, detail: `${live} of ${named.length} datasets live; cached snapshot for ${fallbacks.join(", ")}`, fallbacks };
 }
 
-/** Tailwind classes per resolved source. Partial is amber #B45309 (no blue hue anywhere in the product). */
+/** Tailwind classes per resolved source. Partial is muted grey (meaning carried by the label; no chromatic hue anywhere in the product). */
 export const DATA_SOURCE_CLASS: Record<DataSource, string> = {
-  live: "border-[#B9D9C9] bg-[#E7F2EC] text-[#0F5A41]",
-  partial: "border-[#fcd34d] bg-[#fffbeb] text-[#B45309]",
+  live: "border-[#E5E5E5] bg-[#F0F0F0] text-[#0D0D0D]",
+  partial: "border-[#D4D4D4] bg-[#F9F9F9] text-[#5D5D5D]",
   snapshot: "border-border bg-transparent text-muted",
 };
