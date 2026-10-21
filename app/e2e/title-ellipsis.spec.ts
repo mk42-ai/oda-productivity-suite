@@ -44,6 +44,9 @@ for (const vp of [{ name: "desktop", width: 1440, height: 900 }, { name: "mobile
     // Thread list: rail-hosted on desktop (b37cc78), <details> threads-menu in the top bar at 390 px
     let item;
     if (vp.width >= 1024) {
+      // /chat defaults the rail to collapsed (icons only) — expand it so the rail-hosted list renders
+      const rail = page.getByTestId("nav-rail");
+      if ((await rail.getAttribute("data-collapsed")) === "true") await page.getByTestId("rail-toggle").click();
       await expect(page.getByTestId("rail-chats-list")).toBeVisible();
       item = page.locator('[data-testid="rail-chats-list"] [data-testid="rail-chat-item"][data-thread-id="t-long-120"]');
     } else {
