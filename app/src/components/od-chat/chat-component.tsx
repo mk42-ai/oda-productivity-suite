@@ -201,7 +201,7 @@ function ChatComponent({ message, index, lastIndex, isLoading, isLastMessage, se
       {shouldShowInfoBlock && botMessage && (
         <>
           {hasThinkingContent && (
-            <div className="ml-2 mt-1 w-full max-w-[840px]"><ThinkingProcess key={botMessage.id} message={botMessage} chatContainerRef={chatContainerRef} isStreaming={isStreamingMessage} /></div>
+            <div className="ml-2 mt-1 w-auto min-w-0 max-w-[840px]"><ThinkingProcess key={botMessage.id} message={botMessage} chatContainerRef={chatContainerRef} isStreaming={isStreamingMessage} /></div>
           )}
           {showClarificationRequest && !showStepClarificationInLogs && clarificationForm && (
             <div className="mb-2 mt-1 w-full max-w-[840px]">{clarificationForm}</div>

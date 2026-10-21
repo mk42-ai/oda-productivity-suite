@@ -772,7 +772,7 @@ function OdStatusView({ od, live, logsOpen }: { od: BotMessageType; live: boolea
   const hasLogs = !!od.statusLogs?.length;
   return (
     <div className="od-chat od-status" data-testid="od-status">
-      {hasThinking && <div className="ml-2 mt-1 w-full max-w-[840px]"><ThinkingProcess message={od} chatContainerRef={noScroll} isStreaming={live} /></div>}
+      {hasThinking && <div className="ml-2 mt-1 w-auto min-w-0 max-w-[840px]"><ThinkingProcess message={od} chatContainerRef={noScroll} isStreaming={live} /></div>}
       {logsOpen && hasLogs && <div className="ml-2 w-full max-w-[840px]"><StatusLogBlock message={od} isStreaming={live} /></div>}
     </div>
   );
@@ -1069,7 +1069,7 @@ function PendingRow() {
       <span className="oiu-assistant__avatar oiu-run__skel-avatar" aria-hidden><StatusSpinner /></span>
       <RunHeader live startedAt={st.startedAt} totalMs={null} />
       {/* /chat-od look from the first frame: a closed "Thinking" row with the newest thinking streaming inline (no status-message row). */}
-      <div className="od-chat od-status ml-2 mt-1 w-full max-w-[840px]" data-testid="run-skeleton-thinking">
+      <div className="od-chat od-status ml-2 mt-1 w-auto min-w-0 max-w-[840px]" data-testid="run-skeleton-thinking">
         <StatusAccordion title="Thinking" status="loading" isOpen={false} preview={oneLineTail(st.od?.thinking || st.thinking) || undefined} />
       </div>
     </div>, host);

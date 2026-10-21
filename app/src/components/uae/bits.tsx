@@ -55,7 +55,7 @@ export function Stat({ label, value, sub, href }: { label: string; value: React.
 }
 export function Panel({ title, action, children, className, testId }: { title: React.ReactNode; action?: React.ReactNode; children: React.ReactNode; className?: string; testId?: string }) {
   return (
-    <section className={cn("card min-w-0 p-4 sm:p-5", className)} data-testid={testId}>
+    <section id={testId} className={cn("card min-w-0 p-4 sm:p-5 scroll-mt-16", className)} data-testid={testId}>
       <div className="mb-3 flex items-center justify-between gap-2"><h2 className="text-sm font-semibold tracking-tight">{title}</h2>{action}</div>
       {children}
     </section>

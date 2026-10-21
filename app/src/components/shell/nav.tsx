@@ -61,7 +61,7 @@ export function Nav({ collapsed = false }: { collapsed?: boolean }) {
           <Tooltip key={href}>
           <TooltipTrigger asChild>
           <Link href={href} aria-current={active ? "page" : undefined} aria-label={label} data-testid={`nav-${href.slice(1)}`}
-            className={cn("relative flex h-9 min-h-[36px] shrink-0 items-center gap-2.5 rounded-lg px-2.5 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring", active ? "bg-[#ECECEC] text-[#0D0D0D]" : "text-[#0D0D0D] hover:bg-[#F0F0F0]", collapsed && "lg:size-9 lg:justify-center lg:px-0")}>
+            className={cn("relative flex h-9 min-h-[36px] shrink-0 items-center gap-2.5 rounded-lg px-2.5 text-xs font-medium transition-[background-color,color] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring", active ? "bg-[#ECECEC] text-[#0D0D0D]" : "text-[#0D0D0D] hover:bg-[#F0F0F0]", collapsed && "lg:size-9 lg:justify-center lg:px-0")}>
             <Icon className="size-4 shrink-0 text-[#5D5D5D]" aria-hidden /><span className={cn(collapsed && "lg:sr-only")}>{label}</span>
             {href === "/artifacts" && artifactCount > 0 && <ArtifactsCount count={artifactCount} collapsed={collapsed} />}
           </Link>

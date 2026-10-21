@@ -238,7 +238,7 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
                           )}
                         >
                           <MessageSquare className="size-4 shrink-0 text-[#5D5D5D]" aria-hidden />
-                          <span className="truncate flex-1" data-testid="thread-title">
+                          <span className="truncate flex-1" data-testid="thread-title" title={t.title || "Untitled thread"}>
                             {t.title || "Untitled thread"}
                           </span>
                         </button>
@@ -335,7 +335,7 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
                       )}
                     >
                       <MessageSquare className="size-4 shrink-0 text-[#5D5D5D]" aria-hidden />
-                      <span className="truncate flex-1" data-testid="thread-title">
+                      <span className="truncate flex-1" data-testid="thread-title" title={t.title || "Untitled thread"}>
                         {t.title || "Untitled thread"}
                       </span>
                     </button>
