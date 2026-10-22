@@ -186,16 +186,16 @@ export function EcoGraph({ nodes, edges, initialFocus }: { nodes: GN[]; edges: G
         </div>
 
         {/* F-10: DOM list "Top connected organisations" under the canvas */}
-        <section className="mt-6 rounded-xl border border-[#E5E5E5] bg-white p-4" data-testid="top-connected-list">
+        <section className="mt-6 min-w-0 max-w-full rounded-xl border border-[#E5E5E5] bg-white p-4" data-testid="top-connected-list">
           <h2 className="text-sm font-semibold text-[#0D0D0D]">Top connected organisations</h2>
           <p className="mt-0.5 text-xs text-[#5D5D5D]">Top 10 organisations ranked by ecosystem relationship count (degree).</p>
-          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          <div className="mt-3 grid grid-cols-[minmax(0,1fr)] gap-2 sm:grid-cols-[repeat(2,minmax(0,1fr))]">
             {topConnected.map((n) => {
               const isWatchlist = n.kind === "watchlist" && !n.id.startsWith("ext:");
               return (
                 <div
                   key={n.id}
-                  className="flex items-center justify-between rounded-md border border-[#E5E5E5] bg-[#F9F9F9] px-3 py-2 text-xs"
+                  className="flex min-w-0 items-center justify-between rounded-md border border-[#E5E5E5] bg-[#F9F9F9] px-3 py-2 text-xs"
                 >
                   <div className="min-w-0 flex-1 pr-2">
                     {isWatchlist ? (

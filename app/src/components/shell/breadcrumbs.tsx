@@ -47,22 +47,10 @@ export function Breadcrumbs({ trail }: { trail?: Crumb[] }) {
       return null;
     }
 
-    if (ROUTE_LABELS[pathname]) {
-      resolvedTrail = ROUTE_LABELS[pathname];
-    } else {
-      // Fallback: build trail from segments
-      const segments = pathname.split("/").filter(Boolean);
-      const crumbs: Crumb[] = [{ href: "/overview", label: "Overview" }];
-      let currentPath = "";
-      for (let i = 0; i < segments.length; i++) {
-        const seg = segments[i];
-        currentPath += "/" + seg;
-        const isLast = i === segments.length - 1;
-        const label = seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, " ");
-        crumbs.push(isLast ? { label } : { href: currentPath, label });
-      }
-      resolvedTrail = crumbs;
-    }
+    // Only known routes get an auto-derived trail. Unknown paths (incl. the 404 boundary, where the server renders "/_not-found" while the
+    // client sees the typed URL) render nothing — deriving a trail from the path segments caused a React #418 hydration mismatch on 404s.
+    if (!ROUTE_LABELS[pathname]) return null;
+    resolvedTrail = ROUTE_LABELS[pathname];
   }
 
   if (!resolvedTrail || resolvedTrail.length < 2) {
