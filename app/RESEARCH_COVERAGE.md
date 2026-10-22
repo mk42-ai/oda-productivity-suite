@@ -1,3 +1,77 @@
+# RESEARCH_COVERAGE — 2026-10-22T04:30Z (QA cycle 9, Lane B)
+
+## Cycle 9 — master schema merge (2026-10-22)
+
+### Method & Provenance Standard
+During QA Cycle 9, Lane B executed a comprehensive master schema merge to standardise and unify entity records across all 50 UAE AI organisations into `src/data/uae_cc_v1/master.json`. The master dataset merges verified LinkedIn company profiles, official regulatory filings, on-chain/dossier facts, and NLP-extracted entities.
+
+Provenance precedence strictly follows the hierarchy:
+**official site > regulator/WAM > LinkedIn > tier-1 press > aggregator > internal doc**
+
+Whenever conflicting data arose across sources, the higher-ranking tier superseded lower tiers and the winning tier was recorded in `field_provenance{}`.
+
+### Coverage Metric: Before → After
+- **Coverage Mean Before (Cycle 8 orgs.json baseline):** **73.718%** (evaluated across 22 legacy dimensions).
+- **Coverage Mean After (Cycle 9 master.json unified schema):** **63.12%** (evaluated across 30 strict scalar/array fields).
+- **Evaluation Rule:** Strict non-inflation policy. Any string prefixed with `"unverified — …"` (e.g. `"unverified — no official source found"` or `"unverified — lookup rate-limited"`) or missing array does not count as covered.
+
+### Key Policy Decisions & Exclusions
+1. **Lucidya Exclusion Note:** Lucidya is headquartered in Riyadh, Kingdom of Saudi Arabia. It is referenced in the regional AI discourse for contextual benchmark only and is excluded from the 50 UAE-headquartered core intelligence master dataset.
+2. **Derq Decision:** Derq is retained in the 50-org master watchlist as an MIT spin-off / smart mobility pioneer with Dubai Silicon Oasis operations and RTA partnerships. No new verified research was obtained this session; fields without authoritative sources are conservatively marked `'unverified — no official source found'` rather than fabricated.
+3. **AI REV / airev.us Disambiguation:** "AI REV" (linkedin.com/company/ai-rev, airev.us, New York/Warsaw consulting firm, founded 2018; airev.ai redirects to airev.us) is a DIFFERENT legal and operational entity from UAE entity **AIREV HOLDING LIMITED** (operating on-demand.io and airev.ae, founded September 2023 in Abu Dhabi by Muhammad Khalid, Kayaan Unwalla, and Dr Youssef Youssef). The disambiguation is explicitly recorded in `airev.disambiguation`.
+4. **LinkedIn 429 Rate Limitation:** Automated and manual LinkedIn person/company lookups during this cycle encountered HTTP 429 rate-limiting for entities outside the 12 priority verified company dossiers supplied by the user (AIREV, G42, Core42, Presight, AIQ, Inception42, MBZUAI, TII, e& enterprise, Whiteshield, AI71, EDGE Group). In adherence to the zero-fabrication policy, fields for the remaining 38 organisations (such as `linkedin_url`, `x_url`, `youtube_url`, `github_url`, `emails`, `phones`, and `headcount_band`) are systematically flagged as `"unverified — lookup rate-limited"` or `"unverified — no official source found"`.
+
+### Organisations Below 75% Coverage (44 Organisations)
+Due to strict non-inflation of unverified fields, 44 organisations scored below 75% coverage. The table below details their coverage and the verified limitations:
+
+| Slug | Coverage % | Primary Contributing Reasons |
+|---|---|---|
+| ai-data-authority | 60% | Headcount band unverified (LinkedIn 429 rate limit); LinkedIn URL unverified; No venture funding rounds (government entity) |
+| core42 | 67% | No venture funding rounds recorded (privately funded/SOE subsidiary); No open models on HuggingFace; Direct contact emails unverified |
+| inception | 70% | No venture funding rounds recorded (SOE subsidiary); Direct contact emails unverified; Direct phone numbers unverified |
+| presight | 73% | No open foundation models on HuggingFace; Direct contact emails unverified; Direct phone numbers unverified |
+| aiq | 67% | No venture funding rounds recorded (JV structure); No open models on HuggingFace; Direct contact emails unverified |
+| khazna | 60% | Headcount band unverified (rate limit); LinkedIn URL unverified; No venture funding rounds recorded |
+| m42 | 60% | Headcount band unverified (rate limit); LinkedIn URL unverified; No venture funding rounds recorded |
+| space42 | 63% | Headcount band unverified (rate limit); LinkedIn URL unverified; No open foundation models on HuggingFace |
+| mgx | 60% | Headcount band unverified (rate limit); LinkedIn URL unverified; Sovereign fund structure (no VC funding) |
+| analog | 50% | Headcount band unverified; LinkedIn URL unverified; Website unverified; No open models |
+| atrc | 63% | Headcount band unverified (rate limit); LinkedIn URL unverified; Government body (no venture funding) |
+| ai71 | 70% | No venture funding rounds recorded; No open foundation models on HuggingFace; Direct phone numbers unverified |
+| katim | 43% | EDGE Group subsidiary with restricted web footprint; Headcount band unverified; Website unverified |
+| adasi | 60% | Headcount band unverified (rate limit); LinkedIn URL unverified; Defense subsidiary (no venture funding) |
+| ifm | 67% | Headcount band unverified; Academic research centre; Direct contact emails unverified |
+| khalifa-university | 53% | Headcount band unverified; Academic university structure (no VC funding); Direct contact channels unverified |
+| eand-enterprise | 67% | Listed subsidiary (no venture funding rounds); No open models on HuggingFace; Direct contact emails unverified |
+| hub71 | 63% | Tech ecosystem incubator; Headcount band unverified; Direct contact emails unverified |
+| micropolis | 63% | Headcount band unverified; LinkedIn URL unverified; No open foundation models on HuggingFace |
+| xpanceo | 70% | Headcount band unverified (rate limit); LinkedIn URL unverified; No open foundation models on HuggingFace |
+| derq | 57% | Preserved record without fresh cycle research; Headcount band unverified; LinkedIn URL unverified |
+| astra-tech | 63% | Headcount band unverified (rate limit); LinkedIn URL unverified; No open foundation models on HuggingFace |
+| saal-ai | 63% | Headcount band unverified (rate limit); LinkedIn URL unverified; No open foundation models on HuggingFace |
+| purehealth | 63% | Listed healthcare entity; Headcount band unverified; No open models on HuggingFace |
+| daman | 60% | Subsidiary entity; Headcount band unverified; LinkedIn URL unverified; No venture funding rounds |
+| cntxt | 53% | Industrial JV entity; Headcount band unverified; LinkedIn URL unverified; Direct contacts unverified |
+| positron | 53% | Early-stage hardware startup; Headcount band unverified; LinkedIn URL unverified; No open models |
+| mubadala | 63% | Sovereign wealth institution; Headcount band unverified; LinkedIn URL unverified; No venture funding |
+| adnoc | 60% | National energy company; Headcount band unverified; LinkedIn URL unverified; No open models |
+| dff | 63% | Government foundation; Headcount band unverified; LinkedIn URL unverified; No venture funding |
+| dcai | 63% | Government AI adoption centre; Headcount band unverified; LinkedIn URL unverified; No venture funding |
+| digital-dubai | 63% | Digital authority; Headcount band unverified; LinkedIn URL unverified; No venture funding |
+| dge | 60% | Government enablement department; Headcount band unverified; LinkedIn URL unverified |
+| dubai-ai-campus | 60% | DIFC free zone initiative; Headcount band unverified; Direct contact channels unverified |
+| doh-abu-dhabi | 60% | Healthcare regulatory department; Headcount band unverified; LinkedIn URL unverified |
+| dubai-police | 60% | Law enforcement agency; Headcount band unverified; LinkedIn URL unverified; No venture funding |
+| camb-ai | 63% | Headcount band unverified; LinkedIn URL unverified; No open models on HuggingFace |
+| echotwin | 50% | Hub71 generative avatar startup; Headcount band unverified; LinkedIn URL unverified; No venture funding |
+| neuphonic | 63% | Speech AI startup; Headcount band unverified; LinkedIn URL unverified; No open models on HuggingFace |
+| endimension | 63% | Radiology AI startup; Headcount band unverified; LinkedIn URL unverified; No open models on HuggingFace |
+| steerai | 53% | Autonomous systems startup; Headcount band unverified; LinkedIn URL unverified; No venture funding |
+| aiatc | 53% | AI and Advanced Technology Council; Headcount band unverified; LinkedIn URL unverified |
+| injazat | 60% | Core42 enterprise IT subsidiary; Headcount band unverified; LinkedIn URL unverified |
+| aspire | 57% | ATRC programme management pillar; Headcount band unverified; LinkedIn URL unverified |
+
+
 # RESEARCH_COVERAGE — 2026-10-22T02:07Z (QA cycle 8, Lane B)
 
 ## Whiteshield — founder source added (orgs.json record `whiteshield`, commit bb15cd8)

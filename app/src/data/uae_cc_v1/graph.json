@@ -2245,6 +2245,85 @@
    "url": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya",
    "date": "2026-07-01",
    "origin": "cycle5-laneF"
+  },
+  {
+   "source": "g42",
+   "target": "astra-tech",
+   "relation": "owns",
+   "label": "Astra Tech (affiliated)",
+   "url": "https://www.linkedin.com/company/g42ai/",
+   "origin": "lane-b-linkedin"
+  },
+  {
+   "source": "adnoc",
+   "target": "aiq",
+   "relation": "owns",
+   "label": "AIQ (JV with Presight)",
+   "url": "https://www.linkedin.com/company/aiqintelligence/",
+   "origin": "lane-b-linkedin"
+  },
+  {
+   "source": "airev",
+   "target": "ext:qualcomm",
+   "relation": "partner",
+   "label": "Qualcomm Dragonwing agreement — autonomous AI",
+   "url": "https://gulfnews.com/business/corporate-news/airev-and-qualcomm-to-advance-autonomous-ai-across-enterprise-and-government-environments-1.500639938",
+   "date": "2026-08-13",
+   "origin": "lane-b"
+  },
+  {
+   "source": "ext:intel",
+   "target": "airev",
+   "relation": "partner",
+   "label": "Intel and AIREV on-device AI-PC agents / MoU",
+   "url": "https://gecnewswire.com/airev-intel-on-device-ai-agents",
+   "date": "2025-12-18",
+   "origin": "lane-b"
+  },
+  {
+   "source": "ext:qualcomm",
+   "target": "airev",
+   "relation": "partner",
+   "label": "Qualcomm and AIREV Dragonwing agreement",
+   "url": "https://gulfnews.com/business/corporate-news/airev-and-qualcomm-to-advance-autonomous-ai-across-enterprise-and-government-environments-1.500639938",
+   "date": "2026-08-13",
+   "origin": "lane-b"
+  },
+  {
+   "source": "ext:qualcomm-technologies",
+   "target": "airev",
+   "relation": "partner",
+   "label": "Qualcomm Technologies and AIREV Dragonwing agreement",
+   "url": "https://gulfnews.com/business/corporate-news/airev-and-qualcomm-to-advance-autonomous-ai-across-enterprise-and-government-environments-1.500639938",
+   "date": "2026-08-13",
+   "origin": "lane-b"
+  },
+  {
+   "source": "ext:tenstorrent",
+   "target": "airev",
+   "relation": "partner",
+   "label": "Tenstorrent and AIREV agentic-AI stack",
+   "url": "https://tenstorrent.com/vision/airev-partners-with-tenstorrent",
+   "date": "2025-06-25",
+   "origin": "lane-b"
+  },
+  {
+   "source": "ext:supermicro",
+   "target": "airev",
+   "relation": "partner",
+   "label": "Supermicro AS-2115HV-TNRT 'Certified by AIREV'",
+   "url": "https://www.zawya.com/en/press-release/companies-news/supermicro-airev-certified-2025",
+   "date": "2025-10",
+   "origin": "lane-b"
+  },
+  {
+   "source": "ext:redington",
+   "target": "airev",
+   "relation": "partner",
+   "label": "Redington distribution agreement for OnDemand",
+   "url": "https://techafricanews.com/2026/07/22/airev-partners-with-redington-to-expand-uae-built-agentic-ai-across-gcc-and-africa/",
+   "date": "2026-07-22",
+   "origin": "lane-b"
   }
  ]
 }

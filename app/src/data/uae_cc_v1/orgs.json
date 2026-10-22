@@ -283,6 +283,13 @@
      "role": "Board member (Microsoft US$1.5B investment, Apr 2024)",
      "source_url": "https://news.microsoft.com/2024/04/15/microsoft-invests-1-5-billion-in-abu-dhabis-g42/",
      "as_of": "2024-04"
+    },
+    {
+     "name": "Manu Kumar Jain",
+     "role": "Sr. VP Asia & Latin America and India CEO",
+     "linkedin_url": "https://www.linkedin.com/in/manukumarjain",
+     "source_url": "https://www.linkedin.com/in/manukumarjain",
+     "as_of": "2026-10"
     }
    ],
    "ai_focus": [
@@ -396,6 +403,11 @@
      "org": "MGX",
      "relation": "co_founded",
      "source_url": "https://www.mgx.ae/about"
+    },
+    {
+     "org": "Astra Tech",
+     "relation": "affiliated",
+     "source_url": "https://www.linkedin.com/company/g42ai/"
     }
    ],
    "briefing": "G42 is an Abu Dhabi-based company founded in 2018; the supplied seed identifies Sheikh Tahnoun bin Zayed as chair and Peng Xiao as CEO, and names Mubadala, Microsoft, and Silver Lake among its owners [1]. Its group includes Core42, formed to deliver national-scale enterprise AI solutions and services, including cloud, AI and HPC infrastructure, applied AI, cybersecurity, and professional services [2]. G42’s portfolio company Inception developed (In)Business Procurement, which G42 said can reduce sourcing and contract cycles by up to 40% [3]. Core42 announced a 42MW expansion at its Lake Mariner site in New York, increasing site capacity from 18MW to 60MW; separately, a July 2026 report said G42 joined Nvidia’s Open Secure AI Alliance [4][5]. Bloomberg was identified in the seed as reporting in September 2026 that G42 was exploring a multibillion-dollar raise and a possible US majority stake [6]. Ownership (verified 21 Oct 2026): Sheikh Tahnoon bin Zayed Al Nahyan is chairman and controlling shareholder; Mubadala, Microsoft (US$1.5B, Apr 2024, board seat Brad Smith), Silver Lake and the Dalio Family Office hold minority stakes; exact percentages unavailable [10]. Bloomberg's Sep 2026 raise/majority-stake reports remain reported, unconfirmed [6]. G42 welcomed US approval for advanced AI chip exports (~20 Oct 2026) and announced an Assurance Compute Framework [11].",
@@ -2805,7 +2817,7 @@
    "id": "airev",
    "name": "AIREV",
    "type": "company",
-   "website": "airev.ai",
+   "website": "airev.ae",
    "hq": "Abu Dhabi",
    "founded": "2023-09",
    "parent": null,
@@ -3100,7 +3112,8 @@
     "method": "OnDemand chat sessions/query (predefined-gpt-5.6-luna) over the step 3–4 plugin research corpus (Perplexity, GPT Search, Internet, Wikipedia) + mission-brief seed facts",
     "generated_at": "2026-10-20T21:4xZ",
     "namespace": "uae_cc_v1"
-   }
+   },
+   "pinned": true
   },
   {
    "id": "eand-enterprise",
