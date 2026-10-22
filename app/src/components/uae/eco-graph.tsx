@@ -36,7 +36,9 @@ export function EcoGraph({ nodes, edges, initialFocus }: { nodes: GN[]; edges: G
   const [showExt, setShowExt] = useState(true);
   const [rels, setRels] = useState<string[]>([]);
   const wrap = useRef<HTMLDivElement>(null);
-  const [w, setW] = useState(900);
+  // Cycle 9 (payload sweep G @390 caught a transient h-overflow): seed the canvas width from the viewport on the client instead of a fixed
+  // 900 px, so the first ForceGraph paint (before ResizeObserver fires) never exceeds a narrow viewport. The graph is client-only (ssr:false).
+  const [w, setW] = useState(() => (typeof window === "undefined" ? 900 : Math.max(280, Math.min(900, window.innerWidth - 32))));
 
   useEffect(() => {
     const el = wrap.current;
@@ -125,7 +127,7 @@ export function EcoGraph({ nodes, edges, initialFocus }: { nodes: GN[]; edges: G
             {data.nodes.length} nodes · {data.links.length} edges
           </span>
         </div>
-        <div ref={wrap} className="relative overflow-hidden rounded-2xl border border-[#E5E5E5] bg-white" style={{ height: 600 }}>
+        <div ref={wrap} className="relative max-w-full overflow-hidden rounded-2xl border border-[#E5E5E5] bg-white [&_canvas]:max-w-full" style={{ height: 600 }}>
           <ForceGraph2D
             graphData={data}
             width={w}

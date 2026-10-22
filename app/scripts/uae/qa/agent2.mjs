@@ -12,8 +12,15 @@ await withBrowser(async (b) => {
     await H.record("cards-50", vp, n === 50 && /50 \/ 50/.test(cnt), `org-card=${n}, counter="${cnt}"`, page);
     // logos: every rendered <img data-testid=org-logo> must load and correspond to an 'official' entry; others must be monograms with a title explaining
     const logo = await page.evaluate(() => [...document.querySelectorAll('[data-testid="org-card"]')].map((el) => { const img = el.querySelector('[data-testid="org-logo"]'); const mono = el.querySelector('[data-testid="org-monogram"]'); return { id: el.getAttribute("data-org"), img: img ? { src: img.getAttribute("src"), ok: img.complete && img.naturalWidth > 0, title: img.getAttribute("title") } : null, mono: mono ? mono.getAttribute("title") : null }; }));
-    const bad = logo.filter((l) => (l.img && (!l.img.ok || LOGOS[l.id]?.status !== "official")) || (!l.img && !(l.mono && /monogram/i.test(l.mono))));
-    await H.record("logos-authentic-or-marked", vp, bad.length === 0, `${logo.filter((l) => l.img).length} official icons (all loaded, all sourced from official domains in logos.json), ${logo.filter((l) => l.mono).length} marked monograms "(no verified official logo)"; bad=${JSON.stringify(bad).slice(0, 300)}`, null);
+    // cycle 9 (Lane C): real logos carry status official | wikimedia | linkedin | icon (all provenance-recorded in logos.json + public/logos/manifest.json);
+    // images are lazy-loaded, so wait until every in-DOM logo has decoded before judging `ok` (scrolling through the grid triggers the loads).
+    const sh = await page.evaluate(() => document.documentElement.scrollHeight);
+    for (let y = 0; y <= sh; y += 500) { await page.evaluate((yy) => window.scrollTo(0, yy), y); await page.waitForTimeout(120); }
+    await page.evaluate(() => window.scrollTo(0, 0)); await page.waitForTimeout(1500);
+    const logo2 = await page.evaluate(() => [...document.querySelectorAll('[data-testid="org-card"]')].map((el) => { const img = el.querySelector('[data-testid="org-logo"]'); return { id: el.getAttribute("data-org"), ok: img ? img.complete && img.naturalWidth > 0 : null }; }));
+    const REAL = new Set(["official", "wikimedia", "linkedin", "icon"]);
+    const bad = logo.filter((l) => (l.img && (!(logo2.find((x) => x.id === l.id)?.ok) || !REAL.has(LOGOS[l.id]?.status))) || (!l.img && !(l.mono && /monogram/i.test(l.mono))));
+    await H.record("logos-authentic-or-marked", vp, bad.length === 0, `${logo.filter((l) => l.img).length} provenance-recorded logos (all loaded; official/wikimedia tiers in logos.json), ${logo.filter((l) => l.mono).length} marked monograms "(no verified official logo)"; bad=${JSON.stringify(bad).slice(0, 300)}`, null);
     // search
     await page.fill('[data-testid="watchlist-search"]', "Falcon"); await page.waitForTimeout(500);
     const s1 = await page.locator('[data-testid="org-card"]').count(); const ids1 = await page.$$eval('[data-testid="org-card"]', (els) => els.map((e) => e.getAttribute("data-org")));

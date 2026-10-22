@@ -39,7 +39,7 @@ export function OrgLogo({
         src={src}
         srcSet={srcSet}
         alt=""
-        title={`${name} — icon from official domain`}
+        title={`${name} — logo (provenance recorded in /logos/manifest.json)`}
         width={size}
         height={size}
         data-testid="org-logo"

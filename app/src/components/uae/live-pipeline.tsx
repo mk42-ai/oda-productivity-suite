@@ -62,7 +62,7 @@ export function ScheduledBriefing() {
   const { s, err } = useLive();
   const b = s?.briefing;
   return (
-    <section className="card mt-4 p-4 sm:p-6" data-testid="scheduled-briefing">
+    <section className="card mt-4 min-h-[60vh] p-4 sm:p-6" data-testid="scheduled-briefing">
       <h2 className="text-sm font-semibold">Latest scheduled briefing <span className="font-normal text-muted">· workflow cron 0 30 2 * * * (06:30 GST)</span></h2>
       {!s && !err && <p className="mt-2 flex items-center gap-2 text-sm text-muted" data-testid="scheduled-briefing-loading">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/illustrations/loading-state.png" alt="" aria-hidden width={28} height={28} className="animate-pulse rounded" />Loading…</p>}
       {err && <p role="alert" className="mt-2 text-sm text-[#B91C1C]">Scheduled briefing unavailable: {err}</p>}

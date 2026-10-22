@@ -154,7 +154,7 @@ export function OrgProfile({ id }: { id: string }) {
 
       {/* Disambiguation note if present */}
       {org.disambiguation && (
-        <div className="mt-4 rounded border border-border bg-gray-50 p-3 text-xs text-muted">
+        <div className="mt-4 rounded border border-border bg-[#F9F9F9] p-3 text-xs text-muted">
           <span className="font-semibold text-foreground">Entity Disambiguation: </span>
           {org.disambiguation}
         </div>
@@ -178,7 +178,7 @@ export function OrgProfile({ id }: { id: string }) {
         {org.products && org.products.length > 0 ? (
           <ul className="mt-1 flex flex-wrap gap-1.5 text-xs">
             {org.products.map((p, i) => (
-              <li key={i} className="rounded border border-border bg-gray-50 px-2 py-0.5 text-foreground">
+              <li key={i} className="rounded border border-border bg-[#F9F9F9] px-2 py-0.5 text-foreground">
                 {p}
               </li>
             ))}
