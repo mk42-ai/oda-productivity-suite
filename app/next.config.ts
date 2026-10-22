@@ -13,6 +13,8 @@ const BUILD_TIME = (process.env.BUILD_TIME ||= new Date().toISOString().replace(
 const BUILD_TIME_LABEL = `${BUILD_TIME.slice(0, 10)} ${BUILD_TIME.slice(11, 16)} UTC`;
 
 const nextConfig: NextConfig = {
+  // Parallel QA lanes run their own dev servers side by side; NEXT_DIST_DIR keeps their build caches apart (default .next).
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   reactStrictMode: true,
   poweredByHeader: false,
   env: { NEXT_PUBLIC_APP_VERSION: APP_VERSION, NEXT_PUBLIC_BUILD_COMMIT: BUILD_COMMIT, NEXT_PUBLIC_BUILD_TIME: BUILD_TIME, NEXT_PUBLIC_BUILD_TIME_LABEL: BUILD_TIME_LABEL },
