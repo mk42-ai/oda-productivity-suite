@@ -28,7 +28,22 @@ const LOG = path.join(OUT, "run-ux-log.ndjson");
 const SCORES = path.join(OUT, "run-ux-scores.json");
 fs.mkdirSync(OUT, { recursive: true });
 
-test.use({ video: { mode: "on", size: { width: 1280, height: 800 } } });
+// QA cycle 7 (Lane C) — ENVIRONMENT GUARD: `video: on` needs Playwright's bundled ffmpeg (ms-playwright/ffmpeg-*/ffmpeg-linux). This runner has the
+// system Chromium but no Playwright browser cache, so browserContext.newPage() threw "Executable doesn't exist at …/ffmpeg-linux" and all 4
+// run-ux executions were counted as failures in cycles 3–6. Keep video on where ffmpeg exists; otherwise skip with a documented reason.
+function playwrightFfmpegAvailable(): boolean {
+  try {
+    // playwright-core resolves its bundled ffmpeg under PLAYWRIGHT_BROWSERS_PATH (default ~/.cache/ms-playwright) as ffmpeg-<revision>/ffmpeg-linux.
+    const browsers = JSON.parse(fs.readFileSync(require.resolve("playwright-core/package.json").replace(/package\.json$/, "browsers.json"), "utf8")) as { browsers: { name: string; revision: string }[] };
+    const rev = browsers.browsers.find((b) => b.name === "ffmpeg")?.revision;
+    const root = process.env.PLAYWRIGHT_BROWSERS_PATH && process.env.PLAYWRIGHT_BROWSERS_PATH !== "0" ? process.env.PLAYWRIGHT_BROWSERS_PATH : path.join(process.env.HOME ?? "", ".cache", "ms-playwright");
+    const candidates = rev ? [path.join(root, `ffmpeg-${rev}`, "ffmpeg-linux"), path.join(root, `ffmpeg-${rev}`, "ffmpeg-mac"), path.join(root, `ffmpeg-${rev}`, "ffmpeg-win64.exe")] : [];
+    return candidates.some((c) => fs.existsSync(c));
+  } catch { return false; }
+}
+const FFMPEG_OK = process.env.RUN_UX_VIDEO === "0" ? false : playwrightFfmpegAvailable();
+test.use({ video: FFMPEG_OK ? { mode: "on", size: { width: 1280, height: 800 } } : "off" });
+test.skip(!FFMPEG_OK, "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`");
 
 let curPage: Page | null = null;
 function logger(ti: TestInfo) {

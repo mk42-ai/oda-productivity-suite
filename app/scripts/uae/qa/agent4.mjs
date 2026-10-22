@@ -9,18 +9,29 @@ async function ask(b, vp, q, i) {
     await go(page, "/chat"); await page.waitForSelector('[data-testid="composer-input"]', { timeout: 30000 });
     await page.fill('[data-testid="composer-input"]', q); const tSend = Date.now(); await page.click('[data-testid="composer-send"]');
     await page.waitForSelector('[data-testid="answer-block"], [data-testid="chat-error"]', { timeout: 200000 });
-    await page.waitForFunction(() => !document.querySelector('[data-testid="assistant-streaming"]'), null, { timeout: 200000 }).catch(() => {});
-    await sleep(800);
+    // QA cycle 7 (Lane B) — PROPER AWAIT: the old check counted links/chips 800 ms after `assistant-streaming` disappeared, i.e. before the
+    // run had necessarily settled (run-view data-live=false + frozen run-timer) and before the throttled markdown pass had painted the last
+    // deltas. Wait for the settled state, then for the DOM to be stable for 1.5 s (no change in link/chip counts between two reads).
+    await page.waitForFunction(() => { const rv = [...document.querySelectorAll('[data-testid="run-view"]')].pop(); return rv && rv.getAttribute("data-live") === "false"; }, null, { timeout: 200000 }).catch(() => {});
+    const count = async () => ({
+      links: await page.locator('[data-testid="answer-markdown"]').last().locator("a[href^='http']").evaluateAll((as) => as.map((a) => a.href)).catch(() => []),
+      chips: await page.locator('[data-testid="citation-chip"]').count(),
+      rail: await page.locator('[data-testid="sources-rail"] [data-testid="source-link"]').count().catch(() => 0),
+    });
+    let c = await count(); for (let k = 0; k < 6; k++) { await sleep(1500); const n = await count(); if (n.links.length === c.links.length && n.chips === c.chips && n.rail === c.rail) { c = n; break; } c = n; }
     const err = await page.locator('[data-testid="chat-error"]').count();
     const md = await page.locator('[data-testid="answer-markdown"]').last().innerText().catch(() => "");
-    const links = await page.locator('[data-testid="answer-markdown"]').last().locator("a[href^='http']").evaluateAll((as) => as.map((a) => a.href)).catch(() => []);
-    const chips = await page.locator('[data-testid="citation-chip"]').count();
+    const { links, chips, rail } = c;
     const verified = /verified facts?/i.test(md), interp = /interpretation/i.test(md);
     const total = Date.now() - tSend;
     await page.locator('[data-testid="answer-block"]').last().scrollIntoViewIfNeeded().catch(() => {});
-    const pass = !err && md.length > 200 && verified && interp && links.length + chips > 0;
-    await H.record(`q${i + 1}`, vp, pass, `"${q}" → HTTP ${status}, ${total} ms, ${md.length} chars, Verified=${verified} Interpretation=${interp}, ${links.length} inline links + ${chips} citation chips${err ? ", CHAT-ERROR shown" : ""}; sources: ${[...new Set(links.map((u) => { try { return new URL(u).hostname; } catch { return u; } }))].slice(0, 5).join(", ")}`, page);
-    return { q, vp: vp.name, status, total, chars: md.length, verified, interp, links, chips, md };
+    // Grounding = at least one real outbound citation anywhere the UI renders them (inline link, [n] chip or Sources rail). Coverage state of
+    // the pinned web-research plugin is recorded alongside so an upstream-only outcome is classifiable from the result row.
+    const coverage = await page.locator('[data-testid="coverage-notice"]').last().getAttribute("data-reason").catch(() => null);
+    const cited = links.length + chips + rail;
+    const pass = !err && md.length > 200 && verified && interp && cited > 0;
+    await H.record(`q${i + 1}`, vp, pass, `"${q}" → HTTP ${status}, ${total} ms, ${md.length} chars, Verified=${verified} Interpretation=${interp}, ${links.length} inline links + ${chips} citation chips + ${rail} rail links${coverage ? `, web-research coverage=${coverage}` : ""}${err ? ", CHAT-ERROR shown" : ""}; sources: ${[...new Set(links.map((u) => { try { return new URL(u).hostname; } catch { return u; } }))].slice(0, 5).join(", ")}`, page);
+    return { q, vp: vp.name, status, total, chars: md.length, verified, interp, links, chips, rail, coverage, md };
   } catch (e) { await H.record(`q${i + 1}`, vp, false, `"${q}" → exception ${e.message.slice(0, 200)}`, page); return null; }
   finally { await c.close(); }
 }
