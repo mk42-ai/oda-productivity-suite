@@ -18,6 +18,13 @@ const nextConfig: NextConfig = {
   env: { NEXT_PUBLIC_APP_VERSION: APP_VERSION, NEXT_PUBLIC_BUILD_COMMIT: BUILD_COMMIT, NEXT_PUBLIC_BUILD_TIME: BUILD_TIME, NEXT_PUBLIC_BUILD_TIME_LABEL: BUILD_TIME_LABEL },
   images: { remotePatterns: [{ protocol: "https", hostname: "**" }, { protocol: "http", hostname: "**" }], formats: ["image/avif", "image/webp"] },
   experimental: { optimizePackageImports: ["lucide-react", "recharts"] },
+  // 'ai' build warning (QA cycle 7, Lane D): @openuidev/react-headless 0.17 ships a Vercel-AI-SDK adapter that `await import("ai")`s its OPTIONAL
+  // peer (peerDependenciesMeta.ai.optional = true) inside a try/catch. This app streams AG-UI frames through agUIAdapter and never calls
+  // vercelAIAdapter, so 'ai' is intentionally not installed. Webpack still resolves the dynamic import at build time and printed
+  // "Module not found: Can't resolve 'ai'" on every build. Aliasing the specifier to `false` makes webpack emit an empty module in its place:
+  // the import now resolves to `{}` and the adapter's own `typeof DefaultChatTransport !== "function"` guard throws the same
+  // MISSING_AI_SDK_MESSAGE it threw when the module was missing — identical runtime behaviour, zero build warnings.
+  webpack: (config) => { config.resolve ??= {}; config.resolve.alias = { ...(config.resolve.alias ?? {}), ai: false }; return config; },
   // Always emit metadata in <head> (no streamed/hoisted <title>/<meta>): our metadata is static per route, so blocking costs nothing,
   // and crawlers / Lighthouse read <meta name="description"> without running JS.
   htmlLimitedBots: /./,
