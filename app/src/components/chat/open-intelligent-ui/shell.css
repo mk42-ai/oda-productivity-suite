@@ -829,6 +829,16 @@
   .oiu-answer img, .oiu-answer video, .oiu-answer iframe { max-width: 100%; height: auto; }
   .oiu-cite__pub { max-width: 72px; }
   .oiu-gap { overflow-wrap: anywhere; min-width: 0; }
+  /* 9 — citation hover/focus preview (QA cycle 7, Lane A): on a 318 px run view the chip-centred, 260 px-wide tooltip overhung the right edge
+     and inflated run-view scrollWidth (332 > 318). Anchor the preview to the enclosing block (p/li/td/heading) instead of the chip, cap it at
+     the block width, keep it within the answer column, and let the answer clip any residual horizontal overflow. Grey tokens unchanged. */
+  .oiu-answer { overflow-x: clip; }
+  .oiu-answer p, .oiu-answer li, .oiu-answer td, .oiu-answer th, .oiu-answer h1, .oiu-answer h2, .oiu-answer h3, .oiu-answer h4, .oiu-answer blockquote { position: relative; }
+  .oiu-answer .oiu-cite { position: static; }
+  .oiu-answer .oiu-cite__preview { left: 0; right: auto; transform: translate(0, 4px); width: max-content; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-wrap: anywhere; }
+  .oiu-answer .oiu-cite:hover .oiu-cite__preview, .oiu-answer .oiu-cite:focus-visible .oiu-cite__preview { transform: translate(0, 0); }
+  .oiu-answer .oiu-cite__preview--list { min-width: 0; }
+  .oiu-answer .oiu-cite__title { white-space: normal; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 }
 @media (max-width: 360px) {
   /* narrower than 360px: the label (name + timing) may wrap to 2 lines; query hides; row 72px */
