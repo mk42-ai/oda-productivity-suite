@@ -1,14 +1,10 @@
 import Link from "next/link";
-import { CLASS_COLOR, TYPE_LABEL, logoFor, type Org, type Src } from "@/lib/uae/data";
+import { CLASS_COLOR, TYPE_LABEL, type Org, type Src } from "@/lib/uae/data";
+// Lane split (QA cycle 9): OrgLogo lives in ./org-logo (Lane C — logos), SourceLink in ./source-link (Lane A — link health); both re-exported here so existing imports keep working.
+export { OrgLogo } from "./org-logo";
+export { SourceLink } from "./source-link";
 import { cn } from "@/lib/utils";
 
-export function OrgLogo({ id, name, size = 40, className }: { id: string; name: string; size?: number; className?: string }) {
-  const src = logoFor(id);
-  const initials = name.replace(/\(.*?\)/g, "").split(/[\s&–-]+/).filter((w) => /^[A-Za-z0-9]/.test(w)).slice(0, 2).map((w) => w[0]).join("").toUpperCase() || "?";
-  if (src) // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt="" title={`${name} — icon from official domain`} width={size} height={size} data-testid="org-logo" className={cn("shrink-0 rounded-md border border-[#E5E5E5] bg-white object-contain p-1", className)} style={{ width: size, height: size }} />;
-  return <span role="img" aria-label={name} title={`${name} — monogram (no verified official logo)`} data-testid="org-monogram" className={cn("inline-grid shrink-0 place-items-center rounded-md border border-[#E5E5E5] bg-[#F9F9F9] font-semibold text-[#0D0D0D]", className)} style={{ width: size, height: size, fontSize: Math.round(size * 0.36) }}>{initials}</span>;
-}
 export function TypeChip({ type }: { type: Org["type"] }) {
   const tone: Record<string, string> = { company: "bg-[#F0F0F0] text-[#0D0D0D]", subsidiary: "bg-[#F9F9F9] border border-[#E5E5E5] text-[#0D0D0D]", government: "bg-[#ECECEC] text-[#0D0D0D]", university: "bg-[#F0F0F0] text-[#0D0D0D]", "research centre": "bg-[#F0F0F0] text-[#0D0D0D]" };
   return <span className={cn("inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-medium", tone[type])} data-testid="type-chip">{TYPE_LABEL[type]}</span>;
@@ -24,10 +20,6 @@ export function ConfidenceMeter({ value, label = "confidence" }: { value?: numbe
   );
 }
 export function Unavailable({ what }: { what?: string }) { return <span className="rounded border border-dashed border-border-strong px-1.5 py-0.5 text-[11px] text-muted" data-testid="unavailable">unavailable{what ? ` · ${what}` : ""}</span>; }
-export function SourceLink({ url, children, className }: { url?: string | null; children: React.ReactNode; className?: string }) {
-  if (!url) return <span className={cn("text-muted", className)} title="source URL not verified in the research corpus — link disabled">{children}<sup className="ml-0.5 text-[9px]">unverified</sup></span>;
-  return <a href={url} target="_blank" rel="noopener noreferrer" className={cn("underline decoration-[#D4D4D4] underline-offset-2 hover:text-[#2563EB]", className)}>{children}</a>;
-}
 export function hostOf(u?: string | null) { try { return u ? new URL(u).hostname.replace(/^www\./, "") : ""; } catch { return ""; } }
 /** Briefing text with [n] citation indices rendered as superscript links into the org's sources. */
 export function CitedText({ text, sources }: { text?: string; sources?: Src[] }) {

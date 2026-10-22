@@ -4,6 +4,10 @@ import { notFound } from "next/navigation";
 import { ORGS, getOrg, newsFor, sentimentFor, edgesFor, modelsFor, childrenOf, orgName, logoProvenance, CLASS_COLOR, SENT_CLASSES, classCounts } from "@/lib/uae/data";
 import { OrgLogo, TypeChip, ConfidenceMeter, Unavailable, SourceLink, CitedText, ClassDot, Panel, hostOf } from "@/components/uae/bits";
 import { AskInChat } from "@/components/uae/ask-in-chat";
+import { Breadcrumbs } from "@/components/shell/breadcrumbs";
+import { DossierCrossLinks } from "@/components/uae/cross-links";
+import { OrgProfile } from "@/components/uae/org-profile";
+import { AirevDossier } from "@/components/uae/airev-dossier";
 
 export function generateStaticParams() { return ORGS.map((o) => ({ id: o.id })); }
 export const dynamicParams = false;
@@ -21,6 +25,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
   ];
   return (
     <article className="space-y-5" data-testid="dossier" data-org={id}>
+      <Breadcrumbs trail={[{ href: "/overview", label: "Overview" }, { href: "/watchlist", label: "Watchlist" }, { label: o.name }]} />
       <header className="mb-6 flex flex-wrap items-center justify-between gap-4 py-2">
         <div className="flex flex-wrap items-center gap-4">
           <OrgLogo id={id} name={o.name} size={64} className="bg-white border-[#E5E5E5]" />
@@ -32,6 +37,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
         </div>
         <AskInChat id={id} name={o.name} />
       </header>
+      <DossierCrossLinks id={id} name={o.name} />
 
       <div className="grid gap-4 lg:grid-cols-3">
         <Panel title="Source-backed briefing" className="lg:col-span-2" testId="dossier-briefing">
@@ -73,6 +79,9 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
             <Link href={`/sentiment?org=${id}`} className="mt-2 inline-block text-xs font-medium text-[#2563EB] hover:underline">Open in Sentiment Universe →</Link></> : <p className="text-sm text-muted">No attributable public statements in the sample mention this organisation — coverage gap, not a neutral signal.</p>}
         </Panel>
       </div>
+
+      <OrgProfile id={id} />
+      {id === "airev" && <AirevDossier />}
 
       <Panel title={`News (${news.length})`} testId="dossier-news">
         {news.length ? <ul className="grid gap-2 md:grid-cols-2">{news.slice(0, 12).map((n) => <li key={n.id} className="rounded-lg border border-border p-3 text-sm"><time className="text-xs tabular-nums text-muted">{n.date}</time> <span className="text-[10px] uppercase text-muted">· {n.category}</span><p className="mt-0.5 font-medium"><SourceLink url={n.url} className="no-underline hover:underline">{n.headline}</SourceLink></p><p className="mt-0.5 text-xs text-muted">{n.summary}</p></li>)}</ul> : <Unavailable what="no news items in the research corpus" />}
