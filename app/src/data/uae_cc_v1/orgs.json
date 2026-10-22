@@ -4287,7 +4287,12 @@
      "name": "Fadi Farra",
      "role": "Founder & CEO",
      "source_url": "https://whiteshield.ai/people/fadi-farra",
-     "as_of": "2026-10-21"
+     "as_of": "2026-10-21",
+     "bio": "Lebanese-French scientist and author (born 10 June 1973); founder of Whiteshield Partners; previously head of unit at the OECD (Paris) and strategy consultant with Boston Consulting Group and AT Kearney (Wikipedia, revision 2026-02-28T18:08:04Z).",
+     "source_urls": [
+      "https://whiteshield.ai/people/fadi-farra",
+      "https://en.wikipedia.org/wiki/Fadi_Farra"
+     ]
     }
    ],
    "ai_focus": [
@@ -4414,6 +4419,13 @@
      "url": "https://www1.project-syndicate.org/columnist/fadi-farra",
      "publisher": "Project Syndicate",
      "date": "2026-10-19"
+    },
+    {
+     "n": 10,
+     "title": "Fadi Farra — Wikipedia (pageId 77102417, revision 2026-02-28T18:08:04Z)",
+     "url": "https://en.wikipedia.org/wiki/Fadi_Farra",
+     "publisher": "Wikipedia",
+     "date": "2026-02-28"
     }
    ],
    "confidence": 0.74,
@@ -4432,7 +4444,8 @@
    "provenance": {
     "method": "cycle-5 Lane F research pack (web search 2026-10-21 ~14:52Z), facts limited to the supplied source list",
     "generated_at": "2026-10-21T15:39:10Z",
-    "namespace": "uae_cc_v1"
+    "namespace": "uae_cc_v1",
+    "updated_at": "2026-10-22T01:35:00Z"
    },
    "field_confidence": {
     "hq": "medium",
@@ -4463,8 +4476,10 @@
     "funding": "https://techscoop.io/ai-ml/whiteshield-secures-15-million-private-credit-facility-from-ruya",
     "products": "https://whiteshield.ai",
     "staff_range": "source pending",
-    "offices": "source pending"
-   }
+    "offices": "source pending",
+    "leadership_bio": "https://en.wikipedia.org/wiki/Fadi_Farra"
+   },
+   "notes_2026_10_22": "Founder background sourced from Wikipedia 'Fadi Farra' (pageId 77102417, rev 2026-02-28T18:08:04Z); no Wikipedia article exists for Whiteshield itself (search 2026-10-22 returned only Whiteshield Mountain / unrelated surnames)."
   },
   {
    "id": "mubadala",
