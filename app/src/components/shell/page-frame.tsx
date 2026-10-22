@@ -23,7 +23,7 @@ export function PageFrame({ children }: { children: React.ReactNode }) {
           <span data-testid="footer-disclaimer"><strong>Concept Demonstration — not an official government system.</strong> Public sources only · no government logo or endorsement implied.</span>
           <span>Data namespace uae_cc_v1 · as of 2026-10-21 · <Link href="/methodology" className="underline underline-offset-2">Methodology & limitations</Link></span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <span className="inline-flex items-center gap-1.5" data-testid="engine-credit"><img src="/plugins/ondemand.svg" width={14} height={14} alt="" aria-hidden /><span>Intelligence engine: OnDemand (AIREV)</span></span>
+          <span className="inline-flex items-center gap-1.5" data-testid="engine-credit"><img src="/logos/on-demand/list-64.png" srcSet="/logos/on-demand/list-64.png 1x, /logos/on-demand/list-128.png 2x" width={14} height={14} alt="" aria-hidden style={{ filter: "grayscale(1)" }} /><span>Intelligence engine: OnDemand (AIREV)</span></span>
           {/* NEXT_PUBLIC_* are inlined at build (next.config.ts env), so server and client render identical text. */}
           <span data-testid="build-stamp">v{process.env.NEXT_PUBLIC_APP_VERSION} · {process.env.NEXT_PUBLIC_BUILD_COMMIT} · last updated <time dateTime={process.env.NEXT_PUBLIC_BUILD_TIME}>{process.env.NEXT_PUBLIC_BUILD_TIME_LABEL}</time></span>
         </div>

@@ -28,7 +28,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       <Breadcrumbs trail={[{ href: "/overview", label: "Overview" }, { href: "/watchlist", label: "Watchlist" }, { label: o.name }]} />
       <header className="mb-6 flex flex-wrap items-center justify-between gap-4 py-2">
         <div className="flex flex-wrap items-center gap-4">
-          <OrgLogo id={id} name={o.name} size={64} className="bg-white border-[#E5E5E5]" />
+          <OrgLogo id={id} name={o.name} size={64} variant="card" priority className="bg-white border-[#E5E5E5]" />
           <div className="min-w-0 flex-1">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#737373]"><Link href="/watchlist" className="hover:underline">Watchlist</Link> · Dossier</p>
             <h1 className="mt-1 text-2xl font-semibold tracking-tight text-[#0D0D0D] sm:text-3xl" data-testid="dossier-title">{o.name}</h1>{(o as { name_ar?: string }).name_ar && <p lang="ar" dir="rtl" className="mt-1 text-base text-[#5D5D5D]">{(o as { name_ar?: string }).name_ar}</p>}
@@ -48,7 +48,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
         </Panel>
         <Panel title="Key facts" testId="dossier-facts">
           <dl className="space-y-2 text-sm">{facts.map(([k, v]) => <div key={k} className="grid grid-cols-[96px_1fr] gap-2"><dt className="text-muted">{k}</dt><dd className="min-w-0 break-words">{v}</dd></div>)}</dl>
-          <p className="mt-3 text-[11px] text-muted">Logo: {lp.status === "official" ? <>icon fetched from official domain <code>{hostOf(lp.source)}</code></> : <>monogram — {lp.reason}</>}</p>
+          <p className="mt-3 text-[11px] text-muted" data-testid="logo-provenance">Logo: {lp.status === "monogram" ? <>monogram placeholder — {lp.reason ?? "no verified official logo"}</> : <>{lp.status === "official" ? "official brand asset" : lp.status === "wikimedia" ? "Wikimedia Commons" : lp.status} from <code>{hostOf(lp.source)}</code>{(lp as { license_note?: string }).license_note ? <> · {(lp as { license_note?: string }).license_note}</> : null} · shown in grayscale, colour on hover</>}</p>
         </Panel>
       </div>
 

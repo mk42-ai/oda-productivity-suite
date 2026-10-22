@@ -45,7 +45,7 @@ export const NEWS: NewsItem[] = (newsPack as unknown as { news: NewsItem[] }).ne
 export const GRAPH = graphPack as unknown as { nodes: GNode[]; edges: Edge[] };
 export const HF = hfPack as unknown as { models: HfModel[]; empty_orgs: string[]; note: string };
 export const RADAR: RadarItem[] = (radarPack as unknown as { radar: RadarItem[] }).radar;
-const LOGOS = logos as Record<string, { status: string; source?: string; reason?: string }>;
+const LOGOS = logos as Record<string, { status: string; source?: string; source_tier?: string; reason?: string; license_note?: string; files?: { list?: string; list2x?: string; card?: string; original?: string } }>;
 
 export const SENT_CLASSES: SentClass[] = ["Optimists", "Pragmatists", "Skeptics", "Safety Advocates", "Disruption Concerned", "Pessimists/Doomers", "Neutral/Informational"];
 /** Class shades — monotone grey ramp, dark = optimistic → light = pessimistic (meaning is carried by shade + legend, never hue). */
@@ -64,8 +64,10 @@ export const TYPE_LABEL: Record<OrgType, string> = { company: "Company", governm
 const byId = new Map(ORGS.map((o) => [o.id, o] as const));
 export const getOrg = (id: string) => byId.get(id) ?? null;
 export const orgName = (id: string) => byId.get(id)?.name ?? GRAPH.nodes.find((n) => n.id === id)?.label ?? id;
-export const logoFor = (id: string): string | null => (LOGOS[id]?.status === "official" ? `/logos/uae/${id}.png` : null);
-export const logoProvenance = (id: string) => LOGOS[id] ?? { status: "monogram", reason: "no verified official domain" };
+/** Cycle 9 (Lane C): every non-monogram status (official | wikimedia | linkedin | icon) is a real logo; public/logos/<slug>/ holds the variants and
+ *  public/logos/uae/<slug>.png the 128 px compatibility copy. Prefer `@/lib/uae/logos` (srcSet + card variant) in new code. */
+export const logoFor = (id: string): string | null => { const l = LOGOS[id]; if (!l || l.status === "monogram") return null; return l.files?.list ?? `/logos/uae/${id}.png`; };
+export const logoProvenance = (id: string) => LOGOS[id] ?? { status: "monogram", reason: "no verified official logo" };
 export const newsFor = (id: string) => NEWS.filter((n) => n.org_ids.includes(id));
 export const sentimentFor = (id: string) => SENTIMENT.filter((r) => r.org_ids.includes(id));
 export const edgesFor = (id: string) => GRAPH.edges.filter((e) => e.source === id || e.target === id);
@@ -74,7 +76,7 @@ export const childrenOf = (id: string) => ORGS.filter((o) => o.parent_id === id)
 /** Ecosystem root (parent chain) — used to de-duplicate parents and subsidiaries in aggregates (G42 ⊃ Core42 / Inception / Khazna / Presight ⊃ AIQ; ATRC ⊃ TII / AI71). */
 export function rootOf(id: string): string { let cur = id; const seen = new Set<string>(); while (byId.get(cur)?.parent_id && !seen.has(cur)) { seen.add(cur); cur = byId.get(cur)!.parent_id!; } return cur; }
 /** Intelligence engine credit — factual, understated (no marketing copy). */
-export const ENGINE_CREDIT = { name: "OnDemand", vendor: "AIREV", logo: "/plugins/ondemand.svg", note: "Intelligence engine: OnDemand (AIREV) — chat sessions, briefing and 2-hourly ingest run through the OnDemand Chat & Agents Flow Builder APIs." };
+export const ENGINE_CREDIT = { name: "OnDemand", vendor: "AIREV", logo: "/logos/on-demand/list-64.png", logo2x: "/logos/on-demand/list-128.png", vendorLogo: "/logos/airev/list-64.png", note: "Intelligence engine: OnDemand (AIREV) — chat sessions, briefing and 2-hourly ingest run through the OnDemand Chat & Agents Flow Builder APIs." };
 export const ECOSYSTEM_GROUPS = [...new Set(ORGS.map((o) => rootOf(o.id)))];
 
 export function classCounts(rs: SentRecord[] = SENTIMENT) {
