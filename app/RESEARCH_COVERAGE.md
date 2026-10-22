@@ -1,3 +1,25 @@
+# RESEARCH_COVERAGE — 2026-10-22T00:25Z (QA cycle 7, Lane E)
+
+## News window 21–22 Oct 2026 (probe 2026-10-21 ~23:02Z — GPT web search single-source scan; Perplexity + fetchInternetData both "Not enough credits")
+| Item | Publisher · ISO time | Decision |
+|---|---|---|
+| UAE blocked ~750,000 cyberattack attempts; energy + education top targets | Emirates 24\|7 via WAM · 2026-10-21T02:10Z · Khaleej Times via WAM · 03:40Z · TechRevolt News · 2026-10-21 (date only) | **ONE** item `n00533493fa` (existed since cycle 6 with the TechRevolt URL) now carries all three source links (`also[]`, `verified_by: 3`, `confidence: high`); canonical URL = Emirates 24\|7 (earliest). |
+| TDRA, ITU organise UAE Capacity Building Week — 'From Connectivity to Intelligence' (19–22 Oct; AI policy / governance / standards) | Emirates News Agency (WAM) · 2026-10-21T14:16Z | **ADDED** `n80cff8de1d` (policy, radar 'AI governance & regulation' 5 → 6 signals, single source → confidence medium). |
+| Dubai AI Festival 2026 | 20 Oct 2026 | NOT added — outside the 21–22 Oct window. |
+| MBZUAI K2 Horizon | 3 Sep 2026 | NOT added — outside the window (already in the store). |
+
+**No items dated 21–22 Oct 2026 were found for:** TII, G42, Core42, AIQ, Inception / IFM / Jais, EDGE, MBZUAI, AI71, AIREV / OnDemand, Space42, e& enterprise, Hub71, Whiteshield, DAMAC AI, AI & Data Authority (one single-source scan only — Perplexity and Internet-search plugins unavailable, so coverage of this window is LOW-RECALL by construction; recorded in `news.json meta.ingest_2026_10_21T23Z`).
+
+## Sentiment ingest (Reddit harvest 2026-10-21 ~23:02Z via OnDemand plugin-1748003575, 6 subreddits × 10 posts)
+- Store **196 → 230** (+34; 0 duplicates by sha1(url|text) / normalised text / outlet title; 26 harvested posts outside the requested record set were left out and are listed in `qa/2026-10-21-cycle7/laneE/ingest-report.json`).
+- Lanes: UAE-topic 180 → **195** (+15: r/UAE, r/dubai, r/abudhabi), global-discourse 16 → **35** (+19: r/artificial, r/technology, r/LocalLLaMA). Author location never inferred (`UAE_TOPIC_ONLY` / `UNKNOWN`).
+- Classes (store): Neutral/Informational 97 · Optimists 40 · Pragmatists 25 · Skeptics 23 · Safety Advocates 18 · Disruption Concerned 8 · Pessimists/Doomers 4 · **Unclassified 15** (new bucket in the data: the 15 UAE-subreddit posts with no AI content — QuadraBay, KU PhD, iPhone 18, refurbished laptops, Scare4, Rakez, expired licence, JAFZA termination, freelance permit, 'as a girl…', Mashreq, Latin translation, UFC 333, nail shop, real-estate agent — confidence 0, kept so the UAE lane is not padded with inferred sentiment).
+- The requested taxonomy names "Builders" and "Regulators"; the shipped 7-class schema (`SENT_CLASSES` in `src/lib/uae/data.ts`, used by 196 existing records, the sentiment page, the overview and the ingest workflow) is Optimists · Pragmatists · Skeptics · Safety Advocates · Disruption Concerned · Pessimists/Doomers · Neutral/Informational (+ Unclassified). Builders ≈ Pragmatists/Optimists with a hands-on topic (LocalLLaMA posts land there); Regulators ≈ Safety Advocates. The schema was NOT changed (no feature removal / data migration inside the time-box); a rename would require re-labelling 196 records and the workflow prompt.
+- Pulse 24h/7d/30d derives from `date` at render time (`src/app/sentiment/page.tsx`), so the 21 Oct records appear in all three windows automatically; the sampling banner (`meta.sampling`) now states the 23:02Z capture and the Unclassified rule.
+
+## Probe status this turn (API_HEALTH §G cycle-7)
+Perplexity plugin-1722260873 → "Internal server error / Not enough credits" (pre-executed) and direct probe 00:14:56–00:15:07Z "live news lookup failed due to insufficient credits"; fetchInternetData plugin-1713924030 → "Not enough credits"; GPT web search OK (single-source scan); Wikipedia search OK; Reddit harvest OK (6 subreddits).
+
 # RESEARCH_COVERAGE — 2026-10-21T21:13:09Z (QA cycle 6, Lane D)
 
 ## Inclusion test (50-organisation list)

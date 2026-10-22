@@ -1,0 +1,696 @@
+{
+ "base": "http://127.0.0.1:5190",
+ "utc": "2026-10-22T00:20:40.563Z",
+ "routes": {
+  "/overview": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 4,
+   "airev": 2,
+   "ondemandCtx": [
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"28:[\\\"$\\\",\\\"span\\\",null,{\\\"className\\\":\\\"tabular-nums font-medium\\\""
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"35:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"National O"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "UAE AI National Intelligence Command Centre"
+  },
+  "/watchlist": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 4,
+   "airev": 6,
+   "ondemandCtx": [
+    {
+     "tag": "p",
+     "cls": "mt-3 line-clamp-3 text-[13px] leading-snug text-muted",
+     "testid": "org-card",
+     "text": "AIREV is an Abu Dhabi company founded in September 2023 by Muhammad Khalid (Founder & CEO)"
+    },
+    {
+     "tag": "span",
+     "cls": "truncate rounded border border-[#E5E5E5] bg-[#F9F9F9] px-1.5",
+     "testid": "org-card",
+     "text": "Autonomous AI platforms (OnDemand)"
+    },
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"AIREV is an Abu Dhabi company founded in September 2023 by Muhammad"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"e:[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"header\\\",null,{\\\"cla"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"2a:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Watchlist "
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "50 organisations shaping UAE AI"
+  },
+  "/news": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 5,
+   "airev": 15,
+   "ondemandCtx": [
+    {
+     "tag": "p",
+     "cls": "mt-2 text-sm text-[#5D5D5D] sm:text-[15px]",
+     "testid": "section-header",
+     "text": "Events extracted by the OnDemand News-Retrieval agent from Perplexity, GPT Search and Inte"
+    },
+    {
+     "tag": "p",
+     "cls": "mt-1 text-sm text-muted",
+     "testid": "news-item",
+     "text": "AIREV agreed to integrate its OnDemand platform with Qualcomm Dragonwing products, includi"
+    },
+    {
+     "tag": "a",
+     "cls": "font-semibold hover:text-[#2563EB] hover:underline",
+     "testid": "news-item",
+     "text": "AIREV and Redington agree to distribute OnDemand across the GCC and Africa"
+    },
+    {
+     "tag": "p",
+     "cls": "mt-1 text-sm text-muted",
+     "testid": "news-item",
+     "text": "AIREV and Redington agreed to distribute OnDemand Enterprise across the GCC and Africa, wi"
+    },
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"e:[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"header\\\",null,{\\\"cla"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"27:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"News Intel"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "What happened, who did it, where it came from"
+  },
+  "/radar": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 3,
+   "airev": 4,
+   "ondemandCtx": [
+    {
+     "tag": "p",
+     "cls": "mt-2 text-sm text-[#5D5D5D] sm:text-[15px]",
+     "testid": "section-header",
+     "text": "Rings come from the per-article radar labels assigned by the OnDemand news agent (majority"
+    },
+    {
+     "tag": "a",
+     "cls": "hover:underline",
+     "testid": "radar-table",
+     "text": "AIREV and Redington agree to distribute OnDemand across the GCC and Africa"
+    },
+    {
+     "tag": "p",
+     "cls": "mt-0.5 text-[11px] font-normal text-muted",
+     "testid": "lane-note",
+     "text": "Agentic-AI lane: OnDemand (AIREV) — 300+ agents (company-reported), on-device Intel Core U"
+    },
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"e:[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"header\\\",null,{\\\"cla"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"37:[\\\"$\\\",\\\"tr\\\",\\\"Sovereign cloud\\\",{\\\"className\\\":\\\"border-b bord"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"3c:[\\\"$\\\",\\\"tr\\\",\\\"Agentic AI in government\\\",{\\\"className\\\":\\\"bord"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"44:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Technology"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "Where UAE AI capability is moving"
+  },
+  "/graph": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 1,
+   "airev": 1,
+   "ondemandCtx": [
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"1d:[[\\\"$\\\",\\\"header\\\",null,{\\\"className\\\":\\\"mb-6 flex flex-wrap ite"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"24:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Ecosystem Relationship G"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "Who owns, funds and partners with whom"
+  },
+  "/sentiment": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 5,
+   "airev": 1,
+   "ondemandCtx": [
+    {
+     "tag": "p",
+     "cls": "mt-2 text-sm text-[#5D5D5D] sm:text-[15px]",
+     "testid": "section-header",
+     "text": "230 de-duplicated, attributable public statements (news quotes, editorials, think-tanks, s"
+    },
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "limitations",
+     "text": "Ingestion: statements were extracted by an OnDemand Sentiment-Ingestion agent from researc"
+    },
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "limitations",
+     "text": "Classification: OnDemand chat sessions (endpoint predefined-gpt-5.6-luna) with a fixed 7-c"
+    },
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"1d:[[\\\"$\\\",\\\"header\\\",null,{\\\"className\\\":\\\"mb-6 flex flex-wrap ite"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"27:[\\\"$\\\",\\\"section\\\",null,{\\\"id\\\":\\\"limitations\\\",\\\"className\\\":\\\""
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"2d:[\\\"$\\\",\\\"p\\\",null,{\\\"className\\\":\\\"mt-1 text-[11px] text-muted\\\""
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"24:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Sentiment Universe · UAE"
+    }
+   ],
+   "bubbles": 230,
+   "bubbleGrey": true,
+   "fillOpacities": [
+    "0.796",
+    "0.664",
+    "0.826",
+    "0.802",
+    "0.814",
+    "0.808",
+    "0.754",
+    "0.718",
+    "0.82",
+    "0.706",
+    "0.772",
+    "0.784",
+    "0.766",
+    "0.838",
+    "0.844",
+    "0.778",
+    "0.79",
+    "0.748",
+    "0.832",
+    "0.724",
+    "0.76",
+    "0.7",
+    "0.688",
+    "0.682",
+    "0.736",
+    "0.67",
+    "0.73",
+    "0.742",
+    "0.49",
+    "0.55",
+    "0.64",
+    "0.25",
+    "0.61",
+    "0.52",
+    "0.58"
+   ],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "How the UAE talks about AI"
+  },
+  "/chat": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 1,
+   "airev": 0,
+   "ondemandCtx": [
+    {
+     "tag": "p",
+     "cls": "oiu-composer__credit",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"e:[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"div\\\",null,{\\\"classNa"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"33:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Executive "
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "Executive Intelligence Chat"
+  },
+  "/briefing": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 3,
+   "airev": 1,
+   "ondemandCtx": [
+    {
+     "tag": "p",
+     "cls": "mt-2 text-sm text-[#5D5D5D] sm:text-[15px]",
+     "testid": "section-header",
+     "text": "An OnDemand briefing agent drafts a dated, cited one-pager from the watchlist, news, radar"
+    },
+    {
+     "tag": "p",
+     "cls": "text-[11px] text-muted",
+     "testid": "briefing",
+     "text": "Runs a real OnDemand session (POST /chat/v1/sessions → /query, endpoint predefined-gpt-5.6"
+    },
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"e:[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"header\\\",null,{\\\"cla"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"22:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"National A"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "One-page briefing, generated on demand"
+  },
+  "/methodology": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 10,
+   "airev": 4,
+   "ondemandCtx": [
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV) — chat sessions, the 06:30 GST briefing and the 2-ho"
+    },
+    {
+     "tag": "h2",
+     "cls": "text-sm font-semibold tracking-tight",
+     "testid": "m-pipeline",
+     "text": "Pipeline (all AI steps via OnDemand)"
+    },
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "m-pipeline",
+     "text": "Research: OnDemand plugins — Perplexity, GPT Search, Internet search, Wikipedia, HuggingFa"
+    },
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "m-pipeline",
+     "text": "Org intel + source verification: one OnDemand chat session per organisation (POST /chat/v1"
+    },
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "m-pipeline",
+     "text": "Sentiment ingestion + entity extraction: OnDemand agent extracts attributable statements a"
+    },
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "m-pipeline",
+     "text": "News retrieval + relationship mapping: OnDemand agent extracts dated events, radar rings a"
+    },
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "m-pipeline",
+     "text": "Briefings and executive chat: live OnDemand sessions at request time, grounded on this nam"
+    },
+    {
+     "tag": "li",
+     "cls": "",
+     "testid": "m-limits",
+     "text": "Sentiment records are a purposive sample of public, attributable statements gathered via O"
+    },
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"e:[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"header\\\",null,{\\\"cla"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"1f:[\\\"$\\\",\\\"section\\\",null,{\\\"id\\\":\\\"m-pipeline\\\",\\\"className\\\":\\\"c"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"20:[\\\"$\\\",\\\"section\\\",null,{\\\"id\\\":\\\"m-limits\\\",\\\"className\\\":\\\"car"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "How this concept was built — and what it cannot tell you"
+  },
+  "/settings": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 16,
+   "airev": 2,
+   "ondemandCtx": [
+    {
+     "tag": "p",
+     "cls": "mt-2 text-sm text-muted sm:text-base",
+     "testid": "main-column",
+     "text": "ONDEMAND SETTINGS — credentials stay in this browser (localStorage x-ondemand-key, forward"
+    },
+    {
+     "tag": "p",
+     "cls": "text-xs uppercase tracking-[0.14em] text-muted",
+     "testid": "main-column",
+     "text": "ONDEMAND SETTINGS · Concept demonstration"
+    },
+    {
+     "tag": "h2",
+     "cls": "text-base font-semibold leading-tight tracking-tight",
+     "testid": "main-column",
+     "text": "OnDemand connection"
+    },
+    {
+     "tag": "code",
+     "cls": "",
+     "testid": "main-column",
+     "text": "/api/ondemand/*"
+    },
+    {
+     "tag": "code",
+     "cls": "",
+     "testid": "main-column",
+     "text": "x-ondemand-key"
+    },
+    {
+     "tag": "label",
+     "cls": "text-sm font-medium text-foreground",
+     "testid": "main-column",
+     "text": "OnDemand apikey (optional override)"
+    },
+    {
+     "tag": "p",
+     "cls": "text-xs text-muted",
+     "testid": "main-column",
+     "text": "Groups your chat sessions on OnDemand."
+    },
+    {
+     "tag": "p",
+     "cls": "mt-0.5 text-xs text-muted",
+     "testid": "plugin-list",
+     "text": "Calls Copilot agent OnDemand FAQ Bot and returns its reply."
+    },
+    {
+     "tag": "p",
+     "cls": "mt-0.5 text-xs text-muted",
+     "testid": "plugin-list",
+     "text": "Sends user messages to Copilot agent OnDemand Resume Tester and returns replies over Nativ"
+    },
+    {
+     "tag": "p",
+     "cls": "text-xs text-muted",
+     "testid": "main-column",
+     "text": "Help is always in this same place (Settings → bottom of every page). Nothing here is sent "
+    },
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"e:[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"header\\\",null,{\\\"cla"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "Settings"
+  },
+  "/plugins": {
+   "status": 404,
+   "chromatic": [],
+   "ondemand": 1,
+   "airev": 1,
+   "ondemandCtx": [
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "engine-credit",
+     "text": "Intelligence engine: OnDemand (AIREV)"
+    },
+    {
+     "tag": "script",
+     "cls": "",
+     "testid": null,
+     "text": "self.__next_f.push([1,\"20:{\\\"metadata\\\":[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"UAE AI Nat"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "Page not found"
+  },
+  "/watchlist/airev": {
+   "status": 200,
+   "chromatic": [],
+   "ondemand": 17,
+   "airev": 32,
+   "ondemandCtx": [
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "dossier-briefing",
+     "text": "; it entered the UAE through NextGenFDI anchored by Core42 (a G42 company) in February 202"
+    },
+    {
+     "tag": "span",
+     "cls": "",
+     "testid": "dossier-briefing",
+     "text": "; OnDemand is listed on AWS Marketplace and the Cisco AI ISV Showcase"
+    },
+    {
+     "tag": "dd",
+     "cls": "min-w-0 break-words",
+     "testid": "dossier-facts",
+     "text": "Redington distributes OnDemand across the GCC and Africa; Intel, Qualcomm, Tenstorrent and"
+    },
+    {
+     "tag": "a",
+     "cls": "decoration-[#D4D4D4] underline-offset-2 hover:text-[#2563EB]",
+     "testid": "dossier-tech",
+     "text": "OnDemand (agentic AI platform; 300+ agents, 50+ languages — company-reported)"
+    },
+    {
+     "tag": "p",
+     "cls": "mt-3 text-xs text-muted",
+     "testid": "dossier-tech",
+     "text": "Focus: Agentic AI · Autonomous AI platforms (OnDemand) · On-device AI agents (Intel Core U"
+    },
+    {
+     "tag": "a",
+     "cls": "decoration-[#D4D4D4] underline-offset-2 hover:text-[#2563EB]",
+     "testid": "dossier-timeline",
+     "text": "Redington distribution agreement for OnDemand across the GCC and Africa (WAM / TechAfrica)"
+    },
+    {
+     "tag": "a",
+     "cls": "decoration-[#D4D4D4] underline-offset-2 hover:text-[#2563EB]",
+     "testid": "dossier-timeline",
+     "text": "OnDemand launched with Core42; 25,000 users in the first six weeks (company-reported)."
+    },
+    {
+     "tag": "p",
+     "cls": "mt-0.5 text-xs text-muted",
+     "testid": "dossier-news",
+     "text": "AIREV agreed to integrate its OnDemand platform with Qualcomm Dragonwing products, includi"
+    },
+    {
+     "tag": "a",
+     "cls": "decoration-[#D4D4D4] underline-offset-2 hover:text-[#2563EB]",
+     "testid": "dossier-news",
+     "text": "AIREV and Redington agree to distribute OnDemand across the GCC and Africa"
+    },
+    {
+     "tag": "p",
+     "cls": "mt-0.5 text-xs text-muted",
+     "testid": "dossier-news",
+     "text": "AIREV and Redington agreed to distribute OnDemand Enterprise across the GCC and Africa, wi"
+    },
+    {
+     "tag": "a",
+     "cls": "underline decoration-[#D4D4D4] underline-offset-2 hover:text",
+     "testid": "dossier-sources",
+     "text": "Company-reported metrics (AIREV / OnDemand) — label: company-reported"
+    },
+    {
+     "tag": "a",
+     "cls": "underline decoration-[#D4D4D4] underline-offset-2 hover:text",
+     "testid": "dossier-sources",
+     "text": "WAM — OnDemand launch with Core42 / NextGenFDI"
+    }
+   ],
+   "bubbles": 0,
+   "bubbleGrey": null,
+   "fillOpacities": [],
+   "docScroll": 1440,
+   "inner": 1440,
+   "h1": "AIREV"
+  }
+ }
+}

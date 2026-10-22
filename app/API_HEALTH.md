@@ -391,6 +391,25 @@ Protection / project state (Vercel REST `GET /v9/projects/prj_wXz5xY3PNULypuwepa
 
 **Decision:** sandbox preview remains the demo surface. Comparison at 13:48Z: `http://127.0.0.1:5173/health` → 200 (commit c005420, ondemand_key true); `/api/uae/live` → 200 application/json, 20 040 bytes (`qa/2026-10-21-cycle4/laneE/sandbox-live.json`, first 2 KB); `/overview` renders at both viewports (`qa/2026-10-21-cycle4/laneE/sandbox-overview-{1440x900,390x844}.png`). Nothing was created, redeployed or changed on Vercel this lane.
 
+### §G addendum — cycle 7 — 2026-10-22T00:25Z (Lane E probes + Vercel lane)
+Raw: `qa/2026-10-21-cycle7/laneE/perplexity-probe-00:14Z.json`, `qa/2026-10-21-cycle7/vercel/{project-0014Z.json,ondemand-hq-env-decrypt-attempt.jsonl,alias-chat-0b40aed.sse}`.
+
+| UTC | Call | Result |
+|---|---|---|
+| ~23:02 (pre-executed) | Perplexity plugin-1722260873 | `{"error":"Internal server error","message":"Not enough credits"}` |
+| ~23:02 (pre-executed) | fetchInternetData plugin-1713924030 | `{"error":"Internal server error","message":"Not enough credits"}` |
+| ~23:02 (pre-executed) | GPT web search (plugin-1741871229) | OK — single-source scan of the 21–22 Oct window (4 items, 3 = one event) |
+| ~23:02 (pre-executed) | Wikipedia search (plugin-1791200106) | OK (searchArticles ×2; getSummary 1 × 404, 1 × 200) |
+| ~23:02 (pre-executed) | Reddit harvest (plugin-1748003575) | OK — 6 subreddits × 10 posts |
+| 00:14:56 → 00:15:07 | direct `POST /chat/v1/sessions` (agentIds Perplexity) → `/query` (gpt-4o-mini, sync) | HTTP 200, answer verbatim: **"I can't verify today's latest UAE AI news because the live news lookup failed due to insufficient credits."** → credits STILL EXHAUSTED (session 6ad95581a32a07124b4a87c4, 9.8 s) |
+| 00:11–00:16 | app on local build (`next start :5190`, real key): agent4 c7a + c7b (10 chat questions × 2 rounds) | all 20 HTTP 200 with `coverage=upstream` (first call after a window) then `coverage=backoff`; Verified/Interpretation + 2–7 citation chips each → **14/14 twice** |
+
+#### Vercel lane (00:13–00:15Z)
+- Project `prj_wXz5xY3PNULypuwepaqu1XKa6sP1`: **env vars 0** (re-listed 00:13:52Z); `protectionBypass` 1 entry (automation-bypass, created 20:50:08Z); ssoProtection `all_except_custom_domains`; rootDirectory `app`.
+- Env-copy attempt from `ondemand-hq` (`prj_olGcFYXgDjTILUSp3VvNyhAd3G9P`): `GET /v1/projects/<hq>/env/tZw37aGULyB7CWfI?decrypt=true` and `…/O57i3hzahFCz2WOo?decrypt=true` → HTTP 200 but `type: "sensitive"`, `decrypted: false`, **no `value` field** — Vercel never returns sensitive values over the API, so the copy is impossible with any token. **Exact manual step:** Vercel dashboard → project `oda-productivity-suite` → Settings → Environment Variables → Add `ONDEMAND_API_KEY` and `ONDEMAND_BASE_URL` (values from the OnDemand console / the ondemand-hq owner), environment **Preview**, branch **uae-ai-command-centre** only, type Sensitive → Redeploy the latest preview. (Alternative via API, needs the plaintext values in hand: `POST /v10/projects/prj_wXz5…/env?teamId=…&upsert=true` with `{"key","value","type":"sensitive","target":["preview"],"gitBranch":"uae-ai-command-centre"}` — never from this container's own `ON_DEMAND_API_KEY`, which is a platform credential.)
+- Vercel built the push: **0b40aed READY** (dpl_A9qsfBajgMs3193kR6dtgom3F41e, created 00:09:47Z, oda-productivity-suite-1qq6gvgdr-…); 753c146 READY 22:44:41Z (dpl_AJ33aGDT52Vv4JNDVyPJhXVpvhiJ).
+- Branch alias `https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app` at 00:14:26Z: GET / without header → **302** vercel.com/sso-api; with `x-vercel-protection-bypass` → **307** → /overview → **200**; `/health` → 200 `{commit:"0b40aed", sentiment:230, news:108, ondemand_key:false}`; `POST /api/chat` → **200** text/event-stream in 0.26 s, frames RUN_STARTED → status(connecting) → `ondemand.error code:"no_key"` ("No OnDemand key configured") — i.e. the git preview reaches the app but has NO key, so the coverage reason is `no_key` rather than the expected `backoff`/`upstream` (those appear only where a key exists: local build + sandbox).
+
 ### §G addendum — cycle 6 — 2026-10-21T21:15Z (Lane E: Perplexity credits — fresh direct probe + app coverage state at HEAD 3a07efb)
 
 Raw files: `qa/2026-10-21-cycle6/laneE/probe-direct.json`, `health-before-3a07efb.json`, `chat-probe-3a07efb.sse`, `chat-probe2-3a07efb.sse`, `health-after-3a07efb.json`.
