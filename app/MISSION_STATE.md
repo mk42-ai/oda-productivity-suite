@@ -1,3 +1,12 @@
+# MISSION_STATE — 2026-10-22T02:07Z (QA cycle 8)
+| Lane | Status |
+|---|---|
+| A Shareable link | ⚠ NOT automatable this turn: `ONDEMAND_API_KEY` / `ONDEMAND_BASE_URL` are absent from the executor env (only the platform's own credentials exist, never copied), `vercel` CLI policy-blocked, project env still **0** (01:36:37Z, 01:53Z). Alias 961d04c: GET 302 without / 200 with bypass header; `POST /api/chat` → 200 with **`no_key`**. Manual dashboard step re-documented (NEXT_ACTIONS #1, 02:07Z). |
+| B Data | ✅ sentiment **230 → 274** (+44: UAE-topic 21 Unclassified, global 23 classified; 14 duplicates, 12 excluded; `laneB/ingest-report.json`), news **108 → 108** (TDRA–ITU WAM item = duplicate of n80cff8de1d), Whiteshield source #10 Wikipedia 'Fadi Farra' (pageId 77102417, rev 2026-02-28T18:08:04Z) + founder bio; bubble collision guard (961d04c). |
+| C Package + gates | ✅ fresh sandbox **https://sb-4pt9zz78srbe.vercel.run** (sbx_o6FAzWrCElYNNsCxkYE8O21hTl1X, 01:35:08Z); white-UI guard 0 chromatic · AA 0 genuine / 8,252 · h-scroll 26/26 · residue 0 brand · tsc 0 · build 0 warnings; 84-check 82/84 → **84/84** after re-run; payload A–G HTTPS 14/14 (F+G 390 re-run) + local 14/14; Playwright **196 · 164/3/29/0** (3 upstream); rail 224/64 persisted · 52 px bar · 800 px column · 360 px inspector with Plan/Run tabs · 280 px drawer · cite-preview 318 = 318; ui-validator 4 routes × 2 vp green (8 PNG). |
+| D OnDemand | ⛔ Perplexity still "Not enough credits" (01:36:16Z); sandbox chat coverage `upstream` → **`backoff`**; alias `no_key`; checkpoint cron 01:00 / 01:30 / 02:00Z success (6ad96010…, 6ad96718…, 6ad96e20…b28e35aa11d85e40), ingest cron 02:00Z success (6ad96e20b28e35aa11d85e51); briefing next due 02:30Z. |
+Preview: **https://sb-4pt9zz78srbe.vercel.run** (≈ expires 03:05Z). Pre-cycle tag `uae-qa8-pre-20261022T01Z` → 91fa140 (pushed 01:26:34Z). Commits bb15cd8 (01:34:57Z) · 961d04c (01:43:54Z) · + docs. main @ be3f7c1 and all prior tags untouched. Resume step: `git fetch && git checkout uae-ai-command-centre && npm run resume -- --deploy`.
+
 # MISSION_STATE — 2026-10-22T00:50Z (QA cycle 7)
 | Lane | Status |
 |---|---|

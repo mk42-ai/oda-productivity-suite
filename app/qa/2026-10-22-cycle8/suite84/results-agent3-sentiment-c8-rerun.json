@@ -1,0 +1,32 @@
+[
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8-rerun",
+  "test": "bubbles-render",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "274 bubbles, counter \"274 / 274 statements\" (dataset 274)",
+  "ts": "2026-10-22T01:45:22.143Z",
+  "shot": "agent3-sentiment-c8-rerun-bubbles-render-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8-rerun",
+  "test": "hover-tooltip",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "tooltip: ",
+  "ts": "2026-10-22T01:45:52.639Z",
+  "shot": "agent3-sentiment-c8-rerun-hover-tooltip-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8-rerun",
+  "test": "click-through-link",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "evidence-source href=null",
+  "ts": "2026-10-22T01:46:23.016Z",
+  "shot": "agent3-sentiment-c8-rerun-click-through-link-1440x900.jpg"
+ }
+]

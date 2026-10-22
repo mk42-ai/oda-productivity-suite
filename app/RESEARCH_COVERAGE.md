@@ -1,3 +1,24 @@
+# RESEARCH_COVERAGE — 2026-10-22T02:07Z (QA cycle 8, Lane B)
+
+## Whiteshield — founder source added (orgs.json record `whiteshield`, commit bb15cd8)
+| field | value | confidence | source URL |
+|---|---|---|---|
+| leadership (bio) | Fadi Farra — Lebanese-French scientist and author (born 10 June 1973); founder of Whiteshield Partners; previously head of unit at the OECD (Paris) and strategy consultant with Boston Consulting Group and AT Kearney | high | https://en.wikipedia.org/wiki/Fadi_Farra (pageId 77102417, revision 2026-02-28T18:08:04Z) + https://whiteshield.ai/people/fadi-farra |
+Source list 9 → **10**. There is **no Wikipedia article for Whiteshield itself** (search 2026-10-22 ~01:00Z returned only "Whiteshield Mountain" and unrelated surname hits) — the company remains sourced from its own site, UK Companies House 07839857, TechScoop / Sharikat Mubasher / Seedtable (Ruya facility) and Project Syndicate.
+
+## News window ≥ 2026-10-21T14:16Z (probe 2026-10-22 ~01:00Z — GPT web search dated scan; Perplexity + fetchInternetData "Not enough credits")
+| Item | Publisher · ISO time | Decision |
+|---|---|---|
+| TDRA, ITU organise UAE Capacity Building Week (19–22 Oct; Arabic language models, open knowledge bases, AI knowledge → deployable solutions) | Emirates News Agency (WAM) · 2026-10-21T14:16Z | **DUPLICATE** of `n80cff8de1d` (ingested cycle 7) — sha1(url|text) + URL match → not added |
+**No other strictly dated items ≥ 2026-10-21T14:16Z** were found for TII, G42, Core42, Presight, AIQ, Inception / IFM / Jais, EDGE, MBZUAI, AI71, AIREV / OnDemand, Space42, e& enterprise, Hub71 companies, Whiteshield, DAMAC AI, the AI & Data Authority, Omar Al Olama, or follow-ups to the Cyber Security Council 750,000-attempts report. Nothing undated ingested. **News 108 → 108.**
+
+## Sentiment ingest (Reddit harvest 2026-10-22 ~01:00Z via OnDemand plugin-1748003575, 7 subreddits / 70 posts; `qa/2026-10-22-cycle8/laneB/ingest-report.json`)
+- Store **230 → 274** (+44). Duplicates **14** (7 by sha1(url|text), 7 by normalised outlet/title — all cycle-7 posts re-harvested). Excluded **12** (7 not-AI-topic per brief: Meta ×2, EA/BioWare, Poland, Spotify, Airbnb, YouTube; 5 outside the requested set).
+- Lanes: UAE-topic 195 → **216** (+21, all **Unclassified** confidence 0 — r/UAE, r/dubai, r/abudhabi posts with no AI content; 'my press on nail shop' tagged `ai_relevance:low` for the single AI-tools comment); global-discourse 35 → **58** (+23: Optimists 8, Pragmatists 5, Neutral/Informational 4, Skeptics 3, Safety Advocates 2, Pessimists/Doomers 1; r/technology, r/artificial, r/LocalLLaMA, r/singularity). Author location never inferred.
+- Store classes: Neutral/Informational 101 · Optimists 48 · Unclassified 36 · Pragmatists 30 · Skeptics 26 · Safety Advocates 20 · Disruption Concerned 8 · Pessimists/Doomers 5. Sampling banner → 2026-10-22T01:00Z.
+- Label deviations from the brief's suggestions (stated in each record's rationale): Unitree H2-X → Skeptics 0.45 (jokes/misuse worries, no endorsement); Claude Duet → Skeptics 0.5 (comments question the use case); China RAM / Samsung HBM → Pragmatists 0.55 (sober supply-chain takes rather than doom); Anthropic $80.7B loss → Skeptics 0.6.
+- Positions: deterministic jitter inside the lane/cluster centroid with a ≥ 0.025 minimum distance from every prior record (961d04c) after the first placement overlapped the agent3 click-through target.
+
 # RESEARCH_COVERAGE — 2026-10-22T00:25Z (QA cycle 7, Lane E)
 
 ## News window 21–22 Oct 2026 (probe 2026-10-21 ~23:02Z — GPT web search single-source scan; Perplexity + fetchInternetData both "Not enough credits")

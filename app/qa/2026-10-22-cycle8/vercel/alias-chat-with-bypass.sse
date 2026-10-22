@@ -1,0 +1,10 @@
+data: {"seq":1,"type":"RUN_STARTED","threadId":"c8-alias-probe","runId":"16ec814c-6ad1-44d1-9ab4-a8be4d711a84"}
+
+data: {"seq":2,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"connecting","elapsedMs":3,"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","pluginIds":["plugin-1722260873"],"pluginNames":["Perplexity"],"droppedPluginIds":[],"sessionKnown":false,"transport":"/api/chat"}}
+
+data: {"seq":3,"type":"CUSTOM","name":"ondemand.error","value":{"elapsedMs":4,"code":"no_key","message":"No OnDemand key configured: set NEXT_PUBLIC_ONDEMAND_API_KEY (browser) / ONDEMAND_API_KEY (server), or paste a key in Settings.","raw":"No OnDemand key configured: set NEXT_PUBLIC_ONDEMAND_API_KEY (browser) / ONDEMAND_API_KEY (server), or paste a key in Settings."}}
+
+data: {"seq":4,"type":"RUN_ERROR","message":"No OnDemand key configured: set NEXT_PUBLIC_ONDEMAND_API_KEY (browser) / ONDEMAND_API_KEY (server), or paste a key in Settings.","code":"no_key"}
+
+data: [DONE]
+

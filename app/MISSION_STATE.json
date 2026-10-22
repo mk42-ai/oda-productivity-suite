@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-22T00:50:00Z",
+ "updated_at": "2026-10-22T02:07:00Z",
  "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
  "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
  "original": {
@@ -19,10 +19,10 @@
   "app_path": "app/",
   "pushed": true,
   "pr_url": "https://github.com/mk42-ai/oda-productivity-suite/pull/7",
-  "preview_url": "https://sb-2pnr5jjv61vv.vercel.run",
-  "sandbox_id": "sbx_kNCjjcHasZqxZZXLXjsc94k4PBMn",
-  "sandbox_timeout": "90 min from 2026-10-21T13:47:01Z (expires ≈15:17Z)",
-  "previous_preview": "https://sb-60putp7mv2mi.vercel.run (sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw, expires ≈14:08Z)",
+  "preview_url": "https://sb-4pt9zz78srbe.vercel.run",
+  "sandbox_id": "sbx_o6FAzWrCElYNNsCxkYE8O21hTl1X",
+  "sandbox_timeout": "90 min from 2026-10-22T01:35:08Z (expires ≈03:05Z)",
+  "previous_preview": "https://sb-1gnt3nqtj561.vercel.run (sbx_OFNqsprkTODzYN3vcvgD1YY2nQvn, expired ≈01:58Z)",
   "base_commit": "2515e93",
   "pushed_commit": "pushed to origin/uae-ai-command-centre (PR #7) this cycle",
   "vercel_git_preview": {
@@ -32,12 +32,13 @@
    "note": "Created via POST /v13/deployments with projectSettings.rootDirectory=uae-ai-command-centre override on commit 2008923; protected by Vercel Authentication (SSO), so it is not publicly reachable. Project rootDirectory=app and framework=vite were NOT changed. Env vars on the project: 0 → the OnDemand key is supplied only through the sandbox .env.local, never committed."
   },
   "root_dir_fix": "Branch layout moved uae-ai-command-centre/ → app/ (git mv, history preserved) + app/vercel.json {framework: nextjs}; the next git push will build under the project's Root Directory 'app' without touching main or project settings.",
-  "sandbox_created_at": "2026-10-21T09:09:38Z",
-  "head": "2ce7426 (+ docs commit)",
+  "sandbox_created_at": "2026-10-22T01:35:08Z",
+  "head": "961d04c (+ docs commit)",
   "git_preview": {
-   "note": "not re-triggered for env reasons this cycle; latest READY git build dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo = c005420 (13:04Z), 302 SSO / 401 Protected deployment",
+   "note": "latest READY git builds bb15cd8 dpl_3JZ26VUjX9E5VbmpTyEFa9ZV9A2T (01:37:47Z) and 961d04c dpl_EQ2y4sBmoK7w6dLVpitUc4FPaRGC (01:47:29Z); alias 302 without / 200 with bypass header; POST /api/chat → no_key",
    "sso_protected": true,
-   "env_vars": 0
+   "env_vars": 0,
+   "bypass_secret": true
   }
  },
  "data": {
@@ -77,7 +78,7 @@
    "EXPLICIT_UAE": 43,
    "UNKNOWN": 16
   },
-  "news": 105,
+  "news": 108,
   "edges": 168,
   "hf_models": 154,
   "sentiment_dead_urls_disabled": 2,
@@ -88,7 +89,13 @@
    "UAE-topic": 180,
    "global-discourse": 16
   },
-  "as_of": "2026-10-21"
+  "as_of": "2026-10-21",
+  "sentiment": 274,
+  "sentiment_lanes": {
+   "UAE-topic": 216,
+   "global-discourse": 58
+  },
+  "sentiment_unclassified": 36
  },
  "ondemand": {
   "pipeline_calls": 124,
@@ -220,7 +227,7 @@
   "residue_hits": 0,
   "screenshots_dir": "app/proof/qa-20261021"
  },
- "preview_url": "https://sb-1gnt3nqtj561.vercel.run",
+ "preview_url": "https://sb-4pt9zz78srbe.vercel.run",
  "ui_restyle_20261021": {
   "theme": "white-first neutral (ChatGPT-like)",
   "fallback_tag": "uae-navy-gold-fallback-20261021",
@@ -843,6 +850,167 @@
     "/api/artifacts + ffmpeg on sandboxes",
     "4 html.dark off-ramp tokens"
    ]
+  },
+  "qa_cycle8": {
+   "resumed_at": "2026-10-22T01:25:34Z",
+   "base_sha": "91fa14062677cc22a9c0eebd60cfa14a972ecc65",
+   "origin_delta_since_91fa140": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa8-pre-20261022T01Z",
+    "target": "91fa14062677cc22a9c0eebd60cfa14a972ecc65",
+    "pushed_at": "2026-10-22T01:26:34Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-22T02:07:00Z",
+   "preview_url": "https://sb-4pt9zz78srbe.vercel.run",
+   "sandbox_id": "sbx_o6FAzWrCElYNNsCxkYE8O21hTl1X",
+   "sandbox_created_at": "2026-10-22T01:35:08Z",
+   "commits": [
+    {
+     "sha": "bb15cd8",
+     "utc": "2026-10-22T01:34:57Z",
+     "pushed": "2026-10-22T01:35:45Z",
+     "lane": "B data"
+    },
+    {
+     "sha": "961d04c",
+     "utc": "2026-10-22T01:43:54Z",
+     "pushed": "2026-10-22T01:45:20Z",
+     "lane": "B collision guard"
+    }
+   ],
+   "lane_a": {
+    "automated": false,
+    "reason": "ONDEMAND_API_KEY/ONDEMAND_BASE_URL absent from executor env; vercel CLI policy-blocked; project env 0; Vercel API returns decrypted:false for sensitive values",
+    "alias_chat_reason": "no_key",
+    "alias_get_no_header": 302,
+    "alias_get_bypass": 200,
+    "documented_in": "NEXT_ACTIONS.md #1 (2026-10-22T02:07Z)"
+   },
+   "lane_b": {
+    "sentiment": {
+     "before": 230,
+     "after": 274,
+     "added": 44,
+     "duplicates": 14,
+     "excluded": 12,
+     "added_by_lane": {
+      "UAE-topic": 21,
+      "global-discourse": 23
+     },
+     "report": "qa/2026-10-22-cycle8/laneB/ingest-report.json"
+    },
+    "news": {
+     "before": 108,
+     "after": 108,
+     "added": 0,
+     "duplicate": [
+      "n80cff8de1d TDRA–ITU WAM"
+     ]
+    },
+    "whiteshield": {
+     "source_added": "https://en.wikipedia.org/wiki/Fadi_Farra",
+     "pageId": 77102417,
+     "revision": "2026-02-28T18:08:04Z",
+     "sources": 10,
+     "no_wikipedia_article_for_whiteshield": true
+    }
+   },
+   "gates": {
+    "suite84": {
+     "before": "84/84",
+     "first_pass": "82/84",
+     "after": "84/84",
+     "notes": [
+      "agent3 click-through overlap → fixed 961d04c (c8b 13/13)",
+      "agent4 briefing-generate 305 s timeout once → c8b 14/14"
+     ]
+    },
+    "playwright": {
+     "before": {
+      "listed": 196,
+      "pass": 164,
+      "fail": 3,
+      "env_skip": 29,
+      "not_run": 0
+     },
+     "after": {
+      "listed": 196,
+      "pass": 164,
+      "fail": 3,
+      "env_skip": 29,
+      "not_run": 0
+     },
+     "remaining_failures": [
+      "chat.spec plugin-activity (upstream-perplexity)",
+      "qa-chat-timing desktop (upstream-perplexity)",
+      "qa-chat-timing mobile (upstream-perplexity)"
+     ],
+     "window": "2026-10-22T01:39:20Z/02:01:57Z"
+    },
+    "payload_a_g": {
+     "https_1440": "7/7",
+     "https_390": "5/7 + G skip → F+G re-run 2/2 = 7/7",
+     "https_total": "14/14",
+     "local": "14/14"
+    },
+    "white_ui_guard": {
+     "chromatic": 0,
+     "routes": 12,
+     "bubbles": 274,
+     "fill_opacities": 35
+    },
+    "aa_contrast": {
+     "nodes": 8252,
+     "genuine": 0,
+     "artefacts": 36
+    },
+    "hscroll": "26/26",
+    "residue": {
+     "src_public_dom_network": 0,
+     "binary_fixtures": "unchanged"
+    },
+    "tsc": 0,
+    "build_warnings": 0,
+    "layout": {
+     "rail_expanded": 224,
+     "rail_collapsed": 64,
+     "rail_persisted": true,
+     "topbar": 52,
+     "column": 800,
+     "inspector": 360,
+     "inspector_tabs": [
+      "Plan",
+      "Run"
+     ],
+     "drawer": 280,
+     "cite_preview_390": "318 = 318",
+     "cite_preview_max_w": 109
+    }
+   },
+   "lane_d": {
+    "perplexity_probe": {
+     "utc": "2026-10-22T01:36:16Z",
+     "session": "6ad96886a32a07124b4a88db",
+     "result": "Not enough credits"
+    },
+    "sandbox_chat_coverage": [
+     "upstream",
+     "backoff"
+    ],
+    "workflow_runs_after_0040Z": {
+     "checkpoint": [
+      "6ad960105e60695bc4d05c95 01:00Z success",
+      "6ad96718b28e35aa11d85e23 01:30Z success",
+      "6ad96e20b28e35aa11d85e40 02:00Z success"
+     ],
+     "ingest": [
+      "6ad96e20b28e35aa11d85e51 02:00Z success"
+     ],
+     "briefing": []
+    }
+   },
+   "screenshots": "qa/2026-10-22-cycle8/screenshots/ (after-sentiment/news/watchlist-whiteshield/chat × 1440x900 + 390x844)"
   }
  }
 }

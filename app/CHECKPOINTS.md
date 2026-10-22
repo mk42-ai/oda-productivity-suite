@@ -136,3 +136,31 @@
 | 2026-10-22T00:31:48Z | Commit a70078b test(uae-cc) settings.spec hydration wait (4/4 repeat) |
 | 2026-10-22T00:32–00:34Z | ui-validator on the sandbox: /sentiment (230 grey bubbles, ≥2 opacities, 2 vp), /news (TDRA–ITU + 750,000 present), /chat 390 (engine credit, Lane-A CSS rule served) — all green |
 | 2026-10-22T00:38:56Z | Commit cb8bfe9 test(uae-cc) chat.spec 'Fervo' assertion retired |
+
+## QA cycle 8 — 2026-10-22T01:25Z → 02:07Z (resume from 91fa140; tag `uae-qa8-pre-20261022T01Z` → 91fa140)
+| UTC | Checkpoint |
+|---|---|
+| 2026-10-22T01:25:34Z | Resumed workspace: HEAD 91fa140 = origin/uae-ai-command-centre (no newer commits); main @ be3f7c1; tags bcap-pre-uae-20261020T2130Z→816aaae, uae-navy-gold-fallback-20261021→2008923, uae-qa4-pre→c005420, uae-qa6-pre→3a07efb, uae-qa7-pre→753c146 verified via ls-remote |
+| 2026-10-22T01:26:34Z | Tag `uae-qa8-pre-20261022T01Z` → 91fa14062677cc22a9c0eebd60cfa14a972ecc65 pushed |
+| 2026-10-22T01:26:54Z | Vercel project env list → 0 (precheck for Lane A) |
+| 2026-10-22T01:3x Z | Lane B: Reddit harvest (70 posts) deduped against 230 → +44 / 14 dup / 12 excluded; TDRA–ITU news item = duplicate (108 unchanged); Whiteshield Wikipedia source #10 |
+| 2026-10-22T01:34:57Z | Commit bb15cd8 data(uae-cc) Lane B |
+| 2026-10-22T01:35:08Z | Sandbox sbx_o6FAzWrCElYNNsCxkYE8O21hTl1X created → https://sb-4pt9zz78srbe.vercel.run |
+| 2026-10-22T01:35:45Z | Push 91fa140..bb15cd8 → Vercel dpl_3JZ26VUjX9E5VbmpTyEFa9ZV9A2T READY 01:37:47Z |
+| 2026-10-22T01:36:06–01:36:16Z | Perplexity direct probe (session 6ad96886a32a07124b4a88db) → "Not enough credits" |
+| 2026-10-22T01:36:37Z | Lane A preconditions: VERCEL_TOKEN yes · ONDEMAND_API_KEY/BASE_URL in env **no** · vercel CLI blocked · project env 0 → manual step documented |
+| 2026-10-22T01:37:50Z | Sandbox /health 200: sentiment 274 · news 108 · ondemand_key true |
+| 2026-10-22T01:38:06–01:38:45Z | Sandbox POST /api/chat probes: reason `upstream` (failures 1) then `backoff` |
+| 2026-10-22T01:39:20Z → 02:01:57Z | Full Playwright run on the local build (s1…s5): 196 · 164/3/29/0 |
+| 2026-10-22T01:39:31–01:58:01Z | 84-check on the sandbox: agents 1/2/3/5/4/4b → 82/84 first pass (agent3 overlap, agent4 briefing timeout) |
+| 2026-10-22T01:39:48–01:41:12Z | Lane F: white-ui-guard 0 chromatic (274 bubbles / 35 opacities) · sweep 8,252 nodes / 0 genuine · h-scroll 26/26 · residual-scan 0 in src/DOM/network |
+| 2026-10-22T01:41:16–01:42:12Z | Layout-spec + rail-persistence probes: 224/64 persisted · 52 · 800 · 360 (Plan/Run tabs) · 280 · cite-preview 318 = 318 |
+| 2026-10-22T01:43:54Z | Commit 961d04c data(uae-cc) bubble collision guard; copied + rebuilt in the sandbox 01:44Z |
+| 2026-10-22T01:45:20Z | Push bb15cd8..961d04c → Vercel dpl_EQ2y4sBmoK7w6dLVpitUc4FPaRGC READY 01:47:29Z |
+| 2026-10-22T01:50:58Z | Sandbox `next start` restarted with setsid (stale chunk hash 400s cleared) |
+| 2026-10-22T01:52Z | ui-validator: /sentiment, /news, /watchlist/whiteshield, /chat × 2 vp → 4/4 green (8 PNG) |
+| 2026-10-22T01:53:54Z | Alias probe 961d04c: 302 no header / 200 with bypass; POST /api/chat → `no_key` |
+| 2026-10-22T01:55:29–01:58:01Z | agent4 c8b 14/14 (briefing 44.6 s); 02:00:31Z agent3 c8b 13/13 → **84/84** |
+| 2026-10-22T02:01:06–02:05:15Z | Payload A–G HTTPS: 1440 7/7 · 390 5/7+skip → F+G re-run 2/2 → 14/14 |
+| 2026-10-22T02:05:32Z | Workflow runs since 00:40Z: checkpoint 01:00/01:30/02:00Z success; ingest 02:00Z success; briefing next 02:30Z |
+| 2026-10-22T02:07Z | Docs/state updated in place (QA_REPORT, MISSION_STATE(.json), RESEARCH_COVERAGE, API_HEALTH §G, NEXT_ACTIONS, CHECKPOINTS); docs commit + push |

@@ -445,3 +445,24 @@ So the SSO wall can now be bypassed by QA agents that send the header; the secon
 
 ### Vercel addendum — cycle 6 close (2026-10-21T22:45Z)
 Git builds triggered by this cycle's pushes (REST `GET /v6/deployments`, 21:59:54Z): **e0c3d4b READY** created 21:40:17Z (`oda-productivity-suite-2jgp1bilz-schoolhack-web-team.vercel.app`) and **1c2953c READY** created 21:53:48Z (`oda-productivity-suite-qk3ozg1mf-schoolhack-web-team.vercel.app`), both branch `uae-ai-command-centre`; production still main @ be3f7c1. Env vars still 0 → those previews answer with `ondemand_key:false` (chat/briefing keyless) even when the bypass header is sent.
+
+
+### §G addendum — cycle 8 — 2026-10-22T02:07Z (Lane D probes + Vercel lane)
+Raw files: `qa/2026-10-22-cycle8/laneD/perplexity-probe-0136Z.json`, `sandbox-chat-probe1.sse`, `sandbox-chat-probe2.sse`, `sandbox-health-after.json`, `sandbox-briefing-probe.json`, `executions-{ingest,briefing,checkpoint}[-0205Z].json`, `pre-executed-*.json`; `qa/2026-10-22-cycle8/vercel/`.
+
+| UTC | Call | Result |
+|---|---|---|
+| 01:36:06 | `POST $ONDEMAND_BASE_URL/chat/v1/sessions` (agentIds `["plugin-1722260873"]`, externalUserId `uae_cc_v1-probe`) | HTTP 201, session `6ad96886a32a07124b4a88db` |
+| 01:36:06 → 01:36:16 | `POST …/sessions/6ad96886…/query` (gpt4o-mini, sync, low) "Latest UAE AI news today in one sentence" | 200; answer: **"I couldn't retrieve today's UAE AI news because the news service failed with an 'Not enough credits' error."** → credits STILL EXHAUSTED |
+| pre-executed (~01:0xZ) | `perplexity` plugin-1722260873 · `fetchInternetData` plugin-1713924030 | both `{"error":"Internal server error","message":"Not enough credits"}` |
+| 01:38:06 → 01:38:23 | sandbox `POST /api/chat` ("What has TII announced recently?", pluginIds `["plugin-1722260873"]`) | 200 text/event-stream, 319 frames; `ondemand.error code:"plugin_error"` ("Perplexity returned an upstream error: Agents execution failed"); `ondemand.coverage {web:"unavailable", reason:"upstream", failures:1, nextRetryAt:01:39:14Z}` |
+| 01:38:32 → 01:38:45 | second `POST /api/chat` (thread c8-probe-2) | 200, 230 frames; `ondemand.coverage reason:"backoff"` |
+| 01:38:45 | sandbox `GET /health` | `web_research {available:false, reason:"backoff", failures:1, backoffMinutes:1}` |
+| 01:56:26 → 01:57:10 | sandbox `POST /api/briefing` | 200 in 43.5 s; Verified ×5 / Interpretation ×5 / Concept Demonstration present |
+| 01:35:47 / 02:05:32 | `GET /automation/api/execution/list?workflowID=…` ×3 | checkpoint 6ad7f32e5e60695bc4d052d7: **6ad960105e60695bc4d05c95** 01:00:00Z success 127 ms · **6ad96718b28e35aa11d85e23** 01:30:00Z success 100 ms · **6ad96e20b28e35aa11d85e40** 02:00:00Z success 145 ms; ingest 6ad7f32d5e60695bc4d052cb: **6ad96e20b28e35aa11d85e51** 02:00:00Z cron success 24,619 ms (prev 6ad95200b28e35aa11d85d6c 00:00:00Z success); briefing 6ad7f32e5e60695bc4d052d2: none due after 00:40Z (last 6ad823a85e60695bc4d054a0 2026-10-21T02:30Z cron success; next 02:30Z) |
+
+#### Vercel lane (01:26–01:54Z)
+- Preconditions for automating the env vars (01:36:37Z): `VERCEL_TOKEN` present and working over REST; **`ONDEMAND_API_KEY` / `ONDEMAND_BASE_URL` NOT present in the executor environment** (only the platform's `ON_DEMAND_*` credentials, which are not the app's and are never copied); `vercel` CLI → "BLOCKED by platform policy". Result: no value to set, nothing was guessed; manual step in NEXT_ACTIONS #1.
+- Project `prj_wXz5xY3PNULypuwepaqu1XKa6sP1`: framework vite · rootDirectory app · **env 0** (`{"envs":[],"hiddenProductionEnvCount":0}` at 01:26:54Z, 01:36:37Z, 01:53Z) · protectionBypass 1 · SSO all_except_custom_domains.
+- Git builds this cycle: **bb15cd8** dpl_3JZ26VUjX9E5VbmpTyEFa9ZV9A2T (created 01:35:51Z, READY 01:37:47Z, oda-productivity-suite-bzotc8znw-…); **961d04c** dpl_EQ2y4sBmoK7w6dLVpitUc4FPaRGC (created 01:45:26Z, READY 01:47:29Z, oda-productivity-suite-lid1947vy-…). Production main @ be3f7c1 unchanged.
+- Branch alias at 01:53:54Z: `GET /health` without header → 302; with `x-vercel-protection-bypass` → 200 `{commit:"961d04c", sentiment:274, news:108, ondemand_key:false}`; `POST /api/chat` with header → 200 text/event-stream 0.88 s, `ondemand.error code:"no_key"` ×2 → coverage reason **`no_key`** on the git preview (sandbox: `backoff`).
