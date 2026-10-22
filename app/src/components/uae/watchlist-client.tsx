@@ -17,7 +17,8 @@ export function WatchlistClient({ cards, rootNames }: { cards: Card[]; rootNames
     let xs = cards.filter((c) => (!types.length || types.includes(c.type)) && (emirate === "all" || (c.hq ?? "").toLowerCase().includes(emirate)) && (eco === "all" || c.root === eco)
       && (!ql || `${c.name} ${c.focus.join(" ")} ${c.summary} ${c.hq}`.toLowerCase().includes(ql)));
     xs = [...xs].sort((a, b) => sort === "name" ? a.name.localeCompare(b.name) : sort === "confidence" ? b.confidence - a.confidence : sort === "coverage" ? b.coverage - a.coverage : (b.news + b.voices + b.models) - (a.news + a.voices + a.models));
-    return xs;
+    const airev = xs.find((c) => c.id === "airev");
+    return airev ? [airev, ...xs.filter((c) => c.id !== "airev")] : xs;
   }, [cards, q, types, emirate, sort, eco]);
   const toggle = (id: string) => setCmp((c) => c.includes(id) ? c.filter((x) => x !== id) : c.length >= 4 ? c : [...c, id]);
   const ecos = Object.entries(rootNames).filter(([id]) => cards.filter((c) => c.root === id).length > 1);
@@ -34,12 +35,18 @@ export function WatchlistClient({ cards, rootNames }: { cards: Card[]; rootNames
       </div>
       <ul className={`grid gap-3 sm:grid-cols-2 xl:grid-cols-3 ${cmp.length > 0 ? "pb-24" : ""}`} data-testid="watchlist-grid">
         {shown.map((c) => (
-          <li key={c.id} className="card group relative flex min-w-0 scroll-mt-16 scroll-mb-24 flex-col p-4 transition-colors hover:border-[#D4D4D4]" data-testid="org-card" data-org={c.id}>
+          <li key={c.id} className="card group relative flex min-w-0 scroll-mt-16 scroll-mb-24 flex-col p-4 transition-colors hover:border-[#D4D4D4]" data-testid="org-card" data-org={c.id} data-pinned={c.id === "airev" ? "true" : undefined}>
             <div className="flex items-start gap-3">
               <OrgLogo id={c.id} name={c.name} size={44} />
               <div className="min-w-0 flex-1">
                 <Link href={`/watchlist/${c.id}`} className="block truncate font-semibold tracking-tight after:absolute after:inset-0" title={c.name}>{c.name}</Link>
-                <div className="mt-1 flex flex-wrap items-center gap-1.5"><TypeChip type={c.type} /><span className="text-xs text-muted">{c.hq || "HQ unavailable"}</span></div>
+                <div className="mt-1 flex flex-wrap items-center gap-1.5">
+                  <TypeChip type={c.type} />
+                  {c.id === "airev" && (
+                    <span className="inline-flex items-center rounded-full border border-[#E5E5E5] bg-[#F0F0F0] px-2 py-0.5 text-[11px] font-medium text-[#0D0D0D]" data-testid="pinned-chip">Reference dossier</span>
+                  )}
+                  <span className="text-xs text-muted">{c.hq || "HQ unavailable"}</span>
+                </div>
                 {c.parent && <p className="mt-1 truncate text-[11px] text-muted">part of {c.parent}</p>}
               </div>
             </div>

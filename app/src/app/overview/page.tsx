@@ -8,7 +8,12 @@ export const metadata: Metadata = { title: "National Overview", description: "UA
 export default function OverviewPage() {
   const cov = coverageStats(); const cc = classCounts(); const total = SENTIMENT.length;
   const byType = countBy(ORGS, (o) => o.type); const recent = NEWS.filter((n) => (ageDays(n.date) ?? 999) <= 30);
-  const topOrgs = Object.entries(countBy(NEWS.flatMap((n) => n.org_ids.map((id) => ({ id }))), (x) => x.id)).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const orgNewsCounts = countBy(NEWS.flatMap((n) => n.org_ids.map((id) => ({ id }))), (x) => x.id);
+  const airevNewsCount = orgNewsCounts["airev"] ?? 0;
+  const otherTopOrgs = Object.entries(orgNewsCounts)
+    .filter(([id]) => id !== "airev")
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 7);
   const negJobs = SENTIMENT.filter((r) => r.topic_cluster === "Jobs & skills");
   const explicit = SENTIMENT.filter((r) => r.location_evidence === "EXPLICIT_UAE").length;
   const plat = Object.entries(countBy(SENTIMENT, (r) => r.platform)).sort((a, b) => b[1] - a[1]);
@@ -55,7 +60,25 @@ export default function OverviewPage() {
                 <p className="mt-0.5 text-xs text-muted">{n.publisher || hostOf(n.url) || "source unverified"} · {n.org_ids.map(orgName).join(", ") || "—"}</p></div></li>))}</ul>
         </Panel>
         <Panel title="Most-cited organisations" testId="top-orgs">
-          <ul className="space-y-2">{topOrgs.map(([id, n]) => <li key={id}><Link href={`/watchlist/${id}`} className="flex items-center gap-2 rounded-md p-1 hover:bg-surface-2"><OrgLogo id={id} name={orgName(id)} size={28} /><span className="min-w-0 flex-1 truncate text-sm">{orgName(id)}</span><span className="text-xs tabular-nums text-muted">{n} news</span></Link></li>)}</ul>
+          <ul className="space-y-2">
+            <li key="airev">
+              <Link href="/watchlist/airev" className="flex items-center gap-2 rounded-md p-1 hover:bg-surface-2">
+                <OrgLogo id="airev" name={orgName("airev")} size={28} />
+                <span className="min-w-0 flex-1 truncate text-sm font-medium">{orgName("airev")}</span>
+                <span className="inline-flex items-center rounded-full border border-[#E5E5E5] bg-[#F0F0F0] px-1.5 py-0.5 text-[10px] font-medium text-[#0D0D0D]" data-testid="pinned-chip">Reference dossier</span>
+                <span className="text-xs tabular-nums text-muted">{airevNewsCount} news</span>
+              </Link>
+            </li>
+            {otherTopOrgs.map(([id, n]) => (
+              <li key={id}>
+                <Link href={`/watchlist/${id}`} className="flex items-center gap-2 rounded-md p-1 hover:bg-surface-2">
+                  <OrgLogo id={id} name={orgName(id)} size={28} />
+                  <span className="min-w-0 flex-1 truncate text-sm">{orgName(id)}</span>
+                  <span className="text-xs tabular-nums text-muted">{n} news</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </Panel>
       </div>
 
