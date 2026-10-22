@@ -25,6 +25,9 @@ test.describe("Settings", () => {
   test("editing the user id persists to localStorage", async ({ page }) => {
     await page.goto("/settings");
     const user = page.locator("#set-user");
+    // QA cycle 7: wait for hydration — the controlled input adopts the primed value (INV-001) only once React has mounted; filling before
+    // that raced the hydration and produced "INV-777INV-001" (cycle-6 flake #5, re-seen 00:28Z).
+    await expect(user).toHaveValue("INV-001", { timeout: 15_000 });
     await user.fill("INV-777");
     await user.blur();
     await expect
