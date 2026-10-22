@@ -1,3 +1,15 @@
+# MISSION_STATE — 2026-10-22T00:50Z (QA cycle 7)
+| Lane | Status |
+|---|---|
+| A Mobile run panel | ✅ `.oiu-cite__preview` overflow @390 FIXED (94f16c1): 324 > 318 → **318 = 318**; tooltip anchored to the block, max-width 100%, 2-line clamp, answer `overflow-x: clip`; before/after PNG + measurements in `qa/2026-10-21-cycle7/laneA/`; run-panel-mobile 2/2 repeat on HTTPS; h-scroll 26/26; payload A–G HTTPS 14/14 + local 14/14. |
+| B 84-check | ✅ **84/84**, agent4 twice-stable (c7a + c7b 14/14) after the harness await fix (c20866c) — the cycle-6 miss was a read-before-settled race, not an app bug. |
+| C Playwright | ✅ 196 listed: **164 pass / 3 fail / 29 env-skip / 0 not-run** (cycle 6: 199 · 157/17/25/0). 3 stale run-panel-a11y tests deleted, run-ux ×4 → documented ffmpeg env-skip, settings hydration flake fixed (a70078b), chat.spec 'Fervo' assertion retired (cb8bfe9). Remaining 3 fails = upstream-perplexity only (chat.spec, qa-chat-timing ×2). |
+| D Build | ✅ 'ai' warning ROOT-CAUSED (optional peer dynamic import in @openuidev/react-headless) and silenced via `resolve.alias.ai=false` (6fcf2d8); tsc 0; `next build` exit 0 with **0 warnings** locally and in the sandbox. |
+| E Data | ✅ sentiment **196 → 230** (+34, 0 dup; UAE-topic 195 / global 35; Unclassified 15 new), news **107 → 108** (cyber item merged ×3 sources, TDRA–ITU added), radar governance 5→6 (0b40aed); RESEARCH_COVERAGE + API_HEALTH §G cycle-7 written (1cf2097). Perplexity + fetchInternetData still "Not enough credits" (00:15:07Z probe). |
+| F White-UI guard | ✅ off-ramp 4 (html.dark) · chromatic 0 on 12 routes · AA 0 genuine / 8,226 nodes · h-scroll 26/26 · residue 0 brand in src/public/DOM/network · 230 grey bubbles / 35 fill-opacities · OnDemand/AIREV mention map recorded; 12 after-screenshots. |
+| Vercel | ⚠ env copy IMPOSSIBLE via API (ondemand-hq values `type:sensitive`, `decrypted:false`, no value returned) → manual step documented; project still 0 env vars; Vercel built 0b40aed READY 00:09:47Z; alias GET 302 (no header) / 307→/overview 200 (bypass); POST /api/chat 200 with reason **no_key**. |
+Preview: **https://sb-1gnt3nqtj561.vercel.run** (sbx_OFNqsprkTODzYN3vcvgD1YY2nQvn, created 00:28:03Z, ≈ expires 01:58Z; clean npm ci + build exit 0; /health 200 sentiment 230 · news 108 · ondemand_key true). Pre-cycle tag `uae-qa7-pre-20261021T23Z` → 753c146 (pushed 23:38:19Z). main @ be3f7c1 and all prior tags untouched. Resume step: `git fetch && git checkout uae-ai-command-centre && npm run resume -- --deploy`.
+
 # MISSION_STATE — 2026-10-21T22:45Z (QA cycle 6)
 | Lane | Status |
 |---|---|

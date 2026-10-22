@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-21T22:45:00Z",
+ "updated_at": "2026-10-22T00:50:00Z",
  "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
  "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
  "original": {
@@ -220,7 +220,7 @@
   "residue_hits": 0,
   "screenshots_dir": "app/proof/qa-20261021"
  },
- "preview_url": "https://sb-1p1cmfeo08vc.vercel.run",
+ "preview_url": "https://sb-1gnt3nqtj561.vercel.run",
  "ui_restyle_20261021": {
   "theme": "white-first neutral (ChatGPT-like)",
   "fallback_tag": "uae-navy-gold-fallback-20261021",
@@ -682,6 +682,167 @@
      }
     }
    }
+  },
+  "qa_cycle7": {
+   "resumed_at": "2026-10-21T23:37:08Z",
+   "base_sha": "753c1462e6f79f8f66ca2d4ba3818a4b57e57610",
+   "origin_delta_since_753c146": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa7-pre-20261021T23Z",
+    "target": "753c1462e6f79f8f66ca2d4ba3818a4b57e57610",
+    "pushed_at": "2026-10-21T23:38:19Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-22T00:50:00Z",
+   "preview_url": "https://sb-1gnt3nqtj561.vercel.run",
+   "sandbox_id": "sbx_OFNqsprkTODzYN3vcvgD1YY2nQvn",
+   "sandbox_created_at": "2026-10-22T00:28:03Z",
+   "sandbox_build_id": "x-NQRiHHdLxFwgoq8YiAf",
+   "commits": [
+    {
+     "sha": "6fcf2d8",
+     "utc": "2026-10-22T00:09:00Z",
+     "lane": "D"
+    },
+    {
+     "sha": "94f16c1",
+     "utc": "2026-10-22T00:09:12Z",
+     "lane": "A"
+    },
+    {
+     "sha": "0b40aed",
+     "utc": "2026-10-22T00:09:32Z",
+     "lane": "E"
+    },
+    {
+     "sha": "c20866c",
+     "utc": "2026-10-22T00:13:30Z",
+     "lane": "B+C"
+    },
+    {
+     "sha": "1cf2097",
+     "utc": "2026-10-22T00:25:34Z",
+     "lane": "docs E/F/Vercel"
+    },
+    {
+     "sha": "a70078b",
+     "utc": "2026-10-22T00:31:48Z",
+     "lane": "C"
+    },
+    {
+     "sha": "cb8bfe9",
+     "utc": "2026-10-22T00:38:56Z",
+     "lane": "C"
+    }
+   ],
+   "gates": {
+    "suite84": {
+     "before": "83/84",
+     "after": "84/84",
+     "agent4_rounds": [
+      "c7a 14/14",
+      "c7b 14/14"
+     ]
+    },
+    "playwright": {
+     "before": {
+      "listed": 199,
+      "pass": 157,
+      "fail": 17,
+      "env_skip": 25,
+      "not_run": 0
+     },
+     "after": {
+      "listed": 196,
+      "pass": 164,
+      "fail": 3,
+      "env_skip": 29,
+      "not_run": 0
+     },
+     "remaining_failures": [
+      "chat.spec first activity within 5 s (upstream-perplexity)",
+      "qa-chat-timing desktop tool-card transitions (upstream-perplexity)",
+      "qa-chat-timing mobile tool-card transitions (upstream-perplexity)"
+     ]
+    },
+    "offramp_tokens": {
+     "before": 4,
+     "after": 4
+    },
+    "aa_genuine": {
+     "before": 0,
+     "after": 0,
+     "nodes": 8226
+    },
+    "hscroll": "26/26",
+    "residue_brand_src_dom_network": 0,
+    "payload": {
+     "https": "14/14",
+     "local": "14/14"
+    },
+    "tsc": 0,
+    "build_warnings": {
+     "before": 1,
+     "after": 0
+    },
+    "run_panel_mobile_390": {
+     "before": "324>318 (intermittent)",
+     "after": "318=318"
+    }
+   },
+   "data": {
+    "sentiment": {
+     "before": 196,
+     "after": 230,
+     "added": 34,
+     "duplicates": 0,
+     "lanes": {
+      "UAE-topic": 195,
+      "global-discourse": 35
+     },
+     "classes": {
+      "Neutral/Informational": 97,
+      "Optimists": 40,
+      "Pragmatists": 25,
+      "Skeptics": 23,
+      "Safety Advocates": 18,
+      "Disruption Concerned": 8,
+      "Pessimists/Doomers": 4,
+      "Unclassified": 15
+     }
+    },
+    "news": {
+     "before": 107,
+     "after": 108,
+     "merged": "n00533493fa ×3 sources",
+     "added": [
+      "n80cff8de1d"
+     ]
+    },
+    "radar": {
+     "AI governance & regulation": "5→6"
+    }
+   },
+   "vercel": {
+    "project_env_vars": 0,
+    "env_copy": "impossible — sensitive values return decrypted:false without value",
+    "built": "0b40aed READY 2026-10-22T00:09:47Z dpl_A9qsfBajgMs3193kR6dtgom3F41e",
+    "alias_get_no_header": 302,
+    "alias_get_bypass": "307→/overview 200",
+    "alias_post_api_chat": "200 reason=no_key"
+   },
+   "perplexity_probe": {
+    "utc": "2026-10-22T00:15:07Z",
+    "result": "insufficient credits"
+   },
+   "open": [
+    "Perplexity credits",
+    "Vercel preview env (manual)",
+    "Builders/Regulators taxonomy decision",
+    "old-tenant binary fixtures",
+    "/api/artifacts + ffmpeg on sandboxes",
+    "4 html.dark off-ramp tokens"
+   ]
   }
  }
 }

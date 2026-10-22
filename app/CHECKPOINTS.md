@@ -112,3 +112,27 @@
 | 2026-10-21T22:36:31–22:38:02Z | Sandbox rebuilt with 7c860b7 (BUILD_ID gO-aM2HBEj9kkpYC_QpKs), CSS verified #5D5D5D |
 | 2026-10-21T22:38:20–22:40Z | Post-fix: a11y chat + axe-sweep /chat 4/4; sweep 8,226 nodes / 0 genuine; h-scroll 26/26; residual-scan 0 in src/DOM/network |
 | 2026-10-21T22:45Z | Docs/state updated in place (QA_REPORT, MISSION_STATE(.json), NEXT_ACTIONS, API_HEALTH, RESEARCH_COVERAGE, CHECKPOINTS); final docs commit + push |
+
+## QA cycle 7 — 2026-10-21T23:37Z → 2026-10-22 (resume from 753c146; tag `uae-qa7-pre-20261021T23Z` → 753c146)
+| UTC | Checkpoint |
+|---|---|
+| 2026-10-21T23:37:08Z | Resumed workspace: HEAD 753c146 = origin/uae-ai-command-centre; main @ be3f7c1; tags bcap-pre-uae-20261020T2130Z→816aaae, uae-navy-gold-fallback-20261021→2008923, uae-qa4-pre-20261021T13Z→c005420, uae-qa6-pre-20261021T20Z→3a07efb verified via ls-remote |
+| 2026-10-21T23:38:19Z | Tag `uae-qa7-pre-20261021T23Z` → 753c1462e6f79f8f66ca2d4ba3818a4b57e57610 pushed |
+| 2026-10-21T23:38–23:45Z | Before gates: tsc 0 · `next build` exit 0 + 1 warning (`Can't resolve 'ai'`) · off-ramp 4 (html.dark) · residual-scan 92 hits (0 in src/public/DOM) · Playwright `--list` 199 |
+| 2026-10-21T23:5x–00:07Z | Lane A probe (mocked 60-chip answer, local build of 753c146): 390×844 run-view scrollWidth **324 > 318**, preview right edge 380 px → CSS fix; after rebuild **318 = 318**, previews within [60, 370] |
+| 2026-10-22T00:06:23–00:07:24Z | `next build` after Lane D alias: exit 0, **no 'Compiled with warnings'** |
+| 2026-10-22T00:09:00Z | Commit 6fcf2d8 build(uae-cc) Lane D |
+| 2026-10-22T00:09:12Z | Commit 94f16c1 fix(uae-cc) Lane A |
+| 2026-10-22T00:09:32Z | Commit 0b40aed data(uae-cc) Lane E (sentiment 196→230, news 107→108, radar) |
+| 2026-10-22T00:09:43Z | Push 753c146..0b40aed → Vercel dpl_A9qsfBajgMs3193kR6dtgom3F41e READY (00:09:47Z) |
+| 2026-10-22T00:11:12–00:16:10Z | agent4 (deterministic citation gate) rounds c7a 14/14 + c7b 14/14 on the local build |
+| 2026-10-22T00:13:30Z | Commit c20866c test(uae-cc) Lanes B+C (agent4 await, 3 stale run-panel-a11y tests deleted, run-ux ffmpeg env-skip; list 199→196) |
+| 2026-10-22T00:13:52–00:15:07Z | Vercel lane: project env 0; ondemand-hq env decrypt → `decrypted:false`, no value; alias GET 302 / bypass 307→200; POST /api/chat 200 `no_key`; Perplexity direct probe "insufficient credits" |
+| 2026-10-22T00:17:17–00:20:24Z | agents 1/2/3/5: 11/11 · 14/14 · 13/13 · 32/32 → **84/84** |
+| 2026-10-22T00:21–00:22Z | Lane F: white-ui-guard 12 routes @1440 (0 chromatic, 230 grey bubbles / 35 fill-opacities); sweep 8,226 nodes / 0 genuine AA; h-scroll 26/26; residual-scan 0 brand in src/DOM/network |
+| 2026-10-22T00:23:26Z → | Full Playwright run (local build) s1…s5 |
+| 2026-10-22T00:25:34Z | Commit 1cf2097 docs(uae-cc) Lanes E/F + Vercel evidence |
+| 2026-10-22T00:28:03Z | Sandbox sbx_OFNqsprkTODzYN3vcvgD1YY2nQvn created (https://sb-1gnt3nqtj561.vercel.run); npm ci 592 pkgs 25 s; build exit 0 00:31:41Z (BUILD_ID x-NQRiHHdLxFwgoq8YiAf); /health 200 00:32:32Z (sentiment 230, news 108, ondemand_key true) |
+| 2026-10-22T00:31:48Z | Commit a70078b test(uae-cc) settings.spec hydration wait (4/4 repeat) |
+| 2026-10-22T00:32–00:34Z | ui-validator on the sandbox: /sentiment (230 grey bubbles, ≥2 opacities, 2 vp), /news (TDRA–ITU + 750,000 present), /chat 390 (engine credit, Lane-A CSS rule served) — all green |
+| 2026-10-22T00:38:56Z | Commit cb8bfe9 test(uae-cc) chat.spec 'Fervo' assertion retired |
