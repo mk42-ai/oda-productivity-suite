@@ -1,0 +1,132 @@
+[
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "bubbles-render",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "196 bubbles, counter \"196 / 196 statements\" (dataset 196)",
+  "ts": "2026-10-21T09:50:07.046Z",
+  "shot": "agent3-sentiment-white-bubbles-render-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "hover-tooltip",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "tooltip: Neutral/Informational · 96%Roughly one in ten job listings in 2025 explicitly referenced automation, systems-driven workflows, or process optimisation, even whe",
+  "ts": "2026-10-21T09:50:09.199Z",
+  "shot": "agent3-sentiment-white-hover-tooltip-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "click-through-link",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "evidence-source href=https://www.khaleejtimes.com/jobs/ai-impact-uae-jobs-firms-restructure-avoid-layoffs",
+  "ts": "2026-10-21T09:50:09.798Z",
+  "shot": "agent3-sentiment-white-click-through-link-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "filters",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "Optimists \"37 / 196 statements\" (exp 37); Explicit-UAE \"43 / 196 statements\" (exp 43); Jobs & skills \"35 / 196 statements\" (exp 35)",
+  "ts": "2026-10-21T09:50:12.823Z",
+  "shot": "agent3-sentiment-white-filters-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "time-playback",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "30d window, playhead 2026-10-21 → 2025-10-26 after 2.2 s, visible 2 / 196 statements",
+  "ts": "2026-10-21T09:50:15.585Z",
+  "shot": "agent3-sentiment-white-time-playback-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "pulse-metrics-24h-7d-30d",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "pulse panel contains 24h/7d/30d=true, sampling notice=true; text=\"National PulseLanes: UAE-topic 180 · global-discourse 16 (comparator only; excluded from the pulse table below).Optimists37Pragmatists20Skeptics19Safety Advocates14Disruption Concerned8Pessimists/Doomers3Neutral/Informat\"",
+  "ts": "2026-10-21T09:50:16.891Z",
+  "shot": "agent3-sentiment-white-pulse-metrics-24h-7d-30d-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "bubbles-render",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "196 bubbles, counter \"196 / 196 statements\" (dataset 196)",
+  "ts": "2026-10-21T09:50:18.610Z",
+  "shot": "agent3-sentiment-white-bubbles-render-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "hover-tooltip",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "tooltip: Neutral/Informational · 96%Roughly one in ten job listings in 2025 explicitly referenced automation, systems-driven workflows, or process optimisation, even whe",
+  "ts": "2026-10-21T09:50:20.098Z",
+  "shot": "agent3-sentiment-white-hover-tooltip-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "click-through-link",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "evidence-source href=https://www.khaleejtimes.com/jobs/ai-impact-uae-jobs-firms-restructure-avoid-layoffs",
+  "ts": "2026-10-21T09:50:20.519Z",
+  "shot": "agent3-sentiment-white-click-through-link-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "filters",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "Optimists \"37 / 196 statements\" (exp 37); Explicit-UAE \"43 / 196 statements\" (exp 43); Jobs & skills \"35 / 196 statements\" (exp 35)",
+  "ts": "2026-10-21T09:50:23.923Z",
+  "shot": "agent3-sentiment-white-filters-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "time-playback",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "30d window, playhead 2026-10-21 → 2025-11-05 after 2.2 s, visible 2 / 196 statements",
+  "ts": "2026-10-21T09:50:26.763Z",
+  "shot": "agent3-sentiment-white-time-playback-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "pulse-metrics-24h-7d-30d",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "pulse panel contains 24h/7d/30d=true, sampling notice=true; text=\"National PulseLanes: UAE-topic 180 · global-discourse 16 (comparator only; excluded from the pulse table below).Optimists37Pragmatists20Skeptics19Safety Advocates14Disruption Concerned8Pessimists/Doomers3Neutral/Informat\"",
+  "ts": "2026-10-21T09:50:28.395Z",
+  "shot": "agent3-sentiment-white-pulse-metrics-24h-7d-30d-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "white",
+  "test": "source-urls-http",
+  "viewport": "server",
+  "pass": true,
+  "detail": "126 unique verified URLs: {\"400\":1,\"401\":2,\"402\":1,\"419\":3,\"403/429 bot-wall\":37,\"2xx\":76,\"404/410\":6}; dead(404/410)=6 e.g. https://news.microsoft.com/en-xm/2026/09/agent-365-uae/ https://enterpriseam.com/uae/2026/10/12/ai-adoption-functional-not-embedded/ https://www.khaleejtimes.com/jobs/cooper-fitch-ai-future-of-talent-2027 https://www.emirates247.com/uae/ai-must-earn-trust-before-broader-powers-2026-10-14",
+  "ts": "2026-10-21T09:50:49.533Z",
+  "shot": null
+ }
+]

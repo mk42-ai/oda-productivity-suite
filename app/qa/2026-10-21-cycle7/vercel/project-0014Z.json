@@ -1,0 +1,17 @@
+{
+ "id": "prj_wXz5xY3PNULypuwepaqu1XKa6sP1",
+ "name": "oda-productivity-suite",
+ "framework": "vite",
+ "rootDirectory": "app",
+ "ssoProtection": {
+  "deploymentType": "all_except_custom_domains"
+ },
+ "protectionBypass": {
+  "<redacted>": {
+   "scope": "automation-bypass",
+   "isEnvVar": true,
+   "createdAt": 1792615808541,
+   "createdBy": "KQzTegU28jD9Ioctqs3Purl8"
+  }
+ }
+}

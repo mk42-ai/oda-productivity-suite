@@ -1,0 +1,150 @@
+=== GET https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app/health  (2026-10-21T13:47:08Z)
+status=302 redirect=https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fhealth&nonce=<redacted>
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 13:47:08 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fhealth&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::hphdw-1792590428596-0681c2b8487b
+
+
+=== GET https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app/api/uae/live  (2026-10-21T13:47:08Z)
+status=302 redirect=https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fapi%2Fuae%2Flive&nonce=<redacted>
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 13:47:08 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fapi%2Fuae%2Flive&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::fl6xx-1792590428785-20e9114e1a75
+
+
+=== POST https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app/api/chat  (2026-10-21T13:47:08Z)
+status=401 redirect=
+HTTP/2 401 
+cache-control: no-store, max-age=0
+content-type: application/json
+date: Wed, 21 Oct 2026 13:47:08 GMT
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::c8tjh-1792590428907-a554c74027b2
+content-length: 620
+
+
+=== GET https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app/api/plugins  (2026-10-21T13:47:09Z)
+status=302 redirect=https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fapi%2Fplugins&nonce=<redacted>
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 13:47:09 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fapi%2Fplugins&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::7b2pl-1792590429027-c5aa025514ca
+
+
+=== GET https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app/chat  (2026-10-21T13:47:09Z)
+status=302 redirect=https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fchat&nonce=<redacted>
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 13:47:09 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fchat&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::tfnn6-1792590429143-ba5e09624fbc
+
+
+=== GET https://oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app/health  (2026-10-21T13:47:09Z)
+status=302 redirect=https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app%2Fhealth&nonce=<redacted>
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 13:47:09 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app%2Fhealth&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::c8tjh-1792590429262-e32cb21b0674
+
+
+=== GET https://oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app/api/uae/live  (2026-10-21T13:47:09Z)
+status=302 redirect=https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app%2Fapi%2Fuae%2Flive&nonce=<redacted>
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 13:47:09 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app%2Fapi%2Fuae%2Flive&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::r2prr-1792590429407-8120b5f54288
+
+
+=== POST https://oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app/api/chat  (2026-10-21T13:47:09Z)
+status=401 redirect=
+HTTP/2 401 
+cache-control: no-store, max-age=0
+content-type: application/json
+date: Wed, 21 Oct 2026 13:47:09 GMT
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::pwztn-1792590429485-a8397e8f4a58
+content-length: 609
+
+
+=== GET https://oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app/api/plugins  (2026-10-21T13:47:09Z)
+status=302 redirect=https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app%2Fapi%2Fplugins&nonce=<redacted>
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 13:47:09 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app%2Fapi%2Fplugins&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::s4sl6-1792590429570-9299f4880d6b
+
+
+=== GET https://oda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app/chat  (2026-10-21T13:47:09Z)
+status=302 redirect=https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app%2Fchat&nonce=<redacted>
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 13:47:09 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-k3ir5hhnj-schoolhack-web-team.vercel.app%2Fchat&nonce=<redacted>
+server: Vercel
+set-cookie: _vercel_sso_nonce=<redacted>
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::7hkpb-1792590429691-bf6eb58aaac8
+
+

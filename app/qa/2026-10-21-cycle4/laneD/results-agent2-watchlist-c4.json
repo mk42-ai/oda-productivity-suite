@@ -1,0 +1,142 @@
+[
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "cards-50",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "org-card=50, counter=\"50 / 50\"",
+  "ts": "2026-10-21T14:12:36.783Z",
+  "shot": "agent2-watchlist-c4-cards-50-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "logos-authentic-or-marked",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "6 official icons (all loaded, all sourced from official domains in logos.json), 44 marked monograms \"(no verified official logo)\"; bad=[]",
+  "ts": "2026-10-21T14:12:36.840Z",
+  "shot": null
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "search",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "\"Falcon\" → 3 cards (tii,atrc,ai71)",
+  "ts": "2026-10-21T14:12:37.388Z",
+  "shot": "agent2-watchlist-c4-search-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "search-empty-state",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "empty-state visible=true",
+  "ts": "2026-10-21T14:12:37.846Z",
+  "shot": "agent2-watchlist-c4-search-empty-state-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "filter-type",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "government filter → 12 (expected 12)",
+  "ts": "2026-10-21T14:12:38.711Z",
+  "shot": "agent2-watchlist-c4-filter-type-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "compare",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "tray=\"Compare (3/4): G42 EDGE Group Technology Innovation Compare\" → url=/watchlist/compare?ids=g42,edge,tii table has G42/EDGE/TII; filter reset → 50 cards",
+  "ts": "2026-10-21T14:12:42.125Z",
+  "shot": "agent2-watchlist-c4-compare-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "dossiers-all-50-open",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "50/50 dossiers HTTP 200 with matching title (45 s)",
+  "ts": "2026-10-21T14:13:26.745Z",
+  "shot": "agent2-watchlist-c4-dossiers-all-50-open-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "cards-50",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "org-card=50, counter=\"50 / 50\"",
+  "ts": "2026-10-21T14:13:28.023Z",
+  "shot": "agent2-watchlist-c4-cards-50-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "logos-authentic-or-marked",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "6 official icons (all loaded, all sourced from official domains in logos.json), 44 marked monograms \"(no verified official logo)\"; bad=[]",
+  "ts": "2026-10-21T14:13:28.051Z",
+  "shot": null
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "search",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "\"Falcon\" → 3 cards (tii,atrc,ai71)",
+  "ts": "2026-10-21T14:13:28.596Z",
+  "shot": "agent2-watchlist-c4-search-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "search-empty-state",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "empty-state visible=true",
+  "ts": "2026-10-21T14:13:29.039Z",
+  "shot": "agent2-watchlist-c4-search-empty-state-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "filter-type",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "government filter → 12 (expected 12)",
+  "ts": "2026-10-21T14:13:29.845Z",
+  "shot": "agent2-watchlist-c4-filter-type-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "compare",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "tray=\"Compare (3/4): G42 EDGE Group Technology Innovation Compare\" → url=/watchlist/compare?ids=g42,edge,tii table has G42/EDGE/TII; filter reset → 50 cards",
+  "ts": "2026-10-21T14:13:33.204Z",
+  "shot": "agent2-watchlist-c4-compare-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c4",
+  "test": "dossier-mobile",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "title=\"G42\", no horizontal overflow=true",
+  "ts": "2026-10-21T14:13:34.100Z",
+  "shot": "agent2-watchlist-c4-dossier-mobile-390x844.jpg"
+ }
+]

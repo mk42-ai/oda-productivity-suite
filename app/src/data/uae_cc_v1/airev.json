@@ -1,0 +1,849 @@
+{
+  "meta": {
+    "namespace": "uae_cc_v1",
+    "id": "airev",
+    "name": "AIREV",
+    "legal_name": "AIREV HOLDING LIMITED",
+    "provenance_legend": "Verified \u00b7 company-reported \u00b7 reported/unconfirmed \u00b7 internal (unverified) \u00b7 dead link \u2192 archive",
+    "generated_at": "2026-10-22T04:00:00Z"
+  },
+  "identity": {
+    "legal_name": "AIREV HOLDING LIMITED",
+    "brand": "AIREV",
+    "hq": "Abu Dhabi",
+    "hq_source": "LinkedIn",
+    "founded": "September 2023",
+    "founded_source": "The National",
+    "founders": [
+      {
+        "name": "Muhammad Khalid",
+        "role": "Founder & CEO"
+      },
+      {
+        "name": "Kayaan Unwalla",
+        "role": "Co-Founder"
+      },
+      {
+        "name": "Dr Youssef Youssef",
+        "role": "Co-Founder & COO"
+      }
+    ],
+    "chairman": {
+      "name": "H.E. Dr Thani bin Ahmed Al Zeyoudi",
+      "role": "Minister of Foreign Trade",
+      "appointed": "2026-06-23",
+      "source": "WAM 23 Jun 2026"
+    },
+    "headcount": {
+      "airev": {
+        "employees": 27,
+        "band": "11-50 employees",
+        "followers": 3487,
+        "source": "LinkedIn (company page id 101034758)"
+      },
+      "ondemand": {
+        "employees": 24,
+        "followers": 2711,
+        "source": "LinkedIn (company page id 103608730; HQ Dubai; founded 2024; tagline: 'The World\\'s First Decentralized AI Operating System.')"
+      }
+    },
+    "offices": [
+      {
+        "location": "Abu Dhabi",
+        "type": "Global HQ",
+        "entity": "AIREV HOLDING LIMITED"
+      },
+      {
+        "location": "Dubai",
+        "type": "Product & Engineering",
+        "entity": "OnDemand"
+      }
+    ],
+    "websites": [
+      {
+        "label": "AIREV (Official)",
+        "url": "https://airev.ae",
+        "status": "verified"
+      },
+      {
+        "label": "OnDemand (Platform)",
+        "url": "https://on-demand.io",
+        "status": "verified"
+      }
+    ],
+    "emails": [
+      "info@airev.ae",
+      "usinfo@airev.ae",
+      "security@airev.ae",
+      "info@on-demand.io"
+    ],
+    "github": [
+      {
+        "label": "airevllc",
+        "url": "https://github.com/airevllc"
+      },
+      {
+        "label": "on-demand-io",
+        "url": "https://github.com/on-demand-io"
+      }
+    ],
+    "social": [
+      {
+        "platform": "Instagram (AIREV)",
+        "url": "https://www.instagram.com/airevtol"
+      },
+      {
+        "platform": "Instagram (OnDemand)",
+        "url": "https://www.instagram.com/ondemand.ai"
+      },
+      {
+        "platform": "YouTube (AIREV)",
+        "url": "https://www.youtube.com/channel/UCjD8Me28M91f_R04Zmmkv2Q"
+      },
+      {
+        "platform": "Facebook (AIREV)",
+        "url": "https://www.facebook.com/airevtol"
+      },
+      {
+        "platform": "Facebook (OnDemand)",
+        "url": "https://www.facebook.com/demandio"
+      }
+    ]
+  },
+  "leadership": [
+    {
+      "name": "Muhammad Khalid",
+      "role": "Founder & CEO",
+      "source": "The National",
+      "linkedin_url": "unverified \u2014 lookup rate-limited"
+    },
+    {
+      "name": "Kayaan Unwalla",
+      "role": "Co-Founder",
+      "source": "The National",
+      "linkedin_url": "unverified \u2014 lookup rate-limited"
+    },
+    {
+      "name": "Dr Youssef Youssef",
+      "role": "Co-Founder & COO",
+      "source": "The National",
+      "linkedin_url": "unverified \u2014 lookup rate-limited"
+    },
+    {
+      "name": "H.E. Dr Thani bin Ahmed Al Zeyoudi",
+      "role": "Chairman (Minister of Foreign Trade)",
+      "source": "WAM (23 Jun 2026)",
+      "linkedin_url": "unverified \u2014 lookup rate-limited"
+    }
+  ],
+  "disambiguation": {
+    "summary": "\"AI REV\" (https://www.linkedin.com/company/ai-rev/ , airev.us, New York/Warsaw AI consulting, founded 2018) and airev.ai (redirects to airev.us) are DIFFERENT entities; also \"AIREV.aero\"/eVTOL data is a different entity.",
+    "entities": [
+      {
+        "name": "AI REV (airev.us / airev.ai)",
+        "relationship": "Different entity",
+        "description": "New York and Warsaw AI consulting firm founded in 2018. airev.ai redirects to airev.us. Holds LinkedIn page id ai-rev. Has no corporate or operational affiliation with AIREV HOLDING LIMITED in Abu Dhabi.",
+        "url": "https://airev.us",
+        "linkedin_url": "https://www.linkedin.com/company/ai-rev/"
+      },
+      {
+        "name": "AIR EV / AIREV.aero",
+        "relationship": "Different entity",
+        "description": "Personal electric aviation and eVTOL manufacturer associated with Rani Plaut. Completely distinct from AIREV agentic AI enterprise software.",
+        "url": "https://airev.aero"
+      }
+    ]
+  },
+  "platform": {
+    "name": "OnDemand",
+    "description": "Agentic AI platform offering autonomous agent workflows and distributed execution.",
+    "api_base": "api.on-demand.io",
+    "apis": [
+      {
+        "name": "Chat API",
+        "scope": "sessions + queries",
+        "status": "active"
+      },
+      {
+        "name": "Media API",
+        "scope": "ingestion and multimodal processing",
+        "status": "active"
+      },
+      {
+        "name": "Agents/Plugins API",
+        "scope": "agent discovery and integration",
+        "status": "active"
+      },
+      {
+        "name": "Workflows API",
+        "scope": "Agents Flow Builder visual and programmatic orchestration",
+        "status": "active"
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Users",
+        "value": "4M+",
+        "provenance": "company-reported"
+      },
+      {
+        "label": "Active agents",
+        "value": "300+",
+        "provenance": "company-reported"
+      },
+      {
+        "label": "Languages supported",
+        "value": "50+",
+        "provenance": "company-reported"
+      },
+      {
+        "label": "Tokens processed (Q2 2026)",
+        "value": "6.8T",
+        "provenance": "company-reported"
+      },
+      {
+        "label": "Launch traction",
+        "value": "Launched July 2024 with Core42, 25,000 users in first 6 weeks",
+        "provenance": "company-reported"
+      }
+    ],
+    "engine_credit": "This very app uses the OnDemand Chat & Workflows APIs (engine credit)."
+  },
+  "funding_and_valuation": {
+    "status": "reported, unconfirmed",
+    "valuation": "Reported ~US$200M (reported, unconfirmed; exact amounts not publicly disclosed)",
+    "series": "Series A2 in progress (reported, unconfirmed)",
+    "public_rounds": [
+      {
+        "stage": "UAE Market Entry via NextGenFDI",
+        "date": "2024-02",
+        "investor": "Core42 (G42 company, anchor via NextGenFDI)",
+        "source": "WAM (Feb 2024)",
+        "provenance": "verified"
+      },
+      {
+        "stage": "Investment",
+        "date": "2025-04",
+        "investor": "VentureWave Capital",
+        "source": "Zawya (Apr 2025 \u2014 archive fallback)",
+        "provenance": "verified"
+      },
+      {
+        "stage": "Investment",
+        "date": "2026-06",
+        "investor": "Titian Capital",
+        "source": "WAM (Jun 2026)",
+        "provenance": "verified"
+      },
+      {
+        "stage": "Valuation & Series A2",
+        "date": "2026",
+        "investor": "Growth syndicate",
+        "source": "Financial press reporting",
+        "provenance": "reported/unconfirmed",
+        "note": "Reported ~US$200M valuation and Series A2 in progress \u2014 status reported, unconfirmed; exact amounts not publicly disclosed."
+      }
+    ],
+    "internal_documents": [
+      {
+        "title": "AIREV INVESTMENT MEMORANDUM",
+        "provenance": "internal document (unverified publicly)",
+        "figures": "not publicly disclosed",
+        "confidence": "low"
+      },
+      {
+        "title": "Series A2 term sheet (redacted)",
+        "provenance": "internal document (unverified publicly)",
+        "figures": "not publicly disclosed",
+        "confidence": "low"
+      },
+      {
+        "title": "A US growth investor term sheet (internal, unverified)",
+        "provenance": "internal document (unverified publicly)",
+        "figures": "not publicly disclosed",
+        "confidence": "low"
+      },
+      {
+        "title": "Chairman strategic overview",
+        "provenance": "internal document (unverified publicly)",
+        "figures": "not publicly disclosed",
+        "confidence": "low"
+      },
+      {
+        "title": "ADX listing landscape",
+        "provenance": "internal document (unverified publicly)",
+        "figures": "not publicly disclosed",
+        "confidence": "low"
+      }
+    ]
+  },
+  "partnerships": [
+    {
+      "partner": "Core42",
+      "date": "2024-02",
+      "role": "Anchor partner & investor via NextGenFDI programme",
+      "status": "active",
+      "provenance": "verified",
+      "source_url": "https://www.wam.ae/en/article/nextgenfdi-airev-core42-2024"
+    },
+    {
+      "partner": "Tenstorrent",
+      "date": "2025-06-25",
+      "role": "UAE-developed agentic-AI stack for global deployment",
+      "status": "active",
+      "provenance": "verified",
+      "source_url": "https://tenstorrent.com/vision/airev-partners-with-tenstorrent"
+    },
+    {
+      "partner": "Intel MoU",
+      "date": "2025-10-14",
+      "role": "Enterprise AI partnership signed at GITEX GLOBAL 2025",
+      "status": "active",
+      "provenance": "press coverage \u2014 original URL dead, archive fallback",
+      "source_url": "https://web.archive.org/web/2026/https://www.middleeastainews.com/p/airev-intel-mou-gitex-2025"
+    },
+    {
+      "partner": "Supermicro",
+      "date": "2025-10",
+      "role": "AS-2115HV-TNRT appliance 'Certified by AIREV'",
+      "status": "active",
+      "provenance": "press coverage \u2014 original Zawya URL dead, archive fallback",
+      "source_url": "https://web.archive.org/web/2026/https://www.zawya.com/en/press-release/companies-news/supermicro-airev-certified-2025"
+    },
+    {
+      "partner": "Intel (on-device AI-PC)",
+      "date": "2025-12-18",
+      "role": "Launch of fully on-device AI-PC agents on Intel Core Ultra (AIREV-Intel AIPC MOU December 2025 exists internally)",
+      "status": "active",
+      "provenance": "press coverage \u2014 original gecnewswire URL dead, archive fallback",
+      "source_url": "https://web.archive.org/web/2026/https://gecnewswire.com/airev-intel-on-device-ai-agents"
+    },
+    {
+      "partner": "Redington",
+      "date": "2026-07-22",
+      "role": "Distribution agreement for OnDemand across GCC and Africa",
+      "status": "active",
+      "provenance": "verified",
+      "source_url": "https://techafricanews.com/2026/07/22/airev-partners-with-redington-to-expand-uae-built-agentic-ai-across-gcc-and-africa/"
+    },
+    {
+      "partner": "Qualcomm",
+      "date": "2026-08-13",
+      "role": "Dragonwing agreement \u2014 autonomous AI across enterprise and government environments",
+      "status": "active",
+      "provenance": "verified",
+      "source_url": "https://gulfnews.com/business/corporate-news/airev-and-qualcomm-to-advance-autonomous-ai-across-enterprise-and-government-environments-1.500639938"
+    },
+    {
+      "partner": "AD Ports",
+      "date": "2025",
+      "role": "Port and logistics autonomous AI deployment",
+      "status": "announced (document in library; public URL not verified)",
+      "provenance": "internal document (unverified publicly)",
+      "source_doc": "AIREV_ADPorts_Press_Release.pdf"
+    },
+    {
+      "partner": "Moro Hub",
+      "date": "2025",
+      "role": "Green data centre and government cloud integration",
+      "status": "internal document (unverified publicly)",
+      "provenance": "internal document (unverified publicly)",
+      "source_doc": "Moro Hub response one-pager"
+    },
+    {
+      "partner": "e& (Etisalat)",
+      "date": "2025",
+      "role": "e& OnDemand programme partnership MoU",
+      "status": "draft, unverified publicly",
+      "provenance": "internal document (unverified publicly)",
+      "source_doc": "e& OnDemand programme MoU (DRAFT)"
+    },
+    {
+      "partner": "UXE",
+      "date": "2025",
+      "role": "Agentic-AI enterprise solution partnership",
+      "status": "announced (document in library; public URL not verified)",
+      "provenance": "internal document (unverified publicly)",
+      "source_doc": "UXE agentic-AI partnership press release pdf in library"
+    },
+    {
+      "partner": "AlphaData",
+      "date": "2025",
+      "role": "Enterprise systems integration",
+      "status": "mentioned in internal materials \u2014 unverified publicly",
+      "provenance": "internal document (unverified publicly)"
+    },
+    {
+      "partner": "Kairoswealth",
+      "date": "2025",
+      "role": "Wealth management AI agents",
+      "status": "mentioned in internal materials \u2014 unverified publicly",
+      "provenance": "internal document (unverified publicly)"
+    },
+    {
+      "partner": "AWS Marketplace",
+      "date": "2025",
+      "role": "OnDemand AI Platform catalog listing",
+      "status": "company-stated",
+      "provenance": "verified",
+      "source_url": "https://aws.amazon.com/marketplace/pp/prodview-jtbv7hp35cvbe"
+    },
+    {
+      "partner": "Cisco AI ISV Showcase",
+      "date": "2025",
+      "role": "Partner locator and enterprise AI solution showcase",
+      "status": "company-stated",
+      "provenance": "verified",
+      "source_url": "https://locatr.cloudapps.cisco.com/WWChannels/LOCATR/pf/index.jsp"
+    },
+    {
+      "partner": "SOC 2 Type I/II & ISO Compliance",
+      "date": "2026",
+      "role": "Security and compliance certifications",
+      "status": "self-reported (LinkedIn), unverified",
+      "provenance": "unverified"
+    },
+    {
+      "partner": "Presight\u2013AIREV link",
+      "date": "2026",
+      "role": "Collaboration / data pipeline link",
+      "status": "NOT VERIFIED",
+      "provenance": "unverified"
+    },
+    {
+      "partner": "Titan Capital",
+      "date": "2026",
+      "role": "Mentioned in secondary aggregator listings (distinct from Titian Capital)",
+      "status": "NOT VERIFIED",
+      "provenance": "unverified"
+    },
+    {
+      "partner": "Tenstorrent data-centre LOI",
+      "date": "2026",
+      "role": "Reported LOI for dedicated AI compute clusters",
+      "status": "NOT VERIFIED",
+      "provenance": "unverified"
+    }
+  ],
+  "announcements": [
+    {
+      "date": "2023-09",
+      "headline": "AIREV founded in Abu Dhabi",
+      "event": "AIREV founded in Abu Dhabi by Muhammad Khalid, Kayaan Unwalla and Dr Youssef Youssef (The National).",
+      "source_url": "https://www.thenationalnews.com/business/technology/",
+      "provenance": "verified"
+    },
+    {
+      "date": "2024-02",
+      "headline": "NextGenFDI entry anchored by Core42",
+      "event": "Entered the UAE via NextGenFDI, anchored by Core42 (G42 company).",
+      "source_url": "https://www.wam.ae/en/article/nextgenfdi-airev-core42-2024",
+      "provenance": "verified"
+    },
+    {
+      "date": "2024-07",
+      "headline": "OnDemand platform launched with Core42",
+      "event": "OnDemand launched with Core42; 25,000 users in the first six weeks (company-reported).",
+      "source_url": "https://www.wam.ae/en/article/ondemand-launch-core42-2024",
+      "provenance": "verified"
+    },
+    {
+      "date": "2025-04",
+      "headline": "VentureWave Capital investment in AIREV",
+      "event": "VentureWave Capital investment.",
+      "source_url": "https://web.archive.org/web/2026/https://www.zawya.com/en/press-release/companies-news/venturewave-airev-2025",
+      "provenance": "archive fallback"
+    },
+    {
+      "date": "2025-06-25",
+      "headline": "Tenstorrent partnership for global agentic AI stack",
+      "event": "Tenstorrent partnership \u2014 UAE-developed agentic-AI stack for global deployment.",
+      "source_url": "https://tenstorrent.com/vision/airev-partners-with-tenstorrent",
+      "provenance": "verified"
+    },
+    {
+      "date": "2025-10-14",
+      "headline": "Intel MoU signed at GITEX GLOBAL 2025",
+      "event": "Intel MoU signed at GITEX GLOBAL 2025.",
+      "source_url": "https://web.archive.org/web/2026/https://www.middleeastainews.com/p/airev-intel-mou-gitex-2025",
+      "provenance": "archive fallback"
+    },
+    {
+      "date": "2025-10",
+      "headline": "Supermicro AS-2115HV-TNRT Certified by AIREV",
+      "event": "Supermicro AS-2115HV-TNRT 'Certified by AIREV'.",
+      "source_url": "https://web.archive.org/web/2026/https://www.zawya.com/en/press-release/companies-news/supermicro-airev-certified-2025",
+      "provenance": "archive fallback"
+    },
+    {
+      "date": "2025-12-18",
+      "headline": "Intel and AIREV launch on-device AI-PC agents",
+      "event": "Intel and AIREV launch fully on-device AI-PC agents (Intel Core Ultra).",
+      "source_url": "https://web.archive.org/web/2026/https://gecnewswire.com/airev-intel-on-device-ai-agents",
+      "provenance": "archive fallback"
+    },
+    {
+      "date": "2026-06-23",
+      "headline": "Minister of Foreign Trade named Chairman",
+      "event": "H.E. Dr Thani bin Ahmed Al Zeyoudi, Minister of Foreign Trade, named Chairman (WAM).",
+      "source_url": "https://www.wam.ae/en/article/airev-chairman-al-zeyoudi-2026-06-23",
+      "provenance": "verified"
+    },
+    {
+      "date": "2026-06",
+      "headline": "6.8T tokens processed in Q2 2026",
+      "event": "6.8T tokens processed in Q2 2026 (company-reported).",
+      "source_url": "https://on-demand.io",
+      "provenance": "company-reported"
+    },
+    {
+      "date": "2026-07-22",
+      "headline": "Redington distribution across GCC and Africa",
+      "event": "Redington distribution agreement for OnDemand across the GCC and Africa (WAM / TechAfrica).",
+      "source_url": "https://techafricanews.com/2026/07/22/airev-partners-with-redington-to-expand-uae-built-agentic-ai-across-gcc-and-africa/",
+      "provenance": "verified"
+    },
+    {
+      "date": "2026-08-13",
+      "headline": "Qualcomm Dragonwing agreement for autonomous AI",
+      "event": "Qualcomm Dragonwing agreement \u2014 autonomous AI across enterprise and government environments (Gulf News).",
+      "source_url": "https://gulfnews.com/business/corporate-news/airev-and-qualcomm-to-advance-autonomous-ai-across-enterprise-and-government-environments-1.500639938",
+      "provenance": "verified"
+    }
+  ],
+  "latest_linkedin_posts": {
+    "available": false,
+    "message": "Live post feed unavailable in this build (LinkedIn rate-limited during research, HTTP 429) \u2014 open the company pages.",
+    "company_pages": [
+      {
+        "name": "AIREV Holding Limited",
+        "url": "https://www.linkedin.com/company/airev-holding-limited/"
+      },
+      {
+        "name": "OnDemand",
+        "url": "https://www.linkedin.com/company/on-demandio/"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "n": 1,
+      "title": "TechAfrica News \u2014 AIREV Partners with Redington to Expand UAE-Built Agentic AI Across GCC and Africa",
+      "url": "https://techafricanews.com/2026/07/22/airev-partners-with-redington-to-expand-uae-built-agentic-ai-across-gcc-and-africa/",
+      "publisher": "TechAfrica News",
+      "published_at": "2026-07-22",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 2,
+      "title": "OnDemand Platform \u2014 Official Website",
+      "url": "https://on-demand.io",
+      "publisher": "AIREV",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 3,
+      "title": "AIREV Official Website",
+      "url": "https://airev.ae",
+      "publisher": "AIREV",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 4,
+      "title": "The National \u2014 AIREV founding, HQ and founders",
+      "url": "https://www.thenationalnews.com/business/technology/",
+      "publisher": "The National",
+      "published_at": "2023-09",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 5,
+      "title": "WAM \u2014 NextGenFDI AIREV entry anchored by Core42",
+      "url": "https://www.wam.ae/en/article/nextgenfdi-airev-core42-2024",
+      "publisher": "WAM",
+      "published_at": "2024-02",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 6,
+      "title": "WAM \u2014 OnDemand launch with Core42",
+      "url": "https://www.wam.ae/en/article/ondemand-launch-core42-2024",
+      "publisher": "WAM",
+      "published_at": "2024-07",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 7,
+      "title": "WAM \u2014 Minister of Foreign Trade Al Zeyoudi named AIREV Chairman",
+      "url": "https://www.wam.ae/en/article/airev-chairman-al-zeyoudi-2026-06-23",
+      "publisher": "WAM",
+      "published_at": "2026-06-23",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 8,
+      "title": "Tenstorrent Newsroom \u2014 AIREV partners with Tenstorrent for agentic AI stack",
+      "url": "https://tenstorrent.com/vision/airev-partners-with-tenstorrent",
+      "publisher": "Tenstorrent",
+      "published_at": "2025-06-25",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 9,
+      "title": "Gulf News \u2014 AIREV and Qualcomm to advance autonomous AI across enterprise and government",
+      "url": "https://gulfnews.com/business/corporate-news/airev-and-qualcomm-to-advance-autonomous-ai-across-enterprise-and-government-environments-1.500639938",
+      "publisher": "Gulf News",
+      "published_at": "2026-08-13",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 10,
+      "title": "Zawya \u2014 VentureWave Capital invests in AIREV",
+      "url": "https://www.zawya.com/en/press-release/companies-news/venturewave-airev-2025",
+      "archive_url": "https://web.archive.org/web/2026/https://www.zawya.com/en/press-release/companies-news/venturewave-airev-2025",
+      "publisher": "Zawya",
+      "published_at": "2025-04",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "dead \u2014 archive fallback"
+    },
+    {
+      "n": 11,
+      "title": "Zawya \u2014 Supermicro AS-2115HV-TNRT Certified by AIREV",
+      "url": "https://www.zawya.com/en/press-release/companies-news/supermicro-airev-certified-2025",
+      "archive_url": "https://web.archive.org/web/2026/https://www.zawya.com/en/press-release/companies-news/supermicro-airev-certified-2025",
+      "publisher": "Zawya",
+      "published_at": "2025-10",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "dead \u2014 archive fallback"
+    },
+    {
+      "n": 12,
+      "title": "Middle East AI News \u2014 AIREV and Intel MoU signed at GITEX GLOBAL 2025",
+      "url": "https://www.middleeastainews.com/p/airev-intel-mou-gitex-2025",
+      "archive_url": "https://web.archive.org/web/2026/https://www.middleeastainews.com/p/airev-intel-mou-gitex-2025",
+      "publisher": "Middle East AI News",
+      "published_at": "2025-10-14",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "dead \u2014 archive fallback"
+    },
+    {
+      "n": 13,
+      "title": "GEC Newswire \u2014 AIREV and Intel launch on-device AI-PC agents",
+      "url": "https://gecnewswire.com/airev-intel-on-device-ai-agents",
+      "archive_url": "https://web.archive.org/web/2026/https://gecnewswire.com/airev-intel-on-device-ai-agents",
+      "publisher": "GEC Newswire",
+      "published_at": "2025-12-18",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "dead \u2014 archive fallback"
+    },
+    {
+      "n": 14,
+      "title": "LinkedIn Company Profile \u2014 AIREV HOLDING LIMITED",
+      "url": "https://www.linkedin.com/company/airev-holding-limited/",
+      "publisher": "LinkedIn",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 15,
+      "title": "LinkedIn Product Company Profile \u2014 OnDemand",
+      "url": "https://www.linkedin.com/company/on-demandio/",
+      "publisher": "LinkedIn",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 16,
+      "title": "LinkedIn Company Profile \u2014 AI REV (Disambiguation Entity)",
+      "url": "https://www.linkedin.com/company/ai-rev/",
+      "publisher": "LinkedIn",
+      "published_at": "2018",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 17,
+      "title": "AI REV Website (Disambiguation Entity \u2014 airev.us / airev.ai)",
+      "url": "https://airev.us",
+      "publisher": "AI REV",
+      "published_at": "2018",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 18,
+      "title": "AWS Marketplace \u2014 OnDemand AI Platform Listing",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-jtbv7hp35cvbe",
+      "publisher": "Amazon Web Services",
+      "published_at": "2025",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 19,
+      "title": "Cisco Partner Locator \u2014 AIREV / OnDemand ISV Showcase",
+      "url": "https://locatr.cloudapps.cisco.com/WWChannels/LOCATR/pf/index.jsp",
+      "publisher": "Cisco Systems",
+      "published_at": "2025",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 20,
+      "title": "42 Network Blog \u2014 Muhammad Khalid Profile (Founder & CEO of AIREV)",
+      "url": "https://www.42network.org/blog/whos-behind-42-muhammed-khaled-founder-ceo-of-airev/",
+      "publisher": "42 Network",
+      "published_at": "2024",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 21,
+      "title": "GitHub \u2014 AIREV Organisation",
+      "url": "https://github.com/airevllc",
+      "publisher": "GitHub",
+      "published_at": "2024",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 22,
+      "title": "GitHub \u2014 OnDemand Platform Organisation",
+      "url": "https://github.com/on-demand-io",
+      "publisher": "GitHub",
+      "published_at": "2024",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 23,
+      "title": "Instagram \u2014 AIREV Official",
+      "url": "https://www.instagram.com/airevtol",
+      "publisher": "Instagram",
+      "published_at": "2024",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 24,
+      "title": "Instagram \u2014 OnDemand Platform Official",
+      "url": "https://www.instagram.com/ondemand.ai",
+      "publisher": "Instagram",
+      "published_at": "2024",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 25,
+      "title": "YouTube \u2014 AIREV Official Channel",
+      "url": "https://www.youtube.com/channel/UCjD8Me28M91f_R04Zmmkv2Q",
+      "publisher": "YouTube",
+      "published_at": "2024",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 26,
+      "title": "Facebook \u2014 AIREV Official Page",
+      "url": "https://www.facebook.com/airevtol",
+      "publisher": "Facebook",
+      "published_at": "2024",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 27,
+      "title": "Facebook \u2014 OnDemand Official Page",
+      "url": "https://www.facebook.com/demandio",
+      "publisher": "Facebook",
+      "published_at": "2024",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "verified"
+    },
+    {
+      "n": 28,
+      "title": "AIREV INVESTMENT MEMORANDUM.pdf",
+      "url": "internal://media/AIREV_INVESTMENT_MEMORANDUM.pdf",
+      "publisher": "Internal Data Room",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "unverified"
+    },
+    {
+      "n": 29,
+      "title": "Series A2 term sheet (redacted).pdf",
+      "url": "internal://media/Series_A2_Term_Sheet_Redacted.pdf",
+      "publisher": "Internal Data Room",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "unverified"
+    },
+    {
+      "n": 30,
+      "title": "A US growth investor term sheet (internal, unverified)",
+      "url": "internal://media/US_Growth_Investor_Term_Sheet.pdf",
+      "publisher": "Internal Data Room",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "unverified"
+    },
+    {
+      "n": 31,
+      "title": "Chairman strategic overview.pdf",
+      "url": "internal://media/Chairman_Strategic_Overview.pdf",
+      "publisher": "Internal Data Room",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "unverified"
+    },
+    {
+      "n": 32,
+      "title": "ADX listing landscape.pdf",
+      "url": "internal://media/ADX_Listing_Landscape.pdf",
+      "publisher": "Internal Data Room",
+      "published_at": "2026",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "unverified"
+    },
+    {
+      "n": 33,
+      "title": "AIREV_ADPorts_Press_Release.pdf",
+      "url": "internal://media/AIREV_ADPorts_Press_Release.pdf",
+      "publisher": "Internal Media Library",
+      "published_at": "2025",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "unverified"
+    },
+    {
+      "n": 34,
+      "title": "AIREV-Intel AIPC MOU December 2025.pdf",
+      "url": "internal://media/AIREV-Intel_AIPC_MOU_December_2025.pdf",
+      "publisher": "Internal Media Library",
+      "published_at": "2025-12",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "unverified"
+    },
+    {
+      "n": 35,
+      "title": "UXE agentic-AI partnership press release.pdf",
+      "url": "internal://media/UXE_Agentic_AI_Partnership_Press_Release.pdf",
+      "publisher": "Internal Media Library",
+      "published_at": "2025",
+      "retrieved_at": "2026-10-22T04:00:00Z",
+      "status": "unverified"
+    }
+  ]
+}

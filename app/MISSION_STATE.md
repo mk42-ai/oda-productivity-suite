@@ -1,0 +1,11 @@
+# MISSION_STATE — 2026-10-22T05:45Z (QA cycle 9)
+| Lane | Status |
+|---|---|
+| A Navigation | ✅ 3fa8ffe (+8b99b21): drawer focus trap/return, 16 dead citations → 1 replacement + 15 archive fallbacks (`link-health.json`), breadcrumbs, /chat CLS 0.12 → 0.00, /chat-od → /chat, /plugins page, /artifacts clean, /graph default focus + top-connected list, focus-ring transition removed, dossier/news cross-links, `/news?org=`; `e2e/navigation.spec.ts` 31/31 |
+| B Master data | ✅ 9b4f1d1: `master.json` 50 orgs (standard schema, provenance-ranked, explicit unverified labels), `OrgProfile` on every dossier, +9 graph edges (165 → 174), `docs/data/uae-ai-organizations-master.xlsx` (8 sheets) + `.csv`; coverage legacy mean 73.7 % · strict 30-field mean **63.1 %** (target ≥ 90 % NOT met — 44 orgs < 75 % listed with reasons) |
+| C Logos | ✅ 71336bb: 37 resolved (31 official incl. AIREV SVG + OnDemand mark, 6 Wikimedia) / 14 monograms, `public/logos/<slug>/` variants + manifest (sha256, source, licence), grayscale-tile policy (`docs/DESIGN_TOKENS.md`), logo-audit + unit test green |
+| D AIREV first | ✅ 58f1b8a: AIREV pinned index 0 on /watchlist (every sort) and /overview top-orgs; reference dossier with 35 sources, provenance tiers, disambiguation vs AI REV (airev.us) — `docs/METHODOLOGY.md` |
+| E Verification | ✅ fresh sandbox **https://sb-6u0rv43z1luy.vercel.run** (sbx_1tdxPbX2lWJr1pTp1MuzY2liInwq, HEAD 8b99b21): white-UI 0 chromatic · AA 0 genuine / 9,086 · h-scroll 26/26 · residue 0 (src/public/DOM/network/docs/tests) · layout spec unchanged · payload A–G 13/14 → /graph fix → G chat checks pass · run-panel-mobile 2/2 · 84-check 82/84 ×2 (agent2 spec-stale → fixed → 84/84) · Playwright 220 · 179/12/29/0 → 9 app bugs fixed in 8b99b21 → re-run 85/85 (effective 188/3/29/0; 3 upstream-Perplexity) · E5 crawl 44 screens, 0 console errors on live routes |
+| Vercel git preview | ⚠ unchanged: build of b91d69c READY 04:31:41Z (oda-productivity-suite-mf1dvxru9) but project env still **0** → keyless + SSO; manual owner step in NEXT_ACTIONS #1 |
+Preview: **https://sb-6u0rv43z1luy.vercel.run** (≈ expires 06:02Z — 90 min from 04:32Z). Pre-cycle tag `uae-qa9-pre-20261022T03Z` → 6f6254b (pushed 03:34:23Z). main @ be3f7c1 and all prior tags untouched. Resume step: `git fetch && git checkout uae-ai-command-centre && npm run resume -- --deploy`.
+

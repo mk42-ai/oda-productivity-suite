@@ -1,0 +1,110 @@
+[
+ {
+  "at": "2026-10-21T21:00:30.846Z",
+  "route": "/",
+  "vp": "1440x900",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/overview",
+  "file": "before-root-1440x900.png",
+  "ms": 2844
+ },
+ {
+  "at": "2026-10-21T21:00:35.461Z",
+  "route": "/chat",
+  "vp": "1440x900",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/chat",
+  "file": "before-chat-1440x900.png",
+  "ms": 4614
+ },
+ {
+  "at": "2026-10-21T21:00:38.286Z",
+  "route": "/briefing",
+  "vp": "1440x900",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/briefing",
+  "file": "before-briefing-1440x900.png",
+  "ms": 2824
+ },
+ {
+  "at": "2026-10-21T21:00:40.096Z",
+  "route": "/watchlist",
+  "vp": "1440x900",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/watchlist",
+  "file": "before-watchlist-1440x900.png",
+  "ms": 1810
+ },
+ {
+  "at": "2026-10-21T21:00:42.029Z",
+  "route": "/sentiment",
+  "vp": "1440x900",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/sentiment",
+  "file": "before-sentiment-1440x900.png",
+  "ms": 1933
+ },
+ {
+  "at": "2026-10-21T21:00:43.804Z",
+  "route": "/news",
+  "vp": "1440x900",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/news",
+  "file": "before-news-1440x900.png",
+  "ms": 1775
+ },
+ {
+  "at": "2026-10-21T21:00:47.704Z",
+  "route": "/",
+  "vp": "390x844",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/overview",
+  "file": "before-root-390x844.png",
+  "ms": 3781
+ },
+ {
+  "at": "2026-10-21T21:00:51.771Z",
+  "route": "/chat",
+  "vp": "390x844",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/chat",
+  "file": "before-chat-390x844.png",
+  "ms": 4067
+ },
+ {
+  "at": "2026-10-21T21:00:54.035Z",
+  "route": "/briefing",
+  "vp": "390x844",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/briefing",
+  "file": "before-briefing-390x844.png",
+  "ms": 2263
+ },
+ {
+  "at": "2026-10-21T21:00:55.789Z",
+  "route": "/watchlist",
+  "vp": "390x844",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/watchlist",
+  "file": "before-watchlist-390x844.png",
+  "ms": 1754
+ },
+ {
+  "at": "2026-10-21T21:00:57.522Z",
+  "route": "/sentiment",
+  "vp": "390x844",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/sentiment",
+  "file": "before-sentiment-390x844.png",
+  "ms": 1733
+ },
+ {
+  "at": "2026-10-21T21:00:59.235Z",
+  "route": "/news",
+  "vp": "390x844",
+  "status": 200,
+  "url": "https://sb-1rpldsghtcd5.vercel.run/news",
+  "file": "before-news-390x844.png",
+  "ms": 1712
+ }
+]

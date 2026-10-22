@@ -1,0 +1,3200 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/node_modules/@playwright/test/cli.js",
+      "test",
+      "e2e/nav-stress.spec.ts",
+      "e2e/run-panel-mobile.spec.ts",
+      "e2e/upload.spec.ts",
+      "e2e/upload-e2e.spec.ts",
+      "e2e/upload-journeys.spec.ts",
+      "e2e/upload-artifacts.spec.ts",
+      "e2e/pdf-inline-render.spec.ts",
+      "e2e/voice.spec.ts",
+      "--project=desktop",
+      "--project=mobile",
+      "--workers=1",
+      "--timeout=150000",
+      "--reporter=list,json",
+      "--output=/tmp/pw-c8-s3"
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/playwright.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/pw-c8-s3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [
+          "/mobile\\.spec\\.ts|qa-final\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c8-s3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/mobile\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c8-s3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-ux",
+        "name": "mobile-ux",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/run-ux\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c8-s3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final",
+        "name": "qa-final",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c8-s3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final-mobile",
+        "name": "qa-final-mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pw-c8-s3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": {},
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 150000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5190",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pw-c8-s3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 150000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5190",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "nav-stress.spec.ts",
+      "file": "nav-stress.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "nav stress @1440x900",
+          "file": "nav-stress.spec.ts",
+          "line": 78,
+          "column": 8,
+          "specs": [
+            {
+              "title": "rapid-nav",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9299,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:52:23.365Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-32a65044ea801dff5364",
+              "file": "nav-stress.spec.ts",
+              "line": 85,
+              "column": 9
+            },
+            {
+              "title": "back-forward-spam",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13325,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:52:32.927Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-7d27ae520908a1f40cd5",
+              "file": "nav-stress.spec.ts",
+              "line": 96,
+              "column": 9
+            },
+            {
+              "title": "deep-link-reload",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 18187,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:52:46.274Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-f797a210300d4860575b",
+              "file": "nav-stress.spec.ts",
+              "line": 106,
+              "column": 9
+            },
+            {
+              "title": "drawer-open-nav",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1792,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:04.475Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-2d80450b4c223a8c851f",
+              "file": "nav-stress.spec.ts",
+              "line": 117,
+              "column": 9
+            },
+            {
+              "title": "nav-while-streaming",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6353,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:06.284Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-8bd7d69c6ec944558776",
+              "file": "nav-stress.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "compare-mid-nav",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3235,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:12.652Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-d1b3d15376fdd4abaad3",
+              "file": "nav-stress.spec.ts",
+              "line": 152,
+              "column": 9
+            },
+            {
+              "title": "news-anchor",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2534,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:15.903Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-75362098c6af03a26b36",
+              "file": "nav-stress.spec.ts",
+              "line": 164,
+              "column": 9
+            },
+            {
+              "title": "radar",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 300000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2055,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:18.453Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-82165dd15d36378cd1c5",
+              "file": "nav-stress.spec.ts",
+              "line": 183,
+              "column": 9
+            },
+            {
+              "title": "bad-urls",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 300000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2912,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:20.522Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-f0aff795e25efafcf839",
+              "file": "nav-stress.spec.ts",
+              "line": 194,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "nav stress @390x844",
+          "file": "nav-stress.spec.ts",
+          "line": 78,
+          "column": 8,
+          "specs": [
+            {
+              "title": "rapid-nav",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17786,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:23.449Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-7a58698ec13953ef0d5f",
+              "file": "nav-stress.spec.ts",
+              "line": 85,
+              "column": 9
+            },
+            {
+              "title": "back-forward-spam",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14235,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:41.247Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-dfa20228c7d07511eb06",
+              "file": "nav-stress.spec.ts",
+              "line": 96,
+              "column": 9
+            },
+            {
+              "title": "deep-link-reload",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17837,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:53:55.495Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-d7830ef028375770d69f",
+              "file": "nav-stress.spec.ts",
+              "line": 106,
+              "column": 9
+            },
+            {
+              "title": "drawer-open-nav",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11441,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:54:13.343Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-a95f481753ee65d2e547",
+              "file": "nav-stress.spec.ts",
+              "line": 117,
+              "column": 9
+            },
+            {
+              "title": "nav-while-streaming",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6531,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:54:24.803Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-859b8200288c049a0d35",
+              "file": "nav-stress.spec.ts",
+              "line": 135,
+              "column": 9
+            },
+            {
+              "title": "compare-mid-nav",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3274,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:54:31.357Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-9035ce55e9cdcaaac027",
+              "file": "nav-stress.spec.ts",
+              "line": 152,
+              "column": 9
+            },
+            {
+              "title": "news-anchor",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2349,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:54:34.647Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-cc0bef17a921eb516d51",
+              "file": "nav-stress.spec.ts",
+              "line": 164,
+              "column": 9
+            },
+            {
+              "title": "radar",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 300000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1803,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:54:37.008Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-afbf6bb24f529700640c",
+              "file": "nav-stress.spec.ts",
+              "line": 183,
+              "column": 9
+            },
+            {
+              "title": "bad-urls",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 300000,
+                  "annotations": [
+                    {
+                      "type": "events",
+                      "description": "[]"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1737,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:54:38.825Z",
+                      "annotations": [
+                        {
+                          "type": "events",
+                          "description": "[]"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1ebd4a709429bbe5a3b8-e637aaf548f9bc521a85",
+              "file": "nav-stress.spec.ts",
+              "line": 194,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "pdf-inline-render.spec.ts",
+      "file": "pdf-inline-render.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "PDF artifact → side pane renders pdf.js pages (or the preview-unavailable fallback)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "no PDF artifact in this backend",
+                  "location": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/pdf-inline-render.spec.ts",
+                    "line": 52,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 19875,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T01:54:40.582Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no PDF artifact in this backend",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/pdf-inline-render.spec.ts",
+                        "line": 52,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "cc3fd16376a932d23e05-b1cca30b04e5009cd678",
+          "file": "pdf-inline-render.spec.ts",
+          "line": 47,
+          "column": 5
+        },
+        {
+          "title": "PDF artifact → Artifacts preview pane renders pdf.js pages (or the fallback), one meta line, H1-style file name",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "no PDF artifact in this backend",
+                  "location": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/pdf-inline-render.spec.ts",
+                    "line": 71,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 19893,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T01:55:00.470Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no PDF artifact in this backend",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/pdf-inline-render.spec.ts",
+                        "line": 71,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "cc3fd16376a932d23e05-de0f6631fce9f26ea605",
+          "file": "pdf-inline-render.spec.ts",
+          "line": 66,
+          "column": 5
+        },
+        {
+          "title": "non-PDF office artifact in the side pane shows the preview-unavailable fallback (when one exists)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "no docx/xlsx/pptx artifact in this backend",
+                  "location": {
+                    "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/pdf-inline-render.spec.ts",
+                    "line": 96,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 990,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T01:55:20.377Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no docx/xlsx/pptx artifact in this backend",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/pdf-inline-render.spec.ts",
+                        "line": 96,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "cc3fd16376a932d23e05-eab264f2954e89b90742",
+          "file": "pdf-inline-render.spec.ts",
+          "line": 89,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "upload-artifacts.spec.ts",
+      "file": "upload-artifacts.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Upload → Artifacts E2E",
+          "file": "upload-artifacts.spec.ts",
+          "line": 133,
+          "column": 6,
+          "specs": [
+            {
+              "title": "empty Artifacts state renders",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 198,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:21.390Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 0,
+                            "column": 0
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9b0bea8732496e9549d7-648082561258ede12cba",
+              "file": "upload-artifacts.spec.ts",
+              "line": 135,
+              "column": 3
+            },
+            {
+              "title": "API: each fixture uploads via /api/media and is listed by /api/artifacts as an upload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 195,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:21.612Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 0,
+                            "column": 0
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9b0bea8732496e9549d7-42ec150866df012eadf5",
+              "file": "upload-artifacts.spec.ts",
+              "line": 156,
+              "column": 3
+            },
+            {
+              "title": "UI: pick → progress → processed → chip → sent → cited → Artifacts → reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 176,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:21.828Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 0,
+                            "column": 0
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9b0bea8732496e9549d7-105b9a9264aac09b3213",
+              "file": "upload-artifacts.spec.ts",
+              "line": 208,
+              "column": 3
+            },
+            {
+              "title": "blurred memo: agent must say it cannot read it, never invent text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 188,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:22.023Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 0,
+                            "column": 0
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9b0bea8732496e9549d7-dfde8654de6597349d20",
+              "file": "upload-artifacts.spec.ts",
+              "line": 276,
+              "column": 3
+            },
+            {
+              "title": "failure path shows red state + retry",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 0,
+                        "column": 0
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 203,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:22.224Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 0,
+                            "column": 0
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9b0bea8732496e9549d7-2408fc91c187fb9aca6d",
+              "file": "upload-artifacts.spec.ts",
+              "line": 295,
+              "column": 3
+            }
+          ],
+          "suites": [
+            {
+              "title": "mobile 390×844",
+              "file": "upload-artifacts.spec.ts",
+              "line": 346,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "upload chip and Artifacts page have no horizontal overflow",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 150000,
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 0,
+                            "column": 0
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "desktop",
+                      "projectName": "desktop",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 148,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-10-22T01:55:22.439Z",
+                          "annotations": [
+                            {
+                              "type": "serial",
+                              "location": {
+                                "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                                "line": 0,
+                                "column": 0
+                              }
+                            },
+                            {
+                              "type": "skip",
+                              "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                              "location": {
+                                "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-artifacts.spec.ts",
+                                "line": 12,
+                                "column": 8
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "9b0bea8732496e9549d7-054d55f4c85ab4893b7c",
+                  "file": "upload-artifacts.spec.ts",
+                  "line": 350,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "upload-e2e.spec.ts",
+      "file": "upload-e2e.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "upload-e2e @1440x900",
+          "file": "upload-e2e.spec.ts",
+          "line": 171,
+          "column": 17,
+          "specs": [
+            {
+              "title": "U1 counters baseline → PDF+PNG paperclip upload → chips ready → artifacts persisted (source upload) → one short chat turn [1440x900]",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                        "line": 171,
+                        "column": 17
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 178,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:22.610Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                            "line": 171,
+                            "column": 17
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "e6dec572446e245803f6-dc230497fba3da7369b4",
+              "file": "upload-e2e.spec.ts",
+              "line": 175,
+              "column": 5
+            },
+            {
+              "title": "U2 /artifacts lists both as \"input\", PDF icon pdf / PNG icon image|chart, counters +2/+1/+1/+2, PDF download starts with %PDF [1440x900]",
+              "ok": true,
+              "tags": [
+                "1440x900"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                        "line": 171,
+                        "column": 17
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                        "line": 12,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 203,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-10-22T01:55:23.030Z] upload-e2e log at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/proof/evidence/upload-e2e-log.ndjson\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:22.804Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                            "line": 171,
+                            "column": 17
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                            "line": 12,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "e6dec572446e245803f6-788ea4600802c6273e59",
+              "file": "upload-e2e.spec.ts",
+              "line": 200,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "upload-e2e @390x844",
+          "file": "upload-e2e.spec.ts",
+          "line": 171,
+          "column": 17,
+          "specs": [
+            {
+              "title": "U1 counters baseline → PDF+PNG paperclip upload → chips ready → artifacts persisted (source upload) → one short chat turn [390x844]",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                        "line": 171,
+                        "column": 17
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "this describe is the 390x844 half",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                        "line": 173,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 186,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:23.043Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                            "line": 171,
+                            "column": 17
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "this describe is the 390x844 half",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                            "line": 173,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "e6dec572446e245803f6-22d3af0152217ef2d20c",
+              "file": "upload-e2e.spec.ts",
+              "line": 175,
+              "column": 5
+            },
+            {
+              "title": "U2 /artifacts lists both as \"input\", PDF icon pdf / PNG icon image|chart, counters +2/+1/+1/+2, PDF download starts with %PDF [390x844]",
+              "ok": true,
+              "tags": [
+                "390x844"
+              ],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                        "line": 171,
+                        "column": 17
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "this describe is the 390x844 half",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                        "line": 173,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 169,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-10-22T01:55:23.428Z] upload-e2e log at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/proof/evidence/upload-e2e-log.ndjson\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:23.241Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                            "line": 171,
+                            "column": 17
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "this describe is the 390x844 half",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-e2e.spec.ts",
+                            "line": 173,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "e6dec572446e245803f6-e6d9a8d07ff52e34d481",
+              "file": "upload-e2e.spec.ts",
+              "line": 200,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "upload-journeys.spec.ts",
+      "file": "upload-journeys.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Upload journeys — documents (desktop)",
+          "file": "upload-journeys.spec.ts",
+          "line": 97,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PDF: upload → ready → grounded answer cites the file → artifact persisted → survives reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 172,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:24.797Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-25e7b7268d277dbcd2e7",
+              "file": "upload-journeys.spec.ts",
+              "line": 100,
+              "column": 3
+            },
+            {
+              "title": "DOCX: compendium.docx (15 MB) → ready → answer about the DOCX → artifact persisted → survives reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 180,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:24.981Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-83486acba28356d9415f",
+              "file": "upload-journeys.spec.ts",
+              "line": 103,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Upload journeys — images (desktop 1440×900)",
+          "file": "upload-journeys.spec.ts",
+          "line": 144,
+          "column": 6,
+          "specs": [
+            {
+              "title": "image: geothermal-plant.png → thumb in chip + under message → grounded description",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 144,
+                        "column": 6
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 202,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:23.441Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 144,
+                            "column": 6
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-29a286a93395f70792f6",
+              "file": "upload-journeys.spec.ts",
+              "line": 147,
+              "column": 29
+            },
+            {
+              "title": "image: bar-chart.png → thumb in chip + under message → grounded description",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 144,
+                        "column": 6
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 181,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:23.657Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 144,
+                            "column": 6
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-5df234e9ea5a6f828c62",
+              "file": "upload-journeys.spec.ts",
+              "line": 147,
+              "column": 29
+            },
+            {
+              "title": "image: blurred-memo.png → thumb in chip + under message → honest 'cannot read' answer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 144,
+                        "column": 6
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 198,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:23.851Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 144,
+                            "column": 6
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-a0fb14e7bae4f806bc4d",
+              "file": "upload-journeys.spec.ts",
+              "line": 147,
+              "column": 29
+            },
+            {
+              "title": "persistence: /artifacts lists the three images as uploads, also after reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 144,
+                        "column": 6
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 184,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-10-22T01:55:24.265Z] proof written to /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/proof/upload-journeys\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:24.062Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 144,
+                            "column": 6
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-ba7895dd62230dcc0c3c",
+              "file": "upload-journeys.spec.ts",
+              "line": 149,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Upload journeys — failure state + retry",
+          "file": "upload-journeys.spec.ts",
+          "line": 171,
+          "column": 6,
+          "specs": [
+            {
+              "title": "ui: tool.exe → error chip (red) with retry; retry stays error; remove works; 0-byte file → error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 170,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:25.175Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-b6712ffaa0e3f7df56d6",
+              "file": "upload-journeys.spec.ts",
+              "line": 173,
+              "column": 3
+            },
+            {
+              "title": "api: POST /api/media with an unsupported extension → 400 unsupported_type",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 170,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-10-22T01:55:25.545Z] proof written to /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/proof/upload-journeys\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:25.357Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-fe802ca75fb67e37ba49",
+              "file": "upload-journeys.spec.ts",
+              "line": 238,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Upload journeys — images (mobile 390×844)",
+          "file": "upload-journeys.spec.ts",
+          "line": 251,
+          "column": 6,
+          "specs": [
+            {
+              "title": "mobile image: geothermal-plant.png",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 251,
+                        "column": 6
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 167,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:24.273Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 251,
+                            "column": 6
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-80d08433bf042e52eff6",
+              "file": "upload-journeys.spec.ts",
+              "line": 255,
+              "column": 29
+            },
+            {
+              "title": "mobile image: bar-chart.png",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 251,
+                        "column": 6
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 153,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:24.452Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 251,
+                            "column": 6
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-9ab2612f8c8627d11a89",
+              "file": "upload-journeys.spec.ts",
+              "line": 255,
+              "column": 29
+            },
+            {
+              "title": "mobile image: blurred-memo.png",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 251,
+                        "column": 6
+                      }
+                    },
+                    {
+                      "type": "skip",
+                      "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                        "line": 13,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 152,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[2026-10-22T01:55:24.791Z] proof written to /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/proof/upload-journeys\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:24.620Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 251,
+                            "column": 6
+                          }
+                        },
+                        {
+                          "type": "skip",
+                          "description": "no Artifacts backend provisioned for namespace uae_cc_v1 (environment)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/upload-journeys.spec.ts",
+                            "line": 13,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d749d8f3b7943de8d5f1-480cd91c80e14628e897",
+              "file": "upload-journeys.spec.ts",
+              "line": 255,
+              "column": 29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "upload.spec.ts",
+      "file": "upload.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Media upload",
+          "file": "upload.spec.ts",
+          "line": 14,
+          "column": 6,
+          "specs": [
+            {
+              "title": "upload: 26 MB file is rejected with 413 too_large",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 101,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:25.556Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "64f97298e5aac3754605-3c738931fc2573a384d3",
+              "file": "upload.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "upload: tool.exe is rejected with 400 naming the allowed types",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:25.666Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "64f97298e5aac3754605-568778c2137388fd23fd",
+              "file": "upload.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "upload: zephyr-7.md uploads and /api/chat answers 41.7 MWh from it",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7180,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[upload] media.id=local-68198e37bd5766a0d054c9f7 grounded=local note=OnDemand media create failed upstream (HTTP 500) — grounded locally from the uploaded text\n"
+                        },
+                        {
+                          "text": "[upload] answer (85 chars): The Zephyr-7 pilot plant produced 41.7 MWh on 3 March 2026 [attachment: zephyr-7.md].\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:25.690Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "64f97298e5aac3754605-3768b1a705dfd3d07802",
+              "file": "upload.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "ui: picking zephyr-7.md in the composer shows an attachment chip (ready or error)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2258,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[upload-ui] chip status=ready grounded=local text=zephyr-7.mdLOCAL 360 B · 357 chars\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:32.884Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "64f97298e5aac3754605-cdc64b2ea52a23070e83",
+              "file": "upload.spec.ts",
+              "line": 78,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "voice.spec.ts",
+      "file": "voice.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "voice",
+          "file": "voice.spec.ts",
+          "line": 40,
+          "column": 6,
+          "specs": [
+            {
+              "title": "voice relay: POST /api/voice/workflow executes the advanced-voice workflow (ok:true + executionId) or answers an honest 503 no_workflow when VOICE_WORKFLOW_ID is empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "voice",
+                      "description": "BLOCKED_BY_EXTERNAL_DEPENDENCY: no_workflow — VOICE_WORKFLOW_ID is not configured"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 241,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:35.159Z",
+                      "annotations": [
+                        {
+                          "type": "voice",
+                          "description": "BLOCKED_BY_EXTERNAL_DEPENDENCY: no_workflow — VOICE_WORKFLOW_ID is not configured"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4f8e77fcf9b309101475-98313dd55c56db08d21f",
+              "file": "voice.spec.ts",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "voice relay: expired/unknown clip token is a 404 and STT rejects a non-audio form",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 236,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:35.416Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4f8e77fcf9b309101475-c5124532bf4a63682ae3",
+              "file": "voice.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "voice UI: composer mic → full-duplex panel (listening with the fake mic, or an honest error); orb + Start/End toggle match; a voice turn shows the honest workflow status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "voice",
+                      "description": "fake mic → listening (full duplex)"
+                    },
+                    {
+                      "type": "voice-workflow",
+                      "description": "unavailable: VOICE_WORKFLOW_ID is not configured"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2148,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:35.667Z",
+                      "annotations": [
+                        {
+                          "type": "voice",
+                          "description": "fake mic → listening (full duplex)"
+                        },
+                        {
+                          "type": "voice-workflow",
+                          "description": "unavailable: VOICE_WORKFLOW_ID is not configured"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4f8e77fcf9b309101475-d81a190c0d16add21efb",
+              "file": "voice.spec.ts",
+              "line": 73,
+              "column": 3
+            },
+            {
+              "title": "voice a11y: caption strip is a polite live region and the mic has an accessible name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1821,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:37.828Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4f8e77fcf9b309101475-424e348563027ca751e7",
+              "file": "voice.spec.ts",
+              "line": 132,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "run-panel-mobile.spec.ts",
+      "file": "run-panel-mobile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "a11 run panel @ 390×844",
+          "file": "run-panel-mobile.spec.ts",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "no horizontal overflow; working rows ≤ 72 px; header/footer wrap",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17037,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[a11 streaming] {\"docScroll\":390,\"inner\":390,\"rvScroll\":318,\"rvClient\":318,\"rows\":[],\"headerH\":20,\"statusH\":1,\"chatMainH\":795}\n"
+                        },
+                        {
+                          "text": "[a11 settled] {\"docScroll\":390,\"inner\":390,\"rvScroll\":318,\"rvClient\":318,\"rows\":[],\"headerH\":20,\"statusH\":1,\"chatMainH\":795}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T01:55:40.332Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3b7eff20be133a37309e-c20bdd9f86e0f0779349",
+              "file": "run-panel-mobile.spec.ts",
+              "line": 16,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-22T01:52:22.850Z",
+    "duration": 214934.395,
+    "expected": 27,
+    "skipped": 24,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

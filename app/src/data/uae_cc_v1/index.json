@@ -1,0 +1,402 @@
+[
+ {
+  "id": "ai-data-authority",
+  "name": "Artificial Intelligence and Data Authority",
+  "type": "government",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "g42",
+  "name": "G42",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": "/logos/uae/g42.png"
+ },
+ {
+  "id": "core42",
+  "name": "Core42",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "g42",
+  "logo": null
+ },
+ {
+  "id": "inception",
+  "name": "Inception (Inception42, G42)",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "g42",
+  "logo": null
+ },
+ {
+  "id": "presight",
+  "name": "Presight AI Holding PLC",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "g42",
+  "logo": null
+ },
+ {
+  "id": "aiq",
+  "name": "AIQ",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "presight",
+  "logo": null
+ },
+ {
+  "id": "khazna",
+  "name": "Khazna Data Centers",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "g42",
+  "logo": null
+ },
+ {
+  "id": "m42",
+  "name": "M42",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "g42",
+  "logo": null
+ },
+ {
+  "id": "space42",
+  "name": "Space42 PLC",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "mgx",
+  "name": "MGX",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "analog",
+  "name": "Analog",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "g42",
+  "logo": null
+ },
+ {
+  "id": "tii",
+  "name": "Technology Innovation Institute",
+  "type": "research centre",
+  "hq": "Abu Dhabi",
+  "parent_id": "atrc",
+  "logo": null
+ },
+ {
+  "id": "atrc",
+  "name": "Advanced Technology Research Council",
+  "type": "government",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "ai71",
+  "name": "AI71",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "atrc",
+  "logo": null
+ },
+ {
+  "id": "edge",
+  "name": "EDGE Group",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "katim",
+  "name": "KATIM",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "edge",
+  "logo": null
+ },
+ {
+  "id": "adasi",
+  "name": "ADASI",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "edge",
+  "logo": null
+ },
+ {
+  "id": "mbzuai",
+  "name": "Mohamed bin Zayed University of Artificial Intelligence",
+  "type": "university",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "ifm",
+  "name": "Institute of Foundation Models (IFM), Mohamed bin Zayed University of Artificial Intelligence",
+  "type": "research centre",
+  "hq": "Abu Dhabi",
+  "parent_id": "mbzuai",
+  "logo": null
+ },
+ {
+  "id": "khalifa-university",
+  "name": "Khalifa University of Science and Technology",
+  "type": "university",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "airev",
+  "name": "AIREV",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "eand-enterprise",
+  "name": "e& enterprise",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "hub71",
+  "name": "Hub71",
+  "type": "government",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "micropolis",
+  "name": "Micropolis Robotics",
+  "type": "company",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": "/logos/uae/micropolis.png"
+ },
+ {
+  "id": "xpanceo",
+  "name": "XPANCEO",
+  "type": "company",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": "/logos/uae/xpanceo.png"
+ },
+ {
+  "id": "derq",
+  "name": "Derq",
+  "type": "company",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "astra-tech",
+  "name": "Astra Tech",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": "/logos/uae/astra-tech.png"
+ },
+ {
+  "id": "saal-ai",
+  "name": "Saal.ai",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "purehealth",
+  "name": "PureHealth",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": "/logos/uae/purehealth.png"
+ },
+ {
+  "id": "daman",
+  "name": "Daman (The National Insurance Company)",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "purehealth",
+  "logo": null
+ },
+ {
+  "id": "cntxt",
+  "name": "CNTXT AI",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "positron",
+  "name": "Positron AI Ltd",
+  "type": "company",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": "/logos/uae/positron.png"
+ },
+ {
+  "id": "whiteshield",
+  "name": "Whiteshield",
+  "type": "company",
+  "hq": "Dubai (DIFC)",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "mubadala",
+  "name": "Mubadala Investment Company",
+  "type": "government",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "adnoc",
+  "name": "Abu Dhabi National Oil Company (ADNOC)",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "dff",
+  "name": "Dubai Future Foundation",
+  "type": "government",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "dcai",
+  "name": "Dubai Centre for Artificial Intelligence",
+  "type": "government",
+  "hq": "Dubai",
+  "parent_id": "dff",
+  "logo": null
+ },
+ {
+  "id": "digital-dubai",
+  "name": "Digital Dubai",
+  "type": "government",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "dge",
+  "name": "Department of Government Enablement (DGE), Abu Dhabi",
+  "type": "government",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "dubai-ai-campus",
+  "name": "Dubai AI Campus",
+  "type": "government",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "doh-abu-dhabi",
+  "name": "Department of Health – Abu Dhabi",
+  "type": "government",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "dubai-police",
+  "name": "Dubai Police",
+  "type": "government",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "camb-ai",
+  "name": "Camb.ai",
+  "type": "company",
+  "hq": "Dubai",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "echotwin",
+  "name": "EchoTwin AI",
+  "type": "company",
+  "hq": "Abu Dhabi (Hub71)",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "neuphonic",
+  "name": "Neuphonic",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "endimension",
+  "name": "Endimension Technology",
+  "type": "company",
+  "hq": "Abu Dhabi (Hub71)",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "steerai",
+  "name": "SteerAI",
+  "type": "company",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "aiatc",
+  "name": "Artificial Intelligence and Advanced Technology Council",
+  "type": "government",
+  "hq": "Abu Dhabi",
+  "parent_id": null,
+  "logo": null
+ },
+ {
+  "id": "injazat",
+  "name": "Injazat",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "core42",
+  "logo": null
+ },
+ {
+  "id": "aspire",
+  "name": "ASPIRE",
+  "type": "subsidiary",
+  "hq": "Abu Dhabi",
+  "parent_id": "atrc",
+  "logo": null
+ }
+]

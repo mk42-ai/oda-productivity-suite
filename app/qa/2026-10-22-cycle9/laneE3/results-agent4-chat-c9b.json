@@ -1,0 +1,142 @@
+[
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q1",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "\"What has TII announced recently?\" → HTTP 200, 19797 ms, 643 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips + 0 rail links, web-research coverage=upstream; sources: www.khaleejtimes.com, gulfbusiness.com",
+  "ts": "2026-10-22T04:48:43.073Z",
+  "shot": "agent4-chat-c9b-q1-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q3",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "\"What is driving negative sentiment about AI employment?\" → HTTP 200, 20452 ms, 667 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips + 0 rail links, web-research coverage=upstream; sources: mbzuai.ac.ae, gulfbusiness.com",
+  "ts": "2026-10-22T04:48:46.473Z",
+  "shot": "agent4-chat-c9b-q3-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q5",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "\"Which UAE organizations announced new AI partnerships this month?\" → HTTP 200, 21410 ms, 490 chars, Verified=true Interpretation=true, 1 inline links + 1 citation chips + 0 rail links, web-research coverage=upstream; sources: mbzuai.ac.ae",
+  "ts": "2026-10-22T04:48:47.210Z",
+  "shot": "agent4-chat-c9b-q5-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q4",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "\"Compare G42, EDGE and TII's AI research activity.\" → HTTP 200, 22444 ms, 2252 chars, Verified=true Interpretation=true, 7 inline links + 7 citation chips + 0 rail links, web-research coverage=upstream; sources: www.tii.ae, gulfbusiness.com, www.khaleejtimes.com, www.g42.ai, www.middleeastainews.com",
+  "ts": "2026-10-22T04:48:48.380Z",
+  "shot": "agent4-chat-c9b-q4-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q2",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "\"Which UAE AI companies are accelerating internationally?\" → HTTP 200, 25334 ms, 1560 chars, Verified=true Interpretation=true, 6 inline links + 6 citation chips + 0 rail links, web-research coverage=upstream; sources: www.g42.ai, www.bloomberg.com, breakingdefense.com, www.zawya.com, www.middleeastainews.com",
+  "ts": "2026-10-22T04:48:51.383Z",
+  "shot": "agent4-chat-c9b-q2-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q1",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "\"What has TII announced recently?\" → HTTP 200, 11765 ms, 638 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips + 0 rail links, web-research coverage=backoff; sources: www.khaleejtimes.com, gulfbusiness.com",
+  "ts": "2026-10-22T04:49:10.433Z",
+  "shot": "agent4-chat-c9b-q1-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q5",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "\"Which UAE organizations announced new AI partnerships this month?\" → HTTP 200, 13894 ms, 641 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips + 0 rail links, web-research coverage=backoff; sources: mbzuai.ac.ae, www.g42.ai",
+  "ts": "2026-10-22T04:49:11.881Z",
+  "shot": "agent4-chat-c9b-q5-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q3",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "\"What is driving negative sentiment about AI employment?\" → HTTP 200, 16877 ms, 580 chars, Verified=true Interpretation=true, 2 inline links + 2 citation chips + 0 rail links, web-research coverage=backoff; sources: mbzuai.ac.ae, www.eand.com",
+  "ts": "2026-10-22T04:49:15.174Z",
+  "shot": "agent4-chat-c9b-q3-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q4",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "\"Compare G42, EDGE and TII's AI research activity.\" → HTTP 200, 23028 ms, 2255 chars, Verified=true Interpretation=true, 7 inline links + 7 citation chips + 0 rail links, web-research coverage=backoff; sources: gulfbusiness.com, www.tii.ae, www.khaleejtimes.com, www.g42.ai, www.middleeastainews.com",
+  "ts": "2026-10-22T04:49:18.767Z",
+  "shot": "agent4-chat-c9b-q4-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "q2",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "\"Which UAE AI companies are accelerating internationally?\" → HTTP 200, 20964 ms, 1678 chars, Verified=true Interpretation=true, 5 inline links + 5 citation chips + 0 rail links, web-research coverage=backoff; sources: www.g42.ai, breakingdefense.com, www.middleeastainews.com, mbzuai.ac.ae",
+  "ts": "2026-10-22T04:49:19.247Z",
+  "shot": "agent4-chat-c9b-q2-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "briefing-generate",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "POST /api/briefing HTTP 200, 46333 ms, loading-state=true, 4477 chars, 15 source links",
+  "ts": "2026-10-22T04:50:07.879Z",
+  "shot": "agent4-chat-c9b-briefing-generate-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "briefing-scheduled-panel",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "scheduled panel: Latest scheduled briefing · workflow cron 0 30 2 * * * (06:30 GST)  Generated by execution 6ad841aab28e35aa11d85744 · 2026-10-21T04:38:58.388Z (api)  Bottom line: October’s signals",
+  "ts": "2026-10-22T04:50:08.463Z",
+  "shot": "agent4-chat-c9b-briefing-scheduled-panel-1440x900.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "briefing-generate",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "POST /api/briefing HTTP 200, 36693 ms, loading-state=true, 4166 chars, 16 source links",
+  "ts": "2026-10-22T04:50:47.258Z",
+  "shot": "agent4-chat-c9b-briefing-generate-390x844.jpg"
+ },
+ {
+  "agent": "agent4-chat",
+  "round": "c9b",
+  "test": "briefing-scheduled-panel",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "scheduled panel: Latest scheduled briefing · workflow cron 0 30 2 * * * (06:30 GST)  Generated by execution 6ad841aab28e35aa11d85744 · 2026-10-21T04:38:58.388Z (api)  Bottom line: October’s signals",
+  "ts": "2026-10-22T04:50:47.829Z",
+  "shot": "agent4-chat-c9b-briefing-scheduled-panel-390x844.jpg"
+ }
+]

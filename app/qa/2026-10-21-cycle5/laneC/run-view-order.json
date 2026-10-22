@@ -1,0 +1,153 @@
+{
+  "capturedAt": "2026-10-21T15:34:43.317Z",
+  "prompt": "What has TII announced recently?",
+  "testidOrder": [
+    "run-header",
+    "run-timer",
+    "run-logs-toggle",
+    "run-status-outputs",
+    "run-status-header",
+    "run-status-label",
+    "run-status-task",
+    "run-status-elapsed",
+    "od-status",
+    "coverage-notice",
+    "answer-block",
+    "answer-markdown",
+    "citation-chip",
+    "citation-chip",
+    "run-footer",
+    "answer-badge"
+  ],
+  "uniqueOrder": [
+    "run-header",
+    "run-timer",
+    "run-logs-toggle",
+    "run-status-outputs",
+    "run-status-header",
+    "run-status-label",
+    "run-status-task",
+    "run-status-elapsed",
+    "od-status",
+    "coverage-notice",
+    "answer-block",
+    "answer-markdown",
+    "citation-chip",
+    "run-footer",
+    "answer-badge"
+  ],
+  "descendants": [
+    {
+      "index": 0,
+      "testid": "run-header",
+      "tagName": "div",
+      "className": "oiu-run__header",
+      "textSnippet": "UAE AI Command Centre16.4 s5,592 tokens"
+    },
+    {
+      "index": 1,
+      "testid": "run-timer",
+      "tagName": "span",
+      "className": "oiu-run__timer",
+      "textSnippet": "16.4 s"
+    },
+    {
+      "index": 2,
+      "testid": "run-logs-toggle",
+      "tagName": "button",
+      "className": "oiu-run__btn",
+      "textSnippet": ""
+    },
+    {
+      "index": 3,
+      "testid": "run-status-outputs",
+      "tagName": "button",
+      "className": "oiu-run__btn",
+      "textSnippet": ""
+    },
+    {
+      "index": 4,
+      "testid": "run-status-header",
+      "tagName": "div",
+      "className": "rsh rsh--done",
+      "textSnippet": "Done 0/1I'll find and verify TII announcements from the last 30 days.+16.4 s"
+    },
+    {
+      "index": 5,
+      "testid": "run-status-label",
+      "tagName": "span",
+      "className": "rsh__label",
+      "textSnippet": "Done 0/1"
+    },
+    {
+      "index": 6,
+      "testid": "run-status-task",
+      "tagName": "span",
+      "className": "rsh__task",
+      "textSnippet": "I'll find and verify TII announcements from the last 30 days."
+    },
+    {
+      "index": 7,
+      "testid": "run-status-elapsed",
+      "tagName": "span",
+      "className": "rsh__elapsed",
+      "textSnippet": "+16.4 s"
+    },
+    {
+      "index": 8,
+      "testid": "od-status",
+      "tagName": "div",
+      "className": "od-chat od-status",
+      "textSnippet": "I'll check TII’s recent announcements.\nI’ll verify dates and sources.Searching recent announcementsP"
+    },
+    {
+      "index": 9,
+      "testid": "coverage-notice",
+      "tagName": "div",
+      "className": "oiu-coverage",
+      "textSnippet": "Web research source unavailable (upstream execution error) — coverage reduced to the curated uae_cc_"
+    },
+    {
+      "index": 10,
+      "testid": "answer-block",
+      "tagName": "div",
+      "className": "oiu-answer",
+      "textSnippet": "Verified facts\n\nOn 19 October, TII researchers announced a gel made from plant waste that cuts irrig"
+    },
+    {
+      "index": 11,
+      "testid": "answer-markdown",
+      "tagName": "div",
+      "className": "oiu-md",
+      "textSnippet": "Verified facts\n\nOn 19 October, TII researchers announced a gel made from plant waste that cuts irrig"
+    },
+    {
+      "index": 12,
+      "testid": "citation-chip",
+      "tagName": "a",
+      "className": "oiu-cite",
+      "textSnippet": "khaleejtimes1Khaleej Timeskhaleejtimes.com"
+    },
+    {
+      "index": 13,
+      "testid": "citation-chip",
+      "tagName": "a",
+      "className": "oiu-cite",
+      "textSnippet": "gulfbusiness2Gulf Businessgulfbusiness.com"
+    },
+    {
+      "index": 14,
+      "testid": "run-footer",
+      "tagName": "div",
+      "className": "oiu-run__footer",
+      "textSnippet": "Tools 5.2 s·Answer 2.5 s·Total 16.4 s·5,592 tokens"
+    },
+    {
+      "index": 15,
+      "testid": "answer-badge",
+      "tagName": "div",
+      "className": "oiu-badge oiu-tbar",
+      "textSnippet": "Tools 5.2 s·Answer 2.5 s·Total 16.4 s·5,592 tokens"
+    }
+  ]
+}

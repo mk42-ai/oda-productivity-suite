@@ -1,0 +1,23 @@
+{
+  "id": "prj_wXz5xY3PNULypuwepaqu1XKa6sP1",
+  "name": "oda-productivity-suite",
+  "framework": "vite",
+  "rootDirectory": "app",
+  "nodeVersion": "24.x",
+  "ssoProtection": {
+    "deploymentType": "all_except_custom_domains"
+  },
+  "passwordProtection": null,
+  "trustedIps": null,
+  "protectionBypass_keys": [],
+  "protectionBypass_count": 0,
+  "link": {
+    "type": "github",
+    "org": "mk42-ai",
+    "repo": "oda-productivity-suite",
+    "productionBranch": "main"
+  },
+  "env_count": 0,
+  "env_keys": [],
+  "fetched_at": "2026-10-21T13:47:32Z"
+}

@@ -1,0 +1,163 @@
+=== Lane E HTTP Protection Probes ===
+2026-10-21T15:33:56Z
+------------------------------------------------------------
+Target Host: https://oda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app
+--- GET https://oda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app/health ---
+2026-10-21T15:33:56Z
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 15:33:56 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app%2Fhealth&nonce=61b2fde185141c86e883b2f18c2d257c2ecb9cf3c7baab0637e7d5c5dc4c2ac9
+server: Vercel
+set-cookie: _vercel_sso_nonce=18941d4ca20049324395c2122fc5468e28ca4d085c2a3f27; Max-Age=3600; Path=/; Secure; HttpOnly; SameSite=Lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::54x4b-1792596836102-211d5c244f14
+
+HTTP_CODE: 302
+REDIRECT_URL: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app%2Fhealth&nonce=61b2fde185141c86e883b2f18c2d257c2ecb9cf3c7baab0637e7d5c5dc4c2ac9
+BODY: Protected by Vercel Authentication
+To access this deployment with an authenticated Vercel CLI, run: vercel curl <deployment-url>
+With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL.
+--- GET https://oda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app/api/uae/live ---
+2026-10-21T15:33:56Z
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 15:33:56 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app%2Fapi%2Fuae%2Flive&nonce=5e7052472b5bbc27ea7d943a4929b3816c64ca2ecafcd4b204323097fe1c87a5
+server: Vercel
+set-cookie: _vercel_sso_nonce=cd29cce081e181d7b0968030e8a64d9b71601e60251f651a; Max-Age=3600; Path=/; Secure; HttpOnly; SameSite=Lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::m7l82-1792596836358-f93945c12591
+
+HTTP_CODE: 302
+REDIRECT_URL: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app%2Fapi%2Fuae%2Flive&nonce=5e7052472b5bbc27ea7d943a4929b3816c64ca2ecafcd4b204323097fe1c87a5
+BODY: Protected by Vercel Authentication
+To access this deployment with an authenticated Vercel CLI, run: vercel curl <deployment-url>
+With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL.
+--- POST https://oda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app/api/chat ---
+2026-10-21T15:33:56Z
+HTTP/2 401 
+cache-control: no-store, max-age=0
+content-type: application/json
+date: Wed, 21 Oct 2026 15:33:56 GMT
+server: Vercel
+set-cookie: _vercel_sso_nonce=c6837deeb7c4da7511468602049b9e723a03845577dd6706; Max-Age=3600; Path=/; Secure; HttpOnly; SameSite=Lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::66h2j-1792596836459-ae8c1bf1e8f5
+content-length: 609
+
+HTTP_CODE: 401
+REDIRECT_URL: 
+BODY: {"error":{"message":"Protected deployment","code":"401"},"protection":{"vercel_auth_callback":"https:\/\/vercel.com\/sso-api?url=https%3A%2F%2Foda-productivity-suite-l601bv171-schoolhack-web-team.vercel.app%2Fapi%2Fchat&nonce=ab5fdd6630fe425d1af729e92b9fe7cf52844797971c339aaa5298b20e21f385","auto_vercel_auth_redirect":true,"password_enabled":false,"vercel_auth_enabled":true},"mcp":"With an authorized Vercel MCP connection (https:\/\/mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL.","access":"vercel curl <deployment-url>","message":"Protected by Vercel Authentication"}
+------------------------------------------------------------
+Target Host: https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app
+--- GET https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app/health ---
+2026-10-21T15:33:56Z
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 15:33:56 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fhealth&nonce=fb2d773b901dd13d489864c6b4e641a07362feda941ecfd95d9e9cbdec1a382d
+server: Vercel
+set-cookie: _vercel_sso_nonce=27e3dd289611a0bf10d2a76b4a0470884c0b01338dde4963; Max-Age=3600; Path=/; Secure; HttpOnly; SameSite=Lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::lfjc8-1792596836587-c873fe89becb
+
+HTTP_CODE: 302
+REDIRECT_URL: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fhealth&nonce=fb2d773b901dd13d489864c6b4e641a07362feda941ecfd95d9e9cbdec1a382d
+BODY: Protected by Vercel Authentication
+To access this deployment with an authenticated Vercel CLI, run: vercel curl <deployment-url>
+With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL.
+--- GET https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app/api/uae/live ---
+2026-10-21T15:33:56Z
+HTTP/2 302 
+cache-control: no-store, max-age=0
+content-type: text/plain
+date: Wed, 21 Oct 2026 15:33:56 GMT
+location: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fapi%2Fuae%2Flive&nonce=405d001ebaab75feccf2c6b30da180f911e0869a8d477f4cadac737826432611
+server: Vercel
+set-cookie: _vercel_sso_nonce=08d75e30177641bbdf75795b91702ba20e978d432a299cb7; Max-Age=3600; Path=/; Secure; HttpOnly; SameSite=Lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::txjc4-1792596836668-be383a9cf69f
+
+HTTP_CODE: 302
+REDIRECT_URL: https://vercel.com/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fapi%2Fuae%2Flive&nonce=405d001ebaab75feccf2c6b30da180f911e0869a8d477f4cadac737826432611
+BODY: Protected by Vercel Authentication
+To access this deployment with an authenticated Vercel CLI, run: vercel curl <deployment-url>
+With an authorized Vercel MCP connection (https://mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL.
+--- POST https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app/api/chat ---
+2026-10-21T15:33:56Z
+HTTP/2 401 
+cache-control: no-store, max-age=0
+content-type: application/json
+date: Wed, 21 Oct 2026 15:33:56 GMT
+server: Vercel
+set-cookie: _vercel_sso_nonce=80a07f2fb9352b824dab0eaf89975af0c5644f25024f8294; Max-Age=3600; Path=/; Secure; HttpOnly; SameSite=Lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-frame-options: DENY
+x-robots-tag: noindex
+x-vercel-id: iad1::bpnww-1792596836834-1640c46ba0de
+content-length: 620
+
+HTTP_CODE: 401
+REDIRECT_URL: 
+BODY: {"message":"Protected by Vercel Authentication","error":{"message":"Protected deployment","code":"401"},"protection":{"vercel_auth_callback":"https:\/\/vercel.com\/sso-api?url=https%3A%2F%2Foda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app%2Fapi%2Fchat&nonce=f79db4173957d91f51a6fb611634250907d34198be91c8f0363b34abdda1076e","auto_vercel_auth_redirect":true,"password_enabled":false,"vercel_auth_enabled":true},"access":"vercel curl <deployment-url>","mcp":"With an authorized Vercel MCP connection (https:\/\/mcp.vercel.com), call web_fetch_vercel_url with url set to the full deployment URL."}
+------------------------------------------------------------
+Target: Production https://oda-productivity-suite.vercel.app/
+--- GET https://oda-productivity-suite.vercel.app/ ---
+2026-10-21T15:33:56Z
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 0
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline
+content-type: text/html; charset=utf-8
+date: Wed, 21 Oct 2026 15:33:57 GMT
+etag: "f1587b47b6295212d520d919a3607661"
+last-modified: Wed, 21 Oct 2026 15:33:57 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-vercel-cache: MISS
+x-vercel-id: iad1::5w4xw-1792596837013-edeef6cffaf2
+content-length: 1354
+
+HTTP_CODE: 200
+REDIRECT_URL: 
+Matches for "UAE AI Intelligence" in production body: 0
+Production title / snippet:
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ODA Productivity Suite</title>
+  <link rel="icon" type="image/png" href="/oda-watermark.png" />
+  <style>
+    @font-face { font-family: 'Montserrat'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/montserrat-latin-400-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-weight: 600; font-style: normal; font-display: swap; src: url('/fonts/montserrat-latin-600-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-weight: 700; font-style: normal; font-display: swap; src: url('/fonts/montserrat-latin-700-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'Lora'; font-weight: 600; font-style: normal; font-display: swap; src: url('/fonts/lora-latin-600-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'Noto Naskh Arabic'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/noto-naskh-arabic-arabic-400-normal.woff2') format('woff2'); }
+  </style>
+  <script type="module" crossorigin src="/assets/index-N81skICp.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Dq9YJXR1.css">
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
+=== End of Probes ===
+2026-10-21T15:33:57Z

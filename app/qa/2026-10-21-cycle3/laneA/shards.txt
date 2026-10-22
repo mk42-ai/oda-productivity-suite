@@ -1,0 +1,7 @@
+shard=s1-routes start=2026-10-21T12:25:17Z end=2026-10-21T12:28:50Z exit=1 budget=900s
+shard=s2-runpanel start=2026-10-21T12:29:06Z end=2026-10-21T12:37:59Z exit=143 budget=900s
+shard=s4-mobile start=2026-10-21T12:45:17Z end=2026-10-21T12:46:46Z exit=0 budget=600s base=sandbox
+shard=s2-runpanel start=2026-10-21T12:41:56Z end=2026-10-21T12:54:56Z exit=124 budget=780s
+shard=s3-uploads start=2026-10-21T12:48:28Z end=2026-10-21T12:59:23Z exit=0 budget=780s base=sandbox
+shard=s1b-rerun(fixed-5+keyboard) start=2026-10-21T12:57:17Z end=2026-10-21T12:59:30Z exit=0 budget=400s base=sandbox
+shard=s1c-rerun(settings+title-ellipsis) end=2026-10-21T13:00:30Z base=sandbox

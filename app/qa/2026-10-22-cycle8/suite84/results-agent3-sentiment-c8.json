@@ -1,0 +1,132 @@
+[
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "bubbles-render",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "274 bubbles, counter \"274 / 274 statements\" (dataset 274)",
+  "ts": "2026-10-22T01:41:26.056Z",
+  "shot": "agent3-sentiment-c8-bubbles-render-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "hover-tooltip",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "tooltip: Unclassified · 0%“Not an expert, but per RTA's rules:\n\n**Licence:** your friend is right. Under 10 years expired you can renew normally with an eye test and a d",
+  "ts": "2026-10-22T01:41:26.568Z",
+  "shot": "agent3-sentiment-c8-hover-tooltip-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "click-through-link",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "evidence-source href=https://www.reddit.com/r/abudhabi/",
+  "ts": "2026-10-22T01:41:26.945Z",
+  "shot": "agent3-sentiment-c8-click-through-link-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "filters",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "Optimists \"48 / 274 statements\" (exp 48); Explicit-UAE \"43 / 274 statements\" (exp 43); Jobs & skills \"41 / 274 statements\" (exp 41)",
+  "ts": "2026-10-22T01:41:29.624Z",
+  "shot": "agent3-sentiment-c8-filters-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "time-playback",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "30d window, playhead 2026-10-21 → 2025-10-26 after 2.2 s, visible 2 / 274 statements",
+  "ts": "2026-10-22T01:41:32.247Z",
+  "shot": "agent3-sentiment-c8-time-playback-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "pulse-metrics-24h-7d-30d",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "pulse panel contains 24h/7d/30d=true, sampling notice=true; text=\"National PulseLanes: UAE-topic 216 · global-discourse 58 (comparator only; excluded from the pulse table below).Optimists48Pragmatists30Skeptics26Safety Advocates20Disruption Concerned8Pessimists/Doomers5Neutral/Informat\"",
+  "ts": "2026-10-22T01:41:33.399Z",
+  "shot": "agent3-sentiment-c8-pulse-metrics-24h-7d-30d-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "bubbles-render",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "274 bubbles, counter \"274 / 274 statements\" (dataset 274)",
+  "ts": "2026-10-22T01:41:34.906Z",
+  "shot": "agent3-sentiment-c8-bubbles-render-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "hover-tooltip",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "tooltip: Unclassified · 0%“Not an expert, but per RTA's rules:\n\n**Licence:** your friend is right. Under 10 years expired you can renew normally with an eye test and a d",
+  "ts": "2026-10-22T01:41:35.387Z",
+  "shot": "agent3-sentiment-c8-hover-tooltip-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "click-through-link",
+  "viewport": "390x844",
+  "pass": false,
+  "detail": "evidence-source href=https://www.reddit.com/r/abudhabi/",
+  "ts": "2026-10-22T01:41:35.795Z",
+  "shot": "agent3-sentiment-c8-click-through-link-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "filters",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "Optimists \"48 / 274 statements\" (exp 48); Explicit-UAE \"43 / 274 statements\" (exp 43); Jobs & skills \"41 / 274 statements\" (exp 41)",
+  "ts": "2026-10-22T01:41:38.173Z",
+  "shot": "agent3-sentiment-c8-filters-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "time-playback",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "30d window, playhead 2026-10-21 → 2025-10-26 after 2.2 s, visible 2 / 274 statements",
+  "ts": "2026-10-22T01:41:40.847Z",
+  "shot": "agent3-sentiment-c8-time-playback-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "pulse-metrics-24h-7d-30d",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "pulse panel contains 24h/7d/30d=true, sampling notice=true; text=\"National PulseLanes: UAE-topic 216 · global-discourse 58 (comparator only; excluded from the pulse table below).Optimists48Pragmatists30Skeptics26Safety Advocates20Disruption Concerned8Pessimists/Doomers5Neutral/Informat\"",
+  "ts": "2026-10-22T01:41:41.998Z",
+  "shot": "agent3-sentiment-c8-pulse-metrics-24h-7d-30d-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c8",
+  "test": "source-urls-http",
+  "viewport": "server",
+  "pass": true,
+  "detail": "128 unique verified URLs: {\"400\":1,\"401\":2,\"402\":1,\"419\":3,\"403/429 bot-wall\":39,\"2xx\":76,\"404/410\":6}; dead(404/410)=6 e.g. https://news.microsoft.com/en-xm/2026/09/agent-365-uae/ https://enterpriseam.com/uae/2026/10/12/ai-adoption-functional-not-embedded/ https://www.khaleejtimes.com/jobs/cooper-fitch-ai-future-of-talent-2027 https://www.thenationalnews.com/future/technology/2026/09/25/uae-ai-diffusion-microsoft/",
+  "ts": "2026-10-22T01:42:01.092Z",
+  "shot": null
+ }
+]

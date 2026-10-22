@@ -1,0 +1,322 @@
+[
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:docs-categories",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 975 ms · services: Media API, Services API, MQTT User Management API, Projects Management API, Agents Flow Builder API, Chat API",
+  "ts": "2026-10-21T11:07:07.310Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:chat-createchatsession",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 201 · 244 ms · data.id=6ad89cdb7bb80aa7c2d9853b",
+  "ts": "2026-10-21T11:07:07.555Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:chat-submitquery-sync",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 1824 ms · data.answer=\"ok\", keys=sessionId,messageId,answer,metrics,status",
+  "ts": "2026-10-21T11:07:09.380Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:chat-getchatmessages",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 137 ms · 1 messages",
+  "ts": "2026-10-21T11:07:09.517Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:media-fetchmedia",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 137 ms · keys=message,data,pagination",
+  "ts": "2026-10-21T11:07:09.654Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:afb-get-workflow-ingest",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 167 ms · isActive=true cron=0 0 */2 * * *",
+  "ts": "2026-10-21T11:07:09.822Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:afb-get-workflow-briefing",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 200 ms · isActive=true cron=0 30 2 * * *",
+  "ts": "2026-10-21T11:07:10.022Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:afb-get-workflow-checkpoint",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 114 ms · isActive=true cron=0 */30 * * * *",
+  "ts": "2026-10-21T11:07:10.136Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:afb-execution-list+logs+outputs",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 415 ms · latest exec 6ad89b30c2cfee207e8f4269 status=success trigger=cron; 9 log lines; outputs keys=analyzer-0,state",
+  "ts": "2026-10-21T11:07:10.552Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:app-health",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 118 ms · {\"ok\":true,\"app\":\"uae-ai-command-centre\",\"disclaimer\":\"Concept Demonstration — not an official government system\",\"names",
+  "ts": "2026-10-21T11:07:10.671Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:app-uae-orgs",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 30 ms · 50 orgs",
+  "ts": "2026-10-21T11:07:10.701Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:app-uae-live",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 911 ms · workflows=ingest:success,briefing:success,checkpoint:success; news=11 statements=5 signals=7; provenance keys=source_url,timestamp,plugin,confidence,workflow_id,execution_id; briefing=true",
+  "ts": "2026-10-21T11:07:11.612Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:app-chat-proxy-stream",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 6576 ms · content-type=text/event-stream; charset=utf-8, first byte 34 ms, 15136 bytes, run finished=true",
+  "ts": "2026-10-21T11:07:18.188Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:app-briefing-bad-key-error",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 502 · 185 ms · honest error: stage=createchatsession upstream=401 \"Invalid API Key\"",
+  "ts": "2026-10-21T11:07:18.373Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "contract:app-artifacts-empty",
+  "viewport": "server",
+  "pass": true,
+  "detail": "HTTP 200 · 31 ms · {\"data\":[],\"total\":0,\"backend\":\"not_provisioned\",\"timestamp\":\"2026-10-21T11:07:18.410Z\"}",
+  "ts": "2026-10-21T11:07:18.405Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "state-loading-live-pipeline",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "live-loading visible while /api/uae/live is delayed: true",
+  "ts": "2026-10-21T11:07:19.718Z",
+  "shot": "agent5-contracts-v2-state-loading-live-pipeline-1440x900.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "state-error-live-pipeline",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "error state: \"Live pipeline unavailable: GET /execution/list → HTTP 500 (injected). Seed data below is unaffected.\"",
+  "ts": "2026-10-21T11:07:21.814Z",
+  "shot": "agent5-contracts-v2-state-error-live-pipeline-1440x900.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "state-error-chat",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "chat-error rendered=true, retry button=true",
+  "ts": "2026-10-21T11:07:25.311Z",
+  "shot": "agent5-contracts-v2-state-error-chat-1440x900.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "state-empty-briefing",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "empty state visible=true",
+  "ts": "2026-10-21T11:07:27.094Z",
+  "shot": "agent5-contracts-v2-state-empty-briefing-1440x900.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "perf-overview",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "LCP 444 ms · FCP 444 ms · TTI≈1087 ms (2 long tasks) · TTFB 115 ms · JS 3580 KiB (wire) · total 5403 KiB",
+  "ts": "2026-10-21T11:07:33.961Z",
+  "shot": "agent5-contracts-v2-perf-overview-1440x900.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "perf-chat",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "LCP 388 ms · FCP 388 ms · TTI≈842 ms (3 long tasks) · TTFB 108 ms · JS 3575 KiB (wire) · total 10572 KiB",
+  "ts": "2026-10-21T11:07:41.975Z",
+  "shot": "agent5-contracts-v2-perf-chat-1440x900.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "perf-sentiment",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "LCP 408 ms · FCP 408 ms · TTI≈1060 ms (3 long tasks) · TTFB 135 ms · JS 3589 KiB (wire) · total 4997 KiB",
+  "ts": "2026-10-21T11:07:48.446Z",
+  "shot": "agent5-contracts-v2-perf-sentiment-1440x900.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "state-loading-live-pipeline",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "live-loading visible while /api/uae/live is delayed: true",
+  "ts": "2026-10-21T11:07:49.316Z",
+  "shot": "agent5-contracts-v2-state-loading-live-pipeline-390x844.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "state-error-live-pipeline",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "error state: \"Live pipeline unavailable: GET /execution/list → HTTP 500 (injected). Seed data below is unaffected.\"",
+  "ts": "2026-10-21T11:07:51.395Z",
+  "shot": "agent5-contracts-v2-state-error-live-pipeline-390x844.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "state-error-chat",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "chat-error rendered=true, retry button=true",
+  "ts": "2026-10-21T11:07:54.566Z",
+  "shot": "agent5-contracts-v2-state-error-chat-390x844.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "state-empty-briefing",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "empty state visible=true",
+  "ts": "2026-10-21T11:07:56.457Z",
+  "shot": "agent5-contracts-v2-state-empty-briefing-390x844.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "perf-overview",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "LCP 360 ms · FCP 360 ms · TTI≈1103 ms (3 long tasks) · TTFB 112 ms · JS 3575 KiB (wire) · total 4981 KiB",
+  "ts": "2026-10-21T11:08:03.334Z",
+  "shot": "agent5-contracts-v2-perf-overview-390x844.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "perf-chat",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "LCP 220 ms · FCP 220 ms · TTI≈779 ms (2 long tasks) · TTFB 63 ms · JS 3575 KiB (wire) · total 10555 KiB",
+  "ts": "2026-10-21T11:08:11.348Z",
+  "shot": "agent5-contracts-v2-perf-chat-390x844.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "perf-sentiment",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "LCP 308 ms · FCP 308 ms · TTI≈943 ms (3 long tasks) · TTFB 80 ms · JS 3589 KiB (wire) · total 4981 KiB",
+  "ts": "2026-10-21T11:08:17.680Z",
+  "shot": "agent5-contracts-v2-perf-sentiment-390x844.jpg"
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "original-branch-unchanged",
+  "viewport": "server",
+  "pass": true,
+  "detail": "GitHub fix/news-summary-rewrite-live-verify-20261020 → 816aaaed9c3aa8fa37fbad31d3bd3f7491b3de9d; remote rollback tag object=not pushed yet",
+  "ts": "2026-10-21T11:08:18.234Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "original-rollback-tag",
+  "viewport": "server",
+  "pass": true,
+  "detail": "local tag → 816aaaed9c3aa8fa37fbad31d3bd3f7491b3de9d; work branch removes the old app dir only on the new branch (no diff) — the original branch is untouched",
+  "ts": "2026-10-21T11:08:18.244Z",
+  "shot": null
+ },
+ {
+  "agent": "agent5-contracts",
+  "round": "v2",
+  "test": "original-vercel-project-unchanged",
+  "viewport": "server",
+  "pass": true,
+  "detail": "project bcapital-portfolio-intelligence-8zsb framework=services updatedAt=2026-10-13T04:31:46.417Z; newest deployment undefined null undefined (sha undefined) — no deployment created since the 21:30Z rollback point",
+  "ts": "2026-10-21T11:08:19.107Z",
+  "shot": null
+ }
+]

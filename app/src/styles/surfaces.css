@@ -1,0 +1,84 @@
+/* Cross-platform surface tokens: typography scale, radii, shadows, spacing applied to
+   Overview, Companies, social, News Pulse, Artifacts, Settings, nav rail, top bar.
+   Chat (.oiu-*, .od-*) is excluded. */
+
+/* Page gutters: 16px (mobile/390px) / 24px (≥1024px) */
+main:not(.chat-main):not(.oiu-root):not([class*="od-chat"]) {
+  padding-left: var(--space-4, 16px);
+  padding-right: var(--space-4, 16px);
+}
+
+@media (min-width: 1024px) {
+  main:not(.chat-main):not(.oiu-root):not([class*="od-chat"]) {
+    padding-left: var(--space-5, 20px);
+    padding-right: var(--space-5, 20px);
+  }
+}
+
+/* Base surface scale: .card, [data-testid=company-card], .bs-card, .bs-post, .bs-header,
+   article cards in /news, artifact cards, settings sections */
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).card,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"])[data-testid="company-card"],
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).bs-card,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).bs-post,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).bs-header,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).art-card,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) article,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).news-card,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).settings-section {
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #E5E5E5);
+  border-radius: var(--radius-card, 12px);
+  box-shadow: var(--shadow-1, 0 1px 2px rgba(0, 0, 0, 0.05));
+  transition: box-shadow var(--motion-fast, 150ms) var(--motion-ease, cubic-bezier(0.2, 0.8, 0.2, 1));
+}
+
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).card:hover,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"])[data-testid="company-card"]:hover,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).bs-card:hover,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).bs-post:hover,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).art-card:hover,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) article:hover,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]).news-card:hover {
+  box-shadow: var(--shadow-1, 0 1px 2px rgba(0, 0, 0, 0.05));
+}
+
+/* Headings scale: h1 28/34 display, h2 18/26, h3 15/22; body 14/20; mono 12.5 */
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) h1:not([class*="oiu-"]):not([class*="od-"]) {
+  font-size: var(--text-2xl, 28px);
+  line-height: var(--text-2xl-lh, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) h2:not([class*="oiu-"]):not([class*="od-"]) {
+  font-size: var(--text-lg, 18px);
+  line-height: var(--text-lg-lh, 26px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) h3:not([class*="oiu-"]):not([class*="od-"]) {
+  font-size: var(--text-base, 15px);
+  line-height: var(--text-base-lh, 22px);
+  font-weight: 600;
+}
+
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) p:not([class*="oiu-"]):not([class*="od-"]) {
+  font-size: var(--text-sm, 14px);
+  line-height: var(--text-sm-lh, 20px);
+}
+
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) code,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) kbd,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) samp,
+main :not(.oiu-root):not([class*="oiu-"]):not([class*="od-"]) pre {
+  font-size: var(--font-mono-size, 12.5px);
+}
+
+/* Navigation rail & top bar */
+header:not([class*="oiu-"]),
+nav:not([class*="oiu-"]) {
+  background: var(--surface, #ffffff);
+  border-color: var(--border, #E5E5E5);
+}

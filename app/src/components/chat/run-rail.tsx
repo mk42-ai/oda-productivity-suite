@@ -1,0 +1,52 @@
+"use client";
+import { Card } from "@/components/ui/card";
+import { useStreamState, hasPayload, PlannerPayloadDetails } from "@/components/chat/open-intelligent-ui/chat-shell";
+import { MODEL_ID, MODEL_LABEL, REASONING_MODE } from "@/lib/plugins";
+import { PluginChip } from "@/components/ui/plugin-favicon";
+import { pluginName } from "@/lib/plugin-catalogue";
+
+/**
+ * "This run" card inside the inspector drawer (model row, plugin chips, agent events). Telemetry and the raw SSE request frame
+ * live behind ONE reveal (<details data-testid=dev-disclosure>) — the only developer disclosure in the chat UI.
+ * a6: the raw planner JSON (<details data-testid=planner-payload>) is rendered ONLY inside that reveal, never in the run view.
+ * Everything here is fed by the same live store the chat shell tees from the SSE body; nothing is fetched client-side.
+ */
+export function RunRail() {
+  const st = useStreamState();
+  const live = st.phase !== "idle";
+  const plugins = st.coverage && !st.pluginIds.includes("plugin-1722260873") ? ["plugin-1722260873", ...st.pluginIds] : st.pluginIds.length ? st.pluginIds : [];
+  return (
+    <Card className="p-3" data-testid="run-rail">
+      <h2 className="mb-2 text-sm font-semibold">This run</h2>
+      <p className="text-xs text-muted" data-testid="run-model" data-model-id={MODEL_ID}><span className="font-medium text-foreground">{MODEL_LABEL}</span> · reasoning {REASONING_MODE}</p>
+      {plugins.length > 0 && (
+        <ul className="mt-2 flex flex-wrap gap-1.5" aria-label="Plugins in this run" data-testid="run-plugins">
+          {plugins.map((id) => { const unavailable = (st.error?.code === "plugin_error" || !!st.coverage) && id === "plugin-1722260873"; const done = st.answerDone || st.sources.length > 0; const state = unavailable ? "unavailable" : done ? "done" : live && (st.phase === "researching" || st.phase === "answering" || st.phase === "planning") ? "running" : "queued"; const why = unavailable ? (st.coverage?.reason === "backoff" ? `unavailable — skipped (availability backoff${st.coverage?.nextRetryAt ? `, next retry ${st.coverage.nextRetryAt.slice(11, 16)} UTC` : ""})` : st.coverage?.reason === "credits" ? "unavailable — Perplexity credits exhausted (no web facts added)" : "unavailable — upstream execution error (no web facts added)") : null; return <li key={id} data-testid="run-plugin" data-plugin-state={state} title={why ?? undefined}><PluginChip id={id} state={state} input={why ?? (st.request ? `${pluginName(id)} · ${String((st.request.body as Record<string, unknown> | undefined)?.queryChars ?? "")} chars query` : undefined)} />{why && <span className="ml-1 align-middle text-[10px] text-[#5D5D5D]" data-testid="plugin-state-reason">{why}</span>}</li>; })}
+        </ul>
+      )}
+      {/* Plan checklist intentionally NOT here: it lives only in the run view (data-testid=run-view, plan-stepper). */}
+      {st.agentLog.length > 0 && (
+        <details className="mt-3 text-xs"><summary className="cursor-pointer font-semibold">Agent events ({st.agentLog.length})</summary>
+          <ul className="mt-1 space-y-0.5 text-muted">{st.agentLog.slice(-12).map((a, i) => <li key={i}><code>{a.subtype}</code> · {(a.at / 1000).toFixed(1)} s</li>)}</ul>
+        </details>
+      )}
+      {/* ONE reveal for everything developer-facing: telemetry (first event / first token / tokens / stream integrity) + the raw SSE request frame. */}
+      <details className="mt-3" data-testid="dev-disclosure">
+        <summary className="cursor-pointer select-none text-[11px] font-medium text-muted hover:text-foreground">Developer details</summary>
+        <p className="mt-1 text-[11px] text-muted" data-testid="rail-metrics">
+          {/* a8 — the verbose first-event / first-token / total values live here (the run footer shows only the compact tools-vs-answer bar). */}
+          {st.metrics?.totalTokens != null ? `${st.metrics.totalTokens.toLocaleString()} tokens` : "tokens —"} · first event {st.firstStatusMs != null && Number.isFinite(st.firstStatusMs) ? st.firstStatusMs.toLocaleString() : "—"} ms · first token {st.firstTokenMs != null && Number.isFinite(st.firstTokenMs) ? st.firstTokenMs.toLocaleString() : "—"} ms · tools {st.toolsMs != null && Number.isFinite(st.toolsMs) ? `${(st.toolsMs / 1000).toFixed(1)} s` : "—"} · answer {st.answerMs != null && Number.isFinite(st.answerMs) ? `${(st.answerMs / 1000).toFixed(1)} s` : "—"} · total {st.finishedAt != null && st.startedAt ? `${((st.finishedAt - st.startedAt) / 1000).toFixed(1)} s` : "—"}
+          {st.integrity ? ` · ${st.integrity.frames} frames` : ""}
+        </p>
+        {st.integrity && (st.integrity.dupes > 0 || st.integrity.gaps > 0) && <p className="mt-1 text-[10px] text-muted" data-testid="rail-integrity">stream integrity: {st.integrity.dupes} duplicate frame{st.integrity.dupes === 1 ? "" : "s"} dropped · {st.integrity.gaps} gap{st.integrity.gaps === 1 ? "" : "s"}</p>}
+        <p className="mt-1 font-mono text-[10px] text-muted" data-testid="dev-ids">model {MODEL_ID} · plugins {plugins.join(", ") || "—"}{st.attachments ? ` · attachments ${st.attachments.length}` : ""}{st.voice ? ` · voice ${st.voice.phase}` : ""}</p>
+        {/* 2026-10-12: the "Why it's interactive" card and the "Request body" placeholder copy were removed; raw frames (request + any
+            upstream error frame) are shown ONLY here, inside this single reveal, and only once a run produced them. */}
+        {st.request && <pre className="mt-1 max-h-48 overflow-auto rounded-md border border-border bg-surface-2 p-2 text-[10.5px] leading-snug" data-testid="request-body">{JSON.stringify(st.request.body, null, 2)}</pre>}
+        {st.error?.raw && <pre className="mt-1 max-h-40 overflow-auto rounded-md border border-border bg-surface-2 p-2 text-[10.5px] leading-snug" data-testid="chat-error-raw">{st.error.raw}</pre>}
+        {/* a6: raw planner / tool-definition JSON — developer-only, so it lives here and nowhere else (the Plan card shows the checklist only). */}
+        {hasPayload(st.plannerPayload) && <div className="mt-2 text-[11px]"><PlannerPayloadDetails payload={st.plannerPayload} /></div>}
+      </details>
+    </Card>
+  );
+}

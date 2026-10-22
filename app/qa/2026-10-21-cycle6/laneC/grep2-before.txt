@@ -1,0 +1,6 @@
+e2e/qa-final.spec.ts
+e2e/run-panel-a11y.spec.ts
+e2e/navigation-retry-proof.spec.ts
+e2e/chat-error-retry.spec.ts
+e2e/live-smoke.spec.ts
+e2e/run-ux.spec.ts

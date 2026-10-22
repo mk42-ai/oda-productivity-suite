@@ -1,0 +1,1180 @@
+{
+ "updated_at": "2026-10-22T05:45Z",
+ "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
+ "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
+ "original": {
+  "repo": "mk42-ai/oda-productivity-suite",
+  "app_path": "<original>/web (+ Hono API at <original>/)",
+  "branch": "fix/news-summary-rewrite-live-verify-20261020",
+  "sha": "816aaaed9c3aa8fa37fbad31d3bd3f7491b3de9d",
+  "commit_time": "2026-10-20T10:04:05Z",
+  "rollback_tag": "bcap-pre-uae-20261020T2130Z",
+  "rollback_tag_pushed": false,
+  "last_ready_vercel": "original project last READY preview 2026-10-13 (id withheld — see Vercel project prj_OGWzvDKrp97MDz28cfd7yE86EcBq)",
+  "note": "All 15 Vercel git deployments of this project since 2026-10-18 are ERROR MISSING_SERVICES (project framework=services, vercel.json not at repo root).",
+  "rollback_tag_note": "Tag exists locally on 816aaae. `git push origin refs/tags/bcap-pre-uae-20261020T2130Z` attempted 2026-10-21T04:22Z → 'Invalid username or token' (no GITHUB_TOKEN in this session). Branch fix/news-summary-rewrite-live-verify-20261020 on GitHub still points at 816aaae; main at be3f7c1 untouched."
+ },
+ "new": {
+  "branch": "uae-ai-command-centre",
+  "app_path": "app/",
+  "pushed": true,
+  "pr_url": "https://github.com/mk42-ai/oda-productivity-suite/pull/7",
+  "preview_url": "https://sb-4pt9zz78srbe.vercel.run",
+  "sandbox_id": "sbx_o6FAzWrCElYNNsCxkYE8O21hTl1X",
+  "sandbox_timeout": "90 min from 2026-10-22T01:35:08Z (expires ≈03:05Z)",
+  "previous_preview": "https://sb-1gnt3nqtj561.vercel.run (sbx_OFNqsprkTODzYN3vcvgD1YY2nQvn, expired ≈01:58Z)",
+  "base_commit": "2515e93",
+  "pushed_commit": "pushed to origin/uae-ai-command-centre (PR #7) this cycle",
+  "vercel_git_preview": {
+   "deployment": "dpl_4kp8ZTwCquMjUuTeT4HtAr5tQyC7",
+   "url": "https://oda-productivity-suite-3kdb4ehd6-schoolhack-web-team.vercel.app",
+   "state": "READY 2026-10-21T04:25Z",
+   "note": "Created via POST /v13/deployments with projectSettings.rootDirectory=uae-ai-command-centre override on commit 2008923; protected by Vercel Authentication (SSO), so it is not publicly reachable. Project rootDirectory=app and framework=vite were NOT changed. Env vars on the project: 0 → the OnDemand key is supplied only through the sandbox .env.local, never committed."
+  },
+  "root_dir_fix": "Branch layout moved uae-ai-command-centre/ → app/ (git mv, history preserved) + app/vercel.json {framework: nextjs}; the next git push will build under the project's Root Directory 'app' without touching main or project settings.",
+  "sandbox_created_at": "2026-10-22T01:35:08Z",
+  "head": "961d04c (+ docs commit)",
+  "git_preview": {
+   "note": "latest READY git builds bb15cd8 dpl_3JZ26VUjX9E5VbmpTyEFa9ZV9A2T (01:37:47Z) and 961d04c dpl_EQ2y4sBmoK7w6dLVpitUc4FPaRGC (01:47:29Z); alias 302 without / 200 with bypass header; POST /api/chat → no_key",
+   "sso_protected": true,
+   "env_vars": 0,
+   "bypass_secret": true
+  }
+ },
+ "data": {
+  "namespace": "uae_cc_v1",
+  "organizations": 50,
+  "mean_coverage": 0.728,
+  "with_verified_source": 45,
+  "sentiment_records": 196,
+  "by_class": {
+   "Neutral/Informational": 95,
+   "Pragmatists": 20,
+   "Optimists": 37,
+   "Skeptics": 19,
+   "Disruption Concerned": 8,
+   "Safety Advocates": 14,
+   "Pessimists/Doomers": 3
+  },
+  "by_platform": {
+   "news": 79,
+   "web": 35,
+   "survey": 5,
+   "reddit": 38,
+   "government": 3,
+   "op-ed": 3,
+   "think-tank": 6,
+   "hackernews": 7,
+   "facebook": 5,
+   "editorial": 3,
+   "instagram": 5,
+   "linkedin": 4,
+   "event": 1,
+   "press": 1,
+   "report": 1
+  },
+  "by_location": {
+   "UAE_TOPIC_ONLY": 137,
+   "EXPLICIT_UAE": 43,
+   "UNKNOWN": 16
+  },
+  "news": 108,
+  "edges": 168,
+  "hf_models": 154,
+  "sentiment_dead_urls_disabled": 2,
+  "sentiment_prior": 159,
+  "sentiment_added_2026_10_21": 37,
+  "sentiment_duplicates_skipped": 0,
+  "by_lane": {
+   "UAE-topic": 180,
+   "global-discourse": 16
+  },
+  "as_of": "2026-10-21",
+  "sentiment": 274,
+  "sentiment_lanes": {
+   "UAE-topic": 216,
+   "global-discourse": 58
+  },
+  "sentiment_unclassified": 36
+ },
+ "ondemand": {
+  "pipeline_calls": 124,
+  "pipeline_ok": 124,
+  "workflow_runs_since_2026-10-20T23:30Z": {
+   "ingest_cron": [
+    "6ad80080b28e35aa11d85572 00:00:00Z success",
+    "6ad81ca05e60695bc4d05442 02:00:00Z success",
+    "6ad838c05e60695bc4d05528 04:00:00Z success"
+   ],
+   "briefing_cron": [
+    "6ad823a85e60695bc4d054a0 02:30:00Z success (5,159 chars, 12 URLs)"
+   ],
+   "checkpoint_cron": "every 30 min 23:30Z→04:00Z, 10 cron executions all success",
+   "manual_2026-10-21": [
+    "briefing 6ad84034b28e35aa11d85731 04:31:48Z success",
+    "ingest 6ad84034c2cfee207e8f3f58 04:31:48Z success (129 s)",
+    "briefing 6ad841aab28e35aa11d85744 04:38:02Z success — seed-grounded prompt, leads with 20 Oct 2026 items, 13 URLs"
+   ]
+  },
+  "web_research": {
+   "plugin": "plugin-1722260873",
+   "status": "credits exhausted (intermittent)",
+   "first_failure": "2026-10-21T12:40Z",
+   "probes": [
+    {
+     "at": "2026-10-21T13:22Z",
+     "result": "HTTP 500 {\"error\":\"Internal server error\",\"message\":\"Not enough credits\"}"
+    },
+    {
+     "at": "2026-10-21T13:35:43Z",
+     "result": "sync answer: web search failed due to insufficient credits"
+    },
+    {
+     "at": "2026-10-21T14:10Z",
+     "result": "clean briefing call (intermittent)"
+    },
+    {
+     "at": "2026-10-21T14:24:53Z",
+     "result": "preview POST /api/chat → ondemand.coverage reason=upstream, backoff 1 min"
+    }
+   ],
+   "mitigation": "plugin-availability backoff 1→2→4→8→16→30 min + coverage-notice / briefing-coverage / health.web_research (commit 8901901)"
+  }
+ },
+ "blockers": [
+  "Perplexity plugin-1722260873 out of OnDemand credits since ≈12:40Z (PERPLEXITY_CREDITS_RESTORED=false) — app degrades to curated-source coverage with a visible notice; web facts not added.",
+  "Vercel git preview: 0 ONDEMAND_API_KEY / ONDEMAND_BASE_URL on project prj_wXz5xY3PNULypuwepaqu1XKa6sP1; previews behind SSO (302 vercel.com/sso-api, POST 401 Protected deployment) — sandbox preview remains the demo surface.",
+  "Sandbox previews are ephemeral (90 min).",
+  "Ingest results stay in the OnDemand execution store (not merged into seed JSON).",
+  "10 Playwright tests need a spec-vs-design decision (5 stale Portfolio-plugin/threads-menu assertions, 5 thinking-block vs OdStatusView on live od-frame runs)."
+ ],
+ "phases": {
+  "P1": "done",
+  "P2": "done",
+  "P3": "done",
+  "P4": "done",
+  "P5": "done (graph + polish); X/TikTok/YouTube native ingestion not run",
+  "P6": "done — durable workflows (3 active, verified runs incl. first cron fire), live pipeline UI, 5-agent QA 84/84",
+  "P7_resume_2026_10_21": "done: dossier patches, AIREV×OnDemand weave, brand marks, +37 sentiment, +14 news, briefing re-grounded, QA 82/82, residue 0"
+ },
+ "workflows": {
+  "ingest": {
+   "id": "6ad7f32d5e60695bc4d052cb",
+   "name": "UAE AI Command Centre — uae_cc_v1 ingest (news + sentiment + entities) every 2h",
+   "cron6_utc": "0 0 */2 * * *",
+   "cron5": "0 */2 * * *",
+   "isActive": true,
+   "activate_http": 200,
+   "next_runs_utc": [
+    "2026-10-21T00:00:00Z",
+    "2026-10-21T02:00:00Z",
+    "2026-10-21T04:00:00Z"
+   ],
+   "verification_execution": "6ad7f3af5e60695bc4d05305",
+   "verification_status": "success"
+  },
+  "briefing": {
+   "id": "6ad7f32e5e60695bc4d052d2",
+   "name": "UAE AI Command Centre — National AI Briefing daily 06:30 GST (02:30 UTC)",
+   "cron6_utc": "0 30 2 * * *",
+   "cron5": "30 2 * * *",
+   "isActive": true,
+   "activate_http": 200,
+   "next_runs_utc": [
+    "2026-10-21T02:30:00Z",
+    "2026-10-22T02:30:00Z",
+    "2026-10-23T02:30:00Z"
+   ],
+   "verification_execution": "6ad7f3b05e60695bc4d05309",
+   "verification_status": "success"
+  },
+  "checkpoint": {
+   "id": "6ad7f32e5e60695bc4d052d7",
+   "name": "UAE AI Command Centre — mission checkpoint every 30 min",
+   "cron6_utc": "0 */30 * * * *",
+   "cron5": "*/30 * * * *",
+   "isActive": true,
+   "activate_http": 200,
+   "next_runs_utc": [
+    "2026-10-20T23:30:00Z",
+    "2026-10-21T00:00:00Z",
+    "2026-10-21T00:30:00Z"
+   ],
+   "verification_execution": "6ad7f33a5e60695bc4d052dc",
+   "verification_status": "success",
+   "first_cron_execution": {
+    "id": "6ad7f978b28e35aa11d85525",
+    "status": "success",
+    "started_at": "2026-10-20T23:30:00.803Z"
+   }
+  }
+ },
+ "live_datastore": {
+  "read_path": "GET /api/uae/live → OnDemand /automation/api/execution/list + /execution/{id}/node/outputs",
+  "latest_ingest": {
+   "execution": "6ad7f3af5e60695bc4d05305",
+   "news": 3,
+   "statements": 3,
+   "org_signals": 1,
+   "dropped_no_url": 0
+  },
+  "merged_into_seed": false
+ },
+ "qa": {
+  "round": "2026-10-21 r2+r3",
+  "pass": 82,
+  "total": 82,
+  "residue_hits": 0,
+  "screenshots_dir": "app/proof/qa-20261021"
+ },
+ "preview_url": "https://sb-6u0rv43z1luy.vercel.run",
+ "ui_restyle_20261021": {
+  "theme": "white-first neutral (ChatGPT-like)",
+  "fallback_tag": "uae-navy-gold-fallback-20261021",
+  "fallback_sha": "2008923e6b06e06d1b179eedc117c1ea749c0667",
+  "commits": [
+   "2c4534a",
+   "778ea96",
+   "b37cc78",
+   "25ad390",
+   "e68b80a",
+   "3ded306",
+   "eeba60b"
+  ],
+  "qa": {
+   "existing_suite": "see QA_REPORT.md",
+   "contrast_fails": 105,
+   "contrast_nodes": 6695,
+   "hscroll_fail_routes": 0,
+   "residue_dom": 0,
+   "residue_network": 0
+  }
+ },
+ "verification_20261021": {
+  "started_utc": "2026-10-21T10:16:29Z",
+  "head_before": "0aa7eb2",
+  "head_after": "5b6a994",
+  "pushed_utc": "2026-10-21T11:16:25Z",
+  "commits": [
+   "3836ec0 fix contrast",
+   "ec26854 fix chat layout spec",
+   "249eaf7 feat light-only",
+   "6a78690 assets",
+   "2e18ad9 fix disclaimer contrast",
+   "5b6a994 docs evidence"
+  ],
+  "preview": {
+   "url": "https://sb-64yp7hfte77p.vercel.run",
+   "sandbox_id": "sbx_bACrpDgAiMJfNDC8O1gc6TnTaDSK",
+   "created_utc": "2026-10-21T11:21Z",
+   "timeout": "90m",
+   "serves": "dd8f056 (HEAD)"
+  },
+  "vercel": {
+   "project": "prj_wXz5xY3PNULypuwepaqu1XKa6sP1",
+   "env_vars": 0,
+   "sso_protection": "all_except_custom_domains",
+   "last_ready_preview": {
+    "id": "dpl_Ga19v74DiAHLkG3xjMQC3xJVVdez",
+    "commit": "0aa7eb2",
+    "ready_utc": "2026-10-21T09:58:38Z",
+    "url": "https://oda-productivity-suite-9h8g5yik4-schoolhack-web-team.vercel.app",
+    "http": 302
+   },
+   "new_head_build": {
+    "id": "dpl_r4qGtYU1B3c3QLUhGowjECMyW7Vv",
+    "commit": "dd8f056",
+    "ready_utc": "2026-10-21T11:19:27Z",
+    "url": "https://oda-productivity-suite-gkbr82ka5-schoolhack-web-team.vercel.app",
+    "http": 302,
+    "previous": "dpl_6mSwFCHYFCGcUtACzFNKfteHcJzS 5b6a994 READY 11:17:52Z"
+   }
+  },
+  "open_items": {
+   "muted_label_contrast": "VERIFIED-FIXED",
+   "drawer_390": "VERIFIED (open/overlay/outside-tap close)",
+   "rail_hosted_threads": "VERIFIED structure; populated list not exercised",
+   "dark_theme": "VERIFIED-FAILING → light-only ship, toggle gated",
+   "e2e_39_specs": "PARTIAL 72/184 (29 pass, 43 fail, 1 killed, 112 not run)"
+  },
+  "contrast": {
+   "before": {
+    "checked": 6695,
+    "fails": 105,
+    "genuine": 73,
+    "artefacts": 32
+   },
+   "after": {
+    "checked": 8895,
+    "fails": 38,
+    "genuine": 0,
+    "artefacts": 38
+   }
+  },
+  "suite84": {
+   "total": "84/84",
+   "1440x900": "33/33",
+   "390x844": "32/32",
+   "server": "19/19",
+   "base": "https://sb-6szikitpkdgm.vercel.run"
+  },
+  "e2e": {
+   "executed": 72,
+   "configured": 184,
+   "passed": 29,
+   "failed": 43,
+   "killed": 1,
+   "not_run": 112,
+   "duration_s": 1537.8,
+   "stale_specs": 22,
+   "app_bugs": 17,
+   "environment": 4,
+   "report": "qa/screenshots/20261021-v2/playwright-report-desktop/index.html"
+  },
+  "pipeline_runs_since_20261020T2330Z": {
+   "ingest": 7,
+   "briefing": 3,
+   "checkpoint": 22,
+   "cron": 29,
+   "api": 3,
+   "all_success": true,
+   "missed": "checkpoint 2026-10-21T05:00Z"
+  },
+  "sentiment": {
+   "records": 196,
+   "baseline": 159,
+   "ingested": 37,
+   "duplicates": 0,
+   "lanes": {
+    "UAE-topic": 180,
+    "global-discourse": 16
+   },
+   "pulse": {
+    "24h": 4,
+    "7d": 17,
+    "30d": 39
+   }
+  },
+  "residual_sweeps": {
+   "b_capital_code": "0 (1 comment in scripts/uae/residual-scan.mjs describing the pattern)",
+   "b_capital_dom_network": 0,
+   "navy_gold_emerald_tokens": 0,
+   "portfolio_api_plugins_planner": 0
+  },
+  "tag_push": "bcap-pre-uae-20261020T2130Z → 816aaae pushed to origin 2026-10-21T11:16Z"
+ },
+ "cycles": {
+  "qa_closure_cycle3": {
+   "resumed_at": "2026-10-21T11:45:48Z",
+   "base_sha": "d32b6912e0f7951a04e080a9b18bc744b640d706",
+   "origin_delta_since_d32b691": "none",
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-21T13:03:22Z",
+   "preview_url": "https://sb-60putp7mv2mi.vercel.run",
+   "sandbox_id": "sbx_OzN6O6mMApNf2QJR413ZE9mGpNuw",
+   "playwright": {
+    "listed": 192,
+    "executed": 177,
+    "pass": 138,
+    "fail": 16,
+    "skipped_env": 23,
+    "not_run": 15,
+    "fail_classes": {
+     "upstream_perplexity_credits": 7,
+     "harness_artefact": 3,
+     "timeout": 2,
+     "stale_voice": 2,
+     "artifact_store_env": 2
+    }
+   },
+   "suite84": {
+    "total": "74/84",
+    "1440x900": "28/33",
+    "390x844": "27/32",
+    "server": "19/19",
+    "agent4_note": "upstream Perplexity insufficient credits"
+   },
+   "contrast_genuine": 0,
+   "contrast_nodes": 8240,
+   "hscroll": "26/26",
+   "residue": {
+    "code": 0,
+    "dom": 0,
+    "network_theme": 0,
+    "network_vendored_colour_names": 134
+   },
+   "typecheck": "pass",
+   "build": "pass",
+   "briefing_0230Z": {
+    "executed": true,
+    "execution": "6ad823a85e60695bc4d054a0",
+    "status": "success",
+    "started": "2026-10-21T02:30:00.573Z",
+    "ended": "2026-10-21T02:30:58.921Z"
+   },
+   "commits": [
+    "60e604c",
+    "14e032e",
+    "7a6d8fb",
+    "a6daaf3",
+    "a04bc09"
+   ]
+  },
+  "qa_cycle4": {
+   "resumed_at": "2026-10-21T13:28:49Z",
+   "base_sha": "c0054201bdbd8c2c907a88ce1c74b15af59c7cd4",
+   "origin_delta_since_c005420": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa4-pre-20261021T13Z",
+    "target": "c005420",
+    "tag_object": "9f95223",
+    "pushed_at": "2026-10-21T13:30:09Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-21T14:27:30Z",
+   "preview_url": "https://sb-2pnr5jjv61vv.vercel.run",
+   "sandbox_id": "sbx_kNCjjcHasZqxZZXLXjsc94k4PBMn",
+   "served_commit": "2ce7426",
+   "laneA": {
+    "spec": "e2e/chat-intelligent-ui-payloads.spec.ts",
+    "restored_from": "1f878a1 (1ed4247^)",
+    "scenarios": 7,
+    "viewports": [
+     "1440x900",
+     "390x844"
+    ],
+    "pass": 14,
+    "fail": 0,
+    "na": 0,
+    "app_bugs": 0
+   },
+   "laneB": {
+    "listed": 192,
+    "pass": 145,
+    "fail": 18,
+    "skipped_env": 25,
+    "not_run": 4,
+    "baseline": {
+     "pass": 138,
+     "fail": 16,
+     "skipped_env": 23,
+     "not_run": 15
+    },
+    "fail_classes": {
+     "upstream_perplexity_not_rerun": 6,
+     "stale_spec": 5,
+     "live_od_view_divergence": 5,
+     "environment": 2
+    },
+    "fixed": {
+     "nav_stress_390": "9/9",
+     "voice": "4/4 rewritten",
+     "run_ux_mobile_ux": "env-skip"
+    }
+   },
+   "laneC": {
+    "threads_seeded": 5,
+    "rail_px": {
+     "expanded": 224,
+     "collapsed": 64,
+     "persisted": true
+    },
+    "topbar_px": 52,
+    "column_px": 800,
+    "inspector_px": 360,
+    "drawer_px_390": 280,
+    "rail_items_after_reload": 5,
+    "plan_tab": "od-status log (run-logs-toggle) — no literal tabs",
+    "run_tab": "inspector run-rail + dev-disclosure",
+    "plan_stepper_live": "never mounts when raw OnDemand frames are present (structural)",
+    "overflow_fix": "status-log wrapper w-auto min-w-0 (8901901)"
+   },
+   "laneD": {
+    "perplexity_credits_restored": false,
+    "backoff_minutes": [
+     1,
+     2,
+     4,
+     8,
+     16,
+     30
+    ],
+    "surfaces": [
+     "coverage-notice",
+     "briefing-coverage",
+     "plugin chip unavailable",
+     "/health.web_research",
+     "/api/plugins availability"
+    ],
+    "suite84": {
+     "total": "84/84",
+     "agent4": "14/14",
+     "baseline": "74/84"
+    },
+    "live_preview_probe": "POST /api/chat 200 14.4 s, coverage reason=upstream"
+   },
+   "laneE": {
+    "alias": "https://oda-productivity-suite-git-uae-ai-co-869d68-schoolhack-web-team.vercel.app",
+    "deployment": "dpl_7sWkXnZfX8r7DHcVBjz1YDNBXyyo",
+    "get_status": 302,
+    "get_redirect": "https://vercel.com/sso-api",
+    "post_api_chat_status": 401,
+    "sso_protection": "all_except_custom_domains",
+    "protection_bypass": 0,
+    "env_vars": 0,
+    "blocker": "0 ONDEMAND_API_KEY / ONDEMAND_BASE_URL on project prj_wXz5xY3PNULypuwepaqu1XKa6sP1; previews behind SSO",
+    "decision": "sandbox preview remains the demo surface"
+   },
+   "gate": {
+    "contrast_nodes": 8164,
+    "contrast_genuine": 0,
+    "hscroll": "26/26",
+    "residue": {
+     "dom": 0,
+     "network_theme": 0,
+     "network_vendored": 186
+    },
+    "typecheck": "pass",
+    "build": "pass",
+    "ui_validator": "/chat + /briefing × 2 vp pass",
+    "main": "be3f7c1 untouched",
+    "tags_untouched": [
+     "bcap-pre-uae-20261020T2130Z",
+     "uae-navy-gold-fallback-20261021"
+    ]
+   },
+   "commits": [
+    "80446e3",
+    "d2dfc95",
+    "fb848be",
+    "8901901",
+    "2ce7426"
+   ]
+  },
+  "qa_cycle6": {
+   "resumed_at": "2026-10-21T20:44:41Z",
+   "base_sha": "3a07efbfac428dc5a1fe86c13e07059984bcecbc",
+   "origin_delta_since_3a07efb": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa6-pre-20261021T20Z",
+    "target": "3a07efb",
+    "tag_object": "e848f65",
+    "pushed_at": "2026-10-21T20:46:03Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-21T22:45:00Z",
+   "preview_url": "https://sb-1p1cmfeo08vc.vercel.run",
+   "sandbox_id": "sbx_F6RtiRxRW8LXWX46poK7aFU2F4FK",
+   "sandbox_created_at": "2026-10-21T21:45:35Z",
+   "served_commit": "7c860b7 (1c2953c from 21:55:30Z, rebuilt 22:37:32Z)",
+   "commits": [
+    {
+     "sha": "3f36842",
+     "at": "2026-10-21T21:16:53Z",
+     "lane": "D"
+    },
+    {
+     "sha": "978be46",
+     "at": "2026-10-21T21:17:08Z",
+     "lane": "E/F"
+    },
+    {
+     "sha": "3315f90",
+     "at": "2026-10-21T21:34:24Z",
+     "lane": "B"
+    },
+    {
+     "sha": "e0c3d4b",
+     "at": "2026-10-21T21:39:58Z",
+     "lane": "C"
+    },
+    {
+     "sha": "1c2953c",
+     "at": "2026-10-21T21:53:37Z",
+     "lane": "A"
+    },
+    {
+     "sha": "7c860b7",
+     "at": "2026-10-21T21:59:23Z",
+     "lane": "coordinator fix"
+    }
+   ],
+   "pushes": [
+    "2026-10-21T21:40:11Z",
+    "2026-10-21T21:53:41Z"
+   ],
+   "laneA": {
+    "offramp_before": 815,
+    "offramp_after": 4,
+    "remaining": "html.dark tokens.css:204-205,227-228",
+    "sentiment_ramp": {
+     "Optimists": "#0D0D0D",
+     "Pragmatists": "#2F2F2F",
+     "Safety Advocates": "#5D5D5D",
+     "Neutral/Informational": "#737373",
+     "Skeptics": "#A3A3A3",
+     "Disruption Concerned": "#B4B4B4",
+     "Pessimists/Doomers": "#D4D4D4",
+     "Unclassified": "#ECECEC"
+    },
+    "confidence_as_opacity": "0.25+0.6*conf"
+   },
+   "laneB": {
+    "tabs": "Plan/Run literal role=tab since aaaa6e0",
+    "inspector_px": 360,
+    "sheet_px_390": [
+     390,
+     717
+    ],
+    "screenshots": 5
+   },
+   "laneC": {
+    "payload_https": "14/14",
+    "payload_local": "14/14",
+    "stale5": "5/5",
+    "thinking5": "5/5",
+    "never_run4": "4/4",
+    "tests_residue": 0,
+    "open_app_bug": "run-panel-mobile .oiu-cite__preview overflow @390 (intermittent)"
+   },
+   "laneD": {
+    "lucidya": "absent",
+    "whiteshield": "reconciled",
+    "news": 107,
+    "radar": 13,
+    "coverage_before": 0.737,
+    "coverage_after": 0.737
+   },
+   "laneE": {
+    "perplexity_credits_restored": false,
+    "direct_probe_at": "2026-10-21T20:52:45Z",
+    "app_probe": "200 reason=upstream then backoff"
+   },
+   "laneF": {
+    "env_vars": 0,
+    "protection_bypass_created_at": "2026-10-21T20:50:08Z",
+    "bypass_verified": "/health 200 with header",
+    "vercel_builds": {
+     "e0c3d4b": "READY 21:40:17Z",
+     "1c2953c": "READY 21:53:48Z"
+    }
+   },
+   "gates": {
+    "suite84": "83/84",
+    "contrast": {
+     "nodes": 8226,
+     "genuine_after_1c2953c": 10,
+     "genuine_after_7c860b7": 0
+    },
+    "hscroll": "26/26",
+    "residue": {
+     "brand": 0,
+     "dom_portfolio_prose": 20
+    },
+    "tsc": 0,
+    "build": 0,
+    "build_warning": "Module not found: Can't resolve 'ai'",
+    "playwright": {
+     "listed": 199,
+     "pass": 157,
+     "fail": 17,
+     "env_skip": 25,
+     "not_run": 0,
+     "hard_fail_after_rerun": 13,
+     "classes": {
+      "upstream_perplexity": 3,
+      "stale_spec": 3,
+      "app_bug_fixed_7c860b7": 3,
+      "environment": 4
+     }
+    }
+   }
+  },
+  "qa_cycle7": {
+   "resumed_at": "2026-10-21T23:37:08Z",
+   "base_sha": "753c1462e6f79f8f66ca2d4ba3818a4b57e57610",
+   "origin_delta_since_753c146": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa7-pre-20261021T23Z",
+    "target": "753c1462e6f79f8f66ca2d4ba3818a4b57e57610",
+    "pushed_at": "2026-10-21T23:38:19Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-22T00:50:00Z",
+   "preview_url": "https://sb-1gnt3nqtj561.vercel.run",
+   "sandbox_id": "sbx_OFNqsprkTODzYN3vcvgD1YY2nQvn",
+   "sandbox_created_at": "2026-10-22T00:28:03Z",
+   "sandbox_build_id": "x-NQRiHHdLxFwgoq8YiAf",
+   "commits": [
+    {
+     "sha": "6fcf2d8",
+     "utc": "2026-10-22T00:09:00Z",
+     "lane": "D"
+    },
+    {
+     "sha": "94f16c1",
+     "utc": "2026-10-22T00:09:12Z",
+     "lane": "A"
+    },
+    {
+     "sha": "0b40aed",
+     "utc": "2026-10-22T00:09:32Z",
+     "lane": "E"
+    },
+    {
+     "sha": "c20866c",
+     "utc": "2026-10-22T00:13:30Z",
+     "lane": "B+C"
+    },
+    {
+     "sha": "1cf2097",
+     "utc": "2026-10-22T00:25:34Z",
+     "lane": "docs E/F/Vercel"
+    },
+    {
+     "sha": "a70078b",
+     "utc": "2026-10-22T00:31:48Z",
+     "lane": "C"
+    },
+    {
+     "sha": "cb8bfe9",
+     "utc": "2026-10-22T00:38:56Z",
+     "lane": "C"
+    }
+   ],
+   "gates": {
+    "suite84": {
+     "before": "83/84",
+     "after": "84/84",
+     "agent4_rounds": [
+      "c7a 14/14",
+      "c7b 14/14"
+     ]
+    },
+    "playwright": {
+     "before": {
+      "listed": 199,
+      "pass": 157,
+      "fail": 17,
+      "env_skip": 25,
+      "not_run": 0
+     },
+     "after": {
+      "listed": 196,
+      "pass": 164,
+      "fail": 3,
+      "env_skip": 29,
+      "not_run": 0
+     },
+     "remaining_failures": [
+      "chat.spec first activity within 5 s (upstream-perplexity)",
+      "qa-chat-timing desktop tool-card transitions (upstream-perplexity)",
+      "qa-chat-timing mobile tool-card transitions (upstream-perplexity)"
+     ]
+    },
+    "offramp_tokens": {
+     "before": 4,
+     "after": 4
+    },
+    "aa_genuine": {
+     "before": 0,
+     "after": 0,
+     "nodes": 8226
+    },
+    "hscroll": "26/26",
+    "residue_brand_src_dom_network": 0,
+    "payload": {
+     "https": "14/14",
+     "local": "14/14"
+    },
+    "tsc": 0,
+    "build_warnings": {
+     "before": 1,
+     "after": 0
+    },
+    "run_panel_mobile_390": {
+     "before": "324>318 (intermittent)",
+     "after": "318=318"
+    }
+   },
+   "data": {
+    "sentiment": {
+     "before": 196,
+     "after": 230,
+     "added": 34,
+     "duplicates": 0,
+     "lanes": {
+      "UAE-topic": 195,
+      "global-discourse": 35
+     },
+     "classes": {
+      "Neutral/Informational": 97,
+      "Optimists": 40,
+      "Pragmatists": 25,
+      "Skeptics": 23,
+      "Safety Advocates": 18,
+      "Disruption Concerned": 8,
+      "Pessimists/Doomers": 4,
+      "Unclassified": 15
+     }
+    },
+    "news": {
+     "before": 107,
+     "after": 108,
+     "merged": "n00533493fa ×3 sources",
+     "added": [
+      "n80cff8de1d"
+     ]
+    },
+    "radar": {
+     "AI governance & regulation": "5→6"
+    }
+   },
+   "vercel": {
+    "project_env_vars": 0,
+    "env_copy": "impossible — sensitive values return decrypted:false without value",
+    "built": "0b40aed READY 2026-10-22T00:09:47Z dpl_A9qsfBajgMs3193kR6dtgom3F41e",
+    "alias_get_no_header": 302,
+    "alias_get_bypass": "307→/overview 200",
+    "alias_post_api_chat": "200 reason=no_key"
+   },
+   "perplexity_probe": {
+    "utc": "2026-10-22T00:15:07Z",
+    "result": "insufficient credits"
+   },
+   "open": [
+    "Perplexity credits",
+    "Vercel preview env (manual)",
+    "Builders/Regulators taxonomy decision",
+    "old-tenant binary fixtures",
+    "/api/artifacts + ffmpeg on sandboxes",
+    "4 html.dark off-ramp tokens"
+   ]
+  },
+  "qa_cycle8": {
+   "resumed_at": "2026-10-22T01:25:34Z",
+   "base_sha": "91fa14062677cc22a9c0eebd60cfa14a972ecc65",
+   "origin_delta_since_91fa140": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa8-pre-20261022T01Z",
+    "target": "91fa14062677cc22a9c0eebd60cfa14a972ecc65",
+    "pushed_at": "2026-10-22T01:26:34Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-22T02:07:00Z",
+   "preview_url": "https://sb-4pt9zz78srbe.vercel.run",
+   "sandbox_id": "sbx_o6FAzWrCElYNNsCxkYE8O21hTl1X",
+   "sandbox_created_at": "2026-10-22T01:35:08Z",
+   "commits": [
+    {
+     "sha": "bb15cd8",
+     "utc": "2026-10-22T01:34:57Z",
+     "pushed": "2026-10-22T01:35:45Z",
+     "lane": "B data"
+    },
+    {
+     "sha": "961d04c",
+     "utc": "2026-10-22T01:43:54Z",
+     "pushed": "2026-10-22T01:45:20Z",
+     "lane": "B collision guard"
+    }
+   ],
+   "lane_a": {
+    "automated": false,
+    "reason": "ONDEMAND_API_KEY/ONDEMAND_BASE_URL absent from executor env; vercel CLI policy-blocked; project env 0; Vercel API returns decrypted:false for sensitive values",
+    "alias_chat_reason": "no_key",
+    "alias_get_no_header": 302,
+    "alias_get_bypass": 200,
+    "documented_in": "NEXT_ACTIONS.md #1 (2026-10-22T02:07Z)"
+   },
+   "lane_b": {
+    "sentiment": {
+     "before": 230,
+     "after": 274,
+     "added": 44,
+     "duplicates": 14,
+     "excluded": 12,
+     "added_by_lane": {
+      "UAE-topic": 21,
+      "global-discourse": 23
+     },
+     "report": "qa/2026-10-22-cycle8/laneB/ingest-report.json"
+    },
+    "news": {
+     "before": 108,
+     "after": 108,
+     "added": 0,
+     "duplicate": [
+      "n80cff8de1d TDRA–ITU WAM"
+     ]
+    },
+    "whiteshield": {
+     "source_added": "https://en.wikipedia.org/wiki/Fadi_Farra",
+     "pageId": 77102417,
+     "revision": "2026-02-28T18:08:04Z",
+     "sources": 10,
+     "no_wikipedia_article_for_whiteshield": true
+    }
+   },
+   "gates": {
+    "suite84": {
+     "before": "84/84",
+     "first_pass": "82/84",
+     "after": "84/84",
+     "notes": [
+      "agent3 click-through overlap → fixed 961d04c (c8b 13/13)",
+      "agent4 briefing-generate 305 s timeout once → c8b 14/14"
+     ]
+    },
+    "playwright": {
+     "before": {
+      "listed": 196,
+      "pass": 164,
+      "fail": 3,
+      "env_skip": 29,
+      "not_run": 0
+     },
+     "after": {
+      "listed": 196,
+      "pass": 164,
+      "fail": 3,
+      "env_skip": 29,
+      "not_run": 0
+     },
+     "remaining_failures": [
+      "chat.spec plugin-activity (upstream-perplexity)",
+      "qa-chat-timing desktop (upstream-perplexity)",
+      "qa-chat-timing mobile (upstream-perplexity)"
+     ],
+     "window": "2026-10-22T01:39:20Z/02:01:57Z"
+    },
+    "payload_a_g": {
+     "https_1440": "7/7",
+     "https_390": "5/7 + G skip → F+G re-run 2/2 = 7/7",
+     "https_total": "14/14",
+     "local": "14/14"
+    },
+    "white_ui_guard": {
+     "chromatic": 0,
+     "routes": 12,
+     "bubbles": 274,
+     "fill_opacities": 35
+    },
+    "aa_contrast": {
+     "nodes": 8252,
+     "genuine": 0,
+     "artefacts": 36
+    },
+    "hscroll": "26/26",
+    "residue": {
+     "src_public_dom_network": 0,
+     "binary_fixtures": "unchanged"
+    },
+    "tsc": 0,
+    "build_warnings": 0,
+    "layout": {
+     "rail_expanded": 224,
+     "rail_collapsed": 64,
+     "rail_persisted": true,
+     "topbar": 52,
+     "column": 800,
+     "inspector": 360,
+     "inspector_tabs": [
+      "Plan",
+      "Run"
+     ],
+     "drawer": 280,
+     "cite_preview_390": "318 = 318",
+     "cite_preview_max_w": 109
+    }
+   },
+   "lane_d": {
+    "perplexity_probe": {
+     "utc": "2026-10-22T01:36:16Z",
+     "session": "6ad96886a32a07124b4a88db",
+     "result": "Not enough credits"
+    },
+    "sandbox_chat_coverage": [
+     "upstream",
+     "backoff"
+    ],
+    "workflow_runs_after_0040Z": {
+     "checkpoint": [
+      "6ad960105e60695bc4d05c95 01:00Z success",
+      "6ad96718b28e35aa11d85e23 01:30Z success",
+      "6ad96e20b28e35aa11d85e40 02:00Z success"
+     ],
+     "ingest": [
+      "6ad96e20b28e35aa11d85e51 02:00Z success"
+     ],
+     "briefing": []
+    }
+   },
+   "screenshots": "qa/2026-10-22-cycle8/screenshots/ (after-sentiment/news/watchlist-whiteshield/chat × 1440x900 + 390x844)"
+  },
+  "qa_cycle9": {
+   "resumed_at": "2026-10-22T03:30:32Z",
+   "base_sha": "6f6254b922061e6d85600ff7a1b0eb7d85b51846",
+   "origin_delta_since_6f6254b": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa9-pre-20261022T03Z",
+    "target": "6f6254b922061e6d85600ff7a1b0eb7d85b51846",
+    "pushed_at": "2026-10-22T03:34:23Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-22T05:45Z",
+   "preview_url": "https://sb-6u0rv43z1luy.vercel.run",
+   "sandbox_id": "sbx_1tdxPbX2lWJr1pTp1MuzY2liInwq",
+   "sandbox_created_at": "2026-10-22T04:32:00Z",
+   "commits": [
+    {
+     "sha": "cfdca55",
+     "utc": "2026-10-22T03:50:58Z",
+     "lane": "scaffold"
+    },
+    {
+     "sha": "8dcc9ad",
+     "utc": "2026-10-22T03:51:44Z",
+     "lane": "dist-dir"
+    },
+    {
+     "sha": "58f1b8a",
+     "utc": "2026-10-22T04:09:05Z",
+     "lane": "D AIREV first"
+    },
+    {
+     "sha": "9b4f1d1",
+     "utc": "2026-10-22T04:24:40Z",
+     "lane": "B master data"
+    },
+    {
+     "sha": "3fa8ffe",
+     "utc": "2026-10-22T04:28:05Z",
+     "lane": "A navigation"
+    },
+    {
+     "sha": "71336bb",
+     "utc": "2026-10-22T04:28:54Z",
+     "lane": "C logos"
+    },
+    {
+     "sha": "075ce06",
+     "utc": "2026-10-22T04:29:01Z",
+     "lane": "docs nav audit"
+    },
+    {
+     "sha": "b91d69c",
+     "utc": "2026-10-22T04:31:26Z",
+     "pushed": "2026-10-22T04:31:36Z",
+     "lane": "integrate"
+    },
+    {
+     "sha": "259d0e0",
+     "utc": "2026-10-22T05:12:22Z",
+     "lane": "gate follow-ups"
+    },
+    {
+     "sha": "8b99b21",
+     "utc": "2026-10-22T05:40:21Z",
+     "lane": "404 hydration + /graph overflow"
+    }
+   ],
+   "gates": {
+    "tsc_errors": 0,
+    "build_warnings": 0,
+    "white_ui_chromatic": 0,
+    "aa_genuine": 0,
+    "aa_nodes": 9086,
+    "hscroll": "26/26",
+    "residue_src_public_dom_network": 0,
+    "layout_spec": "224/64 · 52 · 800 · 360 Plan/Run · 280 · 318=318",
+    "payload_A_G": {
+     "https_1440": "7/7",
+     "https_390": "6/7 (G sweep /graph overflow → fixed 259d0e0/8b99b21)",
+     "local_1440": "7/7",
+     "local_390": "6/7 (same)"
+    },
+    "run_panel_mobile": "2/2",
+    "suite84": {
+     "c9a": "82/84",
+     "c9b": "82/84",
+     "failing": "agent2 logos-authentic-or-marked ×2 (spec-stale: Wikimedia tier + lazy images)",
+     "after_harness_fix": "agent2 14/14 → effective 84/84"
+    },
+    "playwright": {
+     "listed": 220,
+     "pass": 179,
+     "fail": 12,
+     "env_skip": 29,
+     "not_run": 0,
+     "fail_classes": {
+      "upstream_perplexity": 3,
+      "app_bug_fixed_in_8b99b21": 9
+     },
+     "rerun_after_fix": "85/85 (live-smoke, navigation-e2e, qa-routes, nav-stress bad-urls, navigation.spec)"
+    },
+    "navigation_spec": "31/31",
+    "route_crawl": {
+     "rows": 44,
+     "http200": 42,
+     "http404_expected": 2,
+     "redirects": [
+      "/chat-od → /chat"
+     ],
+     "console_errors_live_routes": 0,
+     "chat_cls": 0,
+     "chat_rail_px": 64,
+     "drawer_focus_return": "22/22"
+    },
+    "airev_index0": {
+     "default": true,
+     "name_sort": true,
+     "coverage_sort": true,
+     "viewports": [
+      "1440x900",
+      "390x844"
+     ]
+    }
+   },
+   "data": {
+    "orgs": 50,
+    "sentiment": 274,
+    "news": 108,
+    "edges": 174,
+    "master_records": 50,
+    "coverage_mean_legacy_pct": 73.7,
+    "coverage_mean_strict_pct": 63.1,
+    "orgs_below_75": 44,
+    "logos": {
+     "resolved": 37,
+     "official": 31,
+     "wikimedia": 6,
+     "monogram": 14
+    },
+    "dead_links": {
+     "total": 16,
+     "replaced": 1,
+     "archive_fallback": 15
+    },
+    "airev_sources": 35
+   },
+   "ondemand": {
+    "perplexity_plugin": "plugin-1722260873 out of credits all cycle (coverage upstream/backoff)",
+    "linkedin_lookups": "HTTP 429 — recorded per field"
+   },
+   "vercel": {
+    "git_build": "b91d69c READY 04:31:41Z oda-productivity-suite-mf1dvxru9",
+    "project_env_vars": 0,
+    "note": "keyless + SSO; manual owner step unchanged"
+   },
+   "deliverables": [
+    "docs/data/uae-ai-organizations-master.xlsx",
+    "docs/data/uae-ai-organizations-master.csv",
+    "public/logos/** + manifest.json",
+    "docs/NAVIGATION_AUDIT_20261022.md",
+    "docs/DESIGN_TOKENS.md",
+    "docs/METHODOLOGY.md"
+   ]
+  }
+ }
+}

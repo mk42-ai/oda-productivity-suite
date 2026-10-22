@@ -1,0 +1,994 @@
+[
+{
+"tag": "probe",
+"status": 200,
+"latency_ms": 2674,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e02d0bb93a15a0dd3604",
+"timestamp": "2026-10-20T21:42:07Z"
+},
+{
+"tag": "org:khazna",
+"status": 200,
+"latency_ms": 19453,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0437bb80aa7c2d975ae",
+"timestamp": "2026-10-20T21:42:46Z"
+},
+{
+"tag": "org:space42",
+"status": 200,
+"latency_ms": 23009,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e043f922b50dc66730df",
+"timestamp": "2026-10-20T21:42:49Z"
+},
+{
+"tag": "org:ai-data-authority",
+"status": 200,
+"latency_ms": 28271,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0437bb80aa7c2d975ac",
+"timestamp": "2026-10-20T21:42:54Z"
+},
+{
+"tag": "org:m42",
+"status": 200,
+"latency_ms": 28241,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0437bb80aa7c2d975b0",
+"timestamp": "2026-10-20T21:42:55Z"
+},
+{
+"tag": "org:mgx",
+"status": 200,
+"latency_ms": 28282,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0437bb80aa7c2d975ad",
+"timestamp": "2026-10-20T21:42:55Z"
+},
+{
+"tag": "org:aiq",
+"status": 200,
+"latency_ms": 29535,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e043f922b50dc66730de",
+"timestamp": "2026-10-20T21:42:56Z"
+},
+{
+"tag": "org:inception",
+"status": 200,
+"latency_ms": 30409,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0437bb80aa7c2d975ab",
+"timestamp": "2026-10-20T21:42:57Z"
+},
+{
+"tag": "org:presight",
+"status": 200,
+"latency_ms": 30552,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0437bb80aa7c2d975b1",
+"timestamp": "2026-10-20T21:42:57Z"
+},
+{
+"tag": "org:analog",
+"status": 200,
+"latency_ms": 13227,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e056f922b50dc66730e2",
+"timestamp": "2026-10-20T21:42:59Z"
+},
+{
+"tag": "org:katim",
+"status": 200,
+"latency_ms": 8590,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0600bb93a15a0dd3610",
+"timestamp": "2026-10-20T21:43:04Z"
+},
+{
+"tag": "org:core42",
+"status": 200,
+"latency_ms": 41936,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0430bb93a15a0dd3605",
+"timestamp": "2026-10-20T21:43:08Z"
+},
+{
+"tag": "org:g42",
+"status": 200,
+"latency_ms": 42308,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0437bb80aa7c2d975af",
+"timestamp": "2026-10-20T21:43:08Z"
+},
+{
+"tag": "org:khalifa-university",
+"status": 200,
+"latency_ms": 9417,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e069f922b50dc66730e9",
+"timestamp": "2026-10-20T21:43:14Z"
+},
+{
+"tag": "org:tii",
+"status": 200,
+"latency_ms": 26355,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e05a7bb80aa7c2d975c4",
+"timestamp": "2026-10-20T21:43:16Z"
+},
+{
+"tag": "org:ai71",
+"status": 200,
+"latency_ms": 22262,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e05ff922b50dc66730e3",
+"timestamp": "2026-10-20T21:43:17Z"
+},
+{
+"tag": "org:adasi",
+"status": 200,
+"latency_ms": 20391,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0617bb80aa7c2d975ce",
+"timestamp": "2026-10-20T21:43:17Z"
+},
+{
+"tag": "org:ifm",
+"status": 200,
+"latency_ms": 22382,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0630bb93a15a0dd3613",
+"timestamp": "2026-10-20T21:43:21Z"
+},
+{
+"tag": "org:mbzuai",
+"status": 200,
+"latency_ms": 25450,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0610bb93a15a0dd3612",
+"timestamp": "2026-10-20T21:43:22Z"
+},
+{
+"tag": "org:eand-enterprise",
+"status": 200,
+"latency_ms": 16964,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e06d7bb80aa7c2d975d9",
+"timestamp": "2026-10-20T21:43:25Z"
+},
+{
+"tag": "org:edge",
+"status": 200,
+"latency_ms": 32465,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e05f7bb80aa7c2d975c9",
+"timestamp": "2026-10-20T21:43:27Z"
+},
+{
+"tag": "org:atrc",
+"status": 200,
+"latency_ms": 32661,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e05f7bb80aa7c2d975c8",
+"timestamp": "2026-10-20T21:43:27Z"
+},
+{
+"tag": "org:airev",
+"status": 200,
+"latency_ms": 23870,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e06c7bb80aa7c2d975d7",
+"timestamp": "2026-10-20T21:43:32Z"
+},
+{
+"tag": "org:derq",
+"status": 200,
+"latency_ms": 16182,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0757bb80aa7c2d975e1",
+"timestamp": "2026-10-20T21:43:33Z"
+},
+{
+"tag": "org:xpanceo",
+"status": 200,
+"latency_ms": 17515,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0757bb80aa7c2d975e0",
+"timestamp": "2026-10-20T21:43:34Z"
+},
+{
+"tag": "org:saal-ai",
+"status": 200,
+"latency_ms": 12732,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e07a0bb93a15a0dd361e",
+"timestamp": "2026-10-20T21:43:35Z"
+},
+{
+"tag": "org:cntxt",
+"status": 200,
+"latency_ms": 10384,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e07ff922b50dc66730ee",
+"timestamp": "2026-10-20T21:43:37Z"
+},
+{
+"tag": "org:hub71",
+"status": 200,
+"latency_ms": 25172,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0720bb93a15a0dd3617",
+"timestamp": "2026-10-20T21:43:39Z"
+},
+{
+"tag": "org:daman",
+"status": 200,
+"latency_ms": 12789,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e07ff922b50dc66730ef",
+"timestamp": "2026-10-20T21:43:40Z"
+},
+{
+"tag": "org:micropolis",
+"status": 200,
+"latency_ms": 25427,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0740bb93a15a0dd361a",
+"timestamp": "2026-10-20T21:43:41Z"
+},
+{
+"tag": "org:astra-tech",
+"status": 200,
+"latency_ms": 20826,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e07a0bb93a15a0dd361d",
+"timestamp": "2026-10-20T21:43:42Z"
+},
+{
+"tag": "org:positron",
+"status": 200,
+"latency_ms": 12746,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0847bb80aa7c2d975ef",
+"timestamp": "2026-10-20T21:43:45Z"
+},
+{
+"tag": "org:purehealth",
+"status": 200,
+"latency_ms": 21132,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e07e7bb80aa7c2d975ea",
+"timestamp": "2026-10-20T21:43:47Z"
+},
+{
+"tag": "org:dcai",
+"status": 200,
+"latency_ms": 14432,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e08b0bb93a15a0dd3626",
+"timestamp": "2026-10-20T21:43:53Z"
+},
+{
+"tag": "org:dubai-ai-campus",
+"status": 200,
+"latency_ms": 12788,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e08ef922b50dc6673102",
+"timestamp": "2026-10-20T21:43:55Z"
+},
+{
+"tag": "org:dge",
+"status": 200,
+"latency_ms": 16003,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e08e7bb80aa7c2d975f7",
+"timestamp": "2026-10-20T21:43:57Z"
+},
+{
+"tag": "org:digital-dubai",
+"status": 200,
+"latency_ms": 17577,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e08cf922b50dc66730fd",
+"timestamp": "2026-10-20T21:43:57Z"
+},
+{
+"tag": "org:dff",
+"status": 200,
+"latency_ms": 21786,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e08af922b50dc66730f8",
+"timestamp": "2026-10-20T21:43:59Z"
+},
+{
+"tag": "org:adnoc",
+"status": 200,
+"latency_ms": 24395,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e087f922b50dc66730f7",
+"timestamp": "2026-10-20T21:43:59Z"
+},
+{
+"tag": "org:dubai-police",
+"status": 200,
+"latency_ms": 16223,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0937bb80aa7c2d975fc",
+"timestamp": "2026-10-20T21:44:03Z"
+},
+{
+"tag": "org:cerebras-uae",
+"status": 200,
+"latency_ms": 31037,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0867bb80aa7c2d975f3",
+"timestamp": "2026-10-20T21:44:04Z"
+},
+{
+"tag": "org:mubadala",
+"status": 200,
+"latency_ms": 32051,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e087f922b50dc66730f4",
+"timestamp": "2026-10-20T21:44:06Z"
+},
+{
+"tag": "org:neuphonic",
+"status": 200,
+"latency_ms": 9293,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e09d7bb80aa7c2d97602",
+"timestamp": "2026-10-20T21:44:06Z"
+},
+{
+"tag": "org:camb-ai",
+"status": 200,
+"latency_ms": 14231,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e09a7bb80aa7c2d975ff",
+"timestamp": "2026-10-20T21:44:08Z"
+},
+{
+"tag": "org:endimension",
+"status": 200,
+"latency_ms": 10834,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e09e7bb80aa7c2d97604",
+"timestamp": "2026-10-20T21:44:08Z"
+},
+{
+"tag": "org:echotwin",
+"status": 200,
+"latency_ms": 13356,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e09b0bb93a15a0dd362c",
+"timestamp": "2026-10-20T21:44:08Z"
+},
+{
+"tag": "org:steerai",
+"status": 200,
+"latency_ms": 12555,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0a07bb80aa7c2d97607",
+"timestamp": "2026-10-20T21:44:12Z"
+},
+{
+"tag": "org:aiatc",
+"status": 200,
+"latency_ms": 12946,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0a00bb93a15a0dd362f",
+"timestamp": "2026-10-20T21:44:12Z"
+},
+{
+"tag": "org:doh-abu-dhabi",
+"status": 200,
+"latency_ms": 29832,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0917bb80aa7c2d975f8",
+"timestamp": "2026-10-20T21:44:15Z"
+},
+{
+"tag": "org:aspire",
+"status": 200,
+"latency_ms": 10874,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0a57bb80aa7c2d9760c",
+"timestamp": "2026-10-20T21:44:15Z"
+},
+{
+"tag": "org:injazat",
+"status": 200,
+"latency_ms": 16520,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0a3f922b50dc667310b",
+"timestamp": "2026-10-20T21:44:19Z"
+},
+{
+"tag": "org:khazna",
+"status": 200,
+"latency_ms": 21031,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0c70bb93a15a0dd3636",
+"timestamp": "2026-10-20T21:45:00Z"
+},
+{
+"tag": "org:khazna",
+"status": 200,
+"latency_ms": 25477,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e0e07bb80aa7c2d9761a",
+"timestamp": "2026-10-20T21:45:29Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 4868,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10d7bb80aa7c2d97620",
+"timestamp": "2026-10-20T21:45:53Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 8279,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10cf922b50dc6673114",
+"timestamp": "2026-10-20T21:45:56Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 8675,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10c7bb80aa7c2d9761e",
+"timestamp": "2026-10-20T21:45:57Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 13055,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10df922b50dc6673117",
+"timestamp": "2026-10-20T21:46:01Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 16988,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10d7bb80aa7c2d97621",
+"timestamp": "2026-10-20T21:46:05Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 19601,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10c0bb93a15a0dd363c",
+"timestamp": "2026-10-20T21:46:08Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 20376,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10d0bb93a15a0dd363d",
+"timestamp": "2026-10-20T21:46:08Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 22473,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10d0bb93a15a0dd363f",
+"timestamp": "2026-10-20T21:46:10Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 19656,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e111f922b50dc6673121",
+"timestamp": "2026-10-20T21:46:12Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 13377,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e119f922b50dc667312e",
+"timestamp": "2026-10-20T21:46:14Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 29121,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10d7bb80aa7c2d9761f",
+"timestamp": "2026-10-20T21:46:17Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 6964,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1230bb93a15a0dd3651",
+"timestamp": "2026-10-20T21:46:17Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 29658,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e10d0bb93a15a0dd363e",
+"timestamp": "2026-10-20T21:46:18Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 22839,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1140bb93a15a0dd364c",
+"timestamp": "2026-10-20T21:46:19Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 23328,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e115f922b50dc6673129",
+"timestamp": "2026-10-20T21:46:20Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 3846,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e129f922b50dc6673138",
+"timestamp": "2026-10-20T21:46:21Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 19040,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e11d7bb80aa7c2d97628",
+"timestamp": "2026-10-20T21:46:24Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 16801,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1210bb93a15a0dd3650",
+"timestamp": "2026-10-20T21:46:25Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 22214,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1200bb93a15a0dd364f",
+"timestamp": "2026-10-20T21:46:30Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 11741,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e12b0bb93a15a0dd365c",
+"timestamp": "2026-10-20T21:46:31Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 11194,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e12df922b50dc6673140",
+"timestamp": "2026-10-20T21:46:32Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 19850,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e12c7bb80aa7c2d97632",
+"timestamp": "2026-10-20T21:46:40Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 25527,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1270bb93a15a0dd3656",
+"timestamp": "2026-10-20T21:46:40Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 22568,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e12a7bb80aa7c2d9762e",
+"timestamp": "2026-10-20T21:46:40Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 23747,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e12a7bb80aa7c2d9762d",
+"timestamp": "2026-10-20T21:46:41Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 29080,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1257bb80aa7c2d9762c",
+"timestamp": "2026-10-20T21:46:42Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 22806,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e130f922b50dc6673144",
+"timestamp": "2026-10-20T21:46:47Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 6908,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e141f922b50dc6673154",
+"timestamp": "2026-10-20T21:46:48Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 17612,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e137f922b50dc667314c",
+"timestamp": "2026-10-20T21:46:48Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 19018,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e136f922b50dc6673149",
+"timestamp": "2026-10-20T21:46:49Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 31768,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e131f922b50dc6673145",
+"timestamp": "2026-10-20T21:46:57Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 16992,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1400bb93a15a0dd3661",
+"timestamp": "2026-10-20T21:46:57Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 27573,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e138f922b50dc6673150",
+"timestamp": "2026-10-20T21:47:00Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 34581,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1407bb80aa7c2d9763b",
+"timestamp": "2026-10-20T21:47:15Z"
+},
+{
+"tag": "sent-extract",
+"status": 200,
+"latency_ms": 46906,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1400bb93a15a0dd3660",
+"timestamp": "2026-10-20T21:47:27Z"
+},
+{
+"tag": "sent-classify",
+"status": 200,
+"latency_ms": 12973,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e182f922b50dc6673159",
+"timestamp": "2026-10-20T21:47:58Z"
+},
+{
+"tag": "sent-classify",
+"status": 200,
+"latency_ms": 12974,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1817bb80aa7c2d97649",
+"timestamp": "2026-10-20T21:47:58Z"
+},
+{
+"tag": "sent-classify",
+"status": 200,
+"latency_ms": 13406,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e182f922b50dc667315a",
+"timestamp": "2026-10-20T21:47:58Z"
+},
+{
+"tag": "sent-classify",
+"status": 200,
+"latency_ms": 13934,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1810bb93a15a0dd366b",
+"timestamp": "2026-10-20T21:47:59Z"
+},
+{
+"tag": "sent-classify",
+"status": 200,
+"latency_ms": 13975,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1810bb93a15a0dd366c",
+"timestamp": "2026-10-20T21:47:59Z"
+},
+{
+"tag": "sent-classify",
+"status": 200,
+"latency_ms": 15639,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1810bb93a15a0dd366a",
+"timestamp": "2026-10-20T21:48:00Z"
+},
+{
+"tag": "sent-classify",
+"status": 200,
+"latency_ms": 15847,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e181f922b50dc6673157",
+"timestamp": "2026-10-20T21:48:01Z"
+},
+{
+"tag": "sent-classify",
+"status": 200,
+"latency_ms": 15977,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e182f922b50dc6673158",
+"timestamp": "2026-10-20T21:48:01Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 26652,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a60bb93a15a0dd3680",
+"timestamp": "2026-10-20T21:48:48Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 27242,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a67bb80aa7c2d97654",
+"timestamp": "2026-10-20T21:48:49Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 28716,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a6f922b50dc6673166",
+"timestamp": "2026-10-20T21:48:50Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 32183,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a60bb93a15a0dd367f",
+"timestamp": "2026-10-20T21:48:54Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 37156,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a67bb80aa7c2d97653",
+"timestamp": "2026-10-20T21:48:59Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 37350,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a6f922b50dc6673167",
+"timestamp": "2026-10-20T21:48:59Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 40554,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a6f922b50dc6673164",
+"timestamp": "2026-10-20T21:49:02Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 41202,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a6f922b50dc6673168",
+"timestamp": "2026-10-20T21:49:03Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 46326,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a67bb80aa7c2d97652",
+"timestamp": "2026-10-20T21:49:08Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 47783,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1a6f922b50dc6673165",
+"timestamp": "2026-10-20T21:49:09Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 26764,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1c1f922b50dc667317c",
+"timestamp": "2026-10-20T21:49:16Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 33988,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1c27bb80aa7c2d9765d",
+"timestamp": "2026-10-20T21:49:24Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 38767,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1c0f922b50dc6673178",
+"timestamp": "2026-10-20T21:49:27Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 26105,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1ce0bb93a15a0dd368e",
+"timestamp": "2026-10-20T21:49:28Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 31848,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1cbf922b50dc6673185",
+"timestamp": "2026-10-20T21:49:31Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 34911,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1cbf922b50dc6673186",
+"timestamp": "2026-10-20T21:49:34Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 40382,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1c60bb93a15a0dd368b",
+"timestamp": "2026-10-20T21:49:34Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 36115,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1cf7bb80aa7c2d97663",
+"timestamp": "2026-10-20T21:49:39Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 36250,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1d60bb93a15a0dd3691",
+"timestamp": "2026-10-20T21:49:46Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 30185,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1dcf922b50dc6673194",
+"timestamp": "2026-10-20T21:49:46Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 41009,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1d4f922b50dc667318f",
+"timestamp": "2026-10-20T21:49:49Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 35717,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1e8f922b50dc667319e",
+"timestamp": "2026-10-20T21:50:04Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 42512,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1e5f922b50dc6673197",
+"timestamp": "2026-10-20T21:50:07Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 35757,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1ee7bb80aa7c2d97669",
+"timestamp": "2026-10-20T21:50:10Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 32103,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1f37bb80aa7c2d9766d",
+"timestamp": "2026-10-20T21:50:11Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 46150,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1e7f922b50dc667319a",
+"timestamp": "2026-10-20T21:50:13Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 44212,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1eb7bb80aa7c2d97666",
+"timestamp": "2026-10-20T21:50:15Z"
+},
+{
+"tag": "news-extract",
+"status": 200,
+"latency_ms": 45672,
+"endpoint": "predefined-gpt-5.6-luna",
+"session": "6ad7e1ee7bb80aa7c2d9766a",
+"timestamp": "2026-10-20T21:50:20Z"
+}
+]

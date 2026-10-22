@@ -1,0 +1,112 @@
+[
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "routes-load",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "14 routes HTTP <400",
+  "ts": "2026-10-21T14:12:13.007Z",
+  "shot": "agent1-branding-c4-routes-load-1440x900.jpg"
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "disclaimer-phrase",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "\"UAE AI Intelligence — Concept Demonstration\" + \"not an official government system\" on all 14 routes",
+  "ts": "2026-10-21T14:12:13.048Z",
+  "shot": "agent1-branding-c4-disclaimer-phrase-1440x900.jpg"
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "residue-dom",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "0 hits across 14 rendered DOMs",
+  "ts": "2026-10-21T14:12:13.093Z",
+  "shot": null
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "residue-titles-meta",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "0 hits in <title> and <meta> (14 routes)",
+  "ts": "2026-10-21T14:12:13.095Z",
+  "shot": null
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "residue-network",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "0 hits in 868 same-origin text responses",
+  "ts": "2026-10-21T14:12:13.097Z",
+  "shot": null
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "routes-load",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "14 routes HTTP <400",
+  "ts": "2026-10-21T14:12:32.716Z",
+  "shot": "agent1-branding-c4-routes-load-390x844.jpg"
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "disclaimer-phrase",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "\"UAE AI Intelligence — Concept Demonstration\" + \"not an official government system\" on all 14 routes",
+  "ts": "2026-10-21T14:12:32.732Z",
+  "shot": "agent1-branding-c4-disclaimer-phrase-390x844.jpg"
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "residue-dom",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "0 hits across 14 rendered DOMs",
+  "ts": "2026-10-21T14:12:32.755Z",
+  "shot": null
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "residue-titles-meta",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "0 hits in <title> and <meta> (14 routes)",
+  "ts": "2026-10-21T14:12:32.757Z",
+  "shot": null
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "residue-network",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "0 hits in 802 same-origin text responses",
+  "ts": "2026-10-21T14:12:32.759Z",
+  "shot": null
+ },
+ {
+  "agent": "agent1-branding",
+  "round": "c4",
+  "test": "residue-metadata-endpoints",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "0 hits in /manifest.webmanifest, /api/uae/orgs, /health, /api/uae/live, /robots.txt",
+  "ts": "2026-10-21T14:12:34.502Z",
+  "shot": "agent1-branding-c4-residue-metadata-endpoints-1440x900.jpg"
+ }
+]

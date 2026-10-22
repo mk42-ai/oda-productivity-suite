@@ -1,0 +1,348 @@
+{
+ "fetched_at": "2026-10-21T11:49:00.807Z",
+ "endpoint": "https://api.on-demand.io/automation/api/execution/list?workflowID=<id>",
+ "workflows": {
+  "briefing": {
+   "id": "6ad7f32e5e60695bc4d052d2",
+   "http": 200,
+   "count": 5,
+   "runs": [
+    {
+     "id": "6ad841aab28e35aa11d85744",
+     "status": "success",
+     "trigger": "api",
+     "started_utc": "2026-10-21T04:38:02.615Z",
+     "ended_utc": "2026-10-21T04:38:58.388Z",
+     "took_ms": 55773
+    },
+    {
+     "id": "6ad84034b28e35aa11d85731",
+     "status": "success",
+     "trigger": "api",
+     "started_utc": "2026-10-21T04:31:48.637Z",
+     "ended_utc": "2026-10-21T04:32:55.701Z",
+     "took_ms": 67064
+    },
+    {
+     "id": "6ad823a85e60695bc4d054a0",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T02:30:00.573Z",
+     "ended_utc": "2026-10-21T02:30:58.921Z",
+     "took_ms": 58348
+    },
+    {
+     "id": "6ad7f3b05e60695bc4d05309",
+     "status": "success",
+     "trigger": "api",
+     "started_utc": "2026-10-20T23:05:20.139Z",
+     "ended_utc": "2026-10-20T23:08:15.225Z",
+     "took_ms": 175086
+    },
+    {
+     "id": "6ad7f3415e60695bc4d052e4",
+     "status": "success",
+     "trigger": "api",
+     "started_utc": "2026-10-20T23:03:29.401Z",
+     "ended_utc": "2026-10-20T23:04:39.794Z",
+     "took_ms": 70393
+    }
+   ]
+  },
+  "ingest": {
+   "id": "6ad7f32d5e60695bc4d052cb",
+   "http": 200,
+   "count": 9,
+   "runs": [
+    {
+     "id": "6ad88d20c2cfee207e8f4204",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T10:00:00.603Z",
+     "ended_utc": "2026-10-21T10:02:24.416Z",
+     "took_ms": 143813
+    },
+    {
+     "id": "6ad87100b28e35aa11d858e0",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T08:00:00.490Z",
+     "ended_utc": "2026-10-21T08:01:29.228Z",
+     "took_ms": 88738
+    },
+    {
+     "id": "6ad854e0c2cfee207e8f401e",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T06:00:00.703Z",
+     "ended_utc": "2026-10-21T06:02:32.887Z",
+     "took_ms": 152184
+    },
+    {
+     "id": "6ad84034c2cfee207e8f3f58",
+     "status": "success",
+     "trigger": "api",
+     "started_utc": "2026-10-21T04:31:48.555Z",
+     "ended_utc": "2026-10-21T04:33:57.758Z",
+     "took_ms": 129203
+    },
+    {
+     "id": "6ad838c05e60695bc4d05528",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T04:00:00.489Z",
+     "ended_utc": "2026-10-21T04:01:45.452Z",
+     "took_ms": 104963
+    },
+    {
+     "id": "6ad81ca05e60695bc4d05442",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T02:00:00.446Z",
+     "ended_utc": "2026-10-21T02:01:50.615Z",
+     "took_ms": 110169
+    },
+    {
+     "id": "6ad80080b28e35aa11d85572",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T00:00:00.722Z",
+     "ended_utc": "2026-10-21T00:02:50.625Z",
+     "took_ms": 169903
+    },
+    {
+     "id": "6ad7f3af5e60695bc4d05305",
+     "status": "success",
+     "trigger": "api",
+     "started_utc": "2026-10-20T23:05:19.827Z",
+     "ended_utc": "2026-10-20T23:06:51.749Z",
+     "took_ms": 91922
+    },
+    {
+     "id": "6ad7f340b28e35aa11d854e9",
+     "status": "success",
+     "trigger": "api",
+     "started_utc": "2026-10-20T23:03:28.158Z",
+     "ended_utc": "2026-10-20T23:04:04.037Z",
+     "took_ms": 35879
+    }
+   ]
+  },
+  "checkpoint": {
+   "id": "6ad7f32e5e60695bc4d052d7",
+   "http": 200,
+   "count": 25,
+   "runs": [
+    {
+     "id": "6ad8a238c2cfee207e8f42a6",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T11:30:00.397Z",
+     "ended_utc": "2026-10-21T11:30:01.616Z",
+     "took_ms": 1219
+    },
+    {
+     "id": "6ad89b30c2cfee207e8f4269",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T11:00:00.314Z",
+     "ended_utc": "2026-10-21T11:00:00.484Z",
+     "took_ms": 170
+    },
+    {
+     "id": "6ad89428b28e35aa11d85992",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T10:30:00.274Z",
+     "ended_utc": "2026-10-21T10:30:00.422Z",
+     "took_ms": 148
+    },
+    {
+     "id": "6ad88d205e60695bc4d0578a",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T10:00:00.613Z",
+     "ended_utc": "2026-10-21T10:00:00.807Z",
+     "took_ms": 194
+    },
+    {
+     "id": "6ad88618c2cfee207e8f41bf",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T09:30:00.290Z",
+     "ended_utc": "2026-10-21T09:30:00.439Z",
+     "took_ms": 149
+    },
+    {
+     "id": "6ad87f105e60695bc4d05769",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T09:00:00.669Z",
+     "ended_utc": "2026-10-21T09:00:00.783Z",
+     "took_ms": 114
+    },
+    {
+     "id": "6ad87808c2cfee207e8f4172",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T08:30:00.746Z",
+     "ended_utc": "2026-10-21T08:30:01.322Z",
+     "took_ms": 576
+    },
+    {
+     "id": "6ad871005e60695bc4d0572c",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T08:00:00.639Z",
+     "ended_utc": "2026-10-21T08:00:02.684Z",
+     "took_ms": 2045
+    },
+    {
+     "id": "6ad869f8b28e35aa11d858c3",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T07:30:00.666Z",
+     "ended_utc": "2026-10-21T07:30:01.979Z",
+     "took_ms": 1313
+    },
+    {
+     "id": "6ad862f0b28e35aa11d85899",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T07:00:00.809Z",
+     "ended_utc": "2026-10-21T07:00:02.138Z",
+     "took_ms": 1329
+    },
+    {
+     "id": "6ad85be8c2cfee207e8f40c2",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T06:30:00.714Z",
+     "ended_utc": "2026-10-21T06:30:01.864Z",
+     "took_ms": 1150
+    },
+    {
+     "id": "6ad854e05e60695bc4d0560a",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T06:00:00.765Z",
+     "ended_utc": "2026-10-21T06:00:00.987Z",
+     "took_ms": 222
+    },
+    {
+     "id": "6ad84dd8c2cfee207e8f3fc5",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T05:30:00.367Z",
+     "ended_utc": "2026-10-21T05:30:00.526Z",
+     "took_ms": 159
+    },
+    {
+     "id": "6ad83fc8b28e35aa11d85727",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T04:30:00.611Z",
+     "ended_utc": "2026-10-21T04:30:01.344Z",
+     "took_ms": 733
+    },
+    {
+     "id": "6ad838c0b28e35aa11d856e2",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T04:00:00.395Z",
+     "ended_utc": "2026-10-21T04:00:00.480Z",
+     "took_ms": 85
+    },
+    {
+     "id": "6ad831b8c2cfee207e8f3ee2",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T03:30:00.328Z",
+     "ended_utc": "2026-10-21T03:30:00.447Z",
+     "took_ms": 119
+    },
+    {
+     "id": "6ad82ab05e60695bc4d054d0",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T03:00:00.563Z",
+     "ended_utc": "2026-10-21T03:00:01.171Z",
+     "took_ms": 608
+    },
+    {
+     "id": "6ad823a8b28e35aa11d8568d",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T02:30:00.575Z",
+     "ended_utc": "2026-10-21T02:30:02.007Z",
+     "took_ms": 1432
+    },
+    {
+     "id": "6ad81ca05e60695bc4d05454",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T02:00:00.804Z",
+     "ended_utc": "2026-10-21T02:00:02.086Z",
+     "took_ms": 1282
+    },
+    {
+     "id": "6ad81598c2cfee207e8f3dff",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T01:30:00.253Z",
+     "ended_utc": "2026-10-21T01:30:00.400Z",
+     "took_ms": 147
+    },
+    {
+     "id": "6ad80e905e60695bc4d053f2",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T01:00:00.867Z",
+     "ended_utc": "2026-10-21T01:00:01.793Z",
+     "took_ms": 926
+    },
+    {
+     "id": "6ad807885e60695bc4d053e1",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T00:30:00.571Z",
+     "ended_utc": "2026-10-21T00:30:01.783Z",
+     "took_ms": 1212
+    },
+    {
+     "id": "6ad800805e60695bc4d0537e",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-21T00:00:00.340Z",
+     "ended_utc": "2026-10-21T00:00:00.465Z",
+     "took_ms": 125
+    },
+    {
+     "id": "6ad7f978b28e35aa11d85525",
+     "status": "success",
+     "trigger": "cron",
+     "started_utc": "2026-10-20T23:30:00.803Z",
+     "ended_utc": "2026-10-20T23:30:00.948Z",
+     "took_ms": 145
+    },
+    {
+     "id": "6ad7f33a5e60695bc4d052dc",
+     "status": "success",
+     "trigger": "api",
+     "started_utc": "2026-10-20T23:03:22.116Z",
+     "ended_utc": "2026-10-20T23:03:22.962Z",
+     "took_ms": 846
+    }
+   ]
+  }
+ },
+ "briefing_0230Z_2026_10_21": {
+  "executed": true,
+  "id": "6ad823a85e60695bc4d054a0",
+  "status": "success",
+  "trigger": "cron",
+  "started_utc": "2026-10-21T02:30:00.573Z",
+  "ended_utc": "2026-10-21T02:30:58.921Z",
+  "took_ms": 58348
+ }
+}

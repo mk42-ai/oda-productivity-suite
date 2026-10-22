@@ -1,0 +1,132 @@
+[
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "bubbles-render",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "274 bubbles, counter \"274 / 274 statements\" (dataset 274)",
+  "ts": "2026-10-22T04:46:35.032Z",
+  "shot": "agent3-sentiment-c9b-bubbles-render-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "hover-tooltip",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "tooltip: Unclassified · 0%“Not an expert, but per RTA's rules:\n\n**Licence:** your friend is right. Under 10 years expired you can renew normally with an eye test and a d",
+  "ts": "2026-10-22T04:46:36.206Z",
+  "shot": "agent3-sentiment-c9b-hover-tooltip-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "click-through-link",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "evidence-source href=https://www.khaleejtimes.com/jobs/ai-impact-uae-jobs-firms-restructure-avoid-layoffs",
+  "ts": "2026-10-22T04:46:36.657Z",
+  "shot": "agent3-sentiment-c9b-click-through-link-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "filters",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "Optimists \"48 / 274 statements\" (exp 48); Explicit-UAE \"43 / 274 statements\" (exp 43); Jobs & skills \"41 / 274 statements\" (exp 41)",
+  "ts": "2026-10-22T04:46:40.102Z",
+  "shot": "agent3-sentiment-c9b-filters-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "time-playback",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "30d window, playhead 2026-10-21 → 2025-10-26 after 2.2 s, visible 2 / 274 statements",
+  "ts": "2026-10-22T04:46:42.914Z",
+  "shot": "agent3-sentiment-c9b-time-playback-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "pulse-metrics-24h-7d-30d",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "pulse panel contains 24h/7d/30d=true, sampling notice=true; text=\"National PulseLanes: UAE-topic 216 · global-discourse 58 (comparator only; excluded from the pulse table below).Optimists48Pragmatists30Skeptics26Safety Advocates20Disruption Concerned8Pessimists/Doomers5Neutral/Informat\"",
+  "ts": "2026-10-22T04:46:44.825Z",
+  "shot": "agent3-sentiment-c9b-pulse-metrics-24h-7d-30d-1440x900.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "bubbles-render",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "274 bubbles, counter \"274 / 274 statements\" (dataset 274)",
+  "ts": "2026-10-22T04:46:47.046Z",
+  "shot": "agent3-sentiment-c9b-bubbles-render-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "hover-tooltip",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "tooltip: Unclassified · 0%“Not an expert, but per RTA's rules:\n\n**Licence:** your friend is right. Under 10 years expired you can renew normally with an eye test and a d",
+  "ts": "2026-10-22T04:46:47.579Z",
+  "shot": "agent3-sentiment-c9b-hover-tooltip-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "click-through-link",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "evidence-source href=https://www.khaleejtimes.com/jobs/ai-impact-uae-jobs-firms-restructure-avoid-layoffs",
+  "ts": "2026-10-22T04:46:48.070Z",
+  "shot": "agent3-sentiment-c9b-click-through-link-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "filters",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "Optimists \"48 / 274 statements\" (exp 48); Explicit-UAE \"43 / 274 statements\" (exp 43); Jobs & skills \"41 / 274 statements\" (exp 41)",
+  "ts": "2026-10-22T04:46:51.469Z",
+  "shot": "agent3-sentiment-c9b-filters-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "time-playback",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "30d window, playhead 2026-10-21 → 2025-10-26 after 2.2 s, visible 2 / 274 statements",
+  "ts": "2026-10-22T04:46:54.432Z",
+  "shot": "agent3-sentiment-c9b-time-playback-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "pulse-metrics-24h-7d-30d",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "pulse panel contains 24h/7d/30d=true, sampling notice=true; text=\"National PulseLanes: UAE-topic 216 · global-discourse 58 (comparator only; excluded from the pulse table below).Optimists48Pragmatists30Skeptics26Safety Advocates20Disruption Concerned8Pessimists/Doomers5Neutral/Informat\"",
+  "ts": "2026-10-22T04:46:55.755Z",
+  "shot": "agent3-sentiment-c9b-pulse-metrics-24h-7d-30d-390x844.jpg"
+ },
+ {
+  "agent": "agent3-sentiment",
+  "round": "c9b",
+  "test": "source-urls-http",
+  "viewport": "server",
+  "pass": true,
+  "detail": "128 unique verified URLs: {\"400\":1,\"401\":2,\"402\":1,\"419\":2,\"403/429 bot-wall\":39,\"2xx\":77,\"404/410\":6}; dead(404/410)=6 e.g. https://news.microsoft.com/en-xm/2026/09/agent-365-uae/ https://www.khaleejtimes.com/jobs/cooper-fitch-ai-future-of-talent-2027 https://enterpriseam.com/uae/2026/10/12/ai-adoption-functional-not-embedded/ https://www.thenationalnews.com/future/technology/2026/09/25/uae-ai-diffusion-microsoft/",
+  "ts": "2026-10-22T04:47:12.209Z",
+  "shot": null
+ }
+]

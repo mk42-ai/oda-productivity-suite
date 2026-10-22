@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-10-22T04:07:22.907Z",
+  "tests": {
+    "defaultSort": {
+      "firstOrg": "airev",
+      "pinnedAttr": "true",
+      "hasPinnedChip": true,
+      "pass": true
+    },
+    "nameSort": {
+      "firstOrg": "airev",
+      "pinnedAttr": "true",
+      "pass": true
+    },
+    "coverageSort": {
+      "firstOrg": "airev",
+      "pinnedAttr": "true",
+      "pass": true
+    },
+    "dossier": {
+      "hasDisambiguation": true,
+      "disambiguationSample": "Disambiguation\n\n\"AI REV\" (https://www.linkedin.com/company/ai-rev/ , airev.us, New York/Warsaw AI consulting, founded 2018) and airev.ai (redirects to",
+      "sourcesCount": 35,
+      "hasLinkedinUnavailable": true,
+      "pass": true
+    },
+    "overview": {
+      "topOrgsCount": 8,
+      "topOrgsFirstText": "A\nAIREV\nReference dossier\n6 news",
+      "topOrgsHasPinnedChip": true,
+      "pass": true
+    },
+    "methodology": {
+      "hasReferenceBullet": true,
+      "hasNajwaAaraj": true,
+      "pass": true
+    }
+  },
+  "allPassed": true
+}

@@ -1,0 +1,194 @@
+Listing tests:
+  [desktop] › a11y.spec.ts:6:9 › Accessibility (axe, WCAG 2.0/2.1 A+AA) › overview: no serious/critical violations
+  [desktop] › a11y.spec.ts:6:9 › Accessibility (axe, WCAG 2.0/2.1 A+AA) › company: no serious/critical violations
+  [desktop] › a11y.spec.ts:6:9 › Accessibility (axe, WCAG 2.0/2.1 A+AA) › news: no serious/critical violations
+  [desktop] › a11y.spec.ts:6:9 › Accessibility (axe, WCAG 2.0/2.1 A+AA) › settings: no serious/critical violations
+  [desktop] › a11y.spec.ts:6:9 › Accessibility (axe, WCAG 2.0/2.1 A+AA) › chat: no serious/critical violations
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @1440x900 › /overview @1440x900: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @1440x900 › /watchlist @1440x900: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @1440x900 › /news @1440x900: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @1440x900 › /chat?skip=1 @1440x900: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @1440x900 › /artifacts @1440x900: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @1440x900 › /settings @1440x900: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @1440x900 › /watchlist/tii @1440x900: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @390x844 › /overview @390x844: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @390x844 › /watchlist @390x844: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @390x844 › /news @390x844: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @390x844 › /chat?skip=1 @390x844: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @390x844 › /artifacts @390x844: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @390x844 › /settings @390x844: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:104:7 › axe sweep @390x844 › /watchlist/tii @390x844: no serious/critical (WCAG 2.2 AA)
+  [desktop] › axe-sweep.spec.ts:117:3 › axe sweep: /chat run panel after one turn @1440x900 › /chat after-turn: no serious/critical (WCAG 2.2 AA)
+  [desktop] › chat-error-retry.spec.ts:45:7 › chat error retry notice › forced failure shows only the discreet notice; Retry resubmits and succeeds
+  [desktop] › chat.spec.ts:11:7 › Analyst chat — streaming › answer streams incrementally via SSE with plugin activity and sources
+  [desktop] › context-sync.spec.ts:20:5 › context line + POST /api/chat systemContext mirror the inspector chips (remove one company)
+  [desktop] › context-sync.spec.ts:73:5 › empty context → helper copy; mobile 390 wraps the line
+  [desktop] › copy-and-rail.spec.ts:14:7 › a49 copy + rail › rail ≤224 expanded / ≤64 collapsed via rail-toggle, persisted
+  [desktop] › copy-and-rail.spec.ts:48:7 › a49 copy + rail › /chat: no lede under the title, no explainer copy on user surfaces
+  [desktop] › copy-and-rail.spec.ts:68:7 › a49 copy + rail › overview/news ledes are short; brand line present on an unprimed first visit
+  [desktop] › keyboard-nav.spec.ts:18:7 › a33 keyboard nav › watchlist: cards are keyboard-reachable with the accent focus ring
+  [desktop] › keyboard-nav.spec.ts:40:7 › a33 keyboard nav › nav rail: Tab + arrows, only the accent focus ring anywhere
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /overview
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /watchlist
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /sentiment
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /news
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /radar
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /graph
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /briefing
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /methodology
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 1440x900 › route /docs/interactive-ui
+  [desktop] › live-smoke.spec.ts:46:9 › live smoke 1440x900 › bad urls are 404
+  [desktop] › live-smoke.spec.ts:55:9 › live smoke 1440x900 › nav links + back/forward
+  [desktop] › live-smoke.spec.ts:72:9 › live smoke 1440x900 › preserved surfaces: docs + watchlist dossiers
+  [desktop] › live-smoke.spec.ts:82:9 › live smoke 1440x900 › no snapshot/Lambda demo on playground or chat
+  [desktop] › live-smoke.spec.ts:97:9 › live smoke 1440x900 › dossier #dossier-news deep link lands on the news panel
+  [desktop] › live-smoke.spec.ts:105:9 › live smoke 1440x900 › chat actual request 200 + answer
+  [desktop] › live-smoke.spec.ts:120:9 › live smoke 1440x900 › discreet retry: forced failure, no raw in DOM, retry recovers
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /overview
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /watchlist
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /sentiment
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /news
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /radar
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /graph
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /briefing
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /methodology
+  [desktop] › live-smoke.spec.ts:33:11 › live smoke 390x844 › route /docs/interactive-ui
+  [desktop] › live-smoke.spec.ts:46:9 › live smoke 390x844 › bad urls are 404
+  [desktop] › live-smoke.spec.ts:55:9 › live smoke 390x844 › nav links + back/forward
+  [desktop] › live-smoke.spec.ts:72:9 › live smoke 390x844 › preserved surfaces: docs + watchlist dossiers
+  [desktop] › live-smoke.spec.ts:82:9 › live smoke 390x844 › no snapshot/Lambda demo on playground or chat
+  [desktop] › live-smoke.spec.ts:97:9 › live smoke 390x844 › dossier #dossier-news deep link lands on the news panel
+  [desktop] › live-smoke.spec.ts:105:9 › live smoke 390x844 › chat actual request 200 + answer
+  [desktop] › live-smoke.spec.ts:120:9 › live smoke 390x844 › discreet retry: forced failure, no raw in DOM, retry recovers
+  [desktop] › nav-stress.spec.ts:79:9 › nav stress @1440x900 › rapid-nav
+  [desktop] › nav-stress.spec.ts:90:9 › nav stress @1440x900 › back-forward-spam
+  [desktop] › nav-stress.spec.ts:100:9 › nav stress @1440x900 › deep-link-reload
+  [desktop] › nav-stress.spec.ts:111:9 › nav stress @1440x900 › drawer-open-nav
+  [desktop] › nav-stress.spec.ts:129:9 › nav stress @1440x900 › nav-while-streaming
+  [desktop] › nav-stress.spec.ts:146:9 › nav stress @1440x900 › compare-mid-nav
+  [desktop] › nav-stress.spec.ts:158:9 › nav stress @1440x900 › news-anchor
+  [desktop] › nav-stress.spec.ts:177:9 › nav stress @1440x900 › radar
+  [desktop] › nav-stress.spec.ts:187:9 › nav stress @1440x900 › bad-urls
+  [desktop] › nav-stress.spec.ts:79:9 › nav stress @390x844 › rapid-nav
+  [desktop] › nav-stress.spec.ts:90:9 › nav stress @390x844 › back-forward-spam
+  [desktop] › nav-stress.spec.ts:100:9 › nav stress @390x844 › deep-link-reload
+  [desktop] › nav-stress.spec.ts:111:9 › nav stress @390x844 › drawer-open-nav
+  [desktop] › nav-stress.spec.ts:129:9 › nav stress @390x844 › nav-while-streaming
+  [desktop] › nav-stress.spec.ts:146:9 › nav stress @390x844 › compare-mid-nav
+  [desktop] › nav-stress.spec.ts:158:9 › nav stress @390x844 › news-anchor
+  [desktop] › nav-stress.spec.ts:177:9 › nav stress @390x844 › radar
+  [desktop] › nav-stress.spec.ts:187:9 › nav stress @390x844 › bad-urls
+  [desktop] › navigation-e2e.spec.ts:22:9 › navigation e2e › route / renders @desktop
+  [desktop] › navigation-e2e.spec.ts:22:9 › navigation e2e › route /overview renders @desktop
+  [desktop] › navigation-e2e.spec.ts:22:9 › navigation e2e › route /watchlist renders @desktop
+  [desktop] › navigation-e2e.spec.ts:22:9 › navigation e2e › route /sentiment renders @desktop
+  [desktop] › navigation-e2e.spec.ts:22:9 › navigation e2e › route /radar renders @desktop
+  [desktop] › navigation-e2e.spec.ts:22:9 › navigation e2e › route /graph renders @desktop
+  [desktop] › navigation-e2e.spec.ts:22:9 › navigation e2e › route /docs/interactive-ui renders @desktop
+  [desktop] › navigation-e2e.spec.ts:34:7 › navigation e2e › bad urls are real 404
+  [desktop] › navigation-e2e.spec.ts:46:7 › navigation e2e › nav click-through + active + back/forward + refresh
+  [desktop] › navigation-e2e.spec.ts:65:7 › navigation e2e › dossier link, rail back to overview, #dossier-news anchor
+  [desktop] › navigation-e2e.spec.ts:85:7 › navigation e2e › chat non-empty 200
+  [desktop] › navigation-e2e.spec.ts:105:7 › mobile navigation › mobile routes + nav scroll + no overflow
+  [desktop] › navigation-retry-proof.spec.ts:7:7 › retry proof 1440x900
+  [desktop] › navigation-retry-proof.spec.ts:7:7 › retry proof 390x844
+  [desktop] › pdf-inline-render.spec.ts:47:5 › PDF artifact → side pane renders pdf.js pages (or the preview-unavailable fallback)
+  [desktop] › pdf-inline-render.spec.ts:66:5 › PDF artifact → Artifacts preview pane renders pdf.js pages (or the fallback), one meta line, H1-style file name
+  [desktop] › pdf-inline-render.spec.ts:89:5 › non-PDF office artifact in the side pane shows the preview-unavailable fallback (when one exists)
+  [desktop] › qa-chat-timing.spec.ts:211:9 › QA chat timing @ desktop › two turns in one thread: timings, tool card, session reuse
+  [desktop] › qa-chat-timing.spec.ts:211:9 › QA chat timing @ mobile › two turns in one thread: timings, tool card, session reuse
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ desktop 1440x900 › /overview
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ desktop 1440x900 › /watchlist
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ desktop 1440x900 › /watchlist/tii
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ desktop 1440x900 › /watchlist/mbzuai
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ desktop 1440x900 › /news
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ desktop 1440x900 › /settings
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ desktop 1440x900 › /chat
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ desktop 1440x900 › /watchlist/does-not-exist
+  [desktop] › qa-routes.spec.ts:123:5 › QA routes @ desktop 1440x900 › /watchlist with reduced motion: compare tray toggles
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ mobile 390x844 › /overview
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ mobile 390x844 › /watchlist
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ mobile 390x844 › /watchlist/tii
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ mobile 390x844 › /watchlist/mbzuai
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ mobile 390x844 › /news
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ mobile 390x844 › /settings
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ mobile 390x844 › /chat
+  [desktop] › qa-routes.spec.ts:58:7 › QA routes @ mobile 390x844 › /watchlist/does-not-exist
+  [desktop] › qa-routes.spec.ts:123:5 › QA routes @ mobile 390x844 › /watchlist with reduced motion: compare tray toggles
+  [desktop] › qa-routes.spec.ts:144:3 › Logo audit (browser) @ desktop › collect every org-logo / monogram on /watchlist (≤60 s)
+  [desktop] › release.spec.ts:6:7 › release gates (bridge) › every SSE frame carries a monotonic seq — no duplicates, no gaps, [DONE] last
+  [desktop] › release.spec.ts:22:7 › release gates (bridge) › session pre-warm answers with a session id and the shell marks itself ready
+  [desktop] › release.spec.ts:31:7 › release gates (bridge) › first turn reuses the pre-warmed session (ondemand.session viaHeader=true)
+  [desktop] › routes-clean.spec.ts:36:3 › /overview → 200, 0 console errors, 0 page errors
+  [desktop] › routes-clean.spec.ts:36:3 › /watchlist → 200, 0 console errors, 0 page errors
+  [desktop] › routes-clean.spec.ts:36:3 › /news → 200, 0 console errors, 0 page errors
+  [desktop] › routes-clean.spec.ts:36:3 › /chat → 200, 0 console errors, 0 page errors
+  [desktop] › routes-clean.spec.ts:36:3 › /artifacts → 200, 0 console errors, 0 page errors
+  [desktop] › routes-clean.spec.ts:36:3 › /settings → 200, 0 console errors, 0 page errors
+  [desktop] › run-panel-a11y.spec.ts:52:7 › run-panel a11y (a10) › every visible disclosure head is a focusable <button>/<summary> with a brand-green focus ring
+  [desktop] › run-panel-a11y.spec.ts:90:7 › run-panel a11y (a10) › Tab order reaches the disclosure heads with the green ring
+  [desktop] › run-panel-a11y.spec.ts:111:7 › run-panel a11y (a10) › .oiu-think__head text contrast vs effective background ≥ 4.5:1
+  [desktop] › run-panel-a11y.spec.ts:150:7 › run-panel a11y (a10) › Working band (mint gradient) text is ≥ 4.5:1 when present
+  [desktop] › run-panel-a11y.spec.ts:165:7 › run-panel a11y (a10) › prefers-reduced-motion: .oiu-spin has no animation
+  [desktop] › run-panel-acceptance.spec.ts:179:3 › run-panel acceptance — desktop 1440×900 › thinking auto-expand, anchored header, brand chip, checklist plan, no raw JSON
+  [desktop] › run-panel-acceptance.spec.ts:187:3 › run-panel acceptance — mobile 390×844 › thinking auto-expand, anchored header, brand chip, checklist plan, no raw JSON
+  [desktop] › run-panel-visual.spec.ts:153:7 › run panel visual — desktop 1440×900 › captures run-view states + layout metrics
+  [desktop] › run-panel-visual.spec.ts:163:7 › run panel visual — mobile 390×844 (Pixel 7) › captures run-view states + layout metrics
+  [desktop] › run-panel-working-header.spec.ts:82:9 › run panel Working header invariant @ desktop › one source of truth for "Working…" across a live ≥2-tool run (desktop)
+  [desktop] › run-panel-working-header.spec.ts:82:9 › run panel Working header invariant @ mobile › one source of truth for "Working…" across a live ≥2-tool run (mobile)
+  [desktop] › run-ux.spec.ts:75:7 › Run UX — uploads, stream order, artifacts › upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts
+  [desktop] › run-ux.spec.ts:128:7 › Run UX — uploads, stream order, artifacts › report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts
+  [desktop] › session-continuity.spec.ts:16:7 › session continuity — two turns, one thread › turn 2 appends below turn 1; turn 1 thinking-block pinned; one thread; no errors
+  [desktop] › settings.spec.ts:4:7 › Settings › shows user and backend inputs; model and plugin are fixed (DeepSeek Flash v4.1 · Perplexity only)
+  [desktop] › settings.spec.ts:24:7 › Settings › editing the user id persists to localStorage
+  [desktop] › thinking-json-filter.spec.ts:26:7 › desktop 1440×900 › Thinking body has no planner JSON; planner-payload lives only in dev-disclosure
+  [desktop] › thinking-json-filter.spec.ts:26:7 › mobile 390×844 › Thinking body has no planner JSON; planner-payload lives only in dev-disclosure
+  [desktop] › thinking-pinned-working-row.spec.ts:28:7 › desktop 1440×900 › Thinking pinned at top, Working rows before the answer, jump pill clear of Working rows, no planner JSON in Thinking
+  [desktop] › thinking-pinned-working-row.spec.ts:28:7 › mobile 390×844 › Thinking pinned at top, Working rows before the answer, jump pill clear of Working rows, no planner JSON in Thinking
+  [desktop] › thread-reopen.spec.ts:14:7 › thread re-open after reload › reload → recent thread listed → click → messages restored; ?thread deep link
+  [desktop] › title-ellipsis.spec.ts:37:7 › thread titles ellipsise + carry the full title (desktop)
+  [desktop] › title-ellipsis.spec.ts:37:7 › thread titles ellipsise + carry the full title (mobile-390)
+  [desktop] › upload-artifacts.spec.ts:125:3 › Upload → Artifacts E2E › empty Artifacts state renders
+  [desktop] › upload-artifacts.spec.ts:146:3 › Upload → Artifacts E2E › API: each fixture uploads via /api/media and is listed by /api/artifacts as an upload
+  [desktop] › upload-artifacts.spec.ts:198:3 › Upload → Artifacts E2E › UI: pick → progress → processed → chip → sent → cited → Artifacts → reload
+  [desktop] › upload-artifacts.spec.ts:266:3 › Upload → Artifacts E2E › blurred memo: agent must say it cannot read it, never invent text
+  [desktop] › upload-artifacts.spec.ts:285:3 › Upload → Artifacts E2E › failure path shows red state + retry
+  [desktop] › upload-artifacts.spec.ts:339:5 › Upload → Artifacts E2E › mobile 390×844 › upload chip and Artifacts page have no horizontal overflow
+  [desktop] › upload-e2e.spec.ts:165:5 › upload-e2e @1440x900 › U1 counters baseline → PDF+PNG paperclip upload → chips ready → artifacts persisted (source upload) → one short chat turn [1440x900]
+  [desktop] › upload-e2e.spec.ts:190:5 › upload-e2e @1440x900 › U2 /artifacts lists both as "input", PDF icon pdf / PNG icon image|chart, counters +2/+1/+1/+2, PDF download starts with %PDF [1440x900]
+  [desktop] › upload-e2e.spec.ts:165:5 › upload-e2e @390x844 › U1 counters baseline → PDF+PNG paperclip upload → chips ready → artifacts persisted (source upload) → one short chat turn [390x844]
+  [desktop] › upload-e2e.spec.ts:190:5 › upload-e2e @390x844 › U2 /artifacts lists both as "input", PDF icon pdf / PNG icon image|chart, counters +2/+1/+1/+2, PDF download starts with %PDF [390x844]
+  [desktop] › upload-journeys.spec.ts:90:3 › Upload journeys — documents (desktop) › PDF: upload → ready → grounded answer cites the file → artifact persisted → survives reload
+  [desktop] › upload-journeys.spec.ts:93:3 › Upload journeys — documents (desktop) › DOCX: compendium.docx (15 MB) → ready → answer about the DOCX → artifact persisted → survives reload
+  [desktop] › upload-journeys.spec.ts:136:29 › Upload journeys — images (desktop 1440×900) › image: geothermal-plant.png → thumb in chip + under message → grounded description
+  [desktop] › upload-journeys.spec.ts:136:29 › Upload journeys — images (desktop 1440×900) › image: bar-chart.png → thumb in chip + under message → grounded description
+  [desktop] › upload-journeys.spec.ts:136:29 › Upload journeys — images (desktop 1440×900) › image: blurred-memo.png → thumb in chip + under message → honest 'cannot read' answer
+  [desktop] › upload-journeys.spec.ts:138:3 › Upload journeys — images (desktop 1440×900) › persistence: /artifacts lists the three images as uploads, also after reload
+  [desktop] › upload-journeys.spec.ts:161:3 › Upload journeys — failure state + retry › ui: tool.exe → error chip (red) with retry; retry stays error; remove works; 0-byte file → error
+  [desktop] › upload-journeys.spec.ts:226:3 › Upload journeys — failure state + retry › api: POST /api/media with an unsupported extension → 400 unsupported_type
+  [desktop] › upload-journeys.spec.ts:242:29 › Upload journeys — images (mobile 390×844) › mobile image: geothermal-plant.png
+  [desktop] › upload-journeys.spec.ts:242:29 › Upload journeys — images (mobile 390×844) › mobile image: bar-chart.png
+  [desktop] › upload-journeys.spec.ts:242:29 › Upload journeys — images (mobile 390×844) › mobile image: blurred-memo.png
+  [desktop] › upload.spec.ts:15:7 › Media upload › upload: 26 MB file is rejected with 413 too_large
+  [desktop] › upload.spec.ts:29:7 › Media upload › upload: tool.exe is rejected with 400 naming the allowed types
+  [desktop] › upload.spec.ts:41:7 › Media upload › upload: zephyr-7.md uploads and /api/chat answers 41.7 MWh from it
+  [desktop] › upload.spec.ts:78:7 › Media upload › ui: picking zephyr-7.md in the composer shows an attachment chip (ready or error)
+  [desktop] › voice.spec.ts:8:7 › voice › voice relay: POST /api/voice/tts answers ok:true + https audioUrl, or an honest not_subscribed
+  [desktop] › voice.spec.ts:27:7 › voice › voice relay: expired/unknown clip token is a 404 and STT rejects a non-audio form
+  [desktop] › voice.spec.ts:34:7 › voice › voice UI: mic button in the composer → listening (fake mic) or an honest error; orb state matches
+  [desktop] › voice.spec.ts:73:7 › voice › voice a11y: caption strip is a polite live region and the mic has an accessible name
+  [mobile] › mobile.spec.ts:6:9 › Mobile layout (Pixel 7, 390x844) › overview: no horizontal overflow, nav visible, no page errors
+  [mobile] › mobile.spec.ts:6:9 › Mobile layout (Pixel 7, 390x844) › company: no horizontal overflow, nav visible, no page errors
+  [mobile] › mobile.spec.ts:6:9 › Mobile layout (Pixel 7, 390x844) › news: no horizontal overflow, nav visible, no page errors
+  [mobile] › mobile.spec.ts:6:9 › Mobile layout (Pixel 7, 390x844) › settings: no horizontal overflow, nav visible, no page errors
+  [mobile] › mobile.spec.ts:6:9 › Mobile layout (Pixel 7, 390x844) › chat: no horizontal overflow, nav visible, no page errors
+  [mobile] › run-panel-mobile.spec.ts:16:7 › a11 run panel @ 390×844 › no horizontal overflow; working rows ≤ 72 px; header/footer wrap
+  [mobile-ux] › run-ux.spec.ts:75:7 › Run UX — uploads, stream order, artifacts › upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts
+  [mobile-ux] › run-ux.spec.ts:128:7 › Run UX — uploads, stream order, artifacts › report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts
+  [qa-final] › qa-final.spec.ts:21:3 › qa-final [baseline] › routes: console + page errors per route
+  [qa-final] › qa-final.spec.ts:44:3 › qa-final [baseline] › chat: upload states, run states, sources, artifacts, lightbox, doc preview
+  [qa-final-mobile] › qa-final.spec.ts:21:3 › qa-final [baseline] › routes: console + page errors per route
+  [qa-final-mobile] › qa-final.spec.ts:44:3 › qa-final [baseline] › chat: upload states, run states, sources, artifacts, lightbox, doc preview
+Total: 192 tests in 35 files

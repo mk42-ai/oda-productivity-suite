@@ -1,0 +1,61 @@
+{
+ "base": "https://sb-4pt9zz78srbe.vercel.run",
+ "utc": "2026-10-22T01:42:12.407Z",
+ "steps": [
+  {
+   "step": "overview fresh (no pref)",
+   "navRail": 224,
+   "railState": null,
+   "path": "/overview"
+  },
+  {
+   "step": "chat fresh (no pref → default collapsed on /chat)",
+   "navRail": 64,
+   "railState": null,
+   "path": "/chat"
+  },
+  {
+   "step": "chat after toggle → expanded",
+   "navRail": 224,
+   "railState": "expanded",
+   "path": "/chat"
+  },
+  {
+   "step": "chat reload (expanded persisted?)",
+   "navRail": 224,
+   "railState": "expanded",
+   "path": "/chat"
+  },
+  {
+   "step": "overview with pref expanded",
+   "navRail": 224,
+   "railState": "expanded",
+   "path": "/overview"
+  },
+  {
+   "step": "overview toggle → collapsed",
+   "navRail": 64,
+   "railState": "collapsed",
+   "path": "/overview"
+  },
+  {
+   "step": "overview reload (collapsed persisted?)",
+   "navRail": 64,
+   "railState": "collapsed",
+   "path": "/overview"
+  },
+  {
+   "step": "chat with pref collapsed",
+   "navRail": 64,
+   "railState": "collapsed",
+   "path": "/chat"
+  },
+  {
+   "step": "chat toggle → expanded (final)",
+   "navRail": 224,
+   "railState": "expanded",
+   "path": "/chat"
+  }
+ ],
+ "topbar": 52
+}

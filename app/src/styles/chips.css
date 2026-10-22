@@ -1,0 +1,177 @@
+/* Chip / filter-pill tokens — ONE neutral set used by Companies sector pills, social source & sector chips and News Pulse. */
+
+:root {
+  --chip-bg: var(--surface, #ffffff);
+  --chip-ink: #0D0D0D;
+  --chip-border: var(--border-strong, #D4D4D4);
+  --chip-count: var(--muted, #5D5D5D);
+  --chip-active-bg: #0D0D0D;
+  --chip-active-ink: #ffffff;
+  --chip-hover-bg: var(--hover, #F0F0F0);
+  --chip-radius: 9999px;
+  --chip-height: 30px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: var(--chip-height, 30px);
+  padding: 0 12px;
+  border-radius: var(--chip-radius, 9999px);
+  border: 1px solid var(--chip-border, #D4D4D4);
+  background: var(--chip-bg, #ffffff);
+  color: var(--chip-ink, #0D0D0D);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.chip:hover {
+  background: var(--chip-hover-bg, #F0F0F0);
+}
+
+.chip:focus-visible,
+.cg-chip:focus-visible,
+.bs-tabs button:focus-visible {
+  outline: 2px solid var(--ring, #2563EB);
+  outline-offset: 1px;
+}
+
+.chip[aria-pressed="true"],
+.chip.is-active {
+  background: var(--chip-active-bg, #0D0D0D);
+  color: var(--chip-active-ink, #ffffff);
+  border-color: var(--chip-active-bg, #0D0D0D);
+  box-shadow: none;
+}
+
+.chip .chip__count,
+.chip span {
+  color: var(--chip-count, #5D5D5D);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  opacity: 1;
+}
+
+.chip[aria-pressed="true"] .chip__count,
+.chip[aria-pressed="true"] span,
+.chip.is-active .chip__count,
+.chip.is-active span {
+  color: var(--chip-active-ink, #ffffff);
+  opacity: 0.85;
+}
+
+/* Per-sector pastel pill rules keyed by data-sector */
+.cg-chip[data-sector="biotech"],
+.bs-tabs button[data-sector="biotech"],
+.chip[data-sector="biotech"] {
+  background: #F9F9F9;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
+}
+
+.cg-chip[data-sector="healthtech"],
+.bs-tabs button[data-sector="healthtech"],
+.chip[data-sector="healthtech"] {
+  background: #F0F0F0;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
+}
+
+.cg-chip[data-sector="fintech"],
+.bs-tabs button[data-sector="fintech"],
+.chip[data-sector="fintech"] {
+  background: #F9F9F9;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
+}
+
+.cg-chip[data-sector="robotics"],
+.bs-tabs button[data-sector="robotics"],
+.chip[data-sector="robotics"] {
+  background: #F0F0F0;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
+}
+
+.cg-chip[data-sector="climate"],
+.bs-tabs button[data-sector="climate"],
+.chip[data-sector="climate"] {
+  background: #F0F0F0;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
+}
+
+.cg-chip[data-sector="ai-infra"],
+.bs-tabs button[data-sector="ai-infra"],
+.chip[data-sector="ai-infra"] {
+  background: #F0F0F0;
+  border-color: #D4D4D4;
+  color: #2F2F2F;
+}
+
+.cg-chip[data-sector="edtech"],
+.bs-tabs button[data-sector="edtech"],
+.chip[data-sector="edtech"] {
+  background: #F9F9F9;
+  border-color: color-mix(in srgb, #B91C1C 55%, #fff);
+  color: #B91C1C;
+}
+
+.cg-chip[data-sector="logistics"],
+.bs-tabs button[data-sector="logistics"],
+.chip[data-sector="logistics"] {
+  background: #F0F0F0;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
+}
+
+.cg-chip[data-sector="consumer"],
+.bs-tabs button[data-sector="consumer"],
+.chip[data-sector="consumer"] {
+  background: #F9F9F9;
+  border-color: color-mix(in srgb, #5D5D5D 55%, #fff);
+  color: #5D5D5D;
+}
+
+.cg-chip[data-sector="ai-enterprise"],
+.bs-tabs button[data-sector="ai-enterprise"],
+.chip[data-sector="ai-enterprise"] {
+  background: #F0F0F0;
+  border-color: #D4D4D4;
+  color: #2F2F2F;
+}
+
+/* Inactive pastel chips: span count inherits sector ink text */
+.cg-chip[data-sector]:not([data-sector="all"]):not([aria-pressed="true"]) span,
+.bs-tabs button[data-sector]:not([data-sector="all"]):not([aria-pressed="true"]) span,
+.chip[data-sector]:not([data-sector="all"]):not([aria-pressed="true"]) span {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.cg-chip[data-sector]:not([data-sector="all"]):not([aria-pressed="true"]):hover,
+.bs-tabs button[data-sector]:not([data-sector="all"]):not([aria-pressed="true"]):hover,
+.chip[data-sector]:not([data-sector="all"]):not([aria-pressed="true"]):hover {
+  filter: brightness(0.97);
+}
+
+/* Active sector pills: neutral #0D0D0D fill + white text */
+.cg-chip[data-sector][aria-pressed="true"],
+.bs-tabs button[data-sector][aria-pressed="true"],
+.chip[data-sector][aria-pressed="true"] {
+  background: #0D0D0D !important;
+  border-color: #0D0D0D !important;
+  color: #ffffff !important;
+}
+
+.cg-chip[data-sector][aria-pressed="true"] span,
+.bs-tabs button[data-sector][aria-pressed="true"] span,
+.chip[data-sector][aria-pressed="true"] span {
+  color: #ffffff !important;
+  opacity: 0.85;
+}

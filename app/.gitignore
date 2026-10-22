@@ -1,0 +1,20 @@
+node_modules/
+.next/
+.next-*/
+out/
+.env
+.env.*.local
+*.log
+test-results/
+playwright-report/
+.lighthouse/
+tsconfig.tsbuildinfo
+!proof/*.log
+# perf recordings: large binaries stay out of git (delivered as run artifacts); metrics/sse/png/mp4 are committed
+proof/perf/**/trace.zip
+proof/perf/**/run.har
+proof/perf/**/run.webm
+
+# run-ux recorder output (delivered as run artifacts, never committed)
+# (anchored: only web/artifacts/ scratch output — src/**/artifacts and public/icons/artifacts are the Artifacts feature)
+/artifacts/

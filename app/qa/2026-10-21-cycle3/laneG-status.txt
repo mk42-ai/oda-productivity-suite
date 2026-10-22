@@ -1,0 +1,56 @@
+[
+ {
+  "kind": "ingest",
+  "id": "6ad7f32d5e60695bc4d052cb",
+  "http": 200,
+  "isActive": true,
+  "cron": "0 0 */2 * * *",
+  "next_runs_utc": [
+   "2026-10-21T12:00:00Z",
+   "2026-10-21T14:00:00Z",
+   "2026-10-21T16:00:00Z"
+  ],
+  "last_execution": {
+   "id": "6ad88d20c2cfee207e8f4204",
+   "status": "success",
+   "trigger": "cron",
+   "started_at": "2026-10-21T10:00:00.603Z"
+  }
+ },
+ {
+  "kind": "briefing",
+  "id": "6ad7f32e5e60695bc4d052d2",
+  "http": 200,
+  "isActive": true,
+  "cron": "0 30 2 * * *",
+  "next_runs_utc": [
+   "2026-10-22T02:30:00Z",
+   "2026-10-23T02:30:00Z",
+   "2026-10-24T02:30:00Z"
+  ],
+  "last_execution": {
+   "id": "6ad841aab28e35aa11d85744",
+   "status": "success",
+   "trigger": "api",
+   "started_at": "2026-10-21T04:38:02.615Z"
+  }
+ },
+ {
+  "kind": "checkpoint",
+  "id": "6ad7f32e5e60695bc4d052d7",
+  "http": 200,
+  "isActive": true,
+  "cron": "0 */30 * * * *",
+  "next_runs_utc": [
+   "2026-10-21T12:00:00Z",
+   "2026-10-21T12:30:00Z",
+   "2026-10-21T13:00:00Z"
+  ],
+  "last_execution": {
+   "id": "6ad8a238c2cfee207e8f42a6",
+   "status": "success",
+   "trigger": "cron",
+   "started_at": "2026-10-21T11:30:00.397Z"
+  }
+ }
+]

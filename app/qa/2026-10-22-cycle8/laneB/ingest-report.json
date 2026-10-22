@@ -1,0 +1,544 @@
+{
+ "captured_at": "2026-10-22T01:00:00Z",
+ "harvest_file": "qa/2026-10-22-cycle8/laneB/reddit-harvest-20261022.json",
+ "sentiment": {
+  "before": 230,
+  "harvested_posts": 70,
+  "added": 44,
+  "duplicates": 14,
+  "excluded": 12,
+  "after": 274,
+  "added_by_lane": {
+   "UAE-topic": 21,
+   "global-discourse": 23
+  },
+  "added_by_class": {
+   "Unclassified": 21,
+   "Skeptics": 3,
+   "Safety Advocates": 2,
+   "Optimists": 8,
+   "Pragmatists": 5,
+   "Neutral/Informational": 4,
+   "Pessimists/Doomers": 1
+  },
+  "total_by_class": {
+   "Neutral/Informational": 101,
+   "Pragmatists": 30,
+   "Optimists": 48,
+   "Skeptics": 26,
+   "Disruption Concerned": 8,
+   "Safety Advocates": 20,
+   "Pessimists/Doomers": 5,
+   "Unclassified": 36
+  },
+  "total_by_lane": {
+   "UAE-topic": 216,
+   "global-discourse": 58
+  }
+ },
+ "news": {
+  "before": 108,
+  "candidates": [
+   {
+    "url": "https://www.wam.ae/en/article/c2us54g-edra-itu-organise-uae-capacity-building-week",
+    "publisher": "Emirates News Agency (WAM)",
+    "present_as": [
+     "n80cff8de1d"
+    ],
+    "action": "duplicate — not added"
+   }
+  ],
+  "added": 0,
+  "after": 108,
+  "hash_space": 107,
+  "note": "No other strictly dated items ≥ 2026-10-21T14:16Z found (gptSearch pre-executed scan; Perplexity + fetchInternetData 'Not enough credits'); nothing undated ingested."
+ },
+ "added": [
+  {
+   "id": "s619a67378e",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "How does one earn AED 50K+ per month in the UAE?"
+  },
+  {
+   "id": "s2c455f9ef2",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Why aren’t remote jobs as common in the UAE as they are in the West and Europe?"
+  },
+  {
+   "id": "s72e7584476",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "A homeless guy, What would you do in this situation?"
+  },
+  {
+   "id": "s408de55e63",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "For the 11th day in a row part of the country recieved Rain & Hail ⛈️❄️"
+  },
+  {
+   "id": "sa217cabf7c",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Kids and their parents - a rant and vent"
+  },
+  {
+   "id": "s92cbf3c27b",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "UAE royal sentenced for child neglect after London cocaine binge"
+  },
+  {
+   "id": "sc2c78a5f9a",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "UAE ministry to investigate source of unusual odour across country"
+  },
+  {
+   "id": "s5ee05d5a60",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Negative review on my google business page by an anonymous figure (Sharjah)"
+  },
+  {
+   "id": "s3dc7223433",
+   "sub": "r/UAE",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "A Father's Struggle to Get Health Insurance for His Daughter in the UAE"
+  },
+  {
+   "id": "s611020abfe",
+   "sub": "r/dubai",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Leaning on Parked Cars"
+  },
+  {
+   "id": "s312ea861e4",
+   "sub": "r/dubai",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Dubai road design"
+  },
+  {
+   "id": "sa1bf4d41e7",
+   "sub": "r/dubai",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "E-911: UAE's fourth highway from Dubai-Sharjah border to RAK to have up to 16 lanes"
+  },
+  {
+   "id": "sb9a6f56d00",
+   "sub": "r/dubai",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Tabby is increasing Tabby+ from 49 AED/Month to 59 AED/Month"
+  },
+  {
+   "id": "s2f51e90bdd",
+   "sub": "r/dubai",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Dubai tall girlies.. where do we buy long pants from?"
+  },
+  {
+   "id": "sb5c7d7db1b",
+   "sub": "r/dubai",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "moved into apartment on the palm but humidity is at 75%?"
+  },
+  {
+   "id": "sfd14af3d78",
+   "sub": "r/abudhabi",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "My dad has been unemployed for months. I’m just trying to help him."
+  },
+  {
+   "id": "scb8d666846",
+   "sub": "r/abudhabi",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Selling these items let me know if you are interested."
+  },
+  {
+   "id": "sfcfedec48a",
+   "sub": "r/abudhabi",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Looking for female friends"
+  },
+  {
+   "id": "sa4efb91459",
+   "sub": "r/abudhabi",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "I want to visit the museums in abudhabi"
+  },
+  {
+   "id": "sb8f0468049",
+   "sub": "r/abudhabi",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "Affordable areas to live in Abu Dhabi? (AED 4–5k budget)"
+  },
+  {
+   "id": "sc98edf2eb3",
+   "sub": "r/abudhabi",
+   "lane": "UAE-topic",
+   "class": "Unclassified",
+   "confidence": 0.0,
+   "title": "New to Abu Dhabi, looking for friends near Al Bustan Compound 👋"
+  },
+  {
+   "id": "s17540310be",
+   "sub": "r/technology",
+   "lane": "global-discourse",
+   "class": "Skeptics",
+   "confidence": 0.6,
+   "title": "Anthropic posts staggering $80.7 billion net loss in first half of 2026 as IPO approaches"
+  },
+  {
+   "id": "s50dffbf98f",
+   "sub": "r/technology",
+   "lane": "global-discourse",
+   "class": "Safety Advocates",
+   "confidence": 0.6,
+   "title": "‘This Is Not a Drill’: Critical PHP Vulnerabilities Are Setting the Internet on Fire"
+  },
+  {
+   "id": "s1d20e68b03",
+   "sub": "r/artificial",
+   "lane": "global-discourse",
+   "class": "Optimists",
+   "confidence": 0.6,
+   "title": "Anthropic's Claude autonomously designs protein binders targeting scorpion neurotoxins"
+  },
+  {
+   "id": "scf6466c928",
+   "sub": "r/artificial",
+   "lane": "global-discourse",
+   "class": "Pragmatists",
+   "confidence": 0.65,
+   "title": "New York City wants to fine companies that trap you in AI chatbot ‘doom loops’"
+  },
+  {
+   "id": "s9ce5919167",
+   "sub": "r/artificial",
+   "lane": "global-discourse",
+   "class": "Pragmatists",
+   "confidence": 0.6,
+   "title": "I heavily used ChatGPT to prepare myself for a specific social sector job - should I (not) mention this in the interview?"
+  },
+  {
+   "id": "s35a71a6fc1",
+   "sub": "r/artificial",
+   "lane": "global-discourse",
+   "class": "Neutral/Informational",
+   "confidence": 0.5,
+   "title": "The age of AI is forcing humanity to rethink what it means to be creative"
+  },
+  {
+   "id": "s68050d032e",
+   "sub": "r/LocalLLaMA",
+   "lane": "global-discourse",
+   "class": "Neutral/Informational",
+   "confidence": 0.55,
+   "title": "RecursiveSI/flint (40B A2.5B) · Hugging Face"
+  },
+  {
+   "id": "s8138d83802",
+   "sub": "r/LocalLLaMA",
+   "lane": "global-discourse",
+   "class": "Optimists",
+   "confidence": 0.55,
+   "title": "OK, fine, Qwen 3.8 Flash Next is nice"
+  },
+  {
+   "id": "sae76dcdd92",
+   "sub": "r/LocalLLaMA",
+   "lane": "global-discourse",
+   "class": "Optimists",
+   "confidence": 0.6,
+   "title": "After using Flash next"
+  },
+  {
+   "id": "s8effc0346c",
+   "sub": "r/LocalLLaMA",
+   "lane": "global-discourse",
+   "class": "Pragmatists",
+   "confidence": 0.55,
+   "title": "When will we see these changes? --> China Is Doubling RAM Production to Keep Everyday Gadget Prices from Skyrocketing"
+  },
+  {
+   "id": "se3e7b70897",
+   "sub": "r/LocalLLaMA",
+   "lane": "global-discourse",
+   "class": "Optimists",
+   "confidence": 0.6,
+   "title": "Kitten-TTS 2: New Open-source SOTA 1.58 bit TTS (CPU-only with  voice cloning, multilingual, emotion control)"
+  },
+  {
+   "id": "s7dd0d11ce6",
+   "sub": "r/LocalLLaMA",
+   "lane": "global-discourse",
+   "class": "Neutral/Informational",
+   "confidence": 0.55,
+   "title": "Amazing free 3090 speedup hack, verified works 15% PP, 5% TG for free"
+  },
+  {
+   "id": "sb52e8e9670",
+   "sub": "r/LocalLLaMA",
+   "lane": "global-discourse",
+   "class": "Pragmatists",
+   "confidence": 0.55,
+   "title": "Be prepared, GPU price increase incoming --> Samsung sells out 100% of all 2027 HBM capacity - HBM prices expected to jump 200% next year, DRAM prices expected to see a double-digit price increase"
+  },
+  {
+   "id": "s9b3d468181",
+   "sub": "r/LocalLLaMA",
+   "lane": "global-discourse",
+   "class": "Neutral/Informational",
+   "confidence": 0.55,
+   "title": "Tried running 748B DeepSeek-V4.1-Flash on a €2k PC"
+  },
+  {
+   "id": "sfd4efe90e4",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Skeptics",
+   "confidence": 0.5,
+   "title": "Anthropic unveils Claude Duet, a proactive AI agent powered by Opus 5.5. It works while you're away, monitors your apps, handles complex tasks using its own cloud computer, and alerts you when needed. It supports 6,000+ integrations and remembers your context."
+  },
+  {
+   "id": "sbb5757fdd9",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Skeptics",
+   "confidence": 0.45,
+   "title": "Unitree's newest robot: H2-X Kung Fu Legend Guardian"
+  },
+  {
+   "id": "sb0eedee4d7",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Optimists",
+   "confidence": 0.7,
+   "title": "OpenAI's thousands of GPT-Rosalind agents analyzed millions of mouse brain cells in 32 minutes, completing research estimated to take humans months to a year. They uncovered new leads for neurodegenerative diseases, with human experts preferring their findings 75% of the time."
+  },
+  {
+   "id": "s8c780d15d4",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Optimists",
+   "confidence": 0.6,
+   "title": "Oblivion Remastered Mod Built Using Claude AI Boosts FPS By Over 40% And Drastically Reduces Stuttering Without Sacrificing Visual Quality"
+  },
+  {
+   "id": "s87f7403763",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Optimists",
+   "confidence": 0.6,
+   "title": "Six months later, the best AI costs 20× less"
+  },
+  {
+   "id": "s97ea994cb1",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Optimists",
+   "confidence": 0.6,
+   "title": "Demis Hassabis now expects AGI in 2-3 years, down from 3-5 earlier this year"
+  },
+  {
+   "id": "s04c5ec70af",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Pessimists/Doomers",
+   "confidence": 0.45,
+   "title": "Anthropic employee tells students at university that their career won't exist when they graduate."
+  },
+  {
+   "id": "s313e1515e9",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Safety Advocates",
+   "confidence": 0.55,
+   "title": "Websites taken down worldwide as critical PHP cyber-security update issued"
+  },
+  {
+   "id": "s9124855c95",
+   "sub": "r/singularity",
+   "lane": "global-discourse",
+   "class": "Pragmatists",
+   "confidence": 0.6,
+   "title": "As of 3 hours ago, the Linux Kernel no longer requires the usage of AI to be declared for new code submissions."
+  }
+ ],
+ "duplicate": [
+  {
+   "sub": "UAE",
+   "title": "Scare4 dubai has sold me a used/refurbished phone instead of a brand-new device.",
+   "matched_on": "sha1(url|text)"
+  },
+  {
+   "sub": "dubai",
+   "title": "as a girl, i felt the most comfortable in dubai",
+   "matched_on": "normalised outlet/title"
+  },
+  {
+   "sub": "dubai",
+   "title": "Rakez hidden setup costs?",
+   "matched_on": "normalised outlet/title"
+  },
+  {
+   "sub": "dubai",
+   "title": "Terminated suddenly by an admin worker on unheaded paper without my boss knowing—already filed a JAFZA dispute, what should I expect?",
+   "matched_on": "sha1(url|text)"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "my press on nail shop - based in AD!",
+   "matched_on": "normalised outlet/title"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "Certified Latin Translation needed",
+   "matched_on": "sha1(url|text)"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "Anyone Going to UFC 333 in Abu Dhabi? 🥊",
+   "matched_on": "sha1(url|text)"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "I want to visit the museums in abudhabi",
+   "matched_on": "normalised outlet/title"
+  },
+  {
+   "sub": "technology",
+   "title": "The AI-Hacking Apocalypse Began Last Night",
+   "matched_on": "normalised outlet/title"
+  },
+  {
+   "sub": "artificial",
+   "title": "How many \"unexploitable\" bugs are about to become exploitable?",
+   "matched_on": "normalised outlet/title"
+  },
+  {
+   "sub": "artificial",
+   "title": "Tesla and SpaceX form board committees to explore $3.5T merger around AI",
+   "matched_on": "sha1(url|text)"
+  },
+  {
+   "sub": "artificial",
+   "title": "Daily Driver Use As a Professor",
+   "matched_on": "normalised outlet/title"
+  },
+  {
+   "sub": "artificial",
+   "title": "AI-assisted php2shell exploit chain hits PHP runtime, forces coordinated defense across 70% of web",
+   "matched_on": "sha1(url|text)"
+  },
+  {
+   "sub": "LocalLLaMA",
+   "title": "Recursive Flint - the \"Qwen3.8 35B\" we've all been waiting for?",
+   "matched_on": "normalised outlet/title"
+  }
+ ],
+ "excluded": [
+  {
+   "sub": "dubai",
+   "title": "Daily Random Discussion Thread",
+   "why": "outside the cycle-8 requested record set"
+  },
+  {
+   "sub": "technology",
+   "title": "New Airbnb rules ban hosts from making guests wash dishes, do laundry & other checkout chores",
+   "why": "not AI-topic (brief: leave out)"
+  },
+  {
+   "sub": "technology",
+   "title": "YouTube is testing hiding the dislike button entirely and users aren’t happy",
+   "why": "not AI-topic (brief: leave out)"
+  },
+  {
+   "sub": "technology",
+   "title": "Meta ordered to pay $25 billion penalty in New Mexico Cambridge Analytica case",
+   "why": "not AI-topic (brief: leave out)"
+  },
+  {
+   "sub": "technology",
+   "title": "Poland says social media firms are ‘silent ally’ of Russia, threatens fines",
+   "why": "not AI-topic (brief: leave out)"
+  },
+  {
+   "sub": "technology",
+   "title": "EA cancels new Mass Effect, closes BioWare after being bought by Saudi Arabia",
+   "why": "not AI-topic (brief: leave out)"
+  },
+  {
+   "sub": "technology",
+   "title": "Spotify is asking Family plan members to scan a QR code to prove they live with the account owner",
+   "why": "not AI-topic (brief: leave out)"
+  },
+  {
+   "sub": "technology",
+   "title": "Meta Ordered to Pay $25 Billion for Deceiving Users on Privacy",
+   "why": "not AI-topic (brief: leave out)"
+  },
+  {
+   "sub": "artificial",
+   "title": "3 things you should do with your AI to save $$$ before booking a hotel",
+   "why": "outside the cycle-8 requested record set (AI keyword present — candidate for a later ingest)"
+  },
+  {
+   "sub": "artificial",
+   "title": "Has anyone figured out if is capcut pro worth upgrading to if you already use capcut",
+   "why": "outside the cycle-8 requested record set (AI keyword present — candidate for a later ingest)"
+  },
+  {
+   "sub": "LocalLLaMA",
+   "title": "Now that 3090 frenzy warning post makes sense.",
+   "why": "outside the cycle-8 requested record set (AI keyword present — candidate for a later ingest)"
+  },
+  {
+   "sub": "singularity",
+   "title": "Rejuvenation breakthrough: Scientists reverse 60 years of aging in human cells",
+   "why": "outside the cycle-8 requested record set"
+  }
+ ]
+}

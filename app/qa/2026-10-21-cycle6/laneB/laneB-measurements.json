@@ -1,0 +1,838 @@
+{
+  "lane": "B — inspector Plan/Run tabs evidence (cycle 6)",
+  "baseUrl": "https://sb-1rpldsghtcd5.vercel.run",
+  "head": "3a07efb (2026-10-21T15:59:58Z)",
+  "tabsIntroducedIn": "aaaa6e0 2026-10-21T15:59:57Z",
+  "runWindowUtc": {
+    "mainPass": {
+      "start": "2026-10-21T21:15:16.404Z",
+      "end": "2026-10-21T21:16:13.751Z"
+    },
+    "livePlanProbe": {
+      "start": "2026-10-21T21:29:47.362Z",
+      "end": "2026-10-21T21:30:18.567Z"
+    }
+  },
+  "harness": "playwright-core + /usr/bin/chromium headless; settings primed via localStorage uaecc.settings.v1 {onboarded:true, apikey:<redacted>, externalUserId:INV-001, companies:[mbzuai,g42,tii,edge,space42]}; entry /chat?skip=1",
+  "prompts": [
+    "Compare TII and MBZUAI on open-model releases in 2026, then list three risks, then draft a one-paragraph brief",
+    "Build a timeline of AIREV partnerships 2025–2026, then assess which matter most for sovereign AI, then summarise"
+  ],
+  "livePlanProbePrompt": "Rank G42, Core42 and Space42 by 2026 sovereign-compute announcements, then list two dependencies each, then write a three-sentence brief (cycle6 laneB live-plan probe)",
+  "viewports": {
+    "1440x900": {
+      "threads": [
+        {
+          "prompt": "Compare TII and MBZUAI on open-model releases in 2026, then list three risks, then draft a one-paragraph brief",
+          "startedAt": "2026-10-21T21:15:17.711Z",
+          "finishedAt": "2026-10-21T21:15:37.932Z",
+          "wallMs": 20221,
+          "timerState": "frozen",
+          "timerMs": "15428",
+          "frozen": true,
+          "planStepsInRunView": 0
+        },
+        {
+          "prompt": "Build a timeline of AIREV partnerships 2025–2026, then assess which matter most for sovereign AI, then summarise",
+          "startedAt": "2026-10-21T21:15:37.933Z",
+          "finishedAt": "2026-10-21T21:15:43.245Z",
+          "wallMs": 5312,
+          "timerState": "frozen",
+          "timerMs": "15428",
+          "frozen": true,
+          "planStepsInRunView": 0
+        }
+      ],
+      "inspector": {
+        "at": "2026-10-21T21:15:43.246Z",
+        "viewport": "1440x900",
+        "asideVisible": true,
+        "asideOpen": "true",
+        "asideBox": {
+          "x": 1080,
+          "y": 0,
+          "w": 360,
+          "h": 900
+        },
+        "asideAriaLabel": "Inspector",
+        "viewportInner": {
+          "w": 1440,
+          "h": 900
+        },
+        "tablist": {
+          "count": 1,
+          "role": "tablist",
+          "ariaLabel": "Run panel",
+          "testid": "inspector-tabs",
+          "box": {
+            "x": 1093,
+            "y": 69,
+            "w": 335,
+            "h": 30
+          }
+        },
+        "tabCount": 2,
+        "tabs": [
+          {
+            "name": "Plan",
+            "ariaSelected": "false",
+            "testid": "inspector-tab-plan",
+            "id": "inspector-tab-plan",
+            "ariaControls": "inspector-panel-plan",
+            "tabIndex": "-1",
+            "box": {
+              "x": 1093,
+              "y": 69,
+              "w": 49,
+              "h": 30
+            }
+          },
+          {
+            "name": "Run",
+            "ariaSelected": "true",
+            "testid": "inspector-tab-run",
+            "id": "inspector-tab-run",
+            "ariaControls": "inspector-panel-run",
+            "tabIndex": "0",
+            "box": {
+              "x": 1146,
+              "y": 69,
+              "w": 46,
+              "h": 30
+            }
+          }
+        ],
+        "initialSelected": "Run",
+        "plan": {
+          "tabAriaSelectedAfterClick": "true",
+          "runAriaSelected": "false",
+          "panelVisible": true,
+          "panelHidden": null,
+          "panelBox": {
+            "x": 1093,
+            "y": 111,
+            "w": 335,
+            "h": 100
+          },
+          "runPanelVisible": false,
+          "objective": null,
+          "stepCount": 0,
+          "steps": [],
+          "emptyState": "No plan for this run yet — the planner's steps appear here while a run streams.",
+          "panelText": "Plan\n\nNo plan for this run yet — the planner's steps appear here while a run streams."
+        },
+        "run": {
+          "tabAriaSelectedAfterClick": "true",
+          "planAriaSelected": "false",
+          "panelVisible": true,
+          "planPanelVisible": false,
+          "runRailVisible": true,
+          "runRailBox": {
+            "x": 1093,
+            "y": 111,
+            "w": 335,
+            "h": 164
+          },
+          "pluginChips": [
+            {
+              "state": "unavailable",
+              "text": "unavailable — skipped (availability backoff, next retry 21:29 UTC)"
+            }
+          ],
+          "railText": "This run\n\nGPT-5.6 Luna · reasoning medium\n\nunavailable — skipped (availability backoff, next retry 21:29 UTC)\nDeveloper details"
+        },
+        "keyboard": {
+          "afterArrowRight": {
+            "runSelected": "true",
+            "focused": "inspector-tab-run"
+          },
+          "afterArrowLeft": {
+            "planSelected": "true",
+            "focused": "inspector-tab-plan"
+          },
+          "afterEnd": {
+            "runSelected": "true"
+          },
+          "afterHome": {
+            "planSelected": "true"
+          }
+        },
+        "asideOpenAfterEscape": "false"
+      },
+      "clientErrors": []
+    },
+    "390x844": {
+      "threads": [
+        {
+          "prompt": "Compare TII and MBZUAI on open-model releases in 2026, then list three risks, then draft a one-paragraph brief",
+          "startedAt": "2026-10-21T21:15:48.252Z",
+          "finishedAt": "2026-10-21T21:16:09.977Z",
+          "wallMs": 21725,
+          "timerState": "frozen",
+          "timerMs": "17893",
+          "frozen": true,
+          "planStepsInRunView": 0
+        }
+      ],
+      "inspector": {
+        "at": "2026-10-21T21:16:09.978Z",
+        "viewport": "390x844",
+        "asideVisible": true,
+        "asideOpen": "true",
+        "asideBox": {
+          "x": 0,
+          "y": 127,
+          "w": 390,
+          "h": 717
+        },
+        "asideAriaLabel": "Inspector",
+        "viewportInner": {
+          "w": 390,
+          "h": 844
+        },
+        "tablist": {
+          "count": 1,
+          "role": "tablist",
+          "ariaLabel": "Run panel",
+          "testid": "inspector-tabs",
+          "box": {
+            "x": 12,
+            "y": 197,
+            "w": 366,
+            "h": 30
+          }
+        },
+        "tabCount": 2,
+        "tabs": [
+          {
+            "name": "Plan",
+            "ariaSelected": "false",
+            "testid": "inspector-tab-plan",
+            "id": "inspector-tab-plan",
+            "ariaControls": "inspector-panel-plan",
+            "tabIndex": "-1",
+            "box": {
+              "x": 12,
+              "y": 197,
+              "w": 49,
+              "h": 30
+            }
+          },
+          {
+            "name": "Run",
+            "ariaSelected": "true",
+            "testid": "inspector-tab-run",
+            "id": "inspector-tab-run",
+            "ariaControls": "inspector-panel-run",
+            "tabIndex": "0",
+            "box": {
+              "x": 65,
+              "y": 197,
+              "w": 46,
+              "h": 30
+            }
+          }
+        ],
+        "initialSelected": "Run",
+        "plan": {
+          "tabAriaSelectedAfterClick": "true",
+          "runAriaSelected": "false",
+          "panelVisible": true,
+          "panelHidden": null,
+          "panelBox": {
+            "x": 12,
+            "y": 239,
+            "w": 366,
+            "h": 100
+          },
+          "runPanelVisible": false,
+          "objective": null,
+          "stepCount": 0,
+          "steps": [],
+          "emptyState": "No plan for this run yet — the planner's steps appear here while a run streams.",
+          "panelText": "Plan\n\nNo plan for this run yet — the planner's steps appear here while a run streams."
+        },
+        "run": {
+          "tabAriaSelectedAfterClick": "true",
+          "planAriaSelected": "false",
+          "panelVisible": true,
+          "planPanelVisible": false,
+          "runRailVisible": true,
+          "runRailBox": {
+            "x": 12,
+            "y": 239,
+            "w": 366,
+            "h": 141
+          },
+          "pluginChips": [
+            {
+              "state": "unavailable",
+              "text": "unavailable — skipped (availability backoff, next retry 21:29 UTC)"
+            }
+          ],
+          "railText": "This run\n\nGPT-5.6 Luna · reasoning medium\n\nunavailable — skipped (availability backoff, next retry 21:29 UTC)\nDeveloper details"
+        },
+        "keyboard": {
+          "afterArrowRight": {
+            "runSelected": "true",
+            "focused": "inspector-tab-run"
+          },
+          "afterArrowLeft": {
+            "planSelected": "true",
+            "focused": "inspector-tab-plan"
+          },
+          "afterEnd": {
+            "runSelected": "true"
+          },
+          "afterHome": {
+            "planSelected": "true"
+          }
+        },
+        "asideOpenAfterEscape": "false"
+      },
+      "clientErrors": []
+    }
+  },
+  "livePlanProbe": {
+    "note": "Re-run at 1440x900 after the Perplexity availability-backoff window (next retry 21:29 UTC) with the Plan tab open DURING streaming; samples every ~0.7 s.",
+    "samples": [
+      {
+        "t": 701,
+        "at": "2026-10-21T21:29:47.362Z",
+        "timer": "running",
+        "planSteps": 0,
+        "objective": 0,
+        "empty": 1,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 5245,
+        "at": "2026-10-21T21:29:51.906Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 6049,
+        "at": "2026-10-21T21:29:52.710Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 6766,
+        "at": "2026-10-21T21:29:53.427Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 7482,
+        "at": "2026-10-21T21:29:54.143Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 8197,
+        "at": "2026-10-21T21:29:54.858Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 8913,
+        "at": "2026-10-21T21:29:55.574Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 9629,
+        "at": "2026-10-21T21:29:56.290Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 10344,
+        "at": "2026-10-21T21:29:57.005Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "running"
+        ]
+      },
+      {
+        "t": 11060,
+        "at": "2026-10-21T21:29:57.721Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 11777,
+        "at": "2026-10-21T21:29:58.438Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 12495,
+        "at": "2026-10-21T21:29:59.156Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 13208,
+        "at": "2026-10-21T21:29:59.869Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 13919,
+        "at": "2026-10-21T21:30:00.580Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 14632,
+        "at": "2026-10-21T21:30:01.293Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 15345,
+        "at": "2026-10-21T21:30:02.006Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 16058,
+        "at": "2026-10-21T21:30:02.719Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 16769,
+        "at": "2026-10-21T21:30:03.430Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 17483,
+        "at": "2026-10-21T21:30:04.144Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 18200,
+        "at": "2026-10-21T21:30:04.861Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 18914,
+        "at": "2026-10-21T21:30:05.575Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 19630,
+        "at": "2026-10-21T21:30:06.291Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 20346,
+        "at": "2026-10-21T21:30:07.007Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 21059,
+        "at": "2026-10-21T21:30:07.720Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 21770,
+        "at": "2026-10-21T21:30:08.431Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 22482,
+        "at": "2026-10-21T21:30:09.143Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 23213,
+        "at": "2026-10-21T21:30:09.874Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 23972,
+        "at": "2026-10-21T21:30:10.633Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 24736,
+        "at": "2026-10-21T21:30:11.397Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 25489,
+        "at": "2026-10-21T21:30:12.150Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 26236,
+        "at": "2026-10-21T21:30:12.897Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 27019,
+        "at": "2026-10-21T21:30:13.680Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 27821,
+        "at": "2026-10-21T21:30:14.482Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 28659,
+        "at": "2026-10-21T21:30:15.320Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 29476,
+        "at": "2026-10-21T21:30:16.137Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 30336,
+        "at": "2026-10-21T21:30:16.997Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 31103,
+        "at": "2026-10-21T21:30:17.764Z",
+        "timer": "running",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      },
+      {
+        "t": 31906,
+        "at": "2026-10-21T21:30:18.567Z",
+        "timer": "frozen",
+        "planSteps": 1,
+        "objective": 1,
+        "empty": 0,
+        "odStatus": 1,
+        "odSteps": 0,
+        "chips": [
+          "unavailable"
+        ]
+      }
+    ],
+    "planPanelText": "Plan\n\nI'll rank G42, Core42, and Space42 by 2026 sovereign-compute announcements, list two dependencies each, and write a three-sentence brief.\n\nComparing compute announcements",
+    "odStatusText": "I'll compare 2026 sovereign-compute announcements. I'll identify dependencies and prepare a brief.\n\nComparing compute announcements\nPerplexity",
+    "maxInspectorPlanSteps": 1,
+    "screenshot": "qa/2026-10-21-cycle6/laneB/inspector-plan-tab-live-1440x900.png"
+  },
+  "screenshots": [
+    "qa/2026-10-21-cycle6/laneB/inspector-plan-tab-1440x900.png",
+    "qa/2026-10-21-cycle6/laneB/inspector-run-tab-1440x900.png",
+    "qa/2026-10-21-cycle6/laneB/inspector-plan-tab-390x844.png",
+    "qa/2026-10-21-cycle6/laneB/inspector-run-tab-390x844.png",
+    "qa/2026-10-21-cycle6/laneB/inspector-plan-tab-live-1440x900.png (bonus: populated Plan panel mid-stream)"
+  ],
+  "mobileScreenshotPixels": "780x1688 (390x844 CSS px @ deviceScaleFactor 2)",
+  "expectations": {
+    "asideWidth1440": {
+      "expected": 360,
+      "measured": 360,
+      "pass": true
+    },
+    "asideWidth390": {
+      "expected": 390,
+      "measured": 390,
+      "pass": true
+    },
+    "asideHeight390_le_85dvh": {
+      "limit": 717,
+      "measured": 717,
+      "pass": true
+    },
+    "tabNames": {
+      "expected": [
+        "Plan",
+        "Run"
+      ],
+      "measured": [
+        "Plan",
+        "Run"
+      ],
+      "pass": true
+    },
+    "defaultTab": "Run (inspector-drawer.tsx:50 useState<InspectorTabKey>(\"run\"))",
+    "keyboardArrowRightSelectsRun": true,
+    "clientErrors": 0
+  }
+}

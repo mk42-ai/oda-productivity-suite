@@ -1,0 +1,1 @@
+tests/fixtures/sse/README.md:4:`pluginIds: ["plugin-1722260873" (Perplexity), "plugin-1791713636" (Portfolio Plugin)]`, `externalUserId: INV-001`, recorded 2026-10-11 against

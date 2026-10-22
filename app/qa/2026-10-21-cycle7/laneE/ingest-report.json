@@ -1,0 +1,374 @@
+{
+ "captured_at": "2026-10-21T23:02:00Z",
+ "prior_total": 196,
+ "harvested_posts": 60,
+ "added": 34,
+ "duplicates_skipped": 0,
+ "skipped_no_relevance": 26,
+ "total": 230,
+ "added_by_lane": {
+  "UAE-topic": 15,
+  "global-discourse": 19
+ },
+ "added_by_class": {
+  "Unclassified": 15,
+  "Skeptics": 4,
+  "Pragmatists": 5,
+  "Safety Advocates": 4,
+  "Optimists": 3,
+  "Neutral/Informational": 2,
+  "Pessimists/Doomers": 1
+ },
+ "total_by_class": {
+  "Neutral/Informational": 97,
+  "Pragmatists": 25,
+  "Optimists": 40,
+  "Skeptics": 23,
+  "Disruption Concerned": 8,
+  "Safety Advocates": 18,
+  "Pessimists/Doomers": 4,
+  "Unclassified": 15
+ },
+ "total_by_lane": {
+  "UAE-topic": 195,
+  "global-discourse": 35
+ },
+ "skipped": [
+  {
+   "sub": "UAE",
+   "title": "Someone's car alarm ringing non stop at khalifa Street AD",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "UAE",
+   "title": "LGBTQ community in the UAE! What are your experiences in the UAE? Do you avoid telling people you’re gay in the UAE? Also do you think homosexuality will be decriminalised like the UAE did with alcohol and cohabitation?",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "UAE",
+   "title": "Dubai fitness challenge",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "UAE",
+   "title": "Kids and their parents - a rant and vent",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "UAE",
+   "title": "Looking for a Fabric Supplier",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "dubai",
+   "title": "Just rented a flat and found out it has mold",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "dubai",
+   "title": "Leaning on Parked Cars",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "dubai",
+   "title": "Bangladesh work visa",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "dubai",
+   "title": "Dubai tall girlies.. where do we buy long pants from?",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "Looking for female friends",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "Looking for friends in mirfa",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "Looking for a Mini Fridge in Abu Dhabi pls",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "Looking for a Furnished Master Bedroom",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "My dad has been unemployed for months. I’m just trying to help him.",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "abudhabi",
+   "title": "New to Abu Dhabi, looking for friends near Al Bustan Compound 👋",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "artificial",
+   "title": "have you ever wanted to know how llms are made from scratch?",
+   "why": "outside the cycle-7 requested record set (AI keyword present — candidate for a later ingest)"
+  },
+  {
+   "sub": "artificial",
+   "title": "Locality of reference helped 94GB Qwen3.8-Flash-Next runs at 68 tok/s on one RTX 5090",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "artificial",
+   "title": "3 things you should do with your AI to save $$$ before booking a hotel",
+   "why": "outside the cycle-7 requested record set (AI keyword present — candidate for a later ingest)"
+  },
+  {
+   "sub": "technology",
+   "title": "Meta performs stock split to keep Zuckerberg in control",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "technology",
+   "title": "EA cancels new Mass Effect, closes BioWare after being bought by Saudi Arabia",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "technology",
+   "title": "Honda Is Building an Induction Charging Highway in Japan",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "technology",
+   "title": "Electronic Arts to cut 400 jobs and shut down BioWare, studio behind ‘Mass Effect’",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "LocalLLaMA",
+   "title": "How do I run QFN with ngrams on SSD?",
+   "why": "outside the cycle-7 requested record set (AI keyword present — candidate for a later ingest)"
+  },
+  {
+   "sub": "LocalLLaMA",
+   "title": "minicpm5-2B-SFT-Abiliterated",
+   "why": "outside the cycle-7 requested record set"
+  },
+  {
+   "sub": "LocalLLaMA",
+   "title": "Published a few model conversions for OpenVINO please request more",
+   "why": "outside the cycle-7 requested record set (AI keyword present — candidate for a later ingest)"
+  },
+  {
+   "sub": "LocalLLaMA",
+   "title": "Qwen researching Qwen",
+   "why": "outside the cycle-7 requested record set (AI keyword present — candidate for a later ingest)"
+  }
+ ],
+ "added_ids": [
+  [
+   "sca3db0a67c",
+   "UAE-topic",
+   "Unclassified",
+   "Complaint Regarding QuadraBay’s Degree Verification Process and Request for Guidance."
+  ],
+  [
+   "sbf32476717",
+   "UAE-topic",
+   "Unclassified",
+   "Khalifa University PhD Spring 2027 Updates"
+  ],
+  [
+   "se5e53774c5",
+   "UAE-topic",
+   "Unclassified",
+   "Has anyone received their iphone 18 pro max ?"
+  ],
+  [
+   "s74a20deb6b",
+   "UAE-topic",
+   "Unclassified",
+   "Curious about refurbished laptops & mobile store profits"
+  ],
+  [
+   "s495530359f",
+   "UAE-topic",
+   "Unclassified",
+   "Scare4 dubai has sold me a used/refurbished phone instead of a brand-new device."
+  ],
+  [
+   "s4253a7bd92",
+   "UAE-topic",
+   "Unclassified",
+   "Rakez hidden setup costs?"
+  ],
+  [
+   "s8571691a23",
+   "UAE-topic",
+   "Unclassified",
+   "Expired Dubai license (8 years), now living in Europe. Can I still renew it? And what's the easiest visa route?"
+  ],
+  [
+   "s37eae89720",
+   "UAE-topic",
+   "Unclassified",
+   "Terminated suddenly by an admin worker on unheaded paper without my boss knowing—already filed a JAFZA dispute, what should I expect?"
+  ],
+  [
+   "sc78052c77b",
+   "UAE-topic",
+   "Unclassified",
+   "Freelance Permit Advice ! طلب مساعدة في موضوع جزاكم الله خيرا"
+  ],
+  [
+   "s9a1fd7208a",
+   "UAE-topic",
+   "Unclassified",
+   "as a girl, i felt the most comfortable in dubai"
+  ],
+  [
+   "s72477eb149",
+   "UAE-topic",
+   "Unclassified",
+   "Mashreq account closed"
+  ],
+  [
+   "sfc0a12cc54",
+   "UAE-topic",
+   "Unclassified",
+   "Certified Latin Translation needed"
+  ],
+  [
+   "s7092231c4c",
+   "UAE-topic",
+   "Unclassified",
+   "Anyone Going to UFC 333 in Abu Dhabi? 🥊"
+  ],
+  [
+   "s3cb0395ad4",
+   "UAE-topic",
+   "Unclassified",
+   "my press on nail shop - based in AD!"
+  ],
+  [
+   "s76813b259c",
+   "UAE-topic",
+   "Unclassified",
+   "Looking for a good and honest real estate agent"
+  ],
+  [
+   "s9475ed4c69",
+   "global-discourse",
+   "Skeptics",
+   "Has anyone figured out if is capcut pro worth upgrading to if you already use capcut"
+  ],
+  [
+   "sf40c05147b",
+   "global-discourse",
+   "Pragmatists",
+   "Daily Driver Use As a Professor"
+  ],
+  [
+   "sba87605526",
+   "global-discourse",
+   "Safety Advocates",
+   "How many \"unexploitable\" bugs are about to become exploitable?"
+  ],
+  [
+   "saf3caa0eed",
+   "global-discourse",
+   "Safety Advocates",
+   "AI-assisted php2shell exploit chain hits PHP runtime, forces coordinated defense across 70% of web"
+  ],
+  [
+   "s648beefeeb",
+   "global-discourse",
+   "Pragmatists",
+   "AI Doesn’t Replace Expertise. It Raises the Bar. Discuss"
+  ],
+  [
+   "sd7dcaa1afc",
+   "global-discourse",
+   "Skeptics",
+   "Tesla and SpaceX form board committees to explore $3.5T merger around AI"
+  ],
+  [
+   "s741c28f2ec",
+   "global-discourse",
+   "Optimists",
+   "You travel 20 years back in time and bring a fully working local Opus 5.5 model with you, what do you do?"
+  ],
+  [
+   "s1cb270e4db",
+   "global-discourse",
+   "Safety Advocates",
+   "AI tools discovered the PHP vulnerability that could take down 70% of the internet. Now, the race is on to patch it before AI-powered hackers attack"
+  ],
+  [
+   "s5b8b5bb423",
+   "global-discourse",
+   "Neutral/Informational",
+   "Nvidia Spent About $2.2 Million on Federal Lobbying in the Third Quarter"
+  ],
+  [
+   "s378dfef654",
+   "global-discourse",
+   "Pessimists/Doomers",
+   "The AI-Hacking Apocalypse Began Last Night"
+  ],
+  [
+   "sd7edde0e60",
+   "global-discourse",
+   "Skeptics",
+   "GM Wants Your Truck to Run Errands Without You"
+  ],
+  [
+   "sf22c8c6ea1",
+   "global-discourse",
+   "Skeptics",
+   "Nvidia's Jensen Huang targets Europe with multibillion-dollar AI plan"
+  ],
+  [
+   "s5980fe7dad",
+   "global-discourse",
+   "Safety Advocates",
+   "Meta ordered to pay $25 billion to New Mexico after jury finds company misled consumers about data privacy"
+  ],
+  [
+   "s1da8297d1e",
+   "global-discourse",
+   "Optimists",
+   "Recursive Flint - the \"Qwen3.8 35B\" we've all been waiting for?"
+  ],
+  [
+   "s569d60e0f7",
+   "global-discourse",
+   "Pragmatists",
+   "Inference time abliteration"
+  ],
+  [
+   "sc58b3f7ca8",
+   "global-discourse",
+   "Pragmatists",
+   "Best engine setup for Qwen3.8 Flash Next on 4x3090s + 32GB DDR5"
+  ],
+  [
+   "s189549621b",
+   "global-discourse",
+   "Pragmatists",
+   "What actually breaks agents on a 4B model? Notes from 50 runs on Qwen3.5-4B"
+  ],
+  [
+   "scf56c59739",
+   "global-discourse",
+   "Optimists",
+   "models: Add Flint model (FlintForCausalLM) by alexey-rsi · Pull Request #30928 · ggml-org/llama.cpp"
+  ],
+  [
+   "s5d3c2984bc",
+   "global-discourse",
+   "Neutral/Informational",
+   "QwenFlashNext vs Deepseek V4.1 Flash vs Argon"
+  ]
+ ]
+}

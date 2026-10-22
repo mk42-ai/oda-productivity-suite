@@ -1,0 +1,142 @@
+[
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "cards-50",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "org-card=50, counter=\"50 / 50\"",
+  "ts": "2026-10-22T04:46:35.788Z",
+  "shot": "agent2-watchlist-c9b-cards-50-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "logos-authentic-or-marked",
+  "viewport": "1440x900",
+  "pass": false,
+  "detail": "36 official icons (all loaded, all sourced from official domains in logos.json), 14 marked monograms \"(no verified official logo)\"; bad=[{\"id\":\"mbzuai\",\"img\":{\"src\":\"/logos/mbzuai/list-64.png\",\"ok\":true,\"title\":\"Mohamed bin Zayed University of Artificial Intelligence — icon from official domain\"},\"mono\":null},{\"id\":\"dubai-police\",\"img\":{\"src\":\"/logos/dubai-police/list-64.png\",\"ok\":true,\"title\":\"Dubai Police — icon from official doma",
+  "ts": "2026-10-22T04:46:35.856Z",
+  "shot": null
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "search",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "\"Falcon\" → 3 cards (tii,atrc,ai71)",
+  "ts": "2026-10-22T04:46:36.425Z",
+  "shot": "agent2-watchlist-c9b-search-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "search-empty-state",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "empty-state visible=true",
+  "ts": "2026-10-22T04:46:36.922Z",
+  "shot": "agent2-watchlist-c9b-search-empty-state-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "filter-type",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "government filter → 12 (expected 12)",
+  "ts": "2026-10-22T04:46:38.152Z",
+  "shot": "agent2-watchlist-c9b-filter-type-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "compare",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "tray=\"Compare (3/4): G42 EDGE Group Technology Innovation Compare\" → url=/watchlist/compare?ids=g42,edge,tii table has G42/EDGE/TII; filter reset → 50 cards",
+  "ts": "2026-10-22T04:46:43.076Z",
+  "shot": "agent2-watchlist-c9b-compare-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "dossiers-all-50-open",
+  "viewport": "1440x900",
+  "pass": true,
+  "detail": "50/50 dossiers HTTP 200 with matching title (76 s)",
+  "ts": "2026-10-22T04:47:58.928Z",
+  "shot": "agent2-watchlist-c9b-dossiers-all-50-open-1440x900.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "cards-50",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "org-card=50, counter=\"50 / 50\"",
+  "ts": "2026-10-22T04:48:01.179Z",
+  "shot": "agent2-watchlist-c9b-cards-50-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "logos-authentic-or-marked",
+  "viewport": "390x844",
+  "pass": false,
+  "detail": "36 official icons (all loaded, all sourced from official domains in logos.json), 14 marked monograms \"(no verified official logo)\"; bad=[{\"id\":\"mbzuai\",\"img\":{\"src\":\"/logos/mbzuai/list-64.png\",\"ok\":true,\"title\":\"Mohamed bin Zayed University of Artificial Intelligence — icon from official domain\"},\"mono\":null},{\"id\":\"m42\",\"img\":{\"src\":\"/logos/m42/list-64.png\",\"ok\":false,\"title\":\"M42 — icon from official domain\"},\"mono\":null},{\"id\":\"c",
+  "ts": "2026-10-22T04:48:01.239Z",
+  "shot": null
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "search",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "\"Falcon\" → 3 cards (tii,atrc,ai71)",
+  "ts": "2026-10-22T04:48:01.845Z",
+  "shot": "agent2-watchlist-c9b-search-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "search-empty-state",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "empty-state visible=true",
+  "ts": "2026-10-22T04:48:02.349Z",
+  "shot": "agent2-watchlist-c9b-search-empty-state-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "filter-type",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "government filter → 12 (expected 12)",
+  "ts": "2026-10-22T04:48:03.261Z",
+  "shot": "agent2-watchlist-c9b-filter-type-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "compare",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "tray=\"Compare (3/4): G42 EDGE Group Technology Innovation Compare\" → url=/watchlist/compare?ids=g42,edge,tii table has G42/EDGE/TII; filter reset → 50 cards",
+  "ts": "2026-10-22T04:48:07.457Z",
+  "shot": "agent2-watchlist-c9b-compare-390x844.jpg"
+ },
+ {
+  "agent": "agent2-watchlist",
+  "round": "c9b",
+  "test": "dossier-mobile",
+  "viewport": "390x844",
+  "pass": true,
+  "detail": "title=\"G42\", no horizontal overflow=true",
+  "ts": "2026-10-22T04:48:08.966Z",
+  "shot": "agent2-watchlist-c9b-dossier-mobile-390x844.jpg"
+ }
+]

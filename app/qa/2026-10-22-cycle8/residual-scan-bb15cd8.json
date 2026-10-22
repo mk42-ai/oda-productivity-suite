@@ -1,0 +1,696 @@
+{
+  "checked_at": "2026-10-22T01:41:12.634Z",
+  "files": 800,
+  "pages": 19,
+  "assets": 49,
+  "patterns": 127,
+  "ambiguous_skipped": [
+    "Axiom",
+    "Cadence",
+    "Deferred",
+    "Extend",
+    "Forest",
+    "Fountain",
+    "Gable",
+    "Goose",
+    "Grit",
+    "Knox",
+    "Lambda",
+    "Lively",
+    "Percent",
+    "Reflection",
+    "Remote",
+    "Turbine",
+    "When",
+    "Wildfire",
+    "WRITER"
+  ],
+  "hits": [
+    {
+      "where": "code:CHECKPOINTS.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:MISSION_STATE.json",
+      "term": "b_capital",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:MISSION_STATE.json",
+      "term": "b_capital",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:MISSION_STATE.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:NEXT_ACTIONS.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:QA_REPORT.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 19
+    },
+    {
+      "where": "code:QA_REPORT.md",
+      "term": "bcap",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:QA_REPORT.md",
+      "term": "B Social",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:e2e/fixtures/ux/compendium.docx",
+      "term": "1AU",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:e2e/fixtures/ux/compendium.docx",
+      "term": "Iru",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:e2e/fixtures/ux/compendium.docx",
+      "term": "Nalu",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle3/laneC-stale-triage.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle3/laneD-environment.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle3/results-agent5-contracts-c3.json",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle4/laneA/chat-intelligent-ui-payloads.spec.ORIGINAL-1f878a1.ts",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle4/laneB/final-192.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle4/laneD/results-agent5-contracts-c4.json",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle5/laneA/git-evidence.txt",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 6
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle5/laneA/laneA-finding.md",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle5/laneB/laneB-results.md",
+      "term": "portfolio intelligence",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle5/laneB/residue-tests.md",
+      "term": "portfolio intelligence",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle5/laneE/deployments.json",
+      "term": "BCAP",
+      "kind": "brand",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle5/laneE/deployments.json",
+      "term": "BCAP-",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/laneC-results.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/laneC-results.md",
+      "term": "portfolio intelligence",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/laneC-results.md",
+      "term": "1AU",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/laneC-results.md",
+      "term": "Iru",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/laneC-results.md",
+      "term": "Nalu",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 16
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "bcap",
+      "kind": "brand",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "BCAP-",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "b_capital",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "portfolio intelligence",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "B Social",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "1AU",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "6sense",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "ARTBIO",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "Accacia",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "Apptronik",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "Fervo Energy",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "Flutterwave",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "Iru",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "Nalu",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests-before.json",
+      "term": "Perplexity AI",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 18
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "bcap",
+      "kind": "brand",
+      "count": 5
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "BCAP-",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "b_capital",
+      "kind": "brand",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "portfolio intelligence",
+      "kind": "brand",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "B Social",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "1AU",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "6sense",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "ARTBIO",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "Accacia",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "Apptronik",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "Fervo Energy",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "Flutterwave",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "Iru",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "Nalu",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/laneC/residual-tests.json",
+      "term": "Perplexity AI",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 23
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "bcap",
+      "kind": "brand",
+      "count": 7
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "BCAP-",
+      "kind": "brand",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "b_capital",
+      "kind": "brand",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "portfolio intelligence",
+      "kind": "brand",
+      "count": 5
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "B Social",
+      "kind": "brand",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "1AU",
+      "kind": "company",
+      "count": 6
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "6sense",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "ARTBIO",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "Accacia",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "Apptronik",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "Fervo Energy",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "Flutterwave",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "Iru",
+      "kind": "company",
+      "count": 5
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "Nalu",
+      "kind": "company",
+      "count": 5
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/residual-scan-7c860b7.json",
+      "term": "Perplexity AI",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/suite84/agent5.log",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle6/suite84/results-agent5-contracts-c6.json",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 28
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "bcap",
+      "kind": "brand",
+      "count": 9
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "BCAP-",
+      "kind": "brand",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "b_capital",
+      "kind": "brand",
+      "count": 5
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "portfolio intelligence",
+      "kind": "brand",
+      "count": 6
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "B Social",
+      "kind": "brand",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "1AU",
+      "kind": "company",
+      "count": 7
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "6sense",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "ARTBIO",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "Accacia",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "Apptronik",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "Fervo Energy",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "Flutterwave",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "Iru",
+      "kind": "company",
+      "count": 6
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "Nalu",
+      "kind": "company",
+      "count": 6
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/residual-scan-c20866c.json",
+      "term": "Perplexity AI",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/suite84/agent5-c7.log",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/2026-10-21-cycle7/suite84/results-agent5-contracts-c7.json",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/screenshots/20261021-v2/contrast-summary.md",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 2
+    },
+    {
+      "where": "code:qa/screenshots/20261021-v2/results-agent5-contracts-v2.json",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:qa/screenshots/20261021-white/results-agent5-contracts-white.json",
+      "term": "bcapital",
+      "kind": "brand",
+      "count": 1
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.bridge.ndjson",
+      "term": "B Capital",
+      "kind": "brand",
+      "count": 6
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.bridge.ndjson",
+      "term": "Apptronik",
+      "kind": "company",
+      "count": 13
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.bridge.ndjson",
+      "term": "Fervo Energy",
+      "kind": "company",
+      "count": 12
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.bridge.ndjson",
+      "term": "Flutterwave",
+      "kind": "company",
+      "count": 15
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.bridge.ndjson",
+      "term": "Perplexity AI",
+      "kind": "company",
+      "count": 9
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.upstream.sse",
+      "term": "1AU",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.upstream.sse",
+      "term": "6sense",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.upstream.sse",
+      "term": "ARTBIO",
+      "kind": "company",
+      "count": 3
+    },
+    {
+      "where": "code:tests/fixtures/sse/portfolio-movers.upstream.sse",
+      "term": "Accacia",
+      "kind": "company",
+      "count": 2
+    },
+    {
+      "where": "code:tests/fixtures/upload/compendium.docx",
+      "term": "1AU",
+      "kind": "company",
+      "count": 1
+    },
+    {
+      "where": "code:tests/fixtures/upload/compendium.docx",
+      "term": "Iru",
+      "kind": "company",
+      "count": 4
+    },
+    {
+      "where": "code:tests/fixtures/upload/compendium.docx",
+      "term": "Nalu",
+      "kind": "company",
+      "count": 1
+    }
+  ]
+}

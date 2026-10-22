@@ -1,0 +1,324 @@
+data: {"seq":1,"type":"RUN_STARTED","threadId":"uae-cc-qa5-probe-laneD","runId":"84e4d096-1419-4383-b748-ffbdd6bd0f91"}
+
+data: {"seq":2,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"connecting","elapsedMs":1,"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","pluginIds":[],"pluginNames":[],"droppedPluginIds":[],"sessionKnown":false,"transport":"/api/chat"}}
+
+data: {"seq":3,"type":"CUSTOM","name":"ondemand.error","value":{"elapsedMs":1,"code":"plugin_error","message":"Web research source unavailable (Perplexity credits exhausted) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. (backoff: Perplexity skipped after 3 upstream failures; next retry 2026-10-21T15:38:33.952Z)","raw":"{\"id\":\"plugin-1722260873\",\"available\":false,\"reason\":\"backoff\",\"lastError\":\"Perplexity returned an upstream error: \\\"Agents execution failed\\\". No other plugin was substituted.\",\"lastFailureAt\":\"2026-10-21T15:34:33.952Z\",\"failures\":3,\"backoffMinutes\":4,\"nextRetryAt\":\"2026-10-21T15:38:33.952Z\"}","reason":"backoff","nextRetryAt":"2026-10-21T15:38:33.952Z","pluginId":"plugin-1722260873"}}
+
+data: {"seq":4,"type":"CUSTOM","name":"ondemand.coverage","value":{"elapsedMs":1,"web":"unavailable","reason":"backoff","pluginId":"plugin-1722260873","nextRetryAt":"2026-10-21T15:38:33.952Z","failures":3,"text":"Web research source unavailable (Perplexity credits exhausted) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added."}}
+
+data: {"seq":5,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"creating-session","elapsedMs":1}}
+
+data: {"seq":6,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":601,"elapsedMs":602}}
+
+data: {"seq":7,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":901,"elapsedMs":902}}
+
+data: {"seq":8,"type":"CUSTOM","name":"ondemand.session","value":{"sessionId":"6ad8dbc9fff1495361aa7060","created":true,"viaHeader":false,"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","pluginIds":[]}}
+
+data: {"seq":9,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"querying","elapsedMs":1034,"sessionId":"6ad8dbc9fff1495361aa7060"}}
+
+data: {"seq":10,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":1034}}
+
+data: {"seq":11,"type":"CUSTOM","name":"ondemand.request","value":{"elapsedMs":1034,"method":"POST","proxy":"/api/chat","upstream":"POST api.on-demand.io/chat/v1/sessions/{id}/query","body":{"endpointId":"predefined-gpt-5.6-luna","endpointLabel":"GPT-5.6 Luna","reasoningMode":"medium","responseMode":"stream","pluginIds":[],"queryChars":32,"systemContextChars":0,"attachments":[]},"sessionId":"6ad8dbc9fff1495361aa7060","sessionCreated":true}}
+
+data: {"seq":12,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"streaming","elapsedMs":1754}}
+
+data: {"seq":13,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":2210,"firstFrameMs":2210}}
+
+data: {"seq":14,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":2210,"event":"message","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":1,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"initializing\",\"statusMessage\":\"Initializing the process...\",\"time\":\"2026-10-21T15:35:38Z\"}}"}}
+
+data: {"seq":15,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":2210,"statusType":"initializing","statusMessage":"Initializing the process...","stepQuery":null}}
+
+data: {"seq":16,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":2552,"event":"message","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":2,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"execution_log_created\",\"statusMessage\":\"Execution log created\",\"executionLog\":{\"companyId\":\"6692b763e851d28a036ab30e\",\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"query\":\"\\u003crun_style\\u003e\\nPlanner: write \\\"objective\\\" as one first-person sentence that starts with \\\"I'll\\\", at most 22 words, in plain words - no plugin names, operation ids, JSON or markdown. Start every step \\\"user_query\\\" with a short action-style label in square brackets (for example \\\"[Gathering news, prices and indicators]\\\", \\\"[Searching the web]\\\", \\\"[Comparing funding momentum]\\\") followed by the instruction unchanged.\\nStep executor: keep a fixed key order per plugin call, short parameters first and long text last; never copy the [label] into a parameter.\\nAnswer: start with the result (the steps are already on screen), cite each external fact inline with a markdown link to the exact page it came from; if a call failed, answer from what did succeed without a special failure note or \\\"Data gap\\\" line - never claim a success that did not happen.\\nCommand Centre: you are a CONCEPT DEMONSTRATION (never claim to be an official government system). Split the answer into \\\"## Verified facts\\\" (every bullet ends with a markdown link to its source) and \\\"## Interpretation\\\" (clearly labelled judgement). Public-statement rows are a purposive sample, never a population survey; say \\\"unavailable\\\" instead of guessing.\\n\\u003c/run_style\\u003e\\n\\nQuestion: What has TII announced recently?\",\"ragVersion\":\"v1\",\"queryPlan\":null,\"ragStatus\":\"completed\",\"fulfillmentStatus\":\"not_started\"},\"time\":\"2026-10-21T15:35:39Z\"}}"}}
+
+data: {"seq":17,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"planning","elapsedMs":2552,"statusType":"execution_log_created","statusMessage":"Execution log created","stepQuery":null}}
+
+data: {"seq":18,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":2553,"event":"message","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":3,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"fulfilling\",\"statusMessage\":\"Fulfilling the prompt...\",\"time\":\"2026-10-21T15:35:39Z\"}}"}}
+
+data: {"seq":19,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"answering","elapsedMs":2553,"statusType":"fulfilling","statusMessage":"Fulfilling the prompt...","stepQuery":null}}
+
+data: {"seq":20,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":751,"elapsedMs":3304}}
+
+data: {"seq":21,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1052,"elapsedMs":3605}}
+
+data: {"seq":22,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1352,"elapsedMs":3905}}
+
+data: {"seq":23,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1651,"elapsedMs":4204}}
+
+data: {"seq":24,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":4,"quietMs":1952,"elapsedMs":4505}}
+
+data: {"seq":25,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":5,"quietMs":2253,"elapsedMs":4806}}
+
+data: {"seq":26,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":6,"quietMs":2553,"elapsedMs":5106}}
+
+data: {"seq":27,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":7,"quietMs":2854,"elapsedMs":5407}}
+
+data: {"seq":28,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":8,"quietMs":3153,"elapsedMs":5706}}
+
+data: {"seq":29,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":9,"quietMs":3453,"elapsedMs":6006}}
+
+data: {"seq":30,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":10,"quietMs":3754,"elapsedMs":6307}}
+
+data: {"seq":31,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":11,"quietMs":4055,"elapsedMs":6608}}
+
+data: {"seq":32,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":6642}}
+
+data: {"seq":33,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6643,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":4,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"**Requesting clarification on TII**\\n\\nI\"}}"}}
+
+data: {"seq":34,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6643,"kind":"fulfillment","delta":"**Requesting clarification on TII**\n\nI","stepId":""}}
+
+data: {"seq":35,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6691,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":5,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" need to figure out what TII stands\"}}"}}
+
+data: {"seq":36,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6691,"kind":"fulfillment","delta":" need to figure out what TII stands","stepId":""}}
+
+data: {"seq":37,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6692,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":6,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" for, as it could mean Transport\"}}"}}
+
+data: {"seq":38,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6692,"kind":"fulfillment","delta":" for, as it could mean Transport","stepId":""}}
+
+data: {"seq":39,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6694,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":7,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" Infrastructure Ireland or Texas\"}}"}}
+
+data: {"seq":40,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6694,"kind":"fulfillment","delta":" Infrastructure Ireland or Texas","stepId":""}}
+
+data: {"seq":41,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6740,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":8,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" Instruments. Without tools, I\"}}"}}
+
+data: {"seq":42,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6740,"kind":"fulfillment","delta":" Instruments. Without tools, I","stepId":""}}
+
+data: {"seq":43,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6844,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":9,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" can’t browse for recent announcements\"}}"}}
+
+data: {"seq":44,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6844,"kind":"fulfillment","delta":" can’t browse for recent announcements","stepId":""}}
+
+data: {"seq":45,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6895,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":10,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\", so I should seek clarity from\"}}"}}
+
+data: {"seq":46,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6895,"kind":"fulfillment","delta":", so I should seek clarity from","stepId":""}}
+
+data: {"seq":47,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6895,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":11,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" the user on which TII they mean\"}}"}}
+
+data: {"seq":48,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6895,"kind":"fulfillment","delta":" the user on which TII they mean","stepId":""}}
+
+data: {"seq":49,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6946,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":12,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\". I can safely say that if it refers\"}}"}}
+
+data: {"seq":50,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6946,"kind":"fulfillment","delta":". I can safely say that if it refers","stepId":""}}
+
+data: {"seq":51,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":6996,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":13,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" to Transport Infrastructure Ireland\"}}"}}
+
+data: {"seq":52,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":6996,"kind":"fulfillment","delta":" to Transport Infrastructure Ireland","stepId":""}}
+
+data: {"seq":53,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7046,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":14,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\", my information is up to date\"}}"}}
+
+data: {"seq":54,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":7046,"kind":"fulfillment","delta":", my information is up to date","stepId":""}}
+
+data: {"seq":55,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7096,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":15,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" only until June 2024. I should\"}}"}}
+
+data: {"seq":56,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":7096,"kind":"fulfillment","delta":" only until June 2024. I should","stepId":""}}
+
+data: {"seq":57,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7148,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":16,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" avoid fabricating anything and\"}}"}}
+
+data: {"seq":58,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":7148,"kind":"fulfillment","delta":" avoid fabricating anything and","stepId":""}}
+
+data: {"seq":59,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":7199,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":17,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" highlight the ambiguity of the\"}}"}}
+
+data: {"seq":60,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":7199,"kind":"fulfillment","delta":" highlight the ambiguity of the","stepId":""}}
+
+data: {"seq":61,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":610,"elapsedMs":7809}}
+
+data: {"seq":62,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":8101}}
+
+data: {"seq":63,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8101,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":18,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" acronym.**Clarifying TII ambiguity**\\n\\nI\"}}"}}
+
+data: {"seq":64,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8101,"kind":"fulfillment","delta":" acronym.**Clarifying TII ambiguity**\n\nI","stepId":""}}
+
+data: {"seq":65,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8151,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":19,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" can’t browse for recent information\"}}"}}
+
+data: {"seq":66,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8151,"kind":"fulfillment","delta":" can’t browse for recent information","stepId":""}}
+
+data: {"seq":67,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8202,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":20,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\", and while the developer notes\"}}"}}
+
+data: {"seq":68,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8203,"kind":"fulfillment","delta":", and while the developer notes","stepId":""}}
+
+data: {"seq":69,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8304,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":21,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" no special failure if a call fails\"}}"}}
+
+data: {"seq":70,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8304,"kind":"fulfillment","delta":" no special failure if a call fails","stepId":""}}
+
+data: {"seq":71,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8354,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":22,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\", I can't make any calls. Since\"}}"}}
+
+data: {"seq":72,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8354,"kind":"fulfillment","delta":", I can't make any calls. Since","stepId":""}}
+
+data: {"seq":73,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8506,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":23,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" the user asked about TII, which\"}}"}}
+
+data: {"seq":74,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8506,"kind":"fulfillment","delta":" the user asked about TII, which","stepId":""}}
+
+data: {"seq":75,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8556,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":24,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" could refer to different entities\"}}"}}
+
+data: {"seq":76,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8556,"kind":"fulfillment","delta":" could refer to different entities","stepId":""}}
+
+data: {"seq":77,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8657,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":25,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\", I should clarify what they mean\"}}"}}
+
+data: {"seq":78,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8658,"kind":"fulfillment","delta":", I should clarify what they mean","stepId":""}}
+
+data: {"seq":79,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8709,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":26,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" and the timeframe they’re interested\"}}"}}
+
+data: {"seq":80,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8709,"kind":"fulfillment","delta":" and the timeframe they’re interested","stepId":""}}
+
+data: {"seq":81,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8812,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":27,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" in. I won’t fabricate any details\"}}"}}
+
+data: {"seq":82,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8813,"kind":"fulfillment","delta":" in. I won’t fabricate any details","stepId":""}}
+
+data: {"seq":83,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8860,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":28,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" and must explain that I don’t\"}}"}}
+
+data: {"seq":84,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8860,"kind":"fulfillment","delta":" and must explain that I don’t","stepId":""}}
+
+data: {"seq":85,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8913,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":29,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" have reliable current announcements\"}}"}}
+
+data: {"seq":86,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8913,"kind":"fulfillment","delta":" have reliable current announcements","stepId":""}}
+
+data: {"seq":87,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":8961,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":30,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" available. Transparency is key\"}}"}}
+
+data: {"seq":88,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":8961,"kind":"fulfillment","delta":" available. Transparency is key","stepId":""}}
+
+data: {"seq":89,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9117,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":31,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" here, so it's best to express\"}}"}}
+
+data: {"seq":90,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":9117,"kind":"fulfillment","delta":" here, so it's best to express","stepId":""}}
+
+data: {"seq":91,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9164,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":32,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" my uncertainty regarding which\"}}"}}
+
+data: {"seq":92,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":9164,"kind":"fulfillment","delta":" my uncertainty regarding which","stepId":""}}
+
+data: {"seq":93,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9265,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":33, \"answer\": \"\\u201cT\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":94,"type":"TEXT_MESSAGE_START","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","role":"assistant"}
+
+data: {"seq":95,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":"“T"}
+
+data: {"seq":96,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9266,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":34, \"answer\": \"II\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":97,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":"II"}
+
+data: {"seq":98,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9267,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":35, \"answer\": \"\\u201d\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":99,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":"”"}
+
+data: {"seq":100,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9271,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":36, \"answer\": \" could\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":101,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" could"}
+
+data: {"seq":102,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9271,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":37, \"answer\": \" refer\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":103,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" refer"}
+
+data: {"seq":104,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9273,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":38, \"answer\": \" to\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":105,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" to"}
+
+data: {"seq":106,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9273,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":39, \"answer\": \" several\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":107,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" several"}
+
+data: {"seq":108,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9278,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":40, \"answer\": \" organizations\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":109,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" organizations"}
+
+data: {"seq":110,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9316,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":41, \"answer\": \",\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":111,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":","}
+
+data: {"seq":112,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9317,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":42, \"answer\": \" including\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":113,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" including"}
+
+data: {"seq":114,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9318,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":43, \"answer\": \" Transport\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":115,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" Transport"}
+
+data: {"seq":116,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9318,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":44, \"answer\": \" Infrastructure\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":117,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" Infrastructure"}
+
+data: {"seq":118,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9319,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":45, \"answer\": \" Ireland\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":119,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" Ireland"}
+
+data: {"seq":120,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9322,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":46, \"answer\": \" or\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":121,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" or"}
+
+data: {"seq":122,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9368,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":47, \"answer\": \" the\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":123,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" the"}
+
+data: {"seq":124,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9368,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":48, \"answer\": \" Technology\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":125,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" Technology"}
+
+data: {"seq":126,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9420,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":49, \"answer\": \" Innovation\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":127,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" Innovation"}
+
+data: {"seq":128,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9420,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":50, \"answer\": \" Institute\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":129,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" Institute"}
+
+data: {"seq":130,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9420,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":51, \"answer\": \".\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":131,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":"."}
+
+data: {"seq":132,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9424,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":52, \"answer\": \" Which\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":133,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" Which"}
+
+data: {"seq":134,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9424,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":53, \"answer\": \" one\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":135,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" one"}
+
+data: {"seq":136,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9425,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":54, \"answer\": \" do\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":137,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" do"}
+
+data: {"seq":138,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9428,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":55, \"answer\": \" you\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":139,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" you"}
+
+data: {"seq":140,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9428,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":56, \"answer\": \" mean\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":141,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":" mean"}
+
+data: {"seq":142,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9430,"event":"message","data":"{\"sessionId\": \"6ad8dbc9fff1495361aa7060\", \"messageId\": \"6ad8dbcad1b43ac6a7c4fb72\", \"status\": \"processing\", \"eventIndex\":57, \"answer\": \"?\", \"eventType\": \"fulfillment\"}"}}
+
+data: {"seq":143,"type":"TEXT_MESSAGE_CONTENT","messageId":"71151751-a727-4dd2-b945-bf285c0c4694","delta":"?"}
+
+data: {"seq":144,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9434,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":58,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\" TII they're referring to.\"}}"}}
+
+data: {"seq":145,"type":"CUSTOM","name":"ondemand.thinking","value":{"elapsedMs":9434,"kind":"fulfillment","delta":" TII they're referring to.","stepId":""}}
+
+data: {"seq":146,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9434,"event":"thinking","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":59,\"eventType\":\"fulfillment_thinking\",\"status\":\"processing\",\"thinking\":{\"delta\":\"\"}}"}}
+
+data: {"seq":147,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9438,"event":"message","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":61,\"eventType\":\"statusLog\",\"status\":\"processing\",\"currentStatusLog\":{\"statusType\":\"fulfillment_completed\",\"statusMessage\":\"Fulfillment completed\",\"answer\":\"“TII” could refer to several organizations, including Transport Infrastructure Ireland or the Technology Innovation Institute. Which one do you mean?\",\"time\":\"2026-10-21T15:35:46Z\"}}"}}
+
+data: {"seq":148,"type":"CUSTOM","name":"ondemand.answer_complete","value":{"elapsedMs":9438,"chars":149}}
+
+data: {"seq":149,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":9442,"event":"message","data":"{\"sessionId\":\"6ad8dbc9fff1495361aa7060\",\"messageId\":\"6ad8dbcad1b43ac6a7c4fb72\",\"eventIndex\":62,\"eventType\":\"metricsLog\",\"status\":\"processing\",\"publicMetrics\":{\"inputTokens\":1241,\"outputTokens\":357,\"totalTokens\":1598,\"ragTimeSec\":0.74,\"fulfillmentTimeSec\":6.88,\"totalTimeSec\":7.62}}"}}
+
+data: {"seq":150,"type":"CUSTOM","name":"ondemand.metrics","value":{"elapsedMs":9442,"publicMetrics":{"inputTokens":1241,"outputTokens":357,"totalTokens":1598,"ragTimeSec":0.74,"fulfillmentTimeSec":6.88,"totalTimeSec":7.62},"firstTokenMs":9266,"toolsMs":null,"answerMs":176,"pluginIds":[]}}
+
+data: {"seq":151,"type":"CUSTOM","name":"ondemand.heartbeat","value":{"t":"2026-10-21T15:35:46.699Z","elapsedMs":10000,"sinceLastFrameMs":558}}
+
+data: {"seq":152,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"quietMs":768,"elapsedMs":10210}}
+
+data: {"seq":153,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":1,"quietMs":1068,"elapsedMs":10510}}
+
+data: {"seq":154,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":2,"quietMs":1368,"elapsedMs":10810}}
+
+data: {"seq":155,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":3,"quietMs":1669,"elapsedMs":11111}}
+
+data: {"seq":156,"type":"CUSTOM","name":"ondemand.filler","value":{"on":true,"derived":true,"tick":4,"quietMs":1970,"elapsedMs":11412}}
+
+data: {"seq":157,"type":"CUSTOM","name":"ondemand.filler","value":{"on":false,"derived":true,"elapsedMs":11455}}
+
+data: {"seq":158,"type":"CUSTOM","name":"ondemand.raw","value":{"elapsedMs":11455,"event":"message","data":"[DONE]"}}
+
+data: {"seq":159,"type":"TEXT_MESSAGE_END","messageId":"71151751-a727-4dd2-b945-bf285c0c4694"}
+
+data: {"seq":160,"type":"CUSTOM","name":"ondemand.status","value":{"phase":"done","elapsedMs":11455,"chars":149,"sources":0,"firstTokenMs":9266,"toolsMs":null,"answerMs":2189,"pluginError":"Web research source unavailable (Perplexity credits exhausted) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. (backoff: Perplexity skipped after 3 upstream failures; next retry 2026-10-21T15:38:33.952Z)"}}
+
+data: {"seq":161,"type":"RUN_FINISHED","threadId":"uae-cc-qa5-probe-laneD","runId":"84e4d096-1419-4383-b748-ffbdd6bd0f91"}
+
+data: [DONE]
+

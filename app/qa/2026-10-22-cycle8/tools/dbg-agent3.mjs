@@ -1,0 +1,11 @@
+import { chromium } from "playwright-core";
+const b = await chromium.launch({ executablePath: "/usr/bin/chromium", headless: true, args: ["--no-sandbox","--disable-dev-shm-usage"] });
+const page = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+page.on("pageerror", (e) => console.log("PAGEERROR", e.message.slice(0,200))); page.on("console", (m) => m.type()==="error" && console.log("CONSOLE", m.text().slice(0,200)));
+await page.goto(process.argv[2] + "/sentiment", { waitUntil: "domcontentloaded" }); await page.waitForSelector('[data-testid="bubble"]'); await page.waitForTimeout(1500);
+console.log("bubbles", await page.locator('[data-testid="bubble"]').count(), "hydrated?", await page.evaluate(() => !!document.querySelector('[data-testid="bubble"]')?._reactProps || Object.keys(document.querySelector('[data-testid="bubble"]')).some(k=>k.startsWith('__react'))));
+const bub = page.locator('[data-testid="bubble"]').nth(5); await bub.scrollIntoViewIfNeeded(); await bub.hover({ force: true }); await page.waitForTimeout(500);
+console.log("tip", (await page.locator('[data-testid="hover-evidence"]').textContent().catch(()=>"<none>")).slice(0,100));
+await page.locator('[data-testid="bubble"]').nth(0).click({ force: true }); await page.waitForTimeout(500);
+console.log("href", await page.locator('[data-testid="evidence-source"]').getAttribute("href").catch(()=>null), "panel", await page.locator('[data-testid="evidence-panel"]').count());
+await b.close();

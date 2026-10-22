@@ -1,0 +1,89 @@
+/**
+ * a18 — sector colour tokens. One palette entry per sector (fill / ink-on-white ≥4.5:1 / soft tint with ink ≥4.5:1 on it),
+ * mirrored 1:1 by the `--sector-<slug>[-ink|-soft]` CSS variables appended to `styles/tokens.css`.
+ * Brand rule: NO blue hue (HSL hue 190–260 with sat>0.15 & chroma>0.15 — see `hue-audit.ts`). Every hex below is audited by
+ * `tests/unit/sector-color.test.ts` (isBlueHue === false, WCAG contrast). Consumers (a19/a22/a27/a29/a30/a31): `sectorColor(sector)`.
+ */
+import { SECTORS } from "./format";
+
+export type SectorSwatch = { name: string; fill: string; ink: string; soft: string };
+
+/** Named swatches — order matters: it is the deterministic hash → index table for unknown sectors. */
+export const SECTOR_PALETTE: readonly SectorSwatch[] = [
+  { name: "graphite", fill: "#737373", ink: "#2F2F2F", soft: "#F0F0F0" }, // primary / Technology
+  { name: "plum",    fill: "#A3A3A3", ink: "#5D5D5D", soft: "#F0F0F0" },
+  { name: "amber",   fill: "#B4B4B4", ink: "#5D5D5D", soft: "#F9F9F9" },
+  { name: "coral",   fill: "#D4D4D4", ink: "#5D5D5D", soft: "#F0F0F0" },
+  { name: "teal",    fill: "#8E8E8E", ink: "#2F2F2F", soft: "#F0F0F0" },
+  { name: "olive",   fill: "#A3A3A3", ink: "#525252", soft: "#F5F5F5" },
+  { name: "rose",    fill: "#737373", ink: "#5D5D5D", soft: "#F9F9F9" },
+  { name: "slate",   fill: "#A3A3A3", ink: "#5D5D5D", soft: "#F0F0F0" }, // warm slate — "Other"
+] as const;
+
+/** Explicit sector → swatch assignment (SECTORS from format.ts + extra names seen in snapshot.json companies[].sector). */
+export const SECTOR_SWATCH: Readonly<Record<string, SectorSwatch["name"]>> = {
+  "Technology": "graphite",
+  "Healthcare": "plum",
+  "Energy & Resilience": "amber",
+  "Opportunistic": "coral",
+  "Venture Capital (firm)": "teal",
+  "Other": "slate",
+};
+
+/** Sector names that have a dedicated CSS variable (`--sector-<slug>`) in tokens.css. */
+export const SECTOR_NAMES: readonly string[] = [...SECTORS, "Venture Capital (firm)", "Other"];
+
+export const sectorSlug = (sector: string): string =>
+  sector.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "other";
+
+/** FNV-1a 32-bit — stable across runtimes, used for unknown-sector fallback. */
+function hash32(s: string): number {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h >>> 0;
+}
+
+const byName = new Map(SECTOR_PALETTE.map((p) => [p.name, p]));
+/** Fallback pool for unknown sectors: every swatch except primary (reserved) and slate (reserved for "Other"). */
+const FALLBACK_POOL = SECTOR_PALETTE.filter((p) => p.name !== "graphite" && p.name !== "slate");
+
+export type SectorColor = {
+  /** CSS `var(--sector-<slug>)` reference (fill). Known sectors resolve to their own variable; unknown ones to the fallback swatch's variable. */
+  var: string;
+  varInk: string;
+  varSoft: string;
+  fill: string;
+  ink: string;
+  soft: string;
+  slug: string;
+  swatch: SectorSwatch["name"];
+  known: boolean;
+};
+
+/** Resolve a sector label to its colour set. Unknown / empty sectors get a deterministic, never-blue fallback. */
+export function sectorColor(sector: string | null | undefined): SectorColor {
+  const label = (sector ?? "").trim();
+  const canonical = label === "" ? "Other" : label;
+  const known = Object.prototype.hasOwnProperty.call(SECTOR_SWATCH, canonical);
+  const swatch = known
+    ? byName.get(SECTOR_SWATCH[canonical])!
+    : FALLBACK_POOL[hash32(canonical.toLowerCase()) % FALLBACK_POOL.length];
+  const slug = known ? sectorSlug(canonical) : swatch.name;
+  return {
+    var: `var(--sector-${slug})`,
+    varInk: `var(--sector-${slug}-ink)`,
+    varSoft: `var(--sector-${slug}-soft)`,
+    fill: swatch.fill,
+    ink: swatch.ink,
+    soft: swatch.soft,
+    slug,
+    swatch: swatch.name,
+    known,
+  };
+}
+
+/** Inline style for a sector chip when a consumer cannot use the `.chip-sector[data-sector]` utility class. */
+export const sectorChipStyle = (sector: string | null | undefined) => {
+  const c = sectorColor(sector);
+  return { background: c.soft, color: c.ink, border: `1px solid ${c.fill}66` } as const;
+};
