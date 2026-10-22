@@ -1,0 +1,132 @@
+{
+ "base": "https://sb-6u0rv43z1luy.vercel.run",
+ "utc": "2026-10-22T04:41:21.451Z",
+ "viewports": {
+  "1440x900": {
+   "shell": {
+    "navRail": 64,
+    "railState": null,
+    "topbarH": 32,
+    "mobileTopbarH": null,
+    "welcomeW": 800,
+    "composerW": 800,
+    "inner": 1440,
+    "docScroll": 1440
+   },
+   "railCollapsed": {
+    "navRail": 224,
+    "railState": null
+   },
+   "railCollapsedAfterReload": {
+    "navRail": 224,
+    "railState": null
+   },
+   "railExpandedAfterReload": {
+    "navRail": 64,
+    "railState": null
+   },
+   "run": {
+    "rvScroll": 712,
+    "rvClient": 712,
+    "docScroll": 1440,
+    "inner": 1440,
+    "messagesW": 800,
+    "chips": 60,
+    "previews": 60,
+    "maxPreviewW": 154,
+    "maxPreviewRight": 1093
+   },
+   "hover": {
+    "rvScroll": 712,
+    "rvClient": 712,
+    "docScroll": 1440,
+    "visiblePreviewMaxW": 133
+   },
+   "inspector": {
+    "open": "true",
+    "w": 360,
+    "h": 900,
+    "tabs": [
+     {
+      "text": "Plan",
+      "selected": "false",
+      "testid": "inspector-tab-plan"
+     },
+     {
+      "text": "Run",
+      "selected": "true",
+      "testid": "inspector-tab-run"
+     }
+    ]
+   },
+   "planTab": {
+    "selected": "true",
+    "panel": true
+   },
+   "runTab": {
+    "selected": "true",
+    "runRail": true
+   }
+  },
+  "390x844": {
+   "shell": {
+    "navRail": 0,
+    "railState": null,
+    "topbarH": 32,
+    "mobileTopbarH": null,
+    "welcomeW": 390,
+    "composerW": 390,
+    "inner": 390,
+    "docScroll": 390
+   },
+   "drawer": {
+    "drawerW": 280,
+    "overlay": true,
+    "docScroll": 390
+   },
+   "drawerAfterEscape": "none",
+   "run": {
+    "rvScroll": 318,
+    "rvClient": 318,
+    "docScroll": 390,
+    "inner": 390,
+    "messagesW": 390,
+    "chips": 60,
+    "previews": 60,
+    "maxPreviewW": 109,
+    "maxPreviewRight": 364
+   },
+   "hover": {
+    "rvScroll": 318,
+    "rvClient": 318,
+    "docScroll": 390,
+    "visiblePreviewMaxW": 101
+   },
+   "inspector": {
+    "open": "true",
+    "w": 390,
+    "h": 717,
+    "tabs": [
+     {
+      "text": "Plan",
+      "selected": "false",
+      "testid": "inspector-tab-plan"
+     },
+     {
+      "text": "Run",
+      "selected": "true",
+      "testid": "inspector-tab-run"
+     }
+    ]
+   },
+   "planTab": {
+    "selected": "true",
+    "panel": true
+   },
+   "runTab": {
+    "selected": "true",
+    "runRail": true
+   }
+  }
+ }
+}

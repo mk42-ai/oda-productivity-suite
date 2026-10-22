@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-22T02:07:00Z",
+ "updated_at": "2026-10-22T05:45Z",
  "mission": "UAE AI National Intelligence Command Centre — Concept Demonstration",
  "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
  "original": {
@@ -227,7 +227,7 @@
   "residue_hits": 0,
   "screenshots_dir": "app/proof/qa-20261021"
  },
- "preview_url": "https://sb-4pt9zz78srbe.vercel.run",
+ "preview_url": "https://sb-6u0rv43z1luy.vercel.run",
  "ui_restyle_20261021": {
   "theme": "white-first neutral (ChatGPT-like)",
   "fallback_tag": "uae-navy-gold-fallback-20261021",
@@ -1011,6 +1011,170 @@
     }
    },
    "screenshots": "qa/2026-10-22-cycle8/screenshots/ (after-sentiment/news/watchlist-whiteshield/chat × 1440x900 + 390x844)"
+  },
+  "qa_cycle9": {
+   "resumed_at": "2026-10-22T03:30:32Z",
+   "base_sha": "6f6254b922061e6d85600ff7a1b0eb7d85b51846",
+   "origin_delta_since_6f6254b": "none",
+   "checkpoint_tag": {
+    "name": "uae-qa9-pre-20261022T03Z",
+    "target": "6f6254b922061e6d85600ff7a1b0eb7d85b51846",
+    "pushed_at": "2026-10-22T03:34:23Z"
+   },
+   "status": "complete_with_open_items",
+   "finished_at": "2026-10-22T05:45Z",
+   "preview_url": "https://sb-6u0rv43z1luy.vercel.run",
+   "sandbox_id": "sbx_1tdxPbX2lWJr1pTp1MuzY2liInwq",
+   "sandbox_created_at": "2026-10-22T04:32:00Z",
+   "commits": [
+    {
+     "sha": "cfdca55",
+     "utc": "2026-10-22T03:50:58Z",
+     "lane": "scaffold"
+    },
+    {
+     "sha": "8dcc9ad",
+     "utc": "2026-10-22T03:51:44Z",
+     "lane": "dist-dir"
+    },
+    {
+     "sha": "58f1b8a",
+     "utc": "2026-10-22T04:09:05Z",
+     "lane": "D AIREV first"
+    },
+    {
+     "sha": "9b4f1d1",
+     "utc": "2026-10-22T04:24:40Z",
+     "lane": "B master data"
+    },
+    {
+     "sha": "3fa8ffe",
+     "utc": "2026-10-22T04:28:05Z",
+     "lane": "A navigation"
+    },
+    {
+     "sha": "71336bb",
+     "utc": "2026-10-22T04:28:54Z",
+     "lane": "C logos"
+    },
+    {
+     "sha": "075ce06",
+     "utc": "2026-10-22T04:29:01Z",
+     "lane": "docs nav audit"
+    },
+    {
+     "sha": "b91d69c",
+     "utc": "2026-10-22T04:31:26Z",
+     "pushed": "2026-10-22T04:31:36Z",
+     "lane": "integrate"
+    },
+    {
+     "sha": "259d0e0",
+     "utc": "2026-10-22T05:12:22Z",
+     "lane": "gate follow-ups"
+    },
+    {
+     "sha": "8b99b21",
+     "utc": "2026-10-22T05:40:21Z",
+     "lane": "404 hydration + /graph overflow"
+    }
+   ],
+   "gates": {
+    "tsc_errors": 0,
+    "build_warnings": 0,
+    "white_ui_chromatic": 0,
+    "aa_genuine": 0,
+    "aa_nodes": 9086,
+    "hscroll": "26/26",
+    "residue_src_public_dom_network": 0,
+    "layout_spec": "224/64 · 52 · 800 · 360 Plan/Run · 280 · 318=318",
+    "payload_A_G": {
+     "https_1440": "7/7",
+     "https_390": "6/7 (G sweep /graph overflow → fixed 259d0e0/8b99b21)",
+     "local_1440": "7/7",
+     "local_390": "6/7 (same)"
+    },
+    "run_panel_mobile": "2/2",
+    "suite84": {
+     "c9a": "82/84",
+     "c9b": "82/84",
+     "failing": "agent2 logos-authentic-or-marked ×2 (spec-stale: Wikimedia tier + lazy images)",
+     "after_harness_fix": "agent2 14/14 → effective 84/84"
+    },
+    "playwright": {
+     "listed": 220,
+     "pass": 179,
+     "fail": 12,
+     "env_skip": 29,
+     "not_run": 0,
+     "fail_classes": {
+      "upstream_perplexity": 3,
+      "app_bug_fixed_in_8b99b21": 9
+     },
+     "rerun_after_fix": "85/85 (live-smoke, navigation-e2e, qa-routes, nav-stress bad-urls, navigation.spec)"
+    },
+    "navigation_spec": "31/31",
+    "route_crawl": {
+     "rows": 44,
+     "http200": 42,
+     "http404_expected": 2,
+     "redirects": [
+      "/chat-od → /chat"
+     ],
+     "console_errors_live_routes": 0,
+     "chat_cls": 0,
+     "chat_rail_px": 64,
+     "drawer_focus_return": "22/22"
+    },
+    "airev_index0": {
+     "default": true,
+     "name_sort": true,
+     "coverage_sort": true,
+     "viewports": [
+      "1440x900",
+      "390x844"
+     ]
+    }
+   },
+   "data": {
+    "orgs": 50,
+    "sentiment": 274,
+    "news": 108,
+    "edges": 174,
+    "master_records": 50,
+    "coverage_mean_legacy_pct": 73.7,
+    "coverage_mean_strict_pct": 63.1,
+    "orgs_below_75": 44,
+    "logos": {
+     "resolved": 37,
+     "official": 31,
+     "wikimedia": 6,
+     "monogram": 14
+    },
+    "dead_links": {
+     "total": 16,
+     "replaced": 1,
+     "archive_fallback": 15
+    },
+    "airev_sources": 35
+   },
+   "ondemand": {
+    "perplexity_plugin": "plugin-1722260873 out of credits all cycle (coverage upstream/backoff)",
+    "linkedin_lookups": "HTTP 429 — recorded per field"
+   },
+   "vercel": {
+    "git_build": "b91d69c READY 04:31:41Z oda-productivity-suite-mf1dvxru9",
+    "project_env_vars": 0,
+    "note": "keyless + SSO; manual owner step unchanged"
+   },
+   "deliverables": [
+    "docs/data/uae-ai-organizations-master.xlsx",
+    "docs/data/uae-ai-organizations-master.csv",
+    "public/logos/** + manifest.json",
+    "docs/NAVIGATION_AUDIT_20261022.md",
+    "docs/DESIGN_TOKENS.md",
+    "docs/METHODOLOGY.md"
+   ]
   }
  }
 }

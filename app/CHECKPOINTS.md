@@ -164,3 +164,12 @@
 | 2026-10-22T02:01:06–02:05:15Z | Payload A–G HTTPS: 1440 7/7 · 390 5/7+skip → F+G re-run 2/2 → 14/14 |
 | 2026-10-22T02:05:32Z | Workflow runs since 00:40Z: checkpoint 01:00/01:30/02:00Z success; ingest 02:00Z success; briefing next 02:30Z |
 | 2026-10-22T02:07Z | Docs/state updated in place (QA_REPORT, MISSION_STATE(.json), RESEARCH_COVERAGE, API_HEALTH §G, NEXT_ACTIONS, CHECKPOINTS); docs commit + push |
+| 2026-10-22T03:34Z | Cycle 9 rollback tag `uae-qa9-pre-20261022T03Z` → 6f6254b pushed |
+| 2026-10-22T03:51Z | Lane scaffold cfdca55/8dcc9ad; 4 build lanes dispatched (A nav, B master data, C logos, D AIREV-first) |
+| 2026-10-22T04:09Z | Lane D 58f1b8a — AIREV pinned index 0, reference dossier (35 sources) |
+| 2026-10-22T04:24Z | Lane B 9b4f1d1 — master.json 50 orgs, +9 edges, XLSX/CSV export; strict coverage mean 63.1 % |
+| 2026-10-22T04:28Z | Lane A 3fa8ffe (navigation.spec 31/31) · Lane C 71336bb (37 logos / 14 monograms) · 075ce06 navigation audit committed |
+| 2026-10-22T04:31Z | b91d69c integrate; pushed 04:31:36Z; Vercel git build READY 04:31:41Z (keyless) |
+| 2026-10-22T04:35Z | Fresh sandbox sbx_1tdxPbX2lWJr1pTp1MuzY2liInwq → https://sb-6u0rv43z1luy.vercel.run /health 200; 5 verifier lanes dispatched |
+| 2026-10-22T05:12Z | 259d0e0 gate follow-ups (org-profile grey, /graph canvas width, briefing min-h, agent2 harness) — sandbox rebuilt in place 05:15Z |
+| 2026-10-22T05:40Z | 8b99b21 breadcrumbs 404-hydration + /graph grid overflow; targeted re-run 85/85; sandbox rebuilt 05:42Z |

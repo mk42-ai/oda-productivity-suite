@@ -1,0 +1,1433 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/node_modules/@playwright/test/cli.js",
+      "test",
+      "e2e/chat.spec.ts",
+      "e2e/qa-chat-timing.spec.ts",
+      "e2e/run-panel-a11y.spec.ts",
+      "e2e/run-panel-acceptance.spec.ts",
+      "e2e/run-panel-visual.spec.ts",
+      "e2e/run-panel-working-header.spec.ts",
+      "e2e/thinking-json-filter.spec.ts",
+      "e2e/thinking-pinned-working-row.spec.ts",
+      "e2e/thread-reopen.spec.ts",
+      "e2e/session-continuity.spec.ts",
+      "--project=desktop",
+      "--workers=1",
+      "--timeout=150000",
+      "--reporter=list,json",
+      "--output=/tmp/pw-c9-s2"
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/playwright.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/pw-c9-s2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [
+          "/mobile\\.spec\\.ts|qa-final\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c9-s2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/mobile\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c9-s2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-ux",
+        "name": "mobile-ux",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/run-ux\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c9-s2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final",
+        "name": "qa-final",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c9-s2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final-mobile",
+        "name": "qa-final-mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pw-c9-s2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": {},
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 150000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5190",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "chat.spec.ts",
+      "file": "chat.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Analyst chat — streaming",
+          "file": "chat.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "answer streams incrementally via SSE with plugin activity and sources",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 300000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 24748,
+                      "error": {
+                        "message": "Error: first activity within 5 s\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m5000\u001b[39m\nReceived:    \u001b[31m5226\u001b[39m",
+                        "stack": "Error: first activity within 5 s\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m5000\u001b[39m\nReceived:    \u001b[31m5226\u001b[39m\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/chat.spec.ts:118:59",
+                        "location": {
+                          "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/chat.spec.ts",
+                          "column": 59,
+                          "line": 118
+                        },
+                        "snippet": "  116 |     // 3. responsiveness + incrementality\n  117 |     expect(firstActivityAt, \"first activity (plugin card or text)\").not.toBeNull();\n> 118 |     expect(firstActivityAt!, \"first activity within 5 s\").toBeLessThanOrEqual(FIRST_ACTIVITY_MS);\n      |                                                           ^\n  119 |     expect(growth.length, \"number of growth events\").toBeGreaterThanOrEqual(3);\n  120 |     for (let i = 1; i < growth.length; i++) {\n  121 |       expect(growth[i].t, `growth[${i}].t > growth[${i - 1}].t`).toBeGreaterThan(growth[i - 1].t);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/chat.spec.ts",
+                            "column": 59,
+                            "line": 118
+                          },
+                          "message": "Error: first activity within 5 s\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m5000\u001b[39m\nReceived:    \u001b[31m5226\u001b[39m\n\n  116 |     // 3. responsiveness + incrementality\n  117 |     expect(firstActivityAt, \"first activity (plugin card or text)\").not.toBeNull();\n> 118 |     expect(firstActivityAt!, \"first activity within 5 s\").toBeLessThanOrEqual(FIRST_ACTIVITY_MS);\n      |                                                           ^\n  119 |     expect(growth.length, \"number of growth events\").toBeGreaterThanOrEqual(3);\n  120 |     for (let i = 1; i < growth.length; i++) {\n  121 |       expect(growth[i].t, `growth[${i}].t > growth[${i - 1}].t`).toBeGreaterThan(growth[i - 1].t);\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/chat.spec.ts:118:59"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[chat-stream] firstActivityAt=5226ms growth=6 events: +5226ms:207 +5602ms:453 +6055ms:633 +6417ms:803 +7035ms:1148 +17122ms:1235\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:41:09.077Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "stream-growth-log.json",
+                          "contentType": "application/json",
+                          "body": "ewogICJxdWVzdGlvbiI6ICJXaGF0IGRpZCBUZWNobm9sb2d5IElubm92YXRpb24gSW5zdGl0dXRlIGFubm91bmNlIHJlY2VudGx5PyIsCiAgImZpcnN0QWN0aXZpdHlBdCI6IDUyMjYsCiAgImdyb3d0aCI6IFsKICAgIHsKICAgICAgInQiOiA1MjI2LAogICAgICAibGVuIjogMjA3LAogICAgICAicGx1Z2luIjogZmFsc2UKICAgIH0sCiAgICB7CiAgICAgICJ0IjogNTYwMiwKICAgICAgImxlbiI6IDQ1MywKICAgICAgInBsdWdpbiI6IGZhbHNlCiAgICB9LAogICAgewogICAgICAidCI6IDYwNTUsCiAgICAgICJsZW4iOiA2MzMsCiAgICAgICJwbHVnaW4iOiBmYWxzZQogICAgfSwKICAgIHsKICAgICAgInQiOiA2NDE3LAogICAgICAibGVuIjogODAzLAogICAgICAicGx1Z2luIjogZmFsc2UKICAgIH0sCiAgICB7CiAgICAgICJ0IjogNzAzNSwKICAgICAgImxlbiI6IDExNDgsCiAgICAgICJwbHVnaW4iOiBmYWxzZQogICAgfSwKICAgIHsKICAgICAgInQiOiAxNzEyMiwKICAgICAgImxlbiI6IDEyMzUsCiAgICAgICJwbHVnaW4iOiBmYWxzZQogICAgfQogIF0KfQ=="
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/tmp/pw-c9-s2/chat-Analyst-chat-—-stream-e5f98-plugin-activity-and-sources-desktop/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/tmp/pw-c9-s2/chat-Analyst-chat-—-stream-e5f98-plugin-activity-and-sources-desktop/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/tmp/pw-c9-s2/chat-Analyst-chat-—-stream-e5f98-plugin-activity-and-sources-desktop/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/chat.spec.ts",
+                        "column": 59,
+                        "line": 118
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6dac514d5d837ca37b9e-d9767317ad9f38386509",
+              "file": "chat.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "qa-chat-timing.spec.ts",
+      "file": "qa-chat-timing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "QA chat timing @ desktop",
+          "file": "qa-chat-timing.spec.ts",
+          "line": 209,
+          "column": 8,
+          "specs": [
+            {
+              "title": "two turns in one thread: timings, tool card, session reuse",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 540000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 28646,
+                      "error": {
+                        "message": "Error: turn1 tool-card transitions non-empty\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
+                        "stack": "Error: turn1 tool-card transitions non-empty\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts:235:85",
+                        "location": {
+                          "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts",
+                          "column": 85,
+                          "line": 235
+                        },
+                        "snippet": "  233 |         expect(t.firstStatusMs, `${name} first-status ms recorded`).not.toBeNull();\n  234 |         expect(t.firstStatusMs!, `${name} first-status ms < 1500 (actual ${t.firstStatusMs})`).toBeLessThan(1500);\n> 235 |         expect(t.cardTransitions.length, `${name} tool-card transitions non-empty`).toBeGreaterThan(0);\n      |                                                                                     ^\n  236 |         expect([\"searched\", \"failed\"], `${name} card ends in searched|failed (got ${t.cardTransitions.join(\"→\")})`).toContain(t.cardTransitions[t.cardTransitions.length - 1]);\n  237 |         if (t.errorCode === null && t.cardTransitions[t.cardTransitions.length - 1] !== \"failed\") expect(t.answerLength, `${name} answer text length > 0`).toBeGreaterThan(0); // a plugin failure legitimately ends with the red card and no prose\n  238 |         expect(t.stopToSendOk, `${name} Stop → Send (during=${t.submitLabelDuringStream}, after=${t.submitLabelAfter})`).toBe(true);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts",
+                            "column": 85,
+                            "line": 235
+                          },
+                          "message": "Error: turn1 tool-card transitions non-empty\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  233 |         expect(t.firstStatusMs, `${name} first-status ms recorded`).not.toBeNull();\n  234 |         expect(t.firstStatusMs!, `${name} first-status ms < 1500 (actual ${t.firstStatusMs})`).toBeLessThan(1500);\n> 235 |         expect(t.cardTransitions.length, `${name} tool-card transitions non-empty`).toBeGreaterThan(0);\n      |                                                                                     ^\n  236 |         expect([\"searched\", \"failed\"], `${name} card ends in searched|failed (got ${t.cardTransitions.join(\"→\")})`).toContain(t.cardTransitions[t.cardTransitions.length - 1]);\n  237 |         if (t.errorCode === null && t.cardTransitions[t.cardTransitions.length - 1] !== \"failed\") expect(t.answerLength, `${name} answer text length > 0`).toBeGreaterThan(0); // a plugin failure legitimately ends with the red card and no prose\n  238 |         expect(t.stopToSendOk, `${name} Stop → Send (during=${t.submitLabelDuringStream}, after=${t.submitLabelAfter})`).toBe(true);\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts:235:85"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[qa-chat desktop] {\"t1\":{\"fs\":53,\"ft\":5465,\"chunks\":108,\"card\":[],\"src\":0,\"err\":null,\"sid\":\"6ad9940cfff1495361aa7aa1\"},\"t2\":{\"fs\":61,\"ft\":5115,\"chunks\":23,\"card\":[],\"src\":0,\"err\":null,\"sid\":\"6ad99416fff1495361aa7aa6\"},\"sessionReused\":false}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:41:40.627Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/tmp/pw-c9-s2/qa-chat-timing-QA-chat-tim-50e33-ngs-tool-card-session-reuse-desktop/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/tmp/pw-c9-s2/qa-chat-timing-QA-chat-tim-50e33-ngs-tool-card-session-reuse-desktop/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/tmp/pw-c9-s2/qa-chat-timing-QA-chat-tim-50e33-ngs-tool-card-session-reuse-desktop/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts",
+                        "column": 85,
+                        "line": 235
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6c6546608d9a419477a4-ed1d520d031211539cb2",
+              "file": "qa-chat-timing.spec.ts",
+              "line": 211,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "QA chat timing @ mobile",
+          "file": "qa-chat-timing.spec.ts",
+          "line": 209,
+          "column": 8,
+          "specs": [
+            {
+              "title": "two turns in one thread: timings, tool card, session reuse",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 540000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 28412,
+                      "error": {
+                        "message": "Error: turn1 tool-card transitions non-empty\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
+                        "stack": "Error: turn1 tool-card transitions non-empty\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts:235:85",
+                        "location": {
+                          "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts",
+                          "column": 85,
+                          "line": 235
+                        },
+                        "snippet": "  233 |         expect(t.firstStatusMs, `${name} first-status ms recorded`).not.toBeNull();\n  234 |         expect(t.firstStatusMs!, `${name} first-status ms < 1500 (actual ${t.firstStatusMs})`).toBeLessThan(1500);\n> 235 |         expect(t.cardTransitions.length, `${name} tool-card transitions non-empty`).toBeGreaterThan(0);\n      |                                                                                     ^\n  236 |         expect([\"searched\", \"failed\"], `${name} card ends in searched|failed (got ${t.cardTransitions.join(\"→\")})`).toContain(t.cardTransitions[t.cardTransitions.length - 1]);\n  237 |         if (t.errorCode === null && t.cardTransitions[t.cardTransitions.length - 1] !== \"failed\") expect(t.answerLength, `${name} answer text length > 0`).toBeGreaterThan(0); // a plugin failure legitimately ends with the red card and no prose\n  238 |         expect(t.stopToSendOk, `${name} Stop → Send (during=${t.submitLabelDuringStream}, after=${t.submitLabelAfter})`).toBe(true);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts",
+                            "column": 85,
+                            "line": 235
+                          },
+                          "message": "Error: turn1 tool-card transitions non-empty\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  233 |         expect(t.firstStatusMs, `${name} first-status ms recorded`).not.toBeNull();\n  234 |         expect(t.firstStatusMs!, `${name} first-status ms < 1500 (actual ${t.firstStatusMs})`).toBeLessThan(1500);\n> 235 |         expect(t.cardTransitions.length, `${name} tool-card transitions non-empty`).toBeGreaterThan(0);\n      |                                                                                     ^\n  236 |         expect([\"searched\", \"failed\"], `${name} card ends in searched|failed (got ${t.cardTransitions.join(\"→\")})`).toContain(t.cardTransitions[t.cardTransitions.length - 1]);\n  237 |         if (t.errorCode === null && t.cardTransitions[t.cardTransitions.length - 1] !== \"failed\") expect(t.answerLength, `${name} answer text length > 0`).toBeGreaterThan(0); // a plugin failure legitimately ends with the red card and no prose\n  238 |         expect(t.stopToSendOk, `${name} Stop → Send (during=${t.submitLabelDuringStream}, after=${t.submitLabelAfter})`).toBe(true);\n    at /home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts:235:85"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[qa-chat mobile] {\"t1\":{\"fs\":47,\"ft\":4071,\"chunks\":137,\"card\":[],\"src\":0,\"err\":null,\"sid\":\"6ad99429fff1495361aa7aac\"},\"t2\":{\"fs\":52,\"ft\":7924,\"chunks\":46,\"card\":[],\"src\":0,\"err\":null,\"sid\":\"6ad99429fff1495361aa7aac\"},\"sessionReused\":true}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:42:13.834Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/tmp/pw-c9-s2/qa-chat-timing-QA-chat-tim-d2696-ngs-tool-card-session-reuse-desktop/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/tmp/pw-c9-s2/qa-chat-timing-QA-chat-tim-d2696-ngs-tool-card-session-reuse-desktop/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/tmp/pw-c9-s2/qa-chat-timing-QA-chat-tim-d2696-ngs-tool-card-session-reuse-desktop/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/qa-chat-timing.spec.ts",
+                        "column": 85,
+                        "line": 235
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "6c6546608d9a419477a4-596fc98b103b16533109",
+              "file": "qa-chat-timing.spec.ts",
+              "line": 211,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "run-panel-a11y.spec.ts",
+      "file": "run-panel-a11y.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "run-panel a11y (a10)",
+          "file": "run-panel-a11y.spec.ts",
+          "line": 42,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Working band (mint gradient) text is ≥ 4.5:1 when present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no Working… band rendered (no live run)",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-a11y.spec.ts",
+                        "line": 52,
+                        "column": 60
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 3507,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:42:49.995Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "no Working… band rendered (no live run)",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-a11y.spec.ts",
+                            "line": 52,
+                            "column": 60
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "06c26efe4dc99462c2f9-39a876830fb766ee383b",
+              "file": "run-panel-a11y.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "prefers-reduced-motion: .oiu-spin has no animation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4034,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:42:54.119Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "06c26efe4dc99462c2f9-cafc707828d1bedbc697",
+              "file": "run-panel-a11y.spec.ts",
+              "line": 64,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "run-panel-acceptance.spec.ts",
+      "file": "run-panel-acceptance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "run-panel acceptance — desktop 1440×900",
+          "file": "run-panel-acceptance.spec.ts",
+          "line": 161,
+          "column": 6,
+          "specs": [
+            {
+              "title": "anchored run-header, od-status, inspector drawer, coverage notice, no raw JSON",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "pass-1",
+                      "description": "run-view exists and run-header precedes od-status/run-status-header in DOM order — {\"hasStatusTarget\":true,\"headerPrecedes\":true}"
+                    },
+                    {
+                      "type": "pass-2",
+                      "description": "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples — {\"samples\":24,\"spread\":0,\"min\":0,\"max\":0}"
+                    },
+                    {
+                      "type": "pass-5",
+                      "description": "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false) — {\"answered\":true,\"settled\":true}"
+                    },
+                    {
+                      "type": "pass-5",
+                      "description": "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text — {\"hasCoverage\":true,\"coverageNoticeText\":\"Web research source unavailable (upstream execution error) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 04:45 UTC.\",\"noResponseFailed\":true}"
+                    },
+                    {
+                      "type": "pass-4",
+                      "description": "no raw planner JSON visible in od-status or run-view — {\"odJsonClean\":true,\"sample\":\"I'll check recent TII announcements.\\nI'll return the findings with sources.Searching recent announcementsPerplexity\",\"rawMatch\":null}"
+                    },
+                    {
+                      "type": "pass-3",
+                      "description": "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible — {\"railVisible\":true,\"widthValid\":true,\"viewport\":\"1440x900\"}"
+                    },
+                    {
+                      "type": "pass-6",
+                      "description": "working-band absent after the turn settles — {\"count\":0}"
+                    },
+                    {
+                      "type": "pass-7",
+                      "description": "no console/page errors during the turn — {\"errors\":[]}"
+                    },
+                    {
+                      "type": "pass-99",
+                      "description": "summary — {\"failedNumbers\":[],\"failed\":[]}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 18545,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:42:58.220Z",
+                      "annotations": [
+                        {
+                          "type": "pass-1",
+                          "description": "run-view exists and run-header precedes od-status/run-status-header in DOM order — {\"hasStatusTarget\":true,\"headerPrecedes\":true}"
+                        },
+                        {
+                          "type": "pass-2",
+                          "description": "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples — {\"samples\":24,\"spread\":0,\"min\":0,\"max\":0}"
+                        },
+                        {
+                          "type": "pass-5",
+                          "description": "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false) — {\"answered\":true,\"settled\":true}"
+                        },
+                        {
+                          "type": "pass-5",
+                          "description": "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text — {\"hasCoverage\":true,\"coverageNoticeText\":\"Web research source unavailable (upstream execution error) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 04:45 UTC.\",\"noResponseFailed\":true}"
+                        },
+                        {
+                          "type": "pass-4",
+                          "description": "no raw planner JSON visible in od-status or run-view — {\"odJsonClean\":true,\"sample\":\"I'll check recent TII announcements.\\nI'll return the findings with sources.Searching recent announcementsPerplexity\",\"rawMatch\":null}"
+                        },
+                        {
+                          "type": "pass-3",
+                          "description": "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible — {\"railVisible\":true,\"widthValid\":true,\"viewport\":\"1440x900\"}"
+                        },
+                        {
+                          "type": "pass-6",
+                          "description": "working-band absent after the turn settles — {\"count\":0}"
+                        },
+                        {
+                          "type": "pass-7",
+                          "description": "no console/page errors during the turn — {\"errors\":[]}"
+                        },
+                        {
+                          "type": "pass-99",
+                          "description": "summary — {\"failedNumbers\":[],\"failed\":[]}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dedc00b8d46035e5a97e-b773d991eea2d1ab1684",
+              "file": "run-panel-acceptance.spec.ts",
+              "line": 163,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "run-panel acceptance — mobile 390×844",
+          "file": "run-panel-acceptance.spec.ts",
+          "line": 169,
+          "column": 6,
+          "specs": [
+            {
+              "title": "anchored run-header, od-status, inspector drawer, coverage notice, no raw JSON",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "pass-1",
+                      "description": "run-view exists and run-header precedes od-status/run-status-header in DOM order — {\"hasStatusTarget\":true,\"headerPrecedes\":true}"
+                    },
+                    {
+                      "type": "pass-2",
+                      "description": "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples — {\"samples\":24,\"spread\":0,\"min\":0,\"max\":0}"
+                    },
+                    {
+                      "type": "pass-5",
+                      "description": "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false) — {\"answered\":true,\"settled\":true}"
+                    },
+                    {
+                      "type": "pass-5",
+                      "description": "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text — {\"hasCoverage\":true,\"coverageNoticeText\":\"Web research source unavailable (skipped for this run — availability backoff after 2 upstream failures) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 04:45 UTC.\",\"noResponseFailed\":true}"
+                    },
+                    {
+                      "type": "pass-4",
+                      "description": "no raw planner JSON visible in od-status or run-view — {\"odJsonClean\":true,\"sample\":\"\",\"rawMatch\":null}"
+                    },
+                    {
+                      "type": "pass-3",
+                      "description": "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible — {\"railVisible\":true,\"widthValid\":true,\"viewport\":\"390x844\"}"
+                    },
+                    {
+                      "type": "pass-6",
+                      "description": "working-band absent after the turn settles — {\"count\":0}"
+                    },
+                    {
+                      "type": "pass-7",
+                      "description": "no console/page errors during the turn — {\"errors\":[]}"
+                    },
+                    {
+                      "type": "pass-99",
+                      "description": "summary — {\"failedNumbers\":[],\"failed\":[]}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17984,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:43:16.795Z",
+                      "annotations": [
+                        {
+                          "type": "pass-1",
+                          "description": "run-view exists and run-header precedes od-status/run-status-header in DOM order — {\"hasStatusTarget\":true,\"headerPrecedes\":true}"
+                        },
+                        {
+                          "type": "pass-2",
+                          "description": "run-header offsetTop (relative to run-view) moves ≤2 px across ≥20 samples — {\"samples\":24,\"spread\":0,\"min\":0,\"max\":0}"
+                        },
+                        {
+                          "type": "pass-5",
+                          "description": "turn completes with answer-block and settles (run-timer frozen or run-view data-live=false) — {\"answered\":true,\"settled\":true}"
+                        },
+                        {
+                          "type": "pass-5",
+                          "description": "if coverage-notice is present it contains 'unavailable' and there is NO 'Response failed' text — {\"hasCoverage\":true,\"coverageNoticeText\":\"Web research source unavailable (skipped for this run — availability backoff after 2 upstream failures) — coverage reduced to the curated uae_cc_v1 dossiers, news and sentiment records already loaded. No web facts were added. Web research is retried automatically after 04:45 UTC.\",\"noResponseFailed\":true}"
+                        },
+                        {
+                          "type": "pass-4",
+                          "description": "no raw planner JSON visible in od-status or run-view — {\"odJsonClean\":true,\"sample\":\"\",\"rawMatch\":null}"
+                        },
+                        {
+                          "type": "pass-3",
+                          "description": "inspector opens via inspector-toggle (data-open=true, width ≤ 360 at 1440) and run-rail is visible — {\"railVisible\":true,\"widthValid\":true,\"viewport\":\"390x844\"}"
+                        },
+                        {
+                          "type": "pass-6",
+                          "description": "working-band absent after the turn settles — {\"count\":0}"
+                        },
+                        {
+                          "type": "pass-7",
+                          "description": "no console/page errors during the turn — {\"errors\":[]}"
+                        },
+                        {
+                          "type": "pass-99",
+                          "description": "summary — {\"failedNumbers\":[],\"failed\":[]}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dedc00b8d46035e5a97e-f3d0349965a906db8ac1",
+              "file": "run-panel-acceptance.spec.ts",
+              "line": 171,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "run-panel-visual.spec.ts",
+      "file": "run-panel-visual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "run panel visual — desktop 1440×900",
+          "file": "run-panel-visual.spec.ts",
+          "line": 149,
+          "column": 6,
+          "specs": [
+            {
+              "title": "captures run-view states + layout metrics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 300000,
+                  "annotations": [
+                    {
+                      "type": "visual",
+                      "description": "first-working-row: no working-row rendered within 60 s (NA)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 74588,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[visual before 1440x900] first-frame t+9984ms runView=349px rows=0 statusHeader=-1 thinking=none children=[run-header > run-status-header > od-status > coverage-notice > answer-block > run-footer]\n"
+                        },
+                        {
+                          "text": "[visual before 1440x900] answer-streaming t+70412ms runView=349px rows=0 statusHeader=-1 thinking=none children=[run-header > run-status-header > od-status > coverage-notice > answer-block > run-footer]\n"
+                        },
+                        {
+                          "text": "[visual before 1440x900] settled t+71206ms runView=349px rows=0 statusHeader=-1 thinking=none children=[run-header > run-status-header > od-status > coverage-notice > answer-block > run-footer]\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:43:34.822Z",
+                      "annotations": [
+                        {
+                          "type": "visual",
+                          "description": "first-working-row: no working-row rendered within 60 s (NA)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b5d2b9546ca41c96f6d8-bef50ebbbeb901bdec26",
+              "file": "run-panel-visual.spec.ts",
+              "line": 153,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "run panel visual — mobile 390×844 (Pixel 7)",
+          "file": "run-panel-visual.spec.ts",
+          "line": 159,
+          "column": 6,
+          "specs": [
+            {
+              "title": "captures run-view states + layout metrics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 300000,
+                  "annotations": [
+                    {
+                      "type": "visual",
+                      "description": "first-working-row: no working-row rendered within 60 s (NA)"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 74595,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[visual before 390x844] first-frame t+9623ms runView=457px rows=0 statusHeader=-1 thinking=none children=[run-header > run-status-header > od-status > coverage-notice > answer-block > run-footer]\n"
+                        },
+                        {
+                          "text": "[visual before 390x844] answer-streaming t+70365ms runView=457px rows=0 statusHeader=-1 thinking=none children=[run-header > run-status-header > od-status > coverage-notice > answer-block > run-footer]\n"
+                        },
+                        {
+                          "text": "[visual before 390x844] settled t+71385ms runView=457px rows=0 statusHeader=-1 thinking=none children=[run-header > run-status-header > od-status > coverage-notice > answer-block > run-footer]\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:44:49.437Z",
+                      "annotations": [
+                        {
+                          "type": "visual",
+                          "description": "first-working-row: no working-row rendered within 60 s (NA)"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b5d2b9546ca41c96f6d8-4b5407b016d56716af26",
+              "file": "run-panel-visual.spec.ts",
+              "line": 163,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "run-panel-working-header.spec.ts",
+      "file": "run-panel-working-header.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "run panel Working header invariant @ desktop",
+          "file": "run-panel-working-header.spec.ts",
+          "line": 80,
+          "column": 17,
+          "specs": [
+            {
+              "title": "one source of truth for \"Working…\" across a live run (desktop)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 210000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-working-header.spec.ts",
+                        "line": 80,
+                        "column": 17
+                      }
+                    },
+                    {
+                      "type": "working-header",
+                      "description": "{\"vp\":\"desktop\",\"baseURL\":\"http://127.0.0.1:5190\",\"note\":\"run-status-header/run-header present\",\"samples\":35,\"durationMs\":16685,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":621,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19533,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[a3 desktop] {\"vp\":\"desktop\",\"baseURL\":\"http://127.0.0.1:5190\",\"note\":\"run-status-header/run-header present\",\"samples\":35,\"durationMs\":16685,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":621,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:46:04.095Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-working-header.spec.ts",
+                            "line": 80,
+                            "column": 17
+                          }
+                        },
+                        {
+                          "type": "working-header",
+                          "description": "{\"vp\":\"desktop\",\"baseURL\":\"http://127.0.0.1:5190\",\"note\":\"run-status-header/run-header present\",\"samples\":35,\"durationMs\":16685,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":621,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51990a1ad599723321ed-5dbf67fc48dd5adf05b7",
+              "file": "run-panel-working-header.spec.ts",
+              "line": 82,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "run panel Working header invariant @ mobile",
+          "file": "run-panel-working-header.spec.ts",
+          "line": 80,
+          "column": 17,
+          "specs": [
+            {
+              "title": "one source of truth for \"Working…\" across a live run (mobile)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 210000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-working-header.spec.ts",
+                        "line": 80,
+                        "column": 17
+                      }
+                    },
+                    {
+                      "type": "working-header",
+                      "description": "{\"vp\":\"mobile\",\"baseURL\":\"http://127.0.0.1:5190\",\"note\":\"run-status-header/run-header present\",\"samples\":21,\"durationMs\":10469,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":731,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13604,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[a3 mobile] {\"vp\":\"mobile\",\"baseURL\":\"http://127.0.0.1:5190\",\"note\":\"run-status-header/run-header present\",\"samples\":21,\"durationMs\":10469,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":731,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:46:23.678Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-panel-working-header.spec.ts",
+                            "line": 80,
+                            "column": 17
+                          }
+                        },
+                        {
+                          "type": "working-header",
+                          "description": "{\"vp\":\"mobile\",\"baseURL\":\"http://127.0.0.1:5190\",\"note\":\"run-status-header/run-header present\",\"samples\":21,\"durationMs\":10469,\"firstTop\":-1,\"maxDrift\":0,\"interleavedHits\":0,\"bandHits\":0,\"finalLive\":\"false\",\"finalAnswerChars\":731,\"finalAnchorIdx\":1,\"finalRunHeaderIdx\":0,\"finalOdStatusIdx\":2}"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "51990a1ad599723321ed-c8e9ca723c1c4804f083",
+              "file": "run-panel-working-header.spec.ts",
+              "line": 82,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "session-continuity.spec.ts",
+      "file": "session-continuity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "session continuity — two turns, one thread",
+          "file": "session-continuity.spec.ts",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "turn 2 appends below turn 1; turn 1 od-status pinned; one thread; no errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 420000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 21299,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[session-continuity] {\"turn1WallMs\":10255,\"turn2WallMs\":9059,\"badgeTotalMs\":{\"turn1\":7349,\"turn2\":8047},\"odStatusTop\":32,\"run1Y\":177.59375,\"run2Y\":674.0625,\"threads\":1}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:46:37.329Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "continuity-numbers",
+                          "contentType": "application/json",
+                          "body": "ewogICJ0dXJuMVdhbGxNcyI6IDEwMjU1LAogICJ0dXJuMldhbGxNcyI6IDkwNTksCiAgImJhZGdlVG90YWxNcyI6IHsKICAgICJ0dXJuMSI6IDczNDksCiAgICAidHVybjIiOiA4MDQ3CiAgfSwKICAib2RTdGF0dXNUb3AiOiAzMiwKICAicnVuMVkiOiAxNzcuNTkzNzUsCiAgInJ1bjJZIjogNjc0LjA2MjUsCiAgInRocmVhZHMiOiAxCn0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b54775e60b1b9fde4ece-ab06c0962b2a289f7be8",
+              "file": "session-continuity.spec.ts",
+              "line": 17,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "thinking-json-filter.spec.ts",
+      "file": "thinking-json-filter.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "desktop 1440×900",
+          "file": "thinking-json-filter.spec.ts",
+          "line": 89,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Thinking body has no planner JSON; planner-payload lives only in dev-disclosure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "note",
+                      "description": "no planner payload on this turn — dev-disclosure planner-payload assertion not applicable"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12268,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:46:58.667Z",
+                      "annotations": [
+                        {
+                          "type": "note",
+                          "description": "no planner payload on this turn — dev-disclosure planner-payload assertion not applicable"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5a20cf3400a6aaa1b1e2-3697615a1e33ce377630",
+              "file": "thinking-json-filter.spec.ts",
+              "line": 26,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "mobile 390×844",
+          "file": "thinking-json-filter.spec.ts",
+          "line": 90,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Thinking body has no planner JSON; planner-payload lives only in dev-disclosure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "note",
+                      "description": "no planner payload on this turn — dev-disclosure planner-payload assertion not applicable"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 16104,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:47:10.971Z",
+                      "annotations": [
+                        {
+                          "type": "note",
+                          "description": "no planner payload on this turn — dev-disclosure planner-payload assertion not applicable"
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5a20cf3400a6aaa1b1e2-12aebc4aad53c17f7d40",
+              "file": "thinking-json-filter.spec.ts",
+              "line": 26,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "thinking-pinned-working-row.spec.ts",
+      "file": "thinking-pinned-working-row.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "desktop 1440×900",
+          "file": "thinking-pinned-working-row.spec.ts",
+          "line": 121,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Thinking pinned at top, Working rows before the answer, jump pill clear of Working rows, no planner JSON in Thinking",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10453,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:47:27.123Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8d47b3c9584e4838a73-6a0aaf028cf44411a9f7",
+              "file": "thinking-pinned-working-row.spec.ts",
+              "line": 38,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "mobile 390×844",
+          "file": "thinking-pinned-working-row.spec.ts",
+          "line": 122,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Thinking pinned at top, Working rows before the answer, jump pill clear of Working rows, no planner JSON in Thinking",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 15815,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:47:37.606Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f8d47b3c9584e4838a73-276826a75db9e7ad29cd",
+              "file": "thinking-pinned-working-row.spec.ts",
+              "line": 38,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "thread-reopen.spec.ts",
+      "file": "thread-reopen.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "thread re-open after reload",
+          "file": "thread-reopen.spec.ts",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "reload → recent thread listed → click → messages restored; ?thread deep link",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 240000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12627,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:47:53.444Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "56b384a3c7cad9846f63-50b618904099e6a82e1a",
+              "file": "thread-reopen.spec.ts",
+              "line": 14,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-22T04:41:07.875Z",
+    "duration": 418534.209,
+    "expected": 13,
+    "skipped": 1,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

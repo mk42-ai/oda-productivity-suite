@@ -1,0 +1,155 @@
+{
+  "timestamp": "2026-10-22T04:40:15.705Z",
+  "base": "https://sb-6u0rv43z1luy.vercel.run",
+  "watchlist": {
+    "logoCount": 36,
+    "monogramCount": 14,
+    "totalCards": 50,
+    "allLogosGrayscale1": true,
+    "logoFilterValues": [
+      "grayscale(1)"
+    ],
+    "monogramDetails": [
+      {
+        "index": 0,
+        "text": "IO",
+        "cardSnippet": "IOInstitute of Foundation Models (IFM), Mohamed bin Zayed Un"
+      },
+      {
+        "index": 1,
+        "text": "I",
+        "cardSnippet": "IInception (Inception42, G42)SubsidiaryAbu Dhabipart of G42I"
+      },
+      {
+        "index": 2,
+        "text": "AI",
+        "cardSnippet": "AIArtificial Intelligence and Data AuthorityGovernmentAbu Dh"
+      },
+      {
+        "index": 3,
+        "text": "SP",
+        "cardSnippet": "SPSpace42 PLCCompanyAbu DhabiSpace42 is an Abu Dhabi-headqua"
+      },
+      {
+        "index": 4,
+        "text": "DA",
+        "cardSnippet": "DADubai AI CampusGovernmentDubaiThe Dubai AI Campus is locat"
+      },
+      {
+        "index": 5,
+        "text": "DO",
+        "cardSnippet": "DODepartment of Health – Abu DhabiGovernmentAbu DhabiDoH is "
+      },
+      {
+        "index": 6,
+        "text": "S",
+        "cardSnippet": "SSteerAICompanyAbu DhabiSteerAI is an external partner focus"
+      },
+      {
+        "index": 7,
+        "text": "AI",
+        "cardSnippet": "AIArtificial Intelligence and Advanced Technology CouncilGov"
+      },
+      {
+        "index": 8,
+        "text": "A",
+        "cardSnippet": "AAnalogSubsidiaryAbu Dhabipart of G42The supplied mission br"
+      },
+      {
+        "index": 9,
+        "text": "K",
+        "cardSnippet": "KKATIMSubsidiaryAbu Dhabipart of EDGE GroupKATIM is identifi"
+      },
+      {
+        "index": 10,
+        "text": "A",
+        "cardSnippet": "AADASISubsidiaryAbu Dhabipart of EDGE GroupADASI is an EDGE "
+      },
+      {
+        "index": 11,
+        "text": "C",
+        "cardSnippet": "CCamb.aiCompanyDubaiCAMB.AI is a speech and dubbing AI compa"
+      },
+      {
+        "index": 12,
+        "text": "N",
+        "cardSnippet": "NNeuphonicCompanyAbu DhabiNeuphonic is a voice AI company in"
+      },
+      {
+        "index": 13,
+        "text": "I",
+        "cardSnippet": "IInjazatSubsidiaryAbu Dhabipart of Core42Injazat merged into"
+      }
+    ],
+    "firstCardHoverBeforeFilter": "grayscale(1)",
+    "firstCardHoverAfterFilter": "grayscale(0)",
+    "hoverUnGrayscalePass": true
+  },
+  "chromatic": {
+    "routes": {
+      "/watchlist/airev": {
+        "elementCount": 1561,
+        "hits": [
+          {
+            "tag": "div",
+            "className": "mt-4 rounded border border-border bg-gray-50 p-3 text-xs text-muted",
+            "property": "backgroundColor",
+            "computedValue": "oklch(0.985 0.002 247.839)",
+            "oklchChroma": 0.002,
+            "isNeutralOklch": true,
+            "type": "oklch",
+            "text": "Entity Disambiguation: AI REV (linkedin.com/company/ai-rev, "
+          },
+          {
+            "tag": "li",
+            "className": "rounded border border-border bg-gray-50 px-2 py-0.5 text-foreground",
+            "property": "backgroundColor",
+            "computedValue": "oklch(0.985 0.002 247.839)",
+            "oklchChroma": 0.002,
+            "isNeutralOklch": true,
+            "type": "oklch",
+            "text": "OnDemand"
+          },
+          {
+            "tag": "li",
+            "className": "rounded border border-border bg-gray-50 px-2 py-0.5 text-foreground",
+            "property": "backgroundColor",
+            "computedValue": "oklch(0.985 0.002 247.839)",
+            "oklchChroma": 0.002,
+            "isNeutralOklch": true,
+            "type": "oklch",
+            "text": "School Hack"
+          },
+          {
+            "tag": "li",
+            "className": "rounded border border-border bg-gray-50 px-2 py-0.5 text-foreground",
+            "property": "backgroundColor",
+            "computedValue": "oklch(0.985 0.002 247.839)",
+            "oklchChroma": 0.002,
+            "isNeutralOklch": true,
+            "type": "oklch",
+            "text": "Agentic AI Operating System"
+          },
+          {
+            "tag": "li",
+            "className": "rounded border border-border bg-gray-50 px-2 py-0.5 text-foreground",
+            "property": "backgroundColor",
+            "computedValue": "oklch(0.985 0.002 247.839)",
+            "oklchChroma": 0.002,
+            "isNeutralOklch": true,
+            "type": "oklch",
+            "text": "AI-PC Agents (Intel)"
+          }
+        ]
+      },
+      "/plugins": {
+        "elementCount": 380,
+        "hits": []
+      },
+      "/graph": {
+        "elementCount": 460,
+        "hits": []
+      }
+    }
+  }
+}

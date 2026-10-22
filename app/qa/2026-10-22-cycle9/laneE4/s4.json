@@ -1,0 +1,708 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/node_modules/@playwright/test/cli.js",
+      "test",
+      "e2e/mobile.spec.ts",
+      "e2e/run-ux.spec.ts",
+      "--project=mobile",
+      "--project=mobile-ux",
+      "--project=desktop",
+      "--workers=1",
+      "--timeout=150000",
+      "--reporter=list,json",
+      "--output=/tmp/pw-c9-s4"
+    ],
+    "configFile": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/playwright.config.ts",
+    "rootDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/pw-c9-s4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [
+          "/mobile\\.spec\\.ts|qa-final\\.spec\\.ts/"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c9-s4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/mobile\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c9-s4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-ux",
+        "name": "mobile-ux",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/run-ux\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c9-s4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final",
+        "name": "qa-final",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      },
+      {
+        "outputDir": "/tmp/pw-c9-s4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "qa-final-mobile",
+        "name": "qa-final-mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/qa-final\\.spec\\.ts/"
+        ],
+        "timeout": 150000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pw-c9-s4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": {},
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 150000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5190",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pw-c9-s4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 150000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5190",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pw-c9-s4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile-ux",
+        "testDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "snapshotDir": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 150000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5190",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox",
+              "--disable-dev-shm-usage",
+              "--use-fake-ui-for-media-stream",
+              "--use-fake-device-for-media-stream"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-ux"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "run-ux.spec.ts",
+      "file": "run-ux.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Run UX — uploads, stream order, artifacts",
+          "file": "run-ux.spec.ts",
+          "line": 98,
+          "column": 6,
+          "specs": [
+            {
+              "title": "upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                        "line": 46,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:31.605Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                            "line": 46,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "34f62394b85627674749-bb781308317f30a11cd7",
+              "file": "run-ux.spec.ts",
+              "line": 100,
+              "column": 7
+            },
+            {
+              "title": "report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                        "line": 46,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:31.606Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                            "line": 46,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "34f62394b85627674749-db2e4b0e2632808892e3",
+              "file": "run-ux.spec.ts",
+              "line": 153,
+              "column": 7
+            },
+            {
+              "title": "upload: 3 images + PDF + DOCX are stored, retrievable and displayed in chat and Artifacts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                        "line": 46,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile-ux",
+                  "projectName": "mobile-ux",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:42.402Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                            "line": 46,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "34f62394b85627674749-6de37359c100cc2c22c0",
+              "file": "run-ux.spec.ts",
+              "line": 100,
+              "column": 7
+            },
+            {
+              "title": "report: Thinking top → Working before action → answer → Sources, PDF stored and listed in Artifacts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`",
+                      "location": {
+                        "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                        "line": 46,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile-ux",
+                  "projectName": "mobile-ux",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:42.402Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "environment: Playwright ffmpeg binary not installed on this runner (video recording required by run-ux) — run `npx playwright install ffmpeg`",
+                          "location": {
+                            "file": "/home/appuser/work/6692b763e851d28a036ab30e/6ad835717bb80aa7c2d979d0/oda-productivity-suite/app/e2e/run-ux.spec.ts",
+                            "line": 46,
+                            "column": 6
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "34f62394b85627674749-a7bc0be93d8724b9c475",
+              "file": "run-ux.spec.ts",
+              "line": 153,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "mobile.spec.ts",
+      "file": "mobile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Mobile layout (Pixel 7, 390x844)",
+          "file": "mobile.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "overview: no horizontal overflow, nav visible, no page errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2700,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:32.077Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e79c838550b25e92508e-4e87ebed0bc7634752be",
+              "file": "mobile.spec.ts",
+              "line": 6,
+              "column": 9
+            },
+            {
+              "title": "company: no horizontal overflow, nav visible, no page errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1458,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:35.117Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e79c838550b25e92508e-fb3bb1c4f3d60ec8aec8",
+              "file": "mobile.spec.ts",
+              "line": 6,
+              "column": 9
+            },
+            {
+              "title": "news: no horizontal overflow, nav visible, no page errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1580,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:36.609Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e79c838550b25e92508e-66e97f513e64649e357f",
+              "file": "mobile.spec.ts",
+              "line": 6,
+              "column": 9
+            },
+            {
+              "title": "settings: no horizontal overflow, nav visible, no page errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2482,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:38.204Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e79c838550b25e92508e-632ce3e7907e34b29204",
+              "file": "mobile.spec.ts",
+              "line": 6,
+              "column": 9
+            },
+            {
+              "title": "chat: no horizontal overflow, nav visible, no page errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 150000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1687,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-22T04:51:40.698Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e79c838550b25e92508e-30a0575d1169b99bf8ef",
+              "file": "mobile.spec.ts",
+              "line": 6,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-22T04:51:31.552Z",
+    "duration": 10980.883,
+    "expected": 5,
+    "skipped": 4,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

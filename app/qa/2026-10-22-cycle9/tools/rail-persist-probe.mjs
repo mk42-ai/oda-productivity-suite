@@ -1,0 +1,21 @@
+// QA cycle 8 — rail persistence probe (the layout-spec probe's init script cleared uaecc.nav.rail on every reload, so it could not observe persistence).
+import { chromium } from "playwright-core"; import fs from "node:fs";
+const [BASE, OUT] = process.argv.slice(2);
+const b = await chromium.launch({ executablePath: "/usr/bin/chromium", headless: true, args: ["--no-sandbox", "--disable-dev-shm-usage"] });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); const page = await ctx.newPage();
+await page.addInitScript(() => { try { localStorage.setItem("uaecc.settings.v1", JSON.stringify({ onboarded: true, apikey: "", externalUserId: "INV-001", model: "predefined-deepseek-flash", theme: "light", companies: ["tii", "g42"] })); } catch {} });
+const m = async () => page.evaluate(() => ({ navRail: Math.round(document.querySelector('[data-testid="nav-rail"]').getBoundingClientRect().width), railState: localStorage.getItem("uaecc.nav.rail"), path: location.pathname }));
+const open = async (p) => { await page.goto(`${BASE}${p}`, { waitUntil: "domcontentloaded", timeout: 60000 }); await page.waitForSelector('[data-testid="nav-rail"]', { timeout: 30000 }); await page.waitForTimeout(700); };
+const out = { base: BASE, utc: new Date().toISOString(), steps: [] };
+await open("/overview"); out.steps.push({ step: "overview fresh (no pref)", ...(await m()) });
+await open("/chat?skip=1"); out.steps.push({ step: "chat fresh (no pref → default collapsed on /chat)", ...(await m()) });
+await page.getByTestId("rail-toggle").first().click(); await page.waitForTimeout(400); out.steps.push({ step: "chat after toggle → expanded", ...(await m()) });
+await page.reload({ waitUntil: "domcontentloaded" }); await page.waitForTimeout(900); out.steps.push({ step: "chat reload (expanded persisted?)", ...(await m()) });
+await open("/overview"); out.steps.push({ step: "overview with pref expanded", ...(await m()) });
+await page.getByTestId("rail-toggle").first().click(); await page.waitForTimeout(400); out.steps.push({ step: "overview toggle → collapsed", ...(await m()) });
+await page.reload({ waitUntil: "domcontentloaded" }); await page.waitForTimeout(900); out.steps.push({ step: "overview reload (collapsed persisted?)", ...(await m()) });
+await open("/chat?skip=1"); out.steps.push({ step: "chat with pref collapsed", ...(await m()) });
+await page.screenshot({ path: `${OUT}/rail-collapsed-1440x900.png` });
+await page.getByTestId("rail-toggle").first().click(); await page.waitForTimeout(400); await page.screenshot({ path: `${OUT}/rail-expanded-1440x900.png` }); out.steps.push({ step: "chat toggle → expanded (final)", ...(await m()) });
+out.topbar = await page.evaluate(() => { const h = document.querySelector('.openui-agent-thread-header'); return h ? Math.round(h.getBoundingClientRect().height) : null; });
+await b.close(); fs.writeFileSync(`${OUT}/rail-persistence.json`, JSON.stringify(out, null, 1)); console.log(JSON.stringify(out, null, 1));
