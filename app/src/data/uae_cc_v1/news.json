@@ -1,7 +1,7 @@
 {
  "meta": {
   "namespace": "uae_cc_v1",
-  "generated_at": "2026-10-20T22:00:00Z",
+  "generated_at": "2026-10-21T23:50:00Z",
   "as_of": "2026-10-21",
   "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
   "disclaimer": "Concept Demonstration — not an official government system",
@@ -126,6 +126,35 @@
    "whiteshield": [
     "whiteshield"
    ]
+  },
+  "ingest_2026_10_21T23Z": {
+   "added": 1,
+   "merged_sources": {
+    "n00533493fa": 3
+   },
+   "window": "2026-10-21/2026-10-22",
+   "excluded": [
+    "Dubai AI Festival 2026 (20 Oct — outside window)",
+    "MBZUAI K2 Horizon (3 Sep — outside window)"
+   ],
+   "no_items_found_for": [
+    "TII",
+    "G42",
+    "Core42",
+    "AIQ",
+    "Inception/IFM/Jais",
+    "EDGE",
+    "MBZUAI",
+    "AI71",
+    "AIREV/OnDemand",
+    "Space42",
+    "e& enterprise",
+    "Hub71",
+    "Whiteshield",
+    "DAMAC AI",
+    "AI & Data Authority"
+   ],
+   "probe": "GPT web search single-source scan 2026-10-21 ~23:02Z; Perplexity + fetchInternetData unavailable (Not enough credits)"
   }
  },
  "news": [
@@ -151,11 +180,11 @@
    ]
   },
   {
-   "headline": "UAE Blocks 750,000 Cyberattack Attempts, With Energy and Education Among Main Targets",
+   "headline": "UAE Cyber Security Council: about 750,000 cyberattack attempts blocked; energy and education the top targets (AI-enabled attacks among the methods)",
    "date": "2026-10-21",
-   "publisher": "TechRevolt",
-   "url": "https://techrevolt.news/articles/uae-blocks-750-000-cyberattack-attempts-with-energy-and-education-among-main-targets",
-   "summary": "The UAE Cyber Security Council reported blocking about 750,000 cyberattack attempts, with energy and education among the main targets; the report notes that some attacks involved artificial intelligence.",
+   "publisher": "Emirates 24|7 (via WAM)",
+   "url": "https://www.emirates247.com/uae/uae-blocked-750000-cyberattack-attempts-energy-and-education-sectors-were-the-top-targets/6964",
+   "summary": "The UAE Cyber Security Council reported detecting and countering nearly 750,000 cyberattack attempts, with the energy and education sectors the top targets; methods included phishing, DDoS, remote code execution and AI-aided attacks, countered through integrated national cybersecurity and AI systems. Same event reported by three publishers (Emirates 24|7 02:10Z and Khaleej Times 03:40Z, both via WAM; TechRevolt, date only) — verified by three sources, high confidence.",
    "orgs": [
     "UAE Cyber Security Council"
    ],
@@ -165,7 +194,25 @@
    "url_verified": true,
    "id": "n00533493fa",
    "org_ids": [],
-   "also": []
+   "also": [
+    {
+     "headline": "UAE foils around 750,000 cyberattacks targeting sectors including energy, education",
+     "url": "https://www.khaleejtimes.com/uae/thwarts-750000-cyberattack-attempts",
+     "publisher": "Khaleej Times (via WAM)",
+     "published_at": "2026-10-21T03:40:00Z"
+    },
+    {
+     "headline": "UAE Blocks 750,000 Cyberattack Attempts, With Energy and Education Among Main Targets",
+     "url": "https://techrevolt.news/articles/uae-blocks-750-000-cyberattack-attempts-with-energy-and-education-among-main-targets",
+     "publisher": "TechRevolt News",
+     "published_at": "2026-10-21"
+    }
+   ],
+   "published_at": "2026-10-21T02:10:00Z",
+   "verified_by": 3,
+   "confidence": "high",
+   "added": "2026-10-21T22:00:00Z",
+   "updated": "2026-10-21T23:50:00Z (cycle 7: merged 3 sources)"
   },
   {
    "headline": "Jais 3 announced",
@@ -2632,6 +2679,28 @@
    ],
    "also": [],
    "added": "2026-10-21 step-2 research"
+  },
+  {
+   "headline": "TDRA, ITU organise UAE Capacity Building Week — 'From Connectivity to Intelligence' (19–22 October): AI policy, governance and standards",
+   "date": "2026-10-21",
+   "published_at": "2026-10-21T14:16:00Z",
+   "publisher": "Emirates News Agency (WAM)",
+   "url": "https://www.wam.ae/en/article/c2us54g-edra-itu-organise-uae-capacity-building-week",
+   "summary": "The Telecommunications and Digital Government Regulatory Authority (TDRA) and the International Telecommunication Union (ITU) are running the UAE Capacity Building Week 'From Connectivity to Intelligence' on 19–22 October 2026, with sessions on AI policy, governance and standards for government and sector participants. Single-source (WAM, official news agency); timestamp 2026-10-21T18:16:29+04:00 ≈ 14:16Z.",
+   "orgs": [
+    "TDRA",
+    "ITU"
+   ],
+   "category": "policy",
+   "radar_ring": "assess",
+   "technology": "AI governance & standards capacity-building",
+   "url_verified": true,
+   "verified_by": 1,
+   "confidence": "medium",
+   "id": "n80cff8de1d",
+   "org_ids": [],
+   "also": [],
+   "added": "2026-10-21T23:50:00Z"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "meta": {
   "namespace": "uae_cc_v1",
-  "generated_at": "2026-10-20T22:00:00Z",
+  "generated_at": "2026-10-21T23:50:00Z",
   "as_of": "2026-10-21",
   "demo_window": "2026-10-21T09:00:00+04:00/2026-10-21T09:30:00+04:00",
   "disclaimer": "Concept Demonstration — not an official government system",
@@ -444,10 +444,11 @@
   {
    "name": "AI governance & regulation",
    "ring": "adopt",
-   "signals": 5,
-   "latest": "2026-10-07",
+   "signals": 6,
+   "latest": "2026-10-21",
    "ring_votes": {
-    "adopt": 2
+    "adopt": 2,
+    "assess": 1
    },
    "top_orgs": [
     "dge",
@@ -461,7 +462,8 @@
     "n1a534788ef",
     "ne6cdb8f994",
     "na756b2600e",
-    "n137e4c5070"
+    "n137e4c5070",
+    "n80cff8de1d"
    ],
    "method": "Ring = majority of per-article radar_ring labels assigned by the OnDemand news-retrieval agent; signals = matching news items in uae_cc_v1."
   },
