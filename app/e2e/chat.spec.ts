@@ -141,12 +141,13 @@ test.describe("Analyst chat — streaming", () => {
     const toolArgsFrame = net.text.split("\n").find((l) => l.includes('"type":"TOOL_CALL_ARGS"')) ?? "";
     expect(toolArgsFrame, "TOOL_CALL_ARGS frame present").not.toBe("");
     // the delta is a JSON string embedded in JSON, so the inner quotes are escaped on the wire
-    expect(toolArgsFrame.replace(/\\"/g, '"'), 'TOOL_CALL_ARGS carries "query":"What did Fervo').toContain('"query":"What did Fervo');
+    // QA cycle 7: the query assertion still named a former-tenant company ("What did Fervo…"); QUESTION is the TII question above.
+    expect(toolArgsFrame.replace(/\\"/g, '"'), 'TOOL_CALL_ARGS carries the TII query').toMatch(/"query":"[^"]*Technology Innovation Institute/);
 
     // 4. plugin activity card surfaced the tool call
     await expect(plugin.first()).toBeAttached();
     await expect(plugin.first()).toContainText(/Perplexity/i);
-    await expect(plugin.first()).toContainText(/Fervo/i);
+    await expect(plugin.first()).toContainText(/Technology Innovation Institute|TII/i);
 
     // 5. final state: sources (only when the plugin actually searched) + idle composer
     const cardState = await plugin.last().getAttribute("data-state");
