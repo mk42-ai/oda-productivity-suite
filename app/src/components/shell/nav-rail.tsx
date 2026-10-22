@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Command, Menu, MessageSquare, PanelLeftClose, PanelLeftOpen, Plus, X } from "lucide-react";
@@ -10,7 +10,9 @@ import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip
 import { useThreadNav } from "@/components/chat/open-intelligent-ui/thread-nav-store";
 import { cn } from "@/lib/utils";
 
-const KEY = "uaecc.nav.rail";
+const KEY_NON_CHAT = "uaecc.nav.rail";
+const KEY_CHAT = "uaecc.nav.rail.chat";
+
 /** Expanded width (px), exposed as CSS var `--rail-w`. Hard cap: ≤ 224 px when expanded; 64 px icon-only when collapsed, persisted in localStorage. */
 export const NAV_EXPANDED_PX = 224;
 export const NAV_COLLAPSED_PX = 64;
@@ -38,18 +40,26 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
   const path = usePathname();
   const onChat = path?.startsWith("/chat") ?? false;
   const isDesktop = useIsDesktop();
-  const [collapsed, setCollapsed] = useState(false);
+  // F-06: default collapsed to onChat during SSR so the first client paint on /chat already has 64px
+  const [collapsed, setCollapsed] = useState(onChat);
   const [mounted, setMounted] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const drawerRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
+  const wasDrawerOpenRef = useRef(false);
 
   const { threads, selectedId, select, newThread } = useThreadNav();
   const recentThreads = threads.filter((t) => !t.isPending).slice(0, 12);
   const activeThread = threads.find((t) => t.id === selectedId);
 
+  // F-14: Scoped localStorage key per route group (chat vs non-chat)
   useEffect(() => {
+    const k = onChat ? KEY_CHAT : KEY_NON_CHAT;
     let v: string | null = null;
     try {
-      v = window.localStorage.getItem(KEY);
+      v = window.localStorage.getItem(k);
     } catch {
       /* ignore */
     }
@@ -57,19 +67,80 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
     setMounted(true);
   }, [onChat]);
 
-  // Close mobile drawer on route change
+  // Keep track of drawerOpen for route-change focus restoration
   useEffect(() => {
+    wasDrawerOpenRef.current = drawerOpen;
+  }, [drawerOpen]);
+
+  const closeDrawer = (restoreFocus = true) => {
     setDrawerOpen(false);
+    if (restoreFocus) {
+      requestAnimationFrame(() => {
+        toggleButtonRef.current?.focus();
+      });
+    }
+  };
+
+  // Close mobile drawer on route change, returning focus only if it was open
+  useEffect(() => {
+    if (wasDrawerOpenRef.current) {
+      setDrawerOpen(false);
+      requestAnimationFrame(() => {
+        toggleButtonRef.current?.focus();
+      });
+    }
   }, [path]);
 
-  // Lock body scroll and listen for Escape key when mobile drawer is open
+  // Focus management on drawer open: move focus to Close button on next frame
+  useEffect(() => {
+    if (drawerOpen) {
+      const handle = requestAnimationFrame(() => {
+        closeButtonRef.current?.focus();
+      });
+      return () => cancelAnimationFrame(handle);
+    }
+  }, [drawerOpen]);
+
+  // Focus trap + Escape handling + body scroll lock when mobile drawer is open
   useEffect(() => {
     if (!drawerOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setDrawerOpen(false);
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeDrawer(true);
+        return;
+      }
+
+      if (e.key === "Tab") {
+        const drawer = drawerRef.current;
+        if (!drawer) return;
+        const focusables = Array.from(
+          drawer.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter((el) => el.offsetParent !== null || el.getClientRects().length > 0);
+
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first || !drawer.contains(document.activeElement)) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last || !drawer.contains(document.activeElement)) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
     };
+
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
@@ -80,8 +151,9 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
   const toggle = () =>
     setCollapsed((c) => {
       const n = !c;
+      const k = onChat ? KEY_CHAT : KEY_NON_CHAT;
       try {
-        window.localStorage.setItem(KEY, n ? "collapsed" : "expanded");
+        window.localStorage.setItem(k, n ? "collapsed" : "expanded");
       } catch {
         /* ignore */
       }
@@ -99,6 +171,7 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
       >
         <div className="flex items-center gap-2">
           <button
+            ref={toggleButtonRef}
             type="button"
             onClick={() => setDrawerOpen((o) => !o)}
             data-testid="rail-drawer-toggle"
@@ -156,12 +229,13 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
             <div
               data-testid="rail-overlay"
               aria-hidden="true"
-              onClick={() => setDrawerOpen(false)}
+              onClick={() => closeDrawer(true)}
               className="fixed inset-0 z-50 transition-opacity"
               style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
             />
           )}
           <aside
+            ref={drawerRef}
             id="rail-drawer"
             role="dialog"
             aria-modal="true"
@@ -185,8 +259,9 @@ export function NavRail({ status }: { status?: React.ReactNode }) {
                 <span className="sr-only">Home</span>
               </Link>
               <button
+                ref={closeButtonRef}
                 type="button"
-                onClick={() => setDrawerOpen(false)}
+                onClick={() => closeDrawer(true)}
                 aria-label="Close navigation"
                 className="inline-flex size-8 items-center justify-center rounded-md text-[#5D5D5D] hover:bg-[#F0F0F0] hover:text-[#0D0D0D]"
               >

@@ -158,3 +158,9 @@ html { scroll-behavior: smooth; }
   #nprogress .bar, #nprogress .peg { transition: none !important; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* P2 F-12: Prevent Tailwind transition-colors from animating outline-color so focus ring is immediately #2563EB */
+:focus-visible {
+  transition: none !important;
+}
+

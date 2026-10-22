@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-10-22T04:03:20.393Z",
+  "dead": {
+    "https://en.wikipedia.org/wiki/Xpanceo": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://en.wikipedia.org/wiki/Xpanceo",
+      "archive_verified": false
+    },
+    "https://gecnewswire.com/airev-intel-on-device-ai-agents": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://gecnewswire.com/airev-intel-on-device-ai-agents",
+      "archive_verified": false
+    },
+    "https://news.microsoft.com/2024/04/15/microsoft-invests-1-5-billion-in-abu-dhabis-g42/": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "replacement": "https://news.microsoft.com/source/2024/04/16/microsoft-invests-1-5-billion-in-abu-dhabis-g42-to-accelerate-ai-development-and-global-expansion/"
+    },
+    "https://whiteshield.ai/ai-economics": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://whiteshield.ai/ai-economics",
+      "archive_verified": false
+    },
+    "https://whiteshield.ai/people/fadi-farra": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://whiteshield.ai/people/fadi-farra",
+      "archive_verified": false
+    },
+    "https://www.bis.gov/press-release/uae-country-group-a5-2026": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.bis.gov/press-release/uae-country-group-a5-2026",
+      "archive_verified": false
+    },
+    "https://www.computerweekly.com/news/ai-everything-abu-dhabi-2026-core42-sovereign-ai": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.computerweekly.com/news/ai-everything-abu-dhabi-2026-core42-sovereign-ai",
+      "archive_verified": false
+    },
+    "https://www.g42.ai/resources/news/assurance-compute-framework": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.g42.ai/resources/news/assurance-compute-framework",
+      "archive_verified": false
+    },
+    "https://www.g42.ai/resources/news/us-approval-advanced-ai-chip-exports-2026": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.g42.ai/resources/news/us-approval-advanced-ai-chip-exports-2026",
+      "archive_verified": false
+    },
+    "https://www.khaleejtimes.com/jobs/cooper-fitch-ai-future-of-talent-2027": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.khaleejtimes.com/jobs/cooper-fitch-ai-future-of-talent-2027",
+      "archive_verified": false
+    },
+    "https://www.khaleejtimes.com/uae/tii-plant-waste-gel-irrigation-water-solar-panels": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.khaleejtimes.com/uae/tii-plant-waste-gel-irrigation-water-solar-panels",
+      "archive_verified": false
+    },
+    "https://www.mediaoffice.abudhabi/en/ainative-training-week-2026": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.mediaoffice.abudhabi/en/ainative-training-week-2026",
+      "archive_verified": false
+    },
+    "https://www.middleeastainews.com/p/airev-intel-mou-gitex-2025": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.middleeastainews.com/p/airev-intel-mou-gitex-2025",
+      "archive_verified": false
+    },
+    "https://www.tii.ae/leadership": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.tii.ae/leadership",
+      "archive_verified": false
+    },
+    "https://www.zawya.com/en/press-release/companies-news/supermicro-airev-certified-2025": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.zawya.com/en/press-release/companies-news/supermicro-airev-certified-2025",
+      "archive_verified": false
+    },
+    "https://www.zawya.com/en/press-release/companies-news/venturewave-airev-2025": {
+      "status": 404,
+      "checked_at": "2026-10-22T04:03:20.393Z",
+      "archive": "https://web.archive.org/web/2026/https://www.zawya.com/en/press-release/companies-news/venturewave-airev-2025",
+      "archive_verified": false
+    }
+  }
+}

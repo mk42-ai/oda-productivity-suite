@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Breadcrumbs } from "@/components/shell/breadcrumbs";
 
 /**
  * Chooses the page frame by route: /chat gets the full-bleed canvas (the thread owns the whole main column, no footer, no 1400 px cap);
@@ -11,7 +12,10 @@ export function PageFrame({ children }: { children: React.ReactNode }) {
   if (path === "/chat" || path?.startsWith("/chat/")) return <main id="main" tabIndex={-1} className="chat-main force-light flex min-h-0 flex-1 flex-col" data-testid="chat-main">{children}</main>;
   return (
     <>
-      <main id="main" tabIndex={-1} className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-6 sm:px-6 lg:px-8" style={{ minHeight: "calc(100dvh - 120px)" }}>{children}</main>
+      <main id="main" tabIndex={-1} className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-6 sm:px-6 lg:px-8" style={{ minHeight: "calc(100dvh - 120px)" }}>
+        <Breadcrumbs />
+        {children}
+      </main>
       {/* a16/Lighthouse: the footer was the dominant CLS source (0.129 desktop / 0.255 mobile) — main reserves the viewport height and the footer
           is fixed-height + contain:layout so hydration never moves it. */}
       <footer className="border-t border-border px-4 py-4 text-xs text-muted sm:px-6 lg:px-8" style={{ minHeight: 56, contain: "layout" }}>
