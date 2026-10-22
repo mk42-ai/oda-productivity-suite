@@ -1,226 +1,897 @@
 {
- "ai-data-authority": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain uaecabinet.ae"
- },
- "g42": {
-  "status": "official",
-  "source": "https://g42.ai/favicon.ico",
-  "size": [
-   32,
-   32
-  ]
- },
- "core42": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain core42.ai"
- },
- "inception": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "presight": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain presight.ai"
- },
- "aiq": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain aiq.ae"
- },
- "khazna": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "m42": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "space42": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain space42.ai"
- },
- "mgx": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "analog": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "tii": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain tii.ae"
- },
- "atrc": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain atrc.gov.ae"
- },
- "ai71": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "edge": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain edgegroup.ae"
- },
- "katim": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "adasi": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain edgegroup.ae"
- },
- "mbzuai": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain mbzuai.ac.ae"
- },
- "ifm": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain mbzuai.ac.ae"
- },
- "khalifa-university": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "airev": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "eand-enterprise": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain eandenterprise.com"
- },
- "hub71": {
-  "status": "monogram",
-  "reason": "government entity — no government logo used (identity check OFFICIAL_ASSET_NOT_PERMITTED / NOT_FOUND)"
- },
- "micropolis": {
-  "status": "official",
-  "source": "https://micropolis.ai/apple-touch-icon.png",
-  "size": [
-   96,
-   96
-  ]
- },
- "xpanceo": {
-  "status": "official",
-  "source": "https://xpanceo.com/apple-touch-icon.png",
-  "size": [
-   96,
-   96
-  ]
- },
- "derq": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain derq.com"
- },
- "astra-tech": {
-  "status": "official",
-  "source": "https://astratech.ae/apple-touch-icon.png",
-  "size": [
-   96,
-   96
-  ]
- },
- "saal-ai": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "purehealth": {
-  "status": "official",
-  "source": "https://purehealth.ae/wp-content/uploads/2025/01/cropped-favicon-32x32.jpg",
-  "size": [
-   32,
-   32
-  ]
- },
- "daman": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "cntxt": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "positron": {
-  "status": "official",
-  "source": "https://www.positron.ai/favicon.ico",
-  "size": [
-   16,
-   16
-  ]
- },
- "whiteshield": {
-  "status": "monogram",
-  "reason": "no verified official logo asset with usage terms"
- },
- "mubadala": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "adnoc": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "dff": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain dubaifuture.ae"
- },
- "dcai": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "digital-dubai": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "dge": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "dubai-ai-campus": {
-  "status": "monogram",
-  "reason": "no icon retrievable from official domain difc.com"
- },
- "doh-abu-dhabi": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "dubai-police": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "camb-ai": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "echotwin": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "neuphonic": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "endimension": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "steerai": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "aiatc": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "injazat": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- },
- "aspire": {
-  "status": "monogram",
-  "reason": "no verified official domain"
- }
+  "airev": {
+    "status": "official",
+    "source": "https://www.airev.ae/assets/AIREV-logo-ca9cd9ef.svg",
+    "source_tier": "official",
+    "size": [
+      137,
+      43
+    ],
+    "format": "svg",
+    "license_note": "trademark of AIREV; used for identification only",
+    "files": {
+      "original": "/logos/airev/original.svg",
+      "card": "/logos/airev/card-512.png",
+      "list": "/logos/airev/list-64.png",
+      "list2x": "/logos/airev/list-128.png"
+    }
+  },
+  "g42": {
+    "status": "official",
+    "source": "https://www.g42.ai/application/themes/G42/dist/images/logo.png",
+    "source_tier": "official",
+    "size": [
+      492,
+      290
+    ],
+    "format": "png",
+    "license_note": "trademark of G42; used for identification only",
+    "files": {
+      "original": "/logos/g42/original.png",
+      "card": "/logos/g42/card-512.png",
+      "list": "/logos/g42/list-64.png",
+      "list2x": "/logos/g42/list-128.png"
+    }
+  },
+  "core42": {
+    "status": "official",
+    "source": "https://www.core42.ai/hubfs/Core42_2026_Theme/Images/Logo-1.svg",
+    "source_tier": "official",
+    "size": [
+      158,
+      48
+    ],
+    "format": "svg",
+    "license_note": "trademark of Core42; used for identification only",
+    "files": {
+      "original": "/logos/core42/original.svg",
+      "card": "/logos/core42/card-512.png",
+      "list": "/logos/core42/list-64.png",
+      "list2x": "/logos/core42/list-128.png"
+    }
+  },
+  "presight": {
+    "status": "official",
+    "source": "https://www.presight.ai/hubfs/Presight_2026/Logo.svg",
+    "source_tier": "official",
+    "size": [
+      161,
+      47
+    ],
+    "format": "svg",
+    "license_note": "trademark of Presight AI; used for identification only",
+    "files": {
+      "original": "/logos/presight/original.svg",
+      "card": "/logos/presight/card-512.png",
+      "list": "/logos/presight/list-64.png",
+      "list2x": "/logos/presight/list-128.png"
+    }
+  },
+  "aiq": {
+    "status": "official",
+    "source": "https://aiq.ae/application/themes/aiqtheme/assets/images/logo.svg",
+    "source_tier": "official",
+    "size": [
+      53,
+      54
+    ],
+    "format": "svg",
+    "license_note": "trademark of AIQ; used for identification only",
+    "files": {
+      "original": "/logos/aiq/original.svg",
+      "card": "/logos/aiq/card-512.png",
+      "list": "/logos/aiq/list-64.png",
+      "list2x": "/logos/aiq/list-128.png"
+    }
+  },
+  "tii": {
+    "status": "official",
+    "source": "https://webfiles.tii.ae/static/tii-logo-dark.svg",
+    "source_tier": "official",
+    "size": [
+      583,
+      339
+    ],
+    "format": "svg",
+    "license_note": "trademark of Technology Innovation Institute; used for identification only",
+    "files": {
+      "original": "/logos/tii/original.svg",
+      "card": "/logos/tii/card-512.png",
+      "list": "/logos/tii/list-64.png",
+      "list2x": "/logos/tii/list-128.png"
+    }
+  },
+  "atrc": {
+    "status": "official",
+    "source": "https://atrc.gov.ae/themes/custom/atrc_ae/logo.svg",
+    "source_tier": "official",
+    "size": [
+      251,
+      93
+    ],
+    "format": "svg",
+    "license_note": "trademark of ATRC Abu Dhabi; used for identification only",
+    "files": {
+      "original": "/logos/atrc/original.svg",
+      "card": "/logos/atrc/card-512.png",
+      "list": "/logos/atrc/list-64.png",
+      "list2x": "/logos/atrc/list-128.png"
+    }
+  },
+  "ai71": {
+    "status": "official",
+    "source": "https://ai71.ai/wf/cdn/68d4dfb8b73b6229785de619/68d4dfb8b73b6229785de644_ai71-logo.svg",
+    "source_tier": "official",
+    "size": [
+      82,
+      36
+    ],
+    "format": "svg",
+    "license_note": "trademark of AI71; used for identification only",
+    "files": {
+      "original": "/logos/ai71/original.svg",
+      "card": "/logos/ai71/card-512.png",
+      "list": "/logos/ai71/list-64.png",
+      "list2x": "/logos/ai71/list-128.png"
+    }
+  },
+  "edge": {
+    "status": "wikimedia",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Edge_Group_Logo.svg",
+    "source_tier": "wikimedia",
+    "size": [
+      399,
+      126
+    ],
+    "format": "svg",
+    "license_note": "Wikimedia Commons, CC BY-SA 4.0 / trademark of EDGE Group",
+    "files": {
+      "original": "/logos/edge/original.svg",
+      "card": "/logos/edge/card-512.png",
+      "list": "/logos/edge/list-64.png",
+      "list2x": "/logos/edge/list-128.png"
+    }
+  },
+  "mbzuai": {
+    "status": "wikimedia",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mbzuai_logo.png",
+    "source_tier": "wikimedia",
+    "size": [
+      490,
+      121
+    ],
+    "format": "png",
+    "license_note": "Wikimedia Commons, Fair use / trademark of MBZUAI",
+    "files": {
+      "original": "/logos/mbzuai/original.png",
+      "card": "/logos/mbzuai/card-512.png",
+      "list": "/logos/mbzuai/list-64.png",
+      "list2x": "/logos/mbzuai/list-128.png"
+    }
+  },
+  "khalifa-university": {
+    "status": "wikimedia",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Khalifa_University_New_Logo.png",
+    "source_tier": "wikimedia",
+    "size": [
+      1145,
+      250
+    ],
+    "format": "png",
+    "license_note": "Wikimedia Commons, Fair use / trademark of Khalifa University",
+    "files": {
+      "original": "/logos/khalifa-university/original.png",
+      "card": "/logos/khalifa-university/card-512.png",
+      "list": "/logos/khalifa-university/list-64.png",
+      "list2x": "/logos/khalifa-university/list-128.png"
+    }
+  },
+  "eand-enterprise": {
+    "status": "official",
+    "source": "https://www.eandenterprise.com/content/dam/eandenterprise/en/system/assets/images/demo/eand-enterpriese-logo.svg",
+    "source_tier": "official",
+    "size": [
+      1002,
+      164
+    ],
+    "format": "svg",
+    "license_note": "trademark of e& enterprise / e& group; used for identification only",
+    "files": {
+      "original": "/logos/eand-enterprise/original.svg",
+      "card": "/logos/eand-enterprise/card-512.png",
+      "list": "/logos/eand-enterprise/list-64.png",
+      "list2x": "/logos/eand-enterprise/list-128.png"
+    }
+  },
+  "hub71": {
+    "status": "official",
+    "source": "https://www.hub71.com/svgs/logo2.svg",
+    "source_tier": "official",
+    "size": [
+      1003,
+      278
+    ],
+    "format": "svg",
+    "license_note": "trademark of Hub71; used for identification only",
+    "files": {
+      "original": "/logos/hub71/original.svg",
+      "card": "/logos/hub71/card-512.png",
+      "list": "/logos/hub71/list-64.png",
+      "list2x": "/logos/hub71/list-128.png"
+    }
+  },
+  "m42": {
+    "status": "official",
+    "source": "https://m42.ae/media/acdbeduz/header-logo.svg",
+    "source_tier": "official",
+    "size": [
+      80,
+      32
+    ],
+    "format": "svg",
+    "license_note": "trademark of M42 Health; used for identification only",
+    "files": {
+      "original": "/logos/m42/original.svg",
+      "card": "/logos/m42/card-512.png",
+      "list": "/logos/m42/list-64.png",
+      "list2x": "/logos/m42/list-128.png"
+    }
+  },
+  "khazna": {
+    "status": "official",
+    "source": "https://khaznadatacenters.com/wp-content/uploads/2025/04/logo-1.svg",
+    "source_tier": "official",
+    "size": [
+      244,
+      45
+    ],
+    "format": "svg",
+    "license_note": "trademark of Khazna Data Centers; used for identification only",
+    "files": {
+      "original": "/logos/khazna/original.svg",
+      "card": "/logos/khazna/card-512.png",
+      "list": "/logos/khazna/list-64.png",
+      "list2x": "/logos/khazna/list-128.png"
+    }
+  },
+  "mgx": {
+    "status": "official",
+    "source": "https://www.mgx.ae/sites/mgx-corp-v2/files/mgx/mgx-logo.svg",
+    "source_tier": "official",
+    "size": [
+      97,
+      32
+    ],
+    "format": "svg",
+    "license_note": "trademark of MGX; used for identification only",
+    "files": {
+      "original": "/logos/mgx/original.svg",
+      "card": "/logos/mgx/card-512.png",
+      "list": "/logos/mgx/list-64.png",
+      "list2x": "/logos/mgx/list-128.png"
+    }
+  },
+  "mubadala": {
+    "status": "wikimedia",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Mubadala_Investment_logo.svg",
+    "source_tier": "wikimedia",
+    "size": [
+      1024,
+      105
+    ],
+    "format": "svg",
+    "license_note": "Wikimedia Commons, Fair use / trademark of Mubadala Investment Company",
+    "files": {
+      "original": "/logos/mubadala/original.svg",
+      "card": "/logos/mubadala/card-512.png",
+      "list": "/logos/mubadala/list-64.png",
+      "list2x": "/logos/mubadala/list-128.png"
+    }
+  },
+  "adnoc": {
+    "status": "wikimedia",
+    "source": "https://upload.wikimedia.org/wikipedia/en/1/1c/Abu_Dhabi_National_Oil_Company_logo.svg",
+    "source_tier": "wikimedia",
+    "size": [
+      123,
+      200
+    ],
+    "format": "svg",
+    "license_note": "Wikipedia, Fair use / trademark of ADNOC",
+    "files": {
+      "original": "/logos/adnoc/original.svg",
+      "card": "/logos/adnoc/card-512.png",
+      "list": "/logos/adnoc/list-64.png",
+      "list2x": "/logos/adnoc/list-128.png"
+    }
+  },
+  "purehealth": {
+    "status": "official",
+    "source": "https://purehealth.ae/wp-content/uploads/2024/12/image-130.png",
+    "source_tier": "official",
+    "size": [
+      367,
+      424
+    ],
+    "format": "png",
+    "license_note": "trademark of PureHealth; used for identification only",
+    "files": {
+      "original": "/logos/purehealth/original.png",
+      "card": "/logos/purehealth/card-512.png",
+      "list": "/logos/purehealth/list-64.png",
+      "list2x": "/logos/purehealth/list-128.png"
+    }
+  },
+  "daman": {
+    "status": "official",
+    "source": "https://www.damaninsurance.ae/wp-content/uploads/2023/09/daman-logo.svg",
+    "source_tier": "official",
+    "size": [
+      105,
+      85
+    ],
+    "format": "svg",
+    "license_note": "trademark of National Health Insurance Company Daman; used for identification only",
+    "files": {
+      "original": "/logos/daman/original.svg",
+      "card": "/logos/daman/card-512.png",
+      "list": "/logos/daman/list-64.png",
+      "list2x": "/logos/daman/list-128.png"
+    }
+  },
+  "digital-dubai": {
+    "status": "official",
+    "source": "https://digitaldubai.ae/ResourcePackages/Theme/assets/dist/images/logo.png",
+    "source_tier": "official",
+    "size": [
+      2388,
+      776
+    ],
+    "format": "png",
+    "license_note": "trademark of Digital Dubai Authority; used for identification only",
+    "files": {
+      "original": "/logos/digital-dubai/original.png",
+      "card": "/logos/digital-dubai/card-512.png",
+      "list": "/logos/digital-dubai/list-64.png",
+      "list2x": "/logos/digital-dubai/list-128.png"
+    }
+  },
+  "dubai-police": {
+    "status": "wikimedia",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Dubai-police-logo-vector.png",
+    "source_tier": "wikimedia",
+    "size": [
+      900,
+      500
+    ],
+    "format": "png",
+    "license_note": "Wikimedia Commons, Fair use / trademark of Dubai Police",
+    "files": {
+      "original": "/logos/dubai-police/original.png",
+      "card": "/logos/dubai-police/card-512.png",
+      "list": "/logos/dubai-police/list-64.png",
+      "list2x": "/logos/dubai-police/list-128.png"
+    }
+  },
+  "dff": {
+    "status": "official",
+    "source": "https://www.dubaifuture.ae/wp-content/uploads/2023/02/dff-05.svg",
+    "source_tier": "official",
+    "size": [
+      202,
+      52
+    ],
+    "format": "svg",
+    "license_note": "trademark of Dubai Future Foundation; used for identification only",
+    "files": {
+      "original": "/logos/dff/original.svg",
+      "card": "/logos/dff/card-512.png",
+      "list": "/logos/dff/list-64.png",
+      "list2x": "/logos/dff/list-128.png"
+    }
+  },
+  "dcai": {
+    "status": "official",
+    "source": "https://www.dubaifuture.ae/wp-content/uploads/2025/08/DCAI-logo-new.svg",
+    "source_tier": "official",
+    "size": [
+      1212,
+      555
+    ],
+    "format": "svg",
+    "license_note": "trademark of Dubai Centre for Artificial Intelligence; used for identification only",
+    "files": {
+      "original": "/logos/dcai/original.svg",
+      "card": "/logos/dcai/card-512.png",
+      "list": "/logos/dcai/list-64.png",
+      "list2x": "/logos/dcai/list-128.png"
+    }
+  },
+  "saal-ai": {
+    "status": "official",
+    "source": "https://saal.ai/wp-content/themes/saal/assets/images/Logo-Saal2.svg",
+    "source_tier": "official",
+    "size": [
+      156,
+      51
+    ],
+    "format": "svg",
+    "license_note": "trademark of Saal.ai; used for identification only",
+    "files": {
+      "original": "/logos/saal-ai/original.svg",
+      "card": "/logos/saal-ai/card-512.png",
+      "list": "/logos/saal-ai/list-64.png",
+      "list2x": "/logos/saal-ai/list-128.png"
+    }
+  },
+  "astra-tech": {
+    "status": "official",
+    "source": "https://astratech.ae/images/favicon.svg",
+    "source_tier": "official",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "trademark of Astra Tech; used for identification only",
+    "files": {
+      "original": "/logos/astra-tech/original.svg",
+      "card": "/logos/astra-tech/card-512.png",
+      "list": "/logos/astra-tech/list-64.png",
+      "list2x": "/logos/astra-tech/list-128.png"
+    }
+  },
+  "micropolis": {
+    "status": "official",
+    "source": "https://micropolis.ai/favicon.svg",
+    "source_tier": "official",
+    "size": [
+      60,
+      60
+    ],
+    "format": "svg",
+    "license_note": "trademark of Micropolis Robotics; used for identification only",
+    "files": {
+      "original": "/logos/micropolis/original.svg",
+      "card": "/logos/micropolis/card-512.png",
+      "list": "/logos/micropolis/list-64.png",
+      "list2x": "/logos/micropolis/list-128.png"
+    }
+  },
+  "xpanceo": {
+    "status": "official",
+    "source": "https://assets.xpanceo.com/logo-white.svg",
+    "source_tier": "official",
+    "size": [
+      128,
+      16
+    ],
+    "format": "svg",
+    "license_note": "trademark of XPANCEO; used for identification only",
+    "files": {
+      "original": "/logos/xpanceo/original.svg",
+      "card": "/logos/xpanceo/card-512.png",
+      "list": "/logos/xpanceo/list-64.png",
+      "list2x": "/logos/xpanceo/list-128.png"
+    }
+  },
+  "positron": {
+    "status": "official",
+    "source": "https://positron.ai/_next/static/media/logo.8bdc4e11.svg",
+    "source_tier": "official",
+    "size": [
+      273,
+      45
+    ],
+    "format": "svg",
+    "license_note": "trademark of Positron AI; used for identification only",
+    "files": {
+      "original": "/logos/positron/original.svg",
+      "card": "/logos/positron/card-512.png",
+      "list": "/logos/positron/list-64.png",
+      "list2x": "/logos/positron/list-128.png"
+    }
+  },
+  "derq": {
+    "status": "official",
+    "source": "https://images.squarespace-cdn.com/content/v1/587b7fc9a5790ab82b96b1eb/80411c2a-cad0-4665-9542-ff0c96fe5cc9/Derq-Inc.-primary-logo.png?format=1500w",
+    "source_tier": "official",
+    "size": [
+      1500,
+      491
+    ],
+    "format": "png",
+    "license_note": "trademark of Derq; used for identification only",
+    "files": {
+      "original": "/logos/derq/original.png",
+      "card": "/logos/derq/card-512.png",
+      "list": "/logos/derq/list-64.png",
+      "list2x": "/logos/derq/list-128.png"
+    }
+  },
+  "cntxt": {
+    "status": "official",
+    "source": "https://cntxt.com/wp-content/uploads/2025/05/180973_CNTXT_CI_Brandmark_FA_LB_20230115-04-Colour.webp",
+    "source_tier": "official",
+    "size": [
+      2056,
+      667
+    ],
+    "format": "webp",
+    "license_note": "trademark of CNTXT; used for identification only",
+    "files": {
+      "original": "/logos/cntxt/original.webp",
+      "card": "/logos/cntxt/card-512.png",
+      "list": "/logos/cntxt/list-64.png",
+      "list2x": "/logos/cntxt/list-128.png"
+    }
+  },
+  "whiteshield": {
+    "status": "official",
+    "source": "https://www.whiteshield.ai/assets/img/d4d1250f8d1733e4.png",
+    "source_tier": "official",
+    "size": [
+      800,
+      143
+    ],
+    "format": "png",
+    "license_note": "trademark of Whiteshield; used for identification only",
+    "files": {
+      "original": "/logos/whiteshield/original.png",
+      "card": "/logos/whiteshield/card-512.png",
+      "list": "/logos/whiteshield/list-64.png",
+      "list2x": "/logos/whiteshield/list-128.png"
+    }
+  },
+  "dge": {
+    "status": "official",
+    "source": "https://dge.gov.ae/resources/DGE/dist/img/logo.png",
+    "source_tier": "official",
+    "size": [
+      646,
+      222
+    ],
+    "format": "png",
+    "license_note": "trademark of Abu Dhabi Department of Government Enablement; used for identification only",
+    "files": {
+      "original": "/logos/dge/original.png",
+      "card": "/logos/dge/card-512.png",
+      "list": "/logos/dge/list-64.png",
+      "list2x": "/logos/dge/list-128.png"
+    }
+  },
+  "echotwin": {
+    "status": "official",
+    "source": "https://images.squarespace-cdn.com/content/v1/66e061edcdefd643f95869a7/9fe960ca-c384-4e81-8e30-1d1323cdaf32/ET.Logo.Black+%288%29.png",
+    "source_tier": "official",
+    "size": [
+      2500,
+      561
+    ],
+    "format": "png",
+    "license_note": "trademark of EchoTwin AI; used for identification only",
+    "files": {
+      "original": "/logos/echotwin/original.png",
+      "card": "/logos/echotwin/card-512.png",
+      "list": "/logos/echotwin/list-64.png",
+      "list2x": "/logos/echotwin/list-128.png"
+    }
+  },
+  "endimension": {
+    "status": "official",
+    "source": "https://endimension.com/wp-content/uploads/2021/07/Untitled__1_-removebg-preview.png",
+    "source_tier": "official",
+    "size": [
+      865,
+      288
+    ],
+    "format": "png",
+    "license_note": "trademark of Endimension Technology; used for identification only",
+    "files": {
+      "original": "/logos/endimension/original.png",
+      "card": "/logos/endimension/card-512.png",
+      "list": "/logos/endimension/list-64.png",
+      "list2x": "/logos/endimension/list-128.png"
+    }
+  },
+  "aspire": {
+    "status": "official",
+    "source": "https://aspireuae.ae/themes/custom/aspire/images/logo.svg",
+    "source_tier": "official",
+    "size": [
+      233,
+      42
+    ],
+    "format": "svg",
+    "license_note": "trademark of ASPIRE UAE; used for identification only",
+    "files": {
+      "original": "/logos/aspire/original.svg",
+      "card": "/logos/aspire/card-512.png",
+      "list": "/logos/aspire/list-64.png",
+      "list2x": "/logos/aspire/list-128.png"
+    }
+  },
+  "on-demand": {
+    "status": "official",
+    "source": "https://on-demand.io/logo-light.ico",
+    "source_tier": "official",
+    "size": [
+      256,
+      256
+    ],
+    "format": "ico",
+    "license_note": "trademark of OnDemand (on-demand.io); used for engine credit identification",
+    "files": {
+      "original": "/logos/on-demand/original.ico",
+      "card": "/logos/on-demand/card-512.png",
+      "list": "/logos/on-demand/list-64.png",
+      "list2x": "/logos/on-demand/list-128.png"
+    }
+  },
+  "ai-data-authority": {
+    "status": "monogram",
+    "source": "https://uaecabinet.ae",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/ai-data-authority/original.svg",
+      "card": "/logos/ai-data-authority/card-512.png",
+      "list": "/logos/ai-data-authority/list-64.png",
+      "list2x": "/logos/ai-data-authority/list-128.png",
+      "monogram": "/logos/ai-data-authority/monogram.svg"
+    },
+    "reason": "New federal authority established June 2026 by UAE Cabinet; no official brand identity or vector logo published"
+  },
+  "inception": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/inception/original.svg",
+      "card": "/logos/inception/card-512.png",
+      "list": "/logos/inception/list-64.png",
+      "list2x": "/logos/inception/list-128.png",
+      "monogram": "/logos/inception/monogram.svg"
+    },
+    "reason": "Integrated G42 applied AI unit; no standalone >=256px vector or raster logo published"
+  },
+  "space42": {
+    "status": "monogram",
+    "source": "https://space42.ai",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/space42/original.svg",
+      "card": "/logos/space42/card-512.png",
+      "list": "/logos/space42/list-64.png",
+      "list2x": "/logos/space42/list-128.png",
+      "monogram": "/logos/space42/monogram.svg"
+    },
+    "reason": "Official domain space42.ai blocked by Cloudflare anti-bot interstitial; no standalone >=256px asset retrievable"
+  },
+  "analog": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/analog/original.svg",
+      "card": "/logos/analog/card-512.png",
+      "list": "/logos/analog/list-64.png",
+      "list2x": "/logos/analog/list-128.png",
+      "monogram": "/logos/analog/monogram.svg"
+    },
+    "reason": "Official standalone domain unavailable (analog.ai domain-for-sale parking page); no verified official logo"
+  },
+  "katim": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/katim/original.svg",
+      "card": "/logos/katim/card-512.png",
+      "list": "/logos/katim/list-64.png",
+      "list2x": "/logos/katim/list-128.png",
+      "monogram": "/logos/katim/monogram.svg"
+    },
+    "reason": "EDGE Group subsidiary with no independent domain; katim.com returns HTTP 403"
+  },
+  "adasi": {
+    "status": "monogram",
+    "source": "https://edgegroup.ae",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/adasi/original.svg",
+      "card": "/logos/adasi/card-512.png",
+      "list": "/logos/adasi/list-64.png",
+      "list2x": "/logos/adasi/list-128.png",
+      "monogram": "/logos/adasi/monogram.svg"
+    },
+    "reason": "EDGE Group subsidiary with no standalone website; no independent official logo asset retrievable"
+  },
+  "ifm": {
+    "status": "monogram",
+    "source": "https://mbzuai.ac.ae",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/ifm/original.svg",
+      "card": "/logos/ifm/card-512.png",
+      "list": "/logos/ifm/list-64.png",
+      "list2x": "/logos/ifm/list-128.png",
+      "monogram": "/logos/ifm/monogram.svg"
+    },
+    "reason": "Institute of Foundation Models is an academic department within MBZUAI without separate corporate mark"
+  },
+  "dubai-ai-campus": {
+    "status": "monogram",
+    "source": "https://difc.com",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/dubai-ai-campus/original.svg",
+      "card": "/logos/dubai-ai-campus/card-512.png",
+      "list": "/logos/dubai-ai-campus/list-64.png",
+      "list2x": "/logos/dubai-ai-campus/list-128.png",
+      "monogram": "/logos/dubai-ai-campus/monogram.svg"
+    },
+    "reason": "Domain difc.com/ai-campus blocked behind Vercel security checkpoint; no standalone >=256px asset retrievable"
+  },
+  "doh-abu-dhabi": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/doh-abu-dhabi/original.svg",
+      "card": "/logos/doh-abu-dhabi/card-512.png",
+      "list": "/logos/doh-abu-dhabi/list-64.png",
+      "list2x": "/logos/doh-abu-dhabi/list-128.png",
+      "monogram": "/logos/doh-abu-dhabi/monogram.svg"
+    },
+    "reason": "Official portal doh.gov.ae SSL handshake timed out; no verified public vector logo on Commons"
+  },
+  "camb-ai": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/camb-ai/original.svg",
+      "card": "/logos/camb-ai/card-512.png",
+      "list": "/logos/camb-ai/list-64.png",
+      "list2x": "/logos/camb-ai/list-128.png",
+      "monogram": "/logos/camb-ai/monogram.svg"
+    },
+    "reason": "Only low-resolution 48px icon available on homepage; fails >=256px raster threshold"
+  },
+  "neuphonic": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/neuphonic/original.svg",
+      "card": "/logos/neuphonic/card-512.png",
+      "list": "/logos/neuphonic/list-64.png",
+      "list2x": "/logos/neuphonic/list-128.png",
+      "monogram": "/logos/neuphonic/monogram.svg"
+    },
+    "reason": "Only 64px and 180px favicon images available on site; fails >=256px raster threshold"
+  },
+  "steerai": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/steerai/original.svg",
+      "card": "/logos/steerai/card-512.png",
+      "list": "/logos/steerai/list-64.png",
+      "list2x": "/logos/steerai/list-128.png",
+      "monogram": "/logos/steerai/monogram.svg"
+    },
+    "reason": "Official domain steerai.com failed with SSL EOF protocol error; no verified public logo asset"
+  },
+  "aiatc": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/aiatc/original.svg",
+      "card": "/logos/aiatc/card-512.png",
+      "list": "/logos/aiatc/list-64.png",
+      "list2x": "/logos/aiatc/list-128.png",
+      "monogram": "/logos/aiatc/monogram.svg"
+    },
+    "reason": "Federal council (Artificial Intelligence and Advanced Technology Council); no official domain or logo published"
+  },
+  "injazat": {
+    "status": "monogram",
+    "source": "none",
+    "source_tier": "monogram",
+    "size": [
+      512,
+      512
+    ],
+    "format": "svg",
+    "license_note": "Placeholder monogram identity; no official logo published",
+    "files": {
+      "original": "/logos/injazat/original.svg",
+      "card": "/logos/injazat/card-512.png",
+      "list": "/logos/injazat/list-64.png",
+      "list2x": "/logos/injazat/list-128.png",
+      "monogram": "/logos/injazat/monogram.svg"
+    },
+    "reason": "Website injazat.com redirects to core42.ai following brand absorption into Core42; no standalone active identity"
+  }
 }

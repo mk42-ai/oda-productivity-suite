@@ -1,0 +1,28 @@
+/* Organisation Logo Styling (Lane C - Design Tokens & Logo Policy) */
+
+.org-logo-tile {
+  box-sizing: border-box;
+}
+
+.org-logo-img {
+  filter: grayscale(1);
+  opacity: 0.9;
+  transition: filter 150ms ease, opacity 150ms ease;
+}
+
+/* Color on hover or focus-visible of the logo itself or enclosing interactive container */
+.org-logo-img:hover,
+.org-logo-img:focus-visible,
+.org-logo-tile:hover,
+.org-logo-tile:focus-visible,
+a:hover .org-logo-img,
+a:focus-visible .org-logo-img,
+button:hover .org-logo-img,
+button:focus-visible .org-logo-img,
+[data-card]:hover .org-logo-img,
+.card:hover .org-logo-img,
+tr:hover .org-logo-img,
+li:hover .org-logo-img {
+  filter: grayscale(0);
+  opacity: 1;
+}
